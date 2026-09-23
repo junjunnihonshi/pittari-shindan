@@ -23,7 +23,9 @@ export function ResultCard({ result, rank, diagnosis }: Props) {
 
   return (
     <article className={`result-card${rank === 1 ? ' result-card--first' : ''}`} aria-labelledby={headingId}>
-      <div className="result-card__rank">相性順 {rank}</div>
+      <div className="result-card__rank">
+        相性順<span className="result-card__rank-num">{rank}</span>
+      </div>
 
       <div className="result-card__head">
         <ProductImage src={product.imageUrl} alt={product.name} icon={diagnosis.icon} />

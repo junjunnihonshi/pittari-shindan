@@ -29,7 +29,7 @@ export function HomePage() {
     <>
       <section className="hero">
         <div className="container hero__inner">
-          <p className="hero__eyebrow">質問に答えるだけの無料診断</p>
+          <p className="hero__eyebrow">あなたにぴったりの商品を、かんたん診断</p>
           <h1 className="hero__title">
             あなたに合う商品、
             <br />

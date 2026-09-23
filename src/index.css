@@ -1,24 +1,43 @@
 /* =========================================================
    ぴったり診断ナビ — スタイル（スマートフォン優先）
-   色やフォントは :root の変数を変えるだけで全体に反映されます
+   方向性：シンプル・清潔感・信頼感・少し上質
+   色・角丸・影・余白は :root の変数を変えるだけで全体に反映されます
    ========================================================= */
 :root {
+  /* 色 */
   --color-primary: #0f766e;
   --color-primary-dark: #0b5c56;
-  --color-primary-soft: #e6f4f1;
-  --color-bg: #f6f7f5;
+  /* グラデーションの明るい側。白文字とのコントラスト比 4.5:1 以上を保つ値 */
+  --color-primary-light: #117c73;
+  --color-primary-soft: #e7f4f1;
+  --color-primary-tint: #f3faf8;
+  --color-accent-blue: #3a84c4;
+  --color-bg: #f4f7f9;
+  --color-bg-deep: #eaf0f4;
   --color-surface: #ffffff;
-  --color-text: #1f2933;
-  --color-muted: #5b6573;
-  --color-border: #e3e6e8;
-  --color-caution-bg: #fff7e8;
+  --color-text: #1b2632;
+  --color-muted: #566270;
+  --color-border: #e1e7ec;
+  --color-border-strong: #d2dbe2;
+  --color-caution-bg: #fff8ea;
   --color-caution-border: #f2d49b;
   --color-amazon: #232f3e;
   --color-rakuten: #bf0000;
-  --radius: 14px;
-  --radius-sm: 10px;
-  --shadow: 0 1px 2px rgb(15 23 42 / 0.04), 0 4px 16px rgb(15 23 42 / 0.06);
+  --color-rakuten-dark: #9f0000;
+  --focus-ring: #f59e0b;
+
+  /* 形・影 */
+  --radius-lg: 20px;
+  --radius: 16px;
+  --radius-sm: 12px;
+  --shadow-sm: 0 1px 2px rgb(16 24 40 / 0.05);
+  --shadow: 0 1px 2px rgb(16 24 40 / 0.04), 0 8px 24px -10px rgb(16 24 40 / 0.12);
+  --shadow-lg: 0 2px 4px rgb(16 24 40 / 0.04), 0 18px 36px -14px rgb(16 24 40 / 0.2);
+  --shadow-primary: 0 8px 18px -8px rgb(15 118 110 / 0.55);
+
+  /* レイアウト */
   --container: 960px;
+  --space-section: 56px;
   --font: system-ui, -apple-system, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', Meiryo, sans-serif;
   color-scheme: light;
 }
@@ -42,6 +61,7 @@ body {
   color: var(--color-text);
   background: var(--color-bg);
   overflow-wrap: anywhere;
+  -webkit-font-smoothing: antialiased;
 }
 
 img {
@@ -50,6 +70,10 @@ img {
 
 a {
   color: var(--color-primary);
+  text-underline-offset: 3px;
+}
+a:hover {
+  color: var(--color-primary-dark);
 }
 
 h1,
@@ -58,11 +82,12 @@ h3,
 h4 {
   line-height: 1.4;
   margin: 0;
+  letter-spacing: 0.01em;
 }
 
 :focus-visible {
-  outline: 3px solid #f59e0b;
-  outline-offset: 2px;
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
 }
 
 [tabindex='-1']:focus {
@@ -109,45 +134,59 @@ h4 {
 
 /* ---------- ヘッダー / フッター ---------- */
 .site-header {
-  background: var(--color-surface);
+  background: rgb(255 255 255 / 0.96);
   border-bottom: 1px solid var(--color-border);
 }
 .site-header__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 56px;
+  min-height: 60px;
   gap: 12px;
 }
 .site-logo {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   color: var(--color-text);
   text-decoration: none;
-  font-weight: 700;
-  font-size: 1.05rem;
+  font-weight: 800;
+  font-size: 1.06rem;
+  letter-spacing: 0.02em;
+}
+.site-logo:hover {
+  color: var(--color-text);
 }
 .site-logo__mark {
   display: grid;
   place-items: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 9px;
-  background: var(--color-primary);
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary-dark));
   color: #fff;
   font-size: 0.95rem;
+  box-shadow: 0 4px 10px -4px rgb(15 118 110 / 0.6);
 }
 .site-header__link {
-  font-size: 0.9rem;
-  font-weight: 600;
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary-dark);
+  font-size: 0.88rem;
+  font-weight: 700;
   text-decoration: none;
-  padding: 8px 4px;
+  transition: background-color 0.2s;
+}
+.site-header__link:hover {
+  background: #d6ede8;
+  color: var(--color-primary-dark);
 }
 .ad-notice {
   margin: 0;
-  padding: 4px 16px;
-  background: #f1f3f2;
+  padding: 5px 16px;
+  background: var(--color-bg-deep);
   color: var(--color-muted);
   font-size: 0.78rem;
   text-align: center;
@@ -156,27 +195,28 @@ h4 {
   display: inline-block;
   margin-right: 6px;
   padding: 0 6px;
-  border: 1px solid #c9ced3;
+  border: 1px solid #c3ccd4;
   border-radius: 4px;
   font-size: 0.7rem;
   line-height: 1.5;
 }
 
 .site-footer {
-  margin-top: 56px;
-  padding: 32px 0 40px;
-  background: #eef0ee;
+  margin-top: 72px;
+  padding: 40px 0 48px;
+  background: var(--color-bg-deep);
+  border-top: 1px solid var(--color-border);
   font-size: 0.88rem;
   color: var(--color-muted);
 }
 .site-footer__notice {
-  margin: 0 0 12px;
+  margin: 0 0 14px;
 }
 .site-footer__links {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px 20px;
-  margin: 0 0 16px;
+  gap: 2px 22px;
+  margin: 0 0 20px;
   padding: 0;
   list-style: none;
 }
@@ -185,43 +225,64 @@ h4 {
   display: inline-block;
   padding: 6px 0;
 }
+.site-footer__links a:hover {
+  color: var(--color-primary);
+}
 .site-footer__copy {
   margin: 0;
+  font-size: 0.82rem;
 }
 
-/* ---------- ボタン ---------- */
+/* ---------- ボタン（CTA は .button--primary に統一） ---------- */
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
   min-height: 48px;
-  padding: 10px 22px;
+  padding: 10px 24px;
   border: 1px solid transparent;
   border-radius: 999px;
   font: inherit;
   font-weight: 700;
   font-size: 1rem;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
   text-decoration: none;
   cursor: pointer;
-  transition: background-color 0.15s, border-color 0.15s, transform 0.1s;
-}
-.button:active {
-  transform: translateY(1px);
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s,
+    color 0.2s,
+    transform 0.15s;
 }
 .button--primary {
-  background: var(--color-primary);
+  background: linear-gradient(180deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
   color: #fff;
+  box-shadow: var(--shadow-primary);
 }
 .button--primary:hover {
-  background: var(--color-primary-dark);
+  background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: #fff;
+  box-shadow: 0 12px 22px -10px rgb(15 118 110 / 0.6);
+  transform: translateY(-1px);
+}
+.button--primary:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px -6px rgb(15 118 110 / 0.6);
 }
 .button--ghost {
-  background: transparent;
-  color: var(--color-primary);
-  border-color: var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-primary-dark);
+  border-color: var(--color-border-strong);
 }
 .button--ghost:hover {
+  background: var(--color-primary-tint);
+  border-color: #9fd3c9;
+  color: var(--color-primary-dark);
+}
+.button--ghost:active {
   background: var(--color-primary-soft);
 }
 .button--large {
@@ -232,47 +293,86 @@ h4 {
   max-width: 360px;
 }
 
-/* ---------- トップページ ---------- */
+/* ---------- トップページ：ファーストビュー ---------- */
 .hero {
-  background: linear-gradient(180deg, var(--color-primary-soft) 0%, var(--color-bg) 100%);
-  padding: 40px 0 32px;
+  position: relative;
+  overflow: hidden;
+  padding: 52px 0 44px;
   text-align: center;
+  background:
+    radial-gradient(60% 55% at 8% 0%, rgb(15 118 110 / 0.12), transparent 70%),
+    radial-gradient(55% 50% at 100% 18%, rgb(58 132 196 / 0.12), transparent 70%),
+    linear-gradient(180deg, #eef6f5 0%, var(--color-bg) 100%);
+  border-bottom: 1px solid rgb(225 231 236 / 0.7);
+}
+/* ごく薄いドット模様（中央ほど薄くなる装飾） */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgb(15 118 110 / 0.14) 1px, transparent 1.2px);
+  background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(70% 80% at 50% 45%, transparent 35%, #000 100%);
+  mask-image: radial-gradient(70% 80% at 50% 45%, transparent 35%, #000 100%);
+  pointer-events: none;
+}
+.hero__inner {
+  position: relative;
 }
 .hero__eyebrow {
-  display: inline-block;
-  margin: 0 0 12px;
-  padding: 2px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 18px;
+  padding: 5px 14px;
   border-radius: 999px;
-  background: #fff;
-  color: var(--color-primary);
+  background: rgb(255 255 255 / 0.85);
+  border: 1px solid #cfe7e1;
+  color: var(--color-primary-dark);
   font-size: 0.85rem;
   font-weight: 700;
+  box-shadow: var(--shadow-sm);
+}
+.hero__eyebrow::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 0 0 3px rgb(15 118 110 / 0.15);
 }
 .hero__title {
-  font-size: clamp(1.7rem, 7vw, 2.6rem);
+  font-size: clamp(1.8rem, 7.4vw, 2.9rem);
   font-weight: 800;
-  letter-spacing: 0.01em;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
 }
 .hero__lead {
-  margin: 14px auto 24px;
-  max-width: 32em;
+  margin: 16px auto 28px;
+  max-width: 36em;
   color: var(--color-muted);
+  font-size: 1rem;
+  line-height: 1.8;
 }
 .steps {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 8px 16px;
-  margin: 24px 0 0;
+  gap: 8px;
+  margin: 28px 0 0;
   padding: 0;
   list-style: none;
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   color: var(--color-muted);
 }
 .steps li {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  padding: 5px 14px 5px 6px;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.8);
+  border: 1px solid var(--color-border);
 }
 .steps__num {
   display: grid;
@@ -286,75 +386,103 @@ h4 {
   font-weight: 700;
 }
 
+/* ---------- セクション共通 ---------- */
 .section {
-  margin-top: 32px;
+  margin-top: var(--space-section);
 }
 .section__title {
-  font-size: 1.35rem;
-  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+.section__title::before {
+  content: '';
+  flex: none;
+  width: 6px;
+  height: 1.1em;
+  border-radius: 3px;
+  background: linear-gradient(180deg, var(--color-primary-light), var(--color-accent-blue));
 }
 .section__title--small {
-  font-size: 1.05rem;
-  margin-bottom: 10px;
+  font-size: 1.08rem;
+  margin-bottom: 12px;
+}
+.section__title--small::before {
+  width: 5px;
 }
 .category-group + .category-group {
-  margin-top: 24px;
+  margin-top: 28px;
 }
 .category-group__title {
-  font-size: 0.95rem;
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 2px 12px;
+  border-radius: 999px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   color: var(--color-muted);
-  margin-bottom: 10px;
-  padding-left: 10px;
-  border-left: 4px solid var(--color-primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 .card-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 12px;
+  gap: 14px;
 }
+
+/* ---------- 診断カード ---------- */
 .diagnosis-card {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 16px;
+  padding: 18px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   color: var(--color-text);
   text-decoration: none;
   box-shadow: var(--shadow);
-  transition: border-color 0.15s, transform 0.15s;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    transform 0.2s;
+}
+/* 公開中のカードだけ、上辺にごく細いアクセントライン */
+a.diagnosis-card::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 18px;
+  right: 18px;
+  height: 3px;
+  border-radius: 0 0 3px 3px;
+  background: linear-gradient(90deg, var(--color-primary-light), var(--color-accent-blue));
 }
 a.diagnosis-card:hover {
-  border-color: var(--color-primary);
-  transform: translateY(-1px);
+  color: var(--color-text);
+  border-color: #a9d8cf;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
 }
-/* 準備中（enabled: false）の診断カード：少し薄く、押せないことが分かる表示。hover しても変化しない */
-.diagnosis-card.is-disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  box-shadow: none;
-  transition: none;
-}
-.diagnosis-card.is-disabled .diagnosis-card__icon {
-  background: #eef0f1;
-}
-.badge--soon {
-  margin: 0 0 0 8px;
-  vertical-align: 2px;
-  background: #eef0f1;
-  color: #4b5563;
-  border: 1px solid #c9ced3;
+a.diagnosis-card:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow);
 }
 .diagnosis-card__icon {
   flex: none;
   display: grid;
   place-items: center;
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  background: var(--color-primary-soft);
-  font-size: 1.6rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #e3f3ef 0%, #e8f0f8 100%);
+  border: 1px solid rgb(15 118 110 / 0.08);
+  font-size: 1.7rem;
 }
 .diagnosis-card__body {
   display: flex;
@@ -363,24 +491,87 @@ a.diagnosis-card:hover {
   flex: 1;
 }
 .diagnosis-card__title {
-  font-weight: 700;
-  font-size: 1.05rem;
+  font-weight: 800;
+  font-size: 1.08rem;
+  line-height: 1.5;
 }
 .diagnosis-card__desc {
+  margin-top: 2px;
   font-size: 0.88rem;
   color: var(--color-muted);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 .diagnosis-card__meta {
-  margin-top: 4px;
+  align-self: flex-start;
+  margin-top: 10px;
+  padding: 1px 10px;
+  border-radius: 999px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary-dark);
   font-size: 0.78rem;
-  color: var(--color-primary);
   font-weight: 700;
 }
 .diagnosis-card__arrow {
   flex: none;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--color-primary-soft);
   color: var(--color-primary);
   font-weight: 700;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+a.diagnosis-card:hover .diagnosis-card__arrow {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* 準備中（enabled: false）のカード：公開中より明確に控えめ。クリック不可・hover しても変化しない */
+.diagnosis-card.is-disabled {
+  background: #f7f9fb;
+  border-color: #e7ecf0;
+  box-shadow: none;
+  cursor: not-allowed;
+  transition: none;
+}
+.diagnosis-card.is-disabled .diagnosis-card__icon {
+  background: #edf1f4;
+  border-color: transparent;
+  filter: grayscale(1);
+  opacity: 0.55;
+}
+.diagnosis-card.is-disabled .diagnosis-card__title {
+  color: #5d6875;
+  font-weight: 700;
+}
+.diagnosis-card.is-disabled .diagnosis-card__desc {
+  color: #647080;
+}
+.badge--soon {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0 0 0 8px;
+  padding: 1px 9px;
+  vertical-align: 2px;
+  border-radius: 999px;
+  background: #e6ebf0;
+  color: #4b5764;
+  border: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+.badge--soon::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #97a3af;
 }
 
 .chip-list {
@@ -400,13 +591,21 @@ a.diagnosis-card:hover {
   color: var(--color-text);
   font-size: 0.9rem;
   text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s;
+}
+.chip:hover {
+  border-color: #9fd3c9;
+  color: var(--color-text);
 }
 
+/* ---------- 「このサイトについて」 ---------- */
 .info-box {
-  padding: 20px;
+  padding: 24px 20px;
   background: var(--color-surface);
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
 }
 .check-list {
   margin: 0;
@@ -415,16 +614,26 @@ a.diagnosis-card:hover {
 }
 .check-list li {
   position: relative;
-  padding-left: 1.6em;
-  margin: 6px 0;
+  padding-left: 2em;
+  margin: 10px 0 0;
   font-size: 0.95rem;
+  line-height: 1.7;
 }
 .check-list li::before {
   content: '✓';
   position: absolute;
   left: 0;
+  top: 0.2em;
+  display: grid;
+  place-items: center;
+  width: 1.35em;
+  height: 1.35em;
+  border-radius: 50%;
+  background: var(--color-primary-soft);
   color: var(--color-primary);
-  font-weight: 700;
+  font-size: 0.85em;
+  font-weight: 800;
+  line-height: 1;
 }
 
 /* ---------- 広告枠（src/components/AdSlot.tsx） ---------- */
@@ -435,21 +644,22 @@ a.diagnosis-card:hover {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin: 40px 0;
+  margin: var(--space-section) 0 0;
 }
 .ad-slot__label {
-  margin: 0 0 6px;
-  font-size: 0.72rem;
+  margin: 0 0 8px;
+  font-size: 0.75rem;
   color: var(--color-muted);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.12em;
 }
 .ad-slot__frame-wrap {
   /* 枠の大きさを先に確保（読み込み前・失敗時もレイアウトがずれない）。
-     max-width は幅300px未満の特殊な端末でもページが横スクロールしないための保険 */
+     max-width は幅300px未満の特殊な端末でもページが横スクロールしないための保険。
+     枠線を付けると広告の表示幅が減るため、枠線は付けない */
   max-width: 100%;
   overflow: hidden;
-  background: #f1f3f2;
-  border-radius: 4px;
+  background: var(--color-bg-deep);
+  border-radius: 6px;
 }
 .ad-slot__frame {
   display: block;
@@ -460,13 +670,13 @@ a.diagnosis-card:hover {
 
 /* ---------- 診断ページ ---------- */
 .page {
-  padding-top: 16px;
+  padding-top: 20px;
 }
 .breadcrumb ol {
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
-  margin: 0 0 12px;
+  margin: 0 0 16px;
   padding: 0;
   list-style: none;
   font-size: 0.82rem;
@@ -479,22 +689,31 @@ a.diagnosis-card:hover {
 .diagnosis-header {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 14px;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 18px;
 }
 .diagnosis-header__icon {
-  font-size: 1.8rem;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #e3f3ef 0%, #e8f0f8 100%);
+  border: 1px solid rgb(15 118 110 / 0.08);
+  font-size: 1.6rem;
 }
 .diagnosis-header h1 {
-  font-size: 1.5rem;
+  font-size: 1.55rem;
+  font-weight: 800;
 }
 
 .panel {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
-  padding: 20px 16px 24px;
+  padding: 24px 18px 28px;
   max-width: 720px;
   margin: 0 auto;
 }
@@ -504,11 +723,12 @@ a.diagnosis-card:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   text-align: center;
 }
 .intro__text {
   margin: 0;
+  line-height: 1.85;
 }
 .intro__meta {
   display: flex;
@@ -520,7 +740,7 @@ a.diagnosis-card:hover {
   list-style: none;
 }
 .intro__meta li {
-  padding: 2px 12px;
+  padding: 3px 12px;
   border-radius: 999px;
   background: var(--color-primary-soft);
   color: var(--color-primary-dark);
@@ -530,45 +750,55 @@ a.diagnosis-card:hover {
 .done__icon {
   display: grid;
   place-items: center;
-  width: 56px;
-  height: 56px;
+  width: 60px;
+  height: 60px;
   margin: 8px 0 0;
   border-radius: 50%;
-  background: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary-dark));
   color: #fff;
   font-size: 1.6rem;
+  box-shadow: var(--shadow-primary);
 }
 .done h2 {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
+  font-weight: 800;
 }
 
+/* 進捗（質問 ◯ / ◯） */
 .progress {
-  margin-bottom: 18px;
+  margin-bottom: 22px;
 }
 .progress__label {
-  margin: 0 0 6px;
-  font-size: 0.9rem;
+  margin: 0 0 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
   color: var(--color-muted);
 }
 .progress__label strong {
+  margin: 0 2px;
   color: var(--color-primary);
-  font-size: 1.1rem;
+  font-size: 1.4rem;
+  font-weight: 800;
+  vertical-align: -1px;
 }
 .progress__track {
   height: 8px;
   border-radius: 999px;
-  background: #e8ecea;
+  background: #e5ebef;
   overflow: hidden;
 }
 .progress__fill {
   height: 100%;
-  background: var(--color-primary);
+  background: linear-gradient(90deg, var(--color-primary), #2fa596);
   border-radius: inherit;
-  transition: width 0.25s ease;
+  transition: width 0.3s ease;
 }
 
+/* 質問と選択肢 */
 .question__text {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
+  font-weight: 800;
+  line-height: 1.5;
   margin-bottom: 6px;
 }
 .question__help {
@@ -578,32 +808,41 @@ a.diagnosis-card:hover {
 }
 .question__options {
   display: grid;
-  gap: 10px;
-  margin-top: 16px;
+  gap: 12px;
+  margin-top: 18px;
 }
 .option-button {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   width: 100%;
-  min-height: 60px;
-  padding: 12px 16px;
+  min-height: 62px;
+  padding: 14px 16px;
   background: var(--color-surface);
-  border: 2px solid var(--color-border);
-  border-radius: var(--radius-sm);
+  border: 1.5px solid #d9e1e7;
+  border-radius: 14px;
   font: inherit;
   color: var(--color-text);
   text-align: left;
   cursor: pointer;
-  transition: border-color 0.15s, background-color 0.15s;
+  box-shadow: var(--shadow-sm);
+  transition:
+    border-color 0.15s,
+    background-color 0.15s,
+    box-shadow 0.15s;
 }
 .option-button:hover {
-  border-color: var(--color-primary);
-  background: #f7fbfa;
+  border-color: #8fcfc3;
+  background: var(--color-primary-tint);
+  box-shadow: 0 6px 14px -8px rgb(15 118 110 / 0.35);
+}
+.option-button:active {
+  background: var(--color-primary-soft);
 }
 .option-button.is-selected {
   border-color: var(--color-primary);
   background: var(--color-primary-soft);
+  box-shadow: 0 0 0 3px rgb(15 118 110 / 0.12);
 }
 .option-button__check {
   flex: none;
@@ -612,12 +851,20 @@ a.diagnosis-card:hover {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  border: 2px solid #c3cacd;
+  border: 2px solid #c3ccd3;
+  background: var(--color-surface);
   color: #fff;
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 800;
+  transition:
+    border-color 0.15s,
+    background-color 0.15s;
 }
-.is-selected .option-button__check {
+.option-button:hover .option-button__check {
+  border-color: #8fcfc3;
+}
+.is-selected .option-button__check,
+.option-button.is-selected:hover .option-button__check {
   background: var(--color-primary);
   border-color: var(--color-primary);
 }
@@ -628,41 +875,70 @@ a.diagnosis-card:hover {
 .option-button__label {
   font-weight: 700;
   font-size: 1.02rem;
+  line-height: 1.5;
 }
 .option-button__desc {
   font-size: 0.85rem;
   color: var(--color-muted);
 }
 .question__nav {
-  margin-top: 18px;
+  margin-top: 20px;
 }
 
 /* ---------- 診断結果 ---------- */
 .result-title {
-  font-size: 1.35rem;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+/* 見出しの左右に細い装飾ライン */
+.result-title::before,
+.result-title::after {
+  content: '';
+  width: 28px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--color-primary-light), var(--color-accent-blue));
+}
+.result-title::after {
+  background: linear-gradient(90deg, var(--color-accent-blue), var(--color-primary-light));
 }
 .result-lead {
-  margin: 8px 0 14px;
+  margin: 10px auto 18px;
+  max-width: 34em;
   font-size: 0.92rem;
+  line-height: 1.8;
   color: var(--color-muted);
   text-align: center;
+}
+.result-lead strong {
+  color: var(--color-primary-dark);
 }
 .answer-summary,
 .others,
 .breakdown {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
-  background: #fafbfa;
+  background: #f8fafb;
   font-size: 0.9rem;
 }
 .answer-summary summary,
 .others summary,
 .breakdown summary {
   cursor: pointer;
-  padding: 10px 14px;
+  padding: 11px 14px;
   font-weight: 700;
   color: var(--color-primary-dark);
+  border-radius: var(--radius-sm);
+}
+.answer-summary summary:hover,
+.others summary:hover,
+.breakdown summary:hover {
+  background: var(--color-primary-tint);
 }
 .answer-summary dl {
   margin: 0;
@@ -671,7 +947,7 @@ a.diagnosis-card:hover {
 .answer-summary dl > div {
   display: flex;
   gap: 12px;
-  padding: 4px 0;
+  padding: 5px 0;
   border-top: 1px dashed var(--color-border);
 }
 .answer-summary dt {
@@ -685,28 +961,48 @@ a.diagnosis-card:hover {
 
 .result-list {
   display: grid;
-  gap: 16px;
-  margin-top: 16px;
+  gap: 18px;
+  margin-top: 18px;
 }
 .result-card {
   position: relative;
-  padding: 18px 16px 20px;
+  padding: 20px 16px 22px;
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
   background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
 }
+/* 1位は少しだけ強調（淡い背景・枠線・影） */
 .result-card--first {
-  border-color: #9fd3c9;
+  border: 1.5px solid #9fd3c9;
+  background: linear-gradient(180deg, var(--color-primary-tint) 0%, var(--color-surface) 140px);
+  box-shadow: var(--shadow);
 }
 .result-card__rank {
-  display: inline-block;
-  margin-bottom: 12px;
-  padding: 2px 12px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 14px;
+  padding: 3px 14px 3px 12px;
   border-radius: 999px;
-  background: var(--color-primary-soft);
-  color: var(--color-primary-dark);
-  font-size: 0.82rem;
+  background: #eef2f5;
+  color: var(--color-muted);
+  font-size: 0.8rem;
   font-weight: 700;
+}
+.result-card__rank-num {
+  color: var(--color-text);
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.result-card--first .result-card__rank {
+  background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary-dark));
+  color: #fff;
+  box-shadow: var(--shadow-primary);
+}
+.result-card--first .result-card__rank-num {
+  color: #fff;
 }
 .result-card__head {
   display: flex;
@@ -719,9 +1015,11 @@ a.diagnosis-card:hover {
 }
 .result-card__title h3 {
   font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.5;
 }
 .result-card__price {
-  margin: 2px 0 0;
+  margin: 4px 0 0;
   font-size: 0.82rem;
   color: var(--color-muted);
 }
@@ -730,7 +1028,7 @@ a.diagnosis-card:hover {
   margin-top: 4px;
   padding: 0 8px;
   border-radius: 4px;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 700;
 }
 .badge--sample {
@@ -744,7 +1042,8 @@ a.diagnosis-card:hover {
   height: 88px;
   object-fit: contain;
   border-radius: var(--radius-sm);
-  background: #f3f5f4;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
 }
 .product-image--placeholder {
   display: flex;
@@ -753,7 +1052,8 @@ a.diagnosis-card:hover {
   justify-content: center;
   font-size: 1.8rem;
   line-height: 1.2;
-  border: 1px dashed #cfd6d4;
+  background: #f3f6f8;
+  border: 1px dashed #cfd6dc;
 }
 .product-image--placeholder small {
   margin-top: 4px;
@@ -766,17 +1066,18 @@ a.diagnosis-card:hover {
   grid-template-columns: auto 1fr;
   align-items: baseline;
   gap: 0 10px;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 .match__label {
   font-size: 0.82rem;
   color: var(--color-muted);
 }
 .match__value {
-  font-size: 1.7rem;
+  font-size: 1.8rem;
   font-weight: 800;
   color: var(--color-primary);
   line-height: 1.1;
+  letter-spacing: 0.01em;
 }
 .match__value small {
   font-size: 0.9rem;
@@ -785,41 +1086,59 @@ a.diagnosis-card:hover {
 .match__bar {
   grid-column: 1 / -1;
   height: 6px;
-  margin-top: 6px;
+  margin-top: 8px;
   border-radius: 999px;
-  background: #e8ecea;
+  background: #e5ebef;
   overflow: hidden;
 }
 .match__bar div {
   height: 100%;
-  background: var(--color-primary);
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--color-primary), #2fa596);
 }
 
 .result-card__desc {
-  margin: 14px 0 0;
+  margin: 16px 0 0;
   font-size: 0.9rem;
+  line-height: 1.75;
   color: var(--color-muted);
 }
 .result-card__section {
-  margin-top: 14px;
+  margin-top: 16px;
 }
 .result-card__section h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 0.9rem;
+  font-weight: 800;
   color: var(--color-primary-dark);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
+}
+.result-card__section h4::before {
+  content: '';
+  width: 4px;
+  height: 1em;
+  border-radius: 2px;
+  background: var(--color-primary);
+  opacity: 0.6;
 }
 .result-card__section p {
   margin: 0;
   font-size: 0.95rem;
+  line-height: 1.8;
 }
 .result-card__section--caution {
-  padding: 10px 12px;
+  padding: 12px 14px;
   border-radius: var(--radius-sm);
   background: var(--color-caution-bg);
   border: 1px solid var(--color-caution-border);
 }
 .result-card__section--caution h4 {
   color: #8a5a00;
+}
+.result-card__section--caution h4::before {
+  display: none;
 }
 .tag-list {
   display: flex;
@@ -830,13 +1149,14 @@ a.diagnosis-card:hover {
   list-style: none;
 }
 .tag-list li {
-  padding: 2px 10px;
-  border-radius: 6px;
-  background: #f1f4f3;
+  padding: 3px 12px;
+  border-radius: 999px;
+  background: #f0f4f6;
+  border: 1px solid #e4eaee;
   font-size: 0.85rem;
 }
 .breakdown {
-  margin-top: 14px;
+  margin-top: 16px;
 }
 .breakdown ul {
   margin: 0;
@@ -864,22 +1184,52 @@ a.diagnosis-card:hover {
   color: #9a6400;
 }
 
+/* 購入ボタン（楽天市場など） */
 .shop-buttons {
   display: grid;
   gap: 8px;
-  margin-top: 16px;
+  margin-top: 18px;
 }
 .shop-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 48px;
-  padding: 10px 16px;
+  gap: 8px;
+  min-height: 52px;
+  padding: 12px 18px;
   border-radius: var(--radius-sm);
   color: #fff;
   font-weight: 700;
+  letter-spacing: 0.04em;
   text-decoration: none;
   background: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+  transition:
+    background-color 0.2s,
+    box-shadow 0.2s,
+    transform 0.15s;
+}
+/* 外部サイト（新しいタブ）へ移動することを示す小さなアイコン */
+.shop-button[href]::after {
+  content: '';
+  flex: none;
+  width: 14px;
+  height: 14px;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 4h6v6'/%3E%3Cpath d='M20 4l-9 9'/%3E%3Cpath d='M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 4h6v6'/%3E%3Cpath d='M20 4l-9 9'/%3E%3Cpath d='M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+  opacity: 0.9;
+}
+.shop-button:hover {
+  color: #fff;
+  box-shadow: 0 8px 16px -10px rgb(16 24 40 / 0.5);
+  transform: translateY(-1px);
+}
+.shop-button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
 }
 .shop-button--amazon {
   background: var(--color-amazon);
@@ -887,22 +1237,24 @@ a.diagnosis-card:hover {
 .shop-button--rakuten {
   background: var(--color-rakuten);
 }
+.shop-button--rakuten:hover {
+  background: var(--color-rakuten-dark);
+}
 .shop-button--yahoo {
   background: #ff0033;
 }
-.shop-button:hover {
-  opacity: 0.9;
-}
 .shop-button.is-disabled {
-  background: #eef0f1;
+  background: #eef1f3;
   color: #5b6573;
   border: 1px dashed #b8c0c5;
+  box-shadow: none;
   cursor: not-allowed;
   font-weight: 600;
+  transform: none;
 }
 
 .others {
-  margin-top: 16px;
+  margin-top: 18px;
 }
 .others ol {
   margin: 0;
@@ -920,8 +1272,12 @@ a.diagnosis-card:hover {
 }
 
 .notes {
-  margin-top: 18px;
+  margin-top: 20px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  background: #f6f8fa;
   font-size: 0.8rem;
+  line-height: 1.7;
   color: var(--color-muted);
 }
 .notes p {
@@ -931,58 +1287,87 @@ a.diagnosis-card:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
+  gap: 12px;
+  margin-top: 24px;
 }
 
 /* ---------- 選び方 ---------- */
 .guide {
   max-width: 720px;
-  margin: 40px auto 0;
+  margin: var(--space-section) auto 0;
+  padding: 24px 20px 8px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
 }
 .guide h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-size: 1.3rem;
+  font-weight: 800;
   margin-bottom: 8px;
+}
+.guide h2::before {
+  content: '';
+  flex: none;
+  width: 6px;
+  height: 1.1em;
+  border-radius: 3px;
+  background: linear-gradient(180deg, var(--color-primary-light), var(--color-accent-blue));
 }
 .guide__intro {
   margin: 0 0 12px;
   color: var(--color-muted);
 }
 .guide__item {
-  padding: 16px 0;
+  padding: 18px 0;
   border-top: 1px solid var(--color-border);
 }
 .guide__item h3 {
   font-size: 1.05rem;
-  margin-bottom: 4px;
+  font-weight: 800;
+  margin-bottom: 6px;
 }
 .guide__item p {
   margin: 0;
+  line-height: 1.85;
 }
 .guide__item ul {
   margin: 8px 0 0;
   padding-left: 1.3em;
+}
+.guide__item li {
+  margin: 2px 0;
 }
 
 /* ---------- 固定ページ・空状態 ---------- */
 .prose {
   max-width: 720px;
   margin: 0 auto;
-  padding: 24px 18px;
+  padding: 26px 20px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
 }
 .prose h1 {
   font-size: 1.5rem;
-  margin-bottom: 16px;
+  font-weight: 800;
+  margin-bottom: 18px;
 }
 .prose h2 {
   font-size: 1.1rem;
-  margin: 24px 0 6px;
+  font-weight: 800;
+  margin: 28px 0 8px;
+  padding-left: 12px;
+  border-left: 4px solid var(--color-primary);
+  line-height: 1.5;
 }
 .prose p {
   margin: 0 0 12px;
+  line-height: 1.85;
 }
 .prose__updated {
   margin-top: 24px !important;
@@ -1002,7 +1387,7 @@ a.diagnosis-card:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 4px 16px;
-  padding: 10px 0;
+  padding: 12px 0;
   border-bottom: 1px solid var(--color-border);
 }
 .info-table dt {
@@ -1014,12 +1399,13 @@ a.diagnosis-card:hover {
 }
 .empty-state {
   text-align: center;
-  padding: 32px 8px;
+  padding: 36px 8px;
 }
 .empty-state h1,
 .empty-state h2,
 .empty-state h3 {
   font-size: 1.25rem;
+  font-weight: 800;
   margin-bottom: 8px;
 }
 .empty-state p {
@@ -1034,14 +1420,26 @@ a.diagnosis-card:hover {
 
 /* ---------- タブレット・PC ---------- */
 @media (min-width: 640px) {
+  :root {
+    --space-section: 72px;
+  }
   .card-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .hero {
+    padding: 80px 0 64px;
+  }
+  .hero__lead {
+    font-size: 1.08rem;
+  }
   .panel {
-    padding: 32px 36px;
+    padding: 36px 40px 40px;
+  }
+  .info-box {
+    padding: 28px 32px;
   }
   .result-card {
-    padding: 24px;
+    padding: 26px 28px 28px;
   }
   .product-image {
     width: 120px;
@@ -1051,11 +1449,11 @@ a.diagnosis-card:hover {
   .shop-buttons {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
-  .hero {
-    padding: 64px 0 48px;
+  .guide {
+    padding: 32px 36px 12px;
   }
   .prose {
-    padding: 32px 40px;
+    padding: 36px 44px;
   }
 }
 
@@ -1066,9 +1464,13 @@ a.diagnosis-card:hover {
   .diagnosis-card {
     flex-direction: column;
     align-items: flex-start;
+    padding: 22px 20px 20px;
   }
+  /* PCでは矢印をカード右上に置く */
   .diagnosis-card__arrow {
-    display: none;
+    position: absolute;
+    top: 22px;
+    right: 20px;
   }
 }
 
@@ -1076,5 +1478,10 @@ a.diagnosis-card:hover {
   * {
     transition: none !important;
     scroll-behavior: auto !important;
+  }
+  a.diagnosis-card:hover,
+  .button--primary:hover,
+  .shop-button:hover {
+    transform: none;
   }
 }
