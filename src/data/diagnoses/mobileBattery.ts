@@ -238,5 +238,5 @@ export const mobileBattery: Diagnosis = {
       },
     ],
   },
-  enabled: true,
+  enabled: false,
 }

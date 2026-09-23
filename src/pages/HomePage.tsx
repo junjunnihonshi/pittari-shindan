@@ -3,14 +3,20 @@ import { categoryGroups } from '../config/categories.ts'
 import { diagnosisPath, staticPages } from '../config/seo.ts'
 import { site } from '../config/site.ts'
 import { DiagnosisCard } from '../components/DiagnosisCard.tsx'
-import { diagnoses, getDiagnosisBySlug } from '../data/diagnoses/index.ts'
+import { diagnoses, getDiagnosisBySlug, isDiagnosisEnabled } from '../data/diagnoses/index.ts'
 import { Link } from '../components/Link.tsx'
 import { useSeo } from '../lib/seo.ts'
 import { getRecentDiagnoses } from '../lib/storage.ts'
+import type { Diagnosis } from '../types/diagnosis.ts'
 
 export function HomePage() {
   useSeo(staticPages[0])
-  const [recent] = useState(() => getRecentDiagnoses().map(getDiagnosisBySlug).filter((d) => d !== undefined))
+  // 準備中の診断は「最近使った診断」にも出さない
+  const [recent] = useState(() =>
+    getRecentDiagnoses()
+      .map(getDiagnosisBySlug)
+      .filter((d): d is Diagnosis => d !== undefined && isDiagnosisEnabled(d)),
+  )
 
   const scrollToCategories = () => {
     const el = document.getElementById('categories')

@@ -223,5 +223,5 @@ export const humidifier: Diagnosis = {
     ],
   },
   notice: '本診断は部屋や使い方から加湿器の候補を探すためのもので、健康への効果を保証するものではありません。衛生的に使うため、取扱説明書に沿った定期的なお手入れを行ってください。',
-  enabled: true,
+  enabled: false,
 }

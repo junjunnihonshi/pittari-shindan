@@ -262,5 +262,5 @@ export const pet: Diagnosis = {
     ],
   },
   notice: '本診断はペット用品の候補を探すためのもので、ペットの健康や行動の改善を保証するものではありません。体調や行動で気になることがある場合は、獣医師にご相談ください。',
-  enabled: true,
+  enabled: false,
 }

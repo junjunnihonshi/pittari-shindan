@@ -142,6 +142,11 @@ export interface Diagnosis {
     /** 0〜1 の基本スコアを受け取り、補正後のスコア（0〜1）を返す */
     adjust?: (args: { product: Product; answers: Answers; score: number }) => number
   }
-  /** false にするとサイトから非表示になります */
-  enabled?: boolean
+  /**
+   * 公開状態。
+   * - true:  トップページのカードからリンクされ、診断ページが使える（sitemap にも掲載）
+   * - false: カードは「準備中」として表示されるがクリックできず、診断ページも「準備中」表示（検索エンジンにも載せない）
+   * 診断が完成したら true にするだけで公開されます。
+   */
+  enabled: boolean
 }

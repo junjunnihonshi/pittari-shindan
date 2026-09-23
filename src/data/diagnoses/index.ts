@@ -28,9 +28,21 @@ const allDiagnoses: Diagnosis[] = [
   pet,
 ]
 
-/** 公開中（enabled が false でない）の診断 */
-export const diagnoses: Diagnosis[] = allDiagnoses.filter((d) => d.enabled !== false)
+/**
+ * 登録されているすべての診断（準備中を含む）。
+ * トップページの一覧には全件表示され、enabled: false のものは「準備中」カードになります。
+ */
+export const diagnoses: Diagnosis[] = allDiagnoses
 
+/** 公開中の診断か（enabled: true のものだけがリンク・診断ページ・sitemap の対象） */
+export function isDiagnosisEnabled(d: Diagnosis): boolean {
+  return d.enabled === true
+}
+
+/** 公開中の診断のみ */
+export const enabledDiagnoses: Diagnosis[] = allDiagnoses.filter(isDiagnosisEnabled)
+
+/** URL の slug から診断を探す（準備中の診断も返すので、呼び出し側で isDiagnosisEnabled を確認すること） */
 export function getDiagnosisBySlug(slug: string): Diagnosis | undefined {
-  return diagnoses.find((d) => d.slug === slug)
+  return allDiagnoses.find((d) => d.slug === slug)
 }

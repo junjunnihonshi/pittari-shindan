@@ -4,7 +4,8 @@
  * - このファイルはトップページや固定ページの情報と、共通の組み立てルールを持ちます。
  * ビルド時にもこのファイルを使って、ページごとのHTML・sitemap.xml・robots.txt を生成します。
  */
-import { diagnoses } from '../data/diagnoses/index.ts'
+import { enabledDiagnoses } from '../data/diagnoses/index.ts'
+import type { Diagnosis } from '../types/diagnosis.ts'
 import { site } from './site.ts'
 
 export interface PageMeta {
@@ -46,11 +47,21 @@ export function diagnosisPath(slug: string): string {
   return `/diagnosis/${slug}`
 }
 
-/** サイト内の全ページ（404を除く） */
+/** 準備中（enabled: false）の診断ページ。検索エンジンには載せない */
+export function comingSoonMeta(d: Diagnosis): PageMeta {
+  return {
+    path: diagnosisPath(d.slug),
+    title: `${d.name}（準備中）｜${site.name}`,
+    description: `${d.name}は現在準備中です。`,
+    noindex: true,
+  }
+}
+
+/** サイト内の全ページ（404・準備中の診断を除く）。sitemap.xml とページ別HTMLの生成に使用 */
 export function getAllPages(): PageMeta[] {
   return [
     ...staticPages,
-    ...diagnoses.map<PageMeta>((d) => ({
+    ...enabledDiagnoses.map<PageMeta>((d) => ({
       path: diagnosisPath(d.slug),
       title: d.seo.title,
       description: d.seo.description,

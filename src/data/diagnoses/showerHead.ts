@@ -226,5 +226,5 @@ export const showerHead: Diagnosis = {
     ],
   },
   notice: '本診断は使い方や好みからシャワーヘッドの候補を探すためのもので、肌や髪への効果を保証するものではありません。取り付け可否は必ずメーカーの対応表をご確認ください。',
-  enabled: true,
+  enabled: false,
 }

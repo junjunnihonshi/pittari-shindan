@@ -222,5 +222,5 @@ export const fryingPan: Diagnosis = {
       },
     ],
   },
-  enabled: true,
+  enabled: false,
 }

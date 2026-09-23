@@ -254,5 +254,5 @@ export const vacuum: Diagnosis = {
       },
     ],
   },
-  enabled: true,
+  enabled: false,
 }

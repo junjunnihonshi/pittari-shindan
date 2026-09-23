@@ -305,6 +305,18 @@ officialUrl: 'https://…',
    ```
 4. `npm run check` と `npm run build` でエラーがないことを確認
 
+### 公開・準備中の切り替え（`enabled`）
+
+各診断ファイルの最後にある `enabled` で、公開状態を切り替えます。
+
+| 値 | トップページのカード | 診断ページ（URL直接アクセス） | sitemap.xml |
+| --- | --- | --- | --- |
+| `enabled: true` | クリックして診断できる | 診断できる | 掲載する |
+| `enabled: false` | 「準備中」バッジ付きで薄く表示（クリック不可） | 「準備中です」と表示（検索エンジンに載せない） | 掲載しない |
+
+現在公開しているのは枕診断だけです（ほかの9診断は `enabled: false`）。
+商品データを実商品に差し替えて診断が完成したら、`enabled: false` を `enabled: true` に変えるだけで公開されます。
+
 分類（`group`）を新しく増やしたい場合は `src/config/categories.ts` と `src/types/diagnosis.ts` の `CategoryGroupId` に追加します。
 
 ## 10. スコアリングの仕組み

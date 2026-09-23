@@ -225,5 +225,5 @@ export const hairDryer: Diagnosis = {
     ],
   },
   notice: 'ヘアケア機能の感じ方には個人差があります。本診断は仕上がりや髪質の変化を保証するものではありません。',
-  enabled: true,
+  enabled: false,
 }

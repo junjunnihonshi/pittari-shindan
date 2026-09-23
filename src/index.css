@@ -325,9 +325,26 @@ h4 {
   box-shadow: var(--shadow);
   transition: border-color 0.15s, transform 0.15s;
 }
-.diagnosis-card:hover {
+a.diagnosis-card:hover {
   border-color: var(--color-primary);
   transform: translateY(-1px);
+}
+/* 準備中（enabled: false）の診断カード：少し薄く、押せないことが分かる表示。hover しても変化しない */
+.diagnosis-card.is-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+  transition: none;
+}
+.diagnosis-card.is-disabled .diagnosis-card__icon {
+  background: #eef0f1;
+}
+.badge--soon {
+  margin: 0 0 0 8px;
+  vertical-align: 2px;
+  background: #eef0f1;
+  color: #4b5563;
+  border: 1px solid #c9ced3;
 }
 .diagnosis-card__icon {
   flex: none;

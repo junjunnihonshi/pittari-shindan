@@ -243,5 +243,5 @@ export const deskChair: Diagnosis = {
     ],
   },
   notice: '本診断は使い方や好みからチェアの候補を探すためのもので、腰痛などの症状の改善を保証するものではありません。痛みがある場合は医療機関にご相談ください。',
-  enabled: true,
+  enabled: false,
 }

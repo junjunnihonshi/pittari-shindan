@@ -218,5 +218,5 @@ export const suitcase: Diagnosis = {
       },
     ],
   },
-  enabled: true,
+  enabled: false,
 }

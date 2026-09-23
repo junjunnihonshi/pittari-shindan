@@ -1,8 +1,9 @@
 import { Component, type ReactNode } from 'react'
 import { Footer } from './components/Footer.tsx'
 import { Header } from './components/Header.tsx'
-import { getDiagnosisBySlug } from './data/diagnoses/index.ts'
+import { getDiagnosisBySlug, isDiagnosisEnabled } from './data/diagnoses/index.ts'
 import { usePathname } from './lib/router.ts'
+import { ComingSoonPage } from './pages/ComingSoonPage.tsx'
 import { DiagnosisPage } from './pages/DiagnosisPage.tsx'
 import { HomePage } from './pages/HomePage.tsx'
 import { NotFoundPage } from './pages/NotFoundPage.tsx'
@@ -24,7 +25,9 @@ function Routes({ path }: { path: string }) {
   const match = path.match(/^\/diagnosis\/([^/]+)$/)
   if (match) {
     const diagnosis = getDiagnosisBySlug(decodeURIComponent(match[1]))
-    if (diagnosis) return <DiagnosisPage key={diagnosis.id} diagnosis={diagnosis} />
+    if (diagnosis && isDiagnosisEnabled(diagnosis)) return <DiagnosisPage key={diagnosis.id} diagnosis={diagnosis} />
+    // 準備中の診断は、URLを直接開いても診断を始められないようにする
+    if (diagnosis) return <ComingSoonPage diagnosis={diagnosis} />
     return <NotFoundPage message="指定された診断は見つかりませんでした。トップページから診断を選び直してください。" />
   }
   return <NotFoundPage />
