@@ -12,7 +12,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { site } from '../../src/config/site.ts'
-import { presets, type RakutenPreset } from './presets.ts'
+import { presets, type PricedKeyword, type RakutenPreset } from './presets.ts'
 
 /** 楽天市場商品検索API（version: 2026-07-01） */
 const ENDPOINT = 'https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20260701'
@@ -148,7 +148,8 @@ function describeError(status: number, body: SearchResponse | null): string {
   return `楽天APIがエラーを返しました（HTTP ${status}）${detail}`
 }
 
-async function searchOnce(creds: Credentials, preset: RakutenPreset, keyword: string, hits: number): Promise<RakutenItem[]> {
+async function searchOnce(creds: Credentials, preset: RakutenPreset, query: PricedKeyword, hits: number): Promise<RakutenItem[]> {
+  const { keyword } = query
   const params = new URLSearchParams({
     applicationId: creds.applicationId,
     affiliateId: creds.affiliateId,
@@ -161,8 +162,11 @@ async function searchOnce(creds: Credentials, preset: RakutenPreset, keyword: st
     imageFlag: '1',
   })
   if (preset.ngKeyword) params.set('NGKeyword', preset.ngKeyword)
-  if (preset.minPrice) params.set('minPrice', String(preset.minPrice))
-  if (preset.maxPrice) params.set('maxPrice', String(preset.maxPrice))
+  // キーワードごとの価格条件があれば、プリセット全体の条件より優先する
+  const minPrice = query.minPrice ?? preset.minPrice
+  const maxPrice = query.maxPrice ?? preset.maxPrice
+  if (minPrice) params.set('minPrice', String(minPrice))
+  if (maxPrice) params.set('maxPrice', String(maxPrice))
 
   for (let attempt = 1; ; attempt++) {
     let res: Response
@@ -282,15 +286,20 @@ async function main() {
     throw new UserError(`カテゴリ "${opts.category}" は未対応です。対応カテゴリ: ${Object.keys(presets).join(', ')}`)
   }
   const creds = loadCredentials()
-  const keywords = opts.keywords ?? preset.keywords
+  const queries: PricedKeyword[] = (opts.keywords ?? preset.keywords).map((k) => (typeof k === 'string' ? { keyword: k } : k))
   const hits = opts.hits ?? preset.hits
+  // 候補JSONに記録する検索条件（価格条件付きの検索は「キーワード（〜10000円）」の形で表す）
+  const labelOf = (q: PricedKeyword) =>
+    q.minPrice || q.maxPrice ? `${q.keyword}（${q.minPrice ?? ''}〜${q.maxPrice ?? ''}円）` : q.keyword
+  const keywords = queries.map(labelOf)
 
   log(`楽天市場から「${preset.category}」の商品候補を検索します（${keywords.length} キーワード × 最大 ${hits} 件）`)
 
   const byCode = new Map<string, { item: RakutenItem; queries: string[] }>()
-  for (const [i, keyword] of keywords.entries()) {
+  for (const [i, query] of queries.entries()) {
     if (i > 0) await sleep(REQUEST_INTERVAL_MS)
-    const items = await searchOnce(creds, preset, keyword, hits)
+    const keyword = labelOf(query)
+    const items = await searchOnce(creds, preset, query, hits)
     log(`  🔍 「${keyword}」: ${items.length} 件`)
     for (const item of items) {
       const hit = byCode.get(item.itemCode)

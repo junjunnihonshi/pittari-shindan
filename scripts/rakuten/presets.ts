@@ -2,11 +2,21 @@
  * 楽天市場APIで商品候補を検索するときの条件（カテゴリごと）。
  * 検索キーワードや除外ワードを変えたい場合はここを編集してください。
  */
+/** 価格条件付きの検索キーワード（その検索だけ、プリセット全体の minPrice / maxPrice の代わりに使う） */
+export interface PricedKeyword {
+  keyword: string
+  minPrice?: number
+  maxPrice?: number
+}
+
 export interface RakutenPreset {
   /** 診断ID（src/data/diagnoses の id と同じ） */
   category: string
-  /** 検索キーワード（1つずつ順番に検索し、商品コードで重複を除きます） */
-  keywords: string[]
+  /**
+   * 検索キーワード（1つずつ順番に検索し、商品コードで重複を除きます）。
+   * 特定の価格帯だけを探したい検索は { keyword, maxPrice } の形で書けます。
+   */
+  keywords: (string | PricedKeyword)[]
   /** 除外キーワード（スペース区切り） */
   ngKeyword?: string
   /** 並び順（楽天API の sort パラメータ） */
@@ -87,5 +97,47 @@ export const presets: Record<string, RakutenPreset> = {
       'largeHome',
       'stablePower',
     ],
+  },
+
+  /**
+   * ドライヤー：家庭で日常的に使うヘアドライヤーの候補。
+   * 業務用専用機・ペット用・ハンズフリー専用機・カールドライヤー（ブラシ型）は対象外。
+   * 1万円以下の候補を確保するため、価格帯を指定した検索を多めに入れている。
+   */
+  'hair-dryer': {
+    category: 'hair-dryer',
+    // 役割（速乾・軽量・ヘアケア・静音・頭皮）と価格帯が偏らないように検索する（メーカー名は入れない）
+    keywords: [
+      'ドライヤー 大風量',
+      'ドライヤー 速乾',
+      'ドライヤー 軽量',
+      'ドライヤー ヘアケア',
+      'ドライヤー 静音',
+      'ドライヤー スカルプ',
+      'ドライヤー 折りたたみ',
+      // 1万円以下（価格帯1）を重点的に探す
+      { keyword: 'ドライヤー', maxPrice: 10000 },
+      { keyword: 'ドライヤー 大風量', maxPrice: 10000 },
+      { keyword: 'ドライヤー 軽量', maxPrice: 10000 },
+      { keyword: 'ドライヤー 低温', maxPrice: 10000 },
+      { keyword: 'ドライヤー イオン', maxPrice: 10000 },
+      { keyword: 'ドライヤー', minPrice: 3000, maxPrice: 6000 },
+      // 価格帯2〜4
+      { keyword: 'ドライヤー', minPrice: 10001, maxPrice: 20000 },
+      { keyword: 'ドライヤー', minPrice: 20001, maxPrice: 40000 },
+      { keyword: '高級 ドライヤー', minPrice: 40001 },
+    ],
+    ngKeyword:
+      'ペット 犬 猫 業務用 ハンズフリー スタンド ホルダー カール ブラシ アイロン ストレート 交換用 ノズル単品 部品 中古 訳あり',
+    sort: '-reviewCount',
+    hits: 15,
+    // 付属品・ノズル単品などを除くための下限
+    minPrice: 1500,
+    // 同じショップ（メーカー公式店など）からは最大3件まで
+    maxPerShop: 3,
+    // src/data/diagnoses/hairDryer.ts の priceLabels に合わせる（〜10,000 / 〜20,000 / 〜40,000 / それ以上）
+    priceThresholds: [10000, 20000, 40000],
+    // hairDryer.ts の評価項目（公式仕様を確認して記入する）
+    attributeKeys: ['dryingPower', 'hairCare', 'lightness', 'quiet', 'manageability', 'scalpCare', 'compactness'],
   },
 }
