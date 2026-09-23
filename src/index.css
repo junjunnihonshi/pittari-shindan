@@ -1001,6 +1001,12 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   color: #fff;
   box-shadow: var(--shadow-primary);
 }
+/* 「位」は数字の直後に、数字より小さく表示（例：相性 1位） */
+.result-card__rank-unit {
+  margin-left: 1px;
+  font-size: 0.7em;
+  font-weight: 700;
+}
 .result-card--first .result-card__rank-num {
   color: #fff;
 }
@@ -1471,6 +1477,25 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
     position: absolute;
     top: 22px;
     right: 20px;
+  }
+}
+
+/* PC（幅1024px以上）だけの調整。タブレット・スマホの表示は変えない */
+@media (min-width: 1024px) {
+  /* 結果表示中だけメインコンテンツを広げる（質問画面は 720px のまま） */
+  .panel--result {
+    max-width: 920px;
+  }
+  /* 結果カードの商品画像を一回り大きく（縦横比は object-fit: contain で維持） */
+  .result-card__head {
+    gap: 22px;
+  }
+  .product-image {
+    width: 168px;
+    height: 168px;
+  }
+  .product-image--placeholder {
+    font-size: 2.4rem;
   }
 }
 

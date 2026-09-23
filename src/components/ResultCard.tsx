@@ -24,7 +24,11 @@ export function ResultCard({ result, rank, diagnosis }: Props) {
   return (
     <article className={`result-card${rank === 1 ? ' result-card--first' : ''}`} aria-labelledby={headingId}>
       <div className="result-card__rank">
-        相性順<span className="result-card__rank-num">{rank}</span>
+        相性
+        <span className="result-card__rank-num">
+          {rank}
+          <span className="result-card__rank-unit">位</span>
+        </span>
       </div>
 
       <div className="result-card__head">

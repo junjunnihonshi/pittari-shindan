@@ -105,7 +105,7 @@ export function DiagnosisPage({ diagnosis }: { diagnosis: Diagnosis }) {
         <h1>{diagnosis.name}</h1>
       </header>
 
-      <div className="panel" ref={panelRef}>
+      <div className={`panel${phase === 'result' ? ' panel--result' : ''}`} ref={panelRef}>
         {questions.length === 0 ? (
           <div className="empty-state">
             <h2>この診断は準備中です</h2>
