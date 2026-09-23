@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { categoryGroups } from '../config/categories.ts'
 import { diagnosisPath, staticPages } from '../config/seo.ts'
 import { site } from '../config/site.ts'
+import { AdSlot } from '../components/AdSlot.tsx'
 import { DiagnosisCard } from '../components/DiagnosisCard.tsx'
 import { diagnoses, getDiagnosisBySlug, isDiagnosisEnabled } from '../data/diagnoses/index.ts'
 import { Link } from '../components/Link.tsx'
@@ -89,6 +90,9 @@ export function HomePage() {
           )
         })}
       </section>
+
+      {/* 300×250 を幅320pxのスマホでも切らずに表示するため、左右余白のある container の外に置く */}
+      <AdSlot id="homeBelowCategories" />
 
       <section className="container section" aria-labelledby="about-title">
         <div className="info-box">
