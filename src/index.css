@@ -999,8 +999,9 @@ h4 {
     width: 120px;
     height: 120px;
   }
+  /* ボタンの数に合わせて列数が変わる（1つならカード幅いっぱい、2つ以上なら横並び） */
   .shop-buttons {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
   .hero {
     padding: 64px 0 48px;

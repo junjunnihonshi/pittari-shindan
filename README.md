@@ -228,9 +228,12 @@ rakutenUrl: 'https://af.moshimo.com/af/c/click?a_id=0000000&p_id=54&pc_id=54&pl_
 
 | 状態 | 表示 |
 | --- | --- |
-| URLあり | 「Amazonで見る」「楽天市場で見る」ボタン（新しいタブで開く・`rel="sponsored nofollow"` 付き） |
-| URLが空 | 「Amazon：準備中」のようなグレーの表示（押せません） |
+| URLあり | 「楽天市場で見る」ボタン（新しいタブで開く・`rel="sponsored nofollow"` 付き） |
+| URLが空 | 「楽天市場：準備中」のグレーの表示（押せません） |
 | 不正なURL（`http(s)` 以外） | 安全のため「準備中」扱い |
+
+> **現在 Amazon のボタンは非表示です**（当面は楽天アフィリエイトのみ使用）。
+> 商品データの `amazonUrl` はそのまま残せます。再表示するときは `src/config/shops.ts` の Amazon の行を `enabled: true` にしてください。
 
 ### Yahoo!ショッピング・公式サイトのリンク
 
@@ -244,7 +247,7 @@ officialUrl: 'https://…',
 ### 新しいショップを追加したい場合
 
 `src/config/shops.ts` の `shops` に1行追加し、`src/types/diagnosis.ts` の `Product` に同じ名前の項目を追加します。
-ボタンの「準備中」表示の有無は `showWhenEmpty` で切り替えられます。
+ボタンの「準備中」表示の有無は `showWhenEmpty`、ショップ自体の表示・非表示は `enabled` で切り替えられます。
 
 > Amazonアソシエイト・プログラムに直接参加する場合は、規約で定められた表記（「Amazonのアソシエイトとして…」）を
 > `src/pages/StaticPages.tsx` の「広告掲載について」ページに追加してください。

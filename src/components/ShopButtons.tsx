@@ -10,6 +10,7 @@ interface Props {
 
 export function ShopButtons({ product, diagnosisId, rank }: Props) {
   const items = shops
+    .filter((shop) => shop.enabled)
     .map((shop) => ({ shop, url: getShopUrl(product, shop) }))
     .filter(({ shop, url }) => url || shop.showWhenEmpty)
 

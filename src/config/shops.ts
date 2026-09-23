@@ -13,13 +13,19 @@ export interface ShopDefinition {
   label: string
   /** URL未設定時に「準備中」ボタンを表示するか（false なら非表示） */
   showWhenEmpty: boolean
+  /**
+   * false にすると、URLが設定されていてもボタンを一切表示しません。
+   * 商品データの URL はそのまま残るので、true に戻すだけで再表示できます。
+   */
+  enabled: boolean
 }
 
 export const shops: ShopDefinition[] = [
-  { key: 'amazon', field: 'amazonUrl', label: 'Amazonで見る', showWhenEmpty: true },
-  { key: 'rakuten', field: 'rakutenUrl', label: '楽天市場で見る', showWhenEmpty: true },
-  { key: 'yahoo', field: 'yahooUrl', label: 'Yahoo!ショッピングで見る', showWhenEmpty: false },
-  { key: 'official', field: 'officialUrl', label: '公式サイトで見る', showWhenEmpty: false },
+  // 当面は楽天アフィリエイトのみ使用するため Amazon は非表示（再開するときは enabled: true に）
+  { key: 'amazon', field: 'amazonUrl', label: 'Amazonで見る', showWhenEmpty: true, enabled: false },
+  { key: 'rakuten', field: 'rakutenUrl', label: '楽天市場で見る', showWhenEmpty: true, enabled: true },
+  { key: 'yahoo', field: 'yahooUrl', label: 'Yahoo!ショッピングで見る', showWhenEmpty: false, enabled: true },
+  { key: 'official', field: 'officialUrl', label: '公式サイトで見る', showWhenEmpty: false, enabled: true },
 ]
 
 /**
