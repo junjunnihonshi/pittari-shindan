@@ -1,0 +1,227 @@
+import type { Diagnosis } from '../../types/diagnosis.ts'
+
+/**
+ * 加湿器診断
+ *
+ * 商品の attributes:
+ *   method      : 'steam'（スチーム式） / 'ultrasonic'（超音波式） / 'vaporize'（気化式） / 'hybrid'（ハイブリッド式）
+ *   roomSize    : 対応する部屋の広さ（1 = 〜6畳, 2 = 〜8畳, 3 = 〜10畳, 4 = 〜14畳, 5 = 15畳以上）
+ *   power       : 加湿量・加湿スピード（1〜5）
+ *   quiet       : 静音性（1〜5）
+ *   easyCare    : 手入れのしやすさ（1〜5）
+ *   powerSaving : 消費電力の少なさ（1〜5）
+ *   tankSize    : タンク容量（1〜5）
+ *   childSafe   : 吹出口が熱くなりにくい・転倒時の配慮など（1〜5）
+ */
+export const humidifier: Diagnosis = {
+  id: 'humidifier',
+  slug: 'humidifier',
+  name: '加湿器診断',
+  itemName: '加湿器',
+  group: 'life',
+  icon: '💧',
+  shortDescription: '部屋の広さ・置き場所・手入れや電気代の好みから、あなたに合う加湿器を診断。',
+  intro: '部屋の広さや置き場所、重視するポイントなど5つの質問から、あなたの部屋に合いそうな加湿器を相性順に表示します。',
+  seo: {
+    title: '加湿器診断｜質問に答えてあなたに合う加湿器をチェック',
+    description: 'スチーム式・気化式・超音波式・ハイブリッド式など、部屋の広さや手入れ・電気代・予算の質問に答えるだけで、あなたに合う加湿器を無料診断。',
+  },
+  priceLabels: {
+    1: '〜5,000円',
+    2: '5,000〜10,000円',
+    3: '10,000〜20,000円',
+    4: '20,000円〜',
+  },
+  questions: [
+    {
+      id: 'room',
+      text: '使う部屋の広さは？',
+      shortLabel: '部屋の広さ',
+      weight: 25,
+      options: [
+        { id: 'desk', label: 'デスクまわり・卓上', summary: '卓上で使いたい', effects: [{ type: 'near', attr: 'roomSize', value: 1 }] },
+        { id: 'small', label: '〜8畳くらい', summary: '〜8畳の部屋で使う', effects: [{ type: 'atLeast', attr: 'roomSize', value: 2 }] },
+        { id: 'mid', label: '〜14畳くらい', summary: '〜14畳の部屋で使う', effects: [{ type: 'atLeast', attr: 'roomSize', value: 4 }] },
+        { id: 'large', label: '15畳以上のリビング', summary: '15畳以上の部屋で使う', effects: [{ type: 'atLeast', attr: 'roomSize', value: 5 }] },
+      ],
+    },
+    {
+      id: 'priority',
+      text: 'いちばん重視したいことは？',
+      shortLabel: '重視すること',
+      weight: 30,
+      options: [
+        { id: 'care', label: 'お手入れのしやすさ', summary: '手入れのしやすさを重視', effects: [{ type: 'atLeast', attr: 'easyCare', value: 5 }] },
+        { id: 'eco', label: '電気代の安さ', summary: '電気代を重視', effects: [{ type: 'atLeast', attr: 'powerSaving', value: 5 }] },
+        { id: 'quiet', label: '運転音の静かさ', summary: '静かさを重視', effects: [{ type: 'atLeast', attr: 'quiet', value: 5 }] },
+        { id: 'power', label: 'しっかり加湿できること', summary: '加湿量を重視', effects: [{ type: 'atLeast', attr: 'power', value: 5 }] },
+      ],
+    },
+    {
+      id: 'place',
+      text: '主に置く場所は？',
+      shortLabel: '置き場所',
+      weight: 15,
+      options: [
+        { id: 'bedroom', label: '寝室', summary: '寝室に置く', effects: [{ type: 'atLeast', attr: 'quiet', value: 4 }] },
+        { id: 'living', label: 'リビング', summary: 'リビングに置く', effects: [{ type: 'atLeast', attr: 'tankSize', value: 4 }] },
+        { id: 'office', label: '仕事部屋・デスク', summary: '仕事部屋に置く', effects: [{ type: 'atLeast', attr: 'quiet', value: 3 }] },
+      ],
+    },
+    {
+      id: 'child',
+      text: '小さなお子さんやペットはいますか？',
+      shortLabel: '子ども・ペット',
+      weight: 15,
+      options: [
+        { id: 'yes', label: 'いる', summary: '子どもやペットがいる', effects: [{ type: 'atLeast', attr: 'childSafe', value: 5 }] },
+        { id: 'no', label: 'いない', effects: [] },
+      ],
+    },
+    {
+      id: 'budget',
+      text: 'ご予算は？',
+      shortLabel: '予算',
+      weight: 15,
+      options: [
+        { id: 'b1', label: '5,000円くらいまで', summary: '予算5,000円まで', effects: [{ type: 'atMost', attr: 'priceRange', value: 1 }] },
+        { id: 'b2', label: '10,000円くらいまで', summary: '予算10,000円まで', effects: [{ type: 'atMost', attr: 'priceRange', value: 2 }] },
+        { id: 'b3', label: '20,000円くらいまで', summary: '予算20,000円まで', effects: [{ type: 'atMost', attr: 'priceRange', value: 3 }] },
+        { id: 'any', label: '予算は気にしない', effects: [] },
+      ],
+    },
+  ],
+  products: [
+    {
+      id: 'humidifier-001',
+      name: '加湿器 商品A（仮）',
+      category: 'humidifier',
+      description: 'スチーム式・〜8畳向けのサンプル商品です。',
+      priceRange: 2,
+      features: ['スチーム式', '〜8畳目安', 'シンプル構造でお手入れしやすい'],
+      pros: ['加湿スピードが速い', '構造がシンプルで手入れしやすい'],
+      cons: ['水を沸騰させるため電気代は高めです', '吹出口が熱くなるため設置場所に注意が必要です'],
+      recommendFor: '手入れの手間を減らし、しっかり加湿したい人',
+      amazonUrl: '',
+      rakutenUrl: '',
+      imageUrl: '',
+      enabled: true,
+      sample: true,
+      attributes: { method: 'steam', roomSize: 2, power: 5, quiet: 3, easyCare: 5, powerSaving: 1, tankSize: 3, childSafe: 2 },
+    },
+    {
+      id: 'humidifier-002',
+      name: '加湿器 商品B（仮）',
+      category: 'humidifier',
+      description: '気化式・〜14畳向けの省エネサンプル商品です。',
+      priceRange: 3,
+      features: ['気化式', '〜14畳目安', '省エネ', '静音モード'],
+      pros: ['電気代を抑えやすい', '吹出口が熱くならない'],
+      cons: ['フィルターの定期的なお手入れ・交換が必要です', '加湿スピードは穏やかです'],
+      recommendFor: '電気代を抑えながら、広めの部屋で長時間使いたい人',
+      amazonUrl: '',
+      rakutenUrl: '',
+      imageUrl: '',
+      enabled: true,
+      sample: true,
+      attributes: { method: 'vaporize', roomSize: 4, power: 3, quiet: 4, easyCare: 2, powerSaving: 5, tankSize: 4, childSafe: 5 },
+    },
+    {
+      id: 'humidifier-003',
+      name: '加湿器 商品C（仮）',
+      category: 'humidifier',
+      description: '超音波式の卓上コンパクトサンプル商品です。',
+      priceRange: 1,
+      features: ['超音波式', '卓上サイズ', 'USB給電'],
+      pros: ['デスクに置けるサイズ', '運転音が静か', '価格が手頃'],
+      cons: ['部屋全体の加湿には向きません', 'タンクをこまめに洗うなど衛生管理が大切です'],
+      recommendFor: 'デスクまわりで手軽に使いたい人',
+      amazonUrl: '',
+      rakutenUrl: '',
+      imageUrl: '',
+      enabled: true,
+      sample: true,
+      attributes: { method: 'ultrasonic', roomSize: 1, power: 1, quiet: 5, easyCare: 3, powerSaving: 5, tankSize: 1, childSafe: 4 },
+    },
+    {
+      id: 'humidifier-004',
+      name: '加湿器 商品D（仮）',
+      category: 'humidifier',
+      description: 'ハイブリッド式（加熱気化式）・リビング向けのサンプル商品です。',
+      priceRange: 4,
+      features: ['ハイブリッド式（加熱気化）', '15畳以上目安', '大容量タンク', '湿度自動調整'],
+      pros: ['広い部屋でもしっかり加湿しやすい', '吹出口が熱くなりにくい'],
+      cons: ['価格帯は高めです', 'フィルターのお手入れが必要です'],
+      recommendFor: '広いリビングで家族みんなで使いたい人',
+      amazonUrl: '',
+      rakutenUrl: '',
+      imageUrl: '',
+      enabled: true,
+      sample: true,
+      attributes: { method: 'hybrid', roomSize: 5, power: 5, quiet: 3, easyCare: 3, powerSaving: 3, tankSize: 5, childSafe: 4 },
+    },
+    {
+      id: 'humidifier-005',
+      name: '加湿器 商品E（仮）',
+      category: 'humidifier',
+      description: '静音性を重視した寝室向けのハイブリッド式サンプル商品です。',
+      priceRange: 3,
+      features: ['ハイブリッド式', '〜10畳目安', '静音・おやすみモード', 'チャイルドロック'],
+      pros: ['寝室でも気になりにくい静かさ', 'チャイルドロック付き'],
+      cons: ['フィルターのお手入れが必要です'],
+      recommendFor: '寝室で夜間に使うことが多い人、小さなお子さんがいる家庭',
+      amazonUrl: '',
+      rakutenUrl: '',
+      imageUrl: '',
+      enabled: true,
+      sample: true,
+      attributes: { method: 'hybrid', roomSize: 3, power: 4, quiet: 5, easyCare: 3, powerSaving: 4, tankSize: 3, childSafe: 5 },
+    },
+    {
+      id: 'humidifier-006',
+      name: '加湿器 商品F（仮）',
+      category: 'humidifier',
+      description: '大型スチーム式・リビング向けのサンプル商品です。',
+      priceRange: 2,
+      features: ['スチーム式', '〜14畳目安', '大容量タンク'],
+      pros: ['加湿スピードが速い', 'フィルターがなく手入れしやすい'],
+      cons: ['電気代は高めです', '吹出口が熱くなるため設置場所に注意が必要です'],
+      recommendFor: '広めの部屋を短時間でしっかり加湿したい人',
+      amazonUrl: '',
+      rakutenUrl: '',
+      imageUrl: '',
+      enabled: true,
+      sample: true,
+      attributes: { method: 'steam', roomSize: 4, power: 5, quiet: 2, easyCare: 4, powerSaving: 1, tankSize: 5, childSafe: 2 },
+    },
+  ],
+  guide: {
+    title: '加湿器の選び方',
+    sections: [
+      {
+        heading: '加湿方式',
+        body: '加湿器は方式によって特徴が大きく異なります。',
+        points: [
+          'スチーム式：加湿が速く手入れしやすい。電気代は高め、吹出口が熱くなる',
+          '気化式：電気代が安く吹出口も熱くならない。加湿は穏やか',
+          '超音波式：静かで小型・安価なものが多い。こまめな清掃が大切',
+          'ハイブリッド式：バランス型。価格はやや高め',
+        ],
+      },
+      {
+        heading: '部屋の広さ（適用畳数）',
+        body: '適用畳数は「木造和室」と「プレハブ洋室」で分けて表示されていることが多いです。住まいの構造に合わせて確認しましょう。',
+      },
+      {
+        heading: 'お手入れのしやすさ',
+        body: '加湿器は水を扱うため、タンクやトレーを定期的に洗うことが大切です。タンクの口の広さや、パーツが外せるかも確認しましょう。',
+      },
+      {
+        heading: '置き場所と安全性',
+        body: '小さなお子さんやペットがいる家庭では、吹出口が熱くならない方式や、チャイルドロック・転倒時の給水停止などの機能を確認すると安心です。',
+      },
+    ],
+  },
+  notice: '本診断は部屋や使い方から加湿器の候補を探すためのもので、健康への効果を保証するものではありません。衛生的に使うため、取扱説明書に沿った定期的なお手入れを行ってください。',
+  enabled: true,
+}

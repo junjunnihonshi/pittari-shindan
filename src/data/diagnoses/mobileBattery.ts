@@ -1,0 +1,242 @@
+import type { Diagnosis } from '../../types/diagnosis.ts'
+
+/**
+ * モバイルバッテリー診断
+ *
+ * 商品の attributes:
+ *   capacity   : 容量（1 = 5,000mAh前後, 2 = 10,000mAh, 3 = 15,000〜20,000mAh, 4 = 20,000mAh以上, 5 = 25,000mAh以上）
+ *   lightness  : 軽さ・小ささ（1〜5）
+ *   fastCharge : 出力・充電の速さ（1〜5）
+ *   laptop     : ノートPCの充電に対応（USB PD 高出力）か（true / false）
+ *   wireless   : ワイヤレス充電に対応か（true / false）
+ *   cableBuiltIn : ケーブル内蔵か（true / false）
+ *   ports      : 同時に充電できる台数の目安（1〜5）
+ */
+export const mobileBattery: Diagnosis = {
+  id: 'mobile-battery',
+  slug: 'mobile-battery',
+  name: 'モバイルバッテリー診断',
+  itemName: 'モバイルバッテリー',
+  group: 'digital',
+  icon: '🔋',
+  shortDescription: '充電したい機器・使う場面・重視ポイントから、あなたに合うモバイルバッテリーを診断。',
+  intro: '充電したい機器や持ち歩き方、重視するポイントなど5つの質問から、あなたの使い方に合いそうなモバイルバッテリーを相性順に表示します。',
+  seo: {
+    title: 'モバイルバッテリー診断｜質問に答えてあなたに合うモバイルバッテリーをチェック',
+    description: '容量・重さ・急速充電・ノートPC対応・予算などの質問に答えるだけで、あなたに合うモバイルバッテリーを無料診断。',
+  },
+  priceLabels: {
+    1: '〜2,000円',
+    2: '2,000〜4,000円',
+    3: '4,000〜7,000円',
+    4: '7,000円〜',
+  },
+  questions: [
+    {
+      id: 'device',
+      text: '主に充電したい機器は？',
+      shortLabel: '充電する機器',
+      weight: 25,
+      options: [
+        { id: 'phone', label: 'スマートフォンだけ', summary: 'スマホを充電したい', effects: [{ type: 'near', attr: 'capacity', value: 2 }] },
+        {
+          id: 'tablet',
+          label: 'スマホとタブレット',
+          summary: 'スマホとタブレットを充電したい',
+          effects: [{ type: 'atLeast', attr: 'capacity', value: 3 }],
+        },
+        {
+          id: 'laptop',
+          label: 'ノートPCも充電したい',
+          summary: 'ノートPCも充電したい',
+          effects: [
+            { type: 'equals', attr: 'laptop', value: true, weight: 2 },
+            { type: 'atLeast', attr: 'capacity', value: 4 },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'scene',
+      text: 'どんな場面で使うことが多いですか？',
+      shortLabel: '使う場面',
+      weight: 25,
+      options: [
+        { id: 'daily', label: '通勤・通学で毎日持ち歩く', summary: '毎日持ち歩く', effects: [{ type: 'atLeast', attr: 'lightness', value: 4 }] },
+        { id: 'trip', label: '旅行・出張', summary: '旅行や出張で使う', effects: [{ type: 'atLeast', attr: 'capacity', value: 3 }] },
+        {
+          id: 'emergency',
+          label: '災害時の備え',
+          summary: '災害時に備えたい',
+          effects: [
+            { type: 'atLeast', attr: 'capacity', value: 5 },
+            { type: 'atLeast', attr: 'ports', value: 3 },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'priority',
+      text: 'いちばん重視したいことは？',
+      shortLabel: '重視すること',
+      weight: 20,
+      options: [
+        { id: 'fast', label: '充電の速さ', summary: '充電の速さを重視', effects: [{ type: 'atLeast', attr: 'fastCharge', value: 4 }] },
+        { id: 'light', label: '軽さ・小ささ', summary: '軽さを重視', effects: [{ type: 'atLeast', attr: 'lightness', value: 5 }] },
+        { id: 'cable', label: 'ケーブルを持ち歩きたくない', summary: 'ケーブル内蔵が便利', effects: [{ type: 'equals', attr: 'cableBuiltIn', value: true }] },
+        { id: 'wireless', label: 'ワイヤレス充電がしたい', summary: 'ワイヤレス充電を使いたい', effects: [{ type: 'equals', attr: 'wireless', value: true }] },
+      ],
+    },
+    {
+      id: 'ports',
+      text: '同時に何台充電しますか？',
+      shortLabel: '同時充電',
+      weight: 10,
+      options: [
+        { id: 'one', label: '1台', effects: [] },
+        { id: 'multi', label: '2台以上', summary: '2台以上同時に充電したい', effects: [{ type: 'atLeast', attr: 'ports', value: 3 }] },
+      ],
+    },
+    {
+      id: 'budget',
+      text: 'ご予算は？',
+      shortLabel: '予算',
+      weight: 20,
+      options: [
+        { id: 'b1', label: '2,000円くらいまで', summary: '予算2,000円まで', effects: [{ type: 'atMost', attr: 'priceRange', value: 1 }] },
+        { id: 'b2', label: '4,000円くらいまで', summary: '予算4,000円まで', effects: [{ type: 'atMost', attr: 'priceRange', value: 2 }] },
+        { id: 'b3', label: '7,000円くらいまで', summary: '予算7,000円まで', effects: [{ type: 'atMost', attr: 'priceRange', value: 3 }] },
+        { id: 'any', label: '予算は気にしない', effects: [] },
+      ],
+    },
+  ],
+  products: [
+    {
+      id: 'mobile-battery-001',
+      name: 'モバイルバッテリー 商品A（仮）',
+      category: 'mobile-battery',
+      description: '5,000mAhクラスの小型・軽量サンプル商品です。',
+      priceRange: 1,
+      features: ['5,000mAhクラス', '小型・軽量', 'ケーブル内蔵'],
+      pros: ['ポケットにも入りやすいサイズ', 'ケーブルを忘れる心配がない'],
+      cons: ['容量は少なめで、スマホのフル充電は約1回が目安です'],
+      recommendFor: '毎日持ち歩いて、いざというときに少し充電できれば十分な人',
+      amazonUrl: '',
+      rakutenUrl: '',
+      imageUrl: '',
+      enabled: true,
+      sample: true,
+      attributes: { capacity: 1, lightness: 5, fastCharge: 2, laptop: false, wireless: false, cableBuiltIn: true, ports: 1 },
+    },
+    {
+      id: 'mobile-battery-002',
+      name: 'モバイルバッテリー 商品B（仮）',
+      category: 'mobile-battery',
+      description: '10,000mAhクラス・急速充電対応のスタンダードなサンプル商品です。',
+      priceRange: 2,
+      features: ['10,000mAhクラス', 'USB PD 急速充電対応', '2ポート'],
+      pros: ['容量と重さのバランスがよい', 'スマホを短時間で充電しやすい'],
+      cons: ['ノートPCの充電には出力が足りない場合があります'],
+      recommendFor: 'スマホ用に1つ持っておきたい人',
+      amazonUrl: '',
+      rakutenUrl: '',
+      imageUrl: '',
+      enabled: true,
+      sample: true,
+      attributes: { capacity: 2, lightness: 4, fastCharge: 4, laptop: false, wireless: false, cableBuiltIn: false, ports: 3 },
+    },
+    {
+      id: 'mobile-battery-003',
+      name: 'モバイルバッテリー 商品C（仮）',
+      category: 'mobile-battery',
+      description: 'ワイヤレス充電対応のサンプル商品です。',
+      priceRange: 3,
+      features: ['10,000mAhクラス', 'ワイヤレス充電対応', 'マグネット吸着'],
+      pros: ['ケーブルなしで対応スマホを充電できる'],
+      cons: ['ワイヤレス充電はケーブル充電より時間がかかる傾向があります', '対応機種を確認する必要があります'],
+      recommendFor: 'ケーブルの抜き差しを減らしたい人',
+      amazonUrl: '',
+      rakutenUrl: '',
+      imageUrl: '',
+      enabled: true,
+      sample: true,
+      attributes: { capacity: 2, lightness: 4, fastCharge: 3, laptop: false, wireless: true, cableBuiltIn: false, ports: 2 },
+    },
+    {
+      id: 'mobile-battery-004',
+      name: 'モバイルバッテリー 商品D（仮）',
+      category: 'mobile-battery',
+      description: 'ノートPCにも対応する高出力・大容量のサンプル商品です。',
+      priceRange: 4,
+      features: ['20,000mAhクラス', 'USB PD 高出力（ノートPC対応）', '3ポート'],
+      pros: ['ノートPCとスマホをまとめて充電できる', '旅行や出張でも安心の容量'],
+      cons: ['重めなので毎日の持ち歩きには不向きな場合があります', '価格帯は高めです'],
+      recommendFor: '出張や外出先でノートPCも充電したい人',
+      caution: '飛行機への持ち込みには容量（Wh）の制限があります。事前に航空会社の規定をご確認ください。',
+      amazonUrl: '',
+      rakutenUrl: '',
+      imageUrl: '',
+      enabled: true,
+      sample: true,
+      attributes: { capacity: 4, lightness: 2, fastCharge: 5, laptop: true, wireless: false, cableBuiltIn: false, ports: 4 },
+    },
+    {
+      id: 'mobile-battery-005',
+      name: 'モバイルバッテリー 商品E（仮）',
+      category: 'mobile-battery',
+      description: '大容量で複数台を同時充電できる備え向けのサンプル商品です。',
+      priceRange: 3,
+      features: ['25,000mAhクラス', '4ポート', 'LEDライト付き'],
+      pros: ['家族のスマホを同時に充電できる', '停電時のライトとしても使える'],
+      cons: ['重く大きいため持ち歩きには向きません'],
+      recommendFor: '災害時の備えとして大容量のものを用意しておきたい人',
+      caution: '長期間使わない場合も、定期的に残量を確認・充電しておくことをおすすめします。',
+      amazonUrl: '',
+      rakutenUrl: '',
+      imageUrl: '',
+      enabled: true,
+      sample: true,
+      attributes: { capacity: 5, lightness: 1, fastCharge: 3, laptop: false, wireless: false, cableBuiltIn: false, ports: 5 },
+    },
+    {
+      id: 'mobile-battery-006',
+      name: 'モバイルバッテリー 商品F（仮）',
+      category: 'mobile-battery',
+      description: 'ケーブル内蔵・急速充電対応の10,000mAhクラスのサンプル商品です。',
+      priceRange: 2,
+      features: ['10,000mAhクラス', 'ケーブル内蔵', '急速充電対応'],
+      pros: ['ケーブルを別に持たなくていい', '容量も十分'],
+      cons: ['内蔵ケーブルの端子形状が手持ちの機器に合うか確認が必要です'],
+      recommendFor: '荷物を減らしつつ、しっかり充電したい人',
+      amazonUrl: '',
+      rakutenUrl: '',
+      imageUrl: '',
+      enabled: true,
+      sample: true,
+      attributes: { capacity: 2, lightness: 4, fastCharge: 4, laptop: false, wireless: false, cableBuiltIn: true, ports: 2 },
+    },
+  ],
+  guide: {
+    title: 'モバイルバッテリーの選び方',
+    sections: [
+      {
+        heading: '容量の目安',
+        body: '実際に充電できる量は表示容量より少なくなるのが一般的です。',
+        points: ['5,000mAh：スマホ約1回分', '10,000mAh：スマホ約2回分', '20,000mAh以上：タブレットやノートPCも視野に'],
+      },
+      {
+        heading: '出力（充電の速さ）',
+        body: '急速充電を使うには、バッテリー・ケーブル・機器の3つがUSB PDなど同じ規格に対応している必要があります。ノートPCを充電する場合は、PCが必要とする出力（W）を確認しましょう。',
+      },
+      {
+        heading: '重さとサイズ',
+        body: '容量が大きいほど重くなります。毎日持ち歩くなら、必要な容量を見極めて軽いものを選ぶのがおすすめです。',
+      },
+      {
+        heading: '安全性',
+        body: '国内で販売されるモバイルバッテリーにはPSEマークの表示が必要です。購入時に確認しておくと安心です。また、飛行機への持ち込みには容量の制限があります。',
+      },
+    ],
+  },
+  enabled: true,
+}

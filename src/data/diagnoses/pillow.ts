@@ -1,0 +1,246 @@
+import type { Diagnosis } from '../../types/diagnosis.ts'
+
+/**
+ * 枕診断
+ *
+ * 商品の attributes（評価項目）:
+ *   back / side / stomach : 仰向け・横向き・うつ伏せへの向き具合（1〜5）
+ *   height      : 高さ（1 低い 〜 5 高い）
+ *   firmness    : 硬さ（1 やわらかい 〜 5 かたい）
+ *   breathability : 通気性（1〜5）
+ *   adjustable  : 高さ調整ができるか（true / false）
+ *   washable    : 丸洗いできるか（true / false）
+ */
+export const pillow: Diagnosis = {
+  id: 'pillow',
+  slug: 'pillow',
+  name: '枕診断',
+  itemName: '枕',
+  group: 'life',
+  icon: '🛏️',
+  shortDescription: '寝姿勢・高さ・硬さ・予算から、あなたに合う枕を診断。',
+  intro:
+    '寝姿勢や好みの高さ・硬さ、予算など5つの質問に答えるだけで、あなたの好みに合いそうな枕のタイプを相性順に表示します。',
+  seo: {
+    title: '枕診断｜質問に答えてあなたに合う枕をチェック',
+    description:
+      '寝姿勢・高さ・硬さ・予算などの質問に答えるだけで、あなたに合う枕を無料診断。選び方のポイントも紹介します。',
+  },
+  priceLabels: {
+    1: '〜3,000円',
+    2: '3,000〜6,000円',
+    3: '6,000〜10,000円',
+    4: '10,000円〜',
+  },
+  questions: [
+    {
+      id: 'posture',
+      text: 'いちばん多い寝姿勢はどれですか？',
+      shortLabel: '寝姿勢',
+      help: '朝起きたときの姿勢を思い出してみてください。',
+      weight: 30,
+      options: [
+        { id: 'back', label: '仰向け', summary: '仰向けで寝ることが多い', effects: [{ type: 'near', attr: 'back', value: 5 }] },
+        { id: 'side', label: '横向き', summary: '横向き寝が多い', effects: [{ type: 'near', attr: 'side', value: 5 }] },
+        { id: 'stomach', label: 'うつ伏せ', summary: 'うつ伏せ寝が多い', effects: [{ type: 'near', attr: 'stomach', value: 5 }] },
+        {
+          id: 'mixed',
+          label: 'よく寝返りをうつ・決まっていない',
+          summary: '寝姿勢が決まっていない',
+          effects: [
+            { type: 'atLeast', attr: 'back', value: 4 },
+            { type: 'atLeast', attr: 'side', value: 4 },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'height',
+      text: '好みの枕の高さは？',
+      shortLabel: '高さ',
+      weight: 20,
+      options: [
+        { id: 'low', label: '低め', summary: '低めの枕が好み', effects: [{ type: 'near', attr: 'height', value: 2 }] },
+        { id: 'mid', label: 'ふつう', summary: 'ふつうの高さが好み', effects: [{ type: 'near', attr: 'height', value: 3 }] },
+        { id: 'high', label: '高め', summary: '高めの枕が好み', effects: [{ type: 'near', attr: 'height', value: 4 }] },
+        {
+          id: 'unknown',
+          label: 'わからない・調整したい',
+          summary: '高さを調整したい',
+          effects: [{ type: 'equals', attr: 'adjustable', value: true }],
+        },
+      ],
+    },
+    {
+      id: 'firmness',
+      text: '好みの硬さは？',
+      shortLabel: '硬さ',
+      weight: 25,
+      options: [
+        { id: 'soft', label: 'やわらかめ', summary: 'やわらかめが好み', effects: [{ type: 'near', attr: 'firmness', value: 2 }] },
+        { id: 'mid', label: 'ふつう', summary: 'ふつうの硬さが好み', effects: [{ type: 'near', attr: 'firmness', value: 3 }] },
+        { id: 'firm', label: 'かため', summary: 'かためが好み', effects: [{ type: 'near', attr: 'firmness', value: 4 }] },
+        { id: 'any', label: 'こだわらない', effects: [] },
+      ],
+    },
+    {
+      id: 'priority',
+      text: '枕選びで重視したいことは？',
+      shortLabel: '重視すること',
+      weight: 10,
+      options: [
+        { id: 'washable', label: '丸洗いできる', summary: '丸洗いしたい', effects: [{ type: 'equals', attr: 'washable', value: true }] },
+        { id: 'breath', label: '蒸れにくさ・通気性', summary: '通気性を重視', effects: [{ type: 'atLeast', attr: 'breathability', value: 4 }] },
+        { id: 'adjust', label: '高さを細かく調整したい', summary: '高さ調整を重視', effects: [{ type: 'equals', attr: 'adjustable', value: true }] },
+        { id: 'none', label: '特になし', effects: [] },
+      ],
+    },
+    {
+      id: 'budget',
+      text: 'ご予算は？',
+      shortLabel: '予算',
+      weight: 15,
+      options: [
+        { id: 'b1', label: '3,000円くらいまで', summary: '予算3,000円まで', effects: [{ type: 'atMost', attr: 'priceRange', value: 1 }] },
+        { id: 'b2', label: '6,000円くらいまで', summary: '予算6,000円まで', effects: [{ type: 'atMost', attr: 'priceRange', value: 2 }] },
+        { id: 'b3', label: '10,000円くらいまで', summary: '予算10,000円まで', effects: [{ type: 'atMost', attr: 'priceRange', value: 3 }] },
+        { id: 'any', label: '予算は気にしない', effects: [] },
+      ],
+    },
+  ],
+  products: [
+    {
+      id: 'pillow-001',
+      name: '枕 商品A（仮）',
+      category: 'pillow',
+      description: '横向き寝を想定した、高め・かためタイプのサンプル商品です。',
+      priceRange: 2,
+      features: ['横向き寝向き', '高さ調整可能', 'かため', '丸洗い可能'],
+      pros: ['肩幅の分の高さを確保しやすい', '中材の出し入れで高さを変えられる'],
+      cons: ['低い枕が好きな人には高く感じる可能性があります'],
+      recommendFor: '横向き寝が多く、首まわりをしっかり支えたい人',
+      caution: '低い枕が好きな人には高く感じる可能性があります。',
+      amazonUrl: '',
+      rakutenUrl: '',
+      imageUrl: '',
+      enabled: true,
+      sample: true,
+      attributes: { back: 3, side: 5, stomach: 1, height: 4, firmness: 4, breathability: 3, adjustable: true, washable: true },
+    },
+    {
+      id: 'pillow-002',
+      name: '枕 商品B（仮）',
+      category: 'pillow',
+      description: '仰向け寝を想定した、ふつうの高さ・やわらかめのサンプル商品です。',
+      priceRange: 1,
+      features: ['仰向け寝向き', 'ふつうの高さ', 'やわらかめ', '手頃な価格帯'],
+      pros: ['頭を包み込むようなやわらかさ', '価格が手頃で試しやすい'],
+      cons: ['へたりやすい素材の場合があります', '横向き寝では低く感じることがあります'],
+      recommendFor: '仰向けで寝ることが多く、やわらかい寝心地が好きな人',
+      amazonUrl: '',
+      rakutenUrl: '',
+      imageUrl: '',
+      enabled: true,
+      sample: true,
+      attributes: { back: 5, side: 2, stomach: 2, height: 3, firmness: 2, breathability: 3, adjustable: false, washable: false },
+    },
+    {
+      id: 'pillow-003',
+      name: '枕 商品C（仮）',
+      category: 'pillow',
+      description: 'うつ伏せ寝を想定した、薄型・やわらかめのサンプル商品です。',
+      priceRange: 1,
+      features: ['うつ伏せ寝向き', '低め（薄型）', 'やわらかめ', '丸洗い可能'],
+      pros: ['顔を横に向けても圧迫感が少ない薄さ', '洗濯機で洗える'],
+      cons: ['高めの枕が好きな人には物足りない可能性があります'],
+      recommendFor: 'うつ伏せ寝が多い人、薄い枕が好きな人',
+      amazonUrl: '',
+      rakutenUrl: '',
+      imageUrl: '',
+      enabled: true,
+      sample: true,
+      attributes: { back: 2, side: 1, stomach: 5, height: 1, firmness: 2, breathability: 3, adjustable: false, washable: true },
+    },
+    {
+      id: 'pillow-004',
+      name: '枕 商品D（仮）',
+      category: 'pillow',
+      description: '寝返りを想定した、両サイドが高いタイプのサンプル商品です。',
+      priceRange: 3,
+      features: ['仰向け・横向き両対応', '高さ調整可能', 'ふつうの硬さ', '通気性の高い素材'],
+      pros: ['中央と両サイドで高さが異なり寝返りしやすい形状', '通気性が高く蒸れにくい'],
+      cons: ['価格帯はやや高め', '独特の形状に慣れが必要な場合があります'],
+      recommendFor: '寝返りが多く、仰向けと横向きの両方で使いたい人',
+      amazonUrl: '',
+      rakutenUrl: '',
+      imageUrl: '',
+      enabled: true,
+      sample: true,
+      attributes: { back: 5, side: 5, stomach: 2, height: 3, firmness: 3, breathability: 5, adjustable: true, washable: false },
+    },
+    {
+      id: 'pillow-005',
+      name: '枕 商品E（仮）',
+      category: 'pillow',
+      description: 'パイプ素材を想定した、かため・通気性重視のサンプル商品です。',
+      priceRange: 2,
+      features: ['かため', '通気性が高い', '高さ調整可能', '丸洗い可能'],
+      pros: ['蒸れにくいパイプ素材', '中材の量で高さを調整できる'],
+      cons: ['寝返り時に素材の音が気になる場合があります'],
+      recommendFor: 'かための寝心地が好きで、蒸れにくさも重視したい人',
+      amazonUrl: '',
+      rakutenUrl: '',
+      imageUrl: '',
+      enabled: true,
+      sample: true,
+      attributes: { back: 4, side: 4, stomach: 2, height: 3, firmness: 5, breathability: 5, adjustable: true, washable: true },
+    },
+    {
+      id: 'pillow-006',
+      name: '枕 商品F（仮）',
+      category: 'pillow',
+      description: '低反発素材を想定した、ゆっくり沈むタイプのサンプル商品です。',
+      priceRange: 4,
+      features: ['仰向け寝向き', 'やや高め', 'ふつうの硬さ', 'フィット感重視'],
+      pros: ['頭の形に合わせてゆっくり沈むフィット感'],
+      cons: ['素材の特性上、蒸れやすく感じることがあります', '丸洗いはできません'],
+      recommendFor: '包み込まれるようなフィット感が好きな人',
+      amazonUrl: '',
+      rakutenUrl: '',
+      imageUrl: '',
+      enabled: true,
+      sample: true,
+      attributes: { back: 5, side: 3, stomach: 1, height: 4, firmness: 3, breathability: 2, adjustable: false, washable: false },
+    },
+  ],
+  guide: {
+    title: '枕の選び方',
+    intro: '枕は「寝姿勢」「高さ」「硬さ」の3つを軸に考えると選びやすくなります。',
+    sections: [
+      {
+        heading: '寝姿勢で考える',
+        body: '仰向けが多い人は首のカーブに沿うやや低め〜ふつう、横向きが多い人は肩幅の分だけ高さのあるもの、うつ伏せが多い人は薄めのものが選ばれることが多いです。',
+      },
+      {
+        heading: '高さ',
+        body: '合う高さは体格や敷き布団・マットレスの沈み込みによっても変わります。迷ったら、中材の出し入れなどで高さを調整できるタイプが扱いやすいでしょう。',
+      },
+      {
+        heading: '硬さ',
+        body: 'やわらかい枕は包み込まれる感覚、かたい枕は頭が沈みにくく寝返りしやすい感覚があります。好みが分かれるため、今使っている枕との比較で考えるのがおすすめです。',
+      },
+      {
+        heading: '素材',
+        body: '素材によって寝心地やお手入れ方法が異なります。',
+        points: ['低反発ウレタン：ゆっくり沈むフィット感', '高反発ウレタン：押し返す力が強く寝返りしやすい', 'パイプ：通気性が高く、高さ調整しやすい', '羽根・わた：やわらかく軽い'],
+      },
+      {
+        heading: '洗濯のしやすさ',
+        body: '清潔に使いたい人は、本体ごと丸洗いできるか、カバーが外せるかを確認しましょう。洗濯方法は商品ごとに異なるため、購入前に表示を確認してください。',
+      },
+    ],
+  },
+  notice:
+    '本診断は好みや使い方から枕の候補を探すためのもので、睡眠の質や体の不調の改善を保証するものではありません。首や肩などに痛みがある場合は、医療機関にご相談ください。',
+  enabled: true,
+}

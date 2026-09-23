@@ -1,0 +1,258 @@
+import type { Diagnosis } from '../../types/diagnosis.ts'
+
+/**
+ * 掃除機診断
+ *
+ * 商品の attributes:
+ *   type      : 'stick'（スティック） / 'canister'（キャニスター） / 'robot'（ロボット） / 'handy'（ハンディ）
+ *   cordless  : コードレスか（true / false）
+ *   suction   : 吸引力の目安（1〜5）
+ *   lightness : 軽さ（1〜5）
+ *   runtime   : 連続使用時間・広い部屋への対応（1〜5）
+ *   quiet     : 静音性（1〜5）
+ *   dustbox   : 'paper'（紙パック） / 'cyclone'（サイクロン・ダストカップ）
+ */
+export const vacuum: Diagnosis = {
+  id: 'vacuum',
+  slug: 'vacuum',
+  name: '掃除機診断',
+  itemName: '掃除機',
+  group: 'life',
+  icon: '🧹',
+  shortDescription: '住まいの広さ・掃除のスタイル・ゴミ捨て方法から、あなたに合う掃除機を診断。',
+  intro: '住まいの広さや掃除の頻度、ゴミ捨て方法の好みなど5つの質問から、あなたの暮らしに合いそうな掃除機を相性順に表示します。',
+  seo: {
+    title: '掃除機診断｜質問に答えてあなたに合う掃除機をチェック',
+    description: 'スティック・キャニスター・ロボット掃除機など、住まいや掃除スタイル・予算の質問に答えるだけであなたに合う掃除機を無料診断。',
+  },
+  priceLabels: {
+    1: '〜10,000円',
+    2: '10,000〜30,000円',
+    3: '30,000〜60,000円',
+    4: '60,000円〜',
+  },
+  questions: [
+    {
+      id: 'home',
+      text: '住まいの広さは？',
+      shortLabel: '住まいの広さ',
+      weight: 15,
+      options: [
+        { id: 'small', label: 'ワンルーム・1K', summary: 'ワンルーム・1K', effects: [{ type: 'atLeast', attr: 'lightness', value: 4 }] },
+        { id: 'mid', label: '1LDK〜2LDK', summary: '1LDK〜2LDK', effects: [{ type: 'atLeast', attr: 'runtime', value: 3 }] },
+        {
+          id: 'large',
+          label: '3LDK以上・戸建て',
+          summary: '3LDK以上・戸建て',
+          effects: [
+            { type: 'atLeast', attr: 'runtime', value: 4 },
+            { type: 'atLeast', attr: 'suction', value: 4 },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'style',
+      text: 'どんな掃除のしかたが多いですか？',
+      shortLabel: '掃除スタイル',
+      weight: 30,
+      options: [
+        {
+          id: 'quick',
+          label: '気づいたときにサッと',
+          summary: 'こまめにサッと掃除したい',
+          effects: [
+            { type: 'equals', attr: 'type', value: 'stick', weight: 2 },
+            { type: 'equals', attr: 'cordless', value: true },
+          ],
+        },
+        {
+          id: 'weekly',
+          label: '週末などにまとめてしっかり',
+          summary: 'まとめてしっかり掃除したい',
+          effects: [{ type: 'atLeast', attr: 'suction', value: 5 }],
+        },
+        {
+          id: 'auto',
+          label: 'できるだけ自動に任せたい',
+          summary: '自動に任せたい',
+          effects: [{ type: 'equals', attr: 'type', value: 'robot' }],
+        },
+        {
+          id: 'spot',
+          label: '机の上や車内など部分的に',
+          summary: '部分的に掃除したい',
+          effects: [{ type: 'equals', attr: 'type', value: 'handy' }],
+        },
+      ],
+    },
+    {
+      id: 'floor',
+      text: '気になる汚れや床は？',
+      shortLabel: '床・汚れ',
+      weight: 15,
+      options: [
+        { id: 'flooring', label: 'フローリング中心', effects: [] },
+        { id: 'carpet', label: 'カーペット・ラグが多い', summary: 'カーペット・ラグが多い', effects: [{ type: 'atLeast', attr: 'suction', value: 4 }] },
+        { id: 'pet', label: 'ペットの毛', summary: 'ペットの毛が気になる', effects: [{ type: 'atLeast', attr: 'suction', value: 4 }] },
+        { id: 'quiet', label: '音が気になる（集合住宅など）', summary: '運転音を抑えたい', effects: [{ type: 'atLeast', attr: 'quiet', value: 4 }] },
+      ],
+    },
+    {
+      id: 'dustbox',
+      text: 'ゴミ捨ての方法の好みは？',
+      shortLabel: 'ゴミ捨て方法',
+      help: '紙パック式は手を汚しにくく、サイクロン式は紙パックの購入が不要です。',
+      weight: 10,
+      options: [
+        { id: 'paper', label: '紙パック式がいい', summary: '紙パック式が好み', effects: [{ type: 'equals', attr: 'dustbox', value: 'paper' }] },
+        { id: 'cyclone', label: 'サイクロン式（ダストカップ）がいい', summary: 'サイクロン式が好み', effects: [{ type: 'equals', attr: 'dustbox', value: 'cyclone' }] },
+        { id: 'any', label: 'こだわらない', effects: [] },
+      ],
+    },
+    {
+      id: 'budget',
+      text: 'ご予算は？',
+      shortLabel: '予算',
+      weight: 20,
+      options: [
+        { id: 'b1', label: '10,000円くらいまで', summary: '予算10,000円まで', effects: [{ type: 'atMost', attr: 'priceRange', value: 1 }] },
+        { id: 'b2', label: '30,000円くらいまで', summary: '予算30,000円まで', effects: [{ type: 'atMost', attr: 'priceRange', value: 2 }] },
+        { id: 'b3', label: '60,000円くらいまで', summary: '予算60,000円まで', effects: [{ type: 'atMost', attr: 'priceRange', value: 3 }] },
+        { id: 'any', label: '予算は気にしない', effects: [] },
+      ],
+    },
+  ],
+  products: [
+    {
+      id: 'vacuum-001',
+      name: '掃除機 商品A（仮）',
+      category: 'vacuum',
+      description: '軽量なコードレススティックタイプのサンプル商品です。',
+      priceRange: 2,
+      features: ['コードレス', 'スティック型', '軽量', 'サイクロン式'],
+      pros: ['思い立ったらすぐ使える', '壁に立てかけて収納しやすい'],
+      cons: ['広い家を一度に掃除するにはバッテリーが足りない場合があります'],
+      recommendFor: 'ワンルーム〜2LDKで、こまめにサッと掃除したい人',
+      amazonUrl: '',
+      rakutenUrl: '',
+      imageUrl: '',
+      enabled: true,
+      sample: true,
+      attributes: { type: 'stick', cordless: true, suction: 3, lightness: 5, runtime: 3, quiet: 3, dustbox: 'cyclone' },
+    },
+    {
+      id: 'vacuum-002',
+      name: '掃除機 商品B（仮）',
+      category: 'vacuum',
+      description: '吸引力を重視した紙パック式キャニスタータイプのサンプル商品です。',
+      priceRange: 2,
+      features: ['キャニスター型', '紙パック式', 'コード式で時間を気にせず使える'],
+      pros: ['安定した吸引力', 'ゴミ捨て時に手が汚れにくい'],
+      cons: ['本体を引いて歩く必要があり、階段の掃除はやや手間です', '紙パックの購入が必要です'],
+      recommendFor: '広めの家で、週末にしっかり掃除したい人',
+      amazonUrl: '',
+      rakutenUrl: '',
+      imageUrl: '',
+      enabled: true,
+      sample: true,
+      attributes: { type: 'canister', cordless: false, suction: 5, lightness: 2, runtime: 5, quiet: 3, dustbox: 'paper' },
+    },
+    {
+      id: 'vacuum-003',
+      name: '掃除機 商品C（仮）',
+      category: 'vacuum',
+      description: '床掃除を自動で行うロボットタイプのサンプル商品です。',
+      priceRange: 3,
+      features: ['ロボット掃除機', 'スケジュール運転', '自動充電'],
+      pros: ['外出中などに自動で床を掃除できる'],
+      cons: ['床に物が多いと効果を発揮しにくいです', '部屋の隅や段差は苦手な場合があります'],
+      recommendFor: '掃除の手間をできるだけ減らしたい人',
+      amazonUrl: '',
+      rakutenUrl: '',
+      imageUrl: '',
+      enabled: true,
+      sample: true,
+      attributes: { type: 'robot', cordless: true, suction: 3, lightness: 3, runtime: 4, quiet: 4, dustbox: 'cyclone' },
+    },
+    {
+      id: 'vacuum-004',
+      name: '掃除機 商品D（仮）',
+      category: 'vacuum',
+      description: '部分掃除用のコンパクトなハンディタイプのサンプル商品です。',
+      priceRange: 1,
+      features: ['ハンディ型', 'コードレス', '軽量・コンパクト'],
+      pros: ['机の上や車内などをすぐ掃除できる', '価格が手頃'],
+      cons: ['床全体の掃除には向きません'],
+      recommendFor: 'メインの掃除機とは別に、ちょっとした汚れを掃除したい人',
+      amazonUrl: '',
+      rakutenUrl: '',
+      imageUrl: '',
+      enabled: true,
+      sample: true,
+      attributes: { type: 'handy', cordless: true, suction: 2, lightness: 5, runtime: 1, quiet: 3, dustbox: 'cyclone' },
+    },
+    {
+      id: 'vacuum-005',
+      name: '掃除機 商品E（仮）',
+      category: 'vacuum',
+      description: '吸引力と連続使用時間を重視した上位クラスのスティックタイプのサンプル商品です。',
+      priceRange: 4,
+      features: ['コードレス', 'スティック型', '高い吸引力', '長時間バッテリー'],
+      pros: ['広い家でもコードレスで掃除しやすい', 'カーペットやペットの毛の掃除にも対応'],
+      cons: ['価格帯は高めです', 'スティック型としてはやや重めです'],
+      recommendFor: '広めの家で、コードレスでもしっかり掃除したい人',
+      amazonUrl: '',
+      rakutenUrl: '',
+      imageUrl: '',
+      enabled: true,
+      sample: true,
+      attributes: { type: 'stick', cordless: true, suction: 5, lightness: 3, runtime: 5, quiet: 2, dustbox: 'cyclone' },
+    },
+    {
+      id: 'vacuum-006',
+      name: '掃除機 商品F（仮）',
+      category: 'vacuum',
+      description: '静音性を重視した紙パック式スティックタイプのサンプル商品です。',
+      priceRange: 3,
+      features: ['コードレス', 'スティック型', '紙パック式', '静音設計'],
+      pros: ['集合住宅でも使いやすい静かさ', 'ゴミ捨てが簡単'],
+      cons: ['紙パックの購入が必要です'],
+      recommendFor: '運転音が気になる人、ゴミ捨てを手軽にしたい人',
+      amazonUrl: '',
+      rakutenUrl: '',
+      imageUrl: '',
+      enabled: true,
+      sample: true,
+      attributes: { type: 'stick', cordless: true, suction: 3, lightness: 4, runtime: 3, quiet: 5, dustbox: 'paper' },
+    },
+  ],
+  guide: {
+    title: '掃除機の選び方',
+    sections: [
+      {
+        heading: 'タイプで選ぶ',
+        body: '掃除機は大きく4つのタイプに分かれます。',
+        points: [
+          'スティック型：軽くて取り回しがよく、こまめな掃除向き',
+          'キャニスター型：吸引力が安定し、時間を気にせず掃除できる',
+          'ロボット型：自動で床掃除。床に物が少ない家向き',
+          'ハンディ型：机の上や車内など部分掃除向き',
+        ],
+      },
+      {
+        heading: 'コードレスかコード式か',
+        body: 'コードレスは手軽さが魅力ですが、バッテリーの持ち時間に限りがあります。広い家の場合は連続使用時間を確認しましょう。',
+      },
+      {
+        heading: 'ゴミ捨て方法',
+        body: '紙パック式はゴミ捨て時にホコリが舞いにくく、サイクロン式は紙パックの買い足しが不要です。フィルター掃除の手間も合わせて比較しましょう。',
+      },
+      {
+        heading: '重さと音',
+        body: '階段や2階での使用が多いなら本体の軽さ、集合住宅や夜の掃除が多いなら運転音の大きさ（dB）も確認しておくと安心です。',
+      },
+    ],
+  },
+  enabled: true,
+}
