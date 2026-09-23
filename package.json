@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "typecheck": "tsc -b",
-    "check": "node scripts/checkDiagnoses.ts"
+    "check": "node scripts/checkDiagnoses.ts",
+    "rakuten:search": "node scripts/rakuten/search.ts"
   },
   "dependencies": {
     "react": "^19.3.0",

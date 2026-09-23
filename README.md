@@ -249,6 +249,31 @@ officialUrl: 'https://…',
 > Amazonアソシエイト・プログラムに直接参加する場合は、規約で定められた表記（「Amazonのアソシエイトとして…」）を
 > `src/pages/StaticPages.tsx` の「広告掲載について」ページに追加してください。
 
+### 楽天市場APIから商品候補を取得する（ローカル専用）
+
+楽天市場商品検索API（`https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20260701`）から商品候補を取得し、
+**確認用のJSON**として保存するツールです。サイト（ブラウザ）からは楽天APIを呼ばず、診断データも自動では書き換えません。現在は枕（`pillow`）のみ対応しています。
+
+1. `.env.example` をコピーして `.env.local` を作り、楽天ウェブサービスの値を入力（`.env` で始まるファイルは Git に上がりません）
+   ```
+   RAKUTEN_APPLICATION_ID=…
+   RAKUTEN_ACCESS_KEY=…
+   RAKUTEN_AFFILIATE_ID=…
+   ```
+   - Windows のメモ帳で保存すると `.env.local.txt` になることがあります。その場合は `Rename-Item .env.local.txt .env.local` で名前を変更してください
+   - 楽天のアプリ設定の「許可されたWebサイト」と送信元（Origin）が一致しないと 403 になります。Origin は `src/config/site.ts` の `url`、変えたい場合は `.env.local` に `RAKUTEN_ORIGIN=` を追加
+2. 実行
+   ```bash
+   npm run rakuten:search -- pillow
+   npm run rakuten:search -- pillow --keyword "枕 横向き" --hits 20   # キーワード・件数を指定
+   ```
+3. 保存先：`data/rakuten-candidates/pillow/日時.json` と `latest.json`（Git 管理外）
+4. JSON を確認し、採用する商品の `productDraft` を参考に `src/data/diagnoses/pillow.ts` へ手動で追加（`attributes` や特徴は商品ページを見て記入）
+
+- 検索キーワード・除外ワード・並び順は `scripts/rakuten/presets.ts` で変更できます
+- 認証エラー（403 など）、429（1回だけ自動で再試行）、0件、500/503、通信エラーはそれぞれメッセージで案内します
+- 認証情報の値は画面に表示されず、保存するJSONにも Application ID / Access Key は含まれません（アフィリエイトURLには仕組み上アフィリエイトIDが含まれます）
+
 ## 9. 診断の追加方法
 
 **診断設定ファイルを1つ作って、登録簿に1行追加するだけ**です。トップページのカード・URL（`/diagnosis/◯◯`）・sitemap.xml・ページ別HTMLは自動で作られます。
