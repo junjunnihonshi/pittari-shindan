@@ -1,4 +1,5 @@
 import type { Diagnosis } from '../../types/diagnosis.ts'
+import { budgetQuestion } from './shared.ts'
 
 /**
  * 枕診断
@@ -95,18 +96,15 @@ export const pillow: Diagnosis = {
         { id: 'none', label: '特になし', effects: [] },
       ],
     },
-    {
-      id: 'budget',
-      text: 'ご予算は？',
-      shortLabel: '予算',
+    budgetQuestion({
       weight: 15,
-      options: [
-        { id: 'b1', label: '3,000円くらいまで', summary: '予算3,000円まで', effects: [{ type: 'atMost', attr: 'priceRange', value: 1 }] },
-        { id: 'b2', label: '6,000円くらいまで', summary: '予算6,000円まで', effects: [{ type: 'atMost', attr: 'priceRange', value: 2 }] },
-        { id: 'b3', label: '10,000円くらいまで', summary: '予算10,000円まで', effects: [{ type: 'atMost', attr: 'priceRange', value: 3 }] },
-        { id: 'any', label: '予算は気にしない', effects: [] },
+      bands: [
+        { label: '3,000円くらいまで', summary: '予算3,000円まで' },
+        { label: '6,000円くらいまで', summary: '予算6,000円まで' },
+        { label: '10,000円くらいまで', summary: '予算10,000円まで' },
       ],
-    },
+      noLimitLabel: '予算は気にしない',
+    }),
   ],
   products: [
     {

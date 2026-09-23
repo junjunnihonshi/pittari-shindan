@@ -1010,6 +1010,61 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
 .result-card--first .result-card__rank-num {
   color: #fff;
 }
+/* 補完候補（予算を少し超える等）のカード：順位の代わりにラベルを表示。通常ランキングより控えめ */
+.result-card--reference {
+  background: #fbfcfd;
+  border-style: dashed;
+  border-color: var(--color-border-strong);
+  box-shadow: none;
+}
+.result-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 14px;
+  padding: 0;
+  list-style: none;
+}
+.result-card__tag {
+  padding: 3px 12px;
+  border-radius: 999px;
+  background: var(--color-caution-bg);
+  border: 1px solid var(--color-caution-border);
+  color: #7a4f00;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* 結果上部の条件の説明（例：コードレスを優先した商品から表示） */
+.result-notice {
+  margin: -6px auto 16px;
+  max-width: 34em;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary-tint);
+  color: var(--color-primary-dark);
+  font-size: 0.86rem;
+  text-align: center;
+}
+
+/* 別枠：予算を少し超える候補 など（通常ランキングとは順位を分ける） */
+.supplements {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px dashed var(--color-border-strong);
+}
+.supplements__title {
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+.supplements__lead {
+  margin: 4px 0 0;
+  font-size: 0.86rem;
+  color: var(--color-muted);
+}
+.supplements .result-list {
+  margin-top: 14px;
+}
 .result-card__head {
   display: flex;
   gap: 14px;
@@ -1275,6 +1330,16 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
 .others__score {
   color: var(--color-muted);
   font-size: 0.85rem;
+}
+.others__tag {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: var(--color-caution-bg);
+  color: #7a4f00;
+  font-size: 0.75rem;
+  font-weight: 700;
 }
 
 .notes {

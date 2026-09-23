@@ -35,6 +35,32 @@ export function validateDiagnoses(list: Diagnosis[]): string[] {
       if (productIds.has(p.id)) problems.push(`${where} 商品IDが重複しています: "${p.id}"`)
       productIds.add(p.id)
       if (p.category !== d.id) problems.push(`${where} 商品 "${p.id}" の category が "${p.category}" になっています（"${d.id}" にしてください）`)
+      if (!(p.priceRange in d.priceLabels)) problems.push(`${where} 商品 "${p.id}" の priceRange ${p.priceRange} に対応する priceLabels がありません`)
+    }
+
+    // 質問が参照する評価項目が、表示中の商品すべてに入っているか。
+    // 入っていないと、その項目は黙って中立（0.5点）で採点されるため、打ち間違いや入力漏れに気づけるよう警告する
+    const referenced = new Set<string>()
+    for (const q of d.questions) {
+      for (const o of q.options) {
+        for (const e of o.effects) if (e.type !== 'custom' && e.attr !== 'priceRange') referenced.add(e.attr)
+        // 適格条件で使う評価項目も対象
+        if (o.eligibility) referenced.add(o.eligibility.attr)
+        if (o.eligibility && o.effects.length > 0) {
+          problems.push(`${where} 質問 "${q.id}" の選択肢 "${o.id}" は適格条件を持つため、effects は空にしてください（採点しても差が付かないため）`)
+        }
+        if (o.maxPriceRange !== undefined && !(o.maxPriceRange in d.priceLabels)) {
+          problems.push(`${where} 質問 "${q.id}" の選択肢 "${o.id}" の maxPriceRange ${o.maxPriceRange} に対応する priceLabels がありません`)
+        }
+      }
+    }
+    for (const attr of referenced) {
+      const missing = enabled.filter((p) => !(attr in p.attributes)).map((p) => p.id)
+      if (missing.length === enabled.length) {
+        problems.push(`${where} 質問で使っている評価項目 "${attr}" が、どの商品の attributes にもありません（項目名の打ち間違いの可能性）`)
+      } else if (missing.length > 0) {
+        problems.push(`${where} 評価項目 "${attr}" が次の商品にありません（中立で採点されます）: ${missing.join(', ')}`)
+      }
     }
   }
   return problems

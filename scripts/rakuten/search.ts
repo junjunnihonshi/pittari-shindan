@@ -211,15 +211,31 @@ function priceRangeOf(price: number, thresholds: number[]): number {
   return Math.min(5, (idx === -1 ? thresholds.length : idx) + 1)
 }
 
+/**
+ * 楽天APIが返すURLの rafcid（アプリID入りの計測用パラメータ）を取り除く。
+ * アフィリエイトの成果判定には使われず（リダイレクト先は同じ）、公開サイトにアプリIDを出さないため。
+ */
+function stripRafcid(url: string | undefined): string {
+  if (!url) return ''
+  try {
+    const u = new URL(url)
+    u.searchParams.delete('rafcid')
+    return u.toString()
+  } catch {
+    return url
+  }
+}
+
 function toCandidate(item: RakutenItem, preset: RakutenPreset, queries: string[]) {
   const images = imageUrlsOf(item)
+  const affiliateUrl = stripRafcid(item.affiliateUrl)
   return {
     source: 'rakuten',
     itemCode: item.itemCode,
     itemName: item.itemName,
     itemPrice: item.itemPrice,
-    itemUrl: item.itemUrl,
-    affiliateUrl: item.affiliateUrl ?? '',
+    itemUrl: stripRafcid(item.itemUrl),
+    affiliateUrl,
     imageUrl: images[0] ?? '',
     imageUrls: images,
     catchcopy: item.catchcopy ?? '',
@@ -248,11 +264,12 @@ function toCandidate(item: RakutenItem, preset: RakutenPreset, queries: string[]
       cons: [],
       recommendFor: '',
       amazonUrl: '',
-      rakutenUrl: item.affiliateUrl ?? '',
+      rakutenUrl: affiliateUrl,
       imageUrl: images[0] ?? '',
       enabled: false,
       sample: false,
-      attributes: {},
+      // プリセットに attributeKeys があれば、記入欄として null で用意する
+      attributes: Object.fromEntries((preset.attributeKeys ?? []).map((key) => [key, null])),
     },
   }
 }
@@ -288,7 +305,26 @@ async function main() {
     )
   }
 
-  const candidates = [...byCode.values()].map(({ item, queries }) => toCandidate(item, preset, queries))
+  let entries = [...byCode.values()]
+  // 1ショップあたりの上限（特定メーカーの公式店などに候補が偏らないように）
+  let droppedByShopLimit = 0
+  if (preset.maxPerShop) {
+    const perShop = new Map<string, number>()
+    const sorted = [...entries].sort((a, b) => (b.item.reviewCount ?? 0) - (a.item.reviewCount ?? 0))
+    const kept = new Set<string>()
+    for (const e of sorted) {
+      const shop = e.item.shopCode || e.item.shopName || '(不明)'
+      const n = perShop.get(shop) ?? 0
+      if (n < preset.maxPerShop) {
+        perShop.set(shop, n + 1)
+        kept.add(e.item.itemCode)
+      }
+    }
+    droppedByShopLimit = entries.length - kept.size
+    entries = entries.filter((e) => kept.has(e.item.itemCode))
+  }
+
+  const candidates = entries.map(({ item, queries }) => toCandidate(item, preset, queries))
   const missingAffiliate = candidates.filter((c) => !c.affiliateUrl).length
 
   const fetchedAt = new Date()
@@ -304,6 +340,7 @@ async function main() {
       hitsPerKeyword: hits,
       sort: preset.sort,
       count: candidates.length,
+      ...(preset.maxPerShop ? { maxPerShop: preset.maxPerShop, droppedByShopLimit } : {}),
       note:
         'これは楽天市場APIから取得した「候補」です。価格・在庫は取得時点のものです。' +
         '採用する商品は review.adopt を true にし、productDraft を確認・補完してから src/data/diagnoses に手動で追加してください。',
@@ -317,6 +354,9 @@ async function main() {
   fs.writeFileSync(latest, json)
 
   log(`\n✅ ${candidates.length} 件の候補を保存しました（重複除外後）`)
+  if (droppedByShopLimit > 0) {
+    log(`   ※ 1ショップ ${preset.maxPerShop} 件までの上限により ${droppedByShopLimit} 件を除外しました（特定メーカーへの偏り防止）`)
+  }
   log(`   ${path.relative(ROOT, file)}`)
   log(`   ${path.relative(ROOT, latest)}（最新の結果のコピー）`)
   if (missingAffiliate > 0) {

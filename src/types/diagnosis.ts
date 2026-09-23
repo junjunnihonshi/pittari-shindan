@@ -74,6 +74,24 @@ export interface AnswerOption {
   summary?: string
   /** スコアへの影響。空配列の場合「こだわらない」扱いでこの質問は採点から除外 */
   effects: Effect[]
+  /**
+   * 適格条件（任意）。この選択肢を選ぶと、商品の attributes[attr] が value の商品だけを通常ランキングの候補にします。
+   * 条件を満たす商品が通常ランキングの件数に足りないときだけ、満たさない商品を別枠の「補完候補」として表示します。
+   * 適格条件を持つ選択肢は effects を空にしてください（候補がすべて同じ点になり、採点しても差が付かないため）。
+   */
+  eligibility?: {
+    attr: string
+    value: AttrValue
+    /** 結果画面の上部に表示する短い説明 */
+    notice?: string
+    /** 条件を満たさない商品を補完したときに、その商品に表示するラベル */
+    supplementLabel?: string
+  }
+  /**
+   * 上限条件（任意。主に予算）。priceRange がこの値以下の商品を通常ランキングの候補にします。
+   * 超える商品は、通常ランキングの件数に足りないときだけ「予算を少し超える候補」として別枠に表示します。
+   */
+  maxPriceRange?: number
 }
 
 export interface Question {
@@ -141,6 +159,13 @@ export interface Diagnosis {
   scoring?: {
     /** 0〜1 の基本スコアを受け取り、補正後のスコア（0〜1）を返す */
     adjust?: (args: { product: Product; answers: Answers; score: number }) => number
+    /**
+     * true にすると、相性スコアが完全に同じ商品の並び順を次の順で決めます（未設定なら従来どおり登録順）。
+     * 1. 質問ごとの一致度（重みの大きい質問から）
+     * 2. ユーザーが選んだ回答で使われた評価項目の元の値（価格は使わない）
+     * 3. 商品ID
+     */
+    tieBreak?: boolean
   }
   /**
    * 公開状態。

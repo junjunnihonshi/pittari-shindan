@@ -14,9 +14,6 @@ import type { Answers, Diagnosis } from '../types/diagnosis.ts'
 
 type Phase = 'intro' | 'quiz' | 'done' | 'result'
 
-/** 結果として表示する件数 */
-const TOP_N = 3
-
 export function DiagnosisPage({ diagnosis }: { diagnosis: Diagnosis }) {
   useSeo({
     path: diagnosisPath(diagnosis.slug),
@@ -84,8 +81,13 @@ export function DiagnosisPage({ diagnosis }: { diagnosis: Diagnosis }) {
     start()
   }
 
-  const top = result?.results.slice(0, TOP_N) ?? []
-  const others = result?.results.slice(TOP_N) ?? []
+  // 通常ランキング（条件をすべて満たす商品）と、足りないときだけの補完候補（別枠・順位なし）
+  const top = result?.ranked ?? []
+  const supplements = result?.supplements ?? []
+  const shown = new Set([...top, ...supplements].map((r) => r.product.id))
+  const others = result?.results.filter((r) => !shown.has(r.product.id)) ?? []
+  // 補完候補が予算超えだけなら「予算を少し超える候補」、条件（コードレスなど）を満たさない商品を含むなら汎用の見出し
+  const onlyOverBudget = supplements.every((r) => r.overBudget && !r.ineligible)
 
   return (
     <div className="container page">
@@ -167,6 +169,11 @@ export function DiagnosisPage({ diagnosis }: { diagnosis: Diagnosis }) {
               あなたの回答と商品の特徴を照らし合わせ、<strong>相性の高い順</strong>
               に表示しています。人気や売上のランキングではありません。
             </p>
+            {result?.notices.map((n) => (
+              <p key={n} className="result-notice">
+                {n}
+              </p>
+            ))}
 
             <details className="answer-summary">
               <summary>あなたの回答を確認する</summary>
@@ -183,27 +190,54 @@ export function DiagnosisPage({ diagnosis }: { diagnosis: Diagnosis }) {
               </dl>
             </details>
 
-            {top.length === 0 ? (
+            {top.length === 0 && supplements.length === 0 ? (
               <div className="empty-state">
                 <h3>現在表示できる商品がありません</h3>
                 <p>商品情報を準備中です。時間をおいて再度お試しください。</p>
               </div>
             ) : (
-              <div className="result-list">
-                {top.map((r, i) => (
-                  <ResultCard key={r.product.id} result={r} rank={i + 1} diagnosis={diagnosis} />
-                ))}
-              </div>
+              top.length > 0 && (
+                <div className="result-list">
+                  {top.map((r, i) => (
+                    <ResultCard key={r.product.id} result={r} rank={i + 1} diagnosis={diagnosis} />
+                  ))}
+                </div>
+              )
+            )}
+
+            {supplements.length > 0 && (
+              <section className="supplements" aria-labelledby="supplements-title">
+                <h3 id="supplements-title" className="supplements__title">
+                  {onlyOverBudget ? '予算を少し超える候補' : '条件の一部を満たさない候補'}
+                </h3>
+                <p className="supplements__lead">
+                  {onlyOverBudget
+                    ? '予算条件は超えますが、それ以外の条件との相性が高い商品です。'
+                    : '条件に合う商品が少ないため、条件の一部を満たさない商品を参考として表示しています。'}
+                </p>
+                <div className="result-list">
+                  {supplements.map((r) => (
+                    <ResultCard key={r.product.id} result={r} rank={0} diagnosis={diagnosis} variant="reference" />
+                  ))}
+                </div>
+              </section>
             )}
 
             {others.length > 0 && (
               <details className="others">
                 <summary>そのほかの候補（{others.length}件）</summary>
-                <ol start={TOP_N + 1}>
+                <ol start={top.length + supplements.length + 1}>
                   {others.map((r) => (
                     <li key={r.product.id}>
                       <span>{r.product.name}</span>
-                      <span className="others__score">相性 {r.matchPercent}%</span>
+                      <span className="others__score">
+                        {r.overBudget || r.ineligible ? '参考相性' : '相性'} {r.matchPercent}%
+                      </span>
+                      {(r.supplementLabels ?? []).map((label) => (
+                        <span key={label} className="others__tag">
+                          {label}
+                        </span>
+                      ))}
                     </li>
                   ))}
                 </ol>
