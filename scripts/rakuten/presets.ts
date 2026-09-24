@@ -182,4 +182,43 @@ export const presets: Record<string, RakutenPreset> = {
     // fryingPan.ts の評価項目・条件項目（公式仕様を確認して記入する）
     attributeKeys: ['nonStick', 'durability', 'lightness', 'heatPerformance', 'easyCare', 'gasOk', 'ihOk'],
   },
+  /**
+   * モバイルバッテリー：日常的に持ち歩くモバイルバッテリー。
+   * ポータブル電源・車載専用品・乾電池式・ソーラー主体の商品は対象外。
+   * 「ケース」「ケーブル」は内蔵ケーブル付きの商品まで消えるため除外ワードにしない（取得後に手動で分類する）。
+   */
+  'mobile-battery': {
+    category: 'mobile-battery',
+    // 役割・容量・出力・便利機能と価格帯で広く拾う（メーカー名は入れない）
+    keywords: [
+      'モバイルバッテリー 軽量 小型',
+      'モバイルバッテリー 5000mAh',
+      'モバイルバッテリー 10000mAh',
+      'モバイルバッテリー 20000mAh',
+      'モバイルバッテリー 45W',
+      'モバイルバッテリー 65W ノートパソコン',
+      'モバイルバッテリー 3台同時',
+      'モバイルバッテリー ケーブル内蔵',
+      'モバイルバッテリー マグネット ワイヤレス',
+      'モバイルバッテリー Qi2',
+      'モバイルバッテリー 大容量 急速充電',
+      // 価格帯別（src/data/diagnoses/mobileBattery.ts の priceLabels に合わせる）
+      { keyword: 'モバイルバッテリー', maxPrice: 3000 },
+      { keyword: 'モバイルバッテリー', minPrice: 3001, maxPrice: 6000 },
+      { keyword: 'モバイルバッテリー', minPrice: 6001, maxPrice: 10000 },
+      { keyword: 'モバイルバッテリー', minPrice: 10001 },
+    ],
+    // 対象外が明らかなものだけ（強くしすぎると通常品まで消えるため最小限にする）
+    ngKeyword: 'ポータブル電源 乾電池 ソーラー ジャンプスターター 中古',
+    sort: '-reviewCount',
+    hits: 20,
+    // ケーブル・ケースなどの単品を除くための下限
+    minPrice: 1000,
+    // 同じショップ（メーカー公式店など）からは最大3件まで
+    maxPerShop: 3,
+    // src/data/diagnoses/mobileBattery.ts の priceLabels に合わせる（〜3,000 / 〜6,000 / 〜10,000 / それ以上）
+    priceThresholds: [3000, 6000, 10000],
+    // mobileBattery.ts の評価項目・true/false 項目（公式仕様を確認して記入する）
+    attributeKeys: ['capacity', 'outputPower', 'lightness', 'multiDevice', 'laptopOk', 'builtInCable', 'wireless'],
+  },
 }

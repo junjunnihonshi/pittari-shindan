@@ -389,6 +389,7 @@ scoring: {
 | `eligibility` | 選択肢 | 条件（例：`cordless: true`）を満たす商品だけを通常ランキングの候補にする（適格条件） |
 | `maxPriceRange` | 選択肢 | `priceRange` がこの値以下の商品だけを通常ランキングの候補にする（予算の上限） |
 | `scoring.tieBreak` | 診断 | 相性スコアが完全に同じ商品の並べ方を決める |
+| `scoring.lowMatchNotice` | 診断 | 1位の相性が60%未満のときだけ、結果画面の上部に短い説明を出す（採点・順位・相性%は変わらない） |
 
 **`eligibility`（適格条件）**
 

@@ -35,6 +35,15 @@ export interface DiagnosisResult {
 
 const OVER_BUDGET_LABEL = '予算を少し超えます'
 
+/** 1位の相性がこの値（%）未満なら scoring.lowMatchNotice を表示する */
+export const LOW_MATCH_PERCENT = 60
+
+/** 1位（通常ランキングが空なら補完候補の先頭）の相性が低いときの説明を notices に加える */
+function withLowMatchNotice(diagnosis: Diagnosis, notices: string[], top: ProductResult | undefined): string[] {
+  const text = diagnosis.scoring?.lowMatchNotice
+  return text && top && top.matchPercent < LOW_MATCH_PERCENT ? [...notices, text] : notices
+}
+
 /** 表示可能な商品だけを返す（enabled かつ カテゴリ一致） */
 export function getAvailableProducts(diagnosis: Diagnosis): Product[] {
   return diagnosis.products.filter((p) => p.enabled && p.category === diagnosis.id)
@@ -202,7 +211,7 @@ export function runDiagnosis(diagnosis: Diagnosis, answers: Answers): DiagnosisR
   const usesSelection = diagnosis.questions.some((q) => q.options.some((o) => o.eligibility || o.maxPriceRange !== undefined))
   if (!usesSelection) {
     const plain = results.map(({ product, score, matchPercent, breakdown, reason }) => ({ product, score, matchPercent, breakdown, reason }))
-    return { diagnosisId: diagnosis.id, results: plain, ranked: plain.slice(0, TOP_N), supplements: [], notices: [] }
+    return { diagnosisId: diagnosis.id, results: plain, ranked: plain.slice(0, TOP_N), supplements: [], notices: withLowMatchNotice(diagnosis, [], plain[0]) }
   }
   const { ordered, ranked, supplements, notices } = applySelection(diagnosis.questions, answers, results)
   return {
@@ -210,6 +219,6 @@ export function runDiagnosis(diagnosis: Diagnosis, answers: Answers): DiagnosisR
     results: ordered.map(strip),
     ranked: ranked.map(strip),
     supplements: supplements.map(strip),
-    notices,
+    notices: withLowMatchNotice(diagnosis, notices, ranked[0] ?? supplements[0]),
   }
 }

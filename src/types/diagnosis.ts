@@ -175,6 +175,11 @@ export interface Diagnosis {
      * おすすめ理由を「よく合っている」ではなく「比較的合っています」と表現します（採点・順位には影響しません）。
      */
     softenPartialReason?: boolean
+    /**
+     * 1位の相性が LOW_MATCH_PERCENT（60%）未満のときだけ、結果画面の上部に表示する短い説明（任意）。
+     * 条件をすべて満たす商品が少ない回答の組み合わせ向け。採点・順位・相性%には影響しません。
+     */
+    lowMatchNotice?: string
   }
   /**
    * 公開状態。
