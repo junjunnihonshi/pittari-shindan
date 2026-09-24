@@ -45,7 +45,7 @@ export function validateDiagnoses(list: Diagnosis[]): string[] {
       for (const o of q.options) {
         for (const e of o.effects) if (e.type !== 'custom' && e.attr !== 'priceRange') referenced.add(e.attr)
         // 適格条件で使う評価項目も対象
-        if (o.eligibility) referenced.add(o.eligibility.attr)
+        for (const e of o.eligibility ? [o.eligibility].flat() : []) referenced.add(e.attr)
         if (o.eligibility && o.effects.length > 0) {
           problems.push(`${where} 質問 "${q.id}" の選択肢 "${o.id}" は適格条件を持つため、effects は空にしてください（採点しても差が付かないため）`)
         }

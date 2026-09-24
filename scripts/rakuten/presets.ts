@@ -140,4 +140,46 @@ export const presets: Record<string, RakutenPreset> = {
     // hairDryer.ts の評価項目（公式仕様を確認して記入する）
     attributeKeys: ['dryingPower', 'hairCare', 'lightness', 'quiet', 'manageability', 'scalpCare', 'compactness'],
   },
+
+  /**
+   * フライパン：家庭で日常的に使うメインのフライパン（26cm を比較の標準サイズとする）。
+   * 卵焼き器・中華鍋・深型鍋・業務用・アウトドア・グリルパン・ホットプレート・電気フライパンは対象外。
+   * 「セット」「鍋」は取っ手が取れるタイプや単品まで消えるため除外ワードにしない（取得後に手動で分類する）。
+   */
+  'frying-pan': {
+    category: 'frying-pan',
+    // 役割・素材・熱源と価格帯で広く拾う（メーカー名は入れない）
+    keywords: [
+      'フライパン 26cm',
+      'フライパン 26cm IH',
+      'フライパン 26cm ガス',
+      'フライパン 26cm 軽量',
+      'フライパン 26cm こびりつきにくい',
+      'フライパン 26cm フッ素',
+      'フライパン 26cm セラミック',
+      'フライパン 26cm 鉄',
+      'フライパン 26cm ステンレス',
+      'フライパン 26cm 多層',
+      'フライパン 26cm 食洗機',
+      'フライパン 26cm 取っ手が取れる',
+      // 価格帯別（src/data/diagnoses/fryingPan.ts の priceLabels に合わせる）
+      { keyword: 'フライパン 26cm', maxPrice: 3000 },
+      { keyword: 'フライパン 26cm IH', maxPrice: 3000 },
+      { keyword: 'フライパン 26cm', minPrice: 3001, maxPrice: 6000 },
+      { keyword: 'フライパン 26cm', minPrice: 6001, maxPrice: 10000 },
+      { keyword: 'フライパン 26cm', minPrice: 10001 },
+    ],
+    // 対象外が明らかなものだけ（強くしすぎると単品まで消えるため最小限にする）
+    ngKeyword: '卵焼き器 玉子焼き器 北京鍋 中華鍋 ホットプレート 電気フライパン グリルパン 中古',
+    sort: '-reviewCount',
+    hits: 20,
+    // ふた・取っ手などの単品パーツを除くための下限
+    minPrice: 800,
+    // 同じショップ（メーカー公式店など）からは最大3件まで
+    maxPerShop: 3,
+    // src/data/diagnoses/fryingPan.ts の priceLabels に合わせる（〜3,000 / 〜6,000 / 〜10,000 / それ以上）
+    priceThresholds: [3000, 6000, 10000],
+    // fryingPan.ts の評価項目・条件項目（公式仕様を確認して記入する）
+    attributeKeys: ['nonStick', 'durability', 'lightness', 'heatPerformance', 'easyCare', 'gasOk', 'ihOk'],
+  },
 }

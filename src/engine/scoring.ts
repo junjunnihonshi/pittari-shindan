@@ -57,6 +57,8 @@ export interface QuestionBreakdown {
   weight: number
   /** 0〜1 */
   score: number
+  /** 複数のルールを持つ回答で、満たしていないルールがある（一部だけ一致）。理由文の表現に使う */
+  partial?: boolean
 }
 
 /** 全質問の重み付き平均でスコア（0〜1）と内訳を返す */
@@ -71,12 +73,14 @@ export function scoreProduct(questions: Question[], answers: Answers, product: P
     const w = Math.max(0, q.weight)
     total += s * w
     weights += w
+    const partial = option.effects.length > 1 && option.effects.some((e) => scoreEffect(e, product) < 1)
     breakdown.push({
       questionId: q.id,
       label: q.shortLabel,
       answerSummary: option.summary ?? option.label,
       weight: w,
       score: s,
+      ...(partial ? { partial } : {}),
     })
   }
   // 全問「こだわらない」の場合は全商品同点（0.7）として扱う

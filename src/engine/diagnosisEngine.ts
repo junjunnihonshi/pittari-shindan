@@ -60,13 +60,21 @@ const STRONG = 0.8
 const WEAK = 0.5
 
 /** 内訳からおすすめ理由の文章を組み立てる（AI不使用のテンプレート方式） */
-export function buildReason(itemName: string, breakdown: QuestionBreakdown[]): string {
+export function buildReason(itemName: string, breakdown: QuestionBreakdown[], softenPartial = false): string {
   const sorted = [...breakdown].sort((a, b) => b.weight * b.score - a.weight * a.score)
   const strong = sorted.filter((b) => b.score >= STRONG).slice(0, 3)
   const weak = sorted.filter((b) => b.score < WEAK).sort((a, b) => b.weight - a.weight).slice(0, 1)
 
   let text: string
-  if (strong.length > 0) {
+  // scoring.softenPartialReason が有効な診断では、複数条件の一部だけ一致した回答を「比較的合っています」と表現する
+  const full = softenPartial ? strong.filter((b) => !b.partial) : strong
+  const partial = softenPartial ? strong.filter((b) => b.partial) : []
+  if (softenPartial && strong.length > 0) {
+    const quote = (list: QuestionBreakdown[]) => list.map((b) => `「${b.answerSummary}」`).join('、')
+    text = full.length > 0
+      ? `${quote(full)}というご回答と、この${itemName}の特徴がよく合っているため、相性が高くなりました。${partial.length > 0 ? `また、${quote(partial)}の条件とも比較的合っています。` : ''}`
+      : `${quote(partial)}というご回答と、この${itemName}の特徴が比較的合っているため、相性が高くなりました。`
+  } else if (strong.length > 0) {
     const list = strong.map((b) => `「${b.answerSummary}」`).join('、')
     text = `${list}というご回答と、この${itemName}の特徴がよく合っているため、相性が高くなりました。`
   } else if (breakdown.length > 0) {
@@ -131,7 +139,7 @@ function makeTieBreaker(questions: Question[], answers: Answers) {
  */
 function applySelection(questions: Question[], answers: Answers, sorted: ScoredResult[]) {
   const selected = questions.map((q) => q.options.find((o) => o.id === answers[q.id])).filter((o): o is AnswerOption => !!o)
-  const eligibilities = selected.flatMap((o) => (o.eligibility ? [o.eligibility] : []))
+  const eligibilities = selected.flatMap((o) => (o.eligibility ? [o.eligibility].flat() : []))
   const limits = selected.flatMap((o) => (o.maxPriceRange !== undefined ? [o.maxPriceRange] : []))
   const limit = limits.length > 0 ? Math.min(...limits) : undefined
 
@@ -181,7 +189,7 @@ export function runDiagnosis(diagnosis: Diagnosis, answers: Answers): DiagnosisR
       score,
       matchPercent: Math.round(score * 100),
       breakdown,
-      reason: buildReason(diagnosis.itemName, breakdown),
+      reason: buildReason(diagnosis.itemName, breakdown, diagnosis.scoring?.softenPartialReason === true),
     }
   })
   // スコアが同じ場合：タイブレーク設定があればそれに従い、なければデータの登録順を維持（従来どおり）

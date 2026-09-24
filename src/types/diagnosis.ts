@@ -78,20 +78,24 @@ export interface AnswerOption {
    * 適格条件（任意）。この選択肢を選ぶと、商品の attributes[attr] が value の商品だけを通常ランキングの候補にします。
    * 条件を満たす商品が通常ランキングの件数に足りないときだけ、満たさない商品を別枠の「補完候補」として表示します。
    * 適格条件を持つ選択肢は effects を空にしてください（候補がすべて同じ点になり、採点しても差が付かないため）。
+   * 複数の条件をすべて満たす商品に限りたい場合は配列で指定します（例：ガス火・IHの両方に対応）。
    */
-  eligibility?: {
-    attr: string
-    value: AttrValue
-    /** 結果画面の上部に表示する短い説明 */
-    notice?: string
-    /** 条件を満たさない商品を補完したときに、その商品に表示するラベル */
-    supplementLabel?: string
-  }
+  eligibility?: Eligibility | Eligibility[]
   /**
    * 上限条件（任意。主に予算）。priceRange がこの値以下の商品を通常ランキングの候補にします。
    * 超える商品は、通常ランキングの件数に足りないときだけ「予算を少し超える候補」として別枠に表示します。
    */
   maxPriceRange?: number
+}
+
+/** 適格条件：商品の attributes[attr] が value と一致すること */
+export interface Eligibility {
+  attr: string
+  value: AttrValue
+  /** 結果画面の上部に表示する短い説明 */
+  notice?: string
+  /** 条件を満たさない商品を補完したときに、その商品に表示するラベル */
+  supplementLabel?: string
 }
 
 export interface Question {
@@ -166,6 +170,11 @@ export interface Diagnosis {
      * 3. 商品ID
      */
     tieBreak?: boolean
+    /**
+     * true にすると、複数のルールを持つ回答（例：炒め物＝軽さ＋焼き性能）で一部のルールだけ満たす場合、
+     * おすすめ理由を「よく合っている」ではなく「比較的合っています」と表現します（採点・順位には影響しません）。
+     */
+    softenPartialReason?: boolean
   }
   /**
    * 公開状態。
