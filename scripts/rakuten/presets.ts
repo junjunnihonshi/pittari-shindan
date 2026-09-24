@@ -221,4 +221,42 @@ export const presets: Record<string, RakutenPreset> = {
     // mobileBattery.ts の評価項目・true/false 項目（公式仕様を確認して記入する）
     attributeKeys: ['capacity', 'outputPower', 'lightness', 'multiDevice', 'laptopOk', 'builtInCable', 'wireless'],
   },
+  /**
+   * スーツケース：旅行用のキャスター付きハードタイプのスーツケース。
+   * ソフトタイプ・子ども用・アウトドア専用・トランク型インテリア・キャスターなしバッグ・ビジネスバッグ主体の商品は対象外。
+   * 「カバー」「ベルト」は本体の説明にも出るため除外ワードにせず、単品パーツは下限価格と取得後の手動分類で除く。
+   */
+  suitcase: {
+    category: 'suitcase',
+    // 役割・サイズ・機能と価格帯で広く拾う（メーカー名は入れない）
+    keywords: [
+      'スーツケース 超軽量 Sサイズ',
+      'スーツケース 機内持ち込み ハード',
+      'スーツケース Mサイズ ハード',
+      'スーツケース Lサイズ 大容量',
+      'スーツケース 静音キャスター',
+      'スーツケース ダブルキャスター ストッパー',
+      'スーツケース フロントオープン',
+      'スーツケース 拡張 ハード',
+      'スーツケース フレーム 丈夫',
+      'スーツケース ポリカーボネート 日本製',
+      // 価格帯別（src/data/diagnoses/suitcase.ts の priceLabels に合わせる）
+      { keyword: 'スーツケース', maxPrice: 10000 },
+      { keyword: 'スーツケース', minPrice: 10001, maxPrice: 20000 },
+      { keyword: 'スーツケース', minPrice: 20001, maxPrice: 40000 },
+      { keyword: 'スーツケース', minPrice: 40001 },
+    ],
+    // 対象外が明らかなものだけ（強くしすぎると通常品まで消えるため最小限にする）
+    ngKeyword: 'キッズ 子供用 ソフトキャリー 中古 レンタル',
+    sort: '-reviewCount',
+    hits: 20,
+    // キャスター・ベルトなどの単品パーツを除くための下限
+    minPrice: 3000,
+    // 同じショップ（メーカー公式店など）からは最大3件まで
+    maxPerShop: 3,
+    // src/data/diagnoses/suitcase.ts の priceLabels に合わせる（〜10,000 / 〜20,000 / 〜40,000 / それ以上）
+    priceThresholds: [10000, 20000, 40000],
+    // suitcase.ts の評価項目・true/false 項目（公式仕様を確認して記入する）
+    attributeKeys: ['capacity', 'lightness', 'durability', 'mobility', 'expandable', 'frontOpen', 'wheelStopper'],
+  },
 }
