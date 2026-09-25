@@ -1,0 +1,31 @@
+<!doctype html>
+<!--
+  忍者AdMax 広告枠（トップページ・PC幅1500px以上の左側・160×600）
+  このファイルは src/components/AdSlot.tsx から iframe で読み込まれます。
+  AdMax のタグは document.write を使うため、React から直接読み込まず、この静的HTMLに置いています。
+  広告タグを差し替えるときは、body 内の「admax」コメントで囲まれた部分だけを書き換えてください。
+  左右の枠には、AdMax でそれぞれ別に作成した 160×600 の広告枠のタグを入れてください。
+  （このコメントの中には、コメント記号そのものを書かないでください。コメントが途中で終わってしまいます）
+-->
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>広告</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: transparent;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- admax -->
+    <script src="https://adm.shinobi.jp/s/61c8642f0ad136d8a540b08521a2b846"></script>
+    <!-- admax -->
+  </body>
+</html>

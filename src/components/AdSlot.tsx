@@ -6,12 +6,12 @@ import { adSlots, type AdSlotId } from '../config/ads.ts'
  * - 画面幅いっぱいの行の中央に置くので、幅320pxのスマホでも広告全体が表示されます
  *   （container の中に入れると左右の余白で幅が足りなくなるため、container で包まずに使ってください）
  */
-export function AdSlot({ id }: { id: AdSlotId }) {
+export function AdSlot({ id, variant }: { id: AdSlotId; variant?: 'side' }) {
   const slot = adSlots[id]
   if (!slot.enabled) return null
 
   return (
-    <aside className="ad-slot" aria-label={slot.label}>
+    <aside className={variant === 'side' ? 'ad-slot ad-slot--side' : 'ad-slot'} aria-label={slot.label}>
       <p className="ad-slot__label">{slot.label}</p>
       <div className="ad-slot__frame-wrap" style={{ width: slot.width, height: slot.height }}>
         <iframe

@@ -6,12 +6,18 @@ import { AdSlot } from '../components/AdSlot.tsx'
 import { DiagnosisCard } from '../components/DiagnosisCard.tsx'
 import { diagnoses, getDiagnosisBySlug, isDiagnosisEnabled } from '../data/diagnoses/index.ts'
 import { Link } from '../components/Link.tsx'
+import { useMediaQuery } from '../lib/mediaQuery.ts'
 import { useSeo } from '../lib/seo.ts'
 import { getRecentDiagnoses } from '../lib/storage.ts'
 import type { Diagnosis } from '../types/diagnosis.ts'
 
+/** 左右の広告を出す画面幅（中央コンテンツの外側に 160px の広告と十分な余白が収まる幅） */
+const SIDE_ADS_QUERY = '(min-width: 1500px)'
+
 export function HomePage() {
   useSeo(staticPages[0])
+  // 幅が足りない画面では左右の広告を描画しない（非表示の iframe でも広告が読み込まれてしまうため、CSS で隠すだけにしない）
+  const showSideAds = useMediaQuery(SIDE_ADS_QUERY)
   // 準備中の診断は「最近使った診断」にも出さない
   const [recent] = useState(() =>
     getRecentDiagnoses()
@@ -53,59 +59,72 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="container section" aria-labelledby="about-title">
-        <div className="info-box">
-          <h2 id="about-title" className="section__title section__title--small">
-            {site.name}の診断について
-          </h2>
-          <ul className="check-list">
-            <li>人気ランキングではなく、あなたの回答と商品の特徴の「相性順」で表示します。</li>
-            <li>回答内容はお使いの端末内だけで計算され、外部には送信されません。</li>
-            <li>会員登録は不要。何度でも無料で診断できます。</li>
-          </ul>
-        </div>
-      </section>
-
-      {recent.length > 0 && (
-        <section className="container section" aria-labelledby="recent-title">
-          <h2 id="recent-title" className="section__title section__title--small">
-            最近使った診断
-          </h2>
-          <ul className="chip-list">
-            {recent.map((d) => (
-              <li key={d.id}>
-                <Link to={diagnosisPath(d.slug)} className="chip">
-                  <span aria-hidden="true">{d.icon} </span>
-                  {d.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-
-      <section id="categories" className="container section" tabIndex={-1} aria-labelledby="categories-title">
-        <h2 id="categories-title" className="section__title">
-          診断を選ぶ
-        </h2>
-        {categoryGroups.map((group) => {
-          const items = diagnoses.filter((d) => d.group === group.id)
-          if (items.length === 0) return null
-          return (
-            <div className="category-group" key={group.id}>
-              <h3 className="category-group__title">{group.label}</h3>
-              <div className="card-grid">
-                {items.map((d) => (
-                  <DiagnosisCard key={d.id} diagnosis={d} />
-                ))}
-              </div>
+      <div className="home-body">
+        {showSideAds && (
+          <>
+            <div className="side-ad-rail side-ad-rail--left">
+              <AdSlot id="homeSideLeft" variant="side" />
             </div>
-          )
-        })}
-      </section>
+            <div className="side-ad-rail side-ad-rail--right">
+              <AdSlot id="homeSideRight" variant="side" />
+            </div>
+          </>
+        )}
 
-      {/* 300×250 を幅320pxのスマホでも切らずに表示するため、左右余白のある container の外に置く */}
-      <AdSlot id="homeBelowCategories" />
+        <section className="container section" aria-labelledby="about-title">
+          <div className="info-box">
+            <h2 id="about-title" className="section__title section__title--small">
+              {site.name}の診断について
+            </h2>
+            <ul className="check-list">
+              <li>人気ランキングではなく、あなたの回答と商品の特徴の「相性順」で表示します。</li>
+              <li>回答内容はお使いの端末内だけで計算され、外部には送信されません。</li>
+              <li>会員登録は不要。何度でも無料で診断できます。</li>
+            </ul>
+          </div>
+        </section>
+
+        {recent.length > 0 && (
+          <section className="container section" aria-labelledby="recent-title">
+            <h2 id="recent-title" className="section__title section__title--small">
+              最近使った診断
+            </h2>
+            <ul className="chip-list">
+              {recent.map((d) => (
+                <li key={d.id}>
+                  <Link to={diagnosisPath(d.slug)} className="chip">
+                    <span aria-hidden="true">{d.icon} </span>
+                    {d.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        <section id="categories" className="container section" tabIndex={-1} aria-labelledby="categories-title">
+          <h2 id="categories-title" className="section__title">
+            診断を選ぶ
+          </h2>
+          {categoryGroups.map((group) => {
+            const items = diagnoses.filter((d) => d.group === group.id)
+            if (items.length === 0) return null
+            return (
+              <div className="category-group" key={group.id}>
+                <h3 className="category-group__title">{group.label}</h3>
+                <div className="card-grid">
+                  {items.map((d) => (
+                    <DiagnosisCard key={d.id} diagnosis={d} />
+                  ))}
+                </div>
+              </div>
+            )
+          })}
+        </section>
+
+        {/* 300×250 を幅320pxのスマホでも切らずに表示するため、左右余白のある container の外に置く */}
+        <AdSlot id="homeBelowCategories" />
+      </div>
     </>
   )
 }

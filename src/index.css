@@ -668,6 +668,32 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   border: 0;
 }
 
+/* トップページ PC幅の左右広告（160×600）。
+   中央コンテンツ（container）の外側に絶対配置するので、中央コンテンツの幅・位置は変わらない。
+   レールはヒーローの下からページ末尾（下の広告）までの高さを持ち、その中で広告が sticky で追従する */
+.home-body {
+  position: relative;
+}
+.side-ad-rail {
+  display: none;
+  position: absolute;
+  top: var(--space-section);
+  bottom: 0;
+  width: 160px;
+}
+.side-ad-rail--left {
+  /* 中央コンテンツの左端から、余白 40px ＋ 広告幅 160px だけ外側 */
+  left: calc(50% - var(--container) / 2 - 40px - 160px);
+}
+.side-ad-rail--right {
+  left: calc(50% + var(--container) / 2 + 40px);
+}
+.ad-slot--side {
+  position: sticky;
+  top: 24px;
+  margin: 0;
+}
+
 /* ---------- 診断ページ ---------- */
 .page {
   padding-top: 20px;
@@ -1561,6 +1587,13 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   }
   .product-image--placeholder {
     font-size: 2.4rem;
+  }
+}
+
+/* 左右の広告は幅1500px以上だけ（タブレット・スマホには出さない。描画自体も HomePage で同じ条件にしている） */
+@media (min-width: 1500px) {
+  .side-ad-rail {
+    display: block;
   }
 }
 

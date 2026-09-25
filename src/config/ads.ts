@@ -27,6 +27,22 @@ export const adSlots = {
     label: '広告',
     enabled: true,
   },
+  /** トップページ：PC幅（1500px以上）の中央コンテンツの左側（160×600・スクロールに追従） */
+  homeSideLeft: {
+    src: '/ad-frames/admax-home-left.html',
+    width: 160,
+    height: 600,
+    label: '広告',
+    enabled: true,
+  },
+  /** トップページ：PC幅（1500px以上）の中央コンテンツの右側（160×600・スクロールに追従） */
+  homeSideRight: {
+    src: '/ad-frames/admax-home-right.html',
+    width: 160,
+    height: 600,
+    label: '広告',
+    enabled: true,
+  },
 } satisfies Record<string, AdSlotConfig>
 
 export type AdSlotId = keyof typeof adSlots
