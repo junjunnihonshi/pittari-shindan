@@ -332,4 +332,40 @@ export const presets: Record<string, RakutenPreset> = {
     // showerHead.ts の評価項目・true/false 項目（公式仕様を確認して記入する）
     attributeKeys: ['waterPressure', 'waterSaving', 'lightness', 'sprayVariety', 'convenience', 'fineBubble', 'stopButton'],
   },
+
+  /**
+   * 電気ケトル：家庭用の電気ケトル（電源プレート式）。
+   * 電気ポット・業務用・トラベル用・やかん（直火）が混ざっていたら確認時に除外してください。
+   */
+  'electric-kettle': {
+    category: 'electric-kettle',
+    // 機能・容量別と価格帯別で広く拾う（メーカー名は入れない）
+    keywords: [
+      '電気ケトル 温度調節',
+      '電気ケトル 保温',
+      '電気ケトル 転倒湯もれ防止',
+      '電気ケトル 蒸気レス',
+      '電気ケトル 1.2L',
+      '電気ケトル 0.8L',
+      '電気ケトル 軽量',
+      '電気ケトル 広口',
+      // 価格帯別（src/data/diagnoses/electricKettle.ts の priceLabels に合わせる）
+      { keyword: '電気ケトル', maxPrice: 4000 },
+      { keyword: '電気ケトル', minPrice: 4001, maxPrice: 8000 },
+      { keyword: '電気ケトル', minPrice: 8001, maxPrice: 15000 },
+      { keyword: '電気ケトル', minPrice: 15001 },
+    ],
+    // 対象外が明らかなものだけ（強くしすぎると通常品まで消えるため最小限にする）
+    ngKeyword: '業務用 トラベル 海外 中古 交換用 部品 直火',
+    sort: '-reviewCount',
+    hits: 20,
+    // 付属品・部品を除くための下限
+    minPrice: 1500,
+    // 同じショップ（メーカー公式店など）からは最大3件まで
+    maxPerShop: 3,
+    // src/data/diagnoses/electricKettle.ts の priceLabels に合わせる（〜4,000 / 〜8,000 / 〜15,000 / それ以上）
+    priceThresholds: [4000, 8000, 15000],
+    // electricKettle.ts の評価項目・true/false 項目（公式仕様を確認して記入する）
+    attributeKeys: ['boilSpeed', 'tempControl', 'easeOfCare', 'safety', 'lightness', 'keepWarm', 'cap08', 'cap10', 'cap12'],
+  },
 }

@@ -1,5 +1,6 @@
 import type { Diagnosis } from '../../types/diagnosis.ts'
 import { deskChair } from './deskChair.ts'
+import { electricKettle } from './electricKettle.ts'
 import { fryingPan } from './fryingPan.ts'
 import { hairDryer } from './hairDryer.ts'
 import { humidifier } from './humidifier.ts'
@@ -20,6 +21,7 @@ const allDiagnoses: Diagnosis[] = [
   hairDryer,
   vacuum,
   fryingPan,
+  electricKettle,
   suitcase,
   mobileBattery,
   deskChair,
