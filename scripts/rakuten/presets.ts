@@ -259,4 +259,41 @@ export const presets: Record<string, RakutenPreset> = {
     // suitcase.ts の評価項目・true/false 項目（公式仕様を確認して記入する）
     attributeKeys: ['capacity', 'lightness', 'durability', 'mobility', 'expandable', 'frontOpen', 'wheelStopper'],
   },
+  /**
+   * 加湿器：家庭用の据え置き型加湿器（スチーム式・気化式・超音波式・ハイブリッド式）。
+   * 卓上USBの超小型品・アロマディフューザー主体・業務用・加湿空気清浄機・交換用部品は対象外。
+   */
+  humidifier: {
+    category: 'humidifier',
+    // 方式・部屋の広さ・機能と価格帯で広く拾う（メーカー名は入れない）
+    keywords: [
+      '加湿器 スチーム式',
+      '加湿器 気化式',
+      '加湿器 ハイブリッド式',
+      '加湿器 超音波式 上部給水',
+      '加湿器 寝室 静音',
+      '加湿器 リビング 大容量',
+      '加湿器 20畳',
+      '加湿器 お手入れ簡単',
+      '加湿器 上部給水',
+      '加湿器 タンク 大容量 連続',
+      // 価格帯別（src/data/diagnoses/humidifier.ts の priceLabels に合わせる）
+      { keyword: '加湿器', maxPrice: 8000 },
+      { keyword: '加湿器', minPrice: 8001, maxPrice: 15000 },
+      { keyword: '加湿器', minPrice: 15001, maxPrice: 25000 },
+      { keyword: '加湿器', minPrice: 25001 },
+    ],
+    // 対象外が明らかなものだけ（強くしすぎると通常品まで消えるため最小限にする）
+    ngKeyword: '卓上 USB アロマ ディフューザー 空気清浄機 業務用 交換用 中古',
+    sort: '-reviewCount',
+    hits: 20,
+    // フィルターなどの単品パーツを除くための下限
+    minPrice: 3000,
+    // 同じショップ（メーカー公式店など）からは最大3件まで
+    maxPerShop: 3,
+    // src/data/diagnoses/humidifier.ts の priceLabels に合わせる（〜8,000 / 〜15,000 / 〜25,000 / それ以上）
+    priceThresholds: [8000, 15000, 25000],
+    // humidifier.ts の評価項目・true/false 項目（公式仕様を確認して記入する）
+    attributeKeys: ['humidificationPower', 'easeOfCare', 'quietness', 'energyEfficiency', 'runtime', 'refillEase', 'room10', 'room14', 'room19', 'method'],
+  },
 }
