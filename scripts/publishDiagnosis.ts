@@ -36,6 +36,9 @@ const DIAGNOSES_DIR = 'src/data/diagnoses'
 const DEFAULT_ALLOWED = ['scripts/rakuten/presets.ts']
 const PREVIEW_PORT = 4179
 const DEPLOY_TIMEOUT_MS = 10 * 60 * 1000
+/** 反映直後に新しいページが一時的に 404 になることがあるため、404 のときだけ待って確認し直す */
+const NOT_FOUND_RETRY_WAIT_MS = 10 * 1000
+const NOT_FOUND_MAX_ATTEMPTS = 5
 /** 画面確認の代表的な幅（スマホ・PC） */
 const REPRESENTATIVE_WIDTHS = [390, 1280]
 /** 対象以外の診断を画面確認するときの代表パターン数 */
@@ -65,6 +68,9 @@ function ok(text: string) {
 function stop(text: string): never {
   throw new StopError(text)
 }
+
+/** 公開処理がどこまで進んだか（停止したときに正しい案内を出すため） */
+const progress: { commit?: string; pushed?: boolean } = {}
 
 // ---------- コマンド実行 ----------
 /** コマンドを実行し、標準出力をそのまま返す（失敗したら停止） */
@@ -248,7 +254,8 @@ async function waitForDeploy(d: Diagnosis) {
   const pageUrl = `${site.url}/diagnosis/${d.slug}`
   const start = Date.now()
   while (Date.now() - start < DEPLOY_TIMEOUT_MS) {
-    const sitemap = await fetch(`${site.url}/sitemap.xml?t=${Date.now()}`).then((r) => r.text()).catch(() => '')
+    // sitemap.xml 自体が一時的に 404 などになっても、反映待ちとして確認を続ける
+    const sitemap = await fetch(`${site.url}/sitemap.xml?t=${Date.now()}`).then((r) => (r.ok ? r.text() : '')).catch(() => '')
     if (sitemap.includes(`<loc>${pageUrl}</loc>`)) {
       ok(`本番に反映（${Math.round((Date.now() - start) / 1000)}秒後）：sitemap に ${pageUrl}`)
       return
@@ -258,9 +265,29 @@ async function waitForDeploy(d: Diagnosis) {
   stop('本番の sitemap に反映されません（10分待機）。Cloudflare Pages のデプロイ状況を確認してください')
 }
 
+/**
+ * 本番のページを取得する。404 のときだけ 10 秒待って確認し直し、最大5回まで試す
+ * （Cloudflare Pages の反映直後に、sitemap が更新されても新しいページがまだ 404 のことがあるため）。
+ * 404 以外（200 やほかのエラー）はそのまま返し、判定は呼び出し側で従来どおり行う。
+ */
+async function fetchRetryingNotFound(url: string, label: string): Promise<{ status: number; text: string }> {
+  for (let attempt = 1; ; attempt++) {
+    const res = await fetch(`${url}?t=${Date.now()}`).catch(() => null)
+    const status = res?.status ?? 0
+    if (status !== 404) return { status, text: res ? await res.text() : '' }
+    if (attempt >= NOT_FOUND_MAX_ATTEMPTS) return { status, text: '' }
+    console.log(`   … ${label} が 404 のため ${NOT_FOUND_RETRY_WAIT_MS / 1000} 秒後に再確認します（${attempt}/${NOT_FOUND_MAX_ATTEMPTS}）`)
+    await new Promise((r) => setTimeout(r, NOT_FOUND_RETRY_WAIT_MS))
+  }
+}
+
 async function checkProductionPages(target: Diagnosis, published: Diagnosis[]) {
   const pageUrl = `${site.url}/diagnosis/${target.slug}`
-  const html = await fetch(`${pageUrl}/?t=${Date.now()}`).then((r) => r.text())
+  const targetPage = await fetchRetryingNotFound(`${pageUrl}/`, `${target.name}のページ`)
+  if (targetPage.status !== 200) {
+    stop(`本番で${target.name}のページを開けません（${targetPage.status}${targetPage.status === 404 ? `、${NOT_FOUND_MAX_ATTEMPTS}回確認` : ''}）`)
+  }
+  const html = targetPage.text
   if (!/<meta name="robots" content="index, follow"/.test(html)) stop('本番の診断ページの robots が index, follow ではありません')
   if (!html.includes(`<link rel="canonical" href="${pageUrl}"`)) stop('本番の診断ページの canonical が正しくありません')
   // アクセス解析のビーコン（画面確認では通信を差し替えるため、設置は HTML で確認する）：index.html と同じ数だけ入っていること
@@ -271,7 +298,10 @@ async function checkProductionPages(target: Diagnosis, published: Diagnosis[]) {
     const count = (text.match(beacon) ?? []).length
     if (count !== expected) stop(`本番の${name}のアクセス解析ビーコンが ${count} 件です（index.html では ${expected} 件）`)
   }
-  const statuses = await Promise.all(published.map(async (d) => [d.name, (await fetch(`${site.url}/diagnosis/${d.slug}/`).catch(() => null))?.status ?? 0] as const))
+  // 対象の診断ページは上で 200 を確認済み。ほかの公開中の診断は従来どおり1回で確認する
+  const statuses = await Promise.all(
+    published.map(async (d) => [d.name, d.id === target.id ? targetPage.status : ((await fetch(`${site.url}/diagnosis/${d.slug}/`).catch(() => null))?.status ?? 0)] as const),
+  )
   const bad = statuses.filter(([, s]) => s !== 200)
   if (bad.length) stop(`本番で開けない診断ページがあります：${bad.map(([n, s]) => `${n}(${s})`).join('、')}`)
   ok(`本番：index, follow・canonical OK／アクセス解析ビーコン ${expected} 件（トップ・診断ページ）／公開中の${statuses.length}診断ページがすべて200（HTTP確認）`)
@@ -421,6 +451,7 @@ async function main() {
       // メッセージは標準入力で渡す（改行や Co-Authored-By 行を含められる）
       sh('git', ['commit', '-F', '-'], { input: message ?? `Publish ${id} diagnosis` })
       committed = true
+      progress.commit = git('rev-parse', '--short', 'HEAD')
       clearDryRun(ROOT, id)
       ok(`commit ${git('rev-parse', '--short', 'HEAD')}：${(message ?? `Publish ${id} diagnosis`).split('\n')[0]}`)
     }
@@ -432,6 +463,7 @@ async function main() {
   if (!verifyOnly) {
     step('push')
     git('push', 'origin', 'main')
+    progress.pushed = true
     ok('origin/main に push')
   }
 
@@ -447,6 +479,17 @@ async function main() {
   for (const s of summary) console.log(`  ・${s}`)
 }
 
+/** 停止したときの案内（どこまで進んだかで内容を変える） */
+function stoppedMessage(): string {
+  if (verifyOnly) return '再確認のみのため、ファイルの変更・commit・push はしていません。'
+  if (dryRun) return 'dry-run のため commit・push はしていません（enabled を書き換えていれば元に戻しています）。'
+  if (progress.pushed) {
+    return `commit（${progress.commit}）と push は完了しています。本番の確認だけが失敗しました。Cloudflare Pages の状況を確認し、npm run publish:diagnosis -- ${id} --verify で本番を確認し直してください。`
+  }
+  if (progress.commit) return `commit（${progress.commit}）は済んでいますが、push はしていません。内容を確認のうえ git push してください。`
+  return 'commit・push はしていません（enabled を書き換えていれば元に戻しています）。'
+}
+
 async function run() {
   try {
     await main()
@@ -455,7 +498,7 @@ async function run() {
     for (const c of tempDirs) c()
     console.error(`\n✖ 停止：${(e as Error).message}`)
     if (!(e instanceof StopError)) console.error(e)
-    console.error('commit・push はしていません（commit 済みの場合は上の表示を確認してください）')
+    console.error(stoppedMessage())
     process.exit(1)
   }
 }
