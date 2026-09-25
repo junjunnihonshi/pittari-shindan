@@ -53,6 +53,19 @@ export function HomePage() {
         </div>
       </section>
 
+      <section className="container section" aria-labelledby="about-title">
+        <div className="info-box">
+          <h2 id="about-title" className="section__title section__title--small">
+            {site.name}の診断について
+          </h2>
+          <ul className="check-list">
+            <li>人気ランキングではなく、あなたの回答と商品の特徴の「相性順」で表示します。</li>
+            <li>回答内容はお使いの端末内だけで計算され、外部には送信されません。</li>
+            <li>会員登録は不要。何度でも無料で診断できます。</li>
+          </ul>
+        </div>
+      </section>
+
       {recent.length > 0 && (
         <section className="container section" aria-labelledby="recent-title">
           <h2 id="recent-title" className="section__title section__title--small">
@@ -93,19 +106,6 @@ export function HomePage() {
 
       {/* 300×250 を幅320pxのスマホでも切らずに表示するため、左右余白のある container の外に置く */}
       <AdSlot id="homeBelowCategories" />
-
-      <section className="container section" aria-labelledby="about-title">
-        <div className="info-box">
-          <h2 id="about-title" className="section__title section__title--small">
-            {site.name}の診断について
-          </h2>
-          <ul className="check-list">
-            <li>人気ランキングではなく、あなたの回答と商品の特徴の「相性順」で表示します。</li>
-            <li>回答内容はお使いの端末内だけで計算され、外部には送信されません。</li>
-            <li>会員登録は不要。何度でも無料で診断できます。</li>
-          </ul>
-        </div>
-      </section>
     </>
   )
 }
