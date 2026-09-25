@@ -5,20 +5,20 @@
    ========================================================= */
 :root {
   /* 色 */
-  --color-primary: #0f766e;
+  --color-primary: #0e7a71;
   --color-primary-dark: #0b5c56;
   /* グラデーションの明るい側。白文字とのコントラスト比 4.5:1 以上を保つ値 */
-  --color-primary-light: #117c73;
-  --color-primary-soft: #e7f4f1;
-  --color-primary-tint: #f3faf8;
-  --color-accent-blue: #3a84c4;
-  --color-bg: #f4f7f9;
-  --color-bg-deep: #eaf0f4;
+  --color-primary-light: #0f8074;
+  --color-primary-soft: #e4f6f2;
+  --color-primary-tint: #f2fbf9;
+  --color-accent-blue: #3b8bd0;
+  --color-bg: #f6f9fb;
+  --color-bg-deep: #edf3f7;
   --color-surface: #ffffff;
   --color-text: #1b2632;
   --color-muted: #566270;
-  --color-border: #e1e7ec;
-  --color-border-strong: #d2dbe2;
+  --color-border: #e3eaef;
+  --color-border-strong: #d4dde5;
   --color-caution-bg: #fff8ea;
   --color-caution-border: #f2d49b;
   --color-amazon: #232f3e;
@@ -30,10 +30,10 @@
   --radius-lg: 20px;
   --radius: 16px;
   --radius-sm: 12px;
-  --shadow-sm: 0 1px 2px rgb(16 24 40 / 0.05);
-  --shadow: 0 1px 2px rgb(16 24 40 / 0.04), 0 8px 24px -10px rgb(16 24 40 / 0.12);
-  --shadow-lg: 0 2px 4px rgb(16 24 40 / 0.04), 0 18px 36px -14px rgb(16 24 40 / 0.2);
-  --shadow-primary: 0 8px 18px -8px rgb(15 118 110 / 0.55);
+  --shadow-sm: 0 1px 2px rgb(20 50 70 / 0.04);
+  --shadow: 0 1px 2px rgb(20 50 70 / 0.03), 0 8px 24px -12px rgb(20 60 80 / 0.1);
+  --shadow-lg: 0 2px 4px rgb(20 50 70 / 0.03), 0 16px 32px -14px rgb(20 60 80 / 0.15);
+  --shadow-primary: 0 8px 18px -8px rgb(14 122 113 / 0.45);
 
   /* レイアウト */
   --container: 960px;
@@ -180,7 +180,7 @@ h4 {
   transition: background-color 0.2s;
 }
 .site-header__link:hover {
-  background: #d6ede8;
+  background: #d5efe9;
   color: var(--color-primary-dark);
 }
 .ad-notice {
@@ -300,9 +300,10 @@ h4 {
   padding: 52px 0 44px;
   text-align: center;
   background:
-    radial-gradient(60% 55% at 8% 0%, rgb(15 118 110 / 0.12), transparent 70%),
-    radial-gradient(55% 50% at 100% 18%, rgb(58 132 196 / 0.12), transparent 70%),
-    linear-gradient(180deg, #eef6f5 0%, var(--color-bg) 100%);
+    radial-gradient(60% 55% at 8% 0%, rgb(46 180 160 / 0.14), transparent 70%),
+    radial-gradient(55% 50% at 100% 18%, rgb(90 170 230 / 0.14), transparent 70%),
+    radial-gradient(50% 60% at 50% 40%, rgb(255 255 255 / 0.7), transparent 75%),
+    linear-gradient(180deg, #f0faf8 0%, var(--color-bg) 100%);
   border-bottom: 1px solid rgb(225 231 236 / 0.7);
 }
 /* ごく薄いドット模様（中央ほど薄くなる装飾） */
@@ -310,7 +311,7 @@ h4 {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgb(15 118 110 / 0.14) 1px, transparent 1.2px);
+  background-image: radial-gradient(rgb(15 118 110 / 0.1) 1px, transparent 1.2px);
   background-size: 22px 22px;
   -webkit-mask-image: radial-gradient(70% 80% at 50% 45%, transparent 35%, #000 100%);
   mask-image: radial-gradient(70% 80% at 50% 45%, transparent 35%, #000 100%);
@@ -480,7 +481,7 @@ a.diagnosis-card:active {
   width: 56px;
   height: 56px;
   border-radius: 16px;
-  background: linear-gradient(135deg, #e3f3ef 0%, #e8f0f8 100%);
+  background: linear-gradient(135deg, #e5f6f2 0%, #eaf3fb 100%);
   border: 1px solid rgb(15 118 110 / 0.08);
   font-size: 1.7rem;
 }
@@ -532,17 +533,17 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
 
 /* 準備中（enabled: false）のカード：公開中より明確に控えめ。クリック不可・hover しても変化しない */
 .diagnosis-card.is-disabled {
-  background: #f7f9fb;
-  border-color: #e7ecf0;
+  background: #fafcfd;
+  border-color: #e6edf1;
   box-shadow: none;
   cursor: not-allowed;
   transition: none;
 }
 .diagnosis-card.is-disabled .diagnosis-card__icon {
-  background: #edf1f4;
+  background: #eef4f6;
   border-color: transparent;
-  filter: grayscale(1);
-  opacity: 0.55;
+  filter: grayscale(0.7);
+  opacity: 0.7;
 }
 .diagnosis-card.is-disabled .diagnosis-card__title {
   color: #5d6875;
@@ -559,7 +560,7 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   padding: 1px 9px;
   vertical-align: 2px;
   border-radius: 999px;
-  background: #e6ebf0;
+  background: #eaf1f4;
   color: #4b5764;
   border: 0;
   font-size: 0.75rem;
@@ -571,7 +572,7 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #97a3af;
+  background: #9fb2bf;
 }
 
 .chip-list {
@@ -725,7 +726,7 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   width: 48px;
   height: 48px;
   border-radius: 14px;
-  background: linear-gradient(135deg, #e3f3ef 0%, #e8f0f8 100%);
+  background: linear-gradient(135deg, #e5f6f2 0%, #eaf3fb 100%);
   border: 1px solid rgb(15 118 110 / 0.08);
   font-size: 1.6rem;
 }
@@ -810,7 +811,7 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
 .progress__track {
   height: 8px;
   border-radius: 999px;
-  background: #e5ebef;
+  background: #e4edf1;
   overflow: hidden;
 }
 .progress__fill {
@@ -1011,7 +1012,7 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   margin-bottom: 14px;
   padding: 3px 14px 3px 12px;
   border-radius: 999px;
-  background: #eef2f5;
+  background: #edf4f6;
   color: var(--color-muted);
   font-size: 0.8rem;
   font-weight: 700;
@@ -1175,7 +1176,7 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   height: 6px;
   margin-top: 8px;
   border-radius: 999px;
-  background: #e5ebef;
+  background: #e4edf1;
   overflow: hidden;
 }
 .match__bar div {
