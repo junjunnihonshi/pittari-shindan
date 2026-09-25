@@ -296,4 +296,40 @@ export const presets: Record<string, RakutenPreset> = {
     // humidifier.ts の評価項目・true/false 項目（公式仕様を確認して記入する）
     attributeKeys: ['humidificationPower', 'easeOfCare', 'quietness', 'energyEfficiency', 'runtime', 'refillEase', 'room10', 'room14', 'room19', 'method'],
   },
+
+  /**
+   * シャワーヘッド：家庭用の交換式シャワーヘッド。
+   * シャワーホース・水栓・浄水器が主体の商品や、カートリッジ単品が混ざっていたら確認時に除外してください。
+   */
+  'shower-head': {
+    category: 'shower-head',
+    // 機能・悩み別と価格帯別で広く拾う（メーカー名は入れない）
+    keywords: [
+      'シャワーヘッド 節水',
+      'シャワーヘッド 水圧アップ',
+      'シャワーヘッド 止水ボタン',
+      'シャワーヘッド 軽量',
+      'シャワーヘッド ファインバブル',
+      'シャワーヘッド マイクロバブル',
+      'シャワーヘッド 水流切替',
+      'シャワーヘッド 低水圧',
+      // 価格帯別（src/data/diagnoses/showerHead.ts の priceLabels に合わせる）
+      { keyword: 'シャワーヘッド', maxPrice: 3000 },
+      { keyword: 'シャワーヘッド', minPrice: 3001, maxPrice: 6000 },
+      { keyword: 'シャワーヘッド', minPrice: 6001, maxPrice: 12000 },
+      { keyword: 'シャワーヘッド', minPrice: 12001 },
+    ],
+    // 対象外が明らかなものだけ（強くしすぎると通常品まで消えるため最小限にする）
+    ngKeyword: '中古 業務用 ペット 犬 猫 交換用カートリッジ',
+    sort: '-reviewCount',
+    hits: 20,
+    // パッキンなどの小さな部品を除くための下限
+    minPrice: 1000,
+    // 同じショップ（メーカー公式店など）からは最大3件まで
+    maxPerShop: 3,
+    // src/data/diagnoses/showerHead.ts の priceLabels に合わせる（〜3,000 / 〜6,000 / 〜12,000 / それ以上）
+    priceThresholds: [3000, 6000, 12000],
+    // showerHead.ts の評価項目・true/false 項目（公式仕様を確認して記入する）
+    attributeKeys: ['waterPressure', 'waterSaving', 'lightness', 'sprayVariety', 'convenience', 'fineBubble', 'stopButton'],
+  },
 }
