@@ -5,6 +5,12 @@ import { useSyncExternalStore } from 'react'
 
 const EVENT = 'app:navigate'
 
+/** ビルド時のプリレンダリング（scripts/seoPlugin.ts）で描画するページのパス。ブラウザでは使わない */
+let prerenderPath = '/'
+export function setPrerenderPath(path: string) {
+  prerenderPath = path
+}
+
 function subscribe(callback: () => void) {
   window.addEventListener('popstate', callback)
   window.addEventListener(EVENT, callback)
@@ -24,7 +30,7 @@ export function usePathname(): string {
   return useSyncExternalStore(
     subscribe,
     () => normalizePath(window.location.pathname),
-    () => '/',
+    () => normalizePath(prerenderPath),
   )
 }
 

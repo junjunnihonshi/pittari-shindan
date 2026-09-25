@@ -82,9 +82,20 @@ export function absoluteUrl(pathOrUrl: string): string {
   return `${base}${pathOrUrl.startsWith('/') ? '' : '/'}${pathOrUrl}`
 }
 
+/**
+ * 検索エンジン向けの正規URL（canonical・og:url・sitemap.xml で共通に使う）。
+ * 診断ページは dist/diagnosis/<slug>/index.html として配信され、Cloudflare Pages は末尾 / なしのURLを
+ * 末尾 / ありへ 308 リダイレクトするため、最終的に表示されるURL（末尾 / あり）に揃える。
+ * サイト内のリンクや画面の切り替え（diagnosisPath）は変えない。
+ */
+export function canonicalUrl(path: string): string {
+  const p = path.startsWith('/diagnosis/') && !path.endsWith('/') ? `${path}/` : path
+  return absoluteUrl(p)
+}
+
 /** <head> に入れるタグの一覧（ビルド時HTML生成・ブラウザでの更新の両方で使用） */
 export function buildHeadTags(meta: PageMeta): { tag: 'meta' | 'link'; attrs: Record<string, string> }[] {
-  const url = absoluteUrl(meta.path)
+  const url = canonicalUrl(meta.path)
   const image = meta.ogImage || site.ogImage
   const tags: { tag: 'meta' | 'link'; attrs: Record<string, string> }[] = [
     { tag: 'meta', attrs: { name: 'description', content: meta.description } },

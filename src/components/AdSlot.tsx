@@ -14,15 +14,18 @@ export function AdSlot({ id, variant }: { id: AdSlotId; variant?: 'side' }) {
     <aside className={variant === 'side' ? 'ad-slot ad-slot--side' : 'ad-slot'} aria-label={slot.label}>
       <p className="ad-slot__label">{slot.label}</p>
       <div className="ad-slot__frame-wrap" style={{ width: slot.width, height: slot.height }}>
-        <iframe
-          className="ad-slot__frame"
-          src={slot.src}
-          title={slot.label}
-          width={slot.width}
-          height={slot.height}
-          loading="lazy"
-          scrolling="no"
-        />
+        {/* ビルド時のプリレンダリングでは広告を読み込まない（枠の大きさだけ確保し、ブラウザでの表示時に広告を読み込む） */}
+        {typeof window !== 'undefined' && (
+          <iframe
+            className="ad-slot__frame"
+            src={slot.src}
+            title={slot.label}
+            width={slot.width}
+            height={slot.height}
+            loading="lazy"
+            scrolling="no"
+          />
+        )}
       </div>
     </aside>
   )

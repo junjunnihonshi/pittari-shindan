@@ -20,6 +20,7 @@ import { spawnSync, spawn, type ChildProcess } from 'node:child_process'
 import { createHash } from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
+import { canonicalUrl, diagnosisPath } from '../src/config/seo.ts'
 import { site } from '../src/config/site.ts'
 import { validateDiagnoses } from '../src/data/validate.ts'
 import type { Diagnosis } from '../src/types/diagnosis.ts'
@@ -197,7 +198,7 @@ async function checkProductLinks(d: Diagnosis) {
 }
 
 function checkBuiltSeo(d: Diagnosis) {
-  const pageUrl = `${site.url}/diagnosis/${d.slug}`
+  const pageUrl = canonicalUrl(diagnosisPath(d.slug))
   const sitemap = fs.readFileSync(path.join(ROOT, 'dist/sitemap.xml'), 'utf8')
   if (!sitemap.includes(`<loc>${pageUrl}</loc>`)) stop(`sitemap.xml に ${pageUrl} がありません`)
   const html = fs.readFileSync(path.join(ROOT, 'dist/diagnosis', d.slug, 'index.html'), 'utf8')
@@ -251,7 +252,7 @@ async function startPreview(): Promise<ChildProcess> {
 }
 
 async function waitForDeploy(d: Diagnosis) {
-  const pageUrl = `${site.url}/diagnosis/${d.slug}`
+  const pageUrl = canonicalUrl(diagnosisPath(d.slug))
   const start = Date.now()
   while (Date.now() - start < DEPLOY_TIMEOUT_MS) {
     // sitemap.xml 自体が一時的に 404 などになっても、反映待ちとして確認を続ける
@@ -282,8 +283,8 @@ async function fetchRetryingNotFound(url: string, label: string): Promise<{ stat
 }
 
 async function checkProductionPages(target: Diagnosis, published: Diagnosis[]) {
-  const pageUrl = `${site.url}/diagnosis/${target.slug}`
-  const targetPage = await fetchRetryingNotFound(`${pageUrl}/`, `${target.name}のページ`)
+  const pageUrl = canonicalUrl(diagnosisPath(target.slug))
+  const targetPage = await fetchRetryingNotFound(pageUrl, `${target.name}のページ`)
   if (targetPage.status !== 200) {
     stop(`本番で${target.name}のページを開けません（${targetPage.status}${targetPage.status === 404 ? `、${NOT_FOUND_MAX_ATTEMPTS}回確認` : ''}）`)
   }
@@ -475,7 +476,7 @@ async function main() {
   // 通常は対象診断とトップページを代表幅（スマホ・PC）で確認。画面に影響する変更があるときは全幅＋既存診断も確認する
   await checkScreens(site.url, current, run, scope.uiChanged ? DEFAULT_WIDTHS : REPRESENTATIVE_WIDTHS, '本番', screenOthers(published))
 
-  console.log(`\n✅ ${current.name}：${verifyOnly ? '再確認' : '公開'}完了 ${site.url}/diagnosis/${current.slug}`)
+  console.log(`\n✅ ${current.name}：${verifyOnly ? '再確認' : '公開'}完了 ${canonicalUrl(diagnosisPath(current.slug))}`)
   for (const s of summary) console.log(`  ・${s}`)
 }
 
