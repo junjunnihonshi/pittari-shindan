@@ -122,12 +122,19 @@
 
 ## Phase 13　enabled:true → sitemap → commit → push → 本番確認
 
-1. 公開直前に価格・在庫・画像を再確認する（価格帯の境界に近い商品は特に）。
-2. 診断ファイルの `enabled: false` を `true` にする（ほかの診断の enabled は変えない）。
-3. `npm run check` / `npm run lint` / `npm run build` を実行し、`dist/sitemap.xml` に追加されたこと、診断ページが `index, follow` であることを確認する。
-4. 診断関連のファイルだけを commit し、`main` へ push する（`data/rakuten-candidates/` は gitignore 対象）。
-5. Cloudflare Pages の反映を待つ（本番の sitemap に載る／配信JSのファイル名がローカルのビルドと一致する）。
-6. 本番で「公開チェックリスト」の本番確認を行う。
+公開ワークフロー（`scripts/publishDiagnosis.ts`）で自動実行する。手順の中身は README「診断を公開する手順」を参照。
+
+```bash
+npm run publish:diagnosis -- <診断ID> --dry-run   # 確認だけ
+npm run publish:diagnosis -- <診断ID> --message "Publish <ID> diagnosis with N real products"
+```
+
+- 1つでも失敗したら停止し、commit・push しない（enabled を書き換えていれば元に戻す）。
+- 公開工程で変えるのは `enabled: false` → `true` の1行だけ。採点・質問・商品を直した場合は、公開ワークフローの前に Phase 9〜12 をやり直す。
+- 公開済みの診断を後から確かめるときは `--verify`（本番確認まで行い、ファイルは変更しない）。
+- 検証範囲は変更内容から自動判定される（対象診断のみ／変更された診断のみ／全診断）。共通の計算部分や判定できない変更があれば全診断をフル検証する（README「検証範囲の自動判定」）。
+- dry-run 成功後、ファイルを変えずに公開すれば重い検証は再利用される。dry-run 後に何か直した場合は自動で再検証になる。
+- 自動化していない確認（楽天ページの型番・カラー・セット構成、セール終了日、画像の販促文字）は、公開前に人が行う。
 
 ---
 
@@ -193,6 +200,9 @@ Phase 4（仮商品）と Phase 9（実商品）で、全回答パターンに�
 ## 公開チェックリスト
 
 ### 公開前（ローカル）
+
+`npm run publish:diagnosis -- <診断ID> --dry-run` で、型番・カラー・画像の販促文字以外の項目は自動で確認できる。
+
 - [ ] 全商品の現在価格（楽天の代表出品）
 - [ ] 全商品の在庫・販売状況
 - [ ] 全商品の型番・カラー・セット構成（複数型番の混在ページでないこと）
@@ -209,6 +219,9 @@ Phase 4（仮商品）と Phase 9（実商品）で、全回答パターンに�
 - [ ] 診断ページが `index, follow`
 
 ### 公開後（本番）
+
+公開ワークフローが本番確認まで自動で行う（公開済みの診断は `--verify` で再確認できる）。
+
 - [ ] Cloudflare Pages の反映（本番の sitemap・配信JSのファイル名）
 - [ ] トップページから診断を開ける／ほかの準備中の診断は準備中のまま
 - [ ] 代表パターンで全問回答 → 結果TOP3・画像・楽天ボタン

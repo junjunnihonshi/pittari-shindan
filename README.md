@@ -50,7 +50,9 @@ pittari-shindan/
 ├─ public/                    … そのまま公開されるファイル（favicon, _headers）
 ├─ scripts/
 │   ├─ seoPlugin.ts           … ビルド時にページ別HTML・sitemap.xml・robots.txt・404.htmlを生成
-│   └─ checkDiagnoses.ts      … 全診断を全回答パターンで動作確認（npm run check）
+│   ├─ checkDiagnoses.ts      … 全診断を全回答パターンで動作確認（npm run check）
+│   ├─ publishDiagnosis.ts    … 診断公開ワークフロー（npm run publish:diagnosis）
+│   └─ lib/                   … check と公開ワークフローで共有する確認処理（全パターン検証・公開版との比較・楽天・画面確認）
 └─ src/
     ├─ config/
     │   ├─ site.ts            … ★サイト名・公開URL・運営者情報・広告表記
@@ -106,6 +108,7 @@ npm run build     # 公開用ファイルを dist/ に作成（型チェック�
 npm run preview   # 作成した dist/ をローカルで確認
 npm run lint      # コードの書き方チェック
 npm run check     # 全診断を全回答パターンで実行して動作確認
+npm run publish:diagnosis -- <診断ID>   # 診断の公開（確認→enabled:true→commit→push→本番確認を自動実行）
 ```
 
 `npm run build` を実行すると `dist/` フォルダに以下が作られます。
@@ -319,16 +322,55 @@ officialUrl: 'https://…',
 
 ### 診断を公開する手順（`enabled: false` → `true`）
 
-1. 商品の最終確認
-   - 楽天の商品ページで、価格・販売状況・型番を確認
-   - 価格帯（`priceRange`）が現在の価格と合っているかを確認。セール価格の商品は、セールの終了日にも注意
-   - 商品画像に販促文字（「◯%OFF」「ポイント◯倍」など）が大きく入っていないかを確認
-2. 診断ファイルの最後にある `enabled: false` を `enabled: true` に変更
-3. `npm run check`、`npm run lint`、`npm run build` がすべてエラーなしで終わることを確認
-   - `dist/sitemap.xml` にその診断のURLが追加されていることを確認（sitemap は自動で作られます。手で編集しません）
-4. `npm run dev` で実際に何パターンか診断して、結果画面を確認
-5. commit・push すると、Cloudflare Pages に自動で公開されます
-6. 公開後、本番URLで表示と楽天リンクを確認し、必要なら Google Search Console で sitemap を再送信
+公開前後の確認は、公開ワークフローでまとめて自動実行できます。
+
+```bash
+npm run publish:diagnosis -- humidifier --dry-run   # まず確認だけ（enabled は元に戻し、commit しない）
+npm run publish:diagnosis -- humidifier             # 公開（commit・push・本番確認まで）
+npm run publish:diagnosis -- humidifier --verify    # 公開済みの診断を再確認（ファイル変更なし）
+```
+
+自動で行うこと（1つでも失敗したらその時点で停止し、commit・push はしません。enabled を書き換えていれば元に戻します）：
+
+1. 対象の診断が `enabled: false`・実商品（仮商品なし）・入力チェックOKであること、main ブランチで origin より遅れていないこと、公開対象以外のファイルに変更がないこと
+2. 変更内容から検証範囲を自動判定（下の「検証範囲の自動判定」）
+3. 対象の診断を全回答パターンで検証（`npm run check` と同じ確認。検証範囲が広がった場合はその診断も）
+4. 公開中の全診断が、公開版（HEAD）と同じ結果であること（結果に影響する依存ファイルのハッシュが同じ診断は再計算を省略、それ以外は全パターンで完全一致を確認）
+5. 全商品の画像・楽天アフィリエイトURL（rafcid なし・転送）・楽天の価格が priceRange と合うこと・売り切れでないこと
+6. `enabled: false` → `true`（公開工程で変更するのはこの1行だけ）
+7. `npm run build` / `lint` / `check`（公開処理の中で1回だけ、公開直前の状態で実行）、`dist/sitemap.xml` への掲載・`index, follow`・canonical
+8. ビルド結果をローカルで配信し、トップのカードと代表パターンの画面（390 / 1280px）を確認
+9. 変更ファイルが対象の診断ファイル（と `scripts/rakuten/presets.ts`）だけで、実行中にほかの変更が加わっていないことを確認して commit → push
+10. Cloudflare Pages の反映を待ち（本番 sitemap に載るまで最大10分）、本番の robots・canonical・アクセス解析ビーコン・公開中の全診断ページ（HTTP 200）を確認し、トップのカードと対象診断の代表パターンを 390 / 1280px で確認（表示が計算結果と一致・画像・楽天ボタン・横スクロール・文字切れ・JSエラー）
+
+#### 検証範囲の自動判定
+
+比較先（HEAD）からの変更を調べ、ファイル名ではなく「診断結果に影響するファイルの中身のハッシュ」で判定します（`scripts/lib/changeScope.ts`）。
+
+| 変更内容 | 全パターン検証 | 画面確認 |
+| --- | --- | --- |
+| 新しい診断の追加だけ（診断ファイル＋`index.ts` への import・1行追加） | 対象診断のみ（既存診断はハッシュ一致を確認） | 対象診断＋トップ |
+| 既存の個別診断のデータ（その診断だけが使う補助ファイルを含む） | 変更された診断のみ | 対象診断＋変更された診断 |
+| 共通の計算部分（`src/engine/diagnosisEngine.ts`・`scoring.ts`・`src/types/diagnosis.ts`・`src/data/diagnoses/shared.ts`・`src/data/validate.ts` とその import 先） | 公開中の全診断 | 公開中の全診断 |
+| 画面・CSS・文章だけ（`src/components`・`src/pages`・`src/lib`・`src/config`・CSS・`public`・`index.html`・`scripts/seoPlugin.ts`） | 再計算なし（build / lint / check のみ） | 公開中の全診断を 390 / 1280px（本番の対象診断は 320〜1280px の4幅） |
+| 説明文書・楽天の検索ツール（`*.md`・`docs/`・`scripts/rakuten/`） | 再計算なし | 対象診断＋トップ |
+
+次の場合は必ず全診断のフル検証（画面確認も全診断）にします：変更範囲を判定できない／依存関係を解析できない（外部パッケージ・動的 import など）／共通の計算部分・検証の仕組み（`scripts/lib`・`scripts/checkDiagnoses.ts`・`scripts/publishDiagnosis.ts`）・ビルド設定（`package.json`・`tsconfig`・`vite.config.ts`・`eslint.config.js`）の変更／判定ルールにないファイルの変更／診断ファイルの削除や診断IDの不一致／`index.ts` に新しい診断の追加以外の変更。
+
+#### dry-run の結果の再利用
+
+dry-run が最後まで成功すると、そのときの作業ツリー全体の git tree ハッシュと HEAD・Node.js のバージョンを `.git/pittari-publish/` に記録します（commit には含まれません）。続けて公開したときにこれらが完全に一致すれば、重い検証（全パターン検証・公開版との一致・enabled 切り替えで結果が変わらないこと）を再実行しません。ファイルが1文字でも変わっていたり、HEAD が変わっていたり、記録のハッシュが合わなかったりした場合は、記録を無効にしてすべて検証し直します。商品の最終チェック（在庫・価格）と build / lint / check・画面確認は公開時にも必ず実行します。
+
+画面確認では、自動確認のアクセスをアクセス解析（Cloudflare Web Analytics）に含めないよう、解析への通信を空の応答に差し替えます。ビーコンが設置されていることは本番の HTML で確認します。
+
+オプション：`--message "コミットメッセージ"`（既定は `Publish <ID> diagnosis`）、`--allow <path>`（ほかのファイルも commit に含める）、`--base <commit>`（比較先。ワークフロー自体の動作確認用）。
+画面確認には Edge か Chrome を使います（見つからない場合は環境変数 `PUBLISH_BROWSER_PATH` で指定）。
+
+自動化していないため、公開前に人が確認すること：
+
+- 楽天の商品ページの型番・カラー・セット構成（別の型番が混ざっていないか）、セール価格の終了日
+- 商品画像に販促文字（「◯%OFF」「ポイント◯倍」など）が大きく入っていないか
+- 必要に応じて Google Search Console で sitemap を再送信
 
 分類（`group`）を新しく増やしたい場合は `src/config/categories.ts` と `src/types/diagnosis.ts` の `CategoryGroupId` に追加します。
 
