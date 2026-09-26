@@ -3,6 +3,7 @@ import { deskChair } from './deskChair.ts'
 import { electricKettle } from './electricKettle.ts'
 import { fryingPan } from './fryingPan.ts'
 import { hairDryer } from './hairDryer.ts'
+import { heater } from './heater.ts'
 import { humidifier } from './humidifier.ts'
 import { mobileBattery } from './mobileBattery.ts'
 import { pet } from './pet.ts'
@@ -27,6 +28,7 @@ const allDiagnoses: Diagnosis[] = [
   deskChair,
   showerHead,
   humidifier,
+  heater,
   pet,
 ]
 

@@ -368,4 +368,41 @@ export const presets: Record<string, RakutenPreset> = {
     // electricKettle.ts の評価項目・true/false 項目（公式仕様を確認して記入する）
     attributeKeys: ['boilSpeed', 'tempControl', 'easeOfCare', 'safety', 'lightness', 'keepWarm', 'cap08', 'cap10', 'cap12'],
   },
+
+  /**
+   * ヒーター：家庭用の電気ヒーター（セラミック・電気ストーブ・パネル・オイル／オイルレスなど）。
+   * 石油・ガス暖房、電気毛布・ホットカーペット・こたつ、業務用が混ざっていたら確認時に除外してください。
+   */
+  heater: {
+    category: 'heater',
+    // 方式・用途別と価格帯別で広く拾う（メーカー名は入れない）
+    keywords: [
+      'セラミックファンヒーター 人感センサー',
+      'セラミックヒーター 小型',
+      'カーボンヒーター 電気ストーブ',
+      'グラファイトヒーター',
+      'パネルヒーター',
+      'オイルヒーター',
+      'オイルレスヒーター',
+      'セラミックヒーター 加湿',
+      '脱衣所 ヒーター',
+      // 価格帯別（src/data/diagnoses/heater.ts の priceLabels に合わせる）
+      { keyword: '電気ヒーター', maxPrice: 5000 },
+      { keyword: '電気ヒーター', minPrice: 5001, maxPrice: 10000 },
+      { keyword: '電気ヒーター', minPrice: 10001, maxPrice: 20000 },
+      { keyword: '電気ヒーター', minPrice: 20001 },
+    ],
+    // 対象外が明らかなものだけ（強くしすぎると通常品まで消えるため最小限にする）
+    ngKeyword: '石油 ガス 灯油 業務用 毛布 カーペット こたつ 中古 部品 交換用',
+    sort: '-reviewCount',
+    hits: 20,
+    // 小物・部品を除くための下限
+    minPrice: 2000,
+    // 同じショップ（メーカー公式店など）からは最大3件まで
+    maxPerShop: 3,
+    // src/data/diagnoses/heater.ts の priceLabels に合わせる（〜5,000 / 〜10,000 / 〜20,000 / それ以上）
+    priceThresholds: [5000, 10000, 20000],
+    // heater.ts の評価項目・true/false 項目（公式仕様を確認して記入する）
+    attributeKeys: ['heatingPower', 'quickHeat', 'quietness', 'safety', 'ecoFeatures', 'convenience', 'lightness', 'room6', 'room8', 'heaterType'],
+  },
 }
