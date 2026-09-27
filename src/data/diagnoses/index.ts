@@ -6,6 +6,7 @@ import { hairDryer } from './hairDryer.ts'
 import { heater } from './heater.ts'
 import { airPurifier } from './airPurifier.ts'
 import { electricBlanket } from './electricBlanket.ts'
+import { toaster } from './toaster.ts'
 import { humidifier } from './humidifier.ts'
 import { mobileBattery } from './mobileBattery.ts'
 import { pet } from './pet.ts'
@@ -33,6 +34,7 @@ const allDiagnoses: Diagnosis[] = [
   heater,
   airPurifier,
   electricBlanket,
+  toaster,
   pet,
 ]
 

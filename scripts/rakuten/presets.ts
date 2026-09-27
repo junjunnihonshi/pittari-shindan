@@ -473,4 +473,37 @@ export const presets: Record<string, RakutenPreset> = {
     // electricBlanket.ts の評価項目・true/false 項目（公式仕様を確認して記入する）
     attributeKeys: ['warmth', 'softness', 'washability', 'ecoFeatures', 'functions', 'tempControl', 'useKake', 'useShiki', 'useBoth', 'useLap', 'sizeRank', 'machineWash', 'timer', 'mite', 'sensor'],
   },
+
+  /**
+   * トースター：家庭用のオーブントースター（ポップアップ式を含む）。
+   * オーブンレンジ・ホットサンドメーカー・業務用・交換部品が混ざっていたら確認時に除外してください。
+   */
+  toaster: {
+    category: 'toaster',
+    // 用途別と価格帯別で広く拾う（メーカー名は入れない）
+    keywords: [
+      'オーブントースター 4枚',
+      'オーブントースター 2枚',
+      'トースター スチーム',
+      'トースター 温度調節',
+      'コンベクション トースター',
+      'トースター コンパクト',
+      // 価格帯別（src/data/diagnoses/toaster.ts の priceLabels を決める前の目安）
+      { keyword: 'オーブントースター', maxPrice: 5000 },
+      { keyword: 'オーブントースター', minPrice: 5001, maxPrice: 12000 },
+      { keyword: 'オーブントースター', minPrice: 12001, maxPrice: 25000 },
+      { keyword: 'オーブントースター', minPrice: 25001 },
+    ],
+    // 対象外が明らかなものだけ（強くしすぎると通常品まで消えるため最小限にする）
+    ngKeyword: '業務用 中古 部品 交換用 網のみ トレイのみ ホットサンド',
+    sort: '-reviewCount',
+    hits: 20,
+    minPrice: 1500,
+    // 同じショップ（メーカー公式店など）からは最大3件まで
+    maxPerShop: 3,
+    // 仮の区分（公式確認した実商品の価格分布を見て1回だけ見直す）
+    priceThresholds: [5000, 12000, 25000],
+    // toaster.ts の評価項目・true/false 項目（公式仕様を確認して記入する）
+    attributeKeys: ['toastFeatures', 'toastSpeed', 'versatility', 'easeOfCare', 'compactness', 'slices4', 'pizza', 'tempControl', 'autoMenu', 'fineControl', 'reheat'],
+  },
 }
