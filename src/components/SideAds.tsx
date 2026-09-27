@@ -2,7 +2,7 @@ import { useMediaQuery } from '../lib/mediaQuery.ts'
 import { AdSlot } from './AdSlot.tsx'
 
 /** 左右の広告を出す画面幅（中央コンテンツの外側に 300px の広告と余白が収まる幅） */
-const SIDE_ADS_QUERY = '(min-width: 1760px)'
+const SIDE_ADS_QUERY = '(min-width: 1600px)'
 
 /**
  * PC幅の左右広告（300×250・スクロールに追従）。トップページと診断ページで共通に使います。

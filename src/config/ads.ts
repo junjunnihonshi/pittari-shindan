@@ -27,7 +27,7 @@ export const adSlots = {
     label: '広告',
     enabled: true,
   },
-  /** トップページ・診断ページ共通：PC幅（1760px以上）の中央コンテンツの左側（300×250・スクロールに追従） */
+  /** トップページ・診断ページ共通：PC幅（1600px以上）の中央コンテンツの左側（300×250・スクロールに追従） */
   sideLeft: {
     src: '/ad-frames/admax-side-left.html',
     width: 300,
@@ -35,7 +35,7 @@ export const adSlots = {
     label: '広告',
     enabled: true,
   },
-  /** トップページ・診断ページ共通：PC幅（1760px以上）の中央コンテンツの右側（300×250・スクロールに追従） */
+  /** トップページ・診断ページ共通：PC幅（1600px以上）の中央コンテンツの右側（300×250・スクロールに追従） */
   sideRight: {
     src: '/ad-frames/admax-side-right.html',
     width: 300,

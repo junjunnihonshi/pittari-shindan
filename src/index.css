@@ -682,16 +682,18 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   top: var(--space-section);
   bottom: 0;
   width: 300px;
+  /* 中央コンテンツとの余白：通常は 40px。画面が狭いときは、外側の余白と同じ幅まで縮めて左右の広告を画面内に収める */
+  --side-ad-gap: min(40px, (50% - var(--container) / 2 - 300px) / 2);
 }
 .side-ad-host > .side-ad-rail {
   top: 20px;
 }
 .side-ad-rail--left {
-  /* 中央コンテンツの左端から、余白 40px ＋ 広告幅 300px だけ外側 */
-  left: calc(50% - var(--container) / 2 - 40px - 300px);
+  /* 中央コンテンツの左端から、余白 ＋ 広告幅 300px だけ外側 */
+  left: calc(50% - var(--container) / 2 - var(--side-ad-gap) - 300px);
 }
 .side-ad-rail--right {
-  left: calc(50% + var(--container) / 2 + 40px);
+  left: calc(50% + var(--container) / 2 + var(--side-ad-gap));
 }
 .ad-slot--side {
   position: sticky;
@@ -1595,8 +1597,8 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   }
 }
 
-/* 左右の広告は幅1760px以上だけ（それより狭い画面には出さない。描画自体も SideAds で同じ条件にしている） */
-@media (min-width: 1760px) {
+/* 左右の広告は幅1600px以上だけ（それより狭い画面には出さない。描画自体も SideAds で同じ条件にしている） */
+@media (min-width: 1600px) {
   .side-ad-rail {
     display: block;
   }
