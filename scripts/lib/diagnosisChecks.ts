@@ -4,17 +4,17 @@
  * - 全パターンでの動作確認（結果件数・条件違反・%の並び・別枠の構成）
  * - 全パターンの結果の「スナップショット」（公開版との完全一致の比較用）
  */
-import type { DiagnosisResult } from '../../src/engine/diagnosisEngine.ts'
+import { visibleOptions, type DiagnosisResult } from '../../src/engine/diagnosisEngine.ts'
 import type { Answers, Diagnosis } from '../../src/types/diagnosis.ts'
 
 /** 診断を実行する関数（公開版と作業中のエンジンを差し替えて比べられるよう、引数で受け取る） */
 export type RunDiagnosis = (diagnosis: Diagnosis, answers: Answers) => DiagnosisResult
 
-/** ありうる全ての回答の組み合わせ */
+/** ありうる全ての回答の組み合わせ（前の回答で表示されない選択肢は含めない） */
 export function* combinations(d: Diagnosis, i = 0, acc: Answers = {}): Generator<Answers> {
   if (i === d.questions.length) return yield { ...acc }
   const q = d.questions[i]
-  for (const o of q.options) yield* combinations(d, i + 1, { ...acc, [q.id]: o.id })
+  for (const o of visibleOptions(q, acc)) yield* combinations(d, i + 1, { ...acc, [q.id]: o.id })
 }
 
 /** 1位（通常ランキングが空なら補完候補の先頭）の相性がこの値（%）未満なら「相性が低い」パターンとして数える */

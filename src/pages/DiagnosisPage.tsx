@@ -6,7 +6,7 @@ import { QuestionStep } from '../components/QuestionStep.tsx'
 import { ResultCard } from '../components/ResultCard.tsx'
 import { diagnosisPath } from '../config/seo.ts'
 import { site } from '../config/site.ts'
-import { isComplete, runDiagnosis, sanitizeAnswers } from '../engine/diagnosisEngine.ts'
+import { isComplete, runDiagnosis, sanitizeAnswers, visibleOptions } from '../engine/diagnosisEngine.ts'
 import { trackEvent } from '../lib/analytics.ts'
 import { Link } from '../components/Link.tsx'
 import { useSeo } from '../lib/seo.ts'
@@ -57,7 +57,8 @@ export function DiagnosisPage({ diagnosis }: { diagnosis: Diagnosis }) {
 
   const select = (optionId: string) => {
     const q = questions[step]
-    setAnswers((prev) => ({ ...prev, [q.id]: optionId }))
+    // 回答を変えたことで表示されなくなった後ろの質問の回答は取り消す（選択肢の出し分けがある診断向け）
+    setAnswers((prev) => sanitizeAnswers(diagnosis, { ...prev, [q.id]: optionId }))
     if (step < questions.length - 1) setStep(step + 1)
     else setPhase('done')
   }
@@ -141,6 +142,7 @@ export function DiagnosisPage({ diagnosis }: { diagnosis: Diagnosis }) {
               <ProgressBar current={step + 1} total={questions.length} />
               <QuestionStep
                 question={questions[step]}
+                options={visibleOptions(questions[step], answers)}
                 selectedId={answers[questions[step].id]}
                 onSelect={select}
                 onBack={back}

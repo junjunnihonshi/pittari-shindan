@@ -27,6 +27,19 @@ export function validateDiagnoses(list: Diagnosis[]): string[] {
         if (oIds.has(o.id)) problems.push(`${where} 質問 "${q.id}" の選択肢IDが重複しています: "${o.id}"`)
         oIds.add(o.id)
       }
+      // 表示条件（showWhen）は前の質問の選択肢を参照し、どの回答でも選択肢が 2 つ以上残ること
+      const refs = [...new Set(q.options.flatMap((o) => (o.showWhen ? [o.showWhen.question] : [])))]
+      for (const ref of refs) {
+        const rq = d.questions.find((x) => x.id === ref)
+        if (!rq || d.questions.indexOf(rq) >= d.questions.indexOf(q)) {
+          problems.push(`${where} 質問 "${q.id}" の表示条件が、前にない質問 "${ref}" を参照しています`)
+          continue
+        }
+        for (const ro of rq.options) {
+          const shown = q.options.filter((o) => !o.showWhen || (o.showWhen.question === ref && o.showWhen.options.includes(ro.id)))
+          if (shown.length < 2) problems.push(`${where} 質問 "${q.id}" は、"${ref}" で "${ro.id}" を選んだときの選択肢が 2 つ未満です`)
+        }
+      }
     }
 
     const enabled = d.products.filter((p) => p.enabled)

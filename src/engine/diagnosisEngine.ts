@@ -49,18 +49,23 @@ export function getAvailableProducts(diagnosis: Diagnosis): Product[] {
   return diagnosis.products.filter((p) => p.enabled && p.category === diagnosis.id)
 }
 
-/** 全問回答済みか */
-export function isComplete(diagnosis: Diagnosis, answers: Answers): boolean {
-  return diagnosis.questions.every((q) => q.options.some((o) => o.id === answers[q.id]))
+/** 前の回答をふまえて表示する選択肢（showWhen の条件を満たすもの） */
+export function visibleOptions(question: Question, answers: Answers): AnswerOption[] {
+  return question.options.filter((o) => !o.showWhen || o.showWhen.options.includes(answers[o.showWhen.question]))
 }
 
-/** 保存されていた回答から、現在の質問データに存在するものだけを残す */
+/** 全問回答済みか（表示されない選択肢の回答は未回答として扱う） */
+export function isComplete(diagnosis: Diagnosis, answers: Answers): boolean {
+  return diagnosis.questions.every((q) => visibleOptions(q, answers).some((o) => o.id === answers[q.id]))
+}
+
+/** 保存されていた回答から、現在の質問データに存在し、前の回答に対して表示される選択肢だけを残す */
 export function sanitizeAnswers(diagnosis: Diagnosis, answers: unknown): Answers {
   if (!answers || typeof answers !== 'object') return {}
   const out: Answers = {}
   for (const q of diagnosis.questions) {
     const v = (answers as Record<string, unknown>)[q.id]
-    if (typeof v === 'string' && q.options.some((o) => o.id === v)) out[q.id] = v
+    if (typeof v === 'string' && visibleOptions(q, out).some((o) => o.id === v)) out[q.id] = v
   }
   return out
 }

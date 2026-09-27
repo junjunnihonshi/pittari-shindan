@@ -86,6 +86,11 @@ export interface AnswerOption {
    * 超える商品は、通常ランキングの件数に足りないときだけ「予算を少し超える候補」として別枠に表示します。
    */
   maxPriceRange?: number
+  /**
+   * 表示条件（任意）。前の質問 question の回答が options のいずれかのときだけ、この選択肢を表示します。
+   * 例：「ひざ掛け」を選んだときだけ、ひざ掛け用のサイズの選択肢を出す。未設定なら常に表示します。
+   */
+  showWhen?: { question: string; options: string[] }
 }
 
 /** 適格条件：商品の attributes[attr] が value と一致すること */

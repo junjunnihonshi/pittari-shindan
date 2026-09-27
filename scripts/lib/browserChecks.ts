@@ -8,6 +8,7 @@
 import fs from 'node:fs'
 import puppeteer, { type Browser, type Page } from 'puppeteer-core'
 import type { Answers, Diagnosis } from '../../src/types/diagnosis.ts'
+import { visibleOptions } from '../../src/engine/diagnosisEngine.ts'
 import { combinations, type RunDiagnosis } from './diagnosisChecks.ts'
 
 export const DEFAULT_WIDTHS = [320, 390, 768, 1280]
@@ -59,7 +60,12 @@ export function representativePatterns(d: Diagnosis, run: RunDiagnosis, max = 7)
   add(notice)
   const longest = Math.max(...d.questions.map((q) => q.options.length))
   for (let k = 0; k < longest * 2 && picked.size < max; k++) {
-    add(Object.fromEntries(d.questions.map((q, qi) => [q.id, q.options[(k + qi) % q.options.length].id])))
+    const a: Answers = {}
+    d.questions.forEach((q, qi) => {
+      const opts = visibleOptions(q, a)
+      a[q.id] = opts[(k + qi) % opts.length].id
+    })
+    add(a)
   }
   return [...picked.values()]
 }

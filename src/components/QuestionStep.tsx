@@ -1,15 +1,17 @@
 import { useEffect, useRef } from 'react'
-import type { Question } from '../types/diagnosis.ts'
+import type { AnswerOption, Question } from '../types/diagnosis.ts'
 
 interface Props {
   question: Question
+  /** 表示する選択肢（前の回答に応じて絞り込んだもの） */
+  options: AnswerOption[]
   selectedId?: string
   onSelect: (optionId: string) => void
   onBack: () => void
   backLabel: string
 }
 
-export function QuestionStep({ question, selectedId, onSelect, onBack, backLabel }: Props) {
+export function QuestionStep({ question, options, selectedId, onSelect, onBack, backLabel }: Props) {
   const headingRef = useRef<HTMLHeadingElement>(null)
 
   // 質問が切り替わったら見出しにフォーカス（キーボード・読み上げ利用者向け）
@@ -24,7 +26,7 @@ export function QuestionStep({ question, selectedId, onSelect, onBack, backLabel
       </h2>
       {question.help && <p className="question__help">{question.help}</p>}
       <div className="question__options" role="group" aria-label={question.text}>
-        {question.options.map((option) => {
+        {options.map((option) => {
           const selected = option.id === selectedId
           return (
             <button

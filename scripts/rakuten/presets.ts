@@ -440,4 +440,37 @@ export const presets: Record<string, RakutenPreset> = {
     // airPurifier.ts の評価項目・true/false 項目（公式仕様を確認して記入する）
     attributeKeys: ['cleanSpeed', 'deodorize', 'quietness', 'easeOfCare', 'compactness', 'humidify', 'room10', 'room18', 'room25', 'room32'],
   },
+
+  /**
+   * 電気毛布：家庭用の電気毛布（掛け・敷き・掛け敷き両用・ひざ掛け）。
+   * ホットカーペット・こたつ・電気あんか・USB給電の小物・着る毛布（電気なし）が混ざっていたら確認時に除外してください。
+   */
+  'electric-blanket': {
+    category: 'electric-blanket',
+    // 用途別と価格帯別で広く拾う（メーカー名は入れない）
+    keywords: [
+      '電気毛布 掛け',
+      '電気毛布 敷き',
+      '電気毛布 掛け敷き',
+      '電気ひざ掛け',
+      '電気毛布 洗える',
+      '電気毛布 ダブル',
+      // 価格帯別（src/data/diagnoses/electricBlanket.ts の priceLabels に合わせる）
+      { keyword: '電気毛布', maxPrice: 5000 },
+      { keyword: '電気毛布', minPrice: 5001, maxPrice: 10000 },
+      { keyword: '電気毛布', minPrice: 10001, maxPrice: 15000 },
+      { keyword: '電気毛布', minPrice: 15001 },
+    ],
+    // 対象外が明らかなものだけ（強くしすぎると通常品まで消えるため最小限にする）
+    ngKeyword: 'カーペット こたつ USB 中古 カバー単品 交換用 業務用',
+    sort: '-reviewCount',
+    hits: 20,
+    minPrice: 1500,
+    // 同じショップ（メーカー公式店など）からは最大3件まで
+    maxPerShop: 3,
+    // src/data/diagnoses/electricBlanket.ts の priceLabels に合わせる（〜5,000 / 〜10,000 / 〜15,000 / それ以上）
+    priceThresholds: [5000, 10000, 15000],
+    // electricBlanket.ts の評価項目・true/false 項目（公式仕様を確認して記入する）
+    attributeKeys: ['warmth', 'softness', 'washability', 'ecoFeatures', 'functions', 'tempControl', 'useKake', 'useShiki', 'useBoth', 'useLap', 'sizeRank', 'machineWash', 'timer', 'mite', 'sensor'],
+  },
 }
