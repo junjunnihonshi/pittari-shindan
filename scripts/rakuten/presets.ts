@@ -405,4 +405,39 @@ export const presets: Record<string, RakutenPreset> = {
     // heater.ts の評価項目・true/false 項目（公式仕様を確認して記入する）
     attributeKeys: ['heatingPower', 'quickHeat', 'quietness', 'safety', 'ecoFeatures', 'convenience', 'lightness', 'room6', 'room8', 'heaterType'],
   },
+
+  /**
+   * 空気清浄機：家庭用の空気清浄機（加湿機能付きも可。空気清浄が主機能のものに限る）。
+   * 業務用・車載用・卓上小型・フィルター単体が混ざっていたら確認時に除外してください。
+   */
+  'air-purifier': {
+    category: 'air-purifier',
+    // 用途別と価格帯別で広く拾う（メーカー名は入れない）
+    keywords: [
+      '空気清浄機 花粉',
+      '空気清浄機 脱臭',
+      '空気清浄機 ペット',
+      '加湿空気清浄機',
+      '空気清浄機 静音 寝室',
+      '空気清浄機 コンパクト',
+      '空気清浄機 リビング 大風量',
+      // 価格帯別（src/data/diagnoses/airPurifier.ts の priceLabels に合わせる）
+      { keyword: '空気清浄機', maxPrice: 15000 },
+      { keyword: '空気清浄機', minPrice: 15001, maxPrice: 30000 },
+      { keyword: '空気清浄機', minPrice: 30001, maxPrice: 50000 },
+      { keyword: '空気清浄機', minPrice: 50001 },
+    ],
+    // 対象外が明らかなものだけ（強くしすぎると通常品まで消えるため最小限にする）
+    ngKeyword: '業務用 車載 車用 USB 中古 交換用 フィルター単品 互換 部品',
+    sort: '-reviewCount',
+    hits: 20,
+    // 小物・交換フィルターを除くための下限
+    minPrice: 5000,
+    // 同じショップ（メーカー公式店など）からは最大3件まで
+    maxPerShop: 3,
+    // src/data/diagnoses/airPurifier.ts の priceLabels に合わせる（〜15,000 / 〜30,000 / 〜50,000 / それ以上）
+    priceThresholds: [15000, 30000, 50000],
+    // airPurifier.ts の評価項目・true/false 項目（公式仕様を確認して記入する）
+    attributeKeys: ['cleanSpeed', 'deodorize', 'quietness', 'easeOfCare', 'compactness', 'humidify', 'room10', 'room18', 'room25', 'room32'],
+  },
 }
