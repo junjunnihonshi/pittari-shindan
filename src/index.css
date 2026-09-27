@@ -1597,8 +1597,8 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   }
 }
 
-/* 左右の広告は幅1585px以上だけ（それより狭い画面には出さない。描画自体も SideAds で同じ条件にしている） */
-@media (min-width: 1585px) {
+/* 左右の広告は幅1580px以上だけ（それより狭い画面には出さない。描画自体も SideAds で同じ条件にしている） */
+@media (min-width: 1580px) {
   .side-ad-rail {
     display: block;
   }
