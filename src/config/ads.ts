@@ -27,19 +27,19 @@ export const adSlots = {
     label: '広告',
     enabled: true,
   },
-  /** トップページ：PC幅（1500px以上）の中央コンテンツの左側（160×600・スクロールに追従） */
-  homeSideLeft: {
-    src: '/ad-frames/admax-home-left.html',
-    width: 160,
-    height: 600,
+  /** トップページ・診断ページ共通：PC幅（1760px以上）の中央コンテンツの左側（300×250・スクロールに追従） */
+  sideLeft: {
+    src: '/ad-frames/admax-side-left.html',
+    width: 300,
+    height: 250,
     label: '広告',
     enabled: true,
   },
-  /** トップページ：PC幅（1500px以上）の中央コンテンツの右側（160×600・スクロールに追従） */
-  homeSideRight: {
-    src: '/ad-frames/admax-home-right.html',
-    width: 160,
-    height: 600,
+  /** トップページ・診断ページ共通：PC幅（1760px以上）の中央コンテンツの右側（300×250・スクロールに追従） */
+  sideRight: {
+    src: '/ad-frames/admax-side-right.html',
+    width: 300,
+    height: 250,
     label: '広告',
     enabled: true,
   },

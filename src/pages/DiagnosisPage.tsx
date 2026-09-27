@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { GuideSection } from '../components/GuideSection.tsx'
+import { SideAds } from '../components/SideAds.tsx'
 import { ProgressBar } from '../components/ProgressBar.tsx'
 import { QuestionStep } from '../components/QuestionStep.tsx'
 import { ResultCard } from '../components/ResultCard.tsx'
@@ -90,179 +91,182 @@ export function DiagnosisPage({ diagnosis }: { diagnosis: Diagnosis }) {
   const onlyOverBudget = supplements.every((r) => r.overBudget && !r.ineligible)
 
   return (
-    <div className="container page">
-      <nav className="breadcrumb" aria-label="パンくずリスト">
-        <ol>
-          <li>
-            <Link to="/">ホーム</Link>
-          </li>
-          <li aria-current="page">{diagnosis.name}</li>
-        </ol>
-      </nav>
+    <div className="side-ad-host">
+      <SideAds />
+      <div className="container page">
+        <nav className="breadcrumb" aria-label="パンくずリスト">
+          <ol>
+            <li>
+              <Link to="/">ホーム</Link>
+            </li>
+            <li aria-current="page">{diagnosis.name}</li>
+          </ol>
+        </nav>
 
-      <header className="diagnosis-header">
-        <span className="diagnosis-header__icon" aria-hidden="true">
-          {diagnosis.icon}
-        </span>
-        <h1>{diagnosis.name}</h1>
-      </header>
+        <header className="diagnosis-header">
+          <span className="diagnosis-header__icon" aria-hidden="true">
+            {diagnosis.icon}
+          </span>
+          <h1>{diagnosis.name}</h1>
+        </header>
 
-      <div className={`panel${phase === 'result' ? ' panel--result' : ''}`} ref={panelRef}>
-        {questions.length === 0 ? (
-          <div className="empty-state">
-            <h2>この診断は準備中です</h2>
-            <p>質問データが登録されていないため、現在ご利用いただけません。</p>
-            <Link to="/" className="button button--primary">
-              ほかの診断を見る
-            </Link>
-          </div>
-        ) : phase === 'intro' ? (
-          <div className="intro">
-            <p className="intro__text">{diagnosis.intro}</p>
-            <ul className="intro__meta">
-              <li>質問 {questions.length} 問</li>
-              <li>約30秒</li>
-              <li>無料・登録不要</li>
-            </ul>
-            <button type="button" className="button button--primary button--large" onClick={start}>
-              診断をはじめる
-            </button>
-            {saved && (
-              <button type="button" className="button button--ghost" onClick={() => showResult(saved)}>
-                前回の診断結果を見る
-              </button>
-            )}
-          </div>
-        ) : phase === 'quiz' ? (
-          <>
-            <ProgressBar current={step + 1} total={questions.length} />
-            <QuestionStep
-              question={questions[step]}
-              selectedId={answers[questions[step].id]}
-              onSelect={select}
-              onBack={back}
-              backLabel={step === 0 ? '説明に戻る' : '前の質問に戻る'}
-            />
-          </>
-        ) : phase === 'done' ? (
-          <>
-            <ProgressBar current={questions.length} total={questions.length} />
-            <div className="done">
-              <p className="done__icon" aria-hidden="true">
-                ✓
-              </p>
-              <h2>すべての質問に回答しました</h2>
-              <button type="button" className="button button--primary button--large" onClick={() => showResult(answers)}>
-                診断結果を見る
-              </button>
-              <button type="button" className="button button--ghost" onClick={back}>
-                ← 最後の質問に戻る
-              </button>
-            </div>
-          </>
-        ) : (
-          <section aria-labelledby="result-title">
-            <h2 id="result-title" className="result-title" ref={resultHeadingRef} tabIndex={-1}>
-              診断結果
-            </h2>
-            <p className="result-lead">
-              あなたの回答と商品の特徴を照らし合わせ、<strong>相性の高い順</strong>
-              に表示しています。人気や売上のランキングではありません。
-            </p>
-            {result?.notices.map((n) => (
-              <p key={n} className="result-notice">
-                {n}
-              </p>
-            ))}
-
-            <details className="answer-summary">
-              <summary>あなたの回答を確認する</summary>
-              <dl>
-                {questions.map((q) => {
-                  const option = q.options.find((o) => o.id === answers[q.id])
-                  return (
-                    <div key={q.id}>
-                      <dt>{q.shortLabel}</dt>
-                      <dd>{option?.label ?? '未回答'}</dd>
-                    </div>
-                  )
-                })}
-              </dl>
-            </details>
-
-            {top.length === 0 && supplements.length === 0 ? (
-              <div className="empty-state">
-                <h3>現在表示できる商品がありません</h3>
-                <p>商品情報を準備中です。時間をおいて再度お試しください。</p>
-              </div>
-            ) : (
-              top.length > 0 && (
-                <div className="result-list">
-                  {top.map((r, i) => (
-                    <ResultCard key={r.product.id} result={r} rank={i + 1} diagnosis={diagnosis} />
-                  ))}
-                </div>
-              )
-            )}
-
-            {supplements.length > 0 && (
-              <section className="supplements" aria-labelledby="supplements-title">
-                <h3 id="supplements-title" className="supplements__title">
-                  {onlyOverBudget ? '予算を少し超える候補' : '条件の一部を満たさない候補'}
-                </h3>
-                <p className="supplements__lead">
-                  {onlyOverBudget
-                    ? '予算条件は超えますが、それ以外の条件との相性が高い商品です。'
-                    : '条件に合う商品が少ないため、条件の一部を満たさない商品を参考として表示しています。'}
-                </p>
-                <div className="result-list">
-                  {supplements.map((r) => (
-                    <ResultCard key={r.product.id} result={r} rank={0} diagnosis={diagnosis} variant="reference" />
-                  ))}
-                </div>
-              </section>
-            )}
-
-            {others.length > 0 && (
-              <details className="others">
-                <summary>そのほかの候補（{others.length}件）</summary>
-                <ol start={top.length + supplements.length + 1}>
-                  {others.map((r) => (
-                    <li key={r.product.id}>
-                      <span>{r.product.name}</span>
-                      <span className="others__score">
-                        {r.overBudget || r.ineligible ? '参考相性' : '相性'} {r.matchPercent}%
-                      </span>
-                      {(r.supplementLabels ?? []).map((label) => (
-                        <span key={label} className="others__tag">
-                          {label}
-                        </span>
-                      ))}
-                    </li>
-                  ))}
-                </ol>
-              </details>
-            )}
-
-            <div className="notes">
-              <p>※ {site.priceNotice}</p>
-              {diagnosis.notice && <p>※ {diagnosis.notice}</p>}
-              <p>※ 相性スコアは回答内容と商品の特徴から機械的に計算した目安です。</p>
-            </div>
-
-            <div className="result-actions">
-              <button type="button" className="button button--primary" onClick={restart}>
-                もう一度診断する
-              </button>
-              <Link to="/#categories" className="button button--ghost">
+        <div className={`panel${phase === 'result' ? ' panel--result' : ''}`} ref={panelRef}>
+          {questions.length === 0 ? (
+            <div className="empty-state">
+              <h2>この診断は準備中です</h2>
+              <p>質問データが登録されていないため、現在ご利用いただけません。</p>
+              <Link to="/" className="button button--primary">
                 ほかの診断を見る
               </Link>
             </div>
-          </section>
-        )}
-      </div>
+          ) : phase === 'intro' ? (
+            <div className="intro">
+              <p className="intro__text">{diagnosis.intro}</p>
+              <ul className="intro__meta">
+                <li>質問 {questions.length} 問</li>
+                <li>約30秒</li>
+                <li>無料・登録不要</li>
+              </ul>
+              <button type="button" className="button button--primary button--large" onClick={start}>
+                診断をはじめる
+              </button>
+              {saved && (
+                <button type="button" className="button button--ghost" onClick={() => showResult(saved)}>
+                  前回の診断結果を見る
+                </button>
+              )}
+            </div>
+          ) : phase === 'quiz' ? (
+            <>
+              <ProgressBar current={step + 1} total={questions.length} />
+              <QuestionStep
+                question={questions[step]}
+                selectedId={answers[questions[step].id]}
+                onSelect={select}
+                onBack={back}
+                backLabel={step === 0 ? '説明に戻る' : '前の質問に戻る'}
+              />
+            </>
+          ) : phase === 'done' ? (
+            <>
+              <ProgressBar current={questions.length} total={questions.length} />
+              <div className="done">
+                <p className="done__icon" aria-hidden="true">
+                  ✓
+                </p>
+                <h2>すべての質問に回答しました</h2>
+                <button type="button" className="button button--primary button--large" onClick={() => showResult(answers)}>
+                  診断結果を見る
+                </button>
+                <button type="button" className="button button--ghost" onClick={back}>
+                  ← 最後の質問に戻る
+                </button>
+              </div>
+            </>
+          ) : (
+            <section aria-labelledby="result-title">
+              <h2 id="result-title" className="result-title" ref={resultHeadingRef} tabIndex={-1}>
+                診断結果
+              </h2>
+              <p className="result-lead">
+                あなたの回答と商品の特徴を照らし合わせ、<strong>相性の高い順</strong>
+                に表示しています。人気や売上のランキングではありません。
+              </p>
+              {result?.notices.map((n) => (
+                <p key={n} className="result-notice">
+                  {n}
+                </p>
+              ))}
 
-      <GuideSection guide={diagnosis.guide} />
+              <details className="answer-summary">
+                <summary>あなたの回答を確認する</summary>
+                <dl>
+                  {questions.map((q) => {
+                    const option = q.options.find((o) => o.id === answers[q.id])
+                    return (
+                      <div key={q.id}>
+                        <dt>{q.shortLabel}</dt>
+                        <dd>{option?.label ?? '未回答'}</dd>
+                      </div>
+                    )
+                  })}
+                </dl>
+              </details>
+
+              {top.length === 0 && supplements.length === 0 ? (
+                <div className="empty-state">
+                  <h3>現在表示できる商品がありません</h3>
+                  <p>商品情報を準備中です。時間をおいて再度お試しください。</p>
+                </div>
+              ) : (
+                top.length > 0 && (
+                  <div className="result-list">
+                    {top.map((r, i) => (
+                      <ResultCard key={r.product.id} result={r} rank={i + 1} diagnosis={diagnosis} />
+                    ))}
+                  </div>
+                )
+              )}
+
+              {supplements.length > 0 && (
+                <section className="supplements" aria-labelledby="supplements-title">
+                  <h3 id="supplements-title" className="supplements__title">
+                    {onlyOverBudget ? '予算を少し超える候補' : '条件の一部を満たさない候補'}
+                  </h3>
+                  <p className="supplements__lead">
+                    {onlyOverBudget
+                      ? '予算条件は超えますが、それ以外の条件との相性が高い商品です。'
+                      : '条件に合う商品が少ないため、条件の一部を満たさない商品を参考として表示しています。'}
+                  </p>
+                  <div className="result-list">
+                    {supplements.map((r) => (
+                      <ResultCard key={r.product.id} result={r} rank={0} diagnosis={diagnosis} variant="reference" />
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {others.length > 0 && (
+                <details className="others">
+                  <summary>そのほかの候補（{others.length}件）</summary>
+                  <ol start={top.length + supplements.length + 1}>
+                    {others.map((r) => (
+                      <li key={r.product.id}>
+                        <span>{r.product.name}</span>
+                        <span className="others__score">
+                          {r.overBudget || r.ineligible ? '参考相性' : '相性'} {r.matchPercent}%
+                        </span>
+                        {(r.supplementLabels ?? []).map((label) => (
+                          <span key={label} className="others__tag">
+                            {label}
+                          </span>
+                        ))}
+                      </li>
+                    ))}
+                  </ol>
+                </details>
+              )}
+
+              <div className="notes">
+                <p>※ {site.priceNotice}</p>
+                {diagnosis.notice && <p>※ {diagnosis.notice}</p>}
+                <p>※ 相性スコアは回答内容と商品の特徴から機械的に計算した目安です。</p>
+              </div>
+
+              <div className="result-actions">
+                <button type="button" className="button button--primary" onClick={restart}>
+                  もう一度診断する
+                </button>
+                <Link to="/#categories" className="button button--ghost">
+                  ほかの診断を見る
+                </Link>
+              </div>
+            </section>
+          )}
+        </div>
+
+        <GuideSection guide={diagnosis.guide} />
+      </div>
     </div>
   )
 }

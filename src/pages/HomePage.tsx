@@ -6,18 +6,13 @@ import { AdSlot } from '../components/AdSlot.tsx'
 import { DiagnosisCard } from '../components/DiagnosisCard.tsx'
 import { diagnoses, getDiagnosisBySlug, isDiagnosisEnabled } from '../data/diagnoses/index.ts'
 import { Link } from '../components/Link.tsx'
-import { useMediaQuery } from '../lib/mediaQuery.ts'
+import { SideAds } from '../components/SideAds.tsx'
 import { useSeo } from '../lib/seo.ts'
 import { getRecentDiagnoses } from '../lib/storage.ts'
 import type { Diagnosis } from '../types/diagnosis.ts'
 
-/** 左右の広告を出す画面幅（中央コンテンツの外側に 160px の広告と十分な余白が収まる幅） */
-const SIDE_ADS_QUERY = '(min-width: 1500px)'
-
 export function HomePage() {
   useSeo(staticPages[0])
-  // 幅が足りない画面では左右の広告を描画しない（非表示の iframe でも広告が読み込まれてしまうため、CSS で隠すだけにしない）
-  const showSideAds = useMediaQuery(SIDE_ADS_QUERY)
   // 準備中の診断は「最近使った診断」にも出さない
   const [recent] = useState(() =>
     getRecentDiagnoses()
@@ -60,16 +55,7 @@ export function HomePage() {
       </section>
 
       <div className="home-body">
-        {showSideAds && (
-          <>
-            <div className="side-ad-rail side-ad-rail--left">
-              <AdSlot id="homeSideLeft" variant="side" />
-            </div>
-            <div className="side-ad-rail side-ad-rail--right">
-              <AdSlot id="homeSideRight" variant="side" />
-            </div>
-          </>
-        )}
+        <SideAds />
 
         <section className="container section" aria-labelledby="about-title">
           <div className="info-box">

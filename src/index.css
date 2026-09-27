@@ -669,10 +669,11 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   border: 0;
 }
 
-/* トップページ PC幅の左右広告（160×600）。
+/* PC幅の左右広告（300×250）。トップページと診断ページで共通（src/components/SideAds.tsx）。
    中央コンテンツ（container）の外側に絶対配置するので、中央コンテンツの幅・位置は変わらない。
-   レールはヒーローの下からページ末尾（下の広告）までの高さを持ち、その中で広告が sticky で追従する */
-.home-body {
+   レールは親要素（トップページはヒーローの下から、診断ページはページ全体）の高さを持ち、その中で広告が sticky で追従する */
+.home-body,
+.side-ad-host {
   position: relative;
 }
 .side-ad-rail {
@@ -680,11 +681,14 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   position: absolute;
   top: var(--space-section);
   bottom: 0;
-  width: 160px;
+  width: 300px;
+}
+.side-ad-host > .side-ad-rail {
+  top: 20px;
 }
 .side-ad-rail--left {
-  /* 中央コンテンツの左端から、余白 40px ＋ 広告幅 160px だけ外側 */
-  left: calc(50% - var(--container) / 2 - 40px - 160px);
+  /* 中央コンテンツの左端から、余白 40px ＋ 広告幅 300px だけ外側 */
+  left: calc(50% - var(--container) / 2 - 40px - 300px);
 }
 .side-ad-rail--right {
   left: calc(50% + var(--container) / 2 + 40px);
@@ -1591,8 +1595,8 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   }
 }
 
-/* 左右の広告は幅1500px以上だけ（タブレット・スマホには出さない。描画自体も HomePage で同じ条件にしている） */
-@media (min-width: 1500px) {
+/* 左右の広告は幅1760px以上だけ（それより狭い画面には出さない。描画自体も SideAds で同じ条件にしている） */
+@media (min-width: 1760px) {
   .side-ad-rail {
     display: block;
   }
