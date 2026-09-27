@@ -29,11 +29,11 @@ export const staticPages: PageMeta[] = [
     description: site.description,
     priority: 1.0,
   },
-  { path: '/about', title: `運営者情報｜${site.name}`, description: `${site.name}の運営者情報です。`, priority: 0.3 },
-  { path: '/privacy', title: `プライバシーポリシー｜${site.name}`, description: `${site.name}のプライバシーポリシーです。`, priority: 0.3 },
-  { path: '/disclaimer', title: `免責事項｜${site.name}`, description: `${site.name}の免責事項です。`, priority: 0.3 },
-  { path: '/contact', title: `お問い合わせ｜${site.name}`, description: `${site.name}へのお問い合わせ方法のご案内です。`, priority: 0.3 },
-  { path: '/ads', title: `広告掲載について｜${site.name}`, description: `${site.name}における広告（アフィリエイトプログラム）の利用についてのご案内です。`, priority: 0.3 },
+  { path: '/about/', title: `運営者情報｜${site.name}`, description: `${site.name}の運営者情報です。`, priority: 0.3 },
+  { path: '/privacy/', title: `プライバシーポリシー｜${site.name}`, description: `${site.name}のプライバシーポリシーです。`, priority: 0.3 },
+  { path: '/disclaimer/', title: `免責事項｜${site.name}`, description: `${site.name}の免責事項です。`, priority: 0.3 },
+  { path: '/contact/', title: `お問い合わせ｜${site.name}`, description: `${site.name}へのお問い合わせ方法のご案内です。`, priority: 0.3 },
+  { path: '/ads/', title: `広告掲載について｜${site.name}`, description: `${site.name}における広告（アフィリエイトプログラム）の利用についてのご案内です。`, priority: 0.3 },
 ]
 
 export const notFoundMeta: PageMeta = {

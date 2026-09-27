@@ -59,7 +59,7 @@ function ContactInfo() {
 
 export function AboutPage() {
   return (
-    <StaticLayout path="/about" title="運営者情報">
+    <StaticLayout path="/about/" title="運営者情報">
       <dl className="info-table">
         <div>
           <dt>サイト名</dt>
@@ -76,7 +76,7 @@ export function AboutPage() {
         <div>
           <dt>お問い合わせ</dt>
           <dd>
-            <Link to="/contact">お問い合わせページ</Link>をご覧ください。
+            <Link to="/contact/">お問い合わせページ</Link>をご覧ください。
           </dd>
         </div>
       </dl>
@@ -92,7 +92,7 @@ export function AboutPage() {
 
 export function PrivacyPage() {
   return (
-    <StaticLayout path="/privacy" title="プライバシーポリシー">
+    <StaticLayout path="/privacy/" title="プライバシーポリシー">
       <p>{site.name}（以下「当サイト」）は、利用者の個人情報の取り扱いについて、以下のとおり定めます。</p>
 
       <h2>診断の回答について</h2>
@@ -139,7 +139,7 @@ export function PrivacyPage() {
 
 export function DisclaimerPage() {
   return (
-    <StaticLayout path="/disclaimer" title="免責事項">
+    <StaticLayout path="/disclaimer/" title="免責事項">
       <h2>診断結果について</h2>
       <p>
         当サイトの診断結果は、回答内容と商品の特徴をもとに一定のルールで計算した目安であり、商品の品質・効果・利用者との適合を保証するものではありません。
@@ -169,7 +169,7 @@ export function DisclaimerPage() {
 
 export function ContactPage() {
   return (
-    <StaticLayout path="/contact" title="お問い合わせ">
+    <StaticLayout path="/contact/" title="お問い合わせ">
       <p>当サイトに関するお問い合わせは、以下よりお願いいたします。内容によってはお返事に時間がかかる場合や、お答えできない場合があります。</p>
       <ContactInfo />
       <p className="muted">※ 商品の購入・配送・返品等に関するお問い合わせは、各販売サイトへお願いいたします。</p>
@@ -179,7 +179,7 @@ export function ContactPage() {
 
 export function AdsPage() {
   return (
-    <StaticLayout path="/ads" title="広告掲載について">
+    <StaticLayout path="/ads/" title="広告掲載について">
       <p className="callout">{site.adNotice}</p>
       <p>
         当サイトは、楽天アフィリエイト等のアフィリエイトプログラムを利用しています。
@@ -192,7 +192,7 @@ export function AdsPage() {
       <p>商品の価格・在庫・配送等については、リンク先の各販売サイトでご確認ください。</p>
       <h2>広告掲載・タイアップのご相談</h2>
       <p>
-        広告掲載に関するご相談は、<Link to="/contact">お問い合わせページ</Link>からご連絡ください。
+        広告掲載に関するご相談は、<Link to="/contact/">お問い合わせページ</Link>からご連絡ください。
       </p>
     </StaticLayout>
   )
