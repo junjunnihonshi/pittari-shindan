@@ -165,7 +165,7 @@ npm run publish:diagnosis -- <診断ID>   # 診断の公開（確認→enabled:t
 `src/config/site.ts` を開いて、以下を書き換えてください。
 
 ```ts
-url: 'https://pittari-shindan.pages.dev',   // ← 実際の公開URL（末尾の / なし）
+url: 'https://pittari-shindan-navi.com',   // ← 実際の公開URL（末尾の / なし）
 operator: {
   name: '（運営者名を入力してください）',     // ← 運営者名（屋号・ニックネーム可）
   email: '',                                   // ← 問い合わせ用メール（空なら非表示）

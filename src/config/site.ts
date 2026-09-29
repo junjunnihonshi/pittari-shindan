@@ -12,9 +12,9 @@ export const site = {
     'いくつかの質問に答えるだけ。あなたの使い方や予算に合った日用品・家電・生活用品を無料で診断します。',
   /**
    * 公開URL（末尾の / は不要）。canonical・OGP・sitemap.xml に使われます。
-   * 例: 'https://pittari-shindan.pages.dev' や独自ドメイン 'https://example.com'
+   * 例: 'https://pittari-shindan-navi.com'（旧: https://pittari-shindan.pages.dev）
    */
-  url: 'https://pittari-shindan.pages.dev',
+  url: 'https://pittari-shindan-navi.com',
   /** サイト共通のOGP画像（public/ に置いた画像のパス。例: '/ogp.png'）。空ならOGP画像なし */
   ogImage: '',
   /** X(Twitter) のアカウント（@なし）。空なら出力しません */
