@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { GuideSection } from '../components/GuideSection.tsx'
+import { RelatedDiagnoses } from '../components/RelatedDiagnoses.tsx'
 import { SideAds } from '../components/SideAds.tsx'
 import { ProgressBar } from '../components/ProgressBar.tsx'
 import { QuestionStep } from '../components/QuestionStep.tsx'
@@ -268,6 +269,7 @@ export function DiagnosisPage({ diagnosis }: { diagnosis: Diagnosis }) {
         </div>
 
         <GuideSection guide={diagnosis.guide} />
+        <RelatedDiagnoses slug={diagnosis.slug} />
       </div>
     </div>
   )
