@@ -38,9 +38,13 @@ const OVER_BUDGET_LABEL = '予算を少し超えます'
 /** 1位の相性がこの値（%）未満なら scoring.lowMatchNotice を表示する */
 export const LOW_MATCH_PERCENT = 60
 
-/** 1位（通常ランキングが空なら補完候補の先頭）の相性が低いときの説明を notices に加える */
-function withLowMatchNotice(diagnosis: Diagnosis, notices: string[], top: ProductResult | undefined): string[] {
-  const text = diagnosis.scoring?.lowMatchNotice
+/**
+ * 1位（通常ランキングが空なら補完候補の先頭）の相性が低いときの説明を notices に加える。
+ * 選んだ選択肢に lowMatchNotice があれば、診断共通の scoring.lowMatchNotice の代わりにそれを使う
+ */
+function withLowMatchNotice(diagnosis: Diagnosis, answers: Answers, notices: string[], top: ProductResult | undefined): string[] {
+  const own = diagnosis.questions.map((q) => q.options.find((o) => o.id === answers[q.id])?.lowMatchNotice).find((t) => t)
+  const text = own ?? diagnosis.scoring?.lowMatchNotice
   return text && top && top.matchPercent < LOW_MATCH_PERCENT ? [...notices, text] : notices
 }
 
@@ -216,7 +220,7 @@ export function runDiagnosis(diagnosis: Diagnosis, answers: Answers): DiagnosisR
   const usesSelection = diagnosis.questions.some((q) => q.options.some((o) => o.eligibility || o.maxPriceRange !== undefined))
   if (!usesSelection) {
     const plain = results.map(({ product, score, matchPercent, breakdown, reason }) => ({ product, score, matchPercent, breakdown, reason }))
-    return { diagnosisId: diagnosis.id, results: plain, ranked: plain.slice(0, TOP_N), supplements: [], notices: withLowMatchNotice(diagnosis, [], plain[0]) }
+    return { diagnosisId: diagnosis.id, results: plain, ranked: plain.slice(0, TOP_N), supplements: [], notices: withLowMatchNotice(diagnosis, answers, [], plain[0]) }
   }
   const { ordered, ranked, supplements, notices } = applySelection(diagnosis.questions, answers, results)
   return {
@@ -224,6 +228,6 @@ export function runDiagnosis(diagnosis: Diagnosis, answers: Answers): DiagnosisR
     results: ordered.map(strip),
     ranked: ranked.map(strip),
     supplements: supplements.map(strip),
-    notices: withLowMatchNotice(diagnosis, notices, ranked[0] ?? supplements[0]),
+    notices: withLowMatchNotice(diagnosis, answers, notices, ranked[0] ?? supplements[0]),
   }
 }

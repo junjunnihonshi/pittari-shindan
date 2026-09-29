@@ -91,6 +91,11 @@ export interface AnswerOption {
    * 例：「ひざ掛け」を選んだときだけ、ひざ掛け用のサイズの選択肢を出す。未設定なら常に表示します。
    */
   showWhen?: { question: string; options: string[] }
+  /**
+   * 1位の相性が60%未満のときの説明（任意）。この選択肢を選んだときだけ、scoring.lowMatchNotice の代わりに表示します。
+   * 例：設置幅を優先すると、調整機能の多い商品が候補に入りにくいことの説明。採点・順位・相性%には影響しません。
+   */
+  lowMatchNotice?: string
 }
 
 /** 適格条件：商品の attributes[attr] が value と一致すること */

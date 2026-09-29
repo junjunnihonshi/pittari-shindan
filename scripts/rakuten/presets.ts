@@ -506,4 +506,37 @@ export const presets: Record<string, RakutenPreset> = {
     // toaster.ts の評価項目・true/false 項目（公式仕様を確認して記入する）
     attributeKeys: ['toastFeatures', 'toastSpeed', 'versatility', 'easeOfCare', 'compactness', 'slices4', 'pizza', 'tempControl', 'autoMenu', 'fineControl', 'reheat'],
   },
+
+  /**
+   * デスクチェア：家庭・在宅ワーク用のデスクチェア／オフィスチェア（キャスター付き）。
+   * ゲーミングチェア・座椅子・ダイニングチェア・業務用の大量セット・交換部品が混ざっていたら確認時に除外してください。
+   */
+  'desk-chair': {
+    category: 'desk-chair',
+    // 用途別と価格帯別で広く拾う（メーカー名は入れない）
+    keywords: [
+      'オフィスチェア メッシュ',
+      'オフィスチェア ランバーサポート',
+      'オフィスチェア リクライニング ヘッドレスト',
+      'デスクチェア コンパクト',
+      'オフィスチェア 肘掛け 可動',
+      'ワークチェア テレワーク',
+      // 価格帯別（src/data/diagnoses/deskChair.ts の priceLabels に合わせる）
+      { keyword: 'オフィスチェア', maxPrice: 15000 },
+      { keyword: 'オフィスチェア', minPrice: 15001, maxPrice: 40000 },
+      { keyword: 'オフィスチェア', minPrice: 40001, maxPrice: 80000 },
+      { keyword: 'オフィスチェア', minPrice: 80001 },
+    ],
+    // 対象外が明らかなものだけ（強くしすぎると通常品まで消えるため最小限にする）
+    ngKeyword: 'ゲーミング 座椅子 ダイニング 中古 部品 交換用 キャスターのみ カバー',
+    sort: '-reviewCount',
+    hits: 20,
+    minPrice: 3000,
+    // 同じショップ（メーカー公式店など）からは最大3件まで
+    maxPerShop: 3,
+    // deskChair.ts の priceLabels（予算の選択肢 15,000 / 40,000 / 80,000円）と同じ区分
+    priceThresholds: [15000, 40000, 80000],
+    // deskChair.ts の評価項目・true/false 項目（公式仕様を確認して記入する）
+    attributeKeys: ['lowSeat', 'seatRange', 'compactness', 'breathability', 'armLevel', 'recline', 'adjust', 'width62', 'width68', 'armFree', 'hasArm', 'headrest', 'lumbarAdjust', 'seatDepth', 'relax'],
+  },
 }
