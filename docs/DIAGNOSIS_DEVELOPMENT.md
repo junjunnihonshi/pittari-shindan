@@ -138,6 +138,25 @@ npm run publish:diagnosis -- <診断ID> --message "Publish <ID> diagnosis with N
 
 ---
 
+## 仕様JSONから診断を生成する（Phase 10 の自動化）
+
+仕様が固まった診断は、仕様JSONを置いてコマンドで生成・検証できる（手書きの診断ファイルも引き続き使える）。
+
+```bash
+# 1. data/diagnosis-specs/<id>.json を置く（書き方：docs/templates/diagnosis-spec.example.json）
+npm run diagnosis:generate -- <id>    # src/data/diagnoses/<id のキャメルケース>.ts を生成（enabled: false）し index.ts に登録
+npm run diagnosis:validate -- <id>    # 対象診断だけ全パターン検証（要約だけ表示。問題があれば終了コード1）
+npm run publish:diagnosis -- <id> --dry-run --allow src/data/diagnoses/index.ts --allow data/diagnosis-specs/<id>.json
+```
+
+- 仕様JSONは Diagnosis 型とほぼ同じ形。`title`・`description`・`cardDescription` は `name`・`intro`・`shortDescription` として扱う。
+- 予算の質問は `{ "budget": { ... } }`（`budgetQuestion()` と同じ引数）。公式情報で確認できない true/false 項目を中立で採点するときは `{ "type": "feature", "attr": "..." }` と商品の値 `"unknown"`。
+- 独自の関数（`custom` の採点・`scoring.adjust`）は仕様JSONに書けない。必要なら生成後に診断ファイルを手で直す。
+- 存在しない評価項目・選択肢・質問の参照や、同名ファイル・同じIDの診断がある場合は、ファイルを書く前に停止する。
+- 生成を試すだけなら `--out <フォルダ>`（index.ts に登録しない）と `diagnosis:validate -- <id> --file <生成したファイル>` を使う。
+
+---
+
 ## 共通エンジンの使い方
 
 ### 「単なる好み」と「絶対条件・上限条件」を分ける

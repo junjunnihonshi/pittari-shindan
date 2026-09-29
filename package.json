@@ -11,7 +11,9 @@
     "typecheck": "tsc -b",
     "check": "node scripts/checkDiagnoses.ts",
     "rakuten:search": "node scripts/rakuten/search.ts",
-    "publish:diagnosis": "node scripts/publishDiagnosis.ts"
+    "publish:diagnosis": "node scripts/publishDiagnosis.ts",
+    "diagnosis:generate": "node scripts/generateDiagnosis.ts",
+    "diagnosis:validate": "node scripts/validateDiagnosis.ts"
   },
   "dependencies": {
     "react": "^19.3.0",

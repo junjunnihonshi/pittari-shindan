@@ -1,0 +1,117 @@
+{
+  "id": "example-chair",
+  "enabled": false,
+  "title": "サンプルチェア診断",
+  "itemName": "チェア",
+  "group": "life",
+  "icon": "🪑",
+  "cardDescription": "使う時間と置き場所から、あなたに合うチェアを診断。",
+  "description": "使う時間・置き場所・欲しい機能・予算の4つの質問から、あなたに合いそうなチェアを相性順に表示します。",
+  "seo": {
+    "title": "サンプルチェアおすすめ診断｜質問であなたに合う1脚をチェック",
+    "description": "使う時間や置き場所、欲しい機能、予算から、あなたに合うチェア候補を相性順で診断します。"
+  },
+  "priceLabels": { "1": "〜10,000円", "2": "10,000〜30,000円", "3": "30,000円〜" },
+  "questions": [
+    {
+      "id": "hours",
+      "text": "1日に座る時間は？",
+      "shortLabel": "座る時間",
+      "weight": 20,
+      "options": [
+        { "id": "short", "label": "2時間まで", "effects": [] },
+        { "id": "long", "label": "3時間以上", "summary": "長く座る", "effects": [{ "type": "atLeast", "attr": "adjust", "value": 4 }] }
+      ]
+    },
+    {
+      "id": "space",
+      "text": "置き場所の幅は？",
+      "shortLabel": "設置スペース",
+      "weight": 10,
+      "options": [
+        {
+          "id": "narrow",
+          "label": "幅60cm以内が必須",
+          "effects": [],
+          "eligibility": { "attr": "width60", "value": true, "notice": "本体幅60cm以下の商品からおすすめを表示しています。", "supplementLabel": "本体幅が60cmを超えます" },
+          "lowMatchNotice": "幅60cm以内の商品は少ないため、近い候補を表示しています。"
+        },
+        { "id": "any", "label": "特に気にしない", "effects": [] }
+      ]
+    },
+    {
+      "id": "feature",
+      "text": "欲しい機能は？",
+      "shortLabel": "欲しい機能",
+      "weight": 15,
+      "options": [
+        { "id": "headrest", "label": "ヘッドレスト", "summary": "ヘッドレストが欲しい", "effects": [{ "type": "equals", "attr": "headrest", "value": true }] },
+        { "id": "depth", "label": "座面奥行調整", "summary": "座面の奥行きを調整したい", "effects": [{ "type": "feature", "attr": "seatDepth" }] },
+        { "id": "none", "label": "特になし", "effects": [] }
+      ]
+    },
+    {
+      "budget": {
+        "text": "予算は？",
+        "weight": 15,
+        "bands": [
+          { "label": "〜10,000円", "summary": "予算10,000円まで" },
+          { "label": "〜30,000円", "summary": "予算30,000円まで" }
+        ],
+        "noLimitLabel": "上限なし",
+        "asLimit": true
+      }
+    }
+  ],
+  "products": [
+    {
+      "id": "example-chair-101",
+      "name": "サンプルA",
+      "description": "シンプルなチェア。",
+      "priceRange": 1,
+      "features": ["幅55cm"],
+      "pros": ["手頃"],
+      "cons": ["調整は少なめ"],
+      "recommendFor": "手頃なチェアがほしい人",
+      "rakutenUrl": "",
+      "imageUrl": "",
+      "attributes": { "adjust": 1, "width60": true, "headrest": false, "seatDepth": "unknown" }
+    },
+    {
+      "id": "example-chair-102",
+      "name": "サンプルB",
+      "description": "調整機能が多いチェア。",
+      "priceRange": 2,
+      "features": ["幅66cm", "ヘッドレスト", "座面奥行調整"],
+      "pros": ["調整できる箇所が多い"],
+      "cons": ["大きめ"],
+      "recommendFor": "長く座る人",
+      "rakutenUrl": "",
+      "imageUrl": "",
+      "attributes": { "adjust": 5, "width60": false, "headrest": true, "seatDepth": true }
+    },
+    {
+      "id": "example-chair-103",
+      "name": "サンプルC",
+      "description": "中くらいのチェア。",
+      "priceRange": 3,
+      "features": ["幅58cm", "ヘッドレスト"],
+      "pros": ["コンパクトでヘッドレスト付き"],
+      "cons": ["価格は高め"],
+      "recommendFor": "置き場所が限られる人",
+      "rakutenUrl": "",
+      "imageUrl": "",
+      "attributes": { "adjust": 3, "width60": true, "headrest": true, "seatDepth": false }
+    }
+  ],
+  "scoring": {
+    "tieBreak": true,
+    "softenPartialReason": true,
+    "lowMatchNotice": "条件をすべて満たす商品が少ないため、近い候補を表示しています。"
+  },
+  "guide": {
+    "title": "チェアの選び方",
+    "sections": [{ "heading": "置き場所", "body": "本体の幅を確認しましょう。" }]
+  },
+  "notice": "本診断は候補を探すためのものです。"
+}

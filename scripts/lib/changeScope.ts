@@ -58,8 +58,18 @@ const UI_PATTERNS = [
   /^scripts\/seoPlugin\.ts$/,
 ]
 
-/** 公開サイトにも診断結果にも影響しないファイル（説明文書・楽天の商品検索ツール） */
-const NO_EFFECT_PATTERNS = [/^[^/]+\.md$/, /^docs\//, /^scripts\/rakuten\//, /^\.gitignore$/]
+/**
+ * 公開サイトにも診断結果にも影響しないファイル（説明文書・楽天の商品検索ツール・診断の生成ツールと仕様JSON）。
+ * 仕様JSONから生成した診断ファイル自体は、通常の診断ファイルとしてハッシュで判定される
+ */
+const NO_EFFECT_PATTERNS = [
+  /^[^/]+\.md$/,
+  /^docs\//,
+  /^scripts\/rakuten\//,
+  /^\.gitignore$/,
+  /^data\/diagnosis-specs\//,
+  /^scripts\/(generate|validate)Diagnosis\.ts$/,
+]
 
 /** 依存解析で「中身を読まないと影響が分からない」とみなす書き方 */
 const UNANALYZABLE = [/\bimport\s*\(/, /\brequire\s*\(/, /\bimport\.meta\b/, /\beval\s*\(/, /\bnew\s+Function\b/, /\bprocess\./, /\bfetch\s*\(/]
