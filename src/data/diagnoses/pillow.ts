@@ -214,7 +214,7 @@ export const pillow: Diagnosis = {
       cons: ['利用者が高さを調整する仕組みの記載はありません', '高価格帯です'],
       recommendFor: '仰向けと横向きの両方で寝ることがあり、感触を使い分けたい人',
       caution: '商品ページで高さ「標準（M）」「低め（S）」を選べます（価格は同じ）。この診断は標準（M）を想定しています。洗濯は薄めた洗剤での手押し洗いが推奨されています。',
-      amazonUrl: '',
+      amazonUrl: 'https://www.amazon.co.jp/dp/B08317D3VP/ref=nosim?tag=pittarishinda-22',
       rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00scqmo.d8zue319.g00scqmo.d8zuf535/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flofty%2F19350%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Flofty%2Fi%2F10000139%2F&rafcid=wsc_i_is_***',
       imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/lofty/cabinet/product/hotel_01_new3.jpg?_ex=300x300',
       enabled: true,
