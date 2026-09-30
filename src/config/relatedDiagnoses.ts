@@ -19,6 +19,7 @@ export const relatedDiagnoses: Record<string, { slug: string; text: string }[]> 
     { slug: 'toaster', text: '朝食づくりをもっとラクに' },
     { slug: 'frying-pan', text: '毎日の料理道具も見直すなら' },
     { slug: 'rice-cooker', text: '毎日のごはんをおいしく炊くなら' },
+    { slug: 'hot-plate', text: '食卓で焼肉やたこ焼きを楽しむなら' },
   ],
   suitcase: [{ slug: 'mobile-battery', text: '旅先での充電切れに備えて' }],
   'mobile-battery': [{ slug: 'suitcase', text: '旅行や出張の準備に' }],
@@ -44,18 +45,27 @@ export const relatedDiagnoses: Record<string, { slug: string; text: string }[]> 
     { slug: 'coffee-maker', text: '朝のコーヒーを自動で淹れるなら' },
     { slug: 'frying-pan', text: '毎日の料理道具も見直すなら' },
     { slug: 'microwave', text: 'あたためやオーブン料理にも' },
+    { slug: 'hot-plate', text: '食卓でホットケーキや焼き料理を楽しむなら' },
   ],
   'rice-cooker': [
     { slug: 'frying-pan', text: 'おかず作りの道具も見直すなら' },
     { slug: 'electric-kettle', text: '汁物やお茶の準備に' },
     { slug: 'microwave', text: 'ごはんのあたため直しに' },
+    { slug: 'hot-plate', text: '食卓でおかずを焼きながら楽しむなら' },
   ],
   microwave: [
     { slug: 'toaster', text: 'トーストをもっと手軽に焼くなら' },
     { slug: 'rice-cooker', text: '毎日のごはんをおいしく炊くなら' },
+    { slug: 'hot-plate', text: '食卓で焼きながら食べるなら' },
   ],
   'coffee-maker': [
     { slug: 'electric-kettle', text: 'ハンドドリップやお茶の準備に' },
     { slug: 'toaster', text: '朝食づくりをもっとラクに' },
+  ],
+  'hot-plate': [
+    { slug: 'rice-cooker', text: '焼肉や鍋に合わせるごはんを炊くなら' },
+    { slug: 'microwave', text: '下ごしらえやあたためにも' },
+    { slug: 'toaster', text: '朝食づくりをもっとラクに' },
+    { slug: 'electric-kettle', text: 'お湯をすばやく沸かしたいなら' },
   ],
 }
