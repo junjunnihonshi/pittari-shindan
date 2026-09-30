@@ -10,6 +10,7 @@ export const relatedDiagnoses: Record<string, { slug: string; text: string }[]> 
   'hair-dryer': [
     { slug: 'shower-head', text: 'バスタイムをもっと快適に' },
     { slug: 'shampoo', text: '髪と頭皮に合うシャンプーも選ぶなら' },
+    { slug: 'hair-treatment', text: '乾かす前のダメージケアに' },
   ],
   vacuum: [{ slug: 'air-purifier', text: 'ほこり・花粉対策をもう一歩' }],
   'frying-pan': [
@@ -31,6 +32,7 @@ export const relatedDiagnoses: Record<string, { slug: string; text: string }[]> 
     { slug: 'hair-iron', text: '髪を乾かしたあとのスタイリングに' },
     { slug: 'electric-toothbrush', text: '毎日のオーラルケアも見直すなら' },
     { slug: 'shampoo', text: '髪と頭皮に合うシャンプーも選ぶなら' },
+    { slug: 'hair-treatment', text: 'バスタイムのダメージケアに' },
   ],
   humidifier: [
     { slug: 'air-purifier', text: '空気の汚れも気になるなら' },
@@ -79,9 +81,17 @@ export const relatedDiagnoses: Record<string, { slug: string; text: string }[]> 
   'hair-iron': [
     { slug: 'shower-head', text: '毎日のバスタイムから髪をいたわるなら' },
     { slug: 'shampoo', text: '毎日のシャンプーから髪をいたわるなら' },
+    { slug: 'hair-treatment', text: '熱ダメージのケアも見直すなら' },
   ],
   'electric-toothbrush': [{ slug: 'shower-head', text: '毎日のバスタイムも快適にするなら' }],
   shampoo: [
+    { slug: 'hair-treatment', text: 'シャンプー後のダメージケアに' },
+    { slug: 'shower-head', text: 'バスタイムをもっと快適に' },
+    { slug: 'hair-dryer', text: '洗ったあとの乾かし方も見直すなら' },
+    { slug: 'hair-iron', text: '髪を乾かしたあとのスタイリングに' },
+  ],
+  'hair-treatment': [
+    { slug: 'shampoo', text: '髪と頭皮に合うシャンプーも選ぶなら' },
     { slug: 'shower-head', text: 'バスタイムをもっと快適に' },
     { slug: 'hair-dryer', text: '洗ったあとの乾かし方も見直すなら' },
     { slug: 'hair-iron', text: '髪を乾かしたあとのスタイリングに' },
