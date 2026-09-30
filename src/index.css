@@ -435,6 +435,80 @@ h4 {
   gap: 14px;
 }
 
+/* ---------- 診断の検索 ---------- */
+.search-box {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: 24px;
+}
+.search-box__icon {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  display: flex;
+  color: var(--color-muted);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.search-box__input {
+  width: 100%;
+  height: 48px;
+  padding: 0 48px 0 44px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+  /* 16px 未満だと iPhone で入力時に画面が拡大されるため */
+  font-size: 1rem;
+  appearance: none;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+.search-box__input::placeholder {
+  color: var(--color-muted);
+}
+.search-box__input::-webkit-search-cancel-button {
+  appearance: none;
+}
+.search-box__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-soft);
+}
+.search-box__clear {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-bg-deep);
+  color: var(--color-muted);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+.search-box__clear:hover {
+  background: var(--color-border-strong);
+  color: var(--color-text);
+}
+.search-empty {
+  padding: 28px 16px;
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  color: var(--color-muted);
+  text-align: center;
+}
+
 /* ---------- 診断カード ---------- */
 .diagnosis-card {
   position: relative;

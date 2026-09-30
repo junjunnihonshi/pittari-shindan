@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { categoryGroups } from '../config/categories.ts'
 import { diagnosisPath, staticPages } from '../config/seo.ts'
 import { site } from '../config/site.ts'
@@ -7,6 +7,7 @@ import { DiagnosisCard } from '../components/DiagnosisCard.tsx'
 import { diagnoses, getDiagnosisBySlug, isDiagnosisEnabled } from '../data/diagnoses/index.ts'
 import { Link } from '../components/Link.tsx'
 import { SideAds } from '../components/SideAds.tsx'
+import { matchesDiagnosis, toSearchWords } from '../lib/diagnosisSearch.ts'
 import { useSeo } from '../lib/seo.ts'
 import { getRecentDiagnoses } from '../lib/storage.ts'
 import type { Diagnosis } from '../types/diagnosis.ts'
@@ -19,6 +20,14 @@ export function HomePage() {
       .map(getDiagnosisBySlug)
       .filter((d): d is Diagnosis => d !== undefined && isDiagnosisEnabled(d)),
   )
+
+  // 診断の検索。ビルド時のプリレンダリング（window なし）では検索バーを出さず、JavaScript 無効でも一覧はそのまま表示される
+  const [canSearch] = useState(() => typeof window !== 'undefined')
+  const [query, setQuery] = useState('')
+  const words = useMemo(() => toSearchWords(query), [query])
+  const searching = words.length > 0
+  // 検索中は公開中の診断だけを対象にする（準備中の診断は出さない）
+  const visible = searching ? diagnoses.filter((d) => isDiagnosisEnabled(d) && matchesDiagnosis(d, words)) : diagnoses
 
   const scrollToCategories = () => {
     const el = document.getElementById('categories')
@@ -92,8 +101,52 @@ export function HomePage() {
           <h2 id="categories-title" className="section__title">
             診断を選ぶ
           </h2>
+          {canSearch && (
+            <div className="search-box" role="search">
+              <label htmlFor="diagnosis-search" className="visually-hidden">
+                診断を検索
+              </label>
+              <span className="search-box__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m20 20-3.5-3.5" />
+                </svg>
+              </span>
+              <input
+                id="diagnosis-search"
+                type="search"
+                className="search-box__input"
+                placeholder="診断を検索"
+                autoComplete="off"
+                enterKeyHint="search"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Escape') setQuery('')
+                }}
+              />
+              {query !== '' && (
+                <button
+                  type="button"
+                  className="search-box__clear"
+                  aria-label="検索を解除"
+                  onClick={() => {
+                    setQuery('')
+                    document.getElementById('diagnosis-search')?.focus()
+                  }}
+                >
+                  ×
+                </button>
+              )}
+            </div>
+          )}
+          {canSearch && (
+            <p className={searching && visible.length === 0 ? 'search-empty' : 'visually-hidden'} role="status">
+              {searching ? (visible.length === 0 ? '該当する診断がありません' : `${visible.length}件の診断が見つかりました`) : ''}
+            </p>
+          )}
           {categoryGroups.map((group) => {
-            const items = diagnoses.filter((d) => d.group === group.id)
+            const items = visible.filter((d) => d.group === group.id)
             if (items.length === 0) return null
             return (
               <div className="category-group" key={group.id}>
