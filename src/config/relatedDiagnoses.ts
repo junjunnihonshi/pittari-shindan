@@ -26,6 +26,7 @@ export const relatedDiagnoses: Record<string, { slug: string; text: string }[]> 
   'shower-head': [
     { slug: 'hair-dryer', text: 'お風呂上がりのケアに' },
     { slug: 'hair-iron', text: '髪を乾かしたあとのスタイリングに' },
+    { slug: 'electric-toothbrush', text: '毎日のオーラルケアも見直すなら' },
   ],
   humidifier: [
     { slug: 'air-purifier', text: '空気の汚れも気になるなら' },
@@ -72,4 +73,5 @@ export const relatedDiagnoses: Record<string, { slug: string; text: string }[]> 
     { slug: 'electric-kettle', text: 'お湯をすばやく沸かしたいなら' },
   ],
   'hair-iron': [{ slug: 'shower-head', text: '毎日のバスタイムから髪をいたわるなら' }],
+  'electric-toothbrush': [{ slug: 'shower-head', text: '毎日のバスタイムも快適にするなら' }],
 }
