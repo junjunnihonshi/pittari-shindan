@@ -15,6 +15,7 @@ export const relatedDiagnoses: Record<string, { slug: string; text: string }[]> 
     { slug: 'rice-cooker', text: '毎日のごはんをおいしく炊くなら' },
   ],
   'electric-kettle': [
+    { slug: 'coffee-maker', text: 'ドリップコーヒーを手軽に淹れるなら' },
     { slug: 'toaster', text: '朝食づくりをもっとラクに' },
     { slug: 'frying-pan', text: '毎日の料理道具も見直すなら' },
     { slug: 'rice-cooker', text: '毎日のごはんをおいしく炊くなら' },
@@ -40,6 +41,7 @@ export const relatedDiagnoses: Record<string, { slug: string; text: string }[]> 
   ],
   toaster: [
     { slug: 'electric-kettle', text: '朝のコーヒー・お茶の準備に' },
+    { slug: 'coffee-maker', text: '朝のコーヒーを自動で淹れるなら' },
     { slug: 'frying-pan', text: '毎日の料理道具も見直すなら' },
     { slug: 'microwave', text: 'あたためやオーブン料理にも' },
   ],
@@ -51,5 +53,9 @@ export const relatedDiagnoses: Record<string, { slug: string; text: string }[]> 
   microwave: [
     { slug: 'toaster', text: 'トーストをもっと手軽に焼くなら' },
     { slug: 'rice-cooker', text: '毎日のごはんをおいしく炊くなら' },
+  ],
+  'coffee-maker': [
+    { slug: 'electric-kettle', text: 'ハンドドリップやお茶の準備に' },
+    { slug: 'toaster', text: '朝食づくりをもっとラクに' },
   ],
 }
