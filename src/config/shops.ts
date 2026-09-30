@@ -21,8 +21,8 @@ export interface ShopDefinition {
 }
 
 export const shops: ShopDefinition[] = [
-  // 当面は楽天アフィリエイトのみ使用するため Amazon は非表示（再開するときは enabled: true に）
-  { key: 'amazon', field: 'amazonUrl', label: 'Amazonで見る', showWhenEmpty: true, enabled: false },
+  // Amazonアソシエイト（ID: pittarishinda-22）。amazonUrl がある商品だけ表示し、空の商品には「準備中」も出さない
+  { key: 'amazon', field: 'amazonUrl', label: 'Amazonで見る', showWhenEmpty: false, enabled: true },
   { key: 'rakuten', field: 'rakutenUrl', label: '楽天市場で見る', showWhenEmpty: true, enabled: true },
   { key: 'yahoo', field: 'yahooUrl', label: 'Yahoo!ショッピングで見る', showWhenEmpty: false, enabled: true },
   { key: 'official', field: 'officialUrl', label: '公式サイトで見る', showWhenEmpty: false, enabled: true },

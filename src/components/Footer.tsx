@@ -14,6 +14,7 @@ export function Footer() {
     <footer className="site-footer">
       <div className="container">
         <p className="site-footer__notice">{site.adNotice}</p>
+        <p className="site-footer__notice">{site.amazonAssociateNotice}</p>
         <nav aria-label="フッター">
           <ul className="site-footer__links">
             {links.map((l) => (

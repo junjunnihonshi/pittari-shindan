@@ -13,6 +13,24 @@ import { combinations, type RunDiagnosis } from './diagnosisChecks.ts'
 
 export const DEFAULT_WIDTHS = [320, 390, 768, 1280]
 
+/** AmazonアソシエイトID（src/config/shops.ts・README と同じ） */
+export const AMAZON_ASSOCIATE_TAG = 'pittarishinda-22'
+
+/** 楽天アフィリエイトのURL（従来どおりの判定） */
+export function isRakutenAffiliateUrl(href: string): boolean {
+  return href.startsWith('https://hb.afl.rakuten.co.jp/')
+}
+
+/** Amazonアソシエイトの商品リンク：amazon.co.jp の /dp/<ASIN> で、tag がこのサイトのアソシエイトID */
+export function isAmazonAssociateUrl(href: string): boolean {
+  try {
+    const u = new URL(href)
+    return u.protocol === 'https:' && u.hostname === 'www.amazon.co.jp' && /^\/dp\/[A-Z0-9]{10}(\/|$)/.test(u.pathname) && u.searchParams.get('tag') === AMAZON_ASSOCIATE_TAG
+  } catch {
+    return false
+  }
+}
+
 /** ブラウザの実行ファイル（環境変数 PUBLISH_BROWSER_PATH で指定、なければよくある場所を探す） */
 export function findBrowser(): string {
   const candidates = [
@@ -218,9 +236,12 @@ export async function checkDiagnosisPages(
         for (const n of expected.notices) if (!view.notices.includes(n)) issues.push({ where, message: `注意書きが表示されていません: ${n.slice(0, 30)}…` })
         const cards = [...view.ranked, ...view.supplements]
         if (cards.some((c) => !c.img)) issues.push({ where, message: '読み込めない商品画像があります' })
-        if (cards.some((c) => c.buttons.length === 0 || c.buttons.some((h) => !h.startsWith('https://hb.afl.rakuten.co.jp/')))) {
+        // 楽天ボタンは全カードに必須（従来どおり）。ほかに許可するのは Amazon アソシエイトの商品リンクだけ
+        if (cards.some((c) => !c.buttons.some(isRakutenAffiliateUrl))) {
           issues.push({ where, message: '楽天ボタンがない、またはアフィリエイトURLでないカードがあります' })
         }
+        const unknown = cards.flatMap((c) => c.buttons.filter((h) => !isRakutenAffiliateUrl(h) && !isAmazonAssociateUrl(h)))
+        if (unknown.length) issues.push({ where, message: `許可されていない購入リンクがあります（楽天アフィリエイト・Amazonアソシエイト以外）: ${unknown[0].slice(0, 80)}` })
         if (cards.some((c) => c.overflowX)) issues.push({ where, message: '画面からはみ出したカードがあります' })
         if (view.clipped > 0) issues.push({ where, message: `文字切れ ${view.clipped} 件` })
         if (await hasHorizontalScroll(page)) issues.push({ where, message: '横スクロールが出ています' })

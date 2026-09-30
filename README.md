@@ -235,8 +235,19 @@ rakutenUrl: 'https://af.moshimo.com/af/c/click?a_id=0000000&p_id=54&pc_id=54&pl_
 | URLが空 | 「楽天市場：準備中」のグレーの表示（押せません） |
 | 不正なURL（`http(s)` 以外） | 安全のため「準備中」扱い |
 
-> **現在 Amazon のボタンは非表示です**（当面は楽天アフィリエイトのみ使用）。
-> 商品データの `amazonUrl` はそのまま残せます。再表示するときは `src/config/shops.ts` の Amazon の行を `enabled: true` にしてください。
+### Amazon（Amazonアソシエイトに直接参加）
+
+- Amazon のボタンは**有効**です（`src/config/shops.ts`：`enabled: true`・`showWhenEmpty: false`）。
+- `amazonUrl` がある商品だけ「Amazonで見る」を表示し、**空の商品には何も表示しません**（「準備中」も出ません）。
+- AmazonアソシエイトIDは **`pittarishinda-22`**。商品リンクは型番が完全に一致する商品の ASIN で、次の形にします。
+
+```ts
+amazonUrl: 'https://www.amazon.co.jp/dp/<ASIN>/ref=nosim?tag=pittarishinda-22',
+```
+
+- Amazon の商品画像・価格・レビューは診断データに取り込みません（画像・価格帯は楽天の出品を基準にしたまま）。
+- 公開ワークフローの画面確認は、楽天ボタンを全カードで必須とし、ほかは `tag=pittarishinda-22` 付きの `amazon.co.jp/dp/<ASIN>` だけを許可します（`scripts/lib/browserChecks.ts`）。
+- 規約で定められた表記「Amazonのアソシエイトとして、ぴったり診断ナビは適格販売により収入を得ています。」を、フッター・「広告掲載について」・プライバシーポリシーに表示しています（文言は `src/config/site.ts` の `amazonAssociateNotice`）。
 
 ### Yahoo!ショッピング・公式サイトのリンク
 
@@ -251,10 +262,6 @@ officialUrl: 'https://…',
 
 `src/config/shops.ts` の `shops` に1行追加し、`src/types/diagnosis.ts` の `Product` に同じ名前の項目を追加します。
 ボタンの「準備中」表示の有無は `showWhenEmpty`、ショップ自体の表示・非表示は `enabled` で切り替えられます。
-
-> Amazonアソシエイト・プログラムに直接参加する場合は、規約で定められた表記（「Amazonのアソシエイトとして…」）を
-> `src/pages/StaticPages.tsx` の「広告掲載について」ページに追加してください。
-
 ### 楽天市場APIから商品候補を取得する（ローカル専用）
 
 楽天市場商品検索API（`https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20260701`）から商品候補を取得し、

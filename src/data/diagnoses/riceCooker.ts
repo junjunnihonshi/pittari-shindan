@@ -54,7 +54,7 @@ const products: Product[] = [
     cons: ['毎回のお手入れ部品は6点です', '冷凍ごはん・お弁当のメニューはありません', '早炊きの炊飯時間は公式に確認できませんでした'],
     recommendFor: '少人数で、圧力IHのごはんをコンパクトな本体で炊きたい人',
     caution: 'リンク先はスレートブラック（NP-RU05-BZ）の出品です。価格は3万円の境界に近いため、変わりやすい点にご注意ください。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0DQPX2F6K/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00tit6o.d8zuebed.g00tit6o.d8zuf23f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fksdenki%2F4974305227980%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fksdenki%2Fi%2F10511264%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/ksdenki/cabinet/images/80_5/4974305227980_5.jpg?_ex=300x300',
     attributes: {
@@ -90,7 +90,7 @@ const products: Product[] = [
     cons: ['冷凍ご飯メニューはありません', '早炊きの炊飯時間は公式に確認できませんでした', '価格が高めです'],
     recommendFor: '少量でも、食感にこだわってごはんを炊きたい人',
     caution: 'リンク先はストーンブラック（JRX-S060-KS）の単品出品です。タイガー公式ストアでは104,500円（5.5合のJRX-S100と共通ページ）など、販売店によって価格が大きく異なります。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0FZYMM9WT/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00qj7mo.d8zuec9b.g00qj7mo.d8zufd21/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fd-rise%2Fp000000909869%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fd-rise%2Fi%2F23275322%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/d-rise/cabinet/img051/p000000909869_1.jpg?_ex=300x300',
     attributes: {
@@ -162,7 +162,7 @@ const products: Product[] = [
     cons: ['保温は24時間です', 'おにぎり・お弁当用のメニューはありません'],
     recommendFor: '家族分を炊きつつ、食感の好みや冷凍保存にも合わせたい人',
     caution: 'リンク先はブラック（SR-N510E-K）の出品です。1升炊きの SR-N518E は別型番です。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0GX3FRHR3/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4550719160626%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11717600%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001759/4550719160626_1.jpg?_ex=300x300',
     attributes: {
@@ -198,7 +198,7 @@ const products: Product[] = [
     cons: ['毎回のお手入れ部品は3点です', 'おにぎり・お弁当用のメニューはありません'],
     recommendFor: '蒸気を気にせず置きたい人や、食感を細かく選びたい人',
     caution: 'リンク先はフロストホワイト（RZ-V100KM-W）の出品です。延長保証などの選択で価格が変わります。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0H6HMKLBV/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00r8gxo.d8zue496.g00r8gxo.d8zufe17/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpremoa%2F4549873219417%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpremoa%2Fi%2F11353186%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/premoa/cabinet/pics/1189/4549873219417.jpg?_ex=300x300',
     attributes: {
@@ -234,7 +234,7 @@ const products: Product[] = [
     cons: ['価格が高めです', '少量専用のメニューはありません', '早炊きの炊飯時間は公式に確認できませんでした'],
     recommendFor: '価格より、炊き方・保温・お手入れの総合力を重視する人',
     caution: 'リンク先は白（NX-AB10-WZ）の出品です。2026年発売の新製品で、価格が変わりやすい点にご注意ください。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0H1VX3WDH/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00twuto.d8zuec5a.g00twuto.d8zufd48/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsurprise-shop%2Fnx-ab10-wz%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsurprise-shop%2Fi%2F10036050%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/surprise-shop/cabinet/13443136/nx-ab10-wz.jpg?_ex=300x300',
     attributes: {
@@ -270,7 +270,7 @@ const products: Product[] = [
     cons: ['本体が大きめです', '冷凍ごはん・お弁当のメニューはありません', '毎回のお手入れ部品は3点です'],
     recommendFor: '家族分をまとめて炊けて、手頃な1升炊きがほしい人',
     caution: 'リンク先はブラック（NL-DT18-BA）の出品です。5.5合炊きの NL-DT10 は別型番です。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0C9T5BYQR/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4974305222657-24-11081-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14773407%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0093/4974305222657.jpg?_ex=300x300',
     attributes: {
@@ -342,7 +342,7 @@ const products: Product[] = [
     cons: ['本体が大きく、ふたを開けたときの高さは53.0cmです', 'おにぎり・お弁当用のメニューはありません'],
     recommendFor: '家族分をまとめて炊き、食感や冷凍保存にも合わせたい人',
     caution: 'リンク先はブラック（SR-N518E-K）の出品です。価格が5万円の境界に近いため、変わりやすい点にご注意ください。5.5合炊きの SR-N510E は別型番です。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0GX34WGHH/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00q632o.d8zue525.g00q632o.d8zuf5b7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fec-current%2F4550719160640%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fec-current%2Fi%2F12874685%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/ec-current/cabinet/9236/4550719160640.jpg?_ex=300x300',
     attributes: {
