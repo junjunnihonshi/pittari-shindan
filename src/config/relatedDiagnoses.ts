@@ -33,6 +33,7 @@ export const relatedDiagnoses: Record<string, { slug: string; text: string }[]> 
     { slug: 'electric-toothbrush', text: '毎日のオーラルケアも見直すなら' },
     { slug: 'shampoo', text: '髪と頭皮に合うシャンプーも選ぶなら' },
     { slug: 'hair-treatment', text: 'バスタイムのダメージケアに' },
+    { slug: 'body-soap', text: '肌に合うボディソープも選ぶなら' },
   ],
   humidifier: [
     { slug: 'air-purifier', text: '空気の汚れも気になるなら' },
@@ -89,11 +90,16 @@ export const relatedDiagnoses: Record<string, { slug: string; text: string }[]> 
     { slug: 'shower-head', text: 'バスタイムをもっと快適に' },
     { slug: 'hair-dryer', text: '洗ったあとの乾かし方も見直すなら' },
     { slug: 'hair-iron', text: '髪を乾かしたあとのスタイリングに' },
+    { slug: 'body-soap', text: '体を洗うボディソープも見直すなら' },
   ],
   'hair-treatment': [
     { slug: 'shampoo', text: '髪と頭皮に合うシャンプーも選ぶなら' },
     { slug: 'shower-head', text: 'バスタイムをもっと快適に' },
     { slug: 'hair-dryer', text: '洗ったあとの乾かし方も見直すなら' },
     { slug: 'hair-iron', text: '髪を乾かしたあとのスタイリングに' },
+  ],
+  'body-soap': [
+    { slug: 'shower-head', text: 'バスタイムをもっと快適に' },
+    { slug: 'shampoo', text: '髪と頭皮に合うシャンプーも選ぶなら' },
   ],
 }
