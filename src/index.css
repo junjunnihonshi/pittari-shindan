@@ -1181,6 +1181,8 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   color: var(--color-primary);
   line-height: 1.1;
   letter-spacing: 0.01em;
+  /* 狭い画面でも数値と「%」を同じ行に表示する */
+  white-space: nowrap;
 }
 .match__value small {
   font-size: 0.9rem;
