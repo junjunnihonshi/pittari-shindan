@@ -7,7 +7,10 @@ export const relatedDiagnoses: Record<string, { slug: string; text: string }[]> 
     { slug: 'electric-blanket', text: '寝るときの寒さ対策に' },
     { slug: 'humidifier', text: '寝室の乾燥が気になるなら' },
   ],
-  'hair-dryer': [{ slug: 'shower-head', text: 'バスタイムをもっと快適に' }],
+  'hair-dryer': [
+    { slug: 'shower-head', text: 'バスタイムをもっと快適に' },
+    { slug: 'shampoo', text: '髪と頭皮に合うシャンプーも選ぶなら' },
+  ],
   vacuum: [{ slug: 'air-purifier', text: 'ほこり・花粉対策をもう一歩' }],
   'frying-pan': [
     { slug: 'toaster', text: '朝食づくりをもっとラクに' },
@@ -27,6 +30,7 @@ export const relatedDiagnoses: Record<string, { slug: string; text: string }[]> 
     { slug: 'hair-dryer', text: 'お風呂上がりのケアに' },
     { slug: 'hair-iron', text: '髪を乾かしたあとのスタイリングに' },
     { slug: 'electric-toothbrush', text: '毎日のオーラルケアも見直すなら' },
+    { slug: 'shampoo', text: '髪と頭皮に合うシャンプーも選ぶなら' },
   ],
   humidifier: [
     { slug: 'air-purifier', text: '空気の汚れも気になるなら' },
@@ -72,6 +76,14 @@ export const relatedDiagnoses: Record<string, { slug: string; text: string }[]> 
     { slug: 'toaster', text: '朝食づくりをもっとラクに' },
     { slug: 'electric-kettle', text: 'お湯をすばやく沸かしたいなら' },
   ],
-  'hair-iron': [{ slug: 'shower-head', text: '毎日のバスタイムから髪をいたわるなら' }],
+  'hair-iron': [
+    { slug: 'shower-head', text: '毎日のバスタイムから髪をいたわるなら' },
+    { slug: 'shampoo', text: '毎日のシャンプーから髪をいたわるなら' },
+  ],
   'electric-toothbrush': [{ slug: 'shower-head', text: '毎日のバスタイムも快適にするなら' }],
+  shampoo: [
+    { slug: 'shower-head', text: 'バスタイムをもっと快適に' },
+    { slug: 'hair-dryer', text: '洗ったあとの乾かし方も見直すなら' },
+    { slug: 'hair-iron', text: '髪を乾かしたあとのスタイリングに' },
+  ],
 }
