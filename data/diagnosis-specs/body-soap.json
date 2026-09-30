@@ -1,0 +1,1008 @@
+{
+  "id": "body-soap",
+  "enabled": false,
+  "title": "ボディソープ診断",
+  "itemName": "ボディソープ",
+  "group": "beauty",
+  "icon": "🛁",
+  "cardDescription": "乾燥・敏感・ニオイなどの肌悩み、薬用機能、泡タイプ、香りから、あなたに合うボディソープを診断。",
+  "description": "肌の状態や重視したいこと、医薬部外品の機能、泡タイプか液体タイプか、洗い上がり、香り、予算などから、あなたに合うボディソープを絞り込みます。",
+  "searchKeywords": [
+    "ボディソープ",
+    "ボディーソープ",
+    "ボディウォッシュ",
+    "ボディーウォッシュ",
+    "全身シャンプー",
+    "乾燥肌",
+    "敏感肌",
+    "肌荒れ",
+    "保湿",
+    "低刺激",
+    "泡",
+    "泡タイプ",
+    "汗",
+    "ニオイ",
+    "体臭",
+    "加齢臭",
+    "ベタつき",
+    "皮脂",
+    "デオドラント",
+    "薬用"
+  ],
+  "seo": {
+    "title": "ボディソープ診断｜乾燥肌・敏感肌・ニオイ・保湿からおすすめを比較",
+    "description": "肌の乾燥や敏感さ、汗・皮脂・ニオイ、薬用機能、泡タイプ、洗い上がり、香り、予算から、あなたに合うボディソープを診断します。"
+  },
+  "priceLabels": {
+    "1": "〜700円",
+    "2": "700〜820円",
+    "3": "820〜1,000円",
+    "4": "1,000〜1,250円",
+    "5": "1,250円〜"
+  },
+  "questions": [
+    {
+      "id": "skin",
+      "text": "肌の状態に一番近いものは？",
+      "shortLabel": "肌の状態",
+      "weight": 20,
+      "options": [
+        {
+          "id": "dry",
+          "label": "乾燥・カサつきが気になる",
+          "summary": "乾燥・カサつきが気になる",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "dryCare",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "moistFinish",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "sensitive",
+          "label": "敏感で肌荒れしやすい",
+          "summary": "敏感で肌荒れしやすい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "sensitiveCare",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "gentleWash",
+              "value": 5,
+              "weight": 40
+            }
+          ]
+        },
+        {
+          "id": "oily",
+          "label": "汗・皮脂・ベタつきが気になる",
+          "summary": "汗・皮脂・ベタつきが気になる",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "sebumClean",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "freshFinish",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "none",
+          "label": "特に強い悩みはない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "priority",
+      "text": "ボディソープで一番重視したいことは？",
+      "shortLabel": "重視すること",
+      "weight": 18,
+      "options": [
+        {
+          "id": "moist",
+          "label": "うるおいを守って洗いたい",
+          "summary": "うるおいを守って洗いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "dryCare",
+              "value": 5,
+              "weight": 40
+            },
+            {
+              "type": "atLeast",
+              "attr": "moistFinish",
+              "value": 5,
+              "weight": 60
+            }
+          ]
+        },
+        {
+          "id": "gentle",
+          "label": "摩擦を抑えてやさしく洗いたい",
+          "summary": "摩擦を抑えてやさしく洗いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "gentleWash",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "sensitiveCare",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "odor",
+          "label": "汗や体のニオイ対策を重視したい",
+          "summary": "汗や体のニオイ対策を重視したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "odorCare",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "freshFinish",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "sebum",
+          "label": "皮脂やベタつきをすっきり洗いたい",
+          "summary": "皮脂やベタつきをすっきり洗いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "sebumClean",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "freshFinish",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "family",
+          "label": "家族みんなで使いやすいものがいい",
+          "summary": "家族みんなで使いやすいものがいい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "familyFit",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "medicated",
+      "text": "医薬部外品の機能は重視しますか？",
+      "shortLabel": "医薬部外品",
+      "weight": 14,
+      "options": [
+        {
+          "id": "roughness",
+          "label": "肌荒れを防ぐ薬用タイプを重視したい",
+          "summary": "肌荒れを防ぐ薬用タイプを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "medicatedRoughness",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "roughnessQD",
+            "value": true,
+            "notice": "肌あれを防ぐ効能を表示している医薬部外品からおすすめを表示しています。",
+            "supplementLabel": "肌あれ防止の医薬部外品ではありません"
+          }
+        },
+        {
+          "id": "odor",
+          "label": "汗臭・体臭などのニオイ対策の薬用タイプを重視したい",
+          "summary": "ニオイ対策の薬用タイプを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "medicatedOdor",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "odorQD",
+            "value": true,
+            "notice": "体臭・汗臭を防ぐ効能を表示している医薬部外品からおすすめを表示しています。",
+            "supplementLabel": "ニオイ対策の医薬部外品ではありません"
+          }
+        },
+        {
+          "id": "any",
+          "label": "薬用（医薬部外品）ならうれしい",
+          "summary": "薬用（医薬部外品）ならうれしい",
+          "effects": [
+            {
+              "type": "feature",
+              "attr": "quasiDrug",
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 50
+            }
+          ]
+        },
+        {
+          "id": "none",
+          "label": "特にこだわらない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "type",
+      "text": "泡タイプ・液体タイプの希望は？",
+      "shortLabel": "泡・液体",
+      "weight": 12,
+      "options": [
+        {
+          "id": "foamMust",
+          "label": "最初から泡で出るタイプが必須",
+          "summary": "泡で出るタイプが必須",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "foamEase",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "foamPump",
+            "value": true,
+            "notice": "ポンプから泡で出るタイプからおすすめを表示しています。",
+            "supplementLabel": "泡で出るタイプではありません"
+          }
+        },
+        {
+          "id": "foamNice",
+          "label": "泡タイプだとうれしい",
+          "summary": "泡タイプだとうれしい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "foamEase",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 50
+            }
+          ]
+        },
+        {
+          "id": "liquid",
+          "label": "液体タイプがいい",
+          "summary": "液体タイプがいい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "liquidFit",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 50
+            }
+          ]
+        },
+        {
+          "id": "any",
+          "label": "どちらでもよい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finish",
+      "text": "好みの洗い上がりは？",
+      "shortLabel": "洗い上がり",
+      "weight": 14,
+      "options": [
+        {
+          "id": "moist",
+          "label": "しっとり",
+          "summary": "しっとりした洗い上がり",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "moistFinish",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "fresh",
+          "label": "さっぱり・すっきり",
+          "summary": "さっぱり・すっきりした洗い上がり",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "freshFinish",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "balance",
+          "label": "バランス型",
+          "summary": "バランスのよい洗い上がり",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "moistFinish",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "freshFinish",
+              "value": 5,
+              "weight": 50
+            }
+          ]
+        },
+        {
+          "id": "any",
+          "label": "特にこだわらない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scent",
+      "text": "香りの好みは？",
+      "shortLabel": "香り",
+      "weight": 12,
+      "options": [
+        {
+          "id": "low",
+          "label": "無香料・できるだけ香り控えめ",
+          "summary": "香りは控えめがいい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "lowScentFit",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "fresh",
+          "label": "せっけん・ハーバル系など爽やかな香り",
+          "summary": "爽やかな香りがいい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "fragranceFit",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "freshFinish",
+              "value": 5,
+              "weight": 40
+            }
+          ]
+        },
+        {
+          "id": "enjoy",
+          "label": "香りもバスタイムの楽しみとして重視",
+          "summary": "香りも重視したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "fragranceFit",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "any",
+          "label": "特にこだわらない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "budget",
+      "text": "予算はいくらまでですか？",
+      "shortLabel": "予算",
+      "weight": 10,
+      "options": [
+        {
+          "id": "b1",
+          "label": "700円以下",
+          "summary": "予算700円以下",
+          "effects": [],
+          "maxPriceRange": 1
+        },
+        {
+          "id": "b2",
+          "label": "820円以下",
+          "summary": "予算820円以下",
+          "effects": [],
+          "maxPriceRange": 2
+        },
+        {
+          "id": "b3",
+          "label": "1,000円以下",
+          "summary": "予算1,000円以下",
+          "effects": [],
+          "maxPriceRange": 3
+        },
+        {
+          "id": "b4",
+          "label": "1,250円以下",
+          "summary": "予算1,250円以下",
+          "effects": [],
+          "maxPriceRange": 4
+        },
+        {
+          "id": "any",
+          "label": "上限なし",
+          "effects": []
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "body-soap-101",
+      "name": "キュレル 泡ボディウォッシュ 480mL",
+      "description": "花王の医薬部外品の泡ボディウォッシュ。消炎剤（有効成分）配合で、肌荒れを防ぎます。セラミドを守りながら、汗や汚れを洗い流します。",
+      "priceRange": 5,
+      "features": [
+        "医薬部外品（肌荒れを防ぐ）",
+        "ポンプから泡で出る",
+        "セラミドを守るマイルド洗浄"
+      ],
+      "pros": [
+        "肌荒れを防ぐ効能がある",
+        "泡で出るので摩擦を抑えて洗いやすい"
+      ],
+      "cons": [
+        "皮脂・ニオイ対策を主な目的とした商品ではありません"
+      ],
+      "recommendFor": "乾燥しやすく、肌荒れしやすい人",
+      "caution": "リンク先は本体 480mL の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B00MWKFUTW/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qvyfo.d8zue927.g00qvyfo.d8zufab8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsundrug%2F4901301289377%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsundrug%2Fi%2F10025254%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/sundrug/cabinet/22/4901301289377.jpg?_ex=300x300",
+      "attributes": {
+        "dryCare": 5,
+        "sensitiveCare": 5,
+        "gentleWash": 5,
+        "sebumClean": 2,
+        "odorCare": 1,
+        "medicatedRoughness": 5,
+        "medicatedOdor": 1,
+        "foamEase": 5,
+        "moistFinish": 4,
+        "freshFinish": 2,
+        "fragranceFit": 1,
+        "lowScentFit": 5,
+        "familyFit": 5,
+        "liquidFit": 3,
+        "neutralFit": 3,
+        "roughnessQD": true,
+        "odorQD": false,
+        "quasiDrug": true,
+        "foamPump": true
+      }
+    },
+    {
+      "id": "body-soap-102",
+      "name": "ミノン 全身シャンプー しっとりタイプ 450mL",
+      "description": "頭から全身まで洗える医薬部外品の全身シャンプー。肌あれの防止などの効能があり、弱酸性・低刺激性・微香性です。",
+      "priceRange": 4,
+      "features": [
+        "医薬部外品（肌あれの防止など）",
+        "弱酸性・低刺激性・微香性",
+        "液体タイプ（全身用）"
+      ],
+      "pros": [
+        "肌あれを防ぐ効能がある",
+        "香りが控えめ"
+      ],
+      "cons": [
+        "泡で出るタイプではありません"
+      ],
+      "recommendFor": "敏感な肌を、しっとり洗いたい人",
+      "caution": "リンク先は本体 450mL の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B00N0C0B9U/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qvyfo.d8zue927.g00qvyfo.d8zufab8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsundrug%2F4987107615923%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsundrug%2Fi%2F10024487%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/sundrug/cabinet/22/4987107615923.jpg?_ex=300x300",
+      "attributes": {
+        "dryCare": 5,
+        "sensitiveCare": 5,
+        "gentleWash": 5,
+        "sebumClean": 2,
+        "odorCare": 1,
+        "medicatedRoughness": 5,
+        "medicatedOdor": 1,
+        "foamEase": 1,
+        "moistFinish": 5,
+        "freshFinish": 2,
+        "fragranceFit": 2,
+        "lowScentFit": 4,
+        "familyFit": 5,
+        "liquidFit": 5,
+        "neutralFit": 3,
+        "roughnessQD": true,
+        "odorQD": false,
+        "quasiDrug": true,
+        "foamPump": false
+      }
+    },
+    {
+      "id": "body-soap-103",
+      "name": "ケアセラ 泡の高保湿ボディウォッシュ 450mL",
+      "description": "セラミド（うるおい成分）を肌に残して洗う「セラミド保持処方」の泡ボディウォッシュ。弱酸性・低刺激性です。",
+      "priceRange": 2,
+      "features": [
+        "ポンプから泡で出る",
+        "セラミド保持処方",
+        "ピュアフローラルの香り"
+      ],
+      "pros": [
+        "うるおいを守って洗える",
+        "泡で出るので洗いやすい"
+      ],
+      "cons": [
+        "医薬部外品ではありません"
+      ],
+      "recommendFor": "乾燥が気になり、うるおいを守って洗いたい人",
+      "caution": "リンク先は本体 450mL の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B08DRM8V9J/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qvyfo.d8zue927.g00qvyfo.d8zufab8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsundrug%2F4987241167197%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsundrug%2Fi%2F10068213%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/sundrug/cabinet/77/4987241167197.jpg?_ex=300x300",
+      "attributes": {
+        "dryCare": 5,
+        "sensitiveCare": 4,
+        "gentleWash": 5,
+        "sebumClean": 2,
+        "odorCare": 1,
+        "medicatedRoughness": 1,
+        "medicatedOdor": 1,
+        "foamEase": 5,
+        "moistFinish": 5,
+        "freshFinish": 2,
+        "fragranceFit": 3,
+        "lowScentFit": 3,
+        "familyFit": 4,
+        "liquidFit": 3,
+        "neutralFit": 3,
+        "roughnessQD": false,
+        "odorQD": false,
+        "quasiDrug": false,
+        "foamPump": true
+      }
+    },
+    {
+      "id": "body-soap-104",
+      "name": "hadakara 薬用ピュアマイルド モイストボディケアソープ 泡タイプ 540mL",
+      "description": "グリチルリチン酸ジカリウム（有効成分）が肌あれを防ぐ、医薬部外品の泡タイプボディソープ。大人から子どもまで家族で使える低刺激タイプです。",
+      "priceRange": 3,
+      "features": [
+        "医薬部外品（肌あれを防ぐ）",
+        "ポンプから泡で出る",
+        "アミノ酸系洗浄成分・やさしいソープの香り"
+      ],
+      "pros": [
+        "家族みんなで使いやすい低刺激タイプ",
+        "肌あれを防ぐ効能がある"
+      ],
+      "cons": [
+        "皮脂・ニオイ対策を主な目的とした商品ではありません"
+      ],
+      "recommendFor": "家族で使える、やさしい泡のボディソープを選びたい人",
+      "caution": "リンク先は本体 540mL の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0GS51F72C/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qvyfo.d8zue927.g00qvyfo.d8zufab8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsundrug%2F4903301378532%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsundrug%2Fi%2F10186867%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/sundrug/cabinet/202605_5/4903301378532.jpg?_ex=300x300",
+      "attributes": {
+        "dryCare": 4,
+        "sensitiveCare": 5,
+        "gentleWash": 5,
+        "sebumClean": 2,
+        "odorCare": 1,
+        "medicatedRoughness": 5,
+        "medicatedOdor": 1,
+        "foamEase": 5,
+        "moistFinish": 4,
+        "freshFinish": 2,
+        "fragranceFit": 3,
+        "lowScentFit": 3,
+        "familyFit": 5,
+        "liquidFit": 3,
+        "neutralFit": 3,
+        "roughnessQD": true,
+        "odorQD": false,
+        "quasiDrug": true,
+        "foamPump": true
+      }
+    },
+    {
+      "id": "body-soap-105",
+      "name": "hadakara 薬用デオドラント モイストボディケアソープ 泡タイプ 540mL",
+      "description": "殺菌有効成分IPMPを配合した医薬部外品の泡タイプボディソープ。汗臭、体臭（皮脂臭・加齢臭）やニキビを防ぎます。",
+      "priceRange": 3,
+      "features": [
+        "医薬部外品（汗臭・体臭・ニキビを防ぐ）",
+        "ポンプから泡で出る",
+        "3種の保湿成分配合"
+      ],
+      "pros": [
+        "ニオイ対策の効能がある",
+        "家族みんなで使える"
+      ],
+      "cons": [
+        "乾燥対策を主な目的とした商品ではありません"
+      ],
+      "recommendFor": "汗や体のニオイが気になり、家族で使いたい人",
+      "caution": "リンク先は本体 540mL の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qxpno.d8zued70.g00qxpno.d8zuf253/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fall-kimuraya-jimbocho%2F2877075013%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fall-kimuraya-jimbocho%2Fi%2F10368806%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/all-kimuraya-jimbocho/cabinet/a07000343/2877075013.jpg?_ex=300x300",
+      "attributes": {
+        "dryCare": 3,
+        "sensitiveCare": 3,
+        "gentleWash": 4,
+        "sebumClean": 4,
+        "odorCare": 5,
+        "medicatedRoughness": 1,
+        "medicatedOdor": 5,
+        "foamEase": 5,
+        "moistFinish": 4,
+        "freshFinish": 4,
+        "fragranceFit": 4,
+        "lowScentFit": 2,
+        "familyFit": 5,
+        "liquidFit": 3,
+        "neutralFit": 3,
+        "roughnessQD": false,
+        "odorQD": true,
+        "quasiDrug": true,
+        "foamPump": true
+      }
+    },
+    {
+      "id": "body-soap-106",
+      "name": "ビオレu ザ ボディ 泡タイプ ディープクリア 510mL",
+      "description": "ニオイ汚れが気になる大人の肌向けの、ポンプから泡で出るボディウォッシュです。",
+      "priceRange": 3,
+      "features": [
+        "ポンプから泡で出る",
+        "ニオイ汚れが気になる大人の肌に"
+      ],
+      "pros": [
+        "ニオイ汚れに着目した洗浄",
+        "泡で出るので洗いやすい"
+      ],
+      "cons": [
+        "医薬部外品ではありません（体臭を防ぐ効能はありません）"
+      ],
+      "recommendFor": "皮脂やニオイ汚れを、泡ですっきり洗いたい人",
+      "caution": "リンク先は本体 510mL の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FGQC9SRS/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ugyno.d8zueb2c.g00ugyno.d8zuf30b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutensokuhaimart%2F4901301452979%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutensokuhaimart%2Fi%2F10036453%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/rakutensokuhaimart/cabinet/rakuten24/979/4901301452979.jpg?_ex=300x300",
+      "attributes": {
+        "dryCare": 3,
+        "sensitiveCare": 3,
+        "gentleWash": 4,
+        "sebumClean": 5,
+        "odorCare": 4,
+        "medicatedRoughness": 1,
+        "medicatedOdor": 1,
+        "foamEase": 5,
+        "moistFinish": 3,
+        "freshFinish": 5,
+        "fragranceFit": 4,
+        "lowScentFit": 2,
+        "familyFit": 4,
+        "liquidFit": 3,
+        "neutralFit": 3,
+        "roughnessQD": false,
+        "odorQD": false,
+        "quasiDrug": false,
+        "foamPump": true
+      }
+    },
+    {
+      "id": "body-soap-107",
+      "name": "デオコ 薬用ボディクレンズ 350mL",
+      "description": "ニオイの原因菌を殺菌し、体臭・汗臭の発生を防ぐ医薬部外品のボディソープ。スウィートフローラルの香りです。",
+      "priceRange": 2,
+      "features": [
+        "医薬部外品（体臭・汗臭を防ぐ）",
+        "液体タイプ",
+        "スウィートフローラルの香り"
+      ],
+      "pros": [
+        "ニオイ対策の効能がある",
+        "香りも楽しめる"
+      ],
+      "cons": [
+        "泡で出るタイプではありません",
+        "香りを控えたい人には向きにくい商品です"
+      ],
+      "recommendFor": "体臭・汗臭が気になり、香りも楽しみたい人",
+      "caution": "リンク先は本体 350mL の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B079LFC4PZ/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qvyfo.d8zue927.g00qvyfo.d8zufab8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsundrug%2F4987241157679%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsundrug%2Fi%2F10124588%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/sundrug/cabinet/202406/4987241157679.jpg?_ex=300x300",
+      "attributes": {
+        "dryCare": 2,
+        "sensitiveCare": 2,
+        "gentleWash": 2,
+        "sebumClean": 4,
+        "odorCare": 5,
+        "medicatedRoughness": 1,
+        "medicatedOdor": 5,
+        "foamEase": 1,
+        "moistFinish": 2,
+        "freshFinish": 5,
+        "fragranceFit": 5,
+        "lowScentFit": 1,
+        "familyFit": 2,
+        "liquidFit": 5,
+        "neutralFit": 3,
+        "roughnessQD": false,
+        "odorQD": true,
+        "quasiDrug": true,
+        "foamPump": false
+      }
+    },
+    {
+      "id": "body-soap-108",
+      "name": "ビオレu ザ ボディ 泡タイプ モイスチャースムース 510mL",
+      "description": "しっとりした洗い上がりのボディウォッシュ。ポンプから泡で出るタイプです。",
+      "priceRange": 3,
+      "features": [
+        "ポンプから泡で出る",
+        "しっとりした洗い上がり"
+      ],
+      "pros": [
+        "泡で出るので洗いやすい",
+        "しっとり洗い上げる"
+      ],
+      "cons": [
+        "医薬部外品ではありません"
+      ],
+      "recommendFor": "乾燥が気になり、泡でしっとり洗いたい人",
+      "caution": "リンク先は本体 510mL の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FGQ4165F/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ugyno.d8zueb2c.g00ugyno.d8zuf30b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutensokuhaimart%2F4901301452986%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutensokuhaimart%2Fi%2F10036455%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/rakutensokuhaimart/cabinet/rakuten24/986/4901301452986.jpg?_ex=300x300",
+      "attributes": {
+        "dryCare": 4,
+        "sensitiveCare": 3,
+        "gentleWash": 4,
+        "sebumClean": 2,
+        "odorCare": 1,
+        "medicatedRoughness": 1,
+        "medicatedOdor": 1,
+        "foamEase": 5,
+        "moistFinish": 5,
+        "freshFinish": 2,
+        "fragranceFit": 4,
+        "lowScentFit": 2,
+        "familyFit": 4,
+        "liquidFit": 3,
+        "neutralFit": 3,
+        "roughnessQD": false,
+        "odorQD": false,
+        "quasiDrug": false,
+        "foamPump": true
+      }
+    },
+    {
+      "id": "body-soap-109",
+      "name": "ダヴ ボディウォッシュ プレミアム モイスチャーケア 440g",
+      "description": "うるおいを重視した液体タイプのボディウォッシュです。",
+      "priceRange": 1,
+      "features": [
+        "液体タイプ",
+        "しっとりした洗い上がり"
+      ],
+      "pros": [
+        "うるおいを重視した設計"
+      ],
+      "cons": [
+        "泡で出るタイプではありません",
+        "医薬部外品ではありません"
+      ],
+      "recommendFor": "液体タイプで、しっとり洗いたい人",
+      "caution": "リンク先は本体 440g の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0HCMQ847F/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4902111785554%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11757114%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001881/4902111785554_1.jpg?_ex=300x300",
+      "attributes": {
+        "dryCare": 5,
+        "sensitiveCare": 3,
+        "gentleWash": 4,
+        "sebumClean": 2,
+        "odorCare": 1,
+        "medicatedRoughness": 1,
+        "medicatedOdor": 1,
+        "foamEase": 1,
+        "moistFinish": 5,
+        "freshFinish": 2,
+        "fragranceFit": 4,
+        "lowScentFit": 2,
+        "familyFit": 4,
+        "liquidFit": 5,
+        "neutralFit": 3,
+        "roughnessQD": false,
+        "odorQD": false,
+        "quasiDrug": false,
+        "foamPump": false
+      }
+    },
+    {
+      "id": "body-soap-110",
+      "name": "ナイーブ リフレッシュボディソープ（海泥配合）530mL",
+      "description": "海泥を配合した液体タイプのボディソープ。石けん洗浄成分とアミノ酸系洗浄成分を使っています。",
+      "priceRange": 1,
+      "features": [
+        "液体タイプ・海泥配合",
+        "石けん＋アミノ酸系洗浄成分",
+        "グレープフルーツ＆ライムの香り"
+      ],
+      "pros": [
+        "さっぱりした洗い上がり",
+        "家族で使いやすい大容量"
+      ],
+      "cons": [
+        "泡で出るタイプではありません",
+        "医薬部外品ではありません"
+      ],
+      "recommendFor": "皮脂やベタつきを、さっぱり洗いたい人",
+      "caution": "リンク先は本体 530mL の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r452o.d8zue3a0.g00r452o.d8zuf106/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fehac%2F4901417169532%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fehac%2Fi%2F10094172%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ehac/cabinet/gazo54/4901417169532.jpg?_ex=300x300",
+      "attributes": {
+        "dryCare": 2,
+        "sensitiveCare": 3,
+        "gentleWash": 4,
+        "sebumClean": 5,
+        "odorCare": 3,
+        "medicatedRoughness": 1,
+        "medicatedOdor": 1,
+        "foamEase": 1,
+        "moistFinish": 3,
+        "freshFinish": 5,
+        "fragranceFit": 4,
+        "lowScentFit": 2,
+        "familyFit": 5,
+        "liquidFit": 5,
+        "neutralFit": 3,
+        "roughnessQD": false,
+        "odorQD": false,
+        "quasiDrug": false,
+        "foamPump": false
+      }
+    }
+  ],
+  "scoring": {
+    "tieBreak": true,
+    "softenPartialReason": true,
+    "lowMatchNotice": "条件をすべて満たす商品が少ないため、近い候補を表示しています。"
+  },
+  "guide": {
+    "title": "ボディソープの選び方",
+    "intro": "この診断は、市販のボディソープを対象に、メーカーの商品説明と医薬部外品の効能表示をもとに以下のポイントとあなたの回答を照らし合わせて相性を計算しています。",
+    "sections": [
+      {
+        "heading": "肌の状態で選ぶ",
+        "body": "乾燥しやすい肌にはうるおいを守って洗う設計のもの、皮脂やベタつきが気になる肌にはさっぱり洗えるものが選ばれています。"
+      },
+      {
+        "heading": "医薬部外品の効能",
+        "body": "医薬部外品には、肌あれを防ぐものや、体臭・汗臭を防ぐものなど、表示されている効能があります。ニオイ汚れを洗い流す化粧品とは区別して選びましょう。"
+      },
+      {
+        "heading": "泡タイプと液体タイプ",
+        "body": "ポンプから泡で出るタイプは泡立ての手間がなく、摩擦を抑えて洗いやすくなります。液体タイプは泡立てて使います。"
+      }
+    ]
+  },
+  "notice": "価格は変動するため、購入時に販売ページでご確認ください。肌に赤み・かゆみなどの異常が出た場合は使用を中止し、皮膚科専門医などにご相談ください。"
+}
