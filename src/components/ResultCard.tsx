@@ -53,7 +53,11 @@ export function ResultCard({ result, rank, diagnosis, variant = 'ranked' }: Prop
         <div className="result-card__title">
           <h3 id={headingId}>{product.name}</h3>
           {product.sample && <span className="badge badge--sample">仮データ</span>}
-          {priceLabel && <p className="result-card__price">価格帯の目安：{priceLabel}</p>}
+          {priceLabel && (
+            <p className="result-card__price">
+              価格帯の目安：<span className="result-card__price-value">{priceLabel}</span>
+            </p>
+          )}
           <div className="match">
             <span className="match__label">{isReference ? '参考相性' : 'あなたとの相性'}</span>
             <span className="match__value">

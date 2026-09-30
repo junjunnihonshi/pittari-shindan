@@ -1114,8 +1114,17 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
 }
 .result-card__price {
   margin: 4px 0 0;
-  font-size: 0.82rem;
+  font-size: 0.9rem;
+  /* 文字を1段階大きくしても行の高さは従来（0.82rem × 1.75 ≈ 23px）とほぼ同じにする */
+  line-height: 1.6;
   color: var(--color-muted);
+}
+/* 金額部分だけ少し強調（ラベル「価格帯の目安：」は控えめのまま） */
+.result-card__price-value {
+  font-weight: 700;
+  color: var(--color-text);
+  /* 狭い画面でも「80,000〜120,000円」を途中で折り返さず、まとめて次の行に送る */
+  white-space: nowrap;
 }
 .badge {
   display: inline-block;
