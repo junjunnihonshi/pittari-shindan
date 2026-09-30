@@ -20,6 +20,7 @@ import { coffeeMaker } from './coffeeMaker.ts'
 import { hotPlate } from './hotPlate.ts'
 import { hairIron } from './hairIron.ts'
 import { electricToothbrush } from './electricToothbrush.ts'
+import { shampoo } from './shampoo.ts'
 
 /**
  * 診断の一覧（登録簿）。
@@ -48,6 +49,7 @@ const allDiagnoses: Diagnosis[] = [
   hotPlate,
   hairIron,
   electricToothbrush,
+  shampoo,
 ]
 
 /**
