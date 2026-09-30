@@ -216,7 +216,7 @@ function render(d: Json, exportName: string, outDir: string, specRel: string): s
   const { questions, products: _p, enabled: _e, ...rest } = d
   void _p
   void _e
-  const order = ['id', 'slug', 'name', 'itemName', 'group', 'icon', 'shortDescription', 'intro', 'seo', 'priceLabels']
+  const order = ['id', 'slug', 'name', 'itemName', 'group', 'icon', 'shortDescription', 'intro', 'searchKeywords', 'seo', 'priceLabels']
   const head = order.filter((k) => rest[k] !== undefined).map((k) => `  ${k}: ${lit(rest[k], '  ')},`)
   const tail = Object.keys(rest).filter((k) => !order.includes(k)).map((k) => `  ${k}: ${lit(rest[k], '  ')},`)
   lines.push(

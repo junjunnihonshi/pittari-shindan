@@ -151,6 +151,8 @@ export interface Diagnosis {
   shortDescription: string
   /** 診断ページ冒頭の説明 */
   intro: string
+  /** トップページ検索だけに使う関連語・読み方（任意。画面・SEOには出さない） */
+  searchKeywords?: string[]
   /** SEO情報 */
   seo: {
     title: string

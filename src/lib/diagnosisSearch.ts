@@ -17,9 +17,9 @@ export function toSearchWords(query: string): string[] {
   return normalizeSearchText(query).split(/\s+/).filter(Boolean)
 }
 
-/** 診断名・ジャンル名・説明文・カテゴリ名に、検索語がすべて含まれるか */
+/** 診断名・ジャンル名・説明文・カテゴリ名・検索用キーワード（ある場合）に、検索語がすべて含まれるか */
 export function matchesDiagnosis(d: Diagnosis, words: string[]): boolean {
   const category = categoryGroups.find((g) => g.id === d.group)?.label ?? ''
-  const text = normalizeSearchText([d.name, d.itemName, d.shortDescription, d.intro, category].join(' '))
+  const text = normalizeSearchText([d.name, d.itemName, d.shortDescription, d.intro, category, ...(d.searchKeywords ?? [])].join(' '))
   return words.every((w) => text.includes(w))
 }
