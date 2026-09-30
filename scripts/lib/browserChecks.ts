@@ -97,18 +97,30 @@ export interface UiIssue {
 const ANALYTICS_HOSTS = ['static.cloudflareinsights.com', 'cloudflareinsights.com']
 
 /**
+ * GA4 の送信先（google-analytics.com・analytics.google.com とそのサブドメイン。例：region1.google-analytics.com）。
+ * 自動確認のイベントを本番の GA4 に記録しないよう、送信だけを空の応答に差し替える。
+ * gtag.js（www.googletagmanager.com）の読み込みは止めないので、ページ上の計測コードは通常どおり動く
+ */
+const GA_COLLECT_DOMAINS = ['google-analytics.com', 'analytics.google.com']
+export const isGaCollectHost = (host: string) => GA_COLLECT_DOMAINS.some((d) => host === d || host.endsWith(`.${d}`))
+
+/**
  * ページ内のエラー（JS例外・コンソールのエラー）を集める。
  * あわせてアクセス解析への通信を空の応答に差し替える（localhost では解析の送信が CORS で失敗してエラーになるため・
- * 自動確認のアクセスを本番の解析に含めないため）。ビーコンの設置自体は本番の HTML で確認する。
+ * 自動確認のアクセスを本番の解析に含めないため）。GA4 も送信だけを差し替える。ビーコンの設置自体は本番の HTML で確認する。
  */
 async function collectErrors(page: Page): Promise<string[]> {
   const errors: string[] = []
   await page.setRequestInterception(true)
   page.on('request', (req) => {
     if (req.isInterceptResolutionHandled()) return
-    if (ANALYTICS_HOSTS.includes(new URL(req.url()).hostname)) {
+    const host = new URL(req.url()).hostname
+    if (ANALYTICS_HOSTS.includes(host)) {
       // type="module" のスクリプトは CORS で読み込まれるため、許可ヘッダーを付ける
       void req.respond({ status: 200, contentType: 'application/javascript', headers: { 'Access-Control-Allow-Origin': '*' }, body: '' })
+    } else if (isGaCollectHost(host)) {
+      // GA4 への送信（/g/collect など）は届けず、成功（204）として返す
+      void req.respond({ status: 204, headers: { 'Access-Control-Allow-Origin': '*' }, body: '' })
     } else void req.continue()
   })
   page.on('pageerror', (e) => errors.push(String(e)))
