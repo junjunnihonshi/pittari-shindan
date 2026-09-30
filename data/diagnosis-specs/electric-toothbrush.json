@@ -1,0 +1,753 @@
+{
+  "id": "electric-toothbrush",
+  "enabled": false,
+  "title": "電動歯ブラシ診断",
+  "itemName": "電動歯ブラシ",
+  "group": "beauty",
+  "icon": "🪥",
+  "cardDescription": "歯垢・歯ぐきケア、押しつけ防止、アプリ機能、携帯性から、あなたに合う電動歯ブラシを診断。",
+  "description": "重視したいケアや磨く力の強さ、磨き方のサポート機能、モード、使う場所、予算などから、あなたに合う電動歯ブラシを絞り込みます。",
+  "seo": {
+    "title": "電動歯ブラシ診断｜歯垢・歯ぐきケア・携帯性・予算からおすすめを比較",
+    "description": "歯垢除去、歯ぐきへのやさしさ、押しつけ防止、アプリ機能、持ち運びやすさ、予算から、あなたに合う電動歯ブラシを診断します。"
+  },
+  "priceLabels": {
+    "1": "〜6,000円",
+    "2": "6,000〜10,000円",
+    "3": "10,000〜20,000円",
+    "4": "20,000〜35,000円",
+    "5": "35,000円〜"
+  },
+  "questions": [
+    {
+      "id": "focus",
+      "text": "一番重視したいことは？",
+      "shortLabel": "重視すること",
+      "weight": 26,
+      "options": [
+        {
+          "id": "plaque",
+          "label": "歯垢をしっかり落としたい",
+          "summary": "歯垢をしっかり落としたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "plaque",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "gum",
+          "label": "歯ぐきのキワや歯周ポケットを丁寧に磨きたい",
+          "summary": "歯ぐきのキワや歯周ポケットを丁寧に磨きたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "gumCare",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "gentle",
+          "label": "歯ぐきへのやさしさを重視したい",
+          "summary": "歯ぐきへのやさしさを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "gentle",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "pressure",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "stain",
+          "label": "着色汚れ・ステインケアも重視したい",
+          "summary": "ステインケアも重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "stain",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "outing",
+          "label": "外出先で手軽に使いたい",
+          "summary": "外出先で手軽に使いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "portability",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "simplicity",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pressure",
+      "text": "磨く力が強くなりやすいですか？",
+      "shortLabel": "押しつけ",
+      "weight": 14,
+      "options": [
+        {
+          "id": "strong",
+          "label": "強く押しつけがちなので、しっかり知らせてほしい",
+          "summary": "押しつけをしっかり知らせてほしい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "pressure",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "nice",
+          "label": "押しつけ防止機能があるとうれしい",
+          "summary": "押しつけ防止機能があるとうれしい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "pressure",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 50
+            }
+          ]
+        },
+        {
+          "id": "none",
+          "label": "特に気にしない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guide",
+      "text": "磨き方のサポート機能はどこまで欲しいですか？",
+      "shortLabel": "サポート機能",
+      "weight": 16,
+      "options": [
+        {
+          "id": "app",
+          "label": "アプリで磨き方や磨き残しまで確認したい",
+          "summary": "アプリで磨き方まで確認したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "guidance",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "sensor",
+          "label": "センサーやタイマーがあれば十分",
+          "summary": "センサーやタイマーがあれば十分",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "guidance",
+              "value": 3,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "simplicity",
+              "value": 5,
+              "weight": 40
+            }
+          ]
+        },
+        {
+          "id": "simple",
+          "label": "シンプルに磨ければよい",
+          "summary": "シンプルに磨ければよい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "simplicity",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mode",
+      "text": "強さやモードを選びたいですか？",
+      "shortLabel": "モード",
+      "weight": 12,
+      "options": [
+        {
+          "id": "fine",
+          "label": "細かく調整したい",
+          "summary": "強さやモードを細かく調整したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "modeFlex",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "few",
+          "label": "2〜3種類あれば十分",
+          "summary": "モードは2〜3種類あれば十分",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "modeFlex",
+              "value": 3,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 50
+            }
+          ]
+        },
+        {
+          "id": "basic",
+          "label": "1つの基本モードでも構わない",
+          "summary": "基本モードだけでよい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "simplicity",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "place",
+      "text": "使う場所・持ち運びは？",
+      "shortLabel": "使う場所",
+      "weight": 10,
+      "options": [
+        {
+          "id": "home",
+          "label": "自宅中心",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "travel",
+          "label": "自宅でも旅行でも使いたい",
+          "summary": "自宅でも旅行でも使いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "portability",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 50
+            }
+          ]
+        },
+        {
+          "id": "carry",
+          "label": "職場・外出先への持ち運びを最重視",
+          "summary": "持ち運びを最重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "portability",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "budget",
+      "text": "予算はいくらまでですか？",
+      "shortLabel": "予算",
+      "weight": 10,
+      "options": [
+        {
+          "id": "b1",
+          "label": "6,000円以下",
+          "summary": "予算6,000円以下",
+          "effects": [],
+          "maxPriceRange": 1
+        },
+        {
+          "id": "b2",
+          "label": "10,000円以下",
+          "summary": "予算10,000円以下",
+          "effects": [],
+          "maxPriceRange": 2
+        },
+        {
+          "id": "b3",
+          "label": "20,000円以下",
+          "summary": "予算20,000円以下",
+          "effects": [],
+          "maxPriceRange": 3
+        },
+        {
+          "id": "b4",
+          "label": "35,000円以下",
+          "summary": "予算35,000円以下",
+          "effects": [],
+          "maxPriceRange": 4
+        },
+        {
+          "id": "any",
+          "label": "上限なし",
+          "effects": []
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "electric-toothbrush-101",
+      "name": "Panasonic ポケットドルツ EW-DS42",
+      "description": "単4形乾電池1本で動く、本体質量約30gの携帯向け音波振動ハブラシ。毎分約16,000ブラシストロークです。",
+      "priceRange": 1,
+      "features": [
+        "音波振動（毎分約16,000ストローク）",
+        "単4形乾電池式（充電式電池も使用可）",
+        "本体質量 約30g"
+      ],
+      "pros": [
+        "充電が不要で持ち運びやすい",
+        "軽くてコンパクト"
+      ],
+      "cons": [
+        "モードは1つです",
+        "押しつけ防止センサーはありません"
+      ],
+      "recommendFor": "職場や外出先で、食後に手軽に磨きたい人",
+      "caution": "リンク先はブラック（EW-DS42-K）の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B07C8WVD7H/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00t3jpo.d8zuedce.g00t3jpo.d8zufb63/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyamada-denki%2F3461890012%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyamada-denki%2Fi%2F10158203%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/yamada-denki/cabinet/a07000040/3461890012.jpg?_ex=300x300",
+      "attributes": {
+        "plaque": 2,
+        "gumCare": 3,
+        "gentle": 4,
+        "stain": 1,
+        "guidance": 1,
+        "pressure": 1,
+        "modeFlex": 1,
+        "portability": 5,
+        "simplicity": 5,
+        "neutralFit": 3
+      }
+    },
+    {
+      "id": "electric-toothbrush-102",
+      "name": "Philips ソニッケアー 3100シリーズ HX3671/33",
+      "description": "音波式の電動歯ブラシ。過圧防止センサー、スマートタイマー、カドペーサーを備えています。",
+      "priceRange": 2,
+      "features": [
+        "音波式",
+        "過圧防止センサー",
+        "スマートタイマー・カドペーサー",
+        "本体重量 約97g"
+      ],
+      "pros": [
+        "押しつけすぎを知らせてくれる",
+        "操作がシンプル"
+      ],
+      "cons": [
+        "モードは1つです",
+        "アプリ連携はありません"
+      ],
+      "recommendFor": "はじめての電動歯ブラシを、シンプルな操作で使いたい人",
+      "caution": "リンク先はフィリップス公式店のホワイト（HX3671/33）の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0B5Q3J6RN/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00te1ko.d8zuefc5.g00te1ko.d8zufc75/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fphilips-japan%2Fhx3671-33%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fphilips-japan%2Fi%2F10000341%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/philips-japan/cabinet/item2/hx3671-33_251118.jpg?_ex=300x300",
+      "attributes": {
+        "plaque": 3,
+        "gumCare": 3,
+        "gentle": 4,
+        "stain": 3,
+        "guidance": 2,
+        "pressure": 3,
+        "modeFlex": 1,
+        "portability": 4,
+        "simplicity": 5,
+        "neutralFit": 3
+      }
+    },
+    {
+      "id": "electric-toothbrush-103",
+      "name": "Panasonic ドルツ EW-DM74",
+      "description": "毎分約31,000ブラシストロークの音波振動ハブラシ。3つのモードがあり、USB Type-Cケーブルで本体に直接充電できます。",
+      "priceRange": 1,
+      "features": [
+        "音波振動（毎分約31,000ストローク）",
+        "3モード",
+        "ダイレクトUSB充電",
+        "磨き時間お知らせタイマー"
+      ],
+      "pros": [
+        "3つのモードから選べる",
+        "USBケーブルで手軽に充電できる"
+      ],
+      "cons": [
+        "押しつけ防止センサーはありません",
+        "ヨコ磨き対応のモデルではありません"
+      ],
+      "recommendFor": "シンプルな音波ハブラシを、手頃に使い始めたい人",
+      "caution": "リンク先はホワイト（EW-DM74-W）の出品です。USB電源アダプターは別売です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tit6o.d8zuebed.g00tit6o.d8zuf23f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fksdenki%2F4549980803301%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fksdenki%2Fi%2F10507793%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ksdenki/cabinet/images/01_5/4549980803301_5.jpg?_ex=300x300",
+      "attributes": {
+        "plaque": 3,
+        "gumCare": 3,
+        "gentle": 5,
+        "stain": 4,
+        "guidance": 2,
+        "pressure": 1,
+        "modeFlex": 3,
+        "portability": 4,
+        "simplicity": 5,
+        "neutralFit": 3
+      }
+    },
+    {
+      "id": "electric-toothbrush-104",
+      "name": "Braun Oral-B PRO1 D3055133CB",
+      "description": "丸型回転ブラシの電動歯ブラシ。クリーン・やわらかクリーン・ホワイトニングの3モードと、過圧ストッパーを備えています。",
+      "priceRange": 1,
+      "features": [
+        "丸型回転式",
+        "3モード",
+        "過圧ストッパー",
+        "2分タイマー"
+      ],
+      "pros": [
+        "丸型ブラシで1本ずつ磨ける",
+        "過圧ストッパーを搭載"
+      ],
+      "cons": [
+        "アプリ連携はありません",
+        "本体質量は125gです"
+      ],
+      "recommendFor": "回転式ならではの磨き心地を、手頃に試したい人",
+      "caution": "リンク先はカリビアンブルー（D3055133CB）の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B09K3Z5H3Q/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00t3jpo.d8zuedce.g00t3jpo.d8zufb63/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyamada-denki%2F3465025014%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyamada-denki%2Fi%2F10531557%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/yamada-denki/cabinet/a07000149/3465025014.jpg?_ex=300x300",
+      "attributes": {
+        "plaque": 4,
+        "gumCare": 3,
+        "gentle": 4,
+        "stain": 4,
+        "guidance": 2,
+        "pressure": 4,
+        "modeFlex": 3,
+        "portability": 3,
+        "simplicity": 4,
+        "neutralFit": 3
+      }
+    },
+    {
+      "id": "electric-toothbrush-105",
+      "name": "Panasonic ドルツ EW-DA49",
+      "description": "ヨコ磨きのリニア音波振動（毎分約31,000ブラシストローク）で、クリーン・ソフト・センシティブの3モード。押しつけ防止センサーを備えています。",
+      "priceRange": 3,
+      "features": [
+        "音波振動（ヨコ磨き）",
+        "3モード",
+        "押しつけ防止センサー",
+        "海外対応（AC100〜240V）・約90g"
+      ],
+      "pros": [
+        "ヨコ磨きの音波振動で磨ける",
+        "押しつけすぎを知らせてくれる"
+      ],
+      "cons": [
+        "アプリ連携はありません"
+      ],
+      "recommendFor": "歯周ポケットや歯ぐきのキワを、ていねいに磨きたい人",
+      "caution": "リンク先はブラック（EW-DA49-K）の出品です。USB電源アダプターは別売です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0HB3QY3P6/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qn68o.d8zuee0f.g00qn68o.d8zuf9b5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fa-price%2F4550719168875%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fa-price%2Fi%2F11438352%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/a-price/cabinet/pics/1286/4550719168875.jpg?_ex=300x300",
+      "attributes": {
+        "plaque": 4,
+        "gumCare": 5,
+        "gentle": 5,
+        "stain": 4,
+        "guidance": 3,
+        "pressure": 4,
+        "modeFlex": 3,
+        "portability": 4,
+        "simplicity": 4,
+        "neutralFit": 3
+      }
+    },
+    {
+      "id": "electric-toothbrush-106",
+      "name": "Braun Oral-B iO6 iOM62I61KWT",
+      "description": "丸型回転式の電動歯ブラシ。5つのモードと、ブラシ圧を色で知らせるスマート押し付け防止センサーを備え、専用アプリで磨き残しを確認できます。",
+      "priceRange": 4,
+      "features": [
+        "丸型回転式",
+        "5モード",
+        "スマート押し付け防止センサー",
+        "アプリ連携"
+      ],
+      "pros": [
+        "アプリで磨き残しを確認できる",
+        "力加減を色で確認できる"
+      ],
+      "cons": [
+        "本体が大きめで、携帯性は高くありません"
+      ],
+      "recommendFor": "回転式でしっかり磨きつつ、アプリで磨き方も見直したい人",
+      "caution": "リンク先はホワイト（iOM62I61KWT）の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0C9SPTHK8/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00t3jpo.d8zuedce.g00t3jpo.d8zufb63/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyamada-denki%2F3465404017%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyamada-denki%2Fi%2F10550083%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/yamada-denki/cabinet/a07000173/3465404017.jpg?_ex=300x300",
+      "attributes": {
+        "plaque": 5,
+        "gumCare": 4,
+        "gentle": 5,
+        "stain": 4,
+        "guidance": 5,
+        "pressure": 5,
+        "modeFlex": 4,
+        "portability": 3,
+        "simplicity": 3,
+        "neutralFit": 3
+      }
+    },
+    {
+      "id": "electric-toothbrush-107",
+      "name": "Philips ソニッケアー 6100シリーズ HX7401/10",
+      "description": "音波式の電動歯ブラシ。クリーンとセンシティブの2モードに強さ3段階を組み合わせられ、過圧防止センサーを備えています。",
+      "priceRange": 4,
+      "features": [
+        "音波式",
+        "2モード・強さ3段階",
+        "過圧防止センサー",
+        "トラベルケース付属"
+      ],
+      "pros": [
+        "やさしい磨き方も選びやすい",
+        "満充電後 約3週間使える"
+      ],
+      "cons": [
+        "アプリ連携はありません",
+        "フィリップス公式ストア専用モデルです"
+      ],
+      "recommendFor": "歯や歯ぐきへのやさしさを重視して、強さを選びたい人",
+      "caution": "リンク先はフィリップス公式店のブラック（HX7401/10）の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00te1ko.d8zuefc5.g00te1ko.d8zufc75/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fphilips-japan%2Fhx7401-10%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fphilips-japan%2Fi%2F10000646%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/philips-japan/cabinet/item3/hx7401-10_260729.jpg?_ex=300x300",
+      "attributes": {
+        "plaque": 4,
+        "gumCare": 4,
+        "gentle": 5,
+        "stain": 3,
+        "guidance": 3,
+        "pressure": 4,
+        "modeFlex": 4,
+        "portability": 4,
+        "simplicity": 4,
+        "neutralFit": 3
+      }
+    },
+    {
+      "id": "electric-toothbrush-108",
+      "name": "Panasonic ドルツ プレミアム EW-DP58",
+      "description": "W音波振動の電動歯ブラシ。5つのモードと押し付け防止センサーを備え、歯間フィットブラシと携帯ケースが付属します。",
+      "priceRange": 4,
+      "features": [
+        "W音波振動",
+        "5モード",
+        "押し付け防止センサー",
+        "海外対応（AC100〜240V）・携帯ケース付き"
+      ],
+      "pros": [
+        "歯間フィットブラシが付属",
+        "モードを細かく選べる"
+      ],
+      "cons": [
+        "アプリ連携はありません"
+      ],
+      "recommendFor": "歯間や歯ぐきのキワまで、モードを選んでていねいに磨きたい人",
+      "caution": "リンク先はディープブルー（EW-DP58-A）の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FKG31SSQ/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qn68o.d8zuee0f.g00qn68o.d8zuf9b5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fa-price%2F4550719010082%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fa-price%2Fi%2F11312897%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/a-price/cabinet/pics/1029/0-4550719010082.jpg?_ex=300x300",
+      "attributes": {
+        "plaque": 5,
+        "gumCare": 5,
+        "gentle": 5,
+        "stain": 4,
+        "guidance": 3,
+        "pressure": 5,
+        "modeFlex": 5,
+        "portability": 3,
+        "simplicity": 3,
+        "neutralFit": 3
+      }
+    },
+    {
+      "id": "electric-toothbrush-109",
+      "name": "Braun Oral-B iO9 iOM92J22ACBK-W",
+      "description": "丸型回転式の電動歯ブラシ。舌クリーニングを含む7つのモードと、スマート押し付け防止センサーを備え、専用アプリと連携できます。",
+      "priceRange": 5,
+      "features": [
+        "丸型回転式",
+        "7モード",
+        "スマート押し付け防止センサー",
+        "アプリ連携"
+      ],
+      "pros": [
+        "モードの種類が多い",
+        "力加減を確認しながら磨ける"
+      ],
+      "cons": [
+        "本体重量は132gです"
+      ],
+      "recommendFor": "回転式の上位モデルで、磨き方まで細かく管理したい人",
+      "caution": "リンク先はブラックオニキス（iOM92J22ACBK-W）の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4987176272409%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11536839%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001227/4987176272409_1.jpg?_ex=300x300",
+      "attributes": {
+        "plaque": 5,
+        "gumCare": 4,
+        "gentle": 5,
+        "stain": 4,
+        "guidance": 5,
+        "pressure": 5,
+        "modeFlex": 5,
+        "portability": 2,
+        "simplicity": 2,
+        "neutralFit": 3
+      }
+    },
+    {
+      "id": "electric-toothbrush-110",
+      "name": "Philips ソニッケアー 9900 プレステージ HX9992/21",
+      "description": "SenseIQテクノロジーでブラッシング圧・動き・範囲を検知する音波式電動歯ブラシ。5モード・強さ3段階で、アプリと連携できます。",
+      "priceRange": 5,
+      "features": [
+        "音波式・SenseIQ",
+        "5モード・強さ3段階",
+        "過圧検知",
+        "アプリ連携・USB充電トラベルケース付き"
+      ],
+      "pros": [
+        "押しつけすぎると強さが調整される",
+        "アプリで磨き方を確認できる"
+      ],
+      "cons": [
+        "本体重量は122gです"
+      ],
+      "recommendFor": "磨き方のサポートと、歯ぐき・ステインのケアをまとめて重視したい人",
+      "caution": "リンク先はシャンパン（HX9992/21）の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B091T2P188/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00t3jpo.d8zuedce.g00t3jpo.d8zufb63/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyamada-denki%2F3465270018%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyamada-denki%2Fi%2F10535213%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/yamada-denki/cabinet/a07000156/3465270018.jpg?_ex=300x300",
+      "attributes": {
+        "plaque": 5,
+        "gumCare": 5,
+        "gentle": 5,
+        "stain": 5,
+        "guidance": 5,
+        "pressure": 5,
+        "modeFlex": 5,
+        "portability": 4,
+        "simplicity": 3,
+        "neutralFit": 3
+      }
+    }
+  ],
+  "scoring": {
+    "tieBreak": true,
+    "softenPartialReason": true,
+    "lowMatchNotice": "条件をすべて満たす商品が少ないため、近い候補を表示しています。"
+  },
+  "guide": {
+    "title": "電動歯ブラシの選び方",
+    "intro": "この診断は、家庭用の電動歯ブラシを対象に、メーカー公式の仕様をもとに以下のポイントとあなたの回答を照らし合わせて相性を計算しています。",
+    "sections": [
+      {
+        "heading": "音波式と丸型回転式",
+        "body": "音波式は細かい振動でブラッシングし、丸型回転式は丸いブラシの回転で1本ずつ磨きます。磨き心地が異なるため、好みに合わせて選びましょう。"
+      },
+      {
+        "heading": "押しつけ防止とサポート機能",
+        "body": "押しつけすぎを知らせるセンサーや、磨き時間を知らせるタイマーがある機種があります。上位機種では、アプリで磨き方や磨き残しを確認できるものもあります。"
+      },
+      {
+        "heading": "モードと強さ",
+        "body": "やわらかいモードやホワイトニング用のモードなど、選べるモードの数は機種によって異なります。"
+      },
+      {
+        "heading": "持ち運びと充電",
+        "body": "外出先で使うなら、軽さや充電方法も確認しましょう。乾電池式やUSB充電の機種、携帯ケースが付く機種もあります。"
+      }
+    ]
+  },
+  "notice": "価格は変動するため、購入時に販売ページでご確認ください。歯や歯ぐきに気になる症状がある場合は、歯科医院にご相談ください。"
+}
