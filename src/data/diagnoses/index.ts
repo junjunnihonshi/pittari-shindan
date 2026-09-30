@@ -14,6 +14,7 @@ import { pillow } from './pillow.ts'
 import { showerHead } from './showerHead.ts'
 import { suitcase } from './suitcase.ts'
 import { vacuum } from './vacuum.ts'
+import { riceCooker } from './riceCooker.ts'
 
 /**
  * 診断の一覧（登録簿）。
@@ -36,6 +37,7 @@ const allDiagnoses: Diagnosis[] = [
   electricBlanket,
   toaster,
   pet,
+  riceCooker,
 ]
 
 /**

@@ -438,7 +438,7 @@ scoring: {
 ```ts
 {
   id: 'cordless', label: 'コードレスを優先したい',
-  effects: [],   // 適格条件を持つ選択肢は effects を空にする（全候補が条件を満たすので採点しても差が付かない）
+  effects: [],   // コードレスどうしで差を付ける採点がなければ空にする（差を付けたい場合は effects も書ける）
   eligibility: {
     attr: 'cordless', value: true,
     notice: 'コードレスを優先した商品からおすすめを表示しています。',           // 結果画面の上部に出る説明（任意）

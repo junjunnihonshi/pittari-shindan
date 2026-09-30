@@ -29,6 +29,8 @@ const REGISTRY = path.join(DIAGNOSES_DIR, 'index.ts')
 const EFFECT_TYPES = ['near', 'atLeast', 'atMost', 'equals', 'feature']
 const GROUPS = ['life', 'kitchen', 'beauty', 'digital', 'travel', 'pet']
 
+/** 仕様JSON（読み込み時点では型が決まらないため、checkSpec で中身を確認してから使う） */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Json = Record<string, any>
 
 class SpecError extends Error {}
@@ -126,7 +128,6 @@ function checkSpec(d: Json): string[] {
         else if (!hasAttr(el.attr)) err(`${ow} の eligibility の評価項目「${el.attr}」が次の商品にありません: ${missing(el.attr).join(', ')}`)
         if (el.value === 'unknown') err(`${ow} の eligibility の value に "unknown" は使えません`)
       }
-      if (o.eligibility && (o.effects ?? []).length > 0) err(`${ow} は eligibility を持つため effects を空にしてください`)
       if (o.maxPriceRange !== undefined && !labels.has(o.maxPriceRange)) err(`${ow} の maxPriceRange ${o.maxPriceRange} が priceLabels にありません`)
       if (o.showWhen) {
         if (!qIds.includes(o.showWhen.question)) err(`${ow} の showWhen が前にない質問「${o.showWhen.question}」を参照しています`)
