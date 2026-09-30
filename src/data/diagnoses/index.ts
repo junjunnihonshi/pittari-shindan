@@ -21,6 +21,7 @@ import { hotPlate } from './hotPlate.ts'
 import { hairIron } from './hairIron.ts'
 import { electricToothbrush } from './electricToothbrush.ts'
 import { shampoo } from './shampoo.ts'
+import { hairTreatment } from './hairTreatment.ts'
 
 /**
  * 診断の一覧（登録簿）。
@@ -50,6 +51,7 @@ const allDiagnoses: Diagnosis[] = [
   hairIron,
   electricToothbrush,
   shampoo,
+  hairTreatment,
 ]
 
 /**
