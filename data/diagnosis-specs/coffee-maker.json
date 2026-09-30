@@ -1,0 +1,911 @@
+{
+  "id": "coffee-maker",
+  "enabled": false,
+  "title": "コーヒーメーカー診断",
+  "itemName": "コーヒーメーカー",
+  "group": "kitchen",
+  "icon": "☕",
+  "cardDescription": "淹れ方や杯数、味の調整、お手入れから、あなたに合うコーヒーメーカーを診断。",
+  "description": "飲みたいコーヒーや一度に淹れる杯数、手軽さ、味の調整、お手入れ、予算などから、あなたに合うコーヒーメーカーを絞り込みます。",
+  "seo": {
+    "title": "コーヒーメーカーおすすめ診断｜あなたに合う1台を無料診断",
+    "description": "ドリップ、全自動、カプセル式など、淹れ方や杯数、味の調整、お手入れ、アイスコーヒー、予算から、あなたに合うコーヒーメーカーを無料で診断します。"
+  },
+  "priceLabels": {
+    "1": "〜15,000円",
+    "2": "15,000〜20,000円",
+    "3": "20,000〜25,000円",
+    "4": "25,000〜50,000円",
+    "5": "50,000〜80,000円"
+  },
+  "questions": [
+    {
+      "id": "style",
+      "text": "どんな淹れ方が理想ですか？",
+      "shortLabel": "淹れ方",
+      "weight": 26,
+      "options": [
+        {
+          "id": "drip",
+          "label": "コーヒー粉を入れて、手軽にドリップしたい",
+          "summary": "粉から手軽にドリップしたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "extractionControl",
+              "value": 5,
+              "weight": 45
+            },
+            {
+              "type": "atLeast",
+              "attr": "automationConvenience",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "cleanability",
+              "value": 5,
+              "weight": 25
+            }
+          ],
+          "eligibility": {
+            "attr": "supportsDripStyle",
+            "value": true,
+            "notice": "コーヒー粉からドリップできる機種からおすすめを表示しています。",
+            "supplementLabel": "粉からのドリップには対応していません"
+          }
+        },
+        {
+          "id": "bean",
+          "label": "豆から挽きたてを全自動で楽しみたい",
+          "summary": "豆から挽きたてを全自動で楽しみたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "grinderQuality",
+              "value": 5,
+              "weight": 45
+            },
+            {
+              "type": "atLeast",
+              "attr": "extractionControl",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "automationConvenience",
+              "value": 5,
+              "weight": 25
+            }
+          ],
+          "eligibility": {
+            "attr": "hasGrinder",
+            "value": true,
+            "notice": "ミルを内蔵した機種からおすすめを表示しています。",
+            "supplementLabel": "ミルはありません"
+          }
+        },
+        {
+          "id": "capsule",
+          "label": "カプセルを入れて、1杯ずつ簡単に飲みたい",
+          "summary": "カプセルで1杯ずつ簡単に飲みたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "capsuleConvenience",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "speedConvenience",
+              "value": 5,
+              "weight": 30
+            }
+          ],
+          "eligibility": {
+            "attr": "isCapsule",
+            "value": true,
+            "notice": "カプセル式の機種からおすすめを表示しています。",
+            "supplementLabel": "カプセル式ではありません"
+          }
+        },
+        {
+          "id": "undecided",
+          "label": "まだ方式は決めていない",
+          "summary": "方式はまだ決めていない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "automationConvenience",
+              "value": 5,
+              "weight": 40
+            },
+            {
+              "type": "atLeast",
+              "attr": "extractionControl",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "cleanability",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cups",
+      "text": "一度に何杯くらい淹れることが多いですか？",
+      "shortLabel": "杯数",
+      "weight": 16,
+      "options": [
+        {
+          "id": "c1",
+          "label": "1杯中心",
+          "summary": "1杯中心で淹れる",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "singleCupFit",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "c23",
+          "label": "2〜3杯",
+          "summary": "2〜3杯淹れる",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "smallBatchFit",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "c46",
+          "label": "4〜6杯",
+          "summary": "4〜6杯淹れる",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "mediumBatchFit",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "c7",
+          "label": "7杯以上",
+          "summary": "7杯以上淹れる",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "largeBatchFit",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "priority",
+      "text": "一番重視したいことは？",
+      "shortLabel": "重視すること",
+      "weight": 22,
+      "options": [
+        {
+          "id": "taste",
+          "label": "味や濃さを細かく調整したい",
+          "summary": "味や濃さを細かく調整したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "extractionControl",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "tasteAdjustability",
+              "value": 5,
+              "weight": 50
+            }
+          ]
+        },
+        {
+          "id": "easy",
+          "label": "とにかく手軽に淹れたい",
+          "summary": "手軽に淹れたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "automationConvenience",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "speedConvenience",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "care",
+          "label": "お手入れをラクにしたい",
+          "summary": "お手入れをラクにしたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "cleanability",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "grind",
+          "label": "豆の挽き方にもこだわりたい",
+          "summary": "豆の挽き方にこだわりたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "grinderQuality",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "extractionControl",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drink",
+      "text": "よく楽しみたい飲み方は？",
+      "shortLabel": "飲み方",
+      "weight": 16,
+      "options": [
+        {
+          "id": "black",
+          "label": "ブラックコーヒー中心",
+          "summary": "ブラックコーヒー中心",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "extractionControl",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "tasteAdjustability",
+              "value": 5,
+              "weight": 40
+            }
+          ]
+        },
+        {
+          "id": "iced",
+          "label": "アイスコーヒーもよく飲む",
+          "summary": "アイスコーヒーもよく飲む",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "icedCoffee",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "espresso",
+          "label": "エスプレッソやカフェラテ系も楽しみたい",
+          "summary": "エスプレッソやカフェラテ系も楽しみたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "espressoCapability",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "milkDrinkSupport",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "warm",
+          "label": "まとめて淹れて、しばらく保温したい",
+          "summary": "まとめて淹れて保温したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "keepWarm",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "extra",
+      "text": "あるとうれしい便利さは？",
+      "shortLabel": "便利さ",
+      "weight": 10,
+      "options": [
+        {
+          "id": "timer",
+          "label": "朝の時間に合わせて予約したい",
+          "summary": "予約して淹れたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "timerConvenience",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "compact",
+          "label": "できるだけ省スペースがいい",
+          "summary": "省スペースがいい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "compactness",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "cost",
+          "label": "豆や粉を自由に選んでランニングコストを抑えたい",
+          "summary": "豆や粉を自由に選びたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "runningCostFlexibility",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "any",
+          "label": "特に気にしない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "budget",
+      "text": "予算は？",
+      "shortLabel": "予算",
+      "weight": 14,
+      "options": [
+        {
+          "id": "b1",
+          "label": "15,000円以下",
+          "summary": "予算15,000円以下",
+          "effects": [],
+          "maxPriceRange": 1
+        },
+        {
+          "id": "b2",
+          "label": "20,000円以下",
+          "summary": "予算20,000円以下",
+          "effects": [],
+          "maxPriceRange": 2
+        },
+        {
+          "id": "b3",
+          "label": "25,000円以下",
+          "summary": "予算25,000円以下",
+          "effects": [],
+          "maxPriceRange": 3
+        },
+        {
+          "id": "b4",
+          "label": "50,000円以下",
+          "summary": "予算50,000円以下",
+          "effects": [],
+          "maxPriceRange": 4
+        },
+        {
+          "id": "b5",
+          "label": "80,000円以下",
+          "summary": "予算80,000円以下",
+          "effects": [],
+          "maxPriceRange": 5
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "coffee-maker-101",
+      "name": "タイガー コーヒーメーカー ADC-G060",
+      "description": "コーヒー粉から淹れるシャワードリップ式のコーヒーメーカー。ステンレスサーバーを使います。",
+      "priceRange": 1,
+      "features": [
+        "ドリップ式（コーヒー粉）",
+        "シャワードリップ",
+        "ステンレスサーバー"
+      ],
+      "pros": [
+        "手頃な価格",
+        "お手入れしやすい",
+        "設置スペースが小さい"
+      ],
+      "cons": [
+        "豆を挽くミルはありません"
+      ],
+      "recommendFor": "手頃な価格で、粉からいつものコーヒーを淹れたい人",
+      "caution": "リンク先はマットブラック（ADC-G060KM）の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4904710450154%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11645856%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001579/4904710450154_1.jpg?_ex=300x300",
+      "attributes": {
+        "extractionControl": 4,
+        "grinderQuality": 1,
+        "tasteAdjustability": 3,
+        "automationConvenience": 3,
+        "capsuleConvenience": 1,
+        "espressoCapability": 1,
+        "milkDrinkSupport": 1,
+        "cleanability": 5,
+        "speedConvenience": 4,
+        "keepWarm": 3,
+        "icedCoffee": 3,
+        "timerConvenience": 1,
+        "compactness": 5,
+        "runningCostFlexibility": 5,
+        "singleCupFit": 5,
+        "smallBatchFit": 4,
+        "mediumBatchFit": 5,
+        "largeBatchFit": 2,
+        "neutralFit": 3,
+        "hasGrinder": false,
+        "isCapsule": false,
+        "supportsDripStyle": true
+      }
+    },
+    {
+      "id": "coffee-maker-102",
+      "name": "UCC ドリップポッド DP3",
+      "description": "専用カプセルで1杯ずつ淹れるカプセル式のコーヒーマシンです。",
+      "priceRange": 1,
+      "features": [
+        "カプセル式（ドリップポッド）",
+        "1杯ずつ抽出"
+      ],
+      "pros": [
+        "1杯ずつ手軽に淹れられる",
+        "お手入れしやすい",
+        "設置スペースが小さい"
+      ],
+      "cons": [
+        "専用カプセルが必要です",
+        "まとめて何杯も淹れる使い方には向きません"
+      ],
+      "recommendFor": "1杯ずつ手軽に、ドリップコーヒーを楽しみたい人",
+      "caution": "リンク先はホワイト（DP3(W)）の本体の出品です。カプセルは別に購入が必要です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B082F51P4D/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4901201136917%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F10957443%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000000128/4901201136917_1.jpg?_ex=300x300",
+      "attributes": {
+        "extractionControl": 4,
+        "grinderQuality": 1,
+        "tasteAdjustability": 4,
+        "automationConvenience": 5,
+        "capsuleConvenience": 5,
+        "espressoCapability": 1,
+        "milkDrinkSupport": 1,
+        "cleanability": 5,
+        "speedConvenience": 5,
+        "keepWarm": 1,
+        "icedCoffee": 5,
+        "timerConvenience": 1,
+        "compactness": 5,
+        "runningCostFlexibility": 3,
+        "singleCupFit": 5,
+        "smallBatchFit": 2,
+        "mediumBatchFit": 1,
+        "largeBatchFit": 1,
+        "neutralFit": 3,
+        "hasGrinder": false,
+        "isCapsule": true,
+        "supportsDripStyle": true
+      }
+    },
+    {
+      "id": "coffee-maker-103",
+      "name": "ネスプレッソ ヴァーチュオ ポップ GDV2-BK-W",
+      "description": "専用カプセルで1杯ずつ淹れるネスプレッソのカプセル式コーヒーメーカーです。",
+      "priceRange": 3,
+      "features": [
+        "カプセル式（ヴァーチュオ）",
+        "1杯ずつ抽出"
+      ],
+      "pros": [
+        "1杯ずつ手軽に淹れられる",
+        "エスプレッソ系のコーヒーも楽しめる"
+      ],
+      "cons": [
+        "専用カプセルが必要で、豆や粉は使えません",
+        "まとめて何杯も淹れる使い方には向きません"
+      ],
+      "recommendFor": "手軽にエスプレッソ系も含めて1杯ずつ楽しみたい人",
+      "caution": "リンク先はリコリスブラック（GDV2-BK-W）の出品です。楽天では取り扱い店舗が少なく、価格が変わりやすい商品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0BS5VS114/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ue6jo.d8zuead3.g00ue6jo.d8zuf7d6/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fraspberrymarket%2Fgr-e9evpsvuuh%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fraspberrymarket%2Fi%2F10096957%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/raspberrymarket/cabinet/g/8/e9evpsvuuh-5.jpg?_ex=300x300",
+      "attributes": {
+        "extractionControl": 4,
+        "grinderQuality": 1,
+        "tasteAdjustability": 3,
+        "automationConvenience": 5,
+        "capsuleConvenience": 5,
+        "espressoCapability": 5,
+        "milkDrinkSupport": 1,
+        "cleanability": 5,
+        "speedConvenience": 5,
+        "keepWarm": 1,
+        "icedCoffee": 3,
+        "timerConvenience": 1,
+        "compactness": 3,
+        "runningCostFlexibility": 1,
+        "singleCupFit": 5,
+        "smallBatchFit": 2,
+        "mediumBatchFit": 1,
+        "largeBatchFit": 1,
+        "neutralFit": 3,
+        "hasGrinder": false,
+        "isCapsule": true,
+        "supportsDripStyle": false
+      }
+    },
+    {
+      "id": "coffee-maker-104",
+      "name": "シロカ 全自動コーヒーメーカー カフェばこ SC-A352",
+      "description": "ミルを内蔵した全自動コーヒーメーカー。豆からでも粉からでも淹れられ、タイマー予約ができます。",
+      "priceRange": 2,
+      "features": [
+        "ミル付き全自動",
+        "豆・粉の両方に対応",
+        "タイマー予約"
+      ],
+      "pros": [
+        "豆から全自動で淹れられる",
+        "予約して朝に淹れられる"
+      ],
+      "cons": [
+        "ミルの挽き分けは上位機ほど細かくありません"
+      ],
+      "recommendFor": "豆から挽きたてを、手頃な価格の全自動で楽しみたい人",
+      "caution": "リンク先はブラック（SC-A352(K)）の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0CTM7RYC5/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tit6o.d8zuebed.g00tit6o.d8zuf23f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fksdenki%2F4589919836840%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fksdenki%2Fi%2F10505919%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ksdenki/cabinet/images/40_5/4589919836840_5.jpg?_ex=300x300",
+      "attributes": {
+        "extractionControl": 3,
+        "grinderQuality": 2,
+        "tasteAdjustability": 3,
+        "automationConvenience": 5,
+        "capsuleConvenience": 1,
+        "espressoCapability": 1,
+        "milkDrinkSupport": 1,
+        "cleanability": 4,
+        "speedConvenience": 3,
+        "keepWarm": 4,
+        "icedCoffee": 2,
+        "timerConvenience": 5,
+        "compactness": 4,
+        "runningCostFlexibility": 5,
+        "singleCupFit": 4,
+        "smallBatchFit": 5,
+        "mediumBatchFit": 4,
+        "largeBatchFit": 1,
+        "neutralFit": 3,
+        "hasGrinder": true,
+        "isCapsule": false,
+        "supportsDripStyle": true
+      }
+    },
+    {
+      "id": "coffee-maker-105",
+      "name": "パナソニック 全自動コーヒーメーカー NC-A58",
+      "description": "ミルを内蔵した全自動コーヒーメーカー。豆からでも粉からでも淹れられます。",
+      "priceRange": 3,
+      "features": [
+        "ミル付き全自動",
+        "豆・粉の両方に対応"
+      ],
+      "pros": [
+        "味の調整の幅が広い",
+        "アイスコーヒーにも向いている"
+      ],
+      "cons": [
+        "予約タイマーはありません"
+      ],
+      "recommendFor": "豆から挽きたてを、味を調整しながら楽しみたい人",
+      "caution": "リンク先はブラック（NC-A58-K）の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0DTKHNK9G/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00t3jpo.d8zuedce.g00t3jpo.d8zufb63/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyamada-denki%2F6613641012%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyamada-denki%2Fi%2F10643404%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/yamada-denki/cabinet/a07000418/6613641012.jpg?_ex=300x300",
+      "attributes": {
+        "extractionControl": 5,
+        "grinderQuality": 3,
+        "tasteAdjustability": 5,
+        "automationConvenience": 5,
+        "capsuleConvenience": 1,
+        "espressoCapability": 1,
+        "milkDrinkSupport": 1,
+        "cleanability": 4,
+        "speedConvenience": 3,
+        "keepWarm": 4,
+        "icedCoffee": 5,
+        "timerConvenience": 1,
+        "compactness": 5,
+        "runningCostFlexibility": 5,
+        "singleCupFit": 4,
+        "smallBatchFit": 5,
+        "mediumBatchFit": 4,
+        "largeBatchFit": 1,
+        "neutralFit": 3,
+        "hasGrinder": true,
+        "isCapsule": false,
+        "supportsDripStyle": true
+      }
+    },
+    {
+      "id": "coffee-maker-106",
+      "name": "シロカ コーン式全自動コーヒーメーカー カフェばこPRO SC-C251",
+      "description": "コーン式のミルを内蔵した全自動コーヒーメーカー。豆からでも粉からでも淹れられ、タイマー予約ができます。",
+      "priceRange": 3,
+      "features": [
+        "コーン式ミル付き全自動",
+        "豆・粉の両方に対応",
+        "タイマー予約"
+      ],
+      "pros": [
+        "挽き方や味を細かく調整できる",
+        "お手入れしやすい",
+        "予約して朝に淹れられる"
+      ],
+      "cons": [
+        "アイスコーヒーへの適性は控えめです"
+      ],
+      "recommendFor": "豆の挽き方や味にこだわりつつ、全自動で手軽に淹れたい人",
+      "caution": "リンク先はブラック（SC-C251-K）の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0BBLJ3JSW/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pksho.d8zue004.g00pksho.d8zuf038/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Febest%2F4589919825868%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Febest%2Fi%2F12777084%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ebest/cabinet/393/4589919825868.jpg?_ex=300x300",
+      "attributes": {
+        "extractionControl": 5,
+        "grinderQuality": 4,
+        "tasteAdjustability": 5,
+        "automationConvenience": 5,
+        "capsuleConvenience": 1,
+        "espressoCapability": 1,
+        "milkDrinkSupport": 1,
+        "cleanability": 5,
+        "speedConvenience": 3,
+        "keepWarm": 4,
+        "icedCoffee": 2,
+        "timerConvenience": 5,
+        "compactness": 4,
+        "runningCostFlexibility": 5,
+        "singleCupFit": 5,
+        "smallBatchFit": 5,
+        "mediumBatchFit": 5,
+        "largeBatchFit": 1,
+        "neutralFit": 3,
+        "hasGrinder": true,
+        "isCapsule": false,
+        "supportsDripStyle": true
+      }
+    },
+    {
+      "id": "coffee-maker-107",
+      "name": "ツインバード 全自動コーヒーメーカー CM-D465B",
+      "description": "ミルを内蔵した6杯用の全自動コーヒーメーカー。豆の挽き方や抽出を細かく調整できます。",
+      "priceRange": 4,
+      "features": [
+        "ミル付き全自動",
+        "6杯用"
+      ],
+      "pros": [
+        "挽き方と抽出を細かく調整できる"
+      ],
+      "cons": [
+        "抽出にかかる時間は長めです",
+        "本体はやや大きめです"
+      ],
+      "recommendFor": "豆の挽き方や味の調整にしっかりこだわりたい人",
+      "caution": "リンク先はブラック（CM-D465B）の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B081SWNSGW/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4975058446512%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11192818%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000000390/4975058446512_1.jpg?_ex=300x300",
+      "attributes": {
+        "extractionControl": 5,
+        "grinderQuality": 5,
+        "tasteAdjustability": 5,
+        "automationConvenience": 4,
+        "capsuleConvenience": 1,
+        "espressoCapability": 1,
+        "milkDrinkSupport": 1,
+        "cleanability": 4,
+        "speedConvenience": 2,
+        "keepWarm": 3,
+        "icedCoffee": 2,
+        "timerConvenience": 1,
+        "compactness": 3,
+        "runningCostFlexibility": 5,
+        "singleCupFit": 3,
+        "smallBatchFit": 4,
+        "mediumBatchFit": 5,
+        "largeBatchFit": 1,
+        "neutralFit": 3,
+        "hasGrinder": true,
+        "isCapsule": false,
+        "supportsDripStyle": true
+      }
+    },
+    {
+      "id": "coffee-maker-108",
+      "name": "メリタ アロマフレッシュ AFT1022-1B",
+      "description": "ミルを内蔵した10杯用の全自動コーヒーメーカー。まとめて淹れて保温できます。",
+      "priceRange": 4,
+      "features": [
+        "ミル付き全自動",
+        "10杯用",
+        "タイマー予約"
+      ],
+      "pros": [
+        "まとめて淹れて保温しやすい",
+        "アイスコーヒーにも向いている",
+        "予約して朝に淹れられる"
+      ],
+      "cons": [
+        "本体が大きく、設置スペースが必要です",
+        "1杯だけ淹れる使い方には向きません"
+      ],
+      "recommendFor": "家族分やまとめ淹れで、保温しながら飲みたい人",
+      "caution": "リンク先はブラック（AFT1022-1B）の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4902717229179-24-46091-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F13707323%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0263/4902717229179.jpg?_ex=300x300",
+      "attributes": {
+        "extractionControl": 4,
+        "grinderQuality": 4,
+        "tasteAdjustability": 4,
+        "automationConvenience": 5,
+        "capsuleConvenience": 1,
+        "espressoCapability": 1,
+        "milkDrinkSupport": 1,
+        "cleanability": 4,
+        "speedConvenience": 3,
+        "keepWarm": 5,
+        "icedCoffee": 5,
+        "timerConvenience": 5,
+        "compactness": 2,
+        "runningCostFlexibility": 5,
+        "singleCupFit": 2,
+        "smallBatchFit": 3,
+        "mediumBatchFit": 5,
+        "largeBatchFit": 5,
+        "neutralFit": 3,
+        "hasGrinder": true,
+        "isCapsule": false,
+        "supportsDripStyle": true
+      }
+    },
+    {
+      "id": "coffee-maker-110",
+      "name": "デロンギ マグニフィカS ECAM22112B",
+      "description": "豆を挽いてエスプレッソを淹れる全自動コーヒーマシン。カフェラテなどのミルクメニューにも使えます。",
+      "priceRange": 5,
+      "features": [
+        "全自動エスプレッソマシン",
+        "ミル付き"
+      ],
+      "pros": [
+        "エスプレッソやミルク系メニューを楽しめる",
+        "豆から1杯ずつ手早く淹れられる"
+      ],
+      "cons": [
+        "本体が大きく、設置スペースが必要です",
+        "ドリップ式のコーヒーメーカーではありません"
+      ],
+      "recommendFor": "エスプレッソやカフェラテを豆から本格的に楽しみたい人",
+      "caution": "リンク先はデロンギ公式店の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00t7tco.d8zue34e.g00t7tco.d8zufbf5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdelonghi%2F0132213169%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdelonghi%2Fi%2F10002655%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/delonghi/cabinet/item/thumb/0132213169_260827.jpg?_ex=300x300",
+      "attributes": {
+        "extractionControl": 5,
+        "grinderQuality": 5,
+        "tasteAdjustability": 5,
+        "automationConvenience": 5,
+        "capsuleConvenience": 1,
+        "espressoCapability": 5,
+        "milkDrinkSupport": 5,
+        "cleanability": 5,
+        "speedConvenience": 5,
+        "keepWarm": 1,
+        "icedCoffee": 2,
+        "timerConvenience": 1,
+        "compactness": 1,
+        "runningCostFlexibility": 4,
+        "singleCupFit": 5,
+        "smallBatchFit": 3,
+        "mediumBatchFit": 1,
+        "largeBatchFit": 1,
+        "neutralFit": 3,
+        "hasGrinder": true,
+        "isCapsule": false,
+        "supportsDripStyle": false
+      }
+    }
+  ],
+  "scoring": {
+    "tieBreak": true,
+    "softenPartialReason": true,
+    "lowMatchNotice": "条件をすべて満たす商品が少ないため、近い候補を表示しています。"
+  },
+  "guide": {
+    "title": "コーヒーメーカーの選び方",
+    "intro": "この診断は、家庭用のコーヒーメーカーを対象に、メーカー公式の仕様をもとに以下のポイントとあなたの回答を照らし合わせて相性を計算しています。",
+    "sections": [
+      {
+        "heading": "淹れ方（方式）",
+        "body": "粉から淹れるドリップ式、豆を挽くところから自動で行うミル付き全自動、専用カプセルで1杯ずつ淹れるカプセル式があります。カプセル式は手軽な一方、専用カプセルが必要です。"
+      },
+      {
+        "heading": "一度に淹れる杯数",
+        "body": "1杯中心か、家族分をまとめて淹れるかで向いている機種が変わります。まとめて淹れる場合は、保温のしやすさも確認しましょう。"
+      },
+      {
+        "heading": "味の調整とミル",
+        "body": "抽出温度や濃さ、豆の挽き目を調整できる機種ほど、好みに合わせやすくなります。ミルの方式や挽き分けの幅は機種によって異なります。"
+      },
+      {
+        "heading": "お手入れと設置スペース",
+        "body": "毎日使う部品の洗いやすさや、本体の大きさも確認しましょう。全自動やエスプレッソマシンは本体が大きめです。"
+      }
+    ]
+  },
+  "notice": "価格は変動するため、購入時に販売ページでご確認ください。カプセル式は専用カプセルを別に購入する必要があります。"
+}
