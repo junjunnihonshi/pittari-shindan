@@ -12,10 +12,12 @@ export const relatedDiagnoses: Record<string, { slug: string; text: string }[]> 
   'frying-pan': [
     { slug: 'toaster', text: '朝食づくりをもっとラクに' },
     { slug: 'electric-kettle', text: 'お湯をすばやく沸かしたいなら' },
+    { slug: 'rice-cooker', text: '毎日のごはんをおいしく炊くなら' },
   ],
   'electric-kettle': [
     { slug: 'toaster', text: '朝食づくりをもっとラクに' },
     { slug: 'frying-pan', text: '毎日の料理道具も見直すなら' },
+    { slug: 'rice-cooker', text: '毎日のごはんをおいしく炊くなら' },
   ],
   suitcase: [{ slug: 'mobile-battery', text: '旅先での充電切れに備えて' }],
   'mobile-battery': [{ slug: 'suitcase', text: '旅行や出張の準備に' }],
@@ -39,5 +41,9 @@ export const relatedDiagnoses: Record<string, { slug: string; text: string }[]> 
   toaster: [
     { slug: 'electric-kettle', text: '朝のコーヒー・お茶の準備に' },
     { slug: 'frying-pan', text: '毎日の料理道具も見直すなら' },
+  ],
+  'rice-cooker': [
+    { slug: 'frying-pan', text: 'おかず作りの道具も見直すなら' },
+    { slug: 'electric-kettle', text: '汁物やお茶の準備に' },
   ],
 }
