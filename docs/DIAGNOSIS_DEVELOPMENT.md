@@ -9,6 +9,20 @@
 
 実例：`src/data/diagnoses/vacuum.ts`（適格条件・予算上限あり）、`src/data/diagnoses/hairDryer.ts`（予算上限あり）、`src/data/diagnoses/pillow.ts`（従来方式）。
 
+## 標準フロー（現在）
+
+1. 診断設計（質問・選択肢・評価方針。Phase 1〜5）
+2. 商品・公式仕様調査（Phase 6〜8）
+3. 仕様JSON（`data/diagnosis-specs/<id>.json`）の作成
+4. `npm run diagnosis:generate -- <id>`
+5. `npm run diagnosis:validate -- <id>`
+6. `npm run diagnosis:preflight -- <id>`
+7. WARN があれば、`npm run diagnosis:preflight -- <id> --details` で該当項目だけ確認する（全統計を手で見直さない）
+8. 問題がなければ公開ワークフロー（`npm run publish:diagnosis`）
+9. 本番では代表パターンだけ確認する
+
+詳しくは「仕様JSONから診断を生成する」「公開前の軽量確認（preflight）」を参照。以下の Phase 1〜13 は、各段階でやることの詳細。
+
 ---
 
 ## 絶対ルール
@@ -154,6 +168,22 @@ npm run publish:diagnosis -- <id> --dry-run --allow src/data/diagnoses/index.ts 
 - 独自の関数（`custom` の採点・`scoring.adjust`）は仕様JSONに書けない。必要なら生成後に診断ファイルを手で直す。
 - 存在しない評価項目・選択肢・質問の参照や、同名ファイル・同じIDの診断がある場合は、ファイルを書く前に停止する。
 - 生成を試すだけなら `--out <フォルダ>`（index.ts に登録しない）と `diagnosis:validate -- <id> --file <生成したファイル>` を使う。
+
+## 公開前の軽量確認（preflight）
+
+```bash
+npm run diagnosis:preflight -- <id>             # PASS / WARN / ERROR と主要な数字だけ
+npm run diagnosis:preflight -- <id> --details   # WARN・ERROR の項目だけ内訳を表示
+```
+
+| 判定 | 項目 | 公開 |
+|---|---|---|
+| ERROR | validate エラー・eligibility 違反・予算超過の通常ランキング混入・順位と相性%の矛盾・理由文の矛盾 | 終了コード1。直すまで公開しない |
+| WARN | 1位0回の商品がある／1商品の1位占有率30%以上／1位60%未満が20%以上／ID順 tieBreak が10%以上／supplements が30%以上 | 止めない。`--details` で該当箇所だけ確認する |
+
+- WARN は「見るべき場所の目印」で、分布を均すための採点変更の理由にはしない（絶対ルール1）。
+- `--details` は、WARN の項目について回答（質問=選択肢）ごとの割合や、ID順で決まった商品の組を上位だけ表示する。
+- 集計は `diagnosis:validate` と同じ（`scripts/lib/diagnosisStats.ts`）。
 
 ---
 

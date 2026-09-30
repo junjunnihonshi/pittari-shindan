@@ -68,7 +68,7 @@ const NO_EFFECT_PATTERNS = [
   /^scripts\/rakuten\//,
   /^\.gitignore$/,
   /^data\/diagnosis-specs\//,
-  /^scripts\/(generate|validate)Diagnosis\.ts$/,
+  /^scripts\/(generate|validate|preflight)Diagnosis\.ts$/,
 ]
 
 /** 依存解析で「中身を読まないと影響が分からない」とみなす書き方 */
