@@ -17,6 +17,7 @@ import { vacuum } from './vacuum.ts'
 import { riceCooker } from './riceCooker.ts'
 import { microwave } from './microwave.ts'
 import { coffeeMaker } from './coffeeMaker.ts'
+import { hotPlate } from './hotPlate.ts'
 
 /**
  * 診断の一覧（登録簿）。
@@ -42,6 +43,7 @@ const allDiagnoses: Diagnosis[] = [
   riceCooker,
   microwave,
   coffeeMaker,
+  hotPlate,
 ]
 
 /**
