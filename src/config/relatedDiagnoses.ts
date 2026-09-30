@@ -23,7 +23,10 @@ export const relatedDiagnoses: Record<string, { slug: string; text: string }[]> 
   ],
   suitcase: [{ slug: 'mobile-battery', text: '旅先での充電切れに備えて' }],
   'mobile-battery': [{ slug: 'suitcase', text: '旅行や出張の準備に' }],
-  'shower-head': [{ slug: 'hair-dryer', text: 'お風呂上がりのケアに' }],
+  'shower-head': [
+    { slug: 'hair-dryer', text: 'お風呂上がりのケアに' },
+    { slug: 'hair-iron', text: '髪を乾かしたあとのスタイリングに' },
+  ],
   humidifier: [
     { slug: 'air-purifier', text: '空気の汚れも気になるなら' },
     { slug: 'heater', text: '冬の寒さ対策に' },
@@ -68,4 +71,5 @@ export const relatedDiagnoses: Record<string, { slug: string; text: string }[]> 
     { slug: 'toaster', text: '朝食づくりをもっとラクに' },
     { slug: 'electric-kettle', text: 'お湯をすばやく沸かしたいなら' },
   ],
+  'hair-iron': [{ slug: 'shower-head', text: '毎日のバスタイムから髪をいたわるなら' }],
 }
