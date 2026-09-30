@@ -1,0 +1,968 @@
+{
+  "id": "microwave",
+  "enabled": false,
+  "title": "電子レンジ・オーブンレンジ診断",
+  "itemName": "電子レンジ",
+  "group": "kitchen",
+  "icon": "🍽️",
+  "cardDescription": "使い方や人数、オーブン・スチームの使い方から、あなたに合う電子レンジを診断。",
+  "description": "主な使い方、人数、レンジで重視すること、オーブンの使い方、設置・お手入れ、予算の6つの質問から、あなたに合いそうな電子レンジ・オーブンレンジを相性順に表示します。",
+  "seo": {
+    "title": "電子レンジ・オーブンレンジおすすめ診断｜質問であなたに合う1台をチェック",
+    "description": "使い方、人数、あたため・解凍・自動調理、オーブン・スチームの使い方、設置スペース、予算から、あなたに合う電子レンジ・オーブンレンジ候補を相性順で診断します。"
+  },
+  "priceLabels": {
+    "1": "〜30,000円",
+    "2": "30,000〜50,000円",
+    "3": "50,000〜80,000円",
+    "4": "80,000〜120,000円",
+    "5": "120,000円〜"
+  },
+  "questions": [
+    {
+      "id": "use",
+      "text": "主にどんな使い方をしますか？",
+      "shortLabel": "主な使い方",
+      "weight": 24,
+      "options": [
+        {
+          "id": "reheat",
+          "label": "あたため中心",
+          "summary": "あたため中心で使う",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "reheatQuality",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "cooking",
+          "label": "普段の料理にも使いたい",
+          "summary": "普段の料理にも使いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "autoCooking",
+              "value": 5,
+              "weight": 35
+            },
+            {
+              "type": "atLeast",
+              "attr": "grillCooking",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "speedConvenience",
+              "value": 5,
+              "weight": 20
+            },
+            {
+              "type": "atLeast",
+              "attr": "autoMenuBreadth",
+              "value": 5,
+              "weight": 15
+            }
+          ]
+        },
+        {
+          "id": "baking",
+          "label": "パン・お菓子作りを楽しみたい",
+          "summary": "パン・お菓子作りを楽しみたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "baking",
+              "value": 5,
+              "weight": 55
+            },
+            {
+              "type": "atLeast",
+              "attr": "ovenPower",
+              "value": 5,
+              "weight": 25
+            },
+            {
+              "type": "atLeast",
+              "attr": "ovenTemperature",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "steam",
+          "label": "スチーム・過熱水蒸気を活用したい",
+          "summary": "スチーム・過熱水蒸気を活用したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "steamCooking",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "autoCooking",
+              "value": 5,
+              "weight": 30
+            }
+          ],
+          "eligibility": {
+            "attr": "hasSteam",
+            "value": true,
+            "notice": "スチーム・過熱水蒸気の調理ができる機種からおすすめを表示しています。",
+            "supplementLabel": "スチーム調理はできません"
+          }
+        }
+      ]
+    },
+    {
+      "id": "people",
+      "text": "何人分を作ることが多いですか？",
+      "shortLabel": "人数",
+      "weight": 16,
+      "options": [
+        {
+          "id": "p12",
+          "label": "1〜2人",
+          "summary": "1〜2人分を作る",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "smallHouseholdFit",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "p23",
+          "label": "2〜3人",
+          "summary": "2〜3人分を作る",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "mediumHouseholdFit",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "p4",
+          "label": "4人以上",
+          "summary": "4人以上の分を作る",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "largeHouseholdFit",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "range",
+      "text": "レンジ機能で一番重視したいことは？",
+      "shortLabel": "レンジで重視",
+      "weight": 20,
+      "options": [
+        {
+          "id": "reheat",
+          "label": "あたための精度",
+          "summary": "あたための精度を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "reheatQuality",
+              "value": 5,
+              "weight": 80
+            },
+            {
+              "type": "atLeast",
+              "attr": "multiItemReheat",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "defrost",
+          "label": "冷凍食品や肉・魚の解凍",
+          "summary": "解凍を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "defrostQuality",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "auto",
+          "label": "時短・便利な自動調理",
+          "summary": "時短・自動調理を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "speedConvenience",
+              "value": 5,
+              "weight": 35
+            },
+            {
+              "type": "atLeast",
+              "attr": "autoCooking",
+              "value": 5,
+              "weight": 35
+            },
+            {
+              "type": "atLeast",
+              "attr": "multiItemReheat",
+              "value": 5,
+              "weight": 15
+            },
+            {
+              "type": "atLeast",
+              "attr": "autoMenuBreadth",
+              "value": 5,
+              "weight": 15
+            }
+          ]
+        },
+        {
+          "id": "easy",
+          "label": "操作のわかりやすさ",
+          "summary": "操作のわかりやすさを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "easeOfUse",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oven",
+      "text": "オーブン・グリルはどのくらい使いますか？",
+      "shortLabel": "オーブン",
+      "weight": 16,
+      "options": [
+        {
+          "id": "rarely",
+          "label": "ほとんど使わない",
+          "summary": "オーブンはほとんど使わない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "easeOfUse",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "reheatQuality",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "compactness",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "grill",
+          "label": "肉・魚・グラタンなどを焼きたい",
+          "summary": "肉・魚・グラタンなどを焼きたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "grillCooking",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "ovenPower",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "autoCooking",
+              "value": 5,
+              "weight": 20
+            }
+          ],
+          "eligibility": {
+            "attr": "hasOven",
+            "value": true,
+            "notice": "オーブン機能のある機種からおすすめを表示しています。",
+            "supplementLabel": "オーブン機能はありません"
+          }
+        },
+        {
+          "id": "baking",
+          "label": "パン・お菓子をよく作りたい",
+          "summary": "パン・お菓子をよく作りたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "baking",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "ovenPower",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "ovenTemperature",
+              "value": 5,
+              "weight": 20
+            }
+          ],
+          "eligibility": {
+            "attr": "hasOven",
+            "value": true,
+            "notice": "オーブン機能のある機種からおすすめを表示しています。",
+            "supplementLabel": "オーブン機能はありません"
+          }
+        },
+        {
+          "id": "twostage",
+          "label": "2段でまとめて焼きたい",
+          "summary": "2段でまとめて焼きたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "baking",
+              "value": 5,
+              "weight": 40
+            },
+            {
+              "type": "atLeast",
+              "attr": "ovenPower",
+              "value": 5,
+              "weight": 35
+            },
+            {
+              "type": "atLeast",
+              "attr": "ovenTemperature",
+              "value": 5,
+              "weight": 25
+            }
+          ],
+          "eligibility": {
+            "attr": "twoStageOven",
+            "value": true,
+            "notice": "2段調理ができる機種からおすすめを表示しています。",
+            "supplementLabel": "2段調理はできません"
+          }
+        }
+      ]
+    },
+    {
+      "id": "install",
+      "text": "設置やお手入れで重視することは？",
+      "shortLabel": "設置・手入れ",
+      "weight": 10,
+      "options": [
+        {
+          "id": "compact",
+          "label": "奥行きをできるだけコンパクトにしたい",
+          "summary": "コンパクトさを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "compactness",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "wall",
+          "label": "壁際に置きやすいものがいい",
+          "summary": "壁際に置きやすいものがいい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "installationFlexibility",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "clean",
+          "label": "お手入れのしやすさ",
+          "summary": "お手入れのしやすさを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "cleanability",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "any",
+          "label": "特に気にしない",
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "budget",
+      "text": "予算は？",
+      "shortLabel": "予算",
+      "weight": 14,
+      "options": [
+        {
+          "id": "b1",
+          "label": "30,000円以下",
+          "summary": "予算30,000円以下",
+          "effects": [],
+          "maxPriceRange": 1
+        },
+        {
+          "id": "b2",
+          "label": "50,000円以下",
+          "summary": "予算50,000円以下",
+          "effects": [],
+          "maxPriceRange": 2
+        },
+        {
+          "id": "b3",
+          "label": "80,000円以下",
+          "summary": "予算80,000円以下",
+          "effects": [],
+          "maxPriceRange": 3
+        },
+        {
+          "id": "b4",
+          "label": "120,000円以下",
+          "summary": "予算120,000円以下",
+          "effects": [],
+          "maxPriceRange": 4
+        },
+        {
+          "id": "any",
+          "label": "上限なし",
+          "effects": []
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "microwave-101",
+      "name": "アイリスオーヤマ 単機能電子レンジ 18L IMB-F186",
+      "description": "18Lの単機能電子レンジ。フラットテーブルでヘルツフリーです。",
+      "priceRange": 1,
+      "features": [
+        "単機能（あたため専用）",
+        "18L",
+        "フラットテーブル",
+        "ヘルツフリー"
+      ],
+      "pros": [
+        "シンプルな操作",
+        "設置面積が小さい",
+        "手頃な価格"
+      ],
+      "cons": [
+        "オーブン・グリル・スチーム機能はありません"
+      ],
+      "recommendFor": "あたため中心で、シンプルで手頃なレンジがほしい人",
+      "caution": "カラーはホワイト・ブラックから選べます。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0BD51T1YB/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00t3zto.d8zuee14.g00t3zto.d8zuf2f4/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F509205%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10102937%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/13177444/101848_01.jpg?_ex=300x300",
+      "attributes": {
+        "reheatQuality": 2,
+        "defrostQuality": 2,
+        "autoCooking": 1,
+        "ovenPower": 1,
+        "baking": 1,
+        "steamCooking": 1,
+        "grillCooking": 1,
+        "speedConvenience": 2,
+        "easeOfUse": 5,
+        "cleanability": 4,
+        "compactness": 5,
+        "installationFlexibility": 2,
+        "smallHouseholdFit": 5,
+        "mediumHouseholdFit": 3,
+        "largeHouseholdFit": 1,
+        "hasOven": false,
+        "hasSteam": false,
+        "twoStageOven": false,
+        "multiItemReheat": 1,
+        "ovenTemperature": 1,
+        "autoMenuBreadth": 1
+      }
+    },
+    {
+      "id": "microwave-102",
+      "name": "パナソニック 単機能レンジ 22L NE-FL1C",
+      "description": "22Lの単機能電子レンジ。フラットテーブルでヘルツフリーです。",
+      "priceRange": 1,
+      "features": [
+        "単機能（あたため専用）",
+        "22L",
+        "フラットテーブル",
+        "ヘルツフリー"
+      ],
+      "pros": [
+        "単機能レンジとしては庫内が広め",
+        "操作がわかりやすい"
+      ],
+      "cons": [
+        "オーブン・グリル・スチーム機能はありません"
+      ],
+      "recommendFor": "あたためが中心で、少し大きめの単機能レンジがほしい人",
+      "caution": "リンク先はホワイト（NE-FL1C-W）の出品です。楽天では取り扱い店舗が少なく、価格・在庫が変わりやすい商品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0DJ8Z81KC/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pii8o.d8zuea56.g00pii8o.d8zuf71a/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fakindo%2Fne-fl1c-w%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fakindo%2Fi%2F10201171%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/akindo/cabinet/l42/ne-fl1c-w.jpg?_ex=300x300",
+      "attributes": {
+        "reheatQuality": 3,
+        "defrostQuality": 3,
+        "autoCooking": 2,
+        "ovenPower": 1,
+        "baking": 1,
+        "steamCooking": 1,
+        "grillCooking": 1,
+        "speedConvenience": 4,
+        "easeOfUse": 4,
+        "cleanability": 4,
+        "compactness": 4,
+        "installationFlexibility": 3,
+        "smallHouseholdFit": 5,
+        "mediumHouseholdFit": 4,
+        "largeHouseholdFit": 2,
+        "hasOven": false,
+        "hasSteam": false,
+        "twoStageOven": false,
+        "multiItemReheat": 2,
+        "ovenTemperature": 1,
+        "autoMenuBreadth": 2
+      }
+    },
+    {
+      "id": "microwave-103",
+      "name": "アイリスオーヤマ オーブンレンジ 18L MO-F1809",
+      "description": "18Lのフラットタイプのオーブンレンジ。レンジに加えてオーブン・グリルが使えます。",
+      "priceRange": 1,
+      "features": [
+        "オーブンレンジ",
+        "18L",
+        "フラットテーブル"
+      ],
+      "pros": [
+        "手頃な価格でオーブンも使える",
+        "設置面積が小さい"
+      ],
+      "cons": [
+        "2段調理・本格的なスチーム調理はできません"
+      ],
+      "recommendFor": "手頃な価格で、トーストやグラタンなどオーブンも使いたい人",
+      "caution": "リンク先はアイリスオーヤマ公式店の出品です。カラーにより在庫が異なる場合があります。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B09PRGVSNX/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00t3zto.d8zuee14.g00t3zto.d8zuf2f4/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F509348%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10105681%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/12113165/574609_2.jpg?_ex=300x300",
+      "attributes": {
+        "reheatQuality": 3,
+        "defrostQuality": 3,
+        "autoCooking": 2,
+        "ovenPower": 2,
+        "baking": 2,
+        "steamCooking": 1,
+        "grillCooking": 2,
+        "speedConvenience": 2,
+        "easeOfUse": 3,
+        "cleanability": 4,
+        "compactness": 5,
+        "installationFlexibility": 2,
+        "smallHouseholdFit": 5,
+        "mediumHouseholdFit": 3,
+        "largeHouseholdFit": 1,
+        "hasOven": true,
+        "hasSteam": false,
+        "twoStageOven": false,
+        "multiItemReheat": 1,
+        "ovenTemperature": 2,
+        "autoMenuBreadth": 2
+      }
+    },
+    {
+      "id": "microwave-104",
+      "name": "パナソニック オーブンレンジ 26L NE-MS4E",
+      "description": "26Lのフラットタイプのオーブンレンジ。赤外線センサーと大火力平面ヒーターを備えています。",
+      "priceRange": 2,
+      "features": [
+        "オーブンレンジ",
+        "26L",
+        "フラットテーブル",
+        "赤外線センサー",
+        "大火力平面ヒーター"
+      ],
+      "pros": [
+        "あたため・自動調理・お手入れのバランスがよい"
+      ],
+      "cons": [
+        "スチーム調理・2段調理はできません"
+      ],
+      "recommendFor": "毎日のあたためと普段の料理を、1台でバランスよくこなしたい人",
+      "caution": "リンク先はオフホワイト（NE-MS4E-W）の出品です。Amazonのリンク先はブラック（NE-MS4E-K）です（性能は同じ）。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0H7RYJKG8/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4550719178324-24-381-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14889579%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0108/4550719178324.jpg?_ex=300x300",
+      "attributes": {
+        "reheatQuality": 4,
+        "defrostQuality": 3,
+        "autoCooking": 4,
+        "ovenPower": 3,
+        "baking": 3,
+        "steamCooking": 1,
+        "grillCooking": 3,
+        "speedConvenience": 4,
+        "easeOfUse": 4,
+        "cleanability": 5,
+        "compactness": 4,
+        "installationFlexibility": 4,
+        "smallHouseholdFit": 4,
+        "mediumHouseholdFit": 5,
+        "largeHouseholdFit": 4,
+        "hasOven": true,
+        "hasSteam": false,
+        "twoStageOven": false,
+        "multiItemReheat": 3,
+        "ovenTemperature": 3,
+        "autoMenuBreadth": 3
+      }
+    },
+    {
+      "id": "microwave-105",
+      "name": "シャープ 過熱水蒸気オーブンレンジ PLAINLY 27L RE-WF277",
+      "description": "27Lの過熱水蒸気オーブンレンジ。レンジ・オーブンに加えて過熱水蒸気の調理ができます。",
+      "priceRange": 3,
+      "features": [
+        "過熱水蒸気オーブンレンジ",
+        "27L"
+      ],
+      "pros": [
+        "スチームも使える中でバランスがよい",
+        "壁際に置きやすい"
+      ],
+      "cons": [
+        "2段調理はできません"
+      ],
+      "recommendFor": "スチーム調理も試しつつ、普段使いのしやすさも重視したい人",
+      "caution": "リンク先はブラック（RE-WF277-B）の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tit6o.d8zuebed.g00tit6o.d8zuf23f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fksdenki%2F4550556207607%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fksdenki%2Fi%2F10524231%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ksdenki/cabinet/images/07_5/4550556207607_5.jpg?_ex=300x300",
+      "attributes": {
+        "reheatQuality": 4,
+        "defrostQuality": 4,
+        "autoCooking": 4,
+        "ovenPower": 3,
+        "baking": 3,
+        "steamCooking": 3,
+        "grillCooking": 3,
+        "speedConvenience": 4,
+        "easeOfUse": 4,
+        "cleanability": 4,
+        "compactness": 4,
+        "installationFlexibility": 5,
+        "smallHouseholdFit": 4,
+        "mediumHouseholdFit": 5,
+        "largeHouseholdFit": 4,
+        "hasOven": true,
+        "hasSteam": true,
+        "twoStageOven": false,
+        "multiItemReheat": 3,
+        "ovenTemperature": 3,
+        "autoMenuBreadth": 4
+      }
+    },
+    {
+      "id": "microwave-106",
+      "name": "シャープ ウォーターオーブン ヘルシオ 26L AX-U1D",
+      "description": "26Lのウォーターオーブン（1段）。過熱水蒸気を中心に使って調理できます。",
+      "priceRange": 3,
+      "features": [
+        "ウォーターオーブン ヘルシオ",
+        "26L",
+        "1段"
+      ],
+      "pros": [
+        "過熱水蒸気の調理が充実",
+        "自動調理メニューが多い"
+      ],
+      "cons": [
+        "2段調理はできません",
+        "操作はやや多機能です"
+      ],
+      "recommendFor": "スチーム・過熱水蒸気の調理を本格的に使いたい人",
+      "caution": "リンク先はマットブラック（AX-U1D-B）の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00s0bro.d8zuee6a.g00s0bro.d8zufd9e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fwinkstore%2F274529%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fwinkstore%2Fi%2F10042103%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/winkstore/cabinet/275000/274529.jpg?_ex=300x300",
+      "attributes": {
+        "reheatQuality": 4,
+        "defrostQuality": 4,
+        "autoCooking": 5,
+        "ovenPower": 3,
+        "baking": 3,
+        "steamCooking": 5,
+        "grillCooking": 4,
+        "speedConvenience": 4,
+        "easeOfUse": 3,
+        "cleanability": 5,
+        "compactness": 4,
+        "installationFlexibility": 5,
+        "smallHouseholdFit": 4,
+        "mediumHouseholdFit": 5,
+        "largeHouseholdFit": 4,
+        "hasOven": true,
+        "hasSteam": true,
+        "twoStageOven": false,
+        "multiItemReheat": 3,
+        "ovenTemperature": 3,
+        "autoMenuBreadth": 4
+      }
+    },
+    {
+      "id": "microwave-107",
+      "name": "東芝 過熱水蒸気オーブンレンジ 石窯ドーム 30L ER-D3000C",
+      "description": "30Lの過熱水蒸気オーブンレンジ。2段でオーブン調理ができます。",
+      "priceRange": 3,
+      "features": [
+        "過熱水蒸気オーブンレンジ 石窯ドーム",
+        "30L",
+        "2段調理"
+      ],
+      "pros": [
+        "オーブン・お菓子作りに強い",
+        "解凍性能が高い"
+      ],
+      "cons": [
+        "本体は大きめです"
+      ],
+      "recommendFor": "パン・お菓子作りや2段でのオーブン調理をしたい人",
+      "caution": "リンク先はルナホワイト（ER-D3000C-W）の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0HJZ47QH1/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00s0bro.d8zuee6a.g00s0bro.d8zufd9e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fwinkstore%2F274531%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fwinkstore%2Fi%2F10042344%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/winkstore/cabinet/275000/274531.jpg?_ex=300x300",
+      "attributes": {
+        "reheatQuality": 4,
+        "defrostQuality": 5,
+        "autoCooking": 4,
+        "ovenPower": 5,
+        "baking": 5,
+        "steamCooking": 4,
+        "grillCooking": 4,
+        "speedConvenience": 4,
+        "easeOfUse": 4,
+        "cleanability": 5,
+        "compactness": 3,
+        "installationFlexibility": 5,
+        "smallHouseholdFit": 3,
+        "mediumHouseholdFit": 5,
+        "largeHouseholdFit": 5,
+        "hasOven": true,
+        "hasSteam": true,
+        "twoStageOven": true,
+        "multiItemReheat": 3,
+        "ovenTemperature": 4,
+        "autoMenuBreadth": 4
+      }
+    },
+    {
+      "id": "microwave-108",
+      "name": "パナソニック スチームオーブンレンジ ビストロ 30L NE-BS9E",
+      "description": "30Lのスチームオーブンレンジ。2段調理と、グリル・自動調理の機能が充実した上位モデルです。",
+      "priceRange": 4,
+      "features": [
+        "スチームオーブンレンジ ビストロ",
+        "30L",
+        "2段調理"
+      ],
+      "pros": [
+        "あたため・解凍・グリル・自動調理が充実"
+      ],
+      "cons": [
+        "本体が大きく、価格も高めです"
+      ],
+      "recommendFor": "料理全般に使う、機能の充実した1台がほしい人",
+      "caution": "リンク先はブラック（NE-BS9E-K）の出品です。延長保証の有無で価格が変わります。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0GX5C144D/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qn68o.d8zuee0f.g00qn68o.d8zuf9b5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fa-price%2F4550719165577%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fa-price%2Fi%2F11414495%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/a-price/cabinet/pics/1247/4550719165577.jpg?_ex=300x300",
+      "attributes": {
+        "reheatQuality": 5,
+        "defrostQuality": 5,
+        "autoCooking": 5,
+        "ovenPower": 5,
+        "baking": 5,
+        "steamCooking": 4,
+        "grillCooking": 5,
+        "speedConvenience": 4,
+        "easeOfUse": 4,
+        "cleanability": 5,
+        "compactness": 2,
+        "installationFlexibility": 5,
+        "smallHouseholdFit": 3,
+        "mediumHouseholdFit": 5,
+        "largeHouseholdFit": 5,
+        "hasOven": true,
+        "hasSteam": true,
+        "twoStageOven": true,
+        "multiItemReheat": 4,
+        "ovenTemperature": 4,
+        "autoMenuBreadth": 4
+      }
+    },
+    {
+      "id": "microwave-109",
+      "name": "日立 過熱水蒸気オーブンレンジ ヘルシーシェフ 30L MRO-W1E",
+      "description": "30Lの過熱水蒸気オーブンレンジ。2段調理ができ、時短・自動調理の機能が充実しています。",
+      "priceRange": 4,
+      "features": [
+        "過熱水蒸気オーブンレンジ ヘルシーシェフ",
+        "30L",
+        "2段調理"
+      ],
+      "pros": [
+        "時短・自動調理が充実",
+        "あたため・解凍の性能が高い"
+      ],
+      "cons": [
+        "本体が大きめです"
+      ],
+      "recommendFor": "家族分をまとめて、手早く調理したい人",
+      "caution": "リンク先はブラックの出品です。Amazonのリンク先はフロストホワイト（MRO-W1E W）です（性能は同じ）。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0HGKK38XC/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qet1o.d8zue940.g00qet1o.d8zufa1e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fecjoy%2F22214797%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fecjoy%2Fi%2F92650361%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ecjoy/cabinet/image1435/22214797.jpg?_ex=300x300",
+      "attributes": {
+        "reheatQuality": 5,
+        "defrostQuality": 5,
+        "autoCooking": 5,
+        "ovenPower": 5,
+        "baking": 5,
+        "steamCooking": 4,
+        "grillCooking": 4,
+        "speedConvenience": 5,
+        "easeOfUse": 4,
+        "cleanability": 5,
+        "compactness": 2,
+        "installationFlexibility": 5,
+        "smallHouseholdFit": 3,
+        "mediumHouseholdFit": 5,
+        "largeHouseholdFit": 5,
+        "hasOven": true,
+        "hasSteam": true,
+        "twoStageOven": true,
+        "multiItemReheat": 5,
+        "ovenTemperature": 5,
+        "autoMenuBreadth": 5
+      }
+    },
+    {
+      "id": "microwave-110",
+      "name": "シャープ ウォーターオーブン ヘルシオ 30L AX-RS1D",
+      "description": "30Lのウォーターオーブン（2段）。過熱水蒸気を中心に、オーブン・グリル・自動調理まで幅広く使えます。",
+      "priceRange": 5,
+      "features": [
+        "ウォーターオーブン ヘルシオ",
+        "30L",
+        "2段調理"
+      ],
+      "pros": [
+        "過熱水蒸気・オーブン・グリルのすべてが充実"
+      ],
+      "cons": [
+        "本体が大きく、価格も高めです",
+        "操作はやや多機能です"
+      ],
+      "recommendFor": "過熱水蒸気の調理を中心に、機能を最大限に使いたい人",
+      "caution": "リンク先はホワイト（AX-RS1D-W）の出品です。延長保証の有無で価格が変わります。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qt9uo.d8zue585.g00qt9uo.d8zuf56c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fa-denki%2F78412%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fa-denki%2Fi%2F10060862%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/a-denki/cabinet/shouhingazou/16/78412.jpg?_ex=300x300",
+      "attributes": {
+        "reheatQuality": 5,
+        "defrostQuality": 5,
+        "autoCooking": 5,
+        "ovenPower": 5,
+        "baking": 5,
+        "steamCooking": 5,
+        "grillCooking": 5,
+        "speedConvenience": 4,
+        "easeOfUse": 3,
+        "cleanability": 5,
+        "compactness": 2,
+        "installationFlexibility": 5,
+        "smallHouseholdFit": 3,
+        "mediumHouseholdFit": 5,
+        "largeHouseholdFit": 5,
+        "hasOven": true,
+        "hasSteam": true,
+        "twoStageOven": true,
+        "multiItemReheat": 4,
+        "ovenTemperature": 4,
+        "autoMenuBreadth": 5
+      }
+    }
+  ],
+  "scoring": {
+    "tieBreak": true,
+    "softenPartialReason": true,
+    "lowMatchNotice": "条件をすべて満たす商品が少ないため、近い候補を表示しています。"
+  },
+  "guide": {
+    "title": "電子レンジ・オーブンレンジの選び方",
+    "intro": "この診断は、家庭用の電子レンジ・オーブンレンジを対象に、メーカー公式の仕様をもとに以下のポイントとあなたの回答を照らし合わせて相性を計算しています。",
+    "sections": [
+      {
+        "heading": "単機能レンジとオーブンレンジ",
+        "body": "あたため中心なら単機能レンジ、焼き物やお菓子作りもするならオーブンレンジが候補になります。スチーム・過熱水蒸気の調理をしたい場合は、対応機種を選びましょう。"
+      },
+      {
+        "heading": "容量と人数",
+        "body": "1〜2人なら18〜22L程度、家族分をまとめて調理するなら26〜30L程度が目安です。2段で焼きたい場合は、2段調理に対応した30L前後の機種を選びましょう。"
+      },
+      {
+        "heading": "レンジ機能",
+        "body": "あたためや解凍の仕上がりはセンサーの種類で変わります。時短メニューや自動調理の充実度も機種によって異なります。"
+      },
+      {
+        "heading": "設置とお手入れ",
+        "body": "本体の幅・奥行きに加えて、壁や棚との間に必要な放熱スペースも確認しましょう。フラットな庫内は拭き掃除がしやすくなります。"
+      }
+    ]
+  },
+  "notice": "価格は変動するため、購入時に販売ページでご確認ください。設置に必要な放熱スペースは機種ごとに異なるため、取扱説明書でご確認ください。"
+}

@@ -41,9 +41,15 @@ export const relatedDiagnoses: Record<string, { slug: string; text: string }[]> 
   toaster: [
     { slug: 'electric-kettle', text: '朝のコーヒー・お茶の準備に' },
     { slug: 'frying-pan', text: '毎日の料理道具も見直すなら' },
+    { slug: 'microwave', text: 'あたためやオーブン料理にも' },
   ],
   'rice-cooker': [
     { slug: 'frying-pan', text: 'おかず作りの道具も見直すなら' },
     { slug: 'electric-kettle', text: '汁物やお茶の準備に' },
+    { slug: 'microwave', text: 'ごはんのあたため直しに' },
+  ],
+  microwave: [
+    { slug: 'toaster', text: 'トーストをもっと手軽に焼くなら' },
+    { slug: 'rice-cooker', text: '毎日のごはんをおいしく炊くなら' },
   ],
 }
