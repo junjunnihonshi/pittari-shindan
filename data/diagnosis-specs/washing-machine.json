@@ -1,0 +1,959 @@
+{
+  "id": "washing-machine",
+  "enabled": false,
+  "title": "洗濯機診断",
+  "itemName": "洗濯機",
+  "group": "life",
+  "icon": "🧺",
+  "cardDescription": "人数や乾燥機能、縦型・ドラム式、設置スペース、自動投入から、あなたに合う洗濯機を診断。",
+  "description": "洗濯する人数、乾燥機能の使い方、縦型かドラム式か、設置スペース、重視したいこと、洗剤の自動投入、予算などから、あなたに合う洗濯機を絞り込みます。",
+  "searchKeywords": [
+    "洗濯機",
+    "洗濯機診断",
+    "洗濯乾燥機",
+    "縦型洗濯機",
+    "縦型",
+    "ドラム式洗濯機",
+    "ドラム式",
+    "一人暮らし 洗濯機",
+    "家族 洗濯機",
+    "大容量 洗濯機",
+    "コンパクト 洗濯機",
+    "静かな 洗濯機",
+    "自動投入 洗濯機",
+    "洗剤自動投入",
+    "ヒートポンプ",
+    "乾燥 洗濯機",
+    "省エネ 洗濯機",
+    "節水 洗濯機",
+    "10kg 洗濯機",
+    "12kg 洗濯機"
+  ],
+  "seo": {
+    "title": "洗濯機診断｜縦型・ドラム式からあなたに合う洗濯機を比較",
+    "description": "人数、乾燥機能、縦型・ドラム式、設置スペース、洗浄力、静音性、自動投入、予算から、あなたに合う洗濯機を診断します。"
+  },
+  "priceLabels": {
+    "1": "〜80,000円",
+    "2": "80,000〜130,000円",
+    "3": "130,000〜210,000円",
+    "4": "210,000〜300,000円",
+    "5": "300,000円〜"
+  },
+  "questions": [
+    {
+      "id": "people",
+      "text": "何人分の洗濯をすることが多いですか？",
+      "shortLabel": "人数",
+      "weight": 20,
+      "options": [
+        {
+          "id": "p1",
+          "label": "1人中心",
+          "summary": "1人分の洗濯が中心",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "smallHouseholdFit",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "compactness",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "p2",
+          "label": "2人",
+          "summary": "2人分の洗濯",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "smallHouseholdFit",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "familyFit",
+              "value": 5,
+              "weight": 50
+            }
+          ]
+        },
+        {
+          "id": "p34",
+          "label": "3〜4人",
+          "summary": "3〜4人分の洗濯",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "familyFit",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "p5",
+          "label": "5人以上・まとめ洗いが多い",
+          "summary": "5人以上・まとめ洗いが多い",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "largeLoadFit",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dry",
+      "text": "乾燥機能はどのくらい使いたいですか？",
+      "shortLabel": "乾燥機能",
+      "weight": 18,
+      "options": [
+        {
+          "id": "never",
+          "label": "ほとんど使わない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "sometimes",
+          "label": "雨の日など、ときどき使いたい",
+          "summary": "乾燥はときどき使いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "drying",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 70
+            }
+          ]
+        },
+        {
+          "id": "often",
+          "label": "週の半分以上、洗濯から乾燥まで任せたい",
+          "summary": "週の半分以上は乾燥まで任せたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "drying",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "fullDry",
+            "value": true,
+            "notice": "洗濯から衣類の乾燥までできる洗濯乾燥機からおすすめを表示しています。",
+            "supplementLabel": "衣類を最後まで乾かす乾燥機能はありません"
+          }
+        },
+        {
+          "id": "always",
+          "label": "ほぼ毎回、乾燥まで任せたい",
+          "summary": "ほぼ毎回乾燥まで任せたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "drying",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "eco",
+              "value": 5,
+              "weight": 30
+            }
+          ],
+          "eligibility": {
+            "attr": "fullDry",
+            "value": true,
+            "notice": "洗濯から衣類の乾燥までできる洗濯乾燥機からおすすめを表示しています。",
+            "supplementLabel": "衣類を最後まで乾かす乾燥機能はありません"
+          }
+        }
+      ]
+    },
+    {
+      "id": "type",
+      "text": "縦型・ドラム式の希望はありますか？",
+      "shortLabel": "縦型・ドラム式",
+      "weight": 10,
+      "options": [
+        {
+          "id": "top",
+          "label": "縦型がいい",
+          "summary": "縦型がいい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "type",
+            "value": "top",
+            "notice": "縦型の洗濯機からおすすめを表示しています。",
+            "supplementLabel": "縦型ではありません"
+          }
+        },
+        {
+          "id": "drum",
+          "label": "ドラム式がいい",
+          "summary": "ドラム式がいい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "type",
+            "value": "drum",
+            "notice": "ドラム式の洗濯乾燥機からおすすめを表示しています。",
+            "supplementLabel": "ドラム式ではありません"
+          }
+        },
+        {
+          "id": "any",
+          "label": "どちらでもいい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "space",
+      "text": "設置スペースはどのくらいですか？",
+      "shortLabel": "設置スペース",
+      "weight": 12,
+      "options": [
+        {
+          "id": "tight",
+          "label": "かなり限られている",
+          "summary": "設置スペースがかなり限られている",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "compactness",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "normal",
+          "label": "標準的",
+          "summary": "設置スペースは標準的",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "compactness",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 70
+            }
+          ]
+        },
+        {
+          "id": "wide",
+          "label": "比較的余裕がある",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "unknown",
+          "label": "よくわからない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "priority",
+      "text": "一番重視したいことは？",
+      "shortLabel": "重視すること",
+      "weight": 16,
+      "options": [
+        {
+          "id": "wash",
+          "label": "汚れ落ち",
+          "summary": "汚れ落ちを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "washing",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "eco",
+          "label": "節水・省エネ",
+          "summary": "節水・省エネを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "eco",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "care",
+          "label": "お手入れのラクさ",
+          "summary": "お手入れのラクさを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "maintenance",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "quiet",
+          "label": "静かさ",
+          "summary": "静かさを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "quiet",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "smart",
+          "label": "自動投入やスマホ連携などの便利機能",
+          "summary": "便利機能を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "convenience",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "autodose",
+      "text": "洗剤・柔軟剤の自動投入は必要ですか？",
+      "shortLabel": "自動投入",
+      "weight": 10,
+      "options": [
+        {
+          "id": "must",
+          "label": "必須",
+          "summary": "洗剤の自動投入が必須",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "autoDose",
+            "value": true,
+            "notice": "液体洗剤・柔軟剤の自動投入に対応した機種からおすすめを表示しています。",
+            "supplementLabel": "洗剤の自動投入には対応していません"
+          }
+        },
+        {
+          "id": "nice",
+          "label": "できれば欲しい",
+          "summary": "洗剤の自動投入はできれば欲しい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "convenience",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "feature",
+              "attr": "autoDose",
+              "weight": 50
+            }
+          ]
+        },
+        {
+          "id": "none",
+          "label": "なくてもいい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "budget",
+      "text": "予算はいくらまでですか？",
+      "shortLabel": "予算",
+      "weight": 8,
+      "options": [
+        {
+          "id": "b1",
+          "label": "8万円以下",
+          "summary": "予算8万円以下",
+          "effects": [],
+          "maxPriceRange": 1
+        },
+        {
+          "id": "b2",
+          "label": "13万円以下",
+          "summary": "予算13万円以下",
+          "effects": [],
+          "maxPriceRange": 2
+        },
+        {
+          "id": "b3",
+          "label": "21万円以下",
+          "summary": "予算21万円以下",
+          "effects": [],
+          "maxPriceRange": 3
+        },
+        {
+          "id": "b4",
+          "label": "30万円以下",
+          "summary": "予算30万円以下",
+          "effects": [],
+          "maxPriceRange": 4
+        },
+        {
+          "id": "any",
+          "label": "上限なし",
+          "effects": []
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "washing-machine-101",
+      "name": "AQUA 全自動洗濯機 AQW-P7A（洗濯7kg）",
+      "description": "洗濯7kgの縦型全自動洗濯機。3Dアクティブ洗浄＆高濃度クリーン浸透で洗い、本体幅は560mmです。",
+      "priceRange": 1,
+      "features": [
+        "縦型・洗濯7kg",
+        "3Dアクティブ洗浄",
+        "乾燥は送風による簡易乾燥のみ",
+        "本体 幅560×奥行540×高さ980mm"
+      ],
+      "pros": [
+        "設置スペースを取りにくいコンパクトさ",
+        "自動槽洗浄機能つき"
+      ],
+      "cons": [
+        "衣類を最後まで乾かす乾燥機能はありません",
+        "運転音は洗濯時約42dB・脱水時約49dBです"
+      ],
+      "recommendFor": "一人暮らしや少人数で、コンパクトな洗濯機を選びたい人",
+      "caution": "リンク先はホワイト（AQW-P7A(W)）の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4582678513465%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11673436%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001616/4582678513465_1.jpg?_ex=300x300",
+      "attributes": {
+        "smallHouseholdFit": 5,
+        "familyFit": 2,
+        "largeLoadFit": 1,
+        "drying": 1,
+        "washing": 3,
+        "eco": 2,
+        "maintenance": 3,
+        "quiet": 2,
+        "convenience": 2,
+        "compactness": 5,
+        "neutralFit": 3,
+        "type": "top",
+        "fullDry": false,
+        "autoDose": false,
+        "washCapacity": 7,
+        "dryCapacity": 0,
+        "dryMethod": "air"
+      }
+    },
+    {
+      "id": "washing-machine-102",
+      "name": "東芝 ZABOON AW-7DH6（洗濯7kg）",
+      "description": "洗濯7kgの縦型全自動洗濯機。抗菌ウルトラファインバブル洗浄で、洗い約34dB・脱水約37dBの運転音です。",
+      "priceRange": 2,
+      "features": [
+        "縦型・洗濯7kg",
+        "抗菌ウルトラファインバブル洗浄",
+        "乾燥は送風による簡易乾燥のみ",
+        "総外形 幅555×奥行567×高さ998mm"
+      ],
+      "pros": [
+        "運転音が小さい",
+        "自動槽洗浄機能つき"
+      ],
+      "cons": [
+        "衣類を最後まで乾かす乾燥機能はありません",
+        "洗剤の自動投入はありません"
+      ],
+      "recommendFor": "少人数で、運転音を抑えて洗濯したい人",
+      "caution": "リンク先はホワイト（AW-7DH6(W)）の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q632o.d8zue525.g00q632o.d8zuf5b7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fec-current%2F4904530144936%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fec-current%2Fi%2F12871628%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ec-current/cabinet/9208/4904530144936.jpg?_ex=300x300",
+      "attributes": {
+        "smallHouseholdFit": 5,
+        "familyFit": 2,
+        "largeLoadFit": 1,
+        "drying": 1,
+        "washing": 4,
+        "eco": 3,
+        "maintenance": 4,
+        "quiet": 5,
+        "convenience": 2,
+        "compactness": 5,
+        "neutralFit": 3,
+        "type": "top",
+        "fullDry": false,
+        "autoDose": false,
+        "washCapacity": 7,
+        "dryCapacity": 0,
+        "dryMethod": "air"
+      }
+    },
+    {
+      "id": "washing-machine-103",
+      "name": "SHARP 全自動洗濯機 ES-GV8L（洗濯8kg）",
+      "description": "洗濯8kgの縦型全自動洗濯機。穴なし槽で、穴なしサイクロン洗浄により洗います。標準使用水量は83Lです。",
+      "priceRange": 2,
+      "features": [
+        "縦型・洗濯8kg",
+        "穴なしサイクロン洗浄",
+        "乾燥は送風による簡易乾燥のみ",
+        "外形 幅565×奥行596×高さ1,018mm"
+      ],
+      "pros": [
+        "使用水量を抑えやすい",
+        "コンパクトな8kg"
+      ],
+      "cons": [
+        "衣類を最後まで乾かす乾燥機能はありません",
+        "洗剤の自動投入はありません"
+      ],
+      "recommendFor": "1〜3人で、少し余裕のある容量を選びたい人",
+      "caution": "リンク先はホワイト系（ES-GV8L-W）の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00po0ao.d8zuef8e.g00po0ao.d8zuf985/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdejikura%2F4550556194440%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdejikura%2Fi%2F10103399%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/dejikura/cabinet/ir036/4550556194440.jpg?_ex=300x300",
+      "attributes": {
+        "smallHouseholdFit": 4,
+        "familyFit": 3,
+        "largeLoadFit": 1,
+        "drying": 1,
+        "washing": 4,
+        "eco": 4,
+        "maintenance": 4,
+        "quiet": 4,
+        "convenience": 2,
+        "compactness": 5,
+        "neutralFit": 3,
+        "type": "top",
+        "fullDry": false,
+        "autoDose": false,
+        "washCapacity": 8,
+        "dryCapacity": 0,
+        "dryMethod": "air"
+      }
+    },
+    {
+      "id": "washing-machine-104",
+      "name": "Panasonic 全自動洗濯機 NA-FA10K6（洗濯10kg）",
+      "description": "洗濯10kgの縦型全自動洗濯機。スゴ落ち泡洗浄と、液体洗剤・柔軟剤の自動投入に対応しています。",
+      "priceRange": 3,
+      "features": [
+        "縦型・洗濯10kg",
+        "スゴ落ち泡洗浄",
+        "液体洗剤・柔軟剤 自動投入",
+        "乾燥は送風による簡易乾燥のみ"
+      ],
+      "pros": [
+        "洗剤を計量する手間が減る",
+        "運転音は洗濯時32dB・脱水時39dB"
+      ],
+      "cons": [
+        "衣類を最後まで乾かす乾燥機能はありません"
+      ],
+      "recommendFor": "家族の洗濯を、自動投入で手軽にしたい人",
+      "caution": "リンク先はホワイト（NA-FA10K6-W）の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0GWCDR9DR/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4550719154489%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11717833%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001760/4550719154489_1.jpg?_ex=300x300",
+      "attributes": {
+        "smallHouseholdFit": 2,
+        "familyFit": 5,
+        "largeLoadFit": 3,
+        "drying": 1,
+        "washing": 5,
+        "eco": 4,
+        "maintenance": 4,
+        "quiet": 4,
+        "convenience": 4,
+        "compactness": 3,
+        "neutralFit": 3,
+        "type": "top",
+        "fullDry": false,
+        "autoDose": true,
+        "washCapacity": 10,
+        "dryCapacity": 0,
+        "dryMethod": "air"
+      }
+    },
+    {
+      "id": "washing-machine-105",
+      "name": "日立 ビートウォッシュ BW-X120P（洗濯12kg）",
+      "description": "洗濯12kgの縦型全自動洗濯機。液体洗剤・柔軟剤の自動投入と、洗濯槽自動おそうじに対応しています。",
+      "priceRange": 3,
+      "features": [
+        "縦型・洗濯12kg",
+        "液体洗剤・柔軟剤 自動投入",
+        "洗濯槽自動おそうじ",
+        "乾燥は送風乾燥のみ"
+      ],
+      "pros": [
+        "まとめ洗いしやすい大容量",
+        "洗剤を計量する手間が減る"
+      ],
+      "cons": [
+        "衣類を最後まで乾かす乾燥機能はありません",
+        "本体寸法 幅640×奥行650×高さ1,077mm と大きめです"
+      ],
+      "recommendFor": "家族が多く、まとめ洗いを縦型でしたい人",
+      "caution": "リンク先はホワイト（BW-X120P-W）の標準設置料金込みの出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q632o.d8zue525.g00q632o.d8zuf5b7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fec-current%2Fiset000005777%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fec-current%2Fi%2F12872352%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ec-current/cabinet/9215/4549873218601.jpg?_ex=300x300",
+      "attributes": {
+        "smallHouseholdFit": 1,
+        "familyFit": 4,
+        "largeLoadFit": 5,
+        "drying": 1,
+        "washing": 5,
+        "eco": 3,
+        "maintenance": 4,
+        "quiet": 4,
+        "convenience": 4,
+        "compactness": 2,
+        "neutralFit": 3,
+        "type": "top",
+        "fullDry": false,
+        "autoDose": true,
+        "washCapacity": 12,
+        "dryCapacity": 0,
+        "dryMethod": "air"
+      }
+    },
+    {
+      "id": "washing-machine-106",
+      "name": "Panasonic ドラム式洗濯乾燥機 NA-SD10UBL（洗濯10kg／乾燥5kg）",
+      "description": "洗濯10kg・乾燥5kgのドラム式洗濯乾燥機。ヒーター乾燥（排気タイプ）で、液体洗剤・柔軟剤の自動投入とスマホ連携に対応しています。",
+      "priceRange": 3,
+      "features": [
+        "ドラム式・洗濯10kg／乾燥5kg",
+        "ヒーター乾燥（排気タイプ）",
+        "液体洗剤・柔軟剤 自動投入",
+        "スマホ連携"
+      ],
+      "pros": [
+        "洗濯から乾燥まで任せられる",
+        "幅639mmのドラム式"
+      ],
+      "cons": [
+        "洗濯〜乾燥時の消費電力量は1,980Whです",
+        "乾燥容量は5kgです"
+      ],
+      "recommendFor": "洗濯から乾燥まで任せつつ、本体サイズも抑えたい人",
+      "caution": "リンク先は左開き・マットホワイト（NA-SD10UBL-W）の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FN766CTN/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pyd1o.d8zuede2.g00pyd1o.d8zuf064/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdtc%2F4550719001721%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdtc%2Fi%2F13140963%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/dtc/cabinet/mc5134/2567482.jpg?_ex=300x300",
+      "attributes": {
+        "smallHouseholdFit": 2,
+        "familyFit": 5,
+        "largeLoadFit": 3,
+        "drying": 3,
+        "washing": 4,
+        "eco": 2,
+        "maintenance": 3,
+        "quiet": 3,
+        "convenience": 5,
+        "compactness": 4,
+        "neutralFit": 3,
+        "type": "drum",
+        "fullDry": true,
+        "autoDose": true,
+        "washCapacity": 10,
+        "dryCapacity": 5,
+        "dryMethod": "heater"
+      }
+    },
+    {
+      "id": "washing-machine-107",
+      "name": "AQUA ドラム式洗濯乾燥機 AQW-DXS12A（洗濯12kg／乾燥6kg）",
+      "description": "洗濯12kg・乾燥6kgのドラム式洗濯乾燥機。ヒートポンプ乾燥で、液体洗剤・柔軟剤の自動投入に対応しています。高さ943mmの本体です。",
+      "priceRange": 3,
+      "features": [
+        "ドラム式・洗濯12kg／乾燥6kg",
+        "ヒートポンプ乾燥",
+        "液体洗剤・柔軟剤 自動投入",
+        "本体 幅595×奥行667×高さ943mm"
+      ],
+      "pros": [
+        "洗濯時の標準使用水量 約59L",
+        "大容量でも高さを抑えた本体"
+      ],
+      "cons": [
+        "スマホ連携には対応していません"
+      ],
+      "recommendFor": "大容量のドラム式を、設置スペースを抑えて使いたい人",
+      "caution": "リンク先は右開き・ホワイト（AQW-DXS12A-R(W)）の出品です。左開きは別の型番です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r9svo.d8zue4d3.g00r9svo.d8zuf0f9/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fedion%2F4582678514110%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fedion%2Fi%2F10888348%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/edion/cabinet/goods/ll/img_548/4582678514110_1.jpg?_ex=300x300",
+      "attributes": {
+        "smallHouseholdFit": 1,
+        "familyFit": 4,
+        "largeLoadFit": 4,
+        "drying": 5,
+        "washing": 4,
+        "eco": 5,
+        "maintenance": 4,
+        "quiet": 4,
+        "convenience": 4,
+        "compactness": 4,
+        "neutralFit": 3,
+        "type": "drum",
+        "fullDry": true,
+        "autoDose": true,
+        "washCapacity": 12,
+        "dryCapacity": 6,
+        "dryMethod": "heatpump"
+      }
+    },
+    {
+      "id": "washing-machine-108",
+      "name": "SHARP ドラム式洗濯乾燥機 ES-12X2（洗濯12kg／乾燥6kg）",
+      "description": "洗濯12kg・乾燥6kgのドラム式洗濯乾燥機。ハイブリッド乾燥NEXTで、洗濯〜乾燥時の消費電力量は590Whです。乾燥フィルターや乾燥ダクトなどを自動でお掃除します。",
+      "priceRange": 5,
+      "features": [
+        "ドラム式・洗濯12kg／乾燥6kg",
+        "ハイブリッド乾燥NEXT",
+        "液体洗剤・柔軟剤 自動投入・スマホ連携",
+        "運転音 洗い32dB／脱水39dB／乾燥42dB"
+      ],
+      "pros": [
+        "洗濯〜乾燥時の消費電力量が少ない",
+        "乾燥フィルター・ダクトなどを自動でお掃除"
+      ],
+      "cons": [
+        "外形 幅640×奥行719×高さ1,120mm と大きめです"
+      ],
+      "recommendFor": "乾燥までほぼ毎回任せたい人で、お手入れと電気代も重視したい人",
+      "caution": "リンク先は左開き・マットホワイト（ES-12X2-WL）の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00sjs2o.d8zue9b1.g00sjs2o.d8zufcca/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fb-surprise2%2F4550556206419%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fb-surprise2%2Fi%2F10163496%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/b-surprise2/cabinet/cm218/4550556206419.jpg?_ex=300x300",
+      "attributes": {
+        "smallHouseholdFit": 1,
+        "familyFit": 4,
+        "largeLoadFit": 4,
+        "drying": 5,
+        "washing": 5,
+        "eco": 5,
+        "maintenance": 5,
+        "quiet": 5,
+        "convenience": 5,
+        "compactness": 2,
+        "neutralFit": 3,
+        "type": "drum",
+        "fullDry": true,
+        "autoDose": true,
+        "washCapacity": 12,
+        "dryCapacity": 6,
+        "dryMethod": "hybrid"
+      }
+    },
+    {
+      "id": "washing-machine-109",
+      "name": "日立 ビッグドラム BD-SX130P（洗濯13kg／乾燥7kg）",
+      "description": "洗濯13kg・乾燥7kgのドラム式洗濯乾燥機。ヒートポンプ乾燥で、液体洗剤・柔軟剤の自動投入とスマホ連携に対応しています。",
+      "priceRange": 5,
+      "features": [
+        "ドラム式・洗濯13kg／乾燥7kg",
+        "ヒートポンプ乾燥",
+        "液体洗剤・柔軟剤 自動投入・スマホ連携",
+        "運転音 洗い34dB／脱水37dB／乾燥49dB"
+      ],
+      "pros": [
+        "候補の中で最も大きい洗濯容量",
+        "洗濯から乾燥まで任せられる"
+      ],
+      "cons": [
+        "本体 幅630×奥行720×高さ1,065mm と大きめです"
+      ],
+      "recommendFor": "家族が多く、まとめ洗いから乾燥まで任せたい人",
+      "caution": "リンク先は右開き・ホワイト（BD-SX130PR-W）の出品です。左開きは別の型番です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0HFRGN71K/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4549873219721%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11744543%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001849/4549873219721_1.jpg?_ex=300x300",
+      "attributes": {
+        "smallHouseholdFit": 1,
+        "familyFit": 4,
+        "largeLoadFit": 5,
+        "drying": 5,
+        "washing": 5,
+        "eco": 4,
+        "maintenance": 5,
+        "quiet": 4,
+        "convenience": 5,
+        "compactness": 2,
+        "neutralFit": 3,
+        "type": "drum",
+        "fullDry": true,
+        "autoDose": true,
+        "washCapacity": 13,
+        "dryCapacity": 7,
+        "dryMethod": "heatpump"
+      }
+    },
+    {
+      "id": "washing-machine-110",
+      "name": "東芝 ZABOON TW-127XP5（洗濯12kg／乾燥7kg）",
+      "description": "洗濯12kg・乾燥7kgのドラム式洗濯乾燥機。ヒートポンプ除湿乾燥と温水抗菌ウルトラファインバブル洗浄EXで、液体洗剤・柔軟剤の自動投入とスマホ連携に対応しています。",
+      "priceRange": 4,
+      "features": [
+        "ドラム式・洗濯12kg／乾燥7kg",
+        "ヒートポンプ除湿乾燥",
+        "温水抗菌ウルトラファインバブル洗浄EX",
+        "液体洗剤・柔軟剤 自動投入・スマホ連携"
+      ],
+      "pros": [
+        "洗濯時の運転音 32dB",
+        "洗濯から乾燥まで任せられる"
+      ],
+      "cons": [
+        "総外形 幅645×奥行720×高さ1,060mm と大きめです",
+        "洗濯〜乾燥時の消費電力量は1,330Whです"
+      ],
+      "recommendFor": "洗濯から乾燥まで任せつつ、運転音も抑えたい人",
+      "caution": "リンク先は左開き・グランホワイト（TW-127XP5L(W)）の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8gxo.d8zue496.g00r8gxo.d8zufe17/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpremoa%2F4904530136115%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpremoa%2Fi%2F11263036%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/premoa/cabinet/orj/43/0-4904530136115.jpg?_ex=300x300",
+      "attributes": {
+        "smallHouseholdFit": 1,
+        "familyFit": 4,
+        "largeLoadFit": 4,
+        "drying": 5,
+        "washing": 5,
+        "eco": 4,
+        "maintenance": 4,
+        "quiet": 5,
+        "convenience": 5,
+        "compactness": 2,
+        "neutralFit": 3,
+        "type": "drum",
+        "fullDry": true,
+        "autoDose": true,
+        "washCapacity": 12,
+        "dryCapacity": 7,
+        "dryMethod": "heatpump"
+      }
+    }
+  ],
+  "scoring": {
+    "tieBreak": true,
+    "softenPartialReason": true,
+    "lowMatchNotice": "条件をすべて満たす商品が少ないため、近い候補を表示しています。"
+  },
+  "guide": {
+    "title": "洗濯機の選び方",
+    "intro": "この診断は、家庭用の縦型洗濯機とドラム式洗濯乾燥機を対象に、メーカー公表の仕様をもとに以下のポイントとあなたの回答を照らし合わせて相性を計算しています。",
+    "sections": [
+      {
+        "heading": "縦型とドラム式",
+        "body": "縦型は水量を使ってもみ洗いし、ドラム式はたたき洗いで少ない水量で洗えるものが多く、洗濯から乾燥まで任せやすいのが特長です。どちらにも長所があります。"
+      },
+      {
+        "heading": "乾燥機能の違い",
+        "body": "縦型の「送風乾燥（簡易乾燥）」は、洗濯物を最後まで乾かす機能ではありません。洗濯から乾燥まで任せたい場合は洗濯乾燥機を選びましょう。乾燥方式にはヒートポンプ式やヒーター式などがあり、消費電力量が異なります。"
+      },
+      {
+        "heading": "容量と人数",
+        "body": "大容量ほど良いとは限りません。人数やまとめ洗いの頻度、設置スペースに合わせて選びましょう。"
+      },
+      {
+        "heading": "自動投入と便利機能",
+        "body": "液体洗剤・柔軟剤の自動投入やスマホ連携に対応した機種もあります。"
+      }
+    ]
+  },
+  "notice": "洗濯機は本体寸法だけでなく、防水パンのサイズ、蛇口の高さ、排水口、ふた・ドアの開閉スペース、搬入経路などによって設置できない場合があります。購入前にメーカーの設置条件を必ず確認してください。ドラム式は左開き・右開きでも型番が異なります。価格は変動するため、購入時に販売ページでご確認ください。"
+}

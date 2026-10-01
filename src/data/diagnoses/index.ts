@@ -23,6 +23,7 @@ import { electricToothbrush } from './electricToothbrush.ts'
 import { shampoo } from './shampoo.ts'
 import { hairTreatment } from './hairTreatment.ts'
 import { bodySoap } from './bodySoap.ts'
+import { washingMachine } from './washingMachine.ts'
 
 /**
  * 診断の一覧（登録簿）。
@@ -54,6 +55,7 @@ const allDiagnoses: Diagnosis[] = [
   shampoo,
   hairTreatment,
   bodySoap,
+  washingMachine,
 ]
 
 /**
