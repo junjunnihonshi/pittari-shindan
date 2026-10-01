@@ -1,0 +1,949 @@
+{
+  "id": "mattress",
+  "enabled": false,
+  "title": "マットレス診断",
+  "itemName": "マットレス",
+  "group": "life",
+  "icon": "🛏️",
+  "cardDescription": "寝姿勢・体格・好みの硬さ・使い方から、あなたに合うマットレスを診断。",
+  "description": "寝姿勢、体格、好みの硬さ、床置きかベッドか、重視したいこと、片付け・お手入れ、予算などから、あなたに合うマットレスを絞り込みます。",
+  "searchKeywords": [
+    "マットレス",
+    "マットレス診断",
+    "ベッドマットレス",
+    "高反発マットレス",
+    "高反発",
+    "ウレタンマットレス",
+    "ポケットコイル",
+    "コイルマットレス",
+    "三つ折りマットレス",
+    "折りたたみマットレス",
+    "硬いマットレス",
+    "硬め",
+    "やわらかめ",
+    "体圧分散",
+    "寝返り",
+    "横向き寝",
+    "仰向け寝",
+    "うつ伏せ寝",
+    "通気性",
+    "蒸れにくい",
+    "床置き",
+    "直置き",
+    "畳",
+    "洗えるマットレス",
+    "三つ折り",
+    "一人暮らし",
+    "振動",
+    "パートナー"
+  ],
+  "seo": {
+    "title": "マットレス診断｜寝姿勢・硬さ・体格・使い方からおすすめを比較",
+    "description": "寝姿勢、体格、好みの硬さ、床置き・ベッドでの使い方、寝返り、通気性、振動の伝わりにくさ、収納性、予算から、あなたに合うマットレスを診断します。"
+  },
+  "priceLabels": {
+    "1": "〜25,000円",
+    "2": "25,000〜40,000円",
+    "3": "40,000〜55,000円",
+    "4": "55,000〜75,000円",
+    "5": "75,000円〜"
+  },
+  "questions": [
+    {
+      "id": "posture",
+      "text": "普段、一番多い寝姿勢は？",
+      "shortLabel": "寝姿勢",
+      "weight": 18,
+      "options": [
+        {
+          "id": "back",
+          "label": "仰向け",
+          "summary": "仰向けで寝ることが多い",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "balancedSupport",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "turnEase",
+              "value": 5,
+              "weight": 40
+            }
+          ]
+        },
+        {
+          "id": "side",
+          "label": "横向き",
+          "summary": "横向きで寝ることが多い",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "pressureRelief",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "balancedSupport",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "front",
+          "label": "うつ伏せ",
+          "summary": "うつ伏せで寝ることが多い",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "firmSupport",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "turnEase",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "mixed",
+          "label": "寝返りが多く、姿勢は決まっていない",
+          "summary": "寝返りが多い",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "turnEase",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "balancedSupport",
+              "value": 5,
+              "weight": 40
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "weight",
+      "text": "体格・体重の目安は？",
+      "shortLabel": "体格",
+      "weight": 16,
+      "options": [
+        {
+          "id": "w50",
+          "label": "50kg以下",
+          "summary": "体重50kg以下",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "pressureRelief",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "balancedSupport",
+              "value": 5,
+              "weight": 50
+            }
+          ]
+        },
+        {
+          "id": "w70",
+          "label": "51〜70kg",
+          "summary": "体重51〜70kg",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "balancedSupport",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "turnEase",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "w90",
+          "label": "71〜90kg",
+          "summary": "体重71〜90kg",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "firmSupport",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "turnEase",
+              "value": 5,
+              "weight": 50
+            }
+          ]
+        },
+        {
+          "id": "w91",
+          "label": "91kg以上",
+          "summary": "体重91kg以上",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "firmSupport",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "turnEase",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "firmness",
+      "text": "好みの寝心地は？",
+      "shortLabel": "寝心地",
+      "weight": 16,
+      "options": [
+        {
+          "id": "soft",
+          "label": "やわらかめ",
+          "summary": "やわらかめが好み",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "pressureRelief",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "balancedSupport",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "medium",
+          "label": "ほどよい硬さ",
+          "summary": "ほどよい硬さが好み",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "balancedSupport",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "firm",
+          "label": "しっかり硬め",
+          "summary": "しっかり硬めが好み",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "firmSupport",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "unknown",
+          "label": "まだ分からない",
+          "summary": "好みの硬さはまだ分からない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "firmnessChoice",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "balancedSupport",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "place",
+      "text": "どこで使う予定ですか？",
+      "shortLabel": "使う場所",
+      "weight": 14,
+      "options": [
+        {
+          "id": "bed",
+          "label": "ベッドフレームの上",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "floor",
+          "label": "フローリング・畳に直接敷きたい",
+          "summary": "床・畳に直接敷きたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "floorUse",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "storageEase",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "both",
+          "label": "ベッドでも床でも使いたい",
+          "summary": "ベッドでも床でも使いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "floorUse",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "storageEase",
+              "value": 5,
+              "weight": 50
+            }
+          ]
+        },
+        {
+          "id": "undecided",
+          "label": "まだ決まっていない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "priority",
+      "text": "一番重視することは？",
+      "shortLabel": "重視すること",
+      "weight": 16,
+      "options": [
+        {
+          "id": "pressure",
+          "label": "身体への当たりが分散されること",
+          "summary": "体圧分散を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "pressureRelief",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "turn",
+          "label": "寝返りのしやすさ",
+          "summary": "寝返りのしやすさを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "turnEase",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "air",
+          "label": "蒸れにくさ・通気性",
+          "summary": "通気性を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "breathability",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "motion",
+          "label": "隣で寝る人の動きが伝わりにくいこと",
+          "summary": "振動の伝わりにくさを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "motionIsolation",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "clean",
+          "label": "清潔に保ちやすいこと",
+          "summary": "清潔さを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "cleanability",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "care",
+      "text": "片付け・お手入れはどうしたい？",
+      "shortLabel": "片付け・お手入れ",
+      "weight": 12,
+      "options": [
+        {
+          "id": "daily",
+          "label": "毎日のように畳んだり収納したい",
+          "summary": "毎日のように畳んで収納したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "storageEase",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "sometimes",
+          "label": "定期的に立てかけたり動かしたい",
+          "summary": "定期的に立てかけたり動かしたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "storageEase",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "cleanability",
+              "value": 5,
+              "weight": 50
+            }
+          ]
+        },
+        {
+          "id": "leave",
+          "label": "基本的に敷いたままで使う",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "wash",
+          "label": "中材まで洗えるものがいい",
+          "summary": "中材まで洗えるものがいい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "cleanability",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "coreWashable",
+            "value": true,
+            "notice": "中材まで洗えるマットレスからおすすめを表示しています。",
+            "supplementLabel": "中材は水洗いできません"
+          }
+        }
+      ]
+    },
+    {
+      "id": "budget",
+      "text": "予算はいくらまで？",
+      "shortLabel": "予算",
+      "weight": 8,
+      "options": [
+        {
+          "id": "b1",
+          "label": "25,000円以下",
+          "summary": "予算25,000円以下",
+          "effects": [],
+          "maxPriceRange": 1
+        },
+        {
+          "id": "b2",
+          "label": "40,000円以下",
+          "summary": "予算40,000円以下",
+          "effects": [],
+          "maxPriceRange": 2
+        },
+        {
+          "id": "b3",
+          "label": "55,000円以下",
+          "summary": "予算55,000円以下",
+          "effects": [],
+          "maxPriceRange": 3
+        },
+        {
+          "id": "b4",
+          "label": "75,000円以下",
+          "summary": "予算75,000円以下",
+          "effects": [],
+          "maxPriceRange": 4
+        },
+        {
+          "id": "any",
+          "label": "上限なし",
+          "effects": []
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "mattress-101",
+      "name": "GOKUMIN プレミアム グランマットレス（三つ折り・厚さ10cm）",
+      "description": "180Nと250Nの2層構造の高反発ウレタンマットレス。層の組み合わせと、ニット面・メッシュ面を選べるリバーシブルカバーで寝心地を変えられる三つ折りタイプです。",
+      "priceRange": 1,
+      "features": [
+        "高反発ウレタン 2層（180N／250N・密度34D）",
+        "三つ折り・シングル約97×195×10cm・約7.5kg",
+        "洗えるリバーシブルカバー"
+      ],
+      "pros": [
+        "層の組み合わせで硬さを調整できる",
+        "三つ折りで収納しやすい"
+      ],
+      "cons": [
+        "中材は水洗いできません"
+      ],
+      "recommendFor": "手頃な価格で、床でもベッドでも使える三つ折りマットレスを選びたい人",
+      "caution": "リンク先はGOKUMINブランド直営店の出品で、サイズ・カラーを選んで購入します。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tlrno.d8zue15e.g00tlrno.d8zufa74/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fgokumin%2Fgmws-01%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fgokumin%2Fi%2F10000067%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/gokumin/cabinet/07365479/07893169/imgrc0117167938.jpg?_ex=300x300",
+      "attributes": {
+        "pressureRelief": 4,
+        "balancedSupport": 4,
+        "firmSupport": 4,
+        "turnEase": 5,
+        "breathability": 3,
+        "motionIsolation": 3,
+        "floorUse": 5,
+        "storageEase": 5,
+        "cleanability": 4,
+        "firmnessChoice": 4,
+        "neutralFit": 3,
+        "coreWashable": false
+      }
+    },
+    {
+      "id": "mattress-102",
+      "name": "アイリスオーヤマ エアリーマットレス エクストラボリューム AMEX-110S",
+      "description": "高反発素材「エアロキューブ」を使ったファイバー系マットレス。カバーと中芯を取り外して洗えます。",
+      "priceRange": 2,
+      "features": [
+        "ファイバー系中材（ポリエーテルエステル系繊維）",
+        "折りたたみ・シングル約95×198×11cm・約8.2kg",
+        "カバー・中芯とも洗える（中材は手洗い）"
+      ],
+      "pros": [
+        "中材まで洗えて清潔に保ちやすい",
+        "通気性を重視した構造"
+      ],
+      "cons": [
+        "振動の伝わりにくさを重視した構造ではありません"
+      ],
+      "recommendFor": "通気性や洗いやすさを重視して、床でも使いたい人",
+      "caution": "リンク先はアイリスオーヤマ公式店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B07DP26ZTZ/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00t3zto.d8zuee14.g00t3zto.d8zuf2f4/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F520969%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10097795%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11685175/imgrc0110317241.jpg?_ex=300x300",
+      "attributes": {
+        "pressureRelief": 4,
+        "balancedSupport": 4,
+        "firmSupport": 4,
+        "turnEase": 4,
+        "breathability": 5,
+        "motionIsolation": 3,
+        "floorUse": 5,
+        "storageEase": 5,
+        "cleanability": 5,
+        "firmnessChoice": 1,
+        "neutralFit": 3,
+        "coreWashable": true
+      }
+    },
+    {
+      "id": "mattress-103",
+      "name": "モットン 高反発マットレス（シングル・厚さ10cm）",
+      "description": "ソフト（140N）・レギュラー（170N）・ハード（280N）の3つの硬さから選べる高反発ウレタンマットレス。メーカー目安ではソフトが〜45kg、レギュラーが46〜80kg、ハードが81kg〜の候補です。",
+      "priceRange": 3,
+      "features": [
+        "高反発ウレタン（140N／170N／280Nから選択）",
+        "シングル約97×195×10cm・約7.5kg",
+        "外カバーは取り外して洗濯可"
+      ],
+      "pros": [
+        "体格や好みに合わせて硬さを選べる",
+        "反発力があり寝返りしやすい"
+      ],
+      "cons": [
+        "本体（ウレタン）は水洗いできません"
+      ],
+      "recommendFor": "体格や好みに合わせて硬さを選びたい人",
+      "caution": "リンク先はモットンジャパン公式店の出品で、硬さを選んで購入します。硬さの体重目安はメーカーによるもので、好みによっても変わります。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00t8feo.d8zueaeb.g00t8feo.d8zuf63a/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmotton-japan%2Fmotton_mat_s%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmotton-japan%2Fi%2F10000007%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/motton-japan/cabinet/motton/n_mat-s.jpg?_ex=300x300",
+      "attributes": {
+        "pressureRelief": 4,
+        "balancedSupport": 4,
+        "firmSupport": 5,
+        "turnEase": 5,
+        "breathability": 3,
+        "motionIsolation": 4,
+        "floorUse": 4,
+        "storageEase": 3,
+        "cleanability": 3,
+        "firmnessChoice": 5,
+        "neutralFit": 3,
+        "coreWashable": false
+      }
+    },
+    {
+      "id": "mattress-104",
+      "name": "マニフレックス メッシュ・ウィング（三つ折り・厚さ11cm）",
+      "description": "芯材エリオセル（密度31D・170N）を使った三つ折りの高反発マットレス。直敷きにもベッドにも使え、側地は取り外して洗濯できます。",
+      "priceRange": 3,
+      "features": [
+        "高反発芯材（31D・170N）",
+        "三つ折り・シングル約97×198×11cm・約7kg",
+        "側地は取り外して洗濯可"
+      ],
+      "pros": [
+        "三つ折りで収納・移動しやすい",
+        "床に直接敷いて使える"
+      ],
+      "cons": [
+        "硬さは1種類です"
+      ],
+      "recommendFor": "床でもベッドでも使え、たたんで片付けたい人",
+      "caution": "リンク先はマニフレックスの正規販売店の出品で、サイズ・カラーを選んで購入します。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B00HIU2DFA/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00s7ejo.d8zuedf5.g00s7ejo.d8zuf82f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Faokimarket%2Fmws%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Faokimarket%2Fi%2F10000040%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/aokimarket/cabinet/mw_spgt.jpg?_ex=300x300",
+      "attributes": {
+        "pressureRelief": 4,
+        "balancedSupport": 4,
+        "firmSupport": 5,
+        "turnEase": 5,
+        "breathability": 4,
+        "motionIsolation": 4,
+        "floorUse": 5,
+        "storageEase": 5,
+        "cleanability": 4,
+        "firmnessChoice": 1,
+        "neutralFit": 3,
+        "coreWashable": false
+      }
+    },
+    {
+      "id": "mattress-105",
+      "name": "昭和西川 ムアツ マットレス ベーシック（厚さ8cm）",
+      "description": "上層180N・下層230Nの凹凸2フォーム構造のマットレス。下層の高通気ウレタンが湿気を拡散し、側地は外して丸洗いできます。",
+      "priceRange": 3,
+      "features": [
+        "凹凸2フォーム構造（上層180N／下層230N）",
+        "シングル約97×195×8cm（詰めもの約4.4kg）",
+        "側地は外して丸洗い可・Ag+抗菌加工"
+      ],
+      "pros": [
+        "凹凸構造で体圧を分散",
+        "1枚で床に敷いて使える"
+      ],
+      "cons": [
+        "上位モデルに比べると寝返り性能・通気性は控えめです"
+      ],
+      "recommendFor": "凹凸構造の寝心地を、床に1枚敷いて使いたい人",
+      "caution": "リンク先は西川ストア公式の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qf60o.d8zue906.g00qf60o.d8zuf122/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsoleine%2F2220106381201%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsoleine%2Fi%2F10005154%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/soleine/cabinet/muatsu202503/main1/2220106381201.jpg?_ex=300x300",
+      "attributes": {
+        "pressureRelief": 4,
+        "balancedSupport": 5,
+        "firmSupport": 3,
+        "turnEase": 3,
+        "breathability": 4,
+        "motionIsolation": 4,
+        "floorUse": 5,
+        "storageEase": 2,
+        "cleanability": 4,
+        "firmnessChoice": 1,
+        "neutralFit": 3,
+        "coreWashable": false
+      }
+    },
+    {
+      "id": "mattress-106",
+      "name": "フランスベッド TW-010α（シングル・厚さ20cm）",
+      "description": "ツインサポートスプリングを使った高密度連続スプリングの、ハードタイプのベッドマットレスです。",
+      "priceRange": 3,
+      "features": [
+        "高密度連続スプリング（ツインサポート）",
+        "シングル約97×195×20cm・約16kg",
+        "しっかりした硬さ"
+      ],
+      "pros": [
+        "沈み込みにくく、しっかり支える",
+        "面で支えて揺れや振動を吸収する構造"
+      ],
+      "cons": [
+        "重く、収納や移動には向きません"
+      ],
+      "recommendFor": "しっかり硬めの寝心地を、ベッドで使いたい人",
+      "caution": "リンク先はフランスベッド公式パートナー店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B093XVC9P6/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00s5seo.d8zue802.g00s5seo.d8zuf60a/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fiskagu-r%2F10002912%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fiskagu-r%2Fi%2F10002363%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/iskagu-r/cabinet/06343417/06343419/08133509/imgrc0089290904.jpg?_ex=300x300",
+      "attributes": {
+        "pressureRelief": 4,
+        "balancedSupport": 4,
+        "firmSupport": 5,
+        "turnEase": 5,
+        "breathability": 4,
+        "motionIsolation": 4,
+        "floorUse": 1,
+        "storageEase": 1,
+        "cleanability": 2,
+        "firmnessChoice": 1,
+        "neutralFit": 3,
+        "coreWashable": false
+      }
+    },
+    {
+      "id": "mattress-107",
+      "name": "オリジナルコアラマットレス（シングル・厚さ21cm）",
+      "description": "70N・120N・200Nの3層構造のウレタンマットレス。厚さ21cmのベッドマットレスで、すのこなど通気性の良いベッドフレームでの使用が推奨されています。",
+      "priceRange": 4,
+      "features": [
+        "ウレタン3層（70N／120N／200N）",
+        "厚さ21cm",
+        "カバーは洗濯可（中材は洗えません）"
+      ],
+      "pros": [
+        "体圧を分散しやすい",
+        "振動が伝わりにくい"
+      ],
+      "cons": [
+        "重く、収納や移動には向きません",
+        "通気性の良いベッドフレームの使用が推奨されています"
+      ],
+      "recommendFor": "体圧分散と振動の伝わりにくさを重視し、ベッドで使いたい人",
+      "caution": "リンク先はコアラスリープジャパン公式店の出品で、サイズを選んで購入します。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u6p1o.d8zueea2.g00u6p1o.d8zufe55/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkoalasleep%2F101-0035%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkoalasleep%2Fi%2F10000545%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/koalasleep/cabinet/10124255/10124257/10124271/imgrc0117299167.jpg?_ex=300x300",
+      "attributes": {
+        "pressureRelief": 5,
+        "balancedSupport": 5,
+        "firmSupport": 3,
+        "turnEase": 4,
+        "breathability": 4,
+        "motionIsolation": 5,
+        "floorUse": 1,
+        "storageEase": 1,
+        "cleanability": 3,
+        "firmnessChoice": 1,
+        "neutralFit": 3,
+        "coreWashable": false
+      }
+    },
+    {
+      "id": "mattress-108",
+      "name": "エアウィーヴ スマート Z01（三つ折り・厚さ約9cm）",
+      "description": "エアファイバー（約8cm）を使った三つ折りのマットレス。フローリングや畳に1枚で敷いて使え、カバーも中材も洗えます。",
+      "priceRange": 5,
+      "features": [
+        "エアファイバー（約8cm）",
+        "三つ折り・シングル約97×195×9cm・約9kg",
+        "カバー・中材とも洗える"
+      ],
+      "pros": [
+        "床・畳に1枚で敷ける",
+        "中材まで洗えて清潔に保ちやすい"
+      ],
+      "cons": [
+        "硬さは1種類です"
+      ],
+      "recommendFor": "床に敷いて毎日たたみたい人、洗えることを重視する人",
+      "caution": "リンク先はairweave公式店の出品で、サイズを選んで購入します。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qfxwo.d8zuee27.g00qfxwo.d8zufc48/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fairweave%2F1-250011-1%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fairweave%2Fi%2F10000459%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/airweave/cabinet/sku/skuthum/imgrc0096997127.jpg?_ex=300x300",
+      "attributes": {
+        "pressureRelief": 4,
+        "balancedSupport": 4,
+        "firmSupport": 4,
+        "turnEase": 5,
+        "breathability": 5,
+        "motionIsolation": 3,
+        "floorUse": 5,
+        "storageEase": 5,
+        "cleanability": 5,
+        "firmnessChoice": 1,
+        "neutralFit": 3,
+        "coreWashable": true
+      }
+    },
+    {
+      "id": "mattress-109",
+      "name": "NELL マットレス（シングル・厚さ21cm）",
+      "description": "ポケットコイルを使った厚さ21cmのベッドマットレス。ポリウレタンフォームと機能綿を組み合わせています。",
+      "priceRange": 5,
+      "features": [
+        "ポケットコイル",
+        "シングル約95×195×21cm・約22kg"
+      ],
+      "pros": [
+        "体圧を分散しやすい",
+        "寝返りしやすい構造"
+      ],
+      "cons": [
+        "重く、収納や移動には向きません",
+        "本体・中材は洗えません"
+      ],
+      "recommendFor": "ポケットコイルの寝心地を、ベッドで使いたい人",
+      "caution": "リンク先はNELL公式店の出品で、サイズを選んで購入します。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0D7H9D854/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00uph9o.d8zuef58.g00uph9o.d8zuf443/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnell%2Fne-om-x%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnell%2Fi%2F10000001%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/nell/cabinet/11844372/11844374/01.jpg?_ex=300x300",
+      "attributes": {
+        "pressureRelief": 5,
+        "balancedSupport": 5,
+        "firmSupport": 4,
+        "turnEase": 5,
+        "breathability": 4,
+        "motionIsolation": 4,
+        "floorUse": 1,
+        "storageEase": 1,
+        "cleanability": 2,
+        "firmnessChoice": 1,
+        "neutralFit": 3,
+        "coreWashable": false
+      }
+    },
+    {
+      "id": "mattress-110",
+      "name": "Serta ペディック65 MID（シングル・高さ23cm）",
+      "description": "5.8インチのポケットコイルを中央に交互配列し、両サイドに太いコイルを配置したベッドマットレスです。",
+      "priceRange": 5,
+      "features": [
+        "ポケットコイル（交互配列・618個）",
+        "シングル約97×196×23cm"
+      ],
+      "pros": [
+        "身体をしっかり支える",
+        "独立したコイルで振動が伝わりにくい"
+      ],
+      "cons": [
+        "重く、収納や移動には向きません",
+        "本体・中材は洗えません"
+      ],
+      "recommendFor": "しっかりした支持感のポケットコイルを、ベッドで使いたい人",
+      "caution": "リンク先はサータの正規販売店の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pj9yo.d8zue349.g00pj9yo.d8zufd69/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbedroom%2Fty003-inl3700002-mt38-rw00%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbedroom%2Fi%2F10063789%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/bedroom/cabinet/cart10_3/mt-0009-1.jpg?_ex=300x300",
+      "attributes": {
+        "pressureRelief": 4,
+        "balancedSupport": 5,
+        "firmSupport": 4,
+        "turnEase": 4,
+        "breathability": 4,
+        "motionIsolation": 5,
+        "floorUse": 1,
+        "storageEase": 1,
+        "cleanability": 2,
+        "firmnessChoice": 1,
+        "neutralFit": 3,
+        "coreWashable": false
+      }
+    }
+  ],
+  "scoring": {
+    "tieBreak": true,
+    "softenPartialReason": true,
+    "lowMatchNotice": "条件をすべて満たす商品が少ないため、近い候補を表示しています。"
+  },
+  "guide": {
+    "title": "マットレスの選び方",
+    "intro": "この診断は、単体で使えるマットレスを対象に、メーカー公表の仕様をもとに以下のポイントとあなたの回答を照らし合わせて相性を計算しています。",
+    "sections": [
+      {
+        "heading": "寝姿勢と体格",
+        "body": "横向きで寝ることが多い人は体圧分散、体重がある人やうつ伏せの人は沈み込みにくい支持感を重視すると選びやすくなります。"
+      },
+      {
+        "heading": "硬さの表記",
+        "body": "N（ニュートン）値やコイル構造は、メーカーごとに測定・設計が異なります。数値だけで寝心地を決めつけず、目安として比較しましょう。"
+      },
+      {
+        "heading": "床置きかベッドか",
+        "body": "三つ折りや薄型のマットレスは床・畳に敷きやすく、厚型のコイルマットレスはベッドフレームでの使用に向いています。"
+      },
+      {
+        "heading": "お手入れ",
+        "body": "カバーだけ洗えるもの、中材まで洗えるものがあります。清潔さを重視する場合は確認しましょう。"
+      }
+    ]
+  },
+  "notice": "マットレスの寝心地には個人差があります。この診断は体格・寝姿勢・好みから相性を比較するもので、身体症状の治療や改善を目的とするものではありません。床に直接敷く場合は、カビや湿気を防ぐため、メーカーの使用方法に従い定期的に換気してください。商品によってベッドフレーム・すのこなどの推奨条件が異なるため、購入前に確認してください。硬さの表記・N値・コイル構造はメーカーごとに測定・設計が異なるため、数値だけで寝心地を判断しないでください。価格は変動するため、購入時に販売ページでご確認ください。"
+}
