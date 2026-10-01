@@ -1,0 +1,1064 @@
+{
+  "id": "dehumidifier",
+  "enabled": false,
+  "title": "除湿機診断",
+  "itemName": "除湿機",
+  "group": "life",
+  "icon": "💧",
+  "cardDescription": "部屋干しの量や季節、部屋の広さ、電気代、連続排水から、あなたに合う除湿機を診断。",
+  "description": "主な使い方、洗濯物の量、冬の使用、部屋の広さ、重視したいこと、連続排水、予算などから、あなたに合う除湿機を絞り込みます。",
+  "searchKeywords": [
+    "除湿機",
+    "除湿機診断",
+    "除湿器",
+    "衣類乾燥除湿機",
+    "衣類乾燥",
+    "部屋干し",
+    "湿気",
+    "湿気対策",
+    "結露",
+    "結露対策",
+    "クローゼット",
+    "押し入れ",
+    "コンプレッサー式",
+    "デシカント式",
+    "ハイブリッド式",
+    "省エネ 除湿機",
+    "静かな 除湿機",
+    "コンパクト 除湿機",
+    "冬 除湿機",
+    "梅雨 除湿機",
+    "部屋干し 除湿機",
+    "連続排水",
+    "大容量 除湿機",
+    "サーキュレーター 除湿機"
+  ],
+  "seo": {
+    "title": "除湿機診断｜部屋干し・除湿力・電気代・季節からおすすめを比較",
+    "description": "部屋干しの量、使う季節、部屋の広さ、乾燥スピード、電気代、静音性、連続排水、予算から、あなたに合う除湿機を診断します。"
+  },
+  "priceLabels": {
+    "1": "〜33,000円",
+    "2": "33,000〜40,000円",
+    "3": "40,000〜60,000円",
+    "4": "60,000〜80,000円",
+    "5": "80,000円〜"
+  },
+  "questions": [
+    {
+      "id": "use",
+      "text": "主な使い方は？",
+      "shortLabel": "使い方",
+      "weight": 18,
+      "options": [
+        {
+          "id": "laundry",
+          "label": "部屋干しの衣類を乾かしたい",
+          "summary": "部屋干しの衣類を乾かしたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "dryingSpeed",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "airflow",
+              "value": 5,
+              "weight": 40
+            }
+          ]
+        },
+        {
+          "id": "room",
+          "label": "部屋全体の湿気を取りたい",
+          "summary": "部屋全体の湿気を取りたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "dehumidPower",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "autoControl",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "closet",
+          "label": "結露・クローゼット・押し入れ対策",
+          "summary": "結露・クローゼット・押し入れ対策",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "winterPerformance",
+              "value": 5,
+              "weight": 40
+            },
+            {
+              "type": "atLeast",
+              "attr": "compactness",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "dehumidPower",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "both",
+          "label": "衣類乾燥も部屋の除湿も両方したい",
+          "summary": "衣類乾燥も部屋の除湿も両方したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "dryingSpeed",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "dehumidPower",
+              "value": 5,
+              "weight": 50
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "laundry",
+      "text": "洗濯物はどのくらい？",
+      "shortLabel": "洗濯物の量",
+      "weight": 16,
+      "options": [
+        {
+          "id": "l12",
+          "label": "1〜2人分",
+          "summary": "洗濯物は1〜2人分",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "compactness",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "energyEfficiency",
+              "value": 5,
+              "weight": 25
+            },
+            {
+              "type": "atLeast",
+              "attr": "quiet",
+              "value": 5,
+              "weight": 15
+            }
+          ]
+        },
+        {
+          "id": "l3",
+          "label": "3人分くらい",
+          "summary": "洗濯物は3人分くらい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "dryingSpeed",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "airflow",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "energyEfficiency",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "l4",
+          "label": "4人以上・まとめ洗い",
+          "summary": "洗濯物は4人以上・まとめ洗い",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "dryingSpeed",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "dehumidPower",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "airflow",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "none",
+          "label": "衣類乾燥はあまり使わない",
+          "summary": "衣類乾燥はあまり使わない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "dehumidPower",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "energyEfficiency",
+              "value": 5,
+              "weight": 50
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "season",
+      "text": "冬の寒い時期にも使いますか？",
+      "shortLabel": "使う季節",
+      "weight": 16,
+      "options": [
+        {
+          "id": "summer",
+          "label": "春〜夏が中心",
+          "summary": "春〜夏が中心",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "energyEfficiency",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "dehumidPower",
+              "value": 5,
+              "weight": 40
+            }
+          ]
+        },
+        {
+          "id": "sometimes",
+          "label": "冬にもときどき使う",
+          "summary": "冬にもときどき使う",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "winterPerformance",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "energyEfficiency",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "dryingSpeed",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "often",
+          "label": "冬も頻繁に使う",
+          "summary": "冬も頻繁に使う",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "winterPerformance",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "dryingSpeed",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "yearround",
+          "label": "一年中しっかり使いたい",
+          "summary": "一年中しっかり使いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "winterPerformance",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "energyEfficiency",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "dryingSpeed",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "room",
+      "text": "主に使う部屋の広さは？",
+      "shortLabel": "部屋の広さ",
+      "weight": 14,
+      "options": [
+        {
+          "id": "r10",
+          "label": "10畳以下",
+          "summary": "10畳以下の部屋",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "compactness",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "energyEfficiency",
+              "value": 5,
+              "weight": 25
+            },
+            {
+              "type": "atLeast",
+              "attr": "quiet",
+              "value": 5,
+              "weight": 15
+            }
+          ]
+        },
+        {
+          "id": "r20",
+          "label": "11〜20畳",
+          "summary": "11〜20畳の部屋",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "dehumidPower",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "energyEfficiency",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "quiet",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "r21",
+          "label": "21畳以上",
+          "summary": "21畳以上の部屋",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "dehumidPower",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "unknown",
+          "label": "まだ分からない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "priority",
+      "text": "一番重視したいことは？",
+      "shortLabel": "重視すること",
+      "weight": 16,
+      "options": [
+        {
+          "id": "fast",
+          "label": "洗濯物を早く乾かしたい",
+          "summary": "洗濯物を早く乾かしたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "dryingSpeed",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "eco",
+          "label": "電気代を抑えたい",
+          "summary": "電気代を抑えたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "energyEfficiency",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "quiet",
+          "label": "静かに使いたい",
+          "summary": "静かに使いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "quiet",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "compact",
+          "label": "コンパクトさ",
+          "summary": "コンパクトさを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "compactness",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "auto",
+          "label": "自動運転・衣類ケア機能",
+          "summary": "自動運転・衣類ケア機能を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "autoControl",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "cleanlinessCare",
+              "value": 5,
+              "weight": 40
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drain",
+      "text": "連続排水は必要ですか？",
+      "shortLabel": "連続排水",
+      "weight": 10,
+      "options": [
+        {
+          "id": "must",
+          "label": "必須",
+          "summary": "連続排水が必須",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "tankEase",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "continuousDrain",
+            "value": true,
+            "notice": "連続排水に対応した機種からおすすめを表示しています。",
+            "supplementLabel": "連続排水の対応を確認できない機種です"
+          }
+        },
+        {
+          "id": "nice",
+          "label": "できれば欲しい",
+          "summary": "連続排水はできれば欲しい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "tankEase",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "feature",
+              "attr": "continuousDrain",
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "none",
+          "label": "必要ない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "budget",
+      "text": "予算はいくらまで？",
+      "shortLabel": "予算",
+      "weight": 8,
+      "options": [
+        {
+          "id": "b1",
+          "label": "33,000円以下",
+          "summary": "予算33,000円以下",
+          "effects": [],
+          "maxPriceRange": 1
+        },
+        {
+          "id": "b2",
+          "label": "40,000円以下",
+          "summary": "予算40,000円以下",
+          "effects": [],
+          "maxPriceRange": 2
+        },
+        {
+          "id": "b3",
+          "label": "60,000円以下",
+          "summary": "予算60,000円以下",
+          "effects": [],
+          "maxPriceRange": 3
+        },
+        {
+          "id": "b4",
+          "label": "80,000円以下",
+          "summary": "予算80,000円以下",
+          "effects": [],
+          "maxPriceRange": 4
+        },
+        {
+          "id": "any",
+          "label": "上限なし",
+          "effects": []
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "dehumidifier-101",
+      "name": "アイリスオーヤマ 衣類乾燥除湿機 IJC-P70",
+      "description": "コンプレッサー式の衣類乾燥除湿機。定格除湿能力は60Hzで7.3L/日、消費電力は60Hzで190Wです。",
+      "priceRange": 1,
+      "features": [
+        "コンプレッサー式・7.3L/日（60Hz）",
+        "衣類乾燥時間 約157分（JEMA基準）",
+        "幅244×奥行233×高さ430mm・タンク約2.5L・連続排水対応"
+      ],
+      "pros": [
+        "消費電力が小さい",
+        "コンパクトで置き場所を取りにくい"
+      ],
+      "cons": [
+        "低温時は除湿能力が下がりやすい方式です"
+      ],
+      "recommendFor": "1〜2人分の部屋干しや梅雨〜夏の除湿を、電気代を抑えて行いたい人",
+      "caution": "リンク先はホワイト（IJC-P70-W）の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0C1S1S2VS/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tak5o.d8zue462.g00tak5o.d8zuffe9/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdaiyu8%2F4967576654197%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdaiyu8%2Fi%2F10116740%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/daiyu8/cabinet/images30/4967576654197_1.jpg?_ex=300x300",
+      "attributes": {
+        "dehumidPower": 2,
+        "dryingSpeed": 2,
+        "winterPerformance": 2,
+        "energyEfficiency": 5,
+        "quiet": 3,
+        "compactness": 5,
+        "airflow": 2,
+        "autoControl": 3,
+        "tankEase": 3,
+        "cleanlinessCare": 2,
+        "neutralFit": 3,
+        "method": "compressor",
+        "continuousDrain": true,
+        "dehumidLiters": 7.3,
+        "maxDehumidLiters": 0,
+        "dryingMinutes": 157,
+        "tankLiters": 2.5,
+        "powerW": 190,
+        "winterMode": false
+      }
+    },
+    {
+      "id": "dehumidifier-102",
+      "name": "アイリスオーヤマ サーキュレーター衣類乾燥除湿機 IJD-I50",
+      "description": "デシカント式の除湿機にサーキュレーターを一体化したモデル。定格除湿能力は5.0L/日、消費電力は590Wです。",
+      "priceRange": 1,
+      "features": [
+        "デシカント式・5.0L/日",
+        "サーキュレーター一体型",
+        "幅287×奥行234×高さ640mm・約7.8kg"
+      ],
+      "pros": [
+        "洗濯物に広く風を当てやすい",
+        "低温時にも能力を保ちやすい方式"
+      ],
+      "cons": [
+        "消費電力は590Wと大きめです"
+      ],
+      "recommendFor": "冬場の部屋干しで、洗濯物に広く風を当てたい人",
+      "caution": "リンク先はIJD-I50-WHの出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ucs7o.d8zue8b0.g00ucs7o.d8zuf8f0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fvivahome%2F60021136%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fvivahome%2Fi%2F10039118%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/vivahome/cabinet/02431_080711/4967576473323_x001.jpg?_ex=300x300",
+      "attributes": {
+        "dehumidPower": 2,
+        "dryingSpeed": 4,
+        "winterPerformance": 5,
+        "energyEfficiency": 1,
+        "quiet": 3,
+        "compactness": 3,
+        "airflow": 5,
+        "autoControl": 2,
+        "tankEase": 3,
+        "cleanlinessCare": 2,
+        "neutralFit": 3,
+        "method": "desiccant",
+        "continuousDrain": false,
+        "dehumidLiters": 5,
+        "maxDehumidLiters": 0,
+        "dryingMinutes": 0,
+        "tankLiters": 2.5,
+        "powerW": 590,
+        "winterMode": true
+      }
+    },
+    {
+      "id": "dehumidifier-103",
+      "name": "SHARP 衣類乾燥除湿機 CV-U60",
+      "description": "デシカント式の衣類乾燥除湿機。高さ約32.3cmのロータイプで、除湿能力は5.6L/日（60Hz）です。",
+      "priceRange": 1,
+      "features": [
+        "デシカント式・5.6L/日（60Hz）",
+        "幅300×奥行300×高さ323mm・約6.7kg",
+        "プラズマクラスター7000"
+      ],
+      "pros": [
+        "低温時にも能力を保ちやすい方式",
+        "背が低くラック下などに置きやすい"
+      ],
+      "cons": [
+        "衣類乾燥時の消費電力は570W（60Hz）です",
+        "タンク容量は約1.5Lです"
+      ],
+      "recommendFor": "冬場に少量の洗濯物を乾かしたい人、低い場所に置きたい人",
+      "caution": "リンク先はホワイト系（CV-U60-W）の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r9svo.d8zue4d3.g00r9svo.d8zuf0f9/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fedion%2F4550556196802%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fedion%2Fi%2F10895566%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/edion/cabinet/goods/ll/img_345/4550556196802_1.jpg?_ex=300x300",
+      "attributes": {
+        "dehumidPower": 2,
+        "dryingSpeed": 4,
+        "winterPerformance": 5,
+        "energyEfficiency": 1,
+        "quiet": 3,
+        "compactness": 5,
+        "airflow": 3,
+        "autoControl": 4,
+        "tankEase": 2,
+        "cleanlinessCare": 4,
+        "neutralFit": 3,
+        "method": "desiccant",
+        "continuousDrain": false,
+        "dehumidLiters": 5.6,
+        "maxDehumidLiters": 0,
+        "dryingMinutes": 99,
+        "tankLiters": 1.5,
+        "powerW": 570,
+        "winterMode": true
+      }
+    },
+    {
+      "id": "dehumidifier-104",
+      "name": "SHARP 衣類乾燥除湿機 CV-U71",
+      "description": "コンプレッサー式の衣類乾燥除湿機。除湿能力は7.1L/日（60Hz）で、市販のホースで連続排水できます。",
+      "priceRange": 2,
+      "features": [
+        "コンプレッサー式・7.1L/日（60Hz）",
+        "連続排水対応",
+        "幅303×奥行203×高さ524mm・約9.6kg"
+      ],
+      "pros": [
+        "衣類乾燥時の消費電力が約210W（60Hz）と小さい",
+        "奥行203mmで置きやすい"
+      ],
+      "cons": [
+        "衣類乾燥時間は約167分です"
+      ],
+      "recommendFor": "電気代と静かさを重視して、コンパクトな除湿機を選びたい人",
+      "caution": "リンク先はホワイト系（CV-U71-W）の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q4jmo.d8zue02d.g00q4jmo.d8zuf7a0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkaden-sakura%2F4550556189699%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkaden-sakura%2Fi%2F10193969%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/kaden-sakura/cabinet/gazou82/cv-u71-w.jpg?_ex=300x300",
+      "attributes": {
+        "dehumidPower": 3,
+        "dryingSpeed": 2,
+        "winterPerformance": 2,
+        "energyEfficiency": 5,
+        "quiet": 5,
+        "compactness": 5,
+        "airflow": 2,
+        "autoControl": 4,
+        "tankEase": 4,
+        "cleanlinessCare": 4,
+        "neutralFit": 3,
+        "method": "compressor",
+        "continuousDrain": true,
+        "dehumidLiters": 7.1,
+        "maxDehumidLiters": 0,
+        "dryingMinutes": 167,
+        "tankLiters": 2.5,
+        "powerW": 210,
+        "winterMode": false
+      }
+    },
+    {
+      "id": "dehumidifier-105",
+      "name": "コロナ 衣類乾燥除湿機 Hシリーズ CD-H1026",
+      "description": "コンプレッサー式の衣類乾燥除湿機。室温10℃未満ではヒーターを併用する冬モードと、夜干しモードを搭載しています。",
+      "priceRange": 3,
+      "features": [
+        "コンプレッサー式＋冬モード（ヒーター併用）",
+        "除湿能力 9.0/10.0L/日（50/60Hz）",
+        "大容量タンク 約4.5L・連続排水対応"
+      ],
+      "pros": [
+        "タンクが大きく水捨ての回数を減らせる",
+        "運転音 36〜41dB"
+      ],
+      "cons": [
+        "冬モード時は消費電力が大きくなります（最大530W・60Hz）"
+      ],
+      "recommendFor": "中くらいの量の部屋干しを、冬も含めて行いたい人",
+      "caution": "リンク先はエレガントブルー（CD-H1026(AE)）の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00po0ao.d8zuef8e.g00po0ao.d8zuf985/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdejikura%2F4906128578239%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdejikura%2Fi%2F10102909%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/dejikura/cabinet/ir034/4906128578239_1.jpg?_ex=300x300",
+      "attributes": {
+        "dehumidPower": 4,
+        "dryingSpeed": 4,
+        "winterPerformance": 4,
+        "energyEfficiency": 3,
+        "quiet": 4,
+        "compactness": 3,
+        "airflow": 4,
+        "autoControl": 4,
+        "tankEase": 5,
+        "cleanlinessCare": 4,
+        "neutralFit": 3,
+        "method": "compressor",
+        "continuousDrain": true,
+        "dehumidLiters": 10,
+        "maxDehumidLiters": 0,
+        "dryingMinutes": 87,
+        "tankLiters": 4.5,
+        "powerW": 530,
+        "winterMode": true
+      }
+    },
+    {
+      "id": "dehumidifier-106",
+      "name": "三菱電機 衣類乾燥除湿機 サラリ MJ-M120ZX",
+      "description": "衣類乾燥に特化したコンプレッサー式の除湿機。部屋干しおまかせムーブアイで洗濯物を見分けて乾かします。",
+      "priceRange": 3,
+      "features": [
+        "コンプレッサー式・11/12L/日（50/60Hz）",
+        "部屋干しおまかせムーブアイ",
+        "連続排水対応・タンク約3.0L"
+      ],
+      "pros": [
+        "洗濯物の乾き具合に合わせて風を当てる",
+        "連続排水に対応"
+      ],
+      "cons": [
+        "衣類乾燥時の運転音は49dBです"
+      ],
+      "recommendFor": "部屋干しを、乾き残りを抑えて任せたい人",
+      "caution": "リンク先はホワイト（MJ-M120ZX-W）の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pjgho.d8zuef1c.g00pjgho.d8zuf387/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmasanios%2Fmitsubishi-mj-m120zx-w%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmasanios%2Fi%2F10182935%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/masanios/cabinet/13360968/imgrc0137910017.jpg?_ex=300x300",
+      "attributes": {
+        "dehumidPower": 4,
+        "dryingSpeed": 5,
+        "winterPerformance": 3,
+        "energyEfficiency": 3,
+        "quiet": 4,
+        "compactness": 3,
+        "airflow": 5,
+        "autoControl": 5,
+        "tankEase": 4,
+        "cleanlinessCare": 4,
+        "neutralFit": 3,
+        "method": "compressor",
+        "continuousDrain": true,
+        "dehumidLiters": 12,
+        "maxDehumidLiters": 0,
+        "dryingMinutes": 0,
+        "tankLiters": 3,
+        "powerW": 385,
+        "winterMode": false
+      }
+    },
+    {
+      "id": "dehumidifier-107",
+      "name": "Panasonic エコ・ハイブリッド方式 衣類乾燥除湿機 F-YEX90D",
+      "description": "ヒーターの代わりに2つの除湿のしくみを持つエコ・ハイブリッド方式の衣類乾燥除湿機。定格除湿能力は約8.5L/日（60Hz）です。",
+      "priceRange": 3,
+      "features": [
+        "エコ・ハイブリッド方式・7.8/8.5L/日（50/60Hz）",
+        "消費電力 175/185W・ナノイーX",
+        "幅335×奥行250×高さ470mm・約9.7kg・タンク約2.4L"
+      ],
+      "pros": [
+        "消費電力を抑えながら一年中使える",
+        "湿度・乾き具合に合わせた自動運転"
+      ],
+      "cons": [
+        "連続排水には対応していません"
+      ],
+      "recommendFor": "季節を問わず、電気代を抑えて部屋干しをしたい人",
+      "caution": "リンク先はパナソニック公式店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0GSFV4W94/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ubhyo.d8zue3ff.g00ubhyo.d8zuf4bd/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpanasonic-store%2Ff-yex90d-w%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpanasonic-store%2Fi%2F10001944%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/panasonic-store/cabinet/banner/12923490/f-yex90d_main02.jpg?_ex=300x300",
+      "attributes": {
+        "dehumidPower": 3,
+        "dryingSpeed": 3,
+        "winterPerformance": 5,
+        "energyEfficiency": 5,
+        "quiet": 4,
+        "compactness": 4,
+        "airflow": 4,
+        "autoControl": 5,
+        "tankEase": 3,
+        "cleanlinessCare": 5,
+        "neutralFit": 3,
+        "method": "hybrid",
+        "continuousDrain": false,
+        "dehumidLiters": 8.5,
+        "maxDehumidLiters": 0,
+        "dryingMinutes": 125,
+        "tankLiters": 2.4,
+        "powerW": 185,
+        "winterMode": true
+      }
+    },
+    {
+      "id": "dehumidifier-108",
+      "name": "三菱電機 衣類乾燥除湿機 サラリPro MJ-P180ZX",
+      "description": "コンプレッサー式のハイパワータイプ。除湿能力は15.5/18L/日（50/60Hz）で、冬モードと連続排水に対応しています。",
+      "priceRange": 3,
+      "features": [
+        "コンプレッサー式・15.5/18L/日（50/60Hz）",
+        "冬モード",
+        "連続排水対応・タンク約4.7L"
+      ],
+      "pros": [
+        "広い部屋や大量の洗濯物に対応しやすい",
+        "夜干し時の運転音 38dB"
+      ],
+      "cons": [
+        "幅372×奥行281×高さ594mm・約15.2kgと大きめです"
+      ],
+      "recommendFor": "家族の大量の洗濯物や、広い部屋の除湿をしたい人",
+      "caution": "リンク先はホワイト（MJ-P180ZX-W）の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pjgho.d8zuef1c.g00pjgho.d8zuf387/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmasanios%2Fmitsubishi-mj-p180zx-w%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmasanios%2Fi%2F10182936%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/masanios/cabinet/13360968/imgrc0137910096.jpg?_ex=300x300",
+      "attributes": {
+        "dehumidPower": 5,
+        "dryingSpeed": 4,
+        "winterPerformance": 5,
+        "energyEfficiency": 3,
+        "quiet": 4,
+        "compactness": 2,
+        "airflow": 4,
+        "autoControl": 4,
+        "tankEase": 5,
+        "cleanlinessCare": 4,
+        "neutralFit": 3,
+        "method": "compressor",
+        "continuousDrain": true,
+        "dehumidLiters": 18,
+        "maxDehumidLiters": 0,
+        "dryingMinutes": 0,
+        "tankLiters": 4.7,
+        "powerW": 390,
+        "winterMode": true
+      }
+    },
+    {
+      "id": "dehumidifier-109",
+      "name": "SHARP HYBRID 365 衣類乾燥除湿機 CV-UH160",
+      "description": "ハイブリッド方式の衣類乾燥除湿機。音控えめモードでは除湿・衣類乾燥とも35dBで、連続排水に対応しています。",
+      "priceRange": 4,
+      "features": [
+        "ハイブリッド方式・定格12.5/15L/日（最大14/16L/日）",
+        "衣類乾燥 約54分（梅雨時）・運転音 速乾43dB／音控えめ35dB",
+        "幅365×奥行245×高さ660mm・約16.2kg・タンク約4.0L・連続排水対応"
+      ],
+      "pros": [
+        "一年中速く乾かしやすい",
+        "運転音が小さめ"
+      ],
+      "cons": [
+        "販売店の表示では「メーカー在庫限り」の場合があります"
+      ],
+      "recommendFor": "一年中、洗濯物を速く静かに乾かしたい人",
+      "caution": "リンク先はグレー系（CV-UH160-H）の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qj7mo.d8zuec9b.g00qj7mo.d8zufd21/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fd-rise%2Fp000000974928%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fd-rise%2Fi%2F23280263%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/d-rise/cabinet/img055/p000000974928_1.jpg?_ex=300x300",
+      "attributes": {
+        "dehumidPower": 5,
+        "dryingSpeed": 5,
+        "winterPerformance": 5,
+        "energyEfficiency": 3,
+        "quiet": 5,
+        "compactness": 3,
+        "airflow": 5,
+        "autoControl": 5,
+        "tankEase": 5,
+        "cleanlinessCare": 5,
+        "neutralFit": 3,
+        "method": "hybrid",
+        "continuousDrain": true,
+        "dehumidLiters": 15,
+        "maxDehumidLiters": 16,
+        "dryingMinutes": 54,
+        "tankLiters": 4,
+        "powerW": 295,
+        "winterMode": true
+      }
+    },
+    {
+      "id": "dehumidifier-110",
+      "name": "Panasonic エコ・ハイブリッド方式 衣類乾燥除湿機 F-YEX200D",
+      "description": "エコ・ハイブリッド方式の大容量モデル。定格除湿能力は約20L/日（60Hz）で、連続排水に対応しています。",
+      "priceRange": 5,
+      "features": [
+        "エコ・ハイブリッド方式・18.5/20.0L/日（50/60Hz）",
+        "消費電力 310/330W・衣類乾燥 約70〜80分",
+        "約16.3kg・タンク約5.0L・連続排水対応"
+      ],
+      "pros": [
+        "大量の洗濯物や広い部屋に対応しやすい",
+        "大容量でも消費電力を抑えた方式"
+      ],
+      "cons": [
+        "本体が大きく、置き場所が必要です"
+      ],
+      "recommendFor": "家族の大量の洗濯物を、一年中まとめて乾かしたい人",
+      "caution": "リンク先はパナソニック公式店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0GSFWB6BW/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ubhyo.d8zue3ff.g00ubhyo.d8zuf4bd/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpanasonic-store%2Ff-yex200d-w%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpanasonic-store%2Fi%2F10001945%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/panasonic-store/cabinet/banner/thumb/f-yex200d_main01.jpg?_ex=300x300",
+      "attributes": {
+        "dehumidPower": 5,
+        "dryingSpeed": 5,
+        "winterPerformance": 5,
+        "energyEfficiency": 5,
+        "quiet": 4,
+        "compactness": 2,
+        "airflow": 5,
+        "autoControl": 5,
+        "tankEase": 5,
+        "cleanlinessCare": 5,
+        "neutralFit": 3,
+        "method": "hybrid",
+        "continuousDrain": true,
+        "dehumidLiters": 20,
+        "maxDehumidLiters": 0,
+        "dryingMinutes": 75,
+        "tankLiters": 5,
+        "powerW": 330,
+        "winterMode": true
+      }
+    }
+  ],
+  "scoring": {
+    "tieBreak": true,
+    "softenPartialReason": true,
+    "lowMatchNotice": "条件をすべて満たす商品が少ないため、近い候補を表示しています。"
+  },
+  "guide": {
+    "title": "除湿機の選び方",
+    "intro": "この診断は、家庭用の衣類乾燥除湿機を対象に、メーカー公表の仕様をもとに以下のポイントとあなたの回答を照らし合わせて相性を計算しています。",
+    "sections": [
+      {
+        "heading": "除湿方式",
+        "body": "コンプレッサー式は気温の高い時期に除湿しやすく消費電力が比較的小さい方式、デシカント式は低温時にも能力を保ちやすい一方でヒーターを使うため消費電力が大きめの方式です。ハイブリッド式は季節を問わず使いやすい方式です。"
+      },
+      {
+        "heading": "除湿能力と部屋の広さ",
+        "body": "大きな部屋や大量の洗濯物には除湿能力の高い機種が向いています。小さな部屋や少量なら、コンパクトで消費電力の小さい機種も選択肢になります。"
+      },
+      {
+        "heading": "連続排水とタンク",
+        "body": "長時間使う場合は、連続排水に対応しているか、タンクの容量と水の捨てやすさを確認しましょう。"
+      }
+    ]
+  },
+  "notice": "除湿機には部屋を冷房する機能はありません。運転中は本体の発熱などにより室温が上がることがあります。除湿可能面積は建物構造、50Hz／60Hz、室温、湿度などで変わるため、購入前にメーカーの仕様を確認してください。衣類乾燥時間も、洗濯物の量・素材・干し方・室温・湿度によって変わります。価格は変動するため、購入時に販売ページでご確認ください。"
+}
