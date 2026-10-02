@@ -270,7 +270,8 @@ function main() {
   if (register) {
     registry = fs.readFileSync(REGISTRY, 'utf8')
     const existing = fs.readdirSync(DIAGNOSES_DIR).filter((f) => f.endsWith('.ts') && f !== 'index.ts' && f !== 'shared.ts')
-    const dup = existing.find((f) => new RegExp(`^\\s*id: '${id}',\\s*$`, 'm').test(fs.readFileSync(path.join(DIAGNOSES_DIR, f), 'utf8')))
+    // 診断そのものの id（インデント2つ）だけを見る。質問・選択肢の id（例：モバイルバッテリー診断の選択肢 'tablet'）とは区別する
+    const dup = existing.find((f) => new RegExp(`^  id: '${id}',\\s*$`, 'm').test(fs.readFileSync(path.join(DIAGNOSES_DIR, f), 'utf8')))
     if (dup) throw new SpecError(`診断「${id}」は ${dup} にすでにあります（上書きしません）`)
     if (new RegExp(`\\b${exportName}\\b`).test(registry)) throw new SpecError(`index.ts に「${exportName}」がすでにあります`)
   }
