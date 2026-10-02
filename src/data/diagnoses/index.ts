@@ -27,6 +27,7 @@ import { washingMachine } from './washingMachine.ts'
 import { mattress } from './mattress.ts'
 import { dehumidifier } from './dehumidifier.ts'
 import { dishwasher } from './dishwasher.ts'
+import { mensShaver } from './mensShaver.ts'
 
 /**
  * 診断の一覧（登録簿）。
@@ -62,6 +63,7 @@ const allDiagnoses: Diagnosis[] = [
   mattress,
   dehumidifier,
   dishwasher,
+  mensShaver,
 ]
 
 /**
