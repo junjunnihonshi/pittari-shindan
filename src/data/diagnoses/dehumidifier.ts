@@ -631,7 +631,7 @@ export const dehumidifier: Diagnosis = {
           summary: '連続排水はできれば欲しい',
           effects: [{ type: 'atLeast', attr: 'tankEase', value: 5, weight: 70 }, feature('continuousDrain', 30)],
         },
-        { id: 'none', label: '必要ない', effects: [{ type: 'atLeast', attr: 'neutralFit', value: 3, weight: 100 }] },
+        { id: 'none', label: '必要ない', summary: '連続排水は必要ない', effects: [{ type: 'atLeast', attr: 'neutralFit', value: 3, weight: 100 }] },
       ],
     },
     {

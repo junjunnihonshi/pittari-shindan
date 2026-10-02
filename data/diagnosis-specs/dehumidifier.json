@@ -541,6 +541,7 @@
         {
           "id": "none",
           "label": "必要ない",
+          "summary": "連続排水は必要ない",
           "effects": [
             {
               "type": "atLeast",
