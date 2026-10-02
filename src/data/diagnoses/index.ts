@@ -29,6 +29,7 @@ import { dehumidifier } from './dehumidifier.ts'
 import { dishwasher } from './dishwasher.ts'
 import { mensShaver } from './mensShaver.ts'
 import { wirelessEarbuds } from './wirelessEarbuds.ts'
+import { projector } from './projector.ts'
 
 /**
  * 診断の一覧（登録簿）。
@@ -66,6 +67,7 @@ const allDiagnoses: Diagnosis[] = [
   dishwasher,
   mensShaver,
   wirelessEarbuds,
+  projector,
 ]
 
 /**
