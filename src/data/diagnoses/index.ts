@@ -26,6 +26,7 @@ import { bodySoap } from './bodySoap.ts'
 import { washingMachine } from './washingMachine.ts'
 import { mattress } from './mattress.ts'
 import { dehumidifier } from './dehumidifier.ts'
+import { dishwasher } from './dishwasher.ts'
 
 /**
  * 診断の一覧（登録簿）。
@@ -60,6 +61,7 @@ const allDiagnoses: Diagnosis[] = [
   washingMachine,
   mattress,
   dehumidifier,
+  dishwasher,
 ]
 
 /**
