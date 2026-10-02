@@ -30,6 +30,7 @@ import { dishwasher } from './dishwasher.ts'
 import { mensShaver } from './mensShaver.ts'
 import { wirelessEarbuds } from './wirelessEarbuds.ts'
 import { projector } from './projector.ts'
+import { tablet } from './tablet.ts'
 
 /**
  * 診断の一覧（登録簿）。
@@ -68,6 +69,7 @@ const allDiagnoses: Diagnosis[] = [
   mensShaver,
   wirelessEarbuds,
   projector,
+  tablet,
 ]
 
 /**

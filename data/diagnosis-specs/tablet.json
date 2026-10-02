@@ -1,0 +1,1494 @@
+{
+  "id": "tablet",
+  "enabled": false,
+  "title": "タブレット診断",
+  "itemName": "タブレット",
+  "group": "digital",
+  "icon": "📱",
+  "cardDescription": "用途、画面サイズ、使っているスマホ、ペン、保存容量から、あなたに合うiPad・Androidタブレットを診断。",
+  "description": "主な用途や画面サイズ、使っているスマホ、ペンの使い方、データの保存方法、重視したいこと、予算などから、あなたに合うiPad・Androidタブレットを絞り込みます。",
+  "searchKeywords": [
+    "タブレット",
+    "タブレット診断",
+    "iPad",
+    "アイパッド",
+    "Androidタブレット",
+    "アンドロイドタブレット",
+    "小型タブレット",
+    "8インチ タブレット",
+    "11インチ タブレット",
+    "12インチ タブレット",
+    "大画面 タブレット",
+    "動画 タブレット",
+    "勉強 タブレット",
+    "学習 タブレット",
+    "ノート タブレット",
+    "手書き タブレット",
+    "イラスト タブレット",
+    "お絵描き タブレット",
+    "仕事 タブレット",
+    "ゲーム タブレット",
+    "ペン対応 タブレット",
+    "microSD タブレット",
+    "iPhone タブレット",
+    "Galaxy タブレット",
+    "Xiaomi タブレット",
+    "Lenovo タブレット",
+    "LAVIE タブレット",
+    "Apple Pencil",
+    "Sペン"
+  ],
+  "seo": {
+    "title": "タブレット診断｜用途・サイズ・ペン・スマホからおすすめを比較",
+    "description": "動画、勉強、手書き、イラスト、仕事、ゲーム、画面サイズ、スマホ連携、ストレージ、予算から、あなたに合うiPad・Androidタブレットを診断します。"
+  },
+  "priceLabels": {
+    "1": "〜58,000円",
+    "2": "58,000〜85,000円",
+    "3": "85,000〜122,000円",
+    "4": "122,000〜180,000円",
+    "5": "180,000円〜"
+  },
+  "questions": [
+    {
+      "id": "use",
+      "text": "主な用途は？",
+      "shortLabel": "用途",
+      "weight": 20,
+      "options": [
+        {
+          "id": "media",
+          "label": "動画・ネット・普段使い",
+          "summary": "動画やネットなど普段使い",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "mediaExperience",
+              "value": 5,
+              "weight": 55
+            },
+            {
+              "type": "atLeast",
+              "attr": "displayQuality",
+              "value": 5,
+              "weight": 25
+            },
+            {
+              "type": "atLeast",
+              "attr": "battery",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "study",
+          "label": "読書・勉強",
+          "summary": "読書や勉強に使う",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "displayQuality",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "battery",
+              "value": 5,
+              "weight": 25
+            },
+            {
+              "type": "atLeast",
+              "attr": "portability",
+              "value": 5,
+              "weight": 25
+            },
+            {
+              "type": "atLeast",
+              "attr": "penExperience",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "note",
+          "label": "ノート・手書き",
+          "summary": "ノートや手書きに使う",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "penExperience",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "battery",
+              "value": 5,
+              "weight": 20
+            },
+            {
+              "type": "atLeast",
+              "attr": "portability",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "art",
+          "label": "イラスト・クリエイティブ",
+          "summary": "イラストやクリエイティブに使う",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "creative",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "penExperience",
+              "value": 5,
+              "weight": 35
+            },
+            {
+              "type": "atLeast",
+              "attr": "displayQuality",
+              "value": 5,
+              "weight": 15
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "label": "仕事・マルチタスク",
+          "summary": "仕事やマルチタスクに使う",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "productivity",
+              "value": 5,
+              "weight": 55
+            },
+            {
+              "type": "atLeast",
+              "attr": "performance",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "displayQuality",
+              "value": 5,
+              "weight": 15
+            }
+          ]
+        },
+        {
+          "id": "game",
+          "label": "ゲーム",
+          "summary": "ゲームをする",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "gaming",
+              "value": 5,
+              "weight": 55
+            },
+            {
+              "type": "atLeast",
+              "attr": "performance",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "displayQuality",
+              "value": 5,
+              "weight": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "size",
+      "text": "サイズは？",
+      "shortLabel": "サイズ",
+      "weight": 14,
+      "options": [
+        {
+          "id": "compact",
+          "label": "小型の8〜9インチ台がいい",
+          "summary": "小型の8〜9インチ台がいい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "portability",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "performance",
+              "value": 5,
+              "weight": 30
+            }
+          ],
+          "eligibility": {
+            "attr": "compactTablet",
+            "value": true,
+            "notice": "8〜9インチ台の小型タブレットからおすすめを表示しています。",
+            "supplementLabel": "小型（8〜9インチ台）ではありません"
+          }
+        },
+        {
+          "id": "mid",
+          "label": "10〜11インチ前後がいい",
+          "summary": "10〜11インチ前後がいい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "portability",
+              "value": 5,
+              "weight": 40
+            },
+            {
+              "type": "atLeast",
+              "attr": "displayQuality",
+              "value": 5,
+              "weight": 35
+            },
+            {
+              "type": "atLeast",
+              "attr": "performance",
+              "value": 5,
+              "weight": 25
+            }
+          ]
+        },
+        {
+          "id": "large",
+          "label": "12インチ以上の大画面がいい",
+          "summary": "12インチ以上の大画面がいい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "displayQuality",
+              "value": 5,
+              "weight": 55
+            },
+            {
+              "type": "atLeast",
+              "attr": "productivity",
+              "value": 5,
+              "weight": 25
+            },
+            {
+              "type": "atLeast",
+              "attr": "mediaExperience",
+              "value": 5,
+              "weight": 20
+            }
+          ],
+          "eligibility": {
+            "attr": "largeTablet",
+            "value": true,
+            "notice": "12インチ以上の大画面タブレットからおすすめを表示しています。",
+            "supplementLabel": "12インチ以上ではありません"
+          }
+        },
+        {
+          "id": "any",
+          "label": "特にこだわらない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phone",
+      "text": "使っているスマホは？",
+      "shortLabel": "スマホ",
+      "weight": 14,
+      "options": [
+        {
+          "id": "iphone",
+          "label": "iPhone",
+          "summary": "iPhoneを使っている",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "iphoneFit",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "galaxy",
+          "label": "Galaxy",
+          "summary": "Galaxyを使っている",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "galaxyFit",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "android",
+          "label": "Pixel・その他のAndroid",
+          "summary": "Androidスマホを使っている",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "androidFit",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "any",
+          "label": "特に連携は気にしない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pen",
+      "text": "ペンは使う？",
+      "shortLabel": "ペン",
+      "weight": 14,
+      "options": [
+        {
+          "id": "none",
+          "label": "使わない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "sometimes",
+          "label": "ときどきメモする",
+          "summary": "ときどきペンでメモする",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "penExperience",
+              "value": 5,
+              "weight": 40
+            },
+            {
+              "type": "atLeast",
+              "attr": "portability",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "productivity",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "note",
+          "label": "勉強・ノートでよく使う",
+          "summary": "勉強やノートでペンをよく使う",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "penExperience",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "battery",
+              "value": 5,
+              "weight": 15
+            },
+            {
+              "type": "atLeast",
+              "attr": "portability",
+              "value": 5,
+              "weight": 15
+            }
+          ],
+          "eligibility": {
+            "attr": "penSupported",
+            "value": true,
+            "notice": "ペンに対応した機種からおすすめを表示しています。",
+            "supplementLabel": "ペンに対応していません"
+          }
+        },
+        {
+          "id": "art",
+          "label": "イラストをしっかり描く",
+          "summary": "ペンでイラストをしっかり描く",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "penExperience",
+              "value": 5,
+              "weight": 55
+            },
+            {
+              "type": "atLeast",
+              "attr": "creative",
+              "value": 5,
+              "weight": 45
+            }
+          ],
+          "eligibility": {
+            "attr": "penSupported",
+            "value": true,
+            "notice": "ペンに対応した機種からおすすめを表示しています。",
+            "supplementLabel": "ペンに対応していません"
+          }
+        }
+      ]
+    },
+    {
+      "id": "storage",
+      "text": "データ保存は？",
+      "shortLabel": "データ保存",
+      "weight": 10,
+      "options": [
+        {
+          "id": "stream",
+          "label": "動画配信中心で容量はあまり気にしない",
+          "summary": "動画配信中心で容量はあまり気にしない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "mediaExperience",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "battery",
+              "value": 5,
+              "weight": 40
+            }
+          ]
+        },
+        {
+          "id": "some",
+          "label": "本体にある程度保存したい",
+          "summary": "本体にある程度保存したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "storageFlexibility",
+              "value": 5,
+              "weight": 40
+            },
+            {
+              "type": "atLeast",
+              "attr": "productivity",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "performance",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "lots",
+          "label": "写真・動画・ゲームをたくさん保存したい",
+          "summary": "写真・動画・ゲームをたくさん保存したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "storageFlexibility",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "performance",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "sd",
+          "label": "microSDで増やせることが必須",
+          "summary": "microSDで容量を増やしたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "storageFlexibility",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "microSD",
+            "value": true,
+            "notice": "microSDカードに対応した機種からおすすめを表示しています。",
+            "supplementLabel": "microSDカードに対応していません"
+          }
+        }
+      ]
+    },
+    {
+      "id": "priority",
+      "text": "一番重視するのは？",
+      "shortLabel": "重視すること",
+      "weight": 18,
+      "options": [
+        {
+          "id": "light",
+          "label": "軽くて持ち運びやすい",
+          "summary": "軽さ・持ち運びやすさを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "portability",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "battery",
+          "label": "バッテリー",
+          "summary": "バッテリーを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "battery",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "display",
+          "label": "画面のきれいさ・大きさ",
+          "summary": "画面のきれいさ・大きさを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "displayQuality",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "performance",
+          "label": "処理性能",
+          "summary": "処理性能を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "performance",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "label": "PCのように仕事で使いやすい",
+          "summary": "PCのように仕事で使いやすいことを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "productivity",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "budget",
+      "text": "予算は？",
+      "shortLabel": "予算",
+      "weight": 8,
+      "options": [
+        {
+          "id": "b1",
+          "label": "58,000円以下",
+          "summary": "予算58,000円以下",
+          "effects": [],
+          "maxPriceRange": 1
+        },
+        {
+          "id": "b2",
+          "label": "85,000円以下",
+          "summary": "予算85,000円以下",
+          "effects": [],
+          "maxPriceRange": 2
+        },
+        {
+          "id": "b3",
+          "label": "122,000円以下",
+          "summary": "予算122,000円以下",
+          "effects": [],
+          "maxPriceRange": 3
+        },
+        {
+          "id": "b4",
+          "label": "180,000円以下",
+          "summary": "予算180,000円以下",
+          "effects": [],
+          "maxPriceRange": 4
+        },
+        {
+          "id": "any",
+          "label": "上限なし",
+          "effects": []
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "tablet-101",
+      "name": "Xiaomi REDMI Pad 2 Pro",
+      "description": "12.1インチ・2560×1600の大画面Androidタブレット。12000mAhのバッテリーを搭載し、microSDで容量を増やせます。",
+      "priceRange": 1,
+      "features": [
+        "12.1インチ・2560×1600・最大120Hz",
+        "Snapdragon 7s Gen 4・6GB/128GB",
+        "12000mAhバッテリー・microSD対応"
+      ],
+      "pros": [
+        "大画面で動画を見やすい",
+        "バッテリー容量が大きい"
+      ],
+      "cons": [
+        "ペンは別売です",
+        "大画面のぶん重めです"
+      ],
+      "recommendFor": "手頃な価格で、大画面の動画や読書を楽しみたい人",
+      "caution": "リンク先はXiaomi公式店の出品です。6GB+128GBを選んで購入してください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FNN1B3DK/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u4hyo.d8zued8c.g00u4hyo.d8zuf50c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fxiaomiofficial%2Fm00061%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fxiaomiofficial%2Fi%2F10000128%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/xiaomiofficial/cabinet/12176988/12176992/14.jpg?_ex=300x300",
+      "attributes": {
+        "performance": 3,
+        "displayQuality": 4,
+        "portability": 2,
+        "battery": 5,
+        "penExperience": 3,
+        "creative": 2,
+        "productivity": 3,
+        "gaming": 3,
+        "mediaExperience": 5,
+        "storageFlexibility": 5,
+        "iphoneFit": 1,
+        "galaxyFit": 3,
+        "androidFit": 5,
+        "neutralFit": 3,
+        "os": "Android",
+        "screenInch": 12.1,
+        "compactTablet": false,
+        "largeTablet": true,
+        "resolution": "2560×1600",
+        "refreshRateHz": 120,
+        "chipset": "Snapdragon 7s Gen 4",
+        "ramGB": 6,
+        "storageGB": 128,
+        "microSD": true,
+        "penSupported": true,
+        "penIncluded": false,
+        "batteryCapacity": 12000
+      }
+    },
+    {
+      "id": "tablet-102",
+      "name": "Samsung Galaxy Tab A11+ 5G",
+      "description": "11インチのGalaxyタブレット。5G通信に対応し、SIMを入れて単体で通信できます。microSDにも対応しています。",
+      "priceRange": 2,
+      "features": [
+        "11インチ・1920×1200・90Hz",
+        "5G対応（SIMフリー）・6GB/128GB",
+        "microSD対応・約482g"
+      ],
+      "pros": [
+        "外出先でも単体で通信できる",
+        "Galaxyスマホと連携しやすい"
+      ],
+      "cons": [
+        "Sペンには対応していません"
+      ],
+      "recommendFor": "Galaxyユーザーで、外出先でも使える手頃なタブレットが欲しい人",
+      "caution": "リンク先はJoshinの出品（5Gモデル）です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FXWXZ323/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4986773256164-41-46638-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14708513%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0046/4986773256164.jpg?_ex=300x300",
+      "attributes": {
+        "performance": 3,
+        "displayQuality": 3,
+        "portability": 3,
+        "battery": 4,
+        "penExperience": 1,
+        "creative": 1,
+        "productivity": 3,
+        "gaming": 3,
+        "mediaExperience": 4,
+        "storageFlexibility": 5,
+        "iphoneFit": 1,
+        "galaxyFit": 5,
+        "androidFit": 5,
+        "neutralFit": 3,
+        "os": "Android",
+        "screenInch": 11,
+        "compactTablet": false,
+        "largeTablet": false,
+        "resolution": "1920×1200",
+        "refreshRateHz": 90,
+        "ramGB": 6,
+        "storageGB": 128,
+        "microSD": true,
+        "penSupported": false,
+        "penIncluded": false,
+        "cellularCapable": true,
+        "weightG": 482
+      }
+    },
+    {
+      "id": "tablet-103",
+      "name": "NEC LAVIE Tab T11（PC-T1155MAS）",
+      "description": "国内メーカーNECの11インチAndroidタブレット。2560×1600・90Hzの画面とmicroSDに対応しています。",
+      "priceRange": 1,
+      "features": [
+        "11インチ・2560×1600・90Hz",
+        "Dimensity 6300・microSD対応",
+        "約485g・動画再生約12時間"
+      ],
+      "pros": [
+        "国内メーカーのサポート",
+        "学習や普段使いに使いやすい"
+      ],
+      "cons": [
+        "ペンは別売です"
+      ],
+      "recommendFor": "国内メーカーのタブレットで、動画や学習を始めたい人",
+      "caution": "リンク先はJoshinの出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4573640713594-41-46637-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14933274%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0117/4573640713594.jpg?_ex=300x300",
+      "attributes": {
+        "performance": 3,
+        "displayQuality": 4,
+        "portability": 3,
+        "battery": 4,
+        "penExperience": 3,
+        "creative": 2,
+        "productivity": 3,
+        "gaming": 2,
+        "mediaExperience": 4,
+        "storageFlexibility": 5,
+        "iphoneFit": 1,
+        "galaxyFit": 3,
+        "androidFit": 5,
+        "neutralFit": 3,
+        "os": "Android",
+        "screenInch": 11,
+        "compactTablet": false,
+        "largeTablet": false,
+        "resolution": "2560×1600",
+        "refreshRateHz": 90,
+        "chipset": "Dimensity 6300",
+        "microSD": true,
+        "penSupported": true,
+        "penIncluded": false,
+        "weightG": 485,
+        "videoBatteryHours": 12
+      }
+    },
+    {
+      "id": "tablet-104",
+      "name": "Lenovo Idea Tab Plus",
+      "description": "12.1インチ・2560×1600のAndroidタブレット。Lenovo Tab Penが付属し、10200mAhのバッテリーを搭載しています。",
+      "priceRange": 1,
+      "features": [
+        "12.1インチ・2560×1600・90Hz",
+        "Dimensity 6400・ペン付属",
+        "10200mAhバッテリー・microSD対応"
+      ],
+      "pros": [
+        "ペン付きで学習やメモに使いやすい",
+        "大画面で資料を見やすい"
+      ],
+      "cons": [
+        "大画面のぶん重めです"
+      ],
+      "recommendFor": "ペンで勉強や手書きメモをしたく、大画面も欲しい人",
+      "caution": "リンク先はLenovo公式店の出品です。128GBを選んで購入してください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0G12RQ76X/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qzxso.d8zue415.g00qzxso.d8zufb8c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flenovopc%2Fzag70411jp%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Flenovopc%2Fi%2F10006900%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_gold/lenovopc/images/thumbnail-1/default/zag70411jp.jpg?_ex=300x300",
+      "attributes": {
+        "performance": 3,
+        "displayQuality": 4,
+        "portability": 2,
+        "battery": 5,
+        "penExperience": 4,
+        "creative": 3,
+        "productivity": 4,
+        "gaming": 3,
+        "mediaExperience": 4,
+        "storageFlexibility": 4,
+        "iphoneFit": 1,
+        "galaxyFit": 3,
+        "androidFit": 5,
+        "neutralFit": 3,
+        "os": "Android",
+        "screenInch": 12.1,
+        "compactTablet": false,
+        "largeTablet": true,
+        "resolution": "2560×1600",
+        "refreshRateHz": 90,
+        "chipset": "Dimensity 6400",
+        "storageGB": 128,
+        "microSD": true,
+        "penSupported": true,
+        "penIncluded": true,
+        "batteryCapacity": 10200
+      }
+    },
+    {
+      "id": "tablet-105",
+      "name": "Apple iPad（A16）",
+      "description": "A16チップを搭載した11インチのiPad。Apple Pencil（USB-C）やMagic Keyboard Folioに対応しています。",
+      "priceRange": 2,
+      "features": [
+        "10.86インチ・2360×1640",
+        "A16チップ・128GB",
+        "Apple Pencil（USB-C）・Magic Keyboard Folio対応"
+      ],
+      "pros": [
+        "iPhoneと連携しやすい",
+        "動画・学習など幅広く使える"
+      ],
+      "cons": [
+        "Apple Intelligenceには対応していません",
+        "Apple Pencilは別売です"
+      ],
+      "recommendFor": "初めてのiPadで、動画や学習に幅広く使いたい人",
+      "caution": "リンク先はApple公式ストアです。Wi-Fi・128GBを選んで購入してください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0DZ895SXY/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "",
+      "officialUrl": "https://www.apple.com/jp/shop/buy-ipad/ipad",
+      "imageUrl": "",
+      "attributes": {
+        "performance": 4,
+        "displayQuality": 3,
+        "portability": 3,
+        "battery": 4,
+        "penExperience": 3,
+        "creative": 3,
+        "productivity": 4,
+        "gaming": 4,
+        "mediaExperience": 4,
+        "storageFlexibility": 1,
+        "iphoneFit": 5,
+        "galaxyFit": 1,
+        "androidFit": 1,
+        "neutralFit": 3,
+        "os": "iPadOS",
+        "screenInch": 10.86,
+        "compactTablet": false,
+        "largeTablet": false,
+        "resolution": "2360×1640",
+        "chipset": "A16",
+        "storageGB": 128,
+        "microSD": false,
+        "penSupported": true,
+        "penIncluded": false,
+        "keyboardSupported": true,
+        "weightG": 477,
+        "videoBatteryHours": 10,
+        "appleIntelligence": false
+      }
+    },
+    {
+      "id": "tablet-106",
+      "name": "Apple iPad mini（A17 Pro）",
+      "description": "8.3インチの小型iPad。A17 Proチップを搭載し、Apple Pencil ProやApple Intelligenceに対応しています。",
+      "priceRange": 3,
+      "features": [
+        "8.3インチ・約293g",
+        "A17 Proチップ・128GB",
+        "Apple Pencil Pro対応・Apple Intelligence対応"
+      ],
+      "pros": [
+        "小さく軽く、持ち歩きやすい",
+        "読書やメモに使いやすい"
+      ],
+      "cons": [
+        "画面が小さめです",
+        "Apple Pencilは別売です"
+      ],
+      "recommendFor": "小さいタブレットで、読書やメモを持ち歩いて使いたい人",
+      "caution": "リンク先はApple公式ストアです。Wi-Fi・128GBを選んで購入してください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0DK467P86/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "",
+      "officialUrl": "https://www.apple.com/jp/shop/buy-ipad/ipad-mini",
+      "imageUrl": "",
+      "attributes": {
+        "performance": 5,
+        "displayQuality": 4,
+        "portability": 5,
+        "battery": 4,
+        "penExperience": 5,
+        "creative": 4,
+        "productivity": 3,
+        "gaming": 5,
+        "mediaExperience": 3,
+        "storageFlexibility": 1,
+        "iphoneFit": 5,
+        "galaxyFit": 1,
+        "androidFit": 1,
+        "neutralFit": 3,
+        "os": "iPadOS",
+        "screenInch": 8.3,
+        "compactTablet": true,
+        "largeTablet": false,
+        "chipset": "A17 Pro",
+        "storageGB": 128,
+        "microSD": false,
+        "penSupported": true,
+        "penIncluded": false,
+        "weightG": 293,
+        "brightnessNits": 500,
+        "videoBatteryHours": 10,
+        "appleIntelligence": true
+      }
+    },
+    {
+      "id": "tablet-107",
+      "name": "Lenovo Legion Tab（8.8\", 5）",
+      "description": "8.8インチの小型ゲーミングタブレット。Snapdragon 8 Elite Gen 5を搭載し、12GB/256GBの構成です。",
+      "priceRange": 3,
+      "features": [
+        "8.8インチ・約360g",
+        "Snapdragon 8 Elite Gen 5・12GB/256GB",
+        "microSD対応・ペン対応（別売）"
+      ],
+      "pros": [
+        "小型でも高い処理性能",
+        "ゲームを持ち運んで楽しめる"
+      ],
+      "cons": [
+        "ペンは別売で、高リフレッシュレート時は使えない場合があります"
+      ],
+      "recommendFor": "小型タブレットで、ゲームを快適に楽しみたい人",
+      "caution": "リンク先はLenovo公式店の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qzxso.d8zue415.g00qzxso.d8zufb8c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flenovopc%2Fzah20015jp%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Flenovopc%2Fi%2F10007055%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_gold/lenovopc/images/thumbnail-1/default/zah20015jp.jpg?_ex=300x300",
+      "attributes": {
+        "performance": 5,
+        "displayQuality": 5,
+        "portability": 5,
+        "battery": 3,
+        "penExperience": 3,
+        "creative": 2,
+        "productivity": 3,
+        "gaming": 5,
+        "mediaExperience": 4,
+        "storageFlexibility": 5,
+        "iphoneFit": 1,
+        "galaxyFit": 3,
+        "androidFit": 5,
+        "neutralFit": 3,
+        "os": "Android",
+        "screenInch": 8.8,
+        "compactTablet": true,
+        "largeTablet": false,
+        "chipset": "Snapdragon 8 Elite Gen 5",
+        "ramGB": 12,
+        "storageGB": 256,
+        "microSD": true,
+        "penSupported": true,
+        "penIncluded": false,
+        "weightG": 360
+      }
+    },
+    {
+      "id": "tablet-108",
+      "name": "Xiaomi Pad 8 Pro",
+      "description": "Snapdragon 8 Eliteを搭載した11.2インチのAndroidタブレット。3200×2136・144Hzの画面で、Focus Pen Proに対応しています。",
+      "priceRange": 3,
+      "features": [
+        "11.2インチ・3200×2136・144Hz",
+        "Snapdragon 8 Elite・8GB/128GB",
+        "9200mAh・約485g"
+      ],
+      "pros": [
+        "処理性能が高く、ゲームや仕事に使える",
+        "高精細な画面"
+      ],
+      "cons": [
+        "microSDには対応していません",
+        "ペン・キーボードは別売です"
+      ],
+      "recommendFor": "Androidで、ゲームや仕事に使える高性能タブレットが欲しい人",
+      "caution": "リンク先はXiaomi公式店の出品です。8GB+128GBを選んで購入してください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FY52TWPQ/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u4hyo.d8zued8c.g00u4hyo.d8zuf50c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fxiaomiofficial%2Fm72100%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fxiaomiofficial%2Fi%2F10000648%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/xiaomiofficial/cabinet/12845735/12849613/12849623/123.jpg?_ex=300x300",
+      "attributes": {
+        "performance": 5,
+        "displayQuality": 5,
+        "portability": 3,
+        "battery": 5,
+        "penExperience": 5,
+        "creative": 5,
+        "productivity": 5,
+        "gaming": 5,
+        "mediaExperience": 5,
+        "storageFlexibility": 2,
+        "iphoneFit": 1,
+        "galaxyFit": 4,
+        "androidFit": 5,
+        "neutralFit": 3,
+        "os": "Android",
+        "screenInch": 11.2,
+        "compactTablet": false,
+        "largeTablet": false,
+        "resolution": "3200×2136",
+        "refreshRateHz": 144,
+        "brightnessNits": 800,
+        "chipset": "Snapdragon 8 Elite",
+        "ramGB": 8,
+        "storageGB": 128,
+        "microSD": false,
+        "penSupported": true,
+        "penIncluded": false,
+        "weightG": 485,
+        "batteryCapacity": 9200
+      }
+    },
+    {
+      "id": "tablet-109",
+      "name": "NEC LAVIE Tab EX（PC-TX117LAS）",
+      "description": "Snapdragon 8 Gen 3を搭載した11.1インチのAndroidタブレット。3200×2000の画面で、デジタルペンが付属します。",
+      "priceRange": 3,
+      "features": [
+        "11.1インチ・3200×2000",
+        "Snapdragon 8 Gen 3・12GB/256GB",
+        "デジタルペン付属・約460g"
+      ],
+      "pros": [
+        "ペン付きでイラストやメモに使える",
+        "国内メーカーのサポート"
+      ],
+      "cons": [
+        "microSDには対応していません"
+      ],
+      "recommendFor": "国内メーカーの高性能タブレットで、ペンもすぐ使いたい人",
+      "caution": "リンク先はコジマの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0HK2YWSSH/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4573640686089%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11702411%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001679/4573640686089_1.jpg?_ex=300x300",
+      "attributes": {
+        "performance": 5,
+        "displayQuality": 5,
+        "portability": 3,
+        "battery": 4,
+        "penExperience": 5,
+        "creative": 5,
+        "productivity": 4,
+        "gaming": 5,
+        "mediaExperience": 5,
+        "storageFlexibility": 2,
+        "iphoneFit": 1,
+        "galaxyFit": 3,
+        "androidFit": 5,
+        "neutralFit": 3,
+        "os": "Android",
+        "screenInch": 11.1,
+        "compactTablet": false,
+        "largeTablet": false,
+        "resolution": "3200×2000",
+        "chipset": "Snapdragon 8 Gen 3",
+        "ramGB": 12,
+        "storageGB": 256,
+        "microSD": false,
+        "penSupported": true,
+        "penIncluded": true,
+        "weightG": 460,
+        "videoBatteryHours": 12
+      }
+    },
+    {
+      "id": "tablet-110",
+      "name": "Lenovo Yoga Tab Plus",
+      "description": "12.7インチ・2944×1840の大画面Androidタブレット。Snapdragon 8 Gen 3を搭載し、Lenovo Tab Pen Proが付属します。",
+      "priceRange": 3,
+      "features": [
+        "12.7インチ・2944×1840",
+        "Snapdragon 8 Gen 3・16GB/256GB",
+        "Lenovo Tab Pen Pro付属"
+      ],
+      "pros": [
+        "大画面でイラストや作業がしやすい",
+        "ペンが付属する"
+      ],
+      "cons": [
+        "約640gで、持ち運びには重めです",
+        "microSDには対応していません"
+      ],
+      "recommendFor": "大画面で、イラストやPCのような作業をしたい人",
+      "caution": "リンク先はLenovo公式店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0DTK3Y6WG/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qzxso.d8zue415.g00qzxso.d8zufb8c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flenovopc%2Fzaeg0149jp%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Flenovopc%2Fi%2F10006674%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_gold/lenovopc/images/thumbnail-1/default/zaeg0149jp.jpg?_ex=300x300",
+      "attributes": {
+        "performance": 5,
+        "displayQuality": 5,
+        "portability": 2,
+        "battery": 5,
+        "penExperience": 5,
+        "creative": 5,
+        "productivity": 5,
+        "gaming": 5,
+        "mediaExperience": 5,
+        "storageFlexibility": 2,
+        "iphoneFit": 1,
+        "galaxyFit": 3,
+        "androidFit": 5,
+        "neutralFit": 3,
+        "os": "Android",
+        "screenInch": 12.7,
+        "compactTablet": false,
+        "largeTablet": true,
+        "resolution": "2944×1840",
+        "chipset": "Snapdragon 8 Gen 3",
+        "ramGB": 16,
+        "storageGB": 256,
+        "microSD": false,
+        "penSupported": true,
+        "penIncluded": true,
+        "weightG": 640
+      }
+    },
+    {
+      "id": "tablet-111",
+      "name": "Apple 11インチ iPad Air（M4）",
+      "description": "M4チップを搭載した11インチのiPad Air。Apple Pencil ProとMagic Keyboardに対応しています。",
+      "priceRange": 4,
+      "features": [
+        "11インチ・M4チップ・128GB",
+        "Apple Pencil Pro・Magic Keyboard対応",
+        "Apple Intelligence対応"
+      ],
+      "pros": [
+        "性能と持ち運びやすさのバランスがよい",
+        "ペンやキーボードで作業しやすい"
+      ],
+      "cons": [
+        "Apple Pencil・キーボードは別売です"
+      ],
+      "recommendFor": "iPadで、仕事やイラストにも使える高性能モデルが欲しい人",
+      "caution": "リンク先はApple公式ストアです。11インチ・Wi-Fi・128GBを選んで購入してください。",
+      "amazonUrl": "",
+      "rakutenUrl": "",
+      "officialUrl": "https://www.apple.com/jp/shop/buy-ipad/ipad-air",
+      "imageUrl": "",
+      "attributes": {
+        "performance": 5,
+        "displayQuality": 4,
+        "portability": 4,
+        "battery": 4,
+        "penExperience": 5,
+        "creative": 5,
+        "productivity": 5,
+        "gaming": 5,
+        "mediaExperience": 5,
+        "storageFlexibility": 1,
+        "iphoneFit": 5,
+        "galaxyFit": 1,
+        "androidFit": 1,
+        "neutralFit": 3,
+        "os": "iPadOS",
+        "screenInch": 11,
+        "compactTablet": false,
+        "largeTablet": false,
+        "chipset": "M4",
+        "storageGB": 128,
+        "microSD": false,
+        "penSupported": true,
+        "penIncluded": false,
+        "keyboardSupported": true,
+        "brightnessNits": 500,
+        "videoBatteryHours": 10,
+        "appleIntelligence": true
+      }
+    },
+    {
+      "id": "tablet-112",
+      "name": "Apple 13インチ iPad Air（M4）",
+      "description": "M4チップを搭載した13インチのiPad Air。大画面で、Apple Pencil ProとMagic Keyboardに対応しています。",
+      "priceRange": 4,
+      "features": [
+        "13インチ・M4チップ・128GB",
+        "Apple Pencil Pro・Magic Keyboard対応",
+        "約616g・Apple Intelligence対応"
+      ],
+      "pros": [
+        "大画面でイラストや資料作業がしやすい",
+        "動画も迫力のある画面で見られる"
+      ],
+      "cons": [
+        "約616gで、持ち運びには重めです",
+        "Apple Pencil・キーボードは別売です"
+      ],
+      "recommendFor": "iPadの大画面で、イラストや資料作業をしたい人",
+      "caution": "リンク先はApple公式ストアです。13インチ・Wi-Fi・128GBを選んで購入してください。",
+      "amazonUrl": "",
+      "rakutenUrl": "",
+      "officialUrl": "https://www.apple.com/jp/shop/buy-ipad/ipad-air",
+      "imageUrl": "",
+      "attributes": {
+        "performance": 5,
+        "displayQuality": 5,
+        "portability": 2,
+        "battery": 4,
+        "penExperience": 5,
+        "creative": 5,
+        "productivity": 5,
+        "gaming": 5,
+        "mediaExperience": 5,
+        "storageFlexibility": 1,
+        "iphoneFit": 5,
+        "galaxyFit": 1,
+        "androidFit": 1,
+        "neutralFit": 3,
+        "os": "iPadOS",
+        "screenInch": 13,
+        "compactTablet": false,
+        "largeTablet": true,
+        "chipset": "M4",
+        "storageGB": 128,
+        "microSD": false,
+        "penSupported": true,
+        "penIncluded": false,
+        "keyboardSupported": true,
+        "weightG": 616,
+        "brightnessNits": 600,
+        "videoBatteryHours": 10,
+        "appleIntelligence": true
+      }
+    },
+    {
+      "id": "tablet-113",
+      "name": "Samsung Galaxy Tab S11",
+      "description": "Dynamic AMOLED 2Xを搭載した11インチのGalaxyタブレット。Sペンが付属し、IP68の防水防塵とmicroSDに対応しています。",
+      "priceRange": 5,
+      "features": [
+        "11インチ・Dynamic AMOLED 2X",
+        "Sペン付属・Samsung DeX",
+        "IP68・microSD対応・約469g"
+      ],
+      "pros": [
+        "Sペン付きで手書きやイラストに使える",
+        "Galaxyスマホと連携しやすい"
+      ],
+      "cons": [
+        "価格は高めです"
+      ],
+      "recommendFor": "Galaxyユーザーで、ペンや仕事にも使える高性能タブレットが欲しい人",
+      "caution": "リンク先はコジマの出品（128GB）です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FND6XYSL/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4986773255433%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11658666%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001521/4986773255433_1.jpg?_ex=300x300",
+      "attributes": {
+        "performance": 5,
+        "displayQuality": 5,
+        "portability": 4,
+        "battery": 4,
+        "penExperience": 5,
+        "creative": 5,
+        "productivity": 5,
+        "gaming": 5,
+        "mediaExperience": 5,
+        "storageFlexibility": 5,
+        "iphoneFit": 1,
+        "galaxyFit": 5,
+        "androidFit": 5,
+        "neutralFit": 3,
+        "os": "Android",
+        "screenInch": 11,
+        "compactTablet": false,
+        "largeTablet": false,
+        "displayType": "Dynamic AMOLED 2X",
+        "storageGB": 128,
+        "microSD": true,
+        "penSupported": true,
+        "penIncluded": true,
+        "weightG": 469,
+        "waterResistance": "IP68"
+      }
+    },
+    {
+      "id": "tablet-114",
+      "name": "Samsung Galaxy Tab S11 Ultra",
+      "description": "14.6インチのDynamic AMOLED 2Xを搭載したGalaxyタブレット。Sペンが付属し、Samsung DeXやmicroSDに対応しています。",
+      "priceRange": 5,
+      "features": [
+        "14.6インチ・Dynamic AMOLED 2X",
+        "Sペン付属・Samsung DeX",
+        "microSD対応"
+      ],
+      "pros": [
+        "とても大きな画面でイラストや作業がしやすい",
+        "Galaxyスマホと連携しやすい"
+      ],
+      "cons": [
+        "大きく重いため、持ち運びには不向きです"
+      ],
+      "recommendFor": "大画面で、イラストやPCのような作業をしたいGalaxyユーザー",
+      "caution": "リンク先はコジマの出品（256GB）です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FND7CRXC/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4986773255464%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11658674%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001521/4986773255464_1.jpg?_ex=300x300",
+      "attributes": {
+        "performance": 5,
+        "displayQuality": 5,
+        "portability": 1,
+        "battery": 5,
+        "penExperience": 5,
+        "creative": 5,
+        "productivity": 5,
+        "gaming": 5,
+        "mediaExperience": 5,
+        "storageFlexibility": 5,
+        "iphoneFit": 1,
+        "galaxyFit": 5,
+        "androidFit": 5,
+        "neutralFit": 3,
+        "os": "Android",
+        "screenInch": 14.6,
+        "compactTablet": false,
+        "largeTablet": true,
+        "displayType": "Dynamic AMOLED 2X",
+        "storageGB": 256,
+        "microSD": true,
+        "penSupported": true,
+        "penIncluded": true
+      }
+    },
+    {
+      "id": "tablet-115",
+      "name": "Apple 11インチ iPad Pro（M5）",
+      "description": "M5チップとUltra Retina XDR（タンデムOLED）を搭載した11インチのiPad Pro。120HzのProMotionとApple Pencil Proに対応しています。",
+      "priceRange": 5,
+      "features": [
+        "11インチ・Ultra Retina XDR（タンデムOLED）・120Hz",
+        "M5チップ・256GB",
+        "Apple Pencil Pro・Magic Keyboard・Thunderbolt対応"
+      ],
+      "pros": [
+        "処理性能が高く、重い作業にも使える",
+        "画面の表現力が高い"
+      ],
+      "cons": [
+        "価格は高めです",
+        "Apple Pencil・キーボードは別売です"
+      ],
+      "recommendFor": "iPadで、本格的なイラストや動画編集をしたい人",
+      "caution": "リンク先はApple公式ストアです。11インチ・Wi-Fi・256GBを選んで購入してください。",
+      "amazonUrl": "",
+      "rakutenUrl": "",
+      "officialUrl": "https://www.apple.com/jp/shop/buy-ipad/ipad-pro",
+      "imageUrl": "",
+      "attributes": {
+        "performance": 5,
+        "displayQuality": 5,
+        "portability": 4,
+        "battery": 4,
+        "penExperience": 5,
+        "creative": 5,
+        "productivity": 5,
+        "gaming": 5,
+        "mediaExperience": 5,
+        "storageFlexibility": 1,
+        "iphoneFit": 5,
+        "galaxyFit": 1,
+        "androidFit": 1,
+        "neutralFit": 3,
+        "os": "iPadOS",
+        "screenInch": 11,
+        "compactTablet": false,
+        "largeTablet": false,
+        "displayType": "Ultra Retina XDR（タンデムOLED）",
+        "refreshRateHz": 120,
+        "chipset": "M5",
+        "storageGB": 256,
+        "microSD": false,
+        "penSupported": true,
+        "penIncluded": false,
+        "keyboardSupported": true,
+        "appleIntelligence": true
+      }
+    }
+  ],
+  "scoring": {
+    "tieBreak": true,
+    "softenPartialReason": true,
+    "lowMatchNotice": "条件をすべて満たす商品が少ないため、近い候補を表示しています。"
+  },
+  "guide": {
+    "title": "タブレットの選び方",
+    "intro": "この診断は、iPadとAndroidタブレットを対象に、メーカー公表の仕様をもとに以下のポイントとあなたの回答を照らし合わせて相性を計算しています。",
+    "sections": [
+      {
+        "heading": "画面サイズと持ち運び",
+        "body": "8〜9インチ台は片手で持ちやすく、読書や外出に向きます。11インチ前後は動画や学習のバランス型、12インチ以上はイラストや資料作業がしやすい一方で重くなります。"
+      },
+      {
+        "heading": "スマホとの連携",
+        "body": "iPadはiPhone、GalaxyタブレットはGalaxyスマホと組み合わせると使える連携機能があります。どのタブレットも単体で使えますが、連携機能を使いたい場合は同じメーカーの組み合わせが便利です。"
+      },
+      {
+        "heading": "ペンと保存容量",
+        "body": "ペンは「対応」と「標準付属」で異なり、別売の機種もあります。本体の容量とは別に、microSDカードで容量を増やせる機種もあります。"
+      }
+    ]
+  },
+  "notice": "性能や画面の表現は各メーカーの公表仕様に基づきます。ペンやキーボードは機種によって別売です。Apple Intelligenceなどの機能は対応機種・言語・地域が限られます。iPadの価格はApple公式ストアの税込価格で、販売店によって異なります。価格は変動するため、購入時に販売ページでご確認ください。"
+}
