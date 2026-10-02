@@ -29,13 +29,31 @@ export function itemUrlFromAffiliate(affiliateUrl: string): string | null {
 
 export async function fetchRakutenItem(url: string): Promise<RakutenItemInfo> {
   const res = await fetch(url, { headers: { 'User-Agent': UA } })
-  const html = new TextDecoder('euc-jp').decode(Buffer.from(await res.arrayBuffer()))
-  const prices = [...new Set([...html.matchAll(/"taxIncludedPrice":([\d.]+)/g)].map((m) => Math.round(Number(m[1]))))].filter((n) => n > 0)
+  const buf = Buffer.from(await res.arrayBuffer())
+  const html = new TextDecoder('euc-jp').decode(buf)
+  let prices = [...new Set([...html.matchAll(/"taxIncludedPrice":([\d.]+)/g)].map((m) => Math.round(Number(m[1]))))].filter((n) => n > 0)
+  if (!prices.length) prices = displayedTaxIncludedPrices(buf)
   const quantities = [...html.matchAll(/\{"sku":"[^"]+","inventoryId":"[^"]*","quantity":(\d+)\}/g)].map((m) => Number(m[1]))
   const variantCount = new Set([...html.matchAll(/"variantId":"([^"]+)"/g)].map((m) => m[1])).size
   const soldOutCount = new Set([...html.matchAll(/"variantId":"([^"]+)","newPurchaseSku":\{"stockCondition":"sold-out"/g)].map((m) => m[1])).size
   const soldOut = (quantities.length > 0 && quantities.every((q) => q === 0)) || (variantCount > 0 && soldOutCount === variantCount)
   return { url, status: res.status, prices, quantities, soldOut }
+}
+
+/**
+ * taxIncludedPrice がないページ（楽天ブックスなど）の価格。商品価格の要素（itemprop="price"）の
+ * 表示が「17,800円（税込）」のときだけ採用する（送料・ポイント・クーポンの数字は拾わない）。
+ * 楽天ブックスは UTF-8 のため、ページが宣言する文字コードで読み直す。
+ */
+function displayedTaxIncludedPrices(buf: Buffer): number[] {
+  const head = buf.subarray(0, 4096).toString('latin1')
+  const html = new TextDecoder(/charset=["']?utf-8/i.test(head) ? 'utf-8' : 'euc-jp').decode(buf)
+  const prices = new Set<number>()
+  for (const m of html.matchAll(/itemprop="price" content="(\d+)">([\d,]+)<span[^>]*>円<\/span><\/span><span[^>]*>（税込）<\/span>/g)) {
+    const shown = Number(m[2].replace(/,/g, ''))
+    if (shown > 0 && shown === Number(m[1])) prices.add(shown)
+  }
+  return [...prices]
 }
 
 /**
