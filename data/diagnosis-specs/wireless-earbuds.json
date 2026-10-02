@@ -1,0 +1,1443 @@
+{
+  "id": "wireless-earbuds",
+  "enabled": false,
+  "title": "ワイヤレスイヤホン診断",
+  "itemName": "ワイヤレスイヤホン",
+  "group": "digital",
+  "icon": "🎧",
+  "cardDescription": "使う場面、スマホ、ノイキャン、装着感、音質、通話、バッテリーから、あなたに合う完全ワイヤレスイヤホンを診断。",
+  "description": "使う場面や使っているスマホ、ノイズキャンセリングや外音取り込みの使い方、装着方法、重視するコンテンツ、欲しい便利さ、予算などから、あなたに合う完全ワイヤレスイヤホンを絞り込みます。",
+  "searchKeywords": [
+    "ワイヤレスイヤホン",
+    "完全ワイヤレスイヤホン",
+    "Bluetoothイヤホン",
+    "イヤホン診断",
+    "ノイズキャンセリング",
+    "ノイキャン",
+    "ANC",
+    "外音取り込み",
+    "オープンイヤー",
+    "カナル型",
+    "通話 イヤホン",
+    "会議 イヤホン",
+    "マイク イヤホン",
+    "ランニング イヤホン",
+    "スポーツ イヤホン",
+    "防水 イヤホン",
+    "iPhone イヤホン",
+    "Android イヤホン",
+    "Galaxy イヤホン",
+    "Pixel イヤホン",
+    "AirPods",
+    "Soundcore",
+    "Bose イヤホン",
+    "Technics イヤホン",
+    "JBL イヤホン",
+    "Nothing イヤホン",
+    "Sennheiser イヤホン",
+    "マルチポイント",
+    "LDAC",
+    "aptX",
+    "低遅延",
+    "ゲーム イヤホン",
+    "Anker",
+    "Apple",
+    "アップル",
+    "Google",
+    "グーグル",
+    "Beats",
+    "ビーツ"
+  ],
+  "seo": {
+    "title": "ワイヤレスイヤホン診断｜ノイキャン・音質・通話・スマホからおすすめを比較",
+    "description": "使うスマホ、ノイズキャンセリング、音質、通話、運動、装着感、バッテリー、マルチポイント、予算から、あなたに合うワイヤレスイヤホンを診断します。"
+  },
+  "priceLabels": {
+    "1": "〜10,000円",
+    "2": "10,000〜20,000円",
+    "3": "20,000〜30,000円",
+    "4": "30,000〜46,000円",
+    "5": "46,000円〜"
+  },
+  "questions": [
+    {
+      "id": "scene",
+      "text": "主にどんな場面で使う？",
+      "shortLabel": "使う場面",
+      "weight": 18,
+      "options": [
+        {
+          "id": "commute",
+          "label": "電車・通勤・通学",
+          "summary": "電車や通勤・通学で使う",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "noiseCancel",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "comfort",
+              "value": 5,
+              "weight": 20
+            },
+            {
+              "type": "atLeast",
+              "attr": "battery",
+              "value": 5,
+              "weight": 15
+            },
+            {
+              "type": "atLeast",
+              "attr": "ambientAwareness",
+              "value": 5,
+              "weight": 15
+            }
+          ]
+        },
+        {
+          "id": "music",
+          "label": "音楽をじっくり聴く",
+          "summary": "音楽をじっくり聴く",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "soundQuality",
+              "value": 5,
+              "weight": 80
+            },
+            {
+              "type": "atLeast",
+              "attr": "comfort",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "call",
+          "label": "通話・オンライン会議",
+          "summary": "通話やオンライン会議で使う",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "callQuality",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "multipoint",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "sport",
+          "label": "運動・ランニング",
+          "summary": "運動やランニングで使う",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "sportFit",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "waterResistance",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "comfort",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "daily",
+          "label": "長時間の日常使い",
+          "summary": "長時間の日常使い",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "comfort",
+              "value": 5,
+              "weight": 40
+            },
+            {
+              "type": "atLeast",
+              "attr": "battery",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "multipoint",
+              "value": 5,
+              "weight": 15
+            },
+            {
+              "type": "atLeast",
+              "attr": "ambientAwareness",
+              "value": 5,
+              "weight": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "device",
+      "text": "主に使うスマホ・端末は？",
+      "shortLabel": "使う端末",
+      "weight": 16,
+      "options": [
+        {
+          "id": "iphone",
+          "label": "iPhone",
+          "summary": "iPhoneで使う",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "iphoneFit",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "multipoint",
+              "value": 5,
+              "weight": 15
+            },
+            {
+              "type": "atLeast",
+              "attr": "callQuality",
+              "value": 5,
+              "weight": 15
+            }
+          ]
+        },
+        {
+          "id": "galaxy",
+          "label": "Galaxy",
+          "summary": "Galaxyで使う",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "galaxyFit",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "lowLatency",
+              "value": 5,
+              "weight": 15
+            },
+            {
+              "type": "atLeast",
+              "attr": "callQuality",
+              "value": 5,
+              "weight": 15
+            }
+          ]
+        },
+        {
+          "id": "android",
+          "label": "Pixel・その他Android",
+          "summary": "Pixelなど Androidで使う",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "androidFit",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "multipoint",
+              "value": 5,
+              "weight": 15
+            },
+            {
+              "type": "atLeast",
+              "attr": "soundQuality",
+              "value": 5,
+              "weight": 15
+            }
+          ]
+        },
+        {
+          "id": "multi",
+          "label": "PCや複数端末でもよく使う",
+          "summary": "PCや複数端末でも使う",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "multipoint",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "callQuality",
+              "value": 5,
+              "weight": 25
+            },
+            {
+              "type": "atLeast",
+              "attr": "battery",
+              "value": 5,
+              "weight": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "noise",
+      "text": "ノイズとの付き合い方は？",
+      "shortLabel": "ノイズ",
+      "weight": 16,
+      "options": [
+        {
+          "id": "anc",
+          "label": "とにかくノイズキャンセリング重視",
+          "summary": "ノイズキャンセリングを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "noiseCancel",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "both",
+          "label": "ノイキャンと外音取り込みを両方使いたい",
+          "summary": "ノイキャンと外音取り込みを両方使いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "noiseCancel",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "ambientAwareness",
+              "value": 5,
+              "weight": 50
+            }
+          ]
+        },
+        {
+          "id": "ambient",
+          "label": "周囲の音を聞きながら使いたい",
+          "summary": "周囲の音を聞きながら使いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "ambientAwareness",
+              "value": 5,
+              "weight": 80
+            },
+            {
+              "type": "atLeast",
+              "attr": "comfort",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "any",
+          "label": "特にこだわらない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fit",
+      "text": "装着方法で重視するのは？",
+      "shortLabel": "装着方法",
+      "weight": 14,
+      "options": [
+        {
+          "id": "inEar",
+          "label": "一般的なカナル型で問題ない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "comfort",
+          "label": "長時間でも快適に使いたい",
+          "summary": "長時間でも快適に使いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "comfort",
+              "value": 5,
+              "weight": 80
+            },
+            {
+              "type": "atLeast",
+              "attr": "battery",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "sport",
+          "label": "運動しても安定してほしい",
+          "summary": "運動しても安定してほしい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "sportFit",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "waterResistance",
+              "value": 5,
+              "weight": 40
+            }
+          ]
+        },
+        {
+          "id": "open",
+          "label": "耳をふさがないオープンイヤーがいい",
+          "summary": "耳をふさがないオープンイヤーがいい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "ambientAwareness",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "comfort",
+              "value": 5,
+              "weight": 40
+            }
+          ],
+          "eligibility": {
+            "attr": "openEar",
+            "value": true,
+            "notice": "耳をふさがないオープンイヤー型からおすすめを表示しています。",
+            "supplementLabel": "オープンイヤー型ではありません"
+          }
+        }
+      ]
+    },
+    {
+      "id": "content",
+      "text": "コンテンツで一番重視するのは？",
+      "shortLabel": "コンテンツ",
+      "weight": 14,
+      "options": [
+        {
+          "id": "music",
+          "label": "音楽の音質",
+          "summary": "音楽の音質を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "soundQuality",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "video",
+          "label": "動画・映画",
+          "summary": "動画・映画を楽しみたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "soundQuality",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "lowLatency",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "comfort",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "game",
+          "label": "ゲーム・音ズレの少なさ",
+          "summary": "ゲームで音ズレを減らしたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "lowLatency",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "soundQuality",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "call",
+          "label": "通話・会議",
+          "summary": "通話・会議を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "callQuality",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "multipoint",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "any",
+          "label": "特に決めていない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "convenience",
+      "text": "一番欲しい便利さは？",
+      "shortLabel": "便利さ",
+      "weight": 14,
+      "options": [
+        {
+          "id": "battery",
+          "label": "バッテリーが長い",
+          "summary": "バッテリーの長さを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "battery",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "multipoint",
+          "label": "2台以上を切り替えやすい",
+          "summary": "2台以上を切り替えやすくしたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "multipoint",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "water",
+          "label": "汗や雨に強い",
+          "summary": "汗や雨に強いものがいい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "waterResistance",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "sportFit",
+              "value": 5,
+              "weight": 40
+            }
+          ]
+        },
+        {
+          "id": "call",
+          "label": "通話が聞き取りやすい",
+          "summary": "通話の聞き取りやすさを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "callQuality",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "any",
+          "label": "特にこだわらない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "budget",
+      "text": "予算は？",
+      "shortLabel": "予算",
+      "weight": 8,
+      "options": [
+        {
+          "id": "b1",
+          "label": "10,000円以下",
+          "summary": "予算10,000円以下",
+          "effects": [],
+          "maxPriceRange": 1
+        },
+        {
+          "id": "b2",
+          "label": "20,000円以下",
+          "summary": "予算20,000円以下",
+          "effects": [],
+          "maxPriceRange": 2
+        },
+        {
+          "id": "b3",
+          "label": "30,000円以下",
+          "summary": "予算30,000円以下",
+          "effects": [],
+          "maxPriceRange": 3
+        },
+        {
+          "id": "b4",
+          "label": "46,000円以下",
+          "summary": "予算46,000円以下",
+          "effects": [],
+          "maxPriceRange": 4
+        },
+        {
+          "id": "any",
+          "label": "上限なし",
+          "effects": []
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "wireless-earbuds-101",
+      "name": "CMF Buds 2a",
+      "description": "ノイズキャンセリングとマルチポイントに対応した、CMF by Nothing の手頃な完全ワイヤレスイヤホン。12.4mmドライバーを搭載しています。",
+      "priceRange": 1,
+      "features": [
+        "ANC・マルチポイント対応",
+        "IP54・片耳約4.2g",
+        "ケース込み最大35.5時間再生"
+      ],
+      "pros": [
+        "価格を抑えてANC付きを選べる",
+        "軽くて使いやすい"
+      ],
+      "cons": [
+        "対応コーデックはSBC・AACです"
+      ],
+      "recommendFor": "初めての完全ワイヤレスイヤホンを、価格を抑えて選びたい人",
+      "caution": "リンク先はNothing公式店の出品です。カラーを選んで購入してください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0F2M65H3S/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u2zlo.d8zue6f8.g00u2zlo.d8zuf1a0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnothingagent%2Fcmfbuds2a%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnothingagent%2Fi%2F10000090%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/nothingagent/cabinet/12041915/imgrc0122813742.jpg?_ex=300x300",
+      "attributes": {
+        "soundQuality": 3,
+        "noiseCancel": 3,
+        "callQuality": 3,
+        "comfort": 4,
+        "sportFit": 3,
+        "ambientAwareness": 4,
+        "battery": 4,
+        "multipoint": 4,
+        "lowLatency": 3,
+        "waterResistance": 4,
+        "iphoneFit": 3,
+        "galaxyFit": 4,
+        "androidFit": 5,
+        "neutralFit": 3,
+        "earType": "inEar",
+        "openEar": false,
+        "anc": true,
+        "ipRating": "IP54",
+        "earbudBatteryHoursAncOn": 0,
+        "totalBatteryHours": 35.5,
+        "multipointSupport": true,
+        "wirelessCharging": "unknown",
+        "codec": "SBC/AAC",
+        "weightPerEarG": 4.2
+      }
+    },
+    {
+      "id": "wireless-earbuds-102",
+      "name": "EarFun Air Pro 4+",
+      "description": "BAドライバーとダイナミックドライバーのハイブリッド構成の完全ワイヤレスイヤホン。LDAC・aptX Lossless・LC3に対応し、マルチポイント接続もできます。",
+      "priceRange": 2,
+      "features": [
+        "ハイブリッドドライバー・LDAC／aptX Lossless／LC3",
+        "ANC・マルチポイント・IP55",
+        "ANCオンで本体約8時間・ケース込み最大54時間"
+      ],
+      "pros": [
+        "対応コーデックが多い",
+        "長時間再生できる"
+      ],
+      "cons": [
+        "高音質コーデックは対応する端末でのみ使えます"
+      ],
+      "recommendFor": "1万円台で、音質・バッテリー・機能のバランスを取りたい人",
+      "caution": "リンク先はEarFun公式店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FWCQ7PPS/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ugqho.d8zueb36.g00ugqho.d8zuf110/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fearfun%2Fra-tw700%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fearfun%2Fi%2F10000021%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/earfun/cabinet/12709281/imgrc0107169872.jpg?_ex=300x300",
+      "attributes": {
+        "soundQuality": 4,
+        "noiseCancel": 4,
+        "callQuality": 4,
+        "comfort": 4,
+        "sportFit": 4,
+        "ambientAwareness": 4,
+        "battery": 5,
+        "multipoint": 5,
+        "lowLatency": 5,
+        "waterResistance": 4,
+        "iphoneFit": 3,
+        "galaxyFit": 4,
+        "androidFit": 5,
+        "neutralFit": 3,
+        "earType": "inEar",
+        "openEar": false,
+        "anc": true,
+        "ipRating": "IP55",
+        "earbudBatteryHoursAncOn": 8,
+        "totalBatteryHours": 54,
+        "multipointSupport": true,
+        "wirelessCharging": "unknown",
+        "codec": "SBC/AAC/LC3/LDAC/aptX Adaptive/aptX Lossless",
+        "weightPerEarG": 5
+      }
+    },
+    {
+      "id": "wireless-earbuds-103",
+      "name": "Anker Soundcore Liberty 5",
+      "description": "ウルトラノイズキャンセリング3.5とLDACに対応した完全ワイヤレスイヤホン。マルチポイント接続ができ、普段使いしやすいモデルです。",
+      "priceRange": 2,
+      "features": [
+        "ANC・LDAC・マルチポイント",
+        "IP55・片耳約4.6g",
+        "ANCオンで本体約8時間・ケース込み最大48時間"
+      ],
+      "pros": [
+        "機能のバランスがよい",
+        "Androidで高音質コーデックを使える"
+      ],
+      "cons": [
+        "LDACは対応する端末でのみ使えます"
+      ],
+      "recommendFor": "1万円台で、ノイキャンも使える普段使いの1台を選びたい人",
+      "caution": "リンク先はAnker公式店の出品です。カラーを選んで購入してください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0DRVB48LJ/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rr09o.d8zue50e.g00rr09o.d8zuf491/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Fa3957%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fanker%2Fi%2F10002334%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/anker/cabinet/tmb/a3/a3957_normal.jpg?_ex=300x300",
+      "attributes": {
+        "soundQuality": 4,
+        "noiseCancel": 4,
+        "callQuality": 4,
+        "comfort": 4,
+        "sportFit": 3,
+        "ambientAwareness": 4,
+        "battery": 4,
+        "multipoint": 5,
+        "lowLatency": 4,
+        "waterResistance": 4,
+        "iphoneFit": 3,
+        "galaxyFit": 4,
+        "androidFit": 5,
+        "neutralFit": 3,
+        "earType": "inEar",
+        "openEar": false,
+        "anc": true,
+        "ipRating": "IP55",
+        "earbudBatteryHoursAncOn": 8,
+        "totalBatteryHours": 48,
+        "multipointSupport": true,
+        "wirelessCharging": "unknown",
+        "codec": "SBC/AAC/LDAC",
+        "weightPerEarG": 4.6
+      }
+    },
+    {
+      "id": "wireless-earbuds-104",
+      "name": "Nothing Ear (3)",
+      "description": "12mmドライバーとLDACに対応した完全ワイヤレスイヤホン。充電ケースに通話用のSuper Micを搭載し、マルチポイント接続にも対応しています。",
+      "priceRange": 3,
+      "features": [
+        "12mmドライバー・LDAC",
+        "ANC・ケースのSuper Mic・マルチポイント",
+        "IP54・片耳約5.2g"
+      ],
+      "pros": [
+        "通話機能に特徴がある",
+        "Androidで高音質コーデックを使える"
+      ],
+      "cons": [
+        "ケース込みの再生時間は約22時間です"
+      ],
+      "recommendFor": "デザインと通話・音質の両方を重視したいAndroidユーザー",
+      "caution": "リンク先はNothing公式店の出品です。在庫のあるカラーを選んで購入してください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FHWNZLKT/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u2zlo.d8zue6f8.g00u2zlo.d8zuf1a0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnothingagent%2Fnothing_ear3%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnothingagent%2Fi%2F10000107%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/nothingagent/cabinet/12480047/ear3_main_v2.jpg?_ex=300x300",
+      "attributes": {
+        "soundQuality": 4,
+        "noiseCancel": 4,
+        "callQuality": 5,
+        "comfort": 4,
+        "sportFit": 3,
+        "ambientAwareness": 4,
+        "battery": 4,
+        "multipoint": 5,
+        "lowLatency": 4,
+        "waterResistance": 4,
+        "iphoneFit": 3,
+        "galaxyFit": 4,
+        "androidFit": 5,
+        "neutralFit": 3,
+        "earType": "inEar",
+        "openEar": false,
+        "anc": true,
+        "ipRating": "IP54",
+        "earbudBatteryHoursAncOn": 0,
+        "totalBatteryHours": 22,
+        "multipointSupport": true,
+        "wirelessCharging": "unknown",
+        "codec": "SBC/AAC/LDAC",
+        "weightPerEarG": 5.2
+      }
+    },
+    {
+      "id": "wireless-earbuds-105",
+      "name": "Nothing Ear (open)",
+      "description": "耳をふさがないオープンイヤー型の完全ワイヤレスイヤホン。耳に掛けるイヤーフックで支え、周囲の音を聞きながら使えます。",
+      "priceRange": 2,
+      "features": [
+        "オープンイヤー型（ANCなし）",
+        "14.2mmドライバー・マルチポイント",
+        "IP54・ケース込み最大30時間"
+      ],
+      "pros": [
+        "耳をふさがず、周囲の音が聞こえる",
+        "長時間でも圧迫感が少ない"
+      ],
+      "cons": [
+        "構造上、ノイズキャンセリングはありません",
+        "周囲の騒音が大きい場所では音が聞こえにくくなります"
+      ],
+      "recommendFor": "周囲の音を聞きながら、日常のながら聴きをしたい人",
+      "caution": "リンク先はNothing公式店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0DBJ2CRV4/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u2zlo.d8zue6f8.g00u2zlo.d8zuf1a0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnothingagent%2Fnothing_ear_open%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnothingagent%2Fi%2F10000068%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/nothingagent/cabinet/11272781/earopen_main_202607.jpg?_ex=300x300",
+      "attributes": {
+        "soundQuality": 3,
+        "noiseCancel": 1,
+        "callQuality": 4,
+        "comfort": 5,
+        "sportFit": 4,
+        "ambientAwareness": 5,
+        "battery": 4,
+        "multipoint": 4,
+        "lowLatency": 4,
+        "waterResistance": 4,
+        "iphoneFit": 3,
+        "galaxyFit": 4,
+        "androidFit": 5,
+        "neutralFit": 3,
+        "earType": "openEar",
+        "openEar": true,
+        "anc": false,
+        "ipRating": "IP54",
+        "earbudBatteryHoursAncOn": 0,
+        "totalBatteryHours": 30,
+        "multipointSupport": true,
+        "wirelessCharging": "unknown",
+        "codec": "SBC/AAC",
+        "weightPerEarG": 8.1
+      }
+    },
+    {
+      "id": "wireless-earbuds-106",
+      "name": "Sony LinkBuds Fit WF-LS910N",
+      "description": "片耳約4.9gの軽い完全ワイヤレスイヤホン。フィッティングサポーターで耳に固定し、ノイズキャンセリングと外音取り込みに対応しています。",
+      "priceRange": 3,
+      "features": [
+        "片耳約4.9g・フィッティングサポーター",
+        "ANC・外音取り込み・マルチポイント",
+        "LDAC・LC3対応・IPX4"
+      ],
+      "pros": [
+        "軽くて耳に収まりやすい",
+        "外音取り込みが使いやすい"
+      ],
+      "cons": [
+        "ANCオンで本体約5.5時間・ケース込み約21時間です"
+      ],
+      "recommendFor": "軽さと装着の安定感を重視し、運動中にも使いたい人",
+      "caution": "リンク先はコジマの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0DHZZTPV6/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4548736161672%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11537719%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001230/4548736161672_1.jpg?_ex=300x300",
+      "attributes": {
+        "soundQuality": 4,
+        "noiseCancel": 4,
+        "callQuality": 5,
+        "comfort": 5,
+        "sportFit": 5,
+        "ambientAwareness": 5,
+        "battery": 3,
+        "multipoint": 5,
+        "lowLatency": 4,
+        "waterResistance": 3,
+        "iphoneFit": 3,
+        "galaxyFit": 4,
+        "androidFit": 5,
+        "neutralFit": 3,
+        "earType": "inEar",
+        "openEar": false,
+        "anc": true,
+        "ipRating": "IPX4",
+        "earbudBatteryHoursAncOn": 5.5,
+        "totalBatteryHours": 21,
+        "multipointSupport": true,
+        "wirelessCharging": "unknown",
+        "codec": "SBC/AAC/LDAC/LC3",
+        "weightPerEarG": 4.9
+      }
+    },
+    {
+      "id": "wireless-earbuds-107",
+      "name": "Shokz OpenFit 2+",
+      "description": "耳をふさがないオープンイヤー型の完全ワイヤレスイヤホン。Dolby Audioに対応し、本体最大11時間・ケース込み最大48時間再生できます。",
+      "priceRange": 3,
+      "features": [
+        "オープンイヤー型（ANCなし）・Dolby Audio",
+        "IP55・マルチポイント・ワイヤレス充電",
+        "本体最大11時間・ケース込み最大48時間"
+      ],
+      "pros": [
+        "周囲の音を聞きながら運動できる",
+        "バッテリーが長い"
+      ],
+      "cons": [
+        "構造上、ノイズキャンセリングはありません",
+        "片耳約9.4gで、カナル型より大きめです"
+      ],
+      "recommendFor": "周囲の音を聞きながら、運動や長時間の作業で使いたい人",
+      "caution": "リンク先はShokz公式店の出品です。在庫のあるカラーを選んで購入してください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0F1Y3CJJ2/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tqouo.d8zue012.g00tqouo.d8zuf633/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Faftershokz-official%2Fskz-sp-000169%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Faftershokz-official%2Fi%2F10000067%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/aftershokz-official/cabinet/12049295/12049298/imgrc0126943543.jpg?_ex=300x300",
+      "attributes": {
+        "soundQuality": 4,
+        "noiseCancel": 1,
+        "callQuality": 4,
+        "comfort": 5,
+        "sportFit": 5,
+        "ambientAwareness": 5,
+        "battery": 5,
+        "multipoint": 5,
+        "lowLatency": 3,
+        "waterResistance": 4,
+        "iphoneFit": 4,
+        "galaxyFit": 4,
+        "androidFit": 4,
+        "neutralFit": 3,
+        "earType": "openEar",
+        "openEar": true,
+        "anc": false,
+        "ipRating": "IP55",
+        "earbudBatteryHoursAncOn": 0,
+        "totalBatteryHours": 48,
+        "multipointSupport": true,
+        "wirelessCharging": true,
+        "codec": "unknown",
+        "weightPerEarG": 9.4
+      }
+    },
+    {
+      "id": "wireless-earbuds-108",
+      "name": "Google Pixel Buds 2a",
+      "description": "Google Tensor A1とSilent Seal 1.5のノイズキャンセリングを搭載した完全ワイヤレスイヤホン。固定用のアーチで耳に収まり、AndroidではFast PairやGeminiとの連携を使えます。",
+      "priceRange": 2,
+      "features": [
+        "ANC（Silent Seal 1.5）・外部音取り込み",
+        "11mmドライバー・固定用アーチ・片耳約4.7g",
+        "IP54・ANCオンで本体約7時間・ケース込み約20時間"
+      ],
+      "pros": [
+        "軽くて耳に収まりやすい",
+        "Androidとの連携機能が多い"
+      ],
+      "cons": [
+        "ワイヤレス充電には対応していません",
+        "iPhoneでもBluetoothイヤホンとして使えますが、Google向けの一部機能は使えません"
+      ],
+      "recommendFor": "Pixelなど Androidで、軽くて扱いやすいANC付きを選びたい人",
+      "caution": "リンク先は楽天ブックスの出品です。在庫のあるカラーを選んで購入してください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FN3SJXMZ/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q072o.d8zueb8d.g00q072o.d8zuf9e4/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F18344679%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F21711196%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3088/0840353933088.jpg?_ex=300x300",
+      "attributes": {
+        "soundQuality": 4,
+        "noiseCancel": 4,
+        "callQuality": 4,
+        "comfort": 5,
+        "sportFit": 5,
+        "ambientAwareness": 4,
+        "battery": 3,
+        "multipoint": 3,
+        "lowLatency": 3,
+        "waterResistance": 4,
+        "iphoneFit": 2,
+        "galaxyFit": 4,
+        "androidFit": 5,
+        "neutralFit": 3,
+        "earType": "inEar",
+        "openEar": false,
+        "anc": true,
+        "ipRating": "IP54",
+        "earbudBatteryHoursAncOn": 7,
+        "totalBatteryHours": 20,
+        "multipointSupport": "unknown",
+        "wirelessCharging": false,
+        "codec": "unknown",
+        "weightPerEarG": 4.7,
+        "fastPair": true
+      }
+    },
+    {
+      "id": "wireless-earbuds-109",
+      "name": "Beats Powerbeats Pro 2",
+      "description": "イヤーフックで耳に固定するスポーツ向けの完全ワイヤレスイヤホン。ANCと外部音取り込み、心拍数モニタリングに対応し、ケース込みで最大45時間再生できます。",
+      "priceRange": 4,
+      "features": [
+        "イヤーフック・ANC・外部音取り込み",
+        "心拍数モニタリング・空間オーディオ",
+        "IPX4・ケース込み最大45時間・ワイヤレス充電"
+      ],
+      "pros": [
+        "運動中も外れにくい",
+        "iPhoneとの連携機能が多い"
+      ],
+      "cons": [
+        "片耳約8.7gで、イヤーフックの分だけ大きめです",
+        "防水はIPX4です"
+      ],
+      "recommendFor": "ランニングやジムで、外れにくさとバッテリーを重視したい人",
+      "caution": "リンク先は楽天モバイル公式 楽天市場店の出品です。カラーを選んで購入してください。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tof9o.d8zuef88.g00tof9o.d8zuf40d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenmobile-store%2Fapple-rm2512023%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenmobile-store%2Fi%2F10001864%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/rakutenmobile-store/cabinet/item/apple-rm2512023/pc/main_01.jpg?_ex=300x300",
+      "attributes": {
+        "soundQuality": 4,
+        "noiseCancel": 4,
+        "callQuality": 5,
+        "comfort": 5,
+        "sportFit": 5,
+        "ambientAwareness": 5,
+        "battery": 5,
+        "multipoint": 3,
+        "lowLatency": 4,
+        "waterResistance": 3,
+        "iphoneFit": 5,
+        "galaxyFit": 4,
+        "androidFit": 5,
+        "neutralFit": 3,
+        "earType": "inEar",
+        "openEar": false,
+        "anc": true,
+        "ipRating": "IPX4",
+        "earbudBatteryHoursAncOn": 0,
+        "totalBatteryHours": 45,
+        "multipointSupport": "unknown",
+        "wirelessCharging": true,
+        "codec": "unknown",
+        "weightPerEarG": 8.7,
+        "appleFeatures": true
+      }
+    },
+    {
+      "id": "wireless-earbuds-110",
+      "name": "JBL TOUR PRO 3",
+      "description": "タッチディスプレイ付きのスマート充電ケースを備えた完全ワイヤレスイヤホン。ケースから再生操作やマルチポイントの切り替えができ、LDACにも対応しています。",
+      "priceRange": 3,
+      "features": [
+        "スマート充電ケース（タッチディスプレイ）",
+        "ANC・LDAC・マルチポイント",
+        "IP55・ANCオンで本体約8時間・ケース込み最大44時間"
+      ],
+      "pros": [
+        "ケースだけで操作や切り替えができる",
+        "複数端末で使いやすい"
+      ],
+      "cons": [
+        "ケースは約71.8gと大きめです"
+      ],
+      "recommendFor": "PCとスマホなど複数端末で、多機能に使いたい人",
+      "caution": "リンク先はJBL公式店の出品です。在庫のあるカラーを選んで購入してください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0DFXYNSWY/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzaoo.d8zue94f.g00tzaoo.d8zufb94/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjblstore%2Ftour-pro3%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjblstore%2Fi%2F10000195%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jblstore/cabinet/tws/tour-pro3/tour-pro3_v2.jpg?_ex=300x300",
+      "attributes": {
+        "soundQuality": 5,
+        "noiseCancel": 5,
+        "callQuality": 5,
+        "comfort": 4,
+        "sportFit": 3,
+        "ambientAwareness": 4,
+        "battery": 4,
+        "multipoint": 5,
+        "lowLatency": 5,
+        "waterResistance": 4,
+        "iphoneFit": 4,
+        "galaxyFit": 4,
+        "androidFit": 5,
+        "neutralFit": 3,
+        "earType": "inEar",
+        "openEar": false,
+        "anc": true,
+        "ipRating": "IP55",
+        "earbudBatteryHoursAncOn": 8,
+        "totalBatteryHours": 44,
+        "multipointSupport": true,
+        "wirelessCharging": "unknown",
+        "codec": "SBC/AAC/LDAC",
+        "weightPerEarG": 5.6
+      }
+    },
+    {
+      "id": "wireless-earbuds-111",
+      "name": "Samsung Galaxy Buds4 Pro",
+      "description": "Galaxy AIに対応したサムスンの完全ワイヤレスイヤホン。2wayスピーカーとANCを搭載し、Galaxyスマホと組み合わせると専用機能を使えます。",
+      "priceRange": 4,
+      "features": [
+        "2wayスピーカー・ANC",
+        "Galaxy AIなどGalaxy向けの連携機能",
+        "IP57・ANCオンで本体約6時間"
+      ],
+      "pros": [
+        "Galaxyスマホとの連携機能が多い",
+        "防水・防塵性能が高い"
+      ],
+      "cons": [
+        "一部の機能はGalaxyスマホとの組み合わせでのみ使えます（他のスマホでもBluetoothイヤホンとして使えます）"
+      ],
+      "recommendFor": "Galaxyスマホで、連携機能まで活用したい人",
+      "caution": "リンク先はSamsung公式店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0GK78GBS7/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00urh9o.d8zue3b0.g00urh9o.d8zuf938/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsamsungonline%2Ftws_buds4pro%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsamsungonline%2Fi%2F10000028%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/samsungonline/cabinet/cp/2610/buds4pro.jpg?_ex=300x300",
+      "attributes": {
+        "soundQuality": 5,
+        "noiseCancel": 5,
+        "callQuality": 5,
+        "comfort": 5,
+        "sportFit": 4,
+        "ambientAwareness": 5,
+        "battery": 4,
+        "multipoint": 3,
+        "lowLatency": 5,
+        "waterResistance": 5,
+        "iphoneFit": 2,
+        "galaxyFit": 5,
+        "androidFit": 4,
+        "neutralFit": 3,
+        "earType": "inEar",
+        "openEar": false,
+        "anc": true,
+        "ipRating": "IP57",
+        "earbudBatteryHoursAncOn": 6,
+        "totalBatteryHours": 26,
+        "multipointSupport": "unknown",
+        "wirelessCharging": "unknown",
+        "codec": "unknown",
+        "weightPerEarG": 5.1,
+        "galaxyFeatures": true
+      }
+    },
+    {
+      "id": "wireless-earbuds-112",
+      "name": "Apple AirPods Pro 3",
+      "description": "ANC・適応型オーディオ・外部音取り込みに対応したAppleの完全ワイヤレスイヤホン。心拍数センサーを搭載し、IP57の防塵・防水に対応しています。",
+      "priceRange": 4,
+      "features": [
+        "ANC・適応型オーディオ・外部音取り込み",
+        "空間オーディオ・心拍数センサー",
+        "IP57・ANCオンで本体最大8時間"
+      ],
+      "pros": [
+        "iPhoneなどAppleデバイスとの連携が多い",
+        "運動時にも使いやすい"
+      ],
+      "cons": [
+        "一部の機能はAppleデバイスとの組み合わせでのみ使えます（Androidでも Bluetoothイヤホンとして使えます）"
+      ],
+      "recommendFor": "iPhoneで、連携機能や空間オーディオまで活用したい人",
+      "caution": "リンク先は楽天モバイル公式 楽天市場店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FQFQDN6K/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tof9o.d8zuef88.g00tof9o.d8zuf40d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenmobile-store%2Fapple-rm2509012%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenmobile-store%2Fi%2F10001780%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/rakutenmobile-store/cabinet/item/apple-rm2509012/main_2606.jpg?_ex=300x300",
+      "attributes": {
+        "soundQuality": 5,
+        "noiseCancel": 5,
+        "callQuality": 5,
+        "comfort": 5,
+        "sportFit": 5,
+        "ambientAwareness": 5,
+        "battery": 4,
+        "multipoint": 3,
+        "lowLatency": 5,
+        "waterResistance": 5,
+        "iphoneFit": 5,
+        "galaxyFit": 2,
+        "androidFit": 2,
+        "neutralFit": 3,
+        "earType": "inEar",
+        "openEar": false,
+        "anc": true,
+        "ipRating": "IP57",
+        "earbudBatteryHoursAncOn": 8,
+        "totalBatteryHours": 24,
+        "multipointSupport": "unknown",
+        "wirelessCharging": "unknown",
+        "codec": "unknown",
+        "weightPerEarG": 5.55,
+        "appleFeatures": true
+      }
+    },
+    {
+      "id": "wireless-earbuds-113",
+      "name": "Bose QuietComfort Ultra Earbuds（第2世代）",
+      "description": "ノイズキャンセリングを中心にしたBoseの完全ワイヤレスイヤホン。CustomTuneで耳に合わせて音を調整し、イマーシブオーディオやワイヤレス充電に対応しています。",
+      "priceRange": 4,
+      "features": [
+        "ANC・CustomTune・イマーシブオーディオ",
+        "aptX Adaptive・マルチポイント",
+        "IPX4・本体最長6時間・ケース込み24時間"
+      ],
+      "pros": [
+        "静かな環境で音楽や動画に集中しやすい",
+        "ワイヤレス充電に対応"
+      ],
+      "cons": [
+        "本体の再生時間は最長6時間です（イマーシブオーディオオン時は最長4時間）"
+      ],
+      "recommendFor": "通勤や飛行機で、ノイズキャンセリングを重視したい人",
+      "caution": "リンク先はコジマの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FCSGGHLL/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4969929261113%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11623392%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001494/4969929261113_1.jpg?_ex=300x300",
+      "attributes": {
+        "soundQuality": 5,
+        "noiseCancel": 5,
+        "callQuality": 5,
+        "comfort": 5,
+        "sportFit": 4,
+        "ambientAwareness": 5,
+        "battery": 3,
+        "multipoint": 5,
+        "lowLatency": 4,
+        "waterResistance": 3,
+        "iphoneFit": 4,
+        "galaxyFit": 4,
+        "androidFit": 5,
+        "neutralFit": 3,
+        "earType": "inEar",
+        "openEar": false,
+        "anc": true,
+        "ipRating": "IPX4",
+        "earbudBatteryHoursAncOn": 6,
+        "totalBatteryHours": 24,
+        "multipointSupport": true,
+        "wirelessCharging": true,
+        "codec": "SBC/AAC/aptX/aptX Adaptive",
+        "weightPerEarG": 0
+      }
+    },
+    {
+      "id": "wireless-earbuds-114",
+      "name": "Technics EAH-AZ100",
+      "description": "新開発の磁性流体ドライバーを搭載したTechnicsの完全ワイヤレスイヤホン。最大3台のマルチポイント接続に対応し、ANCオンでも本体約10時間再生できます。",
+      "priceRange": 4,
+      "features": [
+        "磁性流体ドライバー・LDAC",
+        "ANC・3台マルチポイント",
+        "IPX4・ANCオンで本体約10時間・ケース込み約28時間"
+      ],
+      "pros": [
+        "音楽をじっくり聴きたい人向けの音響設計",
+        "複数端末で使いやすい"
+      ],
+      "cons": [
+        "防水はIPX4です"
+      ],
+      "recommendFor": "音楽を重視しつつ、長時間・複数端末で使いたい人",
+      "caution": "リンク先はパナソニック公式店の出品です。在庫のあるカラーを選んで購入してください。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ubhyo.d8zue3ff.g00ubhyo.d8zuf4bd/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpanasonic-store%2Feah-az100-s%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpanasonic-store%2Fi%2F10001482%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/panasonic-store/cabinet/banner/12923490/eah-az100-v_th_02.jpg?_ex=300x300",
+      "attributes": {
+        "soundQuality": 5,
+        "noiseCancel": 5,
+        "callQuality": 5,
+        "comfort": 5,
+        "sportFit": 4,
+        "ambientAwareness": 4,
+        "battery": 5,
+        "multipoint": 5,
+        "lowLatency": 4,
+        "waterResistance": 3,
+        "iphoneFit": 4,
+        "galaxyFit": 4,
+        "androidFit": 5,
+        "neutralFit": 3,
+        "earType": "inEar",
+        "openEar": false,
+        "anc": true,
+        "ipRating": "IPX4",
+        "earbudBatteryHoursAncOn": 10,
+        "totalBatteryHours": 28,
+        "multipointSupport": true,
+        "wirelessCharging": "unknown",
+        "codec": "unknown",
+        "weightPerEarG": 5.9
+      }
+    },
+    {
+      "id": "wireless-earbuds-115",
+      "name": "Sennheiser MOMENTUM True Wireless 5",
+      "description": "TrueResponseトランスデューサーとハイブリッドANCを搭載したゼンハイザーの完全ワイヤレスイヤホン。aptX Losslessに対応し、ケース込みで最大40時間再生できます。",
+      "priceRange": 5,
+      "features": [
+        "TrueResponseトランスデューサー・ハイブリッドANC",
+        "aptX Lossless・マルチポイント・ワイヤレス充電",
+        "IP54・ケース込み最大40時間"
+      ],
+      "pros": [
+        "音楽を重視した音響設計",
+        "バッテリーが長い"
+      ],
+      "cons": [
+        "片耳約7.2gで、軽量モデルより重めです"
+      ],
+      "recommendFor": "音楽をじっくり聴きたく、ANCとバッテリーも妥協したくない人",
+      "caution": "リンク先はゼンハイザー公式店の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u7gzo.d8zue2ed.g00u7gzo.d8zufb14/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsennheiser-hearing%2Fmtw5%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsennheiser-hearing%2Fi%2F10000127%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/sennheiser-hearing/cabinet/mtw5/s.jpg?_ex=300x300",
+      "attributes": {
+        "soundQuality": 5,
+        "noiseCancel": 5,
+        "callQuality": 5,
+        "comfort": 5,
+        "sportFit": 4,
+        "ambientAwareness": 4,
+        "battery": 5,
+        "multipoint": 5,
+        "lowLatency": 5,
+        "waterResistance": 4,
+        "iphoneFit": 4,
+        "galaxyFit": 4,
+        "androidFit": 5,
+        "neutralFit": 3,
+        "earType": "inEar",
+        "openEar": false,
+        "anc": true,
+        "ipRating": "IP54",
+        "earbudBatteryHoursAncOn": 0,
+        "totalBatteryHours": 40,
+        "multipointSupport": true,
+        "wirelessCharging": true,
+        "codec": "SBC/AAC/aptX/aptX Adaptive/aptX Lossless",
+        "weightPerEarG": 7.2
+      }
+    }
+  ],
+  "scoring": {
+    "tieBreak": true,
+    "softenPartialReason": true,
+    "lowMatchNotice": "条件をすべて満たす商品が少ないため、近い候補を表示しています。"
+  },
+  "guide": {
+    "title": "ワイヤレスイヤホンの選び方",
+    "intro": "この診断は、左右独立の完全ワイヤレスイヤホンを対象に、メーカー公表の仕様をもとに以下のポイントとあなたの回答を照らし合わせて相性を計算しています。",
+    "sections": [
+      {
+        "heading": "カナル型とオープンイヤー型",
+        "body": "カナル型は耳穴に差し込むタイプで、ノイズキャンセリングと組み合わせると周囲の音を抑えやすくなります。オープンイヤー型は耳をふさがないため、周囲の音を聞きながら使えますが、ノイズキャンセリングは搭載していません。"
+      },
+      {
+        "heading": "スマホとの組み合わせ",
+        "body": "どの完全ワイヤレスイヤホンもBluetoothで多くのスマホとつながりますが、メーカー独自の連携機能は特定のスマホでのみ使えるものがあります。高音質コーデックも、スマホ側の対応が必要です。"
+      },
+      {
+        "heading": "ノイズキャンセリングと音質",
+        "body": "ノイズキャンセリングの強さや音質の評価は、メーカーごとに測定条件が異なります。数値や広告表現を他社と単純に比べず、機能や構成、使う場面に合わせて選ぶのがおすすめです。"
+      }
+    ]
+  },
+  "notice": "ノイズキャンセリングや音質に関する表現は各メーカーの測定条件・説明に基づくもので、メーカー間で単純に比較できません。高音質コーデックやメーカー独自の連携機能は、対応するスマホ・端末でのみ使えます。防水・防塵性能は各メーカーが示すIP等級の条件に基づきます。オープンイヤー型は周囲の音が聞こえるため、騒がしい場所では聞こえ方が変わります。運動中や移動中は周囲の安全に注意してください。価格は変動するため、購入時に販売ページでご確認ください。"
+}
