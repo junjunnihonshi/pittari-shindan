@@ -22,6 +22,11 @@ export function isRakutenAffiliateUrl(href: string): boolean {
 }
 
 /** Amazonアソシエイトの商品リンク：amazon.co.jp の /dp/<ASIN> で、tag がこのサイトのアソシエイトID */
+/** 楽天で扱いのない商品の購入先として許可するメーカー公式ストア（officialUrl） */
+export function isOfficialStoreUrl(href: string): boolean {
+  return href.startsWith('https://www.apple.com/jp/shop/')
+}
+
 export function isAmazonAssociateUrl(href: string): boolean {
   try {
     const u = new URL(href)
@@ -247,12 +252,15 @@ export async function checkDiagnosisPages(
         if (!same(view.supplements, expected.supplements)) issues.push({ where, message: '別枠の表示が計算結果と一致しません' })
         for (const n of expected.notices) if (!view.notices.includes(n)) issues.push({ where, message: `注意書きが表示されていません: ${n.slice(0, 30)}…` })
         const cards = [...view.ranked, ...view.supplements]
-        if (cards.some((c) => !c.img)) issues.push({ where, message: '読み込めない商品画像があります' })
-        // 楽天ボタンは全カードに必須（従来どおり）。ほかに許可するのは Amazon アソシエイトの商品リンクだけ
-        if (cards.some((c) => !c.buttons.some(isRakutenAffiliateUrl))) {
-          issues.push({ where, message: '楽天ボタンがない、またはアフィリエイトURLでないカードがあります' })
+        // 楽天で扱いのない商品（公式ストアのみ）は、画像未設定（プレースホルダー）と公式ストアのボタンを許可する
+        const officialOnly = new Set(d.products.filter((p) => !p.rakutenUrl && p.officialUrl).map((p) => p.name))
+        const noImage = new Set(d.products.filter((p) => officialOnly.has(p.name) && !p.imageUrl).map((p) => p.name))
+        if (cards.some((c) => !c.img && !noImage.has(c.name))) issues.push({ where, message: '読み込めない商品画像があります' })
+        // 楽天ボタンは全カードに必須（公式ストアのみの商品は公式ボタン）。ほかに許可するのは Amazon アソシエイトの商品リンクだけ
+        if (cards.some((c) => (officialOnly.has(c.name) ? !c.buttons.some(isOfficialStoreUrl) : !c.buttons.some(isRakutenAffiliateUrl)))) {
+          issues.push({ where, message: '楽天ボタン（公式ストアのみの商品は公式ボタン）がない、またはURLが正しくないカードがあります' })
         }
-        const unknown = cards.flatMap((c) => c.buttons.filter((h) => !isRakutenAffiliateUrl(h) && !isAmazonAssociateUrl(h)))
+        const unknown = cards.flatMap((c) => c.buttons.filter((h) => !isRakutenAffiliateUrl(h) && !isAmazonAssociateUrl(h) && !isOfficialStoreUrl(h)))
         if (unknown.length) issues.push({ where, message: `許可されていない購入リンクがあります（楽天アフィリエイト・Amazonアソシエイト以外）: ${unknown[0].slice(0, 80)}` })
         if (cards.some((c) => c.overflowX)) issues.push({ where, message: '画面からはみ出したカードがあります' })
         if (view.clipped > 0) issues.push({ where, message: `文字切れ ${view.clipped} 件` })

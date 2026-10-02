@@ -168,6 +168,17 @@ async function checkProductLinks(d: Diagnosis) {
   const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
   for (const p of d.products.filter((x) => x.enabled)) {
     const label = `${p.id}（${p.name}）`
+    // 楽天で扱いのない商品は公式ストア（officialUrl）を購入先にする。現行の販売ページが開ければ有効とし、楽天の在庫・価格確認は行わない
+    if (!p.rakutenUrl && p.officialUrl) {
+      const official = await fetch(p.officialUrl).catch(() => null)
+      if (!official || official.status !== 200) problems.push(`${label}：公式ストアのページを開けません（${official?.status ?? '接続失敗'}）`)
+      if (p.imageUrl) {
+        const img = await fetch(p.imageUrl).catch(() => null)
+        if (!img || img.status !== 200 || !(img.headers.get('content-type') ?? '').startsWith('image/')) problems.push(`${label}：商品画像を読み込めません`)
+      }
+      await sleep(700)
+      continue
+    }
     const rakutenUrl = p.rakutenUrl ?? ''
     if (!rakutenUrl.startsWith('https://hb.afl.rakuten.co.jp/')) problems.push(`${label}：楽天URLがアフィリエイトURLではありません`)
     if (rakutenUrl.includes('rafcid')) problems.push(`${label}：楽天URLに rafcid が含まれています`)
@@ -194,7 +205,8 @@ async function checkProductLinks(d: Diagnosis) {
     for (const m of problems) console.error('   ✖', m)
     stop(`商品の最終チェックで ${problems.length} 件の問題があります`)
   }
-  ok(`商品${d.products.filter((x) => x.enabled).length}件：画像・楽天URL（rafcidなし・転送OK）・価格帯・在庫に問題なし`)
+  const officialOnly = d.products.filter((x) => x.enabled && !x.rakutenUrl && x.officialUrl).length
+  ok(`商品${d.products.filter((x) => x.enabled).length}件：画像・楽天URL（rafcidなし・転送OK）・価格帯・在庫に問題なし${officialOnly ? `（うち公式ストアのみ ${officialOnly}件はページ表示を確認）` : ''}`)
 }
 
 function checkBuiltSeo(d: Diagnosis) {
@@ -344,7 +356,8 @@ async function main() {
   const enabledProducts = target.products.filter((p) => p.enabled)
   if (target.products.some((p) => p.sample)) stop('仮商品（sample: true）が残っています')
   if (enabledProducts.length < 3) stop(`表示できる商品が ${enabledProducts.length} 件しかありません（3件以上必要）`)
-  if (enabledProducts.some((p) => !p.rakutenUrl || !p.imageUrl)) stop('楽天URLまたは画像URLが空の商品があります')
+  // 公式ストアのみの商品（楽天URLなし・officialUrlあり）は画像未設定（プレースホルダー表示）を許可する
+  if (enabledProducts.some((p) => (p.rakutenUrl ? !p.imageUrl : !p.officialUrl))) stop('楽天URL（または公式ストアURL）か画像URLが空の商品があります')
   const problems = validateDiagnoses([target])
   if (problems.length) stop(`データの入力チェックで問題があります：${problems.join(' / ')}`)
   ok(`${target.name}（${file}）：実商品${enabledProducts.length}件・${verifyOnly ? '公開済み' : 'enabled: false'}・入力チェックOK`)

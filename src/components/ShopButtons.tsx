@@ -12,7 +12,8 @@ export function ShopButtons({ product, diagnosisId, rank }: Props) {
   const items = shops
     .filter((shop) => shop.enabled)
     .map((shop) => ({ shop, url: getShopUrl(product, shop) }))
-    .filter(({ shop, url }) => url || shop.showWhenEmpty)
+    // 公式サイトが購入先の商品（楽天未取扱い）には「準備中」ボタンを出さない
+    .filter(({ shop, url }) => url || (shop.showWhenEmpty && !product.officialUrl))
 
   if (items.length === 0) return null
 
