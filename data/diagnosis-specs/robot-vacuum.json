@@ -1,0 +1,1199 @@
+{
+  "id": "robot-vacuum",
+  "enabled": false,
+  "title": "ロボット掃除機診断",
+  "itemName": "ロボット掃除機",
+  "group": "life",
+  "icon": "🤖",
+  "cardDescription": "水拭き、自動ゴミ収集、部屋のサイズ、床、ペットの毛から、あなたにぴったりのロボット掃除機を診断。",
+  "description": "重視したいこと、水拭き、お手入れの自動化、設置場所、床のタイプ、家の中の状況、予算から、あなたにぴったりのロボット掃除機を絞り込みます。",
+  "searchKeywords": [
+    "ロボット掃除機",
+    "ロボット掃除機おすすめ",
+    "おすすめ",
+    "お掃除ロボット",
+    "ロボットクリーナー",
+    "ルンバ",
+    "Roomba",
+    "Eufy",
+    "ユーフィ",
+    "ECOVACS",
+    "エコバックス",
+    "DEEBOT",
+    "Roborock",
+    "ロボロック",
+    "SwitchBot",
+    "Dreame",
+    "水拭き",
+    "自動ゴミ収集",
+    "ペット",
+    "毛絡み",
+    "カーペット",
+    "一人暮らし"
+  ],
+  "seo": {
+    "title": "ロボット掃除機診断｜あなたにぴったりの1台を7問で診断",
+    "description": "水拭き、自動ゴミ収集、ペットの毛、カーペット、部屋の広さ、予算など7つの質問から、あなたにぴったりのロボット掃除機を診断します。"
+  },
+  "priceLabels": {
+    "1": "〜40,000円",
+    "2": "40,000〜60,000円",
+    "3": "60,000〜80,000円",
+    "4": "80,000〜120,000円",
+    "5": "120,000円〜"
+  },
+  "questions": [
+    {
+      "id": "priority",
+      "text": "ロボット掃除機で一番重視したいことは？",
+      "shortLabel": "重視すること",
+      "weight": 18,
+      "options": [
+        {
+          "id": "value",
+          "label": "価格・コスパ",
+          "summary": "価格・コスパを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "compact",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "suction",
+          "label": "吸引力・掃除性能",
+          "summary": "吸引力・掃除性能を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "vacuum",
+              "value": 5,
+              "weight": 40
+            },
+            {
+              "type": "atLeast",
+              "attr": "navigation",
+              "value": 5,
+              "weight": 20
+            },
+            {
+              "type": "atLeast",
+              "attr": "carpet",
+              "value": 5,
+              "weight": 20
+            },
+            {
+              "type": "atLeast",
+              "attr": "threshold",
+              "value": 5,
+              "weight": 10
+            },
+            {
+              "type": "atLeast",
+              "attr": "largeHome",
+              "value": 5,
+              "weight": 10
+            }
+          ]
+        },
+        {
+          "id": "mop",
+          "label": "水拭き性能",
+          "summary": "水拭き性能を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "mopping",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "automation",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "auto",
+          "label": "お手入れの自動化",
+          "summary": "お手入れの自動化を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "automation",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "petHair",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "compact",
+          "label": "コンパクトさ",
+          "summary": "コンパクトさを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "compact",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "lowProfile",
+              "value": 5,
+              "weight": 40
+            }
+          ]
+        },
+        {
+          "id": "pet",
+          "label": "ペットの毛・髪の毛対策",
+          "summary": "ペットの毛・髪の毛対策を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "petHair",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "obstacleAvoidance",
+              "value": 5,
+              "weight": 20
+            },
+            {
+              "type": "atLeast",
+              "attr": "vacuum",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mopping",
+      "text": "水拭きはどれくらい重視しますか？",
+      "shortLabel": "水拭き",
+      "weight": 16,
+      "options": [
+        {
+          "id": "required",
+          "label": "水拭きは必須",
+          "summary": "水拭きは必須",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "mopping",
+              "value": 4,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "moppingSupported",
+            "value": true,
+            "notice": "水拭きに対応した機種からおすすめを表示しています。",
+            "supplementLabel": "水拭きには対応していません"
+          }
+        },
+        {
+          "id": "want",
+          "label": "できればしっかり水拭きしたい",
+          "summary": "できればしっかり水拭きしたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "mopping",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "any",
+          "label": "特にこだわらない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "automation",
+      "text": "お手入れはどこまで自動化したいですか？",
+      "shortLabel": "お手入れの自動化",
+      "weight": 14,
+      "options": [
+        {
+          "id": "empty",
+          "label": "ゴミの自動収集は必須",
+          "summary": "ゴミの自動収集は必須",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "autoEmpty",
+            "value": true,
+            "notice": "自動ゴミ収集に対応した機種からおすすめを表示しています。",
+            "supplementLabel": "自動ゴミ収集に対応していません"
+          }
+        },
+        {
+          "id": "washdry",
+          "label": "モップの洗浄・乾燥まで自動がいい",
+          "summary": "モップの洗浄・乾燥まで自動がいい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "automation",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": [
+            {
+              "attr": "autoEmpty",
+              "value": true,
+              "notice": "自動ゴミ収集に対応した機種からおすすめを表示しています。",
+              "supplementLabel": "自動ゴミ収集に対応していません"
+            },
+            {
+              "attr": "mopWashDry",
+              "value": true,
+              "notice": "モップの自動洗浄・乾燥に対応した機種からおすすめを表示しています。",
+              "supplementLabel": "モップの自動洗浄・乾燥に対応していません"
+            }
+          ]
+        },
+        {
+          "id": "any",
+          "label": "特にこだわらない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "space",
+      "text": "設置場所や本体サイズで重視することは？",
+      "shortLabel": "サイズ",
+      "weight": 14,
+      "options": [
+        {
+          "id": "compact",
+          "label": "狭い部屋なのでコンパクトさ重視",
+          "summary": "狭い部屋なのでコンパクトさを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "compact",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "low",
+          "label": "低い家具の下まで掃除してほしい",
+          "summary": "低い家具の下まで掃除してほしい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "lowProfile",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "any",
+          "label": "サイズは特に気にしない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "floor",
+      "text": "床はどのタイプが多いですか？",
+      "shortLabel": "床",
+      "weight": 12,
+      "options": [
+        {
+          "id": "carpet",
+          "label": "カーペット・ラグが多い",
+          "summary": "カーペット・ラグが多い",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "carpet",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "vacuum",
+              "value": 5,
+              "weight": 50
+            }
+          ]
+        },
+        {
+          "id": "flooring",
+          "label": "フローリング中心で水拭きを重視",
+          "summary": "フローリング中心で水拭きを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "mopping",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "automation",
+              "value": 5,
+              "weight": 40
+            }
+          ]
+        },
+        {
+          "id": "both",
+          "label": "どちらも同じくらい",
+          "summary": "カーペットとフローリングが同じくらい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "vacuum",
+              "value": 5,
+              "weight": 35
+            },
+            {
+              "type": "atLeast",
+              "attr": "mopping",
+              "value": 5,
+              "weight": 35
+            },
+            {
+              "type": "atLeast",
+              "attr": "navigation",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home",
+      "text": "家の中で気になることは？",
+      "shortLabel": "家の中",
+      "weight": 14,
+      "options": [
+        {
+          "id": "pet",
+          "label": "ペットや長い髪の毛が多い",
+          "summary": "ペットや長い髪の毛が多い",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "petHair",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "obstacles",
+          "label": "コードや物が床に置かれていることが多い",
+          "summary": "コードや物が床に置かれていることが多い",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "obstacleAvoidance",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "none",
+          "label": "特にない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "budget",
+      "text": "予算は？",
+      "shortLabel": "予算",
+      "weight": 8,
+      "options": [
+        {
+          "id": "b1",
+          "label": "40,000円以下",
+          "summary": "予算40,000円以下",
+          "effects": [],
+          "maxPriceRange": 1
+        },
+        {
+          "id": "b2",
+          "label": "60,000円以下",
+          "summary": "予算60,000円以下",
+          "effects": [],
+          "maxPriceRange": 2
+        },
+        {
+          "id": "b3",
+          "label": "80,000円以下",
+          "summary": "予算80,000円以下",
+          "effects": [],
+          "maxPriceRange": 3
+        },
+        {
+          "id": "b4",
+          "label": "120,000円以下",
+          "summary": "予算120,000円以下",
+          "effects": [],
+          "maxPriceRange": 4
+        },
+        {
+          "id": "b5",
+          "label": "160,000円以下",
+          "summary": "予算160,000円以下",
+          "effects": [],
+          "eligibility": {
+            "attr": "within160k",
+            "value": true,
+            "notice": "予算160,000円以下の機種からおすすめを表示しています。",
+            "supplementLabel": "予算160,000円を超えます"
+          }
+        },
+        {
+          "id": "any",
+          "label": "上限なし",
+          "effects": []
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "robot-vacuum-101",
+      "name": "Eufy Robot Vacuum Auto-Empty C10",
+      "description": "高さ約7.2cmの薄型ロボット掃除機。吸引専用で、自動ゴミ収集ステーションが付属します。",
+      "priceRange": 1,
+      "features": [
+        "最大4,000Pa・吸引専用",
+        "自動ゴミ収集",
+        "高さ約7.2cmの薄型"
+      ],
+      "pros": [
+        "手頃な価格で自動ゴミ収集を使える",
+        "低い家具の下に入りやすい"
+      ],
+      "cons": [
+        "水拭きには対応していません"
+      ],
+      "recommendFor": "手頃な価格で、ゴミ捨ての手間も減らしたい人",
+      "caution": "リンク先はAnker公式店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0DLG93BX5/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rr09o.d8zue50e.g00rr09o.d8zuf491/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Ft2292%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fanker%2Fi%2F10002285%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/anker/cabinet/listing/tmb/t2292/t2292_normal_new.jpg?_ex=300x300",
+      "attributes": {
+        "vacuum": 3,
+        "mopping": 1,
+        "automation": 3,
+        "navigation": 3,
+        "obstacleAvoidance": 2,
+        "petHair": 3,
+        "carpet": 3,
+        "compact": 5,
+        "lowProfile": 5,
+        "threshold": 2,
+        "largeHome": 3,
+        "value": 5,
+        "neutralFit": 3,
+        "moppingSupported": false,
+        "autoEmpty": true,
+        "mopWashDry": false,
+        "within160k": true,
+        "priceYen": 29990
+      }
+    },
+    {
+      "id": "robot-vacuum-102",
+      "name": "Xiaomi ロボット掃除機 H40",
+      "description": "10,000Paの吸引力と水拭きに対応したロボット掃除機。LDSナビゲーションと毛絡み対策を備え、4Lダストバッグの自動ゴミ収集が付属します。",
+      "priceRange": 1,
+      "features": [
+        "10,000Pa・吸引＋水拭き（3段階給水）",
+        "自動ゴミ収集（4Lダストバッグ）",
+        "LDSナビゲーション・毛絡み対策"
+      ],
+      "pros": [
+        "手頃な価格で水拭きと自動ゴミ収集を使える",
+        "髪の毛が絡みにくい"
+      ],
+      "cons": [
+        "モップの自動洗浄・乾燥には対応していません"
+      ],
+      "recommendFor": "手頃な価格で、吸引と水拭きを両方使いたい人",
+      "caution": "リンク先はXiaomi公式店の出品（OV51）です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0GFDCVLVW/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u4hyo.d8zued8c.g00u4hyo.d8zuf50c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fxiaomiofficial%2Fm75283%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fxiaomiofficial%2Fi%2F10000553%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/xiaomiofficial/cabinet/12625380/12642007/imgrc0107834092.jpg?_ex=300x300",
+      "attributes": {
+        "vacuum": 4,
+        "mopping": 3,
+        "automation": 3,
+        "navigation": 4,
+        "obstacleAvoidance": 3,
+        "petHair": 5,
+        "carpet": 3,
+        "compact": 3,
+        "lowProfile": 3,
+        "threshold": 3,
+        "largeHome": 4,
+        "value": 5,
+        "neutralFit": 3,
+        "moppingSupported": true,
+        "autoEmpty": true,
+        "mopWashDry": false,
+        "within160k": true,
+        "priceYen": 39800
+      }
+    },
+    {
+      "id": "robot-vacuum-103",
+      "name": "ECOVACS DEEBOT mini",
+      "description": "本体幅約28.6cmの小型ロボット掃除機。小型のステーションで、自動ゴミ収集とモップの洗浄・乾燥まで自動で行います。",
+      "priceRange": 3,
+      "features": [
+        "本体幅約28.6cm・8,000Pa",
+        "水拭き・モップ洗浄・乾燥",
+        "自動ゴミ収集・小型ステーション"
+      ],
+      "pros": [
+        "狭い部屋でも置きやすい",
+        "お手入れまで自動化できる"
+      ],
+      "cons": [
+        "広い家では吸引力の高い上位機も候補になります"
+      ],
+      "recommendFor": "狭い部屋で、水拭きとお手入れの自動化まで使いたい人",
+      "caution": "リンク先はエコバックス公式店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0F32STMZR/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00sun6o.d8zuea14.g00sun6o.d8zuf000/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fstore-ecovacs-japan%2Fdjx11-11ee%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fstore-ecovacs-japan%2Fi%2F10000480%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/store-ecovacs-japan/cabinet/deebot/mini/color_black.jpg?_ex=300x300",
+      "attributes": {
+        "vacuum": 3,
+        "mopping": 4,
+        "automation": 5,
+        "navigation": 4,
+        "obstacleAvoidance": 3,
+        "petHair": 4,
+        "carpet": 3,
+        "compact": 5,
+        "lowProfile": 3,
+        "threshold": 2,
+        "largeHome": 3,
+        "value": 4,
+        "neutralFit": 3,
+        "moppingSupported": true,
+        "autoEmpty": true,
+        "mopWashDry": true,
+        "within160k": true,
+        "priceYen": 69800
+      }
+    },
+    {
+      "id": "robot-vacuum-104",
+      "name": "iRobot Roomba 105 Combo + AutoEmpty",
+      "description": "ClearView LiDARで部屋を把握して掃除するルンバ。吸引と水拭きの両方に対応し、AutoEmptyでゴミを自動収集します。",
+      "priceRange": 2,
+      "features": [
+        "吸引＋水拭き",
+        "ClearView LiDAR",
+        "AutoEmpty（自動ゴミ収集）"
+      ],
+      "pros": [
+        "シンプルに使いやすい",
+        "1〜2人暮らしの部屋に合わせやすい"
+      ],
+      "cons": [
+        "モップの自動洗浄・乾燥には対応していません"
+      ],
+      "recommendFor": "シンプルなルンバで、吸引と水拭きを始めたい人",
+      "caution": "リンク先はアイロボット公式店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0F1FCYBLT/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00recuo.d8zue598.g00recuo.d8zuf158/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firobotstore%2Fy35%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Firobotstore%2Fi%2F10000565%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/irobotstore/cabinet/03016688/20260219_review_2nen/105c_ae_tm_2nen_v2.jpg?_ex=300x300",
+      "attributes": {
+        "vacuum": 3,
+        "mopping": 3,
+        "automation": 3,
+        "navigation": 4,
+        "obstacleAvoidance": 3,
+        "petHair": 3,
+        "carpet": 3,
+        "compact": 3,
+        "lowProfile": 3,
+        "threshold": 3,
+        "largeHome": 4,
+        "value": 4,
+        "neutralFit": 3,
+        "moppingSupported": true,
+        "autoEmpty": true,
+        "mopWashDry": false,
+        "within160k": true,
+        "priceYen": 59200
+      }
+    },
+    {
+      "id": "robot-vacuum-105",
+      "name": "SwitchBot ロボット掃除機 K11+ Pro",
+      "description": "直径24.8cmの超小型ロボット掃除機。12,000Paの吸引力と毛絡み対策を備え、自動ゴミ収集で約90日ゴミ捨て不要です。",
+      "priceRange": 2,
+      "features": [
+        "直径24.8cm・12,000Pa",
+        "自動ゴミ収集（約90日ゴミ捨て不要）",
+        "約45dBの静音・毛絡み対策"
+      ],
+      "pros": [
+        "狭い場所にも入りやすい",
+        "静かで毛が絡みにくい"
+      ],
+      "cons": [
+        "水拭きには対応していません"
+      ],
+      "recommendFor": "狭い部屋で、小さくて吸引力のある1台が欲しい人",
+      "caution": "リンク先はSwitchBot公式店の出品です。アイボリーホワイトを選んで購入してください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0GYSGM9NC/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00uc4wo.d8zue922.g00uc4wo.d8zuf2ce/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fswitchbot%2Fk11-pro%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fswitchbot%2Fi%2F10000327%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/switchbot/cabinet/13479056/imgrc0108171857.jpg?_ex=300x300",
+      "attributes": {
+        "vacuum": 4,
+        "mopping": 1,
+        "automation": 3,
+        "navigation": 4,
+        "obstacleAvoidance": 3,
+        "petHair": 5,
+        "carpet": 4,
+        "compact": 5,
+        "lowProfile": 4,
+        "threshold": 2,
+        "largeHome": 3,
+        "value": 5,
+        "neutralFit": 3,
+        "moppingSupported": false,
+        "autoEmpty": true,
+        "mopWashDry": false,
+        "within160k": true,
+        "priceYen": 59800
+      }
+    },
+    {
+      "id": "robot-vacuum-106",
+      "name": "Roborock Q7B+",
+      "description": "8,000Paの吸引力と水拭きに対応したRoborockの入門モデル。高精度レーザーナビと自動ゴミ収集を備えています。",
+      "priceRange": 2,
+      "features": [
+        "8,000Pa・吸引＋水拭き",
+        "高精度レーザーナビ",
+        "自動ゴミ収集・毛絡み抑制"
+      ],
+      "pros": [
+        "コンパクトで置きやすい",
+        "自動ゴミ収集付きで手間を減らせる"
+      ],
+      "cons": [
+        "モップの自動洗浄・乾燥には対応していません"
+      ],
+      "recommendFor": "Roborockを手頃に始めたく、吸引と水拭きを使いたい人",
+      "caution": "リンク先はRoborock公式店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0F6NRWF9V/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ugvbo.d8zue41a.g00ugvbo.d8zuf5e2/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Froborockjapandirect%2F6936905903563%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Froborockjapandirect%2Fi%2F10000142%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/roborockjapandirect/cabinet/products/12574614/imgrc0134680043.jpg?_ex=300x300",
+      "attributes": {
+        "vacuum": 3,
+        "mopping": 2,
+        "automation": 3,
+        "navigation": 4,
+        "obstacleAvoidance": 2,
+        "petHair": 4,
+        "carpet": 3,
+        "compact": 4,
+        "lowProfile": 3,
+        "threshold": 3,
+        "largeHome": 4,
+        "value": 4,
+        "neutralFit": 3,
+        "moppingSupported": true,
+        "autoEmpty": true,
+        "mopWashDry": false,
+        "within160k": true,
+        "priceYen": 49800
+      }
+    },
+    {
+      "id": "robot-vacuum-107",
+      "name": "Roborock Q10P+",
+      "description": "10,000Paの吸引力と水拭きに対応したRoborockのロボット掃除機。高精度レーザーナビと障害物回避、自動ゴミ収集を備えています。",
+      "priceRange": 2,
+      "features": [
+        "10,000Pa・吸引＋水拭き",
+        "高精度レーザーナビ・障害物回避",
+        "自動ゴミ収集"
+      ],
+      "pros": [
+        "手頃な価格で高機能なRoborockを使える",
+        "広めの部屋も掃除しやすい"
+      ],
+      "cons": [
+        "モップの自動洗浄・乾燥には対応していません"
+      ],
+      "recommendFor": "初めての高機能ロボット掃除機を、手頃な価格で選びたい人",
+      "caution": "リンク先はRoborock公式店の出品（Q10PP02-04・ホワイト）です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ugvbo.d8zue41a.g00ugvbo.d8zuf5e2/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Froborockjapandirect%2F6936905902108%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Froborockjapandirect%2Fi%2F10000141%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/roborockjapandirect/cabinet/products/12574614/imgrc0136717106.jpg?_ex=300x300",
+      "attributes": {
+        "vacuum": 4,
+        "mopping": 3,
+        "automation": 3,
+        "navigation": 5,
+        "obstacleAvoidance": 4,
+        "petHair": 4,
+        "carpet": 4,
+        "compact": 3,
+        "lowProfile": 3,
+        "threshold": 3,
+        "largeHome": 4,
+        "value": 5,
+        "neutralFit": 3,
+        "moppingSupported": true,
+        "autoEmpty": true,
+        "mopWashDry": false,
+        "within160k": true,
+        "priceYen": 44000
+      }
+    },
+    {
+      "id": "robot-vacuum-108",
+      "name": "SwitchBot お掃除ロボット S20",
+      "description": "走行中にローラーモップを洗浄しながら水拭きするロボット掃除機。自動ゴミ収集、モップ洗浄、50℃温風乾燥まで自動です。",
+      "priceRange": 4,
+      "features": [
+        "10,000Pa・リアルタイム洗浄ローラーモップ",
+        "自動ゴミ収集・モップ洗浄・50℃温風乾燥",
+        "AI障害物回避・毛絡み対策・カーペット検知"
+      ],
+      "pros": [
+        "水拭きの性能が高い",
+        "ペットの毛にも対応しやすい"
+      ],
+      "cons": [
+        "ステーションが大きめです"
+      ],
+      "recommendFor": "ペットがいる家で、水拭きとお手入れの自動化を重視したい人",
+      "caution": "リンク先はSwitchBot公式店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0DTYJMPQL/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00uc4wo.d8zue922.g00uc4wo.d8zuf2ce/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fswitchbot%2Fs20%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fswitchbot%2Fi%2F10000272%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/switchbot/cabinet/09377790/s20/amazon/head.jpg?_ex=300x300",
+      "attributes": {
+        "vacuum": 4,
+        "mopping": 5,
+        "automation": 5,
+        "navigation": 4,
+        "obstacleAvoidance": 5,
+        "petHair": 5,
+        "carpet": 5,
+        "compact": 2,
+        "lowProfile": 2,
+        "threshold": 3,
+        "largeHome": 5,
+        "value": 4,
+        "neutralFit": 3,
+        "moppingSupported": true,
+        "autoEmpty": true,
+        "mopWashDry": true,
+        "within160k": true,
+        "priceYen": 91800
+      }
+    },
+    {
+      "id": "robot-vacuum-109",
+      "name": "Eufy Robot Vacuum Omni C28",
+      "description": "15,000Paの吸引力と加圧式ローラーモップを備えたロボット掃除機。自動ゴミ収集とモップの自動洗浄・温風乾燥に対応しています。",
+      "priceRange": 4,
+      "features": [
+        "15,000Pa・加圧式ローラーモップ",
+        "自動ゴミ収集・モップ自動洗浄・温風乾燥",
+        "障害物回避・毛絡み対策"
+      ],
+      "pros": [
+        "吸引と水拭きのバランスがよい",
+        "お手入れまで自動化できる"
+      ],
+      "cons": [
+        "ステーションの設置スペースが必要です"
+      ],
+      "recommendFor": "吸引・水拭き・お手入れの自動化を、バランスよく揃えたい人",
+      "caution": "リンク先はAnker公式店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FX7M29RP/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rr09o.d8zue50e.g00rr09o.d8zuf491/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Ft211a%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fanker%2Fi%2F10002525%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/anker/cabinet/tmb/t/t211a_normal.jpg?_ex=300x300",
+      "attributes": {
+        "vacuum": 4,
+        "mopping": 5,
+        "automation": 5,
+        "navigation": 5,
+        "obstacleAvoidance": 4,
+        "petHair": 5,
+        "carpet": 4,
+        "compact": 3,
+        "lowProfile": 2,
+        "threshold": 3,
+        "largeHome": 5,
+        "value": 4,
+        "neutralFit": 3,
+        "moppingSupported": true,
+        "autoEmpty": true,
+        "mopWashDry": true,
+        "within160k": true,
+        "priceYen": 99990
+      }
+    },
+    {
+      "id": "robot-vacuum-110",
+      "name": "Xiaomi ロボット掃除機 5 Pro",
+      "description": "20,000Paの吸引力とAI障害物認識を備えた全自動モデル。80℃の温水でモップを洗浄し、温風で乾燥させます。",
+      "priceRange": 4,
+      "features": [
+        "20,000Pa・AI障害物認識（200種類以上）",
+        "自動ゴミ収集・80℃温水モップ洗浄・温風乾燥",
+        "毛絡み対策・カーペット自動検知・モップ15mmリフト"
+      ],
+      "pros": [
+        "障害物を避けながら掃除できる",
+        "お手入れまで自動化できる"
+      ],
+      "cons": [
+        "ステーションの設置スペースが必要です"
+      ],
+      "recommendFor": "障害物の多い家で、吸引・水拭き・お手入れまで任せたい人",
+      "caution": "リンク先はXiaomi公式店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FNFJRHCB/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u4hyo.d8zued8c.g00u4hyo.d8zuf50c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fxiaomiofficial%2Fm65237%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fxiaomiofficial%2Fi%2F10000486%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/xiaomiofficial/cabinet/12138118/12138120/mainxm65237.jpg?_ex=300x300",
+      "attributes": {
+        "vacuum": 5,
+        "mopping": 4,
+        "automation": 5,
+        "navigation": 5,
+        "obstacleAvoidance": 5,
+        "petHair": 5,
+        "carpet": 5,
+        "compact": 3,
+        "lowProfile": 4,
+        "threshold": 3,
+        "largeHome": 5,
+        "value": 4,
+        "neutralFit": 3,
+        "moppingSupported": true,
+        "autoEmpty": true,
+        "mopWashDry": true,
+        "within160k": true,
+        "priceYen": 108000
+      }
+    },
+    {
+      "id": "robot-vacuum-111",
+      "name": "iRobot Roomba Plus 515 Combo + AutoWash",
+      "description": "高さ約8.4cmの薄型ルンバ。DualCleanモップで水拭きし、75℃温水でのモップ洗浄と45℃温風乾燥、自動ゴミ収集まで行います。",
+      "priceRange": 4,
+      "features": [
+        "高さ約8.4cm・LiDAR",
+        "DualCleanモップ・75℃温水洗浄・45℃温風乾燥",
+        "自動ゴミ収集・カーペットでモップリフト"
+      ],
+      "pros": [
+        "低い家具の下にも入りやすい",
+        "日本の住宅に合わせた全自動モデル"
+      ],
+      "cons": [
+        "価格は高めです"
+      ],
+      "recommendFor": "低い家具の多い家で、全自動のルンバを使いたい人",
+      "caution": "リンク先はJoshinの出品（N285060）です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F0885155054982-21-21986-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14829884%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0091/0885155054982.jpg?_ex=300x300",
+      "attributes": {
+        "vacuum": 4,
+        "mopping": 5,
+        "automation": 5,
+        "navigation": 5,
+        "obstacleAvoidance": 4,
+        "petHair": 4,
+        "carpet": 5,
+        "compact": 4,
+        "lowProfile": 5,
+        "threshold": 3,
+        "largeHome": 5,
+        "value": 3,
+        "neutralFit": 3,
+        "moppingSupported": true,
+        "autoEmpty": true,
+        "mopWashDry": true,
+        "within160k": true,
+        "priceYen": 108773
+      }
+    },
+    {
+      "id": "robot-vacuum-112",
+      "name": "Eufy Robot Vacuum Omni E25",
+      "description": "20,000Paの吸引力と加圧式ローラーモップを備えた全自動モデル。毛絡み対策や障害物回避にも対応しています。",
+      "priceRange": 5,
+      "features": [
+        "20,000Pa・加圧式ローラーモップ",
+        "自動ゴミ収集・モップ自動洗浄・乾燥",
+        "毛絡み対策・障害物回避"
+      ],
+      "pros": [
+        "吸引と水拭きの性能が高い",
+        "ペットの毛にも対応しやすい"
+      ],
+      "cons": [
+        "ステーションの設置スペースが必要です"
+      ],
+      "recommendFor": "清掃力とお手入れの自動化を、高いレベルで揃えたい人",
+      "caution": "リンク先はAnker公式店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0F9JGVSDX/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rr09o.d8zue50e.g00rr09o.d8zuf491/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Ft2353%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fanker%2Fi%2F10002408%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/anker/cabinet/tmb/t/t2353_normal.jpg?_ex=300x300",
+      "attributes": {
+        "vacuum": 5,
+        "mopping": 5,
+        "automation": 5,
+        "navigation": 5,
+        "obstacleAvoidance": 5,
+        "petHair": 5,
+        "carpet": 5,
+        "compact": 3,
+        "lowProfile": 2,
+        "threshold": 3,
+        "largeHome": 5,
+        "value": 3,
+        "neutralFit": 3,
+        "moppingSupported": true,
+        "autoEmpty": true,
+        "mopWashDry": true,
+        "within160k": true,
+        "priceYen": 149900
+      }
+    },
+    {
+      "id": "robot-vacuum-113",
+      "name": "ECOVACS DEEBOT X11 OmniCyclone",
+      "description": "ダストバッグ不要のステーションを備えたECOVACSの上位モデル。19,500Paの吸引力とローラーモップ、75℃熱水でのモップ洗浄に対応しています。",
+      "priceRange": 5,
+      "features": [
+        "19,500Pa・ローラーモップ",
+        "ダストバッグ不要の自動ゴミ収集",
+        "75℃熱水モップ洗浄・AI障害物回避"
+      ],
+      "pros": [
+        "紙パックの交換が不要",
+        "広い家も任せやすい"
+      ],
+      "cons": [
+        "ステーションが大きめです",
+        "価格は高めです"
+      ],
+      "recommendFor": "広い家で、紙パック不要の全自動モデルを使いたい人",
+      "caution": "リンク先はエコバックス公式店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FMRLWXJJ/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00sun6o.d8zuea14.g00sun6o.d8zuf000/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fstore-ecovacs-japan%2Fdex99-10ee%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fstore-ecovacs-japan%2Fi%2F10000499%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/store-ecovacs-japan/cabinet/deebot/x11omnicyclone/x11_thumb.jpg?_ex=300x300",
+      "attributes": {
+        "vacuum": 5,
+        "mopping": 5,
+        "automation": 5,
+        "navigation": 5,
+        "obstacleAvoidance": 5,
+        "petHair": 5,
+        "carpet": 5,
+        "compact": 2,
+        "lowProfile": 3,
+        "threshold": 3,
+        "largeHome": 5,
+        "value": 3,
+        "neutralFit": 3,
+        "moppingSupported": true,
+        "autoEmpty": true,
+        "mopWashDry": true,
+        "within160k": false,
+        "priceYen": 229900
+      }
+    },
+    {
+      "id": "robot-vacuum-114",
+      "name": "Dreame X50 Ultra",
+      "description": "最大6cmの段差を越えられる高性能モデル。センサーを格納すると高さ約8.9cmになり、最大200種類の障害物を認識します。",
+      "priceRange": 5,
+      "features": [
+        "20,000Pa・最大6cm段差対応",
+        "センサー格納時の高さ約8.9cm",
+        "最大200種類の障害物認識・カーペットでモップリフト"
+      ],
+      "pros": [
+        "段差のある家でも掃除しやすい",
+        "低い家具の下にも入りやすい"
+      ],
+      "cons": [
+        "価格は高めです"
+      ],
+      "recommendFor": "段差や障害物の多い家で、高性能な全自動モデルを使いたい人",
+      "caution": "リンク先はDreame公式店の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00und8o.d8zue646.g00und8o.d8zuf8c1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdreame-shop%2Fx50-ultra%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdreame-shop%2Fi%2F10000154%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/dreame-shop/cabinet/biiino/item/main-image/x50ultra_cp2.jpg?_ex=300x300",
+      "attributes": {
+        "vacuum": 4,
+        "mopping": 5,
+        "automation": 5,
+        "navigation": 5,
+        "obstacleAvoidance": 5,
+        "petHair": 5,
+        "carpet": 5,
+        "compact": 2,
+        "lowProfile": 4,
+        "threshold": 4,
+        "largeHome": 5,
+        "value": 3,
+        "neutralFit": 3,
+        "moppingSupported": true,
+        "autoEmpty": true,
+        "mopWashDry": true,
+        "within160k": false,
+        "priceYen": 229800
+      }
+    },
+    {
+      "id": "robot-vacuum-115",
+      "name": "Roborock Saros 20",
+      "description": "36,000Paの吸引力を備えたRoborockの最上位モデル。本体高さ約7.98cmの薄型で、最大8.8cmの二重段差を越えられます。",
+      "priceRange": 5,
+      "features": [
+        "36,000Pa・本体高さ約7.98cm",
+        "最大8.8cmの二重段差対応",
+        "高性能障害物認識・毛絡み対策・ペット向け機能"
+      ],
+      "pros": [
+        "掃除の性能が非常に高い",
+        "段差や低い家具の多い家でも使いやすい"
+      ],
+      "cons": [
+        "価格はとても高めです"
+      ],
+      "recommendFor": "大きな家やペットのいる家で、最高クラスの性能を使いたい人",
+      "caution": "リンク先はRoborock公式店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0GY85CQ2N/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ugvbo.d8zue41a.g00ugvbo.d8zuf5e2/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Froborockjapandirect%2F6936905906625%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Froborockjapandirect%2Fi%2F10000196%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/roborockjapandirect/cabinet/products/12574614/imgrc0134813006.jpg?_ex=300x300",
+      "attributes": {
+        "vacuum": 5,
+        "mopping": 5,
+        "automation": 5,
+        "navigation": 5,
+        "obstacleAvoidance": 5,
+        "petHair": 5,
+        "carpet": 5,
+        "compact": 2,
+        "lowProfile": 5,
+        "threshold": 5,
+        "largeHome": 5,
+        "value": 2,
+        "neutralFit": 3,
+        "moppingSupported": true,
+        "autoEmpty": true,
+        "mopWashDry": true,
+        "within160k": false,
+        "priceYen": 249800
+      }
+    }
+  ],
+  "scoring": {
+    "tieBreak": true,
+    "softenPartialReason": true,
+    "lowMatchNotice": "条件をすべて満たす商品が少ないため、近い候補を表示しています。"
+  },
+  "guide": {
+    "title": "ロボット掃除機の選び方",
+    "intro": "この診断は、メーカー公表の仕様をもとに、以下のポイントとあなたの回答を照らし合わせて相性を計算しています。",
+    "sections": [
+      {
+        "heading": "水拭きとお手入れの自動化",
+        "body": "吸引専用と水拭き対応があり、水拭き対応でもモップの自動洗浄・乾燥まで行うかどうかで、お手入れの手間が大きく変わります。"
+      },
+      {
+        "heading": "本体とステーションのサイズ",
+        "body": "全自動のモデルはステーションが大きくなりがちです。狭い部屋や低い家具の下を掃除したい場合は、本体の幅・高さとステーションの設置スペースも確認しましょう。"
+      },
+      {
+        "heading": "床とペットの毛",
+        "body": "カーペットが多い家は吸引力やカーペット対応、ペットや長い髪の毛が多い家は毛絡み対策の有無が選ぶポイントになります。"
+      }
+    ]
+  },
+  "notice": "吸引力（Pa）や段差・障害物の対応は各メーカーの公表値・測定条件に基づくもので、メーカー間で単純に比較できません。本体・ステーションの設置スペースや、家具の下の高さは購入前に確認してください。価格は変動するため、購入時に販売ページでご確認ください。"
+}
