@@ -34,6 +34,7 @@ import { tablet } from './tablet.ts'
 import { smartwatch } from './smartwatch.ts'
 import { robotVacuum } from './robotVacuum.ts'
 import { monitor } from './monitor.ts'
+import { tv } from './tv.ts'
 
 /**
  * 診断の一覧（登録簿）。
@@ -76,6 +77,7 @@ const allDiagnoses: Diagnosis[] = [
   smartwatch,
   robotVacuum,
   monitor,
+  tv,
 ]
 
 /**

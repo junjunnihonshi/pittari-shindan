@@ -1,0 +1,1487 @@
+{
+  "id": "tv",
+  "enabled": false,
+  "title": "テレビ診断",
+  "itemName": "テレビ",
+  "group": "digital",
+  "icon": "📺",
+  "cardDescription": "設置サイズ、映画・スポーツ・ゲーム、有機EL・Mini LED、録画機能、予算から、あなたにぴったりの4Kテレビを診断。",
+  "description": "設置できるサイズや使い方、ゲーム性能、視聴環境、録画機能、画面方式、予算から、あなたにぴったりの4Kテレビを絞り込みます。",
+  "searchKeywords": [
+    "テレビ",
+    "テレビおすすめ",
+    "おすすめ",
+    "4Kテレビ",
+    "テレビ診断",
+    "43インチテレビ",
+    "50インチテレビ",
+    "55インチテレビ",
+    "65インチテレビ",
+    "75インチテレビ",
+    "大型テレビ",
+    "有機EL",
+    "有機ELテレビ",
+    "OLED",
+    "Mini LED",
+    "ミニLED",
+    "液晶テレビ",
+    "REGZA",
+    "レグザ",
+    "BRAVIA",
+    "ブラビア",
+    "VIERA",
+    "ビエラ",
+    "AQUOS",
+    "アクオス",
+    "Hisense",
+    "ハイセンス",
+    "TCL",
+    "LG",
+    "PS5",
+    "ゲーム",
+    "4K120Hz",
+    "144Hz",
+    "映画",
+    "スポーツ",
+    "Netflix",
+    "YouTube",
+    "録画",
+    "タイムシフト",
+    "タイムシフトマシン"
+  ],
+  "seo": {
+    "title": "テレビ診断｜あなたにぴったりの4Kテレビを7問で診断",
+    "description": "画面サイズ、映画、スポーツ、ゲーム、有機EL・Mini LED、録画機能、予算など7つの質問から、あなたにぴったりの4Kテレビを診断します。"
+  },
+  "priceLabels": {
+    "1": "〜80,000円",
+    "2": "80,000〜120,000円",
+    "3": "120,000〜180,000円",
+    "4": "180,000〜250,000円",
+    "5": "250,000〜350,000円"
+  },
+  "questions": [
+    {
+      "id": "size",
+      "text": "設置できるテレビの最大サイズは？",
+      "shortLabel": "最大サイズ",
+      "weight": 14,
+      "options": [
+        {
+          "id": "max50",
+          "label": "50V型以下",
+          "summary": "50V型以下に設置したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "fitMax50",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "withinMax50",
+            "value": true,
+            "notice": "50V型以下の機種からおすすめを表示しています。",
+            "supplementLabel": "50V型を超えます"
+          }
+        },
+        {
+          "id": "max55",
+          "label": "55V型以下",
+          "summary": "55V型以下に設置したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "fitMax55",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "withinMax55",
+            "value": true,
+            "notice": "55V型以下の機種からおすすめを表示しています。",
+            "supplementLabel": "55V型を超えます"
+          }
+        },
+        {
+          "id": "max65",
+          "label": "65V型以下",
+          "summary": "65V型以下に設置したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "fitMax65",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "withinMax65",
+            "value": true,
+            "notice": "65V型以下の機種からおすすめを表示しています。",
+            "supplementLabel": "65V型を超えます"
+          }
+        },
+        {
+          "id": "max75",
+          "label": "75V型以下",
+          "summary": "75V型以下に設置したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "fitMax75",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "withinMax75",
+            "value": true,
+            "notice": "75V型以下の機種からおすすめを表示しています。",
+            "supplementLabel": "75V型を超えます"
+          }
+        },
+        {
+          "id": "any",
+          "label": "特に制限なし",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "use",
+      "text": "テレビで一番重視したい使い方は？",
+      "shortLabel": "使い方",
+      "weight": 22,
+      "options": [
+        {
+          "id": "daily",
+          "label": "地デジ・普段使い",
+          "summary": "地デジ・普段使い",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "terrestrial",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "recording",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "movie",
+          "label": "映画・ドラマ",
+          "summary": "映画・ドラマを楽しみたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "movie",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "black",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "sound",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "sports",
+          "label": "スポーツ",
+          "summary": "スポーツを見たい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "sports",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "brightness",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "viewingAngle",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "game",
+          "label": "PS5・ゲーム",
+          "summary": "PS5などでゲームをしたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "gaming",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "brightness",
+              "value": 5,
+              "weight": 25
+            },
+            {
+              "type": "atLeast",
+              "attr": "black",
+              "value": 5,
+              "weight": 25
+            }
+          ]
+        },
+        {
+          "id": "streaming",
+          "label": "Netflixなど動画配信",
+          "summary": "Netflixなど動画配信を見たい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "streaming",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "smart",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "movie",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "recording",
+          "label": "録画・テレビ番組",
+          "summary": "録画してテレビ番組を見たい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "recording",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "terrestrial",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "smart",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "game",
+      "text": "ゲーム性能はどれくらい必要ですか？",
+      "shortLabel": "ゲーム性能",
+      "weight": 14,
+      "options": [
+        {
+          "id": "none",
+          "label": "ゲーム性能は重視しない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "hz120",
+          "label": "120Hz以上だとうれしい",
+          "summary": "120Hz以上だとうれしい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "highRefreshFit",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "gaming",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "k120",
+          "label": "4K/120Hz対応は必須",
+          "summary": "4K/120Hz対応が必須",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "gaming",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "console4k120",
+            "value": true,
+            "notice": "4K/120Hz入力に対応した機種からおすすめを表示しています。",
+            "supplementLabel": "4K/120Hz入力に対応していません"
+          }
+        }
+      ]
+    },
+    {
+      "id": "room",
+      "text": "テレビを見る環境に近いものは？",
+      "shortLabel": "視聴環境",
+      "weight": 12,
+      "options": [
+        {
+          "id": "bright",
+          "label": "明るいリビングで見ることが多い",
+          "summary": "明るいリビングで見ることが多い",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "brightness",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "dark",
+          "label": "夜や暗めの部屋で映画を見る",
+          "summary": "夜や暗めの部屋で映画を見る",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "black",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "movie",
+              "value": 5,
+              "weight": 40
+            }
+          ]
+        },
+        {
+          "id": "family",
+          "label": "家族でいろいろな角度から見る",
+          "summary": "家族でいろいろな角度から見る",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "viewingAngle",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "any",
+          "label": "特にこだわらない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "record",
+      "text": "録画機能はどこまで重視しますか？",
+      "shortLabel": "録画機能",
+      "weight": 12,
+      "options": [
+        {
+          "id": "basic",
+          "label": "外付けHDDに普通に録画できれば十分",
+          "summary": "外付けHDDに普通に録画できれば十分",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "recording",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 70
+            }
+          ]
+        },
+        {
+          "id": "ease",
+          "label": "録画の使いやすさ・複数番組録画を重視",
+          "summary": "録画の使いやすさ・複数番組録画を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "recording",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "timeshift",
+          "label": "過去番組をさかのぼって見たい",
+          "summary": "過去の番組をさかのぼって見たい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "recording",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "timeShift",
+            "value": true,
+            "notice": "タイムシフトマシン搭載の機種からおすすめを表示しています。",
+            "supplementLabel": "タイムシフトマシンを搭載していません"
+          }
+        }
+      ]
+    },
+    {
+      "id": "panel",
+      "text": "画面方式の好みは？",
+      "shortLabel": "画面方式",
+      "weight": 16,
+      "options": [
+        {
+          "id": "value",
+          "label": "価格・コスパ重視",
+          "summary": "価格・コスパを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "miniled",
+          "label": "Mini LEDの明るさを重視",
+          "summary": "Mini LEDの明るさを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "miniLedFit",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "brightness",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "oled",
+          "label": "有機ELの黒の美しさを重視",
+          "summary": "有機ELの黒の美しさを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "oledFit",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "black",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "any",
+          "label": "特にこだわらない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "budget",
+      "text": "予算は？",
+      "shortLabel": "予算",
+      "weight": 10,
+      "options": [
+        {
+          "id": "b1",
+          "label": "80,000円以下",
+          "summary": "予算80,000円以下",
+          "effects": [],
+          "maxPriceRange": 1
+        },
+        {
+          "id": "b2",
+          "label": "120,000円以下",
+          "summary": "予算120,000円以下",
+          "effects": [],
+          "maxPriceRange": 2
+        },
+        {
+          "id": "b3",
+          "label": "180,000円以下",
+          "summary": "予算180,000円以下",
+          "effects": [],
+          "maxPriceRange": 3
+        },
+        {
+          "id": "b4",
+          "label": "250,000円以下",
+          "summary": "予算250,000円以下",
+          "effects": [],
+          "maxPriceRange": 4
+        },
+        {
+          "id": "b5",
+          "label": "350,000円以下",
+          "summary": "予算350,000円以下",
+          "effects": [],
+          "maxPriceRange": 5
+        },
+        {
+          "id": "any",
+          "label": "上限なし",
+          "effects": []
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "tv-101",
+      "name": "Xiaomi TV A Pro 43 2026",
+      "description": "43インチ・4KのQLED（量子ドット）スマートテレビ。Google TVを搭載し、ネット動画を手軽に楽しめるチューナーレスモデルです。",
+      "priceRange": 1,
+      "features": [
+        "43インチ・4K・QLED",
+        "Google TV・Dolby Atmos",
+        "チューナーレス（地デジ・BS/CSチューナーなし）"
+      ],
+      "pros": [
+        "手頃な価格で4Kのネット動画を楽しめる",
+        "Google TVで動画アプリを使いやすい"
+      ],
+      "cons": [
+        "地デジ・BS/CSのチューナーを搭載していないため、テレビ放送の視聴・録画はできません",
+        "リフレッシュレートは60Hzです"
+      ],
+      "recommendFor": "テレビ放送は見ず、ネット動画を手頃な4Kテレビで楽しみたい人",
+      "caution": "リンク先はXiaomi公式店の出品です。サイズは43インチを選んで購入してください。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u4hyo.d8zued8c.g00u4hyo.d8zuf50c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fxiaomiofficial%2Fm64488%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fxiaomiofficial%2Fi%2F10000504%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/xiaomiofficial/cabinet/12144278/12144281/01.jpg?_ex=300x300",
+      "attributes": {
+        "terrestrial": 1,
+        "movie": 3,
+        "sports": 2,
+        "gaming": 2,
+        "streaming": 5,
+        "recording": 1,
+        "brightness": 3,
+        "black": 3,
+        "viewingAngle": 3,
+        "sound": 3,
+        "smart": 5,
+        "value": 5,
+        "neutralFit": 3,
+        "screenInch": 43,
+        "miniLed": false,
+        "oled": false,
+        "highRefresh": false,
+        "console4k120": false,
+        "timeShift": false,
+        "withinMax50": true,
+        "withinMax55": true,
+        "withinMax65": true,
+        "withinMax75": true,
+        "fitMax50": 5,
+        "fitMax55": 3,
+        "fitMax65": 1,
+        "fitMax75": 1,
+        "highRefreshFit": 1,
+        "miniLedFit": 1,
+        "oledFit": 1,
+        "priceYen": 39800
+      }
+    },
+    {
+      "id": "tv-102",
+      "name": "Panasonic VIERA TV-43W90B",
+      "description": "43V型の4K液晶ビエラ。Fire TVを搭載し、4K/144Hz入力やVRRにも対応した、ゲームにも使いやすいモデルです。",
+      "priceRange": 3,
+      "features": [
+        "43V型・4K液晶・倍速",
+        "Fire TV搭載",
+        "4K/144Hz入力・VRR対応"
+      ],
+      "pros": [
+        "コンパクトなサイズでゲームも動画も楽しめる",
+        "ネット動画をFire TVで使いやすい"
+      ],
+      "cons": [
+        "Mini LEDや有機ELではありません"
+      ],
+      "recommendFor": "コンパクトな43型で、ゲームもネット動画も楽しみたい人",
+      "caution": "リンク先は楽天ビックの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0F7W99F4D/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldo.d8zue716.g00r7ldo.d8zuf884/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4549980896471%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F15128102%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/12105/00000014069501_a01.jpg?_ex=300x300",
+      "attributes": {
+        "terrestrial": 4,
+        "movie": 4,
+        "sports": 5,
+        "gaming": 5,
+        "streaming": 5,
+        "recording": 4,
+        "brightness": 4,
+        "black": 4,
+        "viewingAngle": 3,
+        "sound": 3,
+        "smart": 5,
+        "value": 4,
+        "neutralFit": 3,
+        "screenInch": 43,
+        "miniLed": false,
+        "oled": false,
+        "highRefresh": true,
+        "console4k120": true,
+        "timeShift": false,
+        "withinMax50": true,
+        "withinMax55": true,
+        "withinMax65": true,
+        "withinMax75": true,
+        "fitMax50": 5,
+        "fitMax55": 3,
+        "fitMax65": 1,
+        "fitMax75": 1,
+        "highRefreshFit": 5,
+        "miniLedFit": 1,
+        "oledFit": 1,
+        "priceYen": 144866
+      }
+    },
+    {
+      "id": "tv-103",
+      "name": "REGZA 43Z890S",
+      "description": "43V型のMini LED液晶レグザ。タイムシフトマシンを搭載し、過去の番組をさかのぼって見られます。4K/120Hz入力にも対応しています。",
+      "priceRange": 5,
+      "features": [
+        "43V型・4K Mini LED液晶",
+        "タイムシフトマシン搭載",
+        "4K/120Hz入力対応"
+      ],
+      "pros": [
+        "小さめのサイズで高画質と録画機能を両立",
+        "見逃した番組をさかのぼって見られる"
+      ],
+      "cons": [
+        "43型としては価格が高めです"
+      ],
+      "recommendFor": "43型で、画質・録画・ゲームのすべてにこだわりたい人",
+      "caution": "リンク先はコジマの出品です。タイムシフトマシンの利用には別売のUSBハードディスクが必要です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0GYM7VF1H/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4570177940677%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11720831%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001768/4570177940677_1.jpg?_ex=300x300",
+      "attributes": {
+        "terrestrial": 5,
+        "movie": 5,
+        "sports": 5,
+        "gaming": 5,
+        "streaming": 5,
+        "recording": 5,
+        "brightness": 5,
+        "black": 4,
+        "viewingAngle": 4,
+        "sound": 5,
+        "smart": 5,
+        "value": 3,
+        "neutralFit": 3,
+        "screenInch": 43,
+        "miniLed": true,
+        "oled": false,
+        "highRefresh": true,
+        "console4k120": true,
+        "timeShift": true,
+        "withinMax50": true,
+        "withinMax55": true,
+        "withinMax65": true,
+        "withinMax75": true,
+        "fitMax50": 5,
+        "fitMax55": 3,
+        "fitMax65": 1,
+        "fitMax75": 1,
+        "highRefreshFit": 5,
+        "miniLedFit": 5,
+        "oledFit": 1,
+        "priceYen": 250470
+      }
+    },
+    {
+      "id": "tv-104",
+      "name": "TCL 55P6K",
+      "description": "55V型の4K液晶テレビ。Google TVを搭載し、普段のテレビ視聴やネット動画を手頃な価格で楽しめるモデルです。",
+      "priceRange": 2,
+      "features": [
+        "55V型・4K液晶",
+        "Google TV搭載",
+        "地デジ・BS/CS 4Kチューナー内蔵"
+      ],
+      "pros": [
+        "55型を手頃な価格で選べる",
+        "ネット動画を見やすい"
+      ],
+      "cons": [
+        "倍速機能やMini LEDには対応していません"
+      ],
+      "recommendFor": "55型のテレビを、できるだけ手頃な価格で選びたい人",
+      "caution": "リンク先は楽天ビックの出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldo.d8zue716.g00r7ldo.d8zuf884/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4589449351783%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F15122750%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/12030/00000014053043_a01.jpg?_ex=300x300",
+      "attributes": {
+        "terrestrial": 3,
+        "movie": 3,
+        "sports": 2,
+        "gaming": 2,
+        "streaming": 5,
+        "recording": 2,
+        "brightness": 3,
+        "black": 3,
+        "viewingAngle": 3,
+        "sound": 3,
+        "smart": 5,
+        "value": 5,
+        "neutralFit": 3,
+        "screenInch": 55,
+        "miniLed": false,
+        "oled": false,
+        "highRefresh": false,
+        "console4k120": false,
+        "timeShift": false,
+        "withinMax50": false,
+        "withinMax55": true,
+        "withinMax65": true,
+        "withinMax75": true,
+        "fitMax50": 1,
+        "fitMax55": 5,
+        "fitMax65": 3,
+        "fitMax75": 2,
+        "highRefreshFit": 1,
+        "miniLedFit": 1,
+        "oledFit": 1,
+        "priceYen": 86320
+      }
+    },
+    {
+      "id": "tv-105",
+      "name": "TCL 55C6K",
+      "description": "55V型のMini LED液晶テレビ。量子ドットと倍速パネルを採用し、Google TVやONKYOのサウンドを備えています。",
+      "priceRange": 3,
+      "features": [
+        "55V型・4K Mini LED・量子ドット",
+        "倍速パネル・4K/120Hz入力対応",
+        "Google TV・ONKYOサウンド"
+      ],
+      "pros": [
+        "手頃な価格でMini LEDの明るさを楽しめる",
+        "映画もゲームもこなしやすい"
+      ],
+      "cons": [
+        "録画機能は国内メーカーほど充実していません"
+      ],
+      "recommendFor": "手頃な価格で、Mini LEDの明るく鮮やかな画質を楽しみたい人",
+      "caution": "リンク先はXPRICEの出品です。「本体＋メーカー保証」を選んで購入してください。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qn68o.d8zuee0f.g00qn68o.d8zuf9b5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fa-price%2F4589449350977%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fa-price%2Fi%2F11400682%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/a-price/cabinet/orj/51/0-4589449350977.jpg?_ex=300x300",
+      "attributes": {
+        "terrestrial": 3,
+        "movie": 4,
+        "sports": 5,
+        "gaming": 5,
+        "streaming": 5,
+        "recording": 2,
+        "brightness": 5,
+        "black": 4,
+        "viewingAngle": 3,
+        "sound": 4,
+        "smart": 5,
+        "value": 5,
+        "neutralFit": 3,
+        "screenInch": 55,
+        "miniLed": true,
+        "oled": false,
+        "highRefresh": true,
+        "console4k120": true,
+        "timeShift": false,
+        "withinMax50": false,
+        "withinMax55": true,
+        "withinMax65": true,
+        "withinMax75": true,
+        "fitMax50": 1,
+        "fitMax55": 5,
+        "fitMax65": 3,
+        "fitMax75": 2,
+        "highRefreshFit": 5,
+        "miniLedFit": 5,
+        "oledFit": 1,
+        "priceYen": 121000
+      }
+    },
+    {
+      "id": "tv-106",
+      "name": "Hisense 55U7R",
+      "description": "55V型のMini LED液晶テレビ。倍速パネルや144Hz VRRに対応し、スポーツやゲームをなめらかに表示します。",
+      "priceRange": 3,
+      "features": [
+        "55V型・4K Mini LED・量子ドット",
+        "倍速パネル・144Hz VRR",
+        "4K/120Hz入力対応"
+      ],
+      "pros": [
+        "価格と性能のバランスがよい",
+        "スポーツやゲームを見やすい"
+      ],
+      "cons": [
+        "視野角は有機ELほど広くありません"
+      ],
+      "recommendFor": "Mini LEDの55型を、価格と性能のバランスで選びたい人",
+      "caution": "リンク先はXPRICEの出品です。「本体＋メーカー保証」を選んで購入してください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FD9H5M31/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qn68o.d8zuee0f.g00qn68o.d8zuf9b5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fa-price%2F4571637981179%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fa-price%2Fi%2F11280375%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/a-price/cabinet/orj/50/2-4571637981179.jpg?_ex=300x300",
+      "attributes": {
+        "terrestrial": 4,
+        "movie": 4,
+        "sports": 5,
+        "gaming": 5,
+        "streaming": 5,
+        "recording": 4,
+        "brightness": 5,
+        "black": 4,
+        "viewingAngle": 3,
+        "sound": 4,
+        "smart": 4,
+        "value": 5,
+        "neutralFit": 3,
+        "screenInch": 55,
+        "miniLed": true,
+        "oled": false,
+        "highRefresh": true,
+        "console4k120": true,
+        "timeShift": false,
+        "withinMax50": false,
+        "withinMax55": true,
+        "withinMax65": true,
+        "withinMax75": true,
+        "fitMax50": 1,
+        "fitMax55": 5,
+        "fitMax65": 3,
+        "fitMax75": 2,
+        "highRefreshFit": 5,
+        "miniLedFit": 5,
+        "oledFit": 1,
+        "priceYen": 125980
+      }
+    },
+    {
+      "id": "tv-107",
+      "name": "Panasonic VIERA TV-55W97C",
+      "description": "55V型のMini LED液晶ビエラの上位モデル。高輝度パネルと360立体音響サウンドシステムを搭載し、4K/144Hz入力にも対応しています。",
+      "priceRange": 5,
+      "features": [
+        "55V型・4K Mini LED液晶",
+        "4K/144Hz・120Hz入力・VRR対応",
+        "Fire TV・360立体音響サウンドシステム"
+      ],
+      "pros": [
+        "映画もスポーツも明るく迫力ある映像で楽しめる",
+        "音質にもこだわった上位モデル"
+      ],
+      "cons": [
+        "価格は高めです"
+      ],
+      "recommendFor": "画質も音質も妥協せずに、55型の上位モデルを選びたい人",
+      "caution": "リンク先は楽天ビックの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0H1HWGCN5/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldo.d8zue716.g00r7ldo.d8zuf884/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4550719172117%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F15487991%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/17298/00000015121967_a01.jpg?_ex=300x300",
+      "attributes": {
+        "terrestrial": 5,
+        "movie": 5,
+        "sports": 5,
+        "gaming": 5,
+        "streaming": 5,
+        "recording": 4,
+        "brightness": 5,
+        "black": 4,
+        "viewingAngle": 3,
+        "sound": 5,
+        "smart": 5,
+        "value": 2,
+        "neutralFit": 3,
+        "screenInch": 55,
+        "miniLed": true,
+        "oled": false,
+        "highRefresh": true,
+        "console4k120": true,
+        "timeShift": false,
+        "withinMax50": false,
+        "withinMax55": true,
+        "withinMax65": true,
+        "withinMax75": true,
+        "fitMax50": 1,
+        "fitMax55": 5,
+        "fitMax65": 3,
+        "fitMax75": 2,
+        "highRefreshFit": 5,
+        "miniLedFit": 5,
+        "oledFit": 1,
+        "priceYen": 289733
+      }
+    },
+    {
+      "id": "tv-108",
+      "name": "Sony BRAVIA 5 K-55XR50",
+      "description": "55V型のMini LED液晶ブラビア。Google TVを搭載し、映画や音楽を臨場感のある映像と音で楽しめます。",
+      "priceRange": 4,
+      "features": [
+        "55V型・4K Mini LED液晶",
+        "倍速・4K/120Hz入力対応",
+        "Google TV"
+      ],
+      "pros": [
+        "映画を自然で臨場感のある映像で楽しめる",
+        "PS5と組み合わせやすい"
+      ],
+      "cons": [
+        "価格は高めです"
+      ],
+      "recommendFor": "映画やPS5を、画質と音質にこだわって楽しみたい人",
+      "caution": "リンク先はソフマップの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0F66JNVRD/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pyd1o.d8zuede2.g00pyd1o.d8zuf064/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdtc%2F4548736167179%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdtc%2Fi%2F13134947%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/dtc/cabinet/mc5082/2541250.jpg?_ex=300x300",
+      "attributes": {
+        "terrestrial": 4,
+        "movie": 5,
+        "sports": 5,
+        "gaming": 5,
+        "streaming": 5,
+        "recording": 3,
+        "brightness": 5,
+        "black": 4,
+        "viewingAngle": 3,
+        "sound": 5,
+        "smart": 5,
+        "value": 3,
+        "neutralFit": 3,
+        "screenInch": 55,
+        "miniLed": true,
+        "oled": false,
+        "highRefresh": true,
+        "console4k120": true,
+        "timeShift": false,
+        "withinMax50": false,
+        "withinMax55": true,
+        "withinMax65": true,
+        "withinMax75": true,
+        "fitMax50": 1,
+        "fitMax55": 5,
+        "fitMax65": 3,
+        "fitMax75": 2,
+        "highRefreshFit": 5,
+        "miniLedFit": 5,
+        "oledFit": 1,
+        "priceYen": 242000
+      }
+    },
+    {
+      "id": "tv-109",
+      "name": "SHARP AQUOS 4T-55X7A",
+      "description": "55V型のMini LED液晶アクオス。量子ドットと広視野角パネルを採用し、最大144Hz入力やGoogle TVに対応しています。",
+      "priceRange": 5,
+      "features": [
+        "55V型・4K Mini LED・量子ドット",
+        "最大144Hz入力・4K/120Hz・VRR対応",
+        "Google TV・Dolby Atmos"
+      ],
+      "pros": [
+        "明るいリビングでも見やすい",
+        "ゲームも映画も高画質で楽しめる"
+      ],
+      "cons": [
+        "価格は高めです"
+      ],
+      "recommendFor": "明るいリビングで、画質・音質・ゲームのすべてを楽しみたい人",
+      "caution": "リンク先は楽天ビックの出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldo.d8zue716.g00r7ldo.d8zuf884/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4550556192897%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F15490297%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/17318/00000015066083_a01.jpg?_ex=300x300",
+      "attributes": {
+        "terrestrial": 5,
+        "movie": 5,
+        "sports": 5,
+        "gaming": 5,
+        "streaming": 5,
+        "recording": 4,
+        "brightness": 5,
+        "black": 4,
+        "viewingAngle": 4,
+        "sound": 5,
+        "smart": 5,
+        "value": 2,
+        "neutralFit": 3,
+        "screenInch": 55,
+        "miniLed": true,
+        "oled": false,
+        "highRefresh": true,
+        "console4k120": true,
+        "timeShift": false,
+        "withinMax50": false,
+        "withinMax55": true,
+        "withinMax65": true,
+        "withinMax75": true,
+        "fitMax50": 1,
+        "fitMax55": 5,
+        "fitMax65": 3,
+        "fitMax75": 2,
+        "highRefreshFit": 5,
+        "miniLedFit": 5,
+        "oledFit": 1,
+        "priceYen": 297000
+      }
+    },
+    {
+      "id": "tv-110",
+      "name": "REGZA 55X770S",
+      "description": "55V型の有機ELレグザ。深い黒と広い視野角に、重低音立体音響システムを組み合わせたモデルです。",
+      "priceRange": 5,
+      "features": [
+        "55V型・4K有機EL",
+        "4K/120Hz入力対応",
+        "重低音立体音響システム"
+      ],
+      "pros": [
+        "暗い部屋で映画を見ると黒が美しい",
+        "斜めから見ても色が変わりにくい"
+      ],
+      "cons": [
+        "タイムシフトマシンは搭載していません"
+      ],
+      "recommendFor": "有機ELの美しい黒で、映画やテレビ番組を楽しみたい人",
+      "caution": "リンク先はコジマの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0GYLV1KC3/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4570177941001%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11725535%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001791/4570177941001_1.jpg?_ex=300x300",
+      "attributes": {
+        "terrestrial": 5,
+        "movie": 5,
+        "sports": 5,
+        "gaming": 5,
+        "streaming": 5,
+        "recording": 4,
+        "brightness": 4,
+        "black": 5,
+        "viewingAngle": 5,
+        "sound": 5,
+        "smart": 5,
+        "value": 4,
+        "neutralFit": 3,
+        "screenInch": 55,
+        "miniLed": false,
+        "oled": true,
+        "highRefresh": true,
+        "console4k120": true,
+        "timeShift": false,
+        "withinMax50": false,
+        "withinMax55": true,
+        "withinMax65": true,
+        "withinMax75": true,
+        "fitMax50": 1,
+        "fitMax55": 5,
+        "fitMax65": 3,
+        "fitMax75": 2,
+        "highRefreshFit": 5,
+        "miniLedFit": 1,
+        "oledFit": 5,
+        "priceYen": 294300
+      }
+    },
+    {
+      "id": "tv-111",
+      "name": "LG OLED55C5PJA",
+      "description": "55V型の有機ELテレビ。深い黒と高いコントラストに加え、4K/144Hz入力やVRRなどゲーム向けの機能も充実しています。",
+      "priceRange": 3,
+      "features": [
+        "55V型・4K有機EL",
+        "4K/144Hz入力・VRR対応",
+        "webOS・Dolby Vision"
+      ],
+      "pros": [
+        "暗い部屋で映画を見ると黒が美しい",
+        "ゲームをなめらかに表示できる"
+      ],
+      "cons": [
+        "録画機能は国内メーカーほど充実していません"
+      ],
+      "recommendFor": "有機ELの画質で、映画やゲームを楽しみたい人",
+      "caution": "リンク先は楽天ビックの出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldo.d8zue716.g00r7ldo.d8zuf884/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4989027030046%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F15171904%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/13249/00000014204932_a01.jpg?_ex=300x300",
+      "attributes": {
+        "terrestrial": 3,
+        "movie": 5,
+        "sports": 5,
+        "gaming": 5,
+        "streaming": 5,
+        "recording": 2,
+        "brightness": 4,
+        "black": 5,
+        "viewingAngle": 5,
+        "sound": 4,
+        "smart": 5,
+        "value": 4,
+        "neutralFit": 3,
+        "screenInch": 55,
+        "miniLed": false,
+        "oled": true,
+        "highRefresh": true,
+        "console4k120": true,
+        "timeShift": false,
+        "withinMax50": false,
+        "withinMax55": true,
+        "withinMax65": true,
+        "withinMax75": true,
+        "fitMax50": 1,
+        "fitMax55": 5,
+        "fitMax65": 3,
+        "fitMax75": 2,
+        "highRefreshFit": 5,
+        "miniLedFit": 1,
+        "oledFit": 5,
+        "priceYen": 159900
+      }
+    },
+    {
+      "id": "tv-112",
+      "name": "Hisense 65U7R",
+      "description": "65V型のMini LED液晶テレビ。倍速パネルや144Hz VRRに対応し、大画面でスポーツやゲームを楽しめます。",
+      "priceRange": 3,
+      "features": [
+        "65V型・4K Mini LED・量子ドット",
+        "倍速パネル・144Hz VRR",
+        "4K/120Hz入力対応"
+      ],
+      "pros": [
+        "65型の大画面を手頃な価格で選べる",
+        "スポーツやゲームを迫力ある大画面で楽しめる"
+      ],
+      "cons": [
+        "視野角は有機ELほど広くありません"
+      ],
+      "recommendFor": "65型の大画面を、価格と性能のバランスで選びたい人",
+      "caution": "リンク先はXPRICEの出品です。「本体＋メーカー保証」を選んで購入してください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FH781YGL/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qn68o.d8zuee0f.g00qn68o.d8zuf9b5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fa-price%2F4571637981162%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fa-price%2Fi%2F11280368%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/a-price/cabinet/orj/50/2-4571637981162.jpg?_ex=300x300",
+      "attributes": {
+        "terrestrial": 4,
+        "movie": 5,
+        "sports": 5,
+        "gaming": 5,
+        "streaming": 5,
+        "recording": 4,
+        "brightness": 5,
+        "black": 4,
+        "viewingAngle": 4,
+        "sound": 4,
+        "smart": 4,
+        "value": 5,
+        "neutralFit": 3,
+        "screenInch": 65,
+        "miniLed": true,
+        "oled": false,
+        "highRefresh": true,
+        "console4k120": true,
+        "timeShift": false,
+        "withinMax50": false,
+        "withinMax55": false,
+        "withinMax65": true,
+        "withinMax75": true,
+        "fitMax50": 1,
+        "fitMax55": 1,
+        "fitMax65": 5,
+        "fitMax75": 3,
+        "highRefreshFit": 5,
+        "miniLedFit": 5,
+        "oledFit": 1,
+        "priceYen": 155980
+      }
+    },
+    {
+      "id": "tv-113",
+      "name": "REGZA 65Z970R",
+      "description": "65V型のMini LED液晶レグザの上位モデル。タイムシフトマシンを搭載し、4K/144Hz入力にも対応しています。",
+      "priceRange": 5,
+      "features": [
+        "65V型・4K Mini LED・量子ドット",
+        "タイムシフトマシン搭載",
+        "4K/144Hz・120Hz入力対応"
+      ],
+      "pros": [
+        "大画面で高画質と録画機能を両立",
+        "見逃した番組をさかのぼって見られる"
+      ],
+      "cons": [
+        "価格は高めです"
+      ],
+      "recommendFor": "65型の大画面で、画質・録画・音質のすべてにこだわりたい人",
+      "caution": "リンク先はPREMOAの出品です。「本体＋メーカー保証」を選んで購入してください。タイムシフトマシンの利用には別売のUSBハードディスクが必要です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0F3XV67W1/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8gxo.d8zue496.g00r8gxo.d8zufe17/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpremoa%2F4580652114325%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpremoa%2Fi%2F11224586%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/premoa/cabinet/orj/47/0-4580652114325.jpg?_ex=300x300",
+      "attributes": {
+        "terrestrial": 5,
+        "movie": 5,
+        "sports": 5,
+        "gaming": 5,
+        "streaming": 5,
+        "recording": 5,
+        "brightness": 5,
+        "black": 4,
+        "viewingAngle": 4,
+        "sound": 5,
+        "smart": 5,
+        "value": 3,
+        "neutralFit": 3,
+        "screenInch": 65,
+        "miniLed": true,
+        "oled": false,
+        "highRefresh": true,
+        "console4k120": true,
+        "timeShift": true,
+        "withinMax50": false,
+        "withinMax55": false,
+        "withinMax65": true,
+        "withinMax75": true,
+        "fitMax50": 1,
+        "fitMax55": 1,
+        "fitMax65": 5,
+        "fitMax75": 3,
+        "highRefreshFit": 5,
+        "miniLedFit": 5,
+        "oledFit": 1,
+        "priceYen": 288000
+      }
+    },
+    {
+      "id": "tv-114",
+      "name": "TCL 75C6K",
+      "description": "75V型のMini LED液晶テレビ。量子ドットと倍速パネルを採用し、大画面で映画やゲームを楽しめます。",
+      "priceRange": 4,
+      "features": [
+        "75V型・4K Mini LED・量子ドット",
+        "倍速パネル・4K/120Hz入力対応",
+        "Google TV・ONKYOサウンド"
+      ],
+      "pros": [
+        "75型の大画面でMini LEDの画質を楽しめる",
+        "大画面としては手頃な価格"
+      ],
+      "cons": [
+        "録画機能は国内メーカーほど充実していません"
+      ],
+      "recommendFor": "75型の大画面で、Mini LEDの画質も楽しみたい人",
+      "caution": "リンク先は楽天ビックの出品です（型番75C6K）。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldo.d8zue716.g00r7ldo.d8zuf884/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4589449350939%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F15122737%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/12030/00000014053032_a01.jpg?_ex=300x300",
+      "attributes": {
+        "terrestrial": 3,
+        "movie": 5,
+        "sports": 5,
+        "gaming": 5,
+        "streaming": 5,
+        "recording": 2,
+        "brightness": 5,
+        "black": 4,
+        "viewingAngle": 3,
+        "sound": 4,
+        "smart": 5,
+        "value": 5,
+        "neutralFit": 3,
+        "screenInch": 75,
+        "miniLed": true,
+        "oled": false,
+        "highRefresh": true,
+        "console4k120": true,
+        "timeShift": false,
+        "withinMax50": false,
+        "withinMax55": false,
+        "withinMax65": false,
+        "withinMax75": true,
+        "fitMax50": 1,
+        "fitMax55": 1,
+        "fitMax65": 1,
+        "fitMax75": 5,
+        "highRefreshFit": 5,
+        "miniLedFit": 5,
+        "oledFit": 1,
+        "priceYen": 185602
+      }
+    },
+    {
+      "id": "tv-115",
+      "name": "TCL 75P6K",
+      "description": "75V型の4K液晶テレビ。Google TVを搭載し、大画面で動画やテレビ番組を手頃な価格で楽しめるモデルです。",
+      "priceRange": 3,
+      "features": [
+        "75V型・4K液晶",
+        "Google TV搭載",
+        "地デジ・BS/CS 4Kチューナー内蔵"
+      ],
+      "pros": [
+        "75型の大画面を手頃な価格で選べる",
+        "ネット動画を大画面で楽しめる"
+      ],
+      "cons": [
+        "倍速機能やMini LEDには対応していません"
+      ],
+      "recommendFor": "とにかく大きな画面を、手頃な価格で選びたい人",
+      "caution": "リンク先は楽天ビックの出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldo.d8zue716.g00r7ldo.d8zuf884/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4589449351769%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F15122748%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/12030/00000014053041_a01.jpg?_ex=300x300",
+      "attributes": {
+        "terrestrial": 3,
+        "movie": 3,
+        "sports": 2,
+        "gaming": 2,
+        "streaming": 5,
+        "recording": 2,
+        "brightness": 3,
+        "black": 3,
+        "viewingAngle": 3,
+        "sound": 3,
+        "smart": 5,
+        "value": 5,
+        "neutralFit": 3,
+        "screenInch": 75,
+        "miniLed": false,
+        "oled": false,
+        "highRefresh": false,
+        "console4k120": false,
+        "timeShift": false,
+        "withinMax50": false,
+        "withinMax55": false,
+        "withinMax65": false,
+        "withinMax75": true,
+        "fitMax50": 1,
+        "fitMax55": 1,
+        "fitMax65": 1,
+        "fitMax75": 5,
+        "highRefreshFit": 1,
+        "miniLedFit": 1,
+        "oledFit": 1,
+        "priceYen": 127286
+      }
+    }
+  ],
+  "scoring": {
+    "tieBreak": true,
+    "softenPartialReason": true,
+    "lowMatchNotice": "条件をすべて満たす商品が少ないため、近い候補を表示しています。"
+  },
+  "guide": {
+    "title": "テレビの選び方",
+    "intro": "この診断は、メーカー公表の仕様をもとに、以下のポイントとあなたの回答を照らし合わせて相性を計算しています。",
+    "sections": [
+      {
+        "heading": "画面サイズ",
+        "body": "設置場所の幅とスタンドの奥行きを確認したうえで、置ける範囲の大きめのサイズを選ぶと満足しやすくなります。一般的に、画面の高さの約1.5倍が4Kテレビの目安の視聴距離です。"
+      },
+      {
+        "heading": "Mini LEDと有機EL",
+        "body": "Mini LEDは明るさに強く、明るいリビングでも見やすいのが特長です。有機ELは黒の表現と視野角に優れ、暗い部屋での映画鑑賞に向いています。"
+      },
+      {
+        "heading": "ゲームと録画",
+        "body": "PS5などで4K/120Hzを使うには、4K/120Hz入力に対応したモデルが必要です。過去の番組をさかのぼって見たい場合は、タイムシフトマシン搭載モデルと別売のUSBハードディスクが必要です。"
+      }
+    ]
+  },
+  "notice": "画質や機能は各メーカーの公表値に基づきます。4K/120Hzでの表示には、ゲーム機側の対応と対応するHDMIケーブルが必要です。録画やタイムシフトマシンの利用には別売のUSBハードディスクが必要です。チューナーレスモデルではテレビ放送の視聴・録画はできません。価格は変動するため、購入時に販売ページでご確認ください。"
+}
