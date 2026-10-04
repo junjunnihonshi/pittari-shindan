@@ -33,6 +33,7 @@ export async function fetchRakutenItem(url: string): Promise<RakutenItemInfo> {
   const html = new TextDecoder('euc-jp').decode(buf)
   let prices = [...new Set([...html.matchAll(/"taxIncludedPrice":([\d.]+)/g)].map((m) => Math.round(Number(m[1]))))].filter((n) => n > 0)
   if (!prices.length) prices = displayedTaxIncludedPrices(buf)
+  if (!prices.length && res.url.startsWith('https://biccamera.rakuten.co.jp/')) prices = bicOfferPrices(html)
   const quantities = [...html.matchAll(/\{"sku":"[^"]+","inventoryId":"[^"]*","quantity":(\d+)\}/g)].map((m) => Number(m[1]))
   const variantCount = new Set([...html.matchAll(/"variantId":"([^"]+)"/g)].map((m) => m[1])).size
   const soldOutCount = new Set([...html.matchAll(/"variantId":"([^"]+)","newPurchaseSku":\{"stockCondition":"sold-out"/g)].map((m) => m[1])).size
@@ -52,6 +53,19 @@ function displayedTaxIncludedPrices(buf: Buffer): number[] {
   for (const m of html.matchAll(/itemprop="price" content="(\d+)">([\d,]+)<span[^>]*>円<\/span><\/span><span[^>]*>（税込）<\/span>/g)) {
     const shown = Number(m[2].replace(/,/g, ''))
     if (shown > 0 && shown === Number(m[1])) prices.add(shown)
+  }
+  return [...prices]
+}
+
+/**
+ * 楽天ビックの新形式ページ（biccamera.rakuten.co.jp へ転送される）は taxIncludedPrice がないため、
+ * 商品情報（JSON-LD）の販売価格（offers の price）を使う。在庫数はこの形式からは読まない。
+ */
+function bicOfferPrices(html: string): number[] {
+  const prices = new Set<number>()
+  for (const m of html.matchAll(/"offers":\{"@type":"Offer","priceCurrency":"JPY","price":"(\d+)"\}/g)) {
+    const price = Number(m[1])
+    if (price > 0) prices.add(price)
   }
   return [...prices]
 }
