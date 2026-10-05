@@ -1,0 +1,1261 @@
+{
+  "id": "electric-pressure-cooker",
+  "enabled": false,
+  "title": "電気圧力鍋・自動調理鍋診断",
+  "itemName": "電気圧力鍋・自動調理鍋",
+  "group": "kitchen",
+  "icon": "🍲",
+  "cardDescription": "人数、圧力調理、自動かき混ぜ、作りたい料理、予約、お手入れ、予算から、あなたにぴったりの電気圧力鍋・自動調理鍋を診断。",
+  "description": "重視したいことや人数、圧力調理、自動かき混ぜ、作りたい料理、使い勝手、予算から、あなたにぴったりの電気圧力鍋・自動調理鍋を絞り込みます。",
+  "searchKeywords": [
+    "電気圧力鍋",
+    "電気圧力鍋おすすめ",
+    "自動調理鍋",
+    "自動調理鍋おすすめ",
+    "電気調理鍋",
+    "おすすめ",
+    "圧力鍋",
+    "ほったらかし調理",
+    "時短調理",
+    "自動かき混ぜ",
+    "低温調理",
+    "作り置き",
+    "ホットクック",
+    "ヘルシオホットクック",
+    "オートクッカー",
+    "ビストロ",
+    "クックフォーミー",
+    "ラクラクッカー",
+    "T-fal",
+    "ティファール",
+    "siroca",
+    "シロカ",
+    "アイリスオーヤマ",
+    "TIGER",
+    "タイガー",
+    "Panasonic",
+    "パナソニック",
+    "SHARP",
+    "シャープ",
+    "一人暮らし"
+  ],
+  "seo": {
+    "title": "電気圧力鍋・自動調理鍋の選び方診断｜あなたにぴったりの電気調理鍋を7問で診断",
+    "description": "人数、圧力調理、自動かき混ぜ、作りたい料理、予約、お手入れ、予算など7つの質問から、あなたにぴったりの電気圧力鍋・自動調理鍋を診断します。"
+  },
+  "priceLabels": {
+    "1": "〜15,000円",
+    "2": "15,000〜25,000円",
+    "3": "25,000〜35,000円",
+    "4": "35,000〜45,000円",
+    "5": "45,000円〜"
+  },
+  "questions": [
+    {
+      "id": "priority",
+      "text": "電気圧力鍋・自動調理鍋で一番重視したいことは？",
+      "shortLabel": "重視すること",
+      "weight": 22,
+      "options": [
+        {
+          "id": "pressure",
+          "label": "圧力調理で時短・お肉を柔らかくしたい",
+          "summary": "圧力調理で時短したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "pressure",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "omakase",
+          "label": "材料を入れたらできるだけおまかせしたい",
+          "summary": "できるだけおまかせしたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "ease",
+              "value": 5,
+              "weight": 40
+            },
+            {
+              "type": "atLeast",
+              "attr": "reservation",
+              "value": 5,
+              "weight": 35
+            },
+            {
+              "type": "atLeast",
+              "attr": "stirring",
+              "value": 5,
+              "weight": 25
+            }
+          ]
+        },
+        {
+          "id": "stir",
+          "label": "自動でかき混ぜてほしい",
+          "summary": "自動でかき混ぜてほしい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "stirring",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "highHeat",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "wide",
+          "label": "炒め物や低温調理など幅広く作りたい",
+          "summary": "幅広い料理を作りたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "versatility",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "highHeat",
+              "value": 5,
+              "weight": 25
+            },
+            {
+              "type": "atLeast",
+              "attr": "lowTemp",
+              "value": 5,
+              "weight": 25
+            }
+          ]
+        },
+        {
+          "id": "family",
+          "label": "家族分・作り置きをたっぷり作りたい",
+          "summary": "家族分・作り置きをたっぷり作りたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "capacity",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "reservation",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "value",
+          "label": "価格・コスパ",
+          "summary": "価格・コスパを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "compact",
+              "value": 5,
+              "weight": 20
+            },
+            {
+              "type": "atLeast",
+              "attr": "ease",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "people",
+      "text": "何人分を作ることが多いですか？",
+      "shortLabel": "人数",
+      "weight": 16,
+      "options": [
+        {
+          "id": "p12",
+          "label": "1〜2人分",
+          "summary": "1〜2人分を作ることが多い",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "compact",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "p34",
+          "label": "3〜4人分",
+          "summary": "3〜4人分を作ることが多い",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "capacity",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "compact",
+              "value": 5,
+              "weight": 50
+            }
+          ],
+          "eligibility": {
+            "attr": "people4",
+            "value": true,
+            "notice": "4人分以上を作れる機種からおすすめを表示しています。",
+            "supplementLabel": "4人分には容量が足りません"
+          }
+        },
+        {
+          "id": "p56",
+          "label": "5〜6人分・作り置き",
+          "summary": "5〜6人分・作り置きを作りたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "capacity",
+              "value": 5,
+              "weight": 80
+            },
+            {
+              "type": "atLeast",
+              "attr": "reservation",
+              "value": 5,
+              "weight": 20
+            }
+          ],
+          "eligibility": {
+            "attr": "people6",
+            "value": true,
+            "notice": "6人分を作れる機種からおすすめを表示しています。",
+            "supplementLabel": "6人分には容量が足りません"
+          }
+        }
+      ]
+    },
+    {
+      "id": "pressureNeed",
+      "text": "圧力調理はどれくらい重視しますか？",
+      "shortLabel": "圧力調理",
+      "weight": 14,
+      "options": [
+        {
+          "id": "must",
+          "label": "圧力調理は必須",
+          "summary": "圧力調理は必須",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "pressure",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "pressureSupported",
+            "value": true,
+            "notice": "圧力調理に対応した機種からおすすめを表示しています。",
+            "supplementLabel": "圧力調理には対応していません"
+          }
+        },
+        {
+          "id": "nice",
+          "label": "あればうれしい",
+          "summary": "圧力調理があればうれしい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "pressure",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 40
+            }
+          ]
+        },
+        {
+          "id": "none",
+          "label": "圧力調理にはこだわらない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stirNeed",
+      "text": "自動かき混ぜ機能は必要ですか？",
+      "shortLabel": "自動かき混ぜ",
+      "weight": 14,
+      "options": [
+        {
+          "id": "must",
+          "label": "自動かき混ぜは必須",
+          "summary": "自動かき混ぜは必須",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "stirring",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "autoStir",
+            "value": true,
+            "notice": "自動かき混ぜ機能のある機種からおすすめを表示しています。",
+            "supplementLabel": "自動かき混ぜ機能はありません"
+          }
+        },
+        {
+          "id": "nice",
+          "label": "あれば便利",
+          "summary": "自動かき混ぜがあれば便利",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "stirring",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "none",
+          "label": "特に必要ない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dish",
+      "text": "特に作りたい料理は？",
+      "shortLabel": "作りたい料理",
+      "weight": 12,
+      "options": [
+        {
+          "id": "stew",
+          "label": "角煮・煮込み料理を短時間で作りたい",
+          "summary": "煮込み料理を短時間で作りたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "pressure",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "stirfry",
+          "label": "炒め物・焼き物まで任せたい",
+          "summary": "炒め物・焼き物まで任せたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "stirring",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "highHeat",
+              "value": 5,
+              "weight": 50
+            }
+          ]
+        },
+        {
+          "id": "lowtemp",
+          "label": "低温調理・発酵なども楽しみたい",
+          "summary": "低温調理・発酵なども楽しみたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "lowTemp",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "versatility",
+              "value": 5,
+              "weight": 50
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "usability",
+      "text": "使い勝手で一番重視することは？",
+      "shortLabel": "使い勝手",
+      "weight": 12,
+      "options": [
+        {
+          "id": "reserve",
+          "label": "予約して帰宅時などに完成してほしい",
+          "summary": "予約調理を使いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "reservation",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "recipe",
+          "label": "レシピが豊富で操作が分かりやすい",
+          "summary": "レシピが豊富で操作が分かりやすいほうがいい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "recipeSupport",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "ease",
+              "value": 5,
+              "weight": 50
+            }
+          ]
+        },
+        {
+          "id": "cleanup",
+          "label": "洗いやすく、お手入れが簡単",
+          "summary": "お手入れが簡単なほうがいい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "cleanup",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "budget",
+      "text": "予算は？",
+      "shortLabel": "予算",
+      "weight": 8,
+      "options": [
+        {
+          "id": "b1",
+          "label": "15,000円以下",
+          "summary": "予算15,000円以下",
+          "effects": [],
+          "maxPriceRange": 1
+        },
+        {
+          "id": "b2",
+          "label": "25,000円以下",
+          "summary": "予算25,000円以下",
+          "effects": [],
+          "maxPriceRange": 2
+        },
+        {
+          "id": "b3",
+          "label": "35,000円以下",
+          "summary": "予算35,000円以下",
+          "effects": [],
+          "maxPriceRange": 3
+        },
+        {
+          "id": "b4",
+          "label": "45,000円以下",
+          "summary": "予算45,000円以下",
+          "effects": [],
+          "maxPriceRange": 4
+        },
+        {
+          "id": "b5",
+          "label": "60,000円以下",
+          "summary": "予算60,000円以下",
+          "effects": [],
+          "eligibility": {
+            "attr": "within60k",
+            "value": true,
+            "notice": "予算60,000円以下の機種からおすすめを表示しています。",
+            "supplementLabel": "予算60,000円を超えます"
+          }
+        },
+        {
+          "id": "any",
+          "label": "上限なし",
+          "effects": []
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "electric-pressure-cooker-101",
+      "name": "T-fal ラクラ・クッカー ミニ CY3401JP",
+      "description": "2.3Lのコンパクトな電気圧力鍋。圧力・無水・蒸し・炊飯・温度調理などに対応し、1〜2人分を手軽に作れます。",
+      "priceRange": 1,
+      "features": [
+        "2.3L・1〜2人向け",
+        "圧力70kPa",
+        "圧力・無水・蒸し・炊飯・温度調理"
+      ],
+      "pros": [
+        "手頃な価格で圧力調理を始められる",
+        "コンパクトで置きやすい"
+      ],
+      "cons": [
+        "自動かき混ぜ機能はありません"
+      ],
+      "recommendFor": "一人暮らしや2人暮らしで、手頃な電気圧力鍋を選びたい人",
+      "caution": "リンク先はT-fal公認ショップの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0CGD2DYL9/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q1q9o.d8zueef4.g00q1q9o.d8zufcee/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbellevie-harima%2Ft-fal-282%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbellevie-harima%2Fi%2F10164263%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/bellevie-harima/cabinet/0121/default/s1/t-fal-282_s1.jpg?_ex=300x300",
+      "attributes": {
+        "pressure": 4,
+        "stirring": 1,
+        "highHeat": 3,
+        "lowTemp": 4,
+        "capacity": 1,
+        "compact": 5,
+        "ease": 4,
+        "recipeSupport": 3,
+        "reservation": 1,
+        "cleanup": 4,
+        "versatility": 4,
+        "value": 5,
+        "neutralFit": 3,
+        "maxPeople": 2,
+        "pressureSupported": true,
+        "autoStir": false,
+        "people4": false,
+        "people6": false,
+        "within60k": true,
+        "priceYen": 11480
+      }
+    },
+    {
+      "id": "electric-pressure-cooker-102",
+      "name": "アイリスオーヤマ PC-MA4-W",
+      "description": "満水4.0L（調理容量2.6L）の電気圧力鍋。圧力・低温・無水調理などに対応し、白米6合まで炊けます。",
+      "priceRange": 2,
+      "features": [
+        "満水4.0L・調理容量2.6L",
+        "圧力70kPa",
+        "圧力・低温・無水・白米6合"
+      ],
+      "pros": [
+        "3〜4人分を手頃な価格で作れる",
+        "予約調理に対応"
+      ],
+      "cons": [
+        "自動かき混ぜ機能はありません"
+      ],
+      "recommendFor": "3〜4人分の圧力調理を、手頃な価格で始めたい人",
+      "caution": "リンク先はXPRICEの出品です。「本体＋メーカー保証」を選んで購入してください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B08DCJ27JY/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qn68o.d8zuee0f.g00qn68o.d8zuf9b5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fa-price%2F4967576470667%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fa-price%2Fi%2F10841367%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/a-price/cabinet/pics/195/4967576470667.jpg?_ex=300x300",
+      "attributes": {
+        "pressure": 4,
+        "stirring": 1,
+        "highHeat": 2,
+        "lowTemp": 4,
+        "capacity": 4,
+        "compact": 3,
+        "ease": 4,
+        "recipeSupport": 3,
+        "reservation": 4,
+        "cleanup": 3,
+        "versatility": 4,
+        "value": 5,
+        "neutralFit": 3,
+        "maxPeople": 4,
+        "pressureSupported": true,
+        "autoStir": false,
+        "people4": true,
+        "people6": false,
+        "within60k": true,
+        "priceYen": 20800
+      }
+    },
+    {
+      "id": "electric-pressure-cooker-103",
+      "name": "Re・De Pot EPC01A-20",
+      "description": "満水2.0L（調理容量1.2L）のコンパクトな電気圧力鍋。83kPaの高めの圧力で、シンプルな操作で使えます。",
+      "priceRange": 2,
+      "features": [
+        "満水2.0L・調理容量1.2L",
+        "圧力83kPa",
+        "圧力・低温・温め・最大12時間予約"
+      ],
+      "pros": [
+        "高めの圧力で短時間に調理できる",
+        "インテリアになじむデザイン"
+      ],
+      "cons": [
+        "自動かき混ぜ機能はありません"
+      ],
+      "recommendFor": "1〜2人分を、デザイン性の高いコンパクトな圧力鍋で作りたい人",
+      "caution": "リンク先はJoshinの出品（EPC01A-20WT・ホワイト）です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4573110727427-24-48900-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14730504%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0055/4573110727427.jpg?_ex=300x300",
+      "attributes": {
+        "pressure": 5,
+        "stirring": 1,
+        "highHeat": 1,
+        "lowTemp": 4,
+        "capacity": 1,
+        "compact": 5,
+        "ease": 4,
+        "recipeSupport": 2,
+        "reservation": 2,
+        "cleanup": 4,
+        "versatility": 3,
+        "value": 4,
+        "neutralFit": 3,
+        "maxPeople": 2,
+        "pressureSupported": true,
+        "autoStir": false,
+        "people4": false,
+        "people6": false,
+        "within60k": true,
+        "priceYen": 19800
+      }
+    },
+    {
+      "id": "electric-pressure-cooker-104",
+      "name": "siroca おうちシェフクッカー SP-MC2D151",
+      "description": "満水2.4L（調理容量1.6L）の電気圧力鍋。最大100kPaの高圧と自動減圧、88のオートメニューや音声ガイドを備えています。",
+      "priceRange": 2,
+      "features": [
+        "満水2.4L・調理容量1.6L",
+        "最大100kPa・自動減圧",
+        "88オートメニュー・音声ガイド・最大15時間予約"
+      ],
+      "pros": [
+        "高圧でもボタン操作だけで使いやすい",
+        "低温調理や予約調理にも対応"
+      ],
+      "cons": [
+        "自動かき混ぜ機能はありません"
+      ],
+      "recommendFor": "1〜3人分を、多機能な電気圧力鍋で手軽に作りたい人",
+      "caution": "リンク先はシロカ公式店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0H392RZ6J/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u50qo.d8zue695.g00u50qo.d8zuf217/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsiroca%2Fouchichefcooker%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsiroca%2Fi%2F10000236%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/siroca/cabinet/sp-mc2d151/thumb_sp-mc2d151_new.jpg?_ex=300x300",
+      "attributes": {
+        "pressure": 5,
+        "stirring": 1,
+        "highHeat": 2,
+        "lowTemp": 5,
+        "capacity": 2,
+        "compact": 5,
+        "ease": 5,
+        "recipeSupport": 5,
+        "reservation": 5,
+        "cleanup": 4,
+        "versatility": 5,
+        "value": 4,
+        "neutralFit": 3,
+        "maxPeople": 3,
+        "pressureSupported": true,
+        "autoStir": false,
+        "people4": false,
+        "people6": false,
+        "within60k": true,
+        "priceYen": 24860
+      }
+    },
+    {
+      "id": "electric-pressure-cooker-105",
+      "name": "Panasonic NF-PC400-K",
+      "description": "満水3.9L（調理容量2.6L）の電気圧力鍋。圧力・無水・低温調理と20の自動メニューに対応した、シンプルで使いやすいモデルです。",
+      "priceRange": 2,
+      "features": [
+        "満水3.9L・調理容量2.6L",
+        "圧力70kPa",
+        "圧力・無水・低温・20自動メニュー・予約"
+      ],
+      "pros": [
+        "3〜4人分をシンプルな操作で作れる",
+        "国内大手メーカーで安心"
+      ],
+      "cons": [
+        "自動かき混ぜ機能はありません"
+      ],
+      "recommendFor": "3〜4人分を、シンプルで使いやすい圧力鍋で作りたい人",
+      "caution": "リンク先はJoshinの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0CCCFLR7X/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4549980736265-24-48900-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14011529%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0089/4549980736265.jpg?_ex=300x300",
+      "attributes": {
+        "pressure": 4,
+        "stirring": 1,
+        "highHeat": 2,
+        "lowTemp": 3,
+        "capacity": 4,
+        "compact": 3,
+        "ease": 5,
+        "recipeSupport": 3,
+        "reservation": 4,
+        "cleanup": 4,
+        "versatility": 4,
+        "value": 4,
+        "neutralFit": 3,
+        "maxPeople": 4,
+        "pressureSupported": true,
+        "autoStir": false,
+        "people4": true,
+        "people6": false,
+        "within60k": true,
+        "priceYen": 20363
+      }
+    },
+    {
+      "id": "electric-pressure-cooker-106",
+      "name": "TIGER COOKPOT COK-N220",
+      "description": "満水2.2Lの電気圧力鍋。「うま圧」調理に加え、発酵・低温・無水・スロー調理にも対応し、お手入れする部品が少ないモデルです。",
+      "priceRange": 2,
+      "features": [
+        "満水2.2L・調理容量1.2〜1.4L",
+        "うま圧15kPa",
+        "発酵・低温・無水・スロー・予約12時間"
+      ],
+      "pros": [
+        "お手入れする部品が少なく洗いやすい",
+        "低温調理や発酵にも対応"
+      ],
+      "cons": [
+        "自動かき混ぜ機能はありません",
+        "圧力は15kPaの低めの設定です"
+      ],
+      "recommendFor": "1〜3人分を、お手入れの手軽な電気圧力鍋で作りたい人",
+      "caution": "リンク先はタイガー公式店（キッチン館）の出品です。容量は2.2Lを選んで購入してください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0CVL6MP68/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00s77ro.d8zue78f.g00s77ro.d8zuf376/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftiger-grandx%2Fcok-n220km%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftiger-grandx%2Fi%2F10000753%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/tiger-grandx/cabinet/sku/imgrc0165141281.jpg?_ex=300x300",
+      "attributes": {
+        "pressure": 3,
+        "stirring": 1,
+        "highHeat": 3,
+        "lowTemp": 5,
+        "capacity": 2,
+        "compact": 5,
+        "ease": 5,
+        "recipeSupport": 4,
+        "reservation": 5,
+        "cleanup": 5,
+        "versatility": 5,
+        "value": 4,
+        "neutralFit": 3,
+        "maxPeople": 3,
+        "pressureSupported": true,
+        "autoStir": false,
+        "people4": false,
+        "people6": false,
+        "within60k": true,
+        "priceYen": 21800
+      }
+    },
+    {
+      "id": "electric-pressure-cooker-107",
+      "name": "T-fal ラクラ・クッカー プロ CY3811J0",
+      "description": "3Lの電気圧力鍋。かきまぜパドルで圧力調理中もかき混ぜられ、炒め・煮込み・煮詰めなどを自動で調理できます。",
+      "priceRange": 3,
+      "features": [
+        "3L・2〜4人向け",
+        "圧力70kPa・かきまぜパドル",
+        "65レシピ・内鍋食洗機対応"
+      ],
+      "pros": [
+        "圧力調理と自動かき混ぜを手頃な価格で両立",
+        "内鍋を食洗機で洗える"
+      ],
+      "cons": [
+        "低温調理の機能は控えめです"
+      ],
+      "recommendFor": "圧力調理も自動かき混ぜも、手頃な価格で使いたい人",
+      "caution": "リンク先はT-fal公認ショップの出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q1q9o.d8zueef4.g00q1q9o.d8zufcee/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbellevie-harima%2Ft-fal-393%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbellevie-harima%2Fi%2F10171856%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/bellevie-harima/cabinet/0000/default/s1/t-fal-393_s1.jpg?_ex=300x300",
+      "attributes": {
+        "pressure": 4,
+        "stirring": 5,
+        "highHeat": 4,
+        "lowTemp": 2,
+        "capacity": 3,
+        "compact": 3,
+        "ease": 4,
+        "recipeSupport": 4,
+        "reservation": 4,
+        "cleanup": 5,
+        "versatility": 5,
+        "value": 5,
+        "neutralFit": 3,
+        "maxPeople": 4,
+        "pressureSupported": true,
+        "autoStir": true,
+        "people4": true,
+        "people6": false,
+        "within60k": true,
+        "priceYen": 26500
+      }
+    },
+    {
+      "id": "electric-pressure-cooker-108",
+      "name": "siroca おうちシェフクッカー SP-MC5D151",
+      "description": "満水5L（調理容量3.2L）の電気圧力鍋。最大100kPaの高圧と自動減圧、2品同時調理に対応し、家族分や作り置きをたっぷり作れます。",
+      "priceRange": 3,
+      "features": [
+        "満水5L・調理容量3.2L",
+        "最大100kPa・自動減圧",
+        "2品同時調理・88オートメニュー・最大15時間予約"
+      ],
+      "pros": [
+        "家族分や作り置きをまとめて作れる",
+        "2品を同時に調理できる"
+      ],
+      "cons": [
+        "自動かき混ぜ機能はありません",
+        "本体が大きめです"
+      ],
+      "recommendFor": "4〜6人分や作り置きを、高圧の電気圧力鍋で作りたい人",
+      "caution": "リンク先はシロカ公式店の出品（グレー）です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u50qo.d8zue695.g00u50qo.d8zuf217/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsiroca%2Fouchichefcooker_5l_2%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsiroca%2Fi%2F10000240%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/siroca/cabinet/sp-mc5d151/thumb_sp-mc5d151_new.jpg?_ex=300x300",
+      "attributes": {
+        "pressure": 5,
+        "stirring": 1,
+        "highHeat": 2,
+        "lowTemp": 5,
+        "capacity": 5,
+        "compact": 2,
+        "ease": 5,
+        "recipeSupport": 5,
+        "reservation": 5,
+        "cleanup": 4,
+        "versatility": 5,
+        "value": 4,
+        "neutralFit": 3,
+        "maxPeople": 6,
+        "pressureSupported": true,
+        "autoStir": false,
+        "people4": true,
+        "people6": true,
+        "within60k": true,
+        "priceYen": 31800
+      }
+    },
+    {
+      "id": "electric-pressure-cooker-109",
+      "name": "T-fal クックフォーミー 6L CY8751JP",
+      "description": "6Lの大容量電気圧力鍋。250の内蔵レシピとスロークッキング、自動排気に対応し、最大6人分を作れます。",
+      "priceRange": 4,
+      "features": [
+        "6L・最大6人",
+        "圧力70kPa・自動排気",
+        "250内蔵レシピ・スロークッキング"
+      ],
+      "pros": [
+        "内蔵レシピの案内どおりに作れる",
+        "家族分をまとめて作れる"
+      ],
+      "cons": [
+        "自動かき混ぜ機能はありません",
+        "本体がとても大きいです"
+      ],
+      "recommendFor": "家族分を、レシピの案内に沿ってたっぷり作りたい人",
+      "caution": "リンク先はT-fal公認ショップの出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q1q9o.d8zueef4.g00q1q9o.d8zufcee/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbellevie-harima%2Ft-fal-330%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbellevie-harima%2Fi%2F10166124%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/bellevie-harima/cabinet/0121/default/s1/t-fal-330_s1.jpg?_ex=300x300",
+      "attributes": {
+        "pressure": 4,
+        "stirring": 1,
+        "highHeat": 2,
+        "lowTemp": 3,
+        "capacity": 5,
+        "compact": 1,
+        "ease": 5,
+        "recipeSupport": 5,
+        "reservation": 4,
+        "cleanup": 4,
+        "versatility": 4,
+        "value": 4,
+        "neutralFit": 3,
+        "maxPeople": 6,
+        "pressureSupported": true,
+        "autoStir": false,
+        "people4": true,
+        "people6": true,
+        "within60k": true,
+        "priceYen": 37219
+      }
+    },
+    {
+      "id": "electric-pressure-cooker-110",
+      "name": "アイリスオーヤマ CHEF DRUM DAC-IB2-C",
+      "description": "自動でかくはんしながら、炒める・揚げる・焼く・煮るまでこなす自動調理鍋。40〜200℃に対応し、無水・低温・発酵調理もできます。",
+      "priceRange": 4,
+      "features": [
+        "最大調理容量3L",
+        "40〜200℃・自動かくはん",
+        "炒める・揚げる・焼く・煮る・無水・低温・発酵"
+      ],
+      "pros": [
+        "炒め物や揚げ物まで自動で作れる",
+        "料理の幅がとても広い"
+      ],
+      "cons": [
+        "圧力調理には対応していません",
+        "本体が大きめです"
+      ],
+      "recommendFor": "炒め物や揚げ物まで、自動調理鍋にまかせたい人",
+      "caution": "リンク先はアイリスオーヤマ公式店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0DP63DFNS/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00t3zto.d8zuee14.g00t3zto.d8zuf2f4/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F203682%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10160370%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/top/203682_ranking.jpg?_ex=300x300",
+      "attributes": {
+        "pressure": 1,
+        "stirring": 5,
+        "highHeat": 5,
+        "lowTemp": 5,
+        "capacity": 4,
+        "compact": 1,
+        "ease": 4,
+        "recipeSupport": 4,
+        "reservation": 4,
+        "cleanup": 4,
+        "versatility": 5,
+        "value": 4,
+        "neutralFit": 3,
+        "maxPeople": 4,
+        "pressureSupported": false,
+        "autoStir": true,
+        "people4": true,
+        "people6": false,
+        "within60k": true,
+        "priceYen": 39800
+      }
+    },
+    {
+      "id": "electric-pressure-cooker-111",
+      "name": "T-fal クックフォーミー タッチ CY9221JP",
+      "description": "3Lの電気圧力鍋。高圧・中圧・低圧を使い分けられ、270の内蔵レシピとタッチパネル、Wi-Fiでのレシピ追加に対応しています。",
+      "priceRange": 5,
+      "features": [
+        "3L・2〜4人",
+        "高圧100kPa・中圧70kPa・低圧40kPa",
+        "270内蔵レシピ・タッチパネル・Wi-Fi"
+      ],
+      "pros": [
+        "レシピの案内が分かりやすい",
+        "圧力を使い分けられる"
+      ],
+      "cons": [
+        "自動かき混ぜ機能はありません",
+        "価格は高めです"
+      ],
+      "recommendFor": "レシピの案内に沿って、いろいろな料理を作りたい人",
+      "caution": "リンク先はJoshinの出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F3045387248338-24-48900-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14270198%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0186/3045387248338.jpg?_ex=300x300",
+      "attributes": {
+        "pressure": 5,
+        "stirring": 1,
+        "highHeat": 2,
+        "lowTemp": 4,
+        "capacity": 3,
+        "compact": 2,
+        "ease": 5,
+        "recipeSupport": 5,
+        "reservation": 4,
+        "cleanup": 4,
+        "versatility": 5,
+        "value": 3,
+        "neutralFit": 3,
+        "maxPeople": 4,
+        "pressureSupported": true,
+        "autoStir": false,
+        "people4": true,
+        "people6": false,
+        "within60k": false,
+        "priceYen": 65030
+      }
+    },
+    {
+      "id": "electric-pressure-cooker-112",
+      "name": "SHARP ヘルシオ ホットクック KN-HW16H",
+      "description": "調理容量1.6Lの自動調理鍋。自動でかき混ぜながら無水調理や低温調理ができ、最大15時間の予約やWi-Fiでのレシピ追加にも対応しています。",
+      "priceRange": 5,
+      "features": [
+        "調理容量1.6L・2〜4人向け",
+        "自動かき混ぜ・無水調理・低温調理",
+        "最大15時間予約・Wi-Fi"
+      ],
+      "pros": [
+        "材料を入れるだけで煮込みなどを作れる",
+        "予約調理で帰宅時に完成させられる"
+      ],
+      "cons": [
+        "圧力調理には対応していません"
+      ],
+      "recommendFor": "2〜4人分を、材料を入れるだけでおまかせしたい人",
+      "caution": "リンク先はLIFE LUCKの出品です。色はプレミアムホワイト・プレミアムブラックから選べます。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0DP2KBVK6/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ptaho.d8zuefb7.g00ptaho.d8zuf6d4/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftno%2Fkn-hw16g%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftno%2Fi%2F10002319%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/tno/cabinet/p5/kn-hw16h_01_p5.jpg?_ex=300x300",
+      "attributes": {
+        "pressure": 1,
+        "stirring": 5,
+        "highHeat": 2,
+        "lowTemp": 5,
+        "capacity": 3,
+        "compact": 3,
+        "ease": 5,
+        "recipeSupport": 5,
+        "reservation": 5,
+        "cleanup": 4,
+        "versatility": 5,
+        "value": 4,
+        "neutralFit": 3,
+        "maxPeople": 4,
+        "pressureSupported": false,
+        "autoStir": true,
+        "people4": true,
+        "people6": false,
+        "within60k": true,
+        "priceYen": 46200
+      }
+    },
+    {
+      "id": "electric-pressure-cooker-113",
+      "name": "SHARP ヘルシオ ホットクック KN-HW24H",
+      "description": "調理容量2.4Lの自動調理鍋。自動でかき混ぜながら無水調理や低温調理ができ、2〜6人分や作り置きをまとめて作れます。",
+      "priceRange": 5,
+      "features": [
+        "調理容量2.4L・2〜6人向け",
+        "自動かき混ぜ・無水調理・低温調理",
+        "最大15時間予約・Wi-Fi"
+      ],
+      "pros": [
+        "家族分や作り置きをおまかせで作れる",
+        "予約調理で帰宅時に完成させられる"
+      ],
+      "cons": [
+        "圧力調理には対応していません",
+        "本体が大きめです"
+      ],
+      "recommendFor": "家族分や作り置きを、材料を入れるだけでおまかせしたい人",
+      "caution": "リンク先はぎおん楽天市場店の出品（プレミアムホワイト）です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0DP2JLZLM/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qbcco.d8zuebec.g00qbcco.d8zufa4e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fauc-gion%2Fkn-hw24h-w%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fauc-gion%2Fi%2F10236653%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/auc-gion/cabinet/shopping260/kn-hw24h-w.jpg?_ex=300x300",
+      "attributes": {
+        "pressure": 1,
+        "stirring": 5,
+        "highHeat": 2,
+        "lowTemp": 5,
+        "capacity": 5,
+        "compact": 1,
+        "ease": 5,
+        "recipeSupport": 5,
+        "reservation": 5,
+        "cleanup": 4,
+        "versatility": 5,
+        "value": 3,
+        "neutralFit": 3,
+        "maxPeople": 6,
+        "pressureSupported": false,
+        "autoStir": true,
+        "people4": true,
+        "people6": true,
+        "within60k": true,
+        "priceYen": 53900
+      }
+    },
+    {
+      "id": "electric-pressure-cooker-114",
+      "name": "Panasonic オートクッカー ビストロ NF-AC700-H",
+      "description": "調理容量2.4Lの自動調理鍋。鍋底かきまぜと高火力で、炒め物や揚げ焼きまで自動で作れます。アプリ連携や予約にも対応しています。",
+      "priceRange": 5,
+      "features": [
+        "調理容量2.4L",
+        "鍋底かきまぜ・高火力",
+        "炒め・揚げ焼き・無水・低温・蒸し・アプリ連携"
+      ],
+      "pros": [
+        "炒め物も高火力で仕上げられる",
+        "料理の幅が広い"
+      ],
+      "cons": [
+        "圧力調理には対応していません"
+      ],
+      "recommendFor": "炒め物や焼き物まで、高火力の自動調理鍋にまかせたい人",
+      "caution": "リンク先はパナソニック公式店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0DJ8RX2PZ/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ubhyo.d8zue3ff.g00ubhyo.d8zuf4bd/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpanasonic-store%2Fnf-ac700-h%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpanasonic-store%2Fi%2F10001270%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/panasonic-store/cabinet/banner/thumb/nf-ac700_sku_01.jpg?_ex=300x300",
+      "attributes": {
+        "pressure": 1,
+        "stirring": 5,
+        "highHeat": 5,
+        "lowTemp": 5,
+        "capacity": 4,
+        "compact": 2,
+        "ease": 5,
+        "recipeSupport": 5,
+        "reservation": 5,
+        "cleanup": 4,
+        "versatility": 5,
+        "value": 3,
+        "neutralFit": 3,
+        "maxPeople": 4,
+        "pressureSupported": false,
+        "autoStir": true,
+        "people4": true,
+        "people6": false,
+        "within60k": true,
+        "priceYen": 59944
+      }
+    },
+    {
+      "id": "electric-pressure-cooker-115",
+      "name": "Panasonic オートクッカー ビストロ NF-AC1000-K",
+      "description": "調理容量2.4Lの自動調理鍋の上位モデル。最大約2気圧の圧力調理と鍋底かきまぜ、高火力を組み合わせ、幅広い料理を自動で作れます。",
+      "priceRange": 5,
+      "features": [
+        "調理容量2.4L",
+        "最大約2気圧（高・中・低圧）・鍋底かきまぜ",
+        "炒め・揚げ焼き・無水・低温・蒸し・アプリ連携"
+      ],
+      "pros": [
+        "圧力調理と自動かき混ぜを両立した上位モデル",
+        "高火力で料理の幅がとても広い"
+      ],
+      "cons": [
+        "価格は高めです",
+        "本体が大きめです"
+      ],
+      "recommendFor": "圧力調理も炒め物も、1台で最高クラスの性能を求める人",
+      "caution": "リンク先はパナソニック公式店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0BPBJ9Z4K/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ubhyo.d8zue3ff.g00ubhyo.d8zuf4bd/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpanasonic-store%2Fnf-ac1000-k%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpanasonic-store%2Fi%2F10000380%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/panasonic-store/cabinet/banner/12923490/nf-ac1000_sku_02.jpg?_ex=300x300",
+      "attributes": {
+        "pressure": 5,
+        "stirring": 5,
+        "highHeat": 5,
+        "lowTemp": 5,
+        "capacity": 4,
+        "compact": 1,
+        "ease": 5,
+        "recipeSupport": 5,
+        "reservation": 5,
+        "cleanup": 4,
+        "versatility": 5,
+        "value": 2,
+        "neutralFit": 3,
+        "maxPeople": 4,
+        "pressureSupported": true,
+        "autoStir": true,
+        "people4": true,
+        "people6": false,
+        "within60k": false,
+        "priceYen": 74931
+      }
+    }
+  ],
+  "scoring": {
+    "tieBreak": true,
+    "softenPartialReason": true,
+    "lowMatchNotice": "条件をすべて満たす商品が少ないため、近い候補を表示しています。"
+  },
+  "guide": {
+    "title": "電気圧力鍋・自動調理鍋の選び方",
+    "intro": "この診断は、メーカー公表の仕様をもとに、以下のポイントとあなたの回答を照らし合わせて相性を計算しています。",
+    "sections": [
+      {
+        "heading": "圧力調理と自動かき混ぜ",
+        "body": "電気圧力鍋は圧力をかけて煮込み料理を短時間で作れるのが特長です。自動調理鍋は自動でかき混ぜながら調理でき、炒め物や煮詰め料理もまかせやすくなります。両方を備えたモデルもあります。"
+      },
+      {
+        "heading": "容量と人数",
+        "body": "1〜2人なら2L前後、3〜4人なら3〜4L前後、家族分や作り置きには5L以上のモデルが目安です。調理できる量は満水容量より少なくなるため、調理容量も確認しましょう。"
+      },
+      {
+        "heading": "使い勝手",
+        "body": "予約調理があれば帰宅時に完成させられます。内蔵レシピやアプリ連携は料理のレパートリーを広げるのに役立ち、部品が少ないモデルはお手入れが簡単です。"
+      }
+    ]
+  },
+  "notice": "容量や圧力、機能は各メーカーの公表値に基づきます。作れる人数は料理や分量によって変わります。価格は変動するため、購入時に販売ページでご確認ください。"
+}

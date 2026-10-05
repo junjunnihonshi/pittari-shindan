@@ -36,6 +36,7 @@ import { robotVacuum } from './robotVacuum.ts'
 import { monitor } from './monitor.ts'
 import { tv } from './tv.ts'
 import { wifiRouter } from './wifiRouter.ts'
+import { electricPressureCooker } from './electricPressureCooker.ts'
 
 /**
  * 診断の一覧（登録簿）。
@@ -80,6 +81,7 @@ const allDiagnoses: Diagnosis[] = [
   monitor,
   tv,
   wifiRouter,
+  electricPressureCooker,
 ]
 
 /**
