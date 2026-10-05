@@ -35,6 +35,7 @@ import { smartwatch } from './smartwatch.ts'
 import { robotVacuum } from './robotVacuum.ts'
 import { monitor } from './monitor.ts'
 import { tv } from './tv.ts'
+import { wifiRouter } from './wifiRouter.ts'
 
 /**
  * 診断の一覧（登録簿）。
@@ -78,6 +79,7 @@ const allDiagnoses: Diagnosis[] = [
   robotVacuum,
   monitor,
   tv,
+  wifiRouter,
 ]
 
 /**

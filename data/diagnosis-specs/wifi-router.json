@@ -1,0 +1,1407 @@
+{
+  "id": "wifi-router",
+  "enabled": false,
+  "title": "Wi-Fiルーター診断",
+  "itemName": "Wi-Fiルーター",
+  "group": "digital",
+  "icon": "📶",
+  "cardDescription": "住まいの広さ、回線速度、接続台数、Wi-Fi 7・6GHz、ゲーム、有線LAN、予算から、あなたにぴったりのWi-Fiルーターを診断。",
+  "description": "重視したいことや住まいの広さ、回線速度、接続台数、Wi-Fi規格、有線LAN、予算から、あなたにぴったりのWi-Fiルーターを絞り込みます。",
+  "searchKeywords": [
+    "Wi-Fiルーター",
+    "WiFiルーター",
+    "wifiルーター",
+    "無線LANルーター",
+    "Wi-Fiルーターおすすめ",
+    "WiFiおすすめ",
+    "おすすめ",
+    "Wi-Fi 7",
+    "wifi7",
+    "6GHz",
+    "10ギガ",
+    "10Gbps",
+    "ゲーミングルーター",
+    "メッシュWi-Fi",
+    "EasyMesh",
+    "Aterm",
+    "BUFFALO",
+    "バッファロー",
+    "TP-Link",
+    "ASUS",
+    "I-O DATA",
+    "アイオーデータ",
+    "一人暮らし",
+    "戸建て"
+  ],
+  "seo": {
+    "title": "Wi-Fiルーターの選び方診断｜あなたにぴったりのWi-Fiルーターを7問で診断",
+    "description": "住まいの広さ、回線速度、接続台数、Wi-Fi 7・6GHz、オンラインゲーム、有線LAN、予算など7つの質問から、あなたにぴったりのWi-Fiルーターを診断します。"
+  },
+  "priceLabels": {
+    "1": "〜12,000円",
+    "2": "12,000〜20,000円",
+    "3": "20,000〜30,000円",
+    "4": "30,000〜50,000円",
+    "5": "50,000円〜"
+  },
+  "questions": [
+    {
+      "id": "priority",
+      "text": "Wi-Fiルーターで一番重視したいことは？",
+      "shortLabel": "重視すること",
+      "weight": 22,
+      "options": [
+        {
+          "id": "value",
+          "label": "価格・コスパ",
+          "summary": "価格・コスパを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "compact",
+              "value": 5,
+              "weight": 20
+            },
+            {
+              "type": "atLeast",
+              "attr": "ease",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "speed",
+          "label": "通信速度",
+          "summary": "通信速度を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "wirelessSpeed",
+              "value": 5,
+              "weight": 45
+            },
+            {
+              "type": "atLeast",
+              "attr": "wiredSpeed",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "futureProof",
+              "value": 5,
+              "weight": 25
+            }
+          ]
+        },
+        {
+          "id": "coverage",
+          "label": "家じゅうに届くこと",
+          "summary": "家じゅうに届くことを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "coverage",
+              "value": 5,
+              "weight": 45
+            },
+            {
+              "type": "atLeast",
+              "attr": "mesh",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "stability",
+              "value": 5,
+              "weight": 25
+            }
+          ]
+        },
+        {
+          "id": "gaming",
+          "label": "オンラインゲーム",
+          "summary": "オンラインゲームを快適にしたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "gaming",
+              "value": 5,
+              "weight": 55
+            },
+            {
+              "type": "atLeast",
+              "attr": "stability",
+              "value": 5,
+              "weight": 25
+            },
+            {
+              "type": "atLeast",
+              "attr": "wiredSpeed",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "devices",
+          "label": "多くの機器を安定してつなぐ",
+          "summary": "多くの機器を安定してつなぎたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "multiDevice",
+              "value": 5,
+              "weight": 55
+            },
+            {
+              "type": "atLeast",
+              "attr": "stability",
+              "value": 5,
+              "weight": 25
+            },
+            {
+              "type": "atLeast",
+              "attr": "coverage",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "ease",
+          "label": "設定のしやすさ・安心感",
+          "summary": "設定のしやすさ・安心感を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "ease",
+              "value": 5,
+              "weight": 45
+            },
+            {
+              "type": "atLeast",
+              "attr": "security",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "stability",
+              "value": 5,
+              "weight": 25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home",
+      "text": "お住まいの広さは？",
+      "shortLabel": "住まいの広さ",
+      "weight": 16,
+      "options": [
+        {
+          "id": "small",
+          "label": "1R〜1LDK・1〜2部屋",
+          "summary": "1R〜1LDK・1〜2部屋",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "compact",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "medium",
+          "label": "2LDK〜3LDK程度",
+          "summary": "2LDK〜3LDK程度",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "coverage",
+              "value": 5,
+              "weight": 40
+            },
+            {
+              "type": "atLeast",
+              "attr": "stability",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "compact",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "large",
+          "label": "4LDK程度・広めのマンション",
+          "summary": "4LDK程度・広めのマンション",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "coverage",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "mesh",
+              "value": 5,
+              "weight": 25
+            },
+            {
+              "type": "atLeast",
+              "attr": "stability",
+              "value": 5,
+              "weight": 25
+            }
+          ]
+        },
+        {
+          "id": "house",
+          "label": "戸建て2〜3階・かなり広い家",
+          "summary": "戸建て2〜3階・かなり広い家",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "coverage",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "mesh",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "stability",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "line",
+      "text": "インターネット回線の速さは？",
+      "shortLabel": "回線速度",
+      "weight": 12,
+      "options": [
+        {
+          "id": "g1",
+          "label": "1Gbps以下",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "g25",
+          "label": "2〜5Gbpsを活かしたい",
+          "summary": "2〜5Gbpsの回線を活かしたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "wiredSpeed",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "futureProof",
+              "value": 5,
+              "weight": 50
+            }
+          ],
+          "eligibility": {
+            "attr": "wan25",
+            "value": true,
+            "notice": "WAN（回線側）が2.5Gbps以上の機種からおすすめを表示しています。",
+            "supplementLabel": "WAN（回線側）が2.5Gbps未満です"
+          }
+        },
+        {
+          "id": "g10",
+          "label": "10Gbps回線を活かしたい",
+          "summary": "10Gbps回線を活かしたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "wiredSpeed",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "futureProof",
+              "value": 5,
+              "weight": 50
+            }
+          ],
+          "eligibility": {
+            "attr": "wan10",
+            "value": true,
+            "notice": "WAN（回線側）が10Gbpsの機種からおすすめを表示しています。",
+            "supplementLabel": "10Gbps回線に対応していません"
+          }
+        },
+        {
+          "id": "unknown",
+          "label": "よく分からない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "devices",
+      "text": "Wi-Fiにつなぐ機器は何台くらいですか？",
+      "shortLabel": "接続台数",
+      "weight": 12,
+      "options": [
+        {
+          "id": "few",
+          "label": "10台以下",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "mid",
+          "label": "11〜30台",
+          "summary": "11〜30台つなぐ",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "multiDevice",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "stability",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "coverage",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "many",
+          "label": "31台以上",
+          "summary": "31台以上つなぐ",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "multiDevice",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "stability",
+              "value": 5,
+              "weight": 20
+            },
+            {
+              "type": "atLeast",
+              "attr": "coverage",
+              "value": 5,
+              "weight": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "standard",
+      "text": "新しいWi-Fi規格はどこまで重視しますか？",
+      "shortLabel": "Wi-Fi規格",
+      "weight": 12,
+      "options": [
+        {
+          "id": "six",
+          "label": "6GHz帯まで使えるWi-Fi 7がほしい",
+          "summary": "6GHz帯まで使えるWi-Fi 7がほしい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "wirelessSpeed",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "futureProof",
+              "value": 5,
+              "weight": 50
+            }
+          ],
+          "eligibility": [
+            {
+              "attr": "wifi7",
+              "value": true,
+              "notice": "Wi-Fi 7対応の機種からおすすめを表示しています。",
+              "supplementLabel": "Wi-Fi 7に対応していません"
+            },
+            {
+              "attr": "sixGHz",
+              "value": true,
+              "notice": "6GHz帯に対応した機種からおすすめを表示しています。",
+              "supplementLabel": "6GHz帯に対応していません"
+            }
+          ]
+        },
+        {
+          "id": "wifi7",
+          "label": "Wi-Fi 7には対応してほしい",
+          "summary": "Wi-Fi 7には対応してほしい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "futureProof",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "wirelessSpeed",
+              "value": 5,
+              "weight": 40
+            }
+          ],
+          "eligibility": {
+            "attr": "wifi7",
+            "value": true,
+            "notice": "Wi-Fi 7対応の機種からおすすめを表示しています。",
+            "supplementLabel": "Wi-Fi 7に対応していません"
+          }
+        },
+        {
+          "id": "any",
+          "label": "特にこだわらない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lan",
+      "text": "有線LANの速さはどこまで必要ですか？",
+      "shortLabel": "有線LAN",
+      "weight": 10,
+      "options": [
+        {
+          "id": "lan10",
+          "label": "10Gbps対応機器を有線接続したい",
+          "summary": "10Gbps対応機器を有線接続したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "wiredSpeed",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "simultaneous10gWanLan",
+            "value": true,
+            "notice": "回線用とは別に10Gbpsの有線LANポートを使える機種からおすすめを表示しています。",
+            "supplementLabel": "回線用とは別に10Gbpsの有線LANポートを使えません"
+          }
+        },
+        {
+          "id": "lan25",
+          "label": "2.5Gbps対応機器を有線接続したい",
+          "summary": "2.5Gbps対応機器を有線接続したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "wiredSpeed",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "lan25",
+            "value": true,
+            "notice": "2.5Gbps以上の有線LANに対応した機種からおすすめを表示しています。",
+            "supplementLabel": "2.5Gbps以上の有線LANに対応していません"
+          }
+        },
+        {
+          "id": "lan1",
+          "label": "1Gbpsで十分・有線はほぼ使わない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "budget",
+      "text": "予算は？",
+      "shortLabel": "予算",
+      "weight": 8,
+      "options": [
+        {
+          "id": "b1",
+          "label": "12,000円以下",
+          "summary": "予算12,000円以下",
+          "effects": [],
+          "maxPriceRange": 1
+        },
+        {
+          "id": "b2",
+          "label": "20,000円以下",
+          "summary": "予算20,000円以下",
+          "effects": [],
+          "maxPriceRange": 2
+        },
+        {
+          "id": "b3",
+          "label": "30,000円以下",
+          "summary": "予算30,000円以下",
+          "effects": [],
+          "maxPriceRange": 3
+        },
+        {
+          "id": "b4",
+          "label": "50,000円以下",
+          "summary": "予算50,000円以下",
+          "effects": [],
+          "maxPriceRange": 4
+        },
+        {
+          "id": "b5",
+          "label": "70,000円以下",
+          "summary": "予算70,000円以下",
+          "effects": [],
+          "eligibility": {
+            "attr": "within70k",
+            "value": true,
+            "notice": "予算70,000円以下の機種からおすすめを表示しています。",
+            "supplementLabel": "予算70,000円を超えます"
+          }
+        },
+        {
+          "id": "any",
+          "label": "上限なし",
+          "effects": []
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "wifi-router-101",
+      "name": "BUFFALO WSR-3000AX4L",
+      "description": "Wi-Fi 6対応のデュアルバンドルーター（2401+573Mbps）。コンパクトで設定しやすい、手頃な価格のモデルです。",
+      "priceRange": 1,
+      "features": [
+        "Wi-Fi 6・2401+573Mbps",
+        "デュアルバンド・1Gbps WAN/LAN",
+        "EasyMesh対応"
+      ],
+      "pros": [
+        "手頃な価格でWi-Fi 6を使える",
+        "コンパクトで一人暮らしの部屋に置きやすい"
+      ],
+      "cons": [
+        "Wi-Fi 7・6GHz帯には対応していません"
+      ],
+      "recommendFor": "一人暮らしで、手頃な価格のWi-Fiルーターを選びたい人",
+      "caution": "リンク先はJoshinの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0HJCDKWM2/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4981254077016-44-74734-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14840866%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0096/4981254077016.jpg?_ex=300x300",
+      "attributes": {
+        "wirelessSpeed": 2,
+        "coverage": 3,
+        "multiDevice": 3,
+        "wiredSpeed": 1,
+        "gaming": 3,
+        "stability": 4,
+        "mesh": 5,
+        "ease": 5,
+        "security": 4,
+        "futureProof": 2,
+        "compact": 5,
+        "value": 5,
+        "neutralFit": 3,
+        "wifi7": false,
+        "sixGHz": false,
+        "wanMaxGbps": 1,
+        "lanMaxGbps": 1,
+        "simultaneous10gWanLan": false,
+        "wan25": false,
+        "wan10": false,
+        "lan25": false,
+        "within70k": true,
+        "priceYen": 8900
+      }
+    },
+    {
+      "id": "wifi-router-102",
+      "name": "ELECOM WRC-BE36QS-B",
+      "description": "Wi-Fi 7対応のデュアルバンドルーター（2882+688Mbps）。2.5GbpsのWANポートを備え、手頃な価格で高速回線を活かせます。",
+      "priceRange": 2,
+      "features": [
+        "Wi-Fi 7・2882+688Mbps",
+        "2.5Gbps WAN・1Gbps LAN",
+        "EasyMesh対応"
+      ],
+      "pros": [
+        "手頃な価格でWi-Fi 7と2.5Gbps回線を使える",
+        "コンパクトで置きやすい"
+      ],
+      "cons": [
+        "6GHz帯には対応していません",
+        "LANポートは1Gbpsです"
+      ],
+      "recommendFor": "手頃な価格で、Wi-Fi 7と2.5Gbps回線を使い始めたい人",
+      "caution": "リンク先はケーズデンキの出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tit6o.d8zuebed.g00tit6o.d8zuf23f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fksdenki%2F4549550310710%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fksdenki%2Fi%2F10508948%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ksdenki/cabinet/images/10_5/4549550310710_5.jpg?_ex=300x300",
+      "attributes": {
+        "wirelessSpeed": 3,
+        "coverage": 3,
+        "multiDevice": 3,
+        "wiredSpeed": 2,
+        "gaming": 3,
+        "stability": 4,
+        "mesh": 4,
+        "ease": 5,
+        "security": 4,
+        "futureProof": 4,
+        "compact": 5,
+        "value": 5,
+        "neutralFit": 3,
+        "wifi7": true,
+        "sixGHz": false,
+        "wanMaxGbps": 2.5,
+        "lanMaxGbps": 1,
+        "simultaneous10gWanLan": false,
+        "wan25": true,
+        "wan10": false,
+        "lan25": false,
+        "within70k": true,
+        "priceYen": 12980
+      }
+    },
+    {
+      "id": "wifi-router-103",
+      "name": "BUFFALO WSR3600BE4P",
+      "description": "Wi-Fi 7対応のデュアルバンドルーター（2882+688Mbps）。設定しやすく、EasyMeshにも対応しています。",
+      "priceRange": 2,
+      "features": [
+        "Wi-Fi 7・2882+688Mbps",
+        "デュアルバンド・1Gbps INTERNET",
+        "EasyMesh対応"
+      ],
+      "pros": [
+        "国内メーカーで設定しやすい",
+        "手頃な価格でWi-Fi 7を使える"
+      ],
+      "cons": [
+        "6GHz帯には対応していません"
+      ],
+      "recommendFor": "国内メーカーのWi-Fi 7ルーターを、手頃な価格で選びたい人",
+      "caution": "リンク先はJoshinの出品（WSR3600BE4P-BK・ブラック）です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FYNGQP53/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4981254072752-44-35101-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14527816%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0496/4981254072752.jpg?_ex=300x300",
+      "attributes": {
+        "wirelessSpeed": 3,
+        "coverage": 4,
+        "multiDevice": 3,
+        "wiredSpeed": 1,
+        "gaming": 3,
+        "stability": 5,
+        "mesh": 5,
+        "ease": 5,
+        "security": 5,
+        "futureProof": 4,
+        "compact": 5,
+        "value": 5,
+        "neutralFit": 3,
+        "wifi7": true,
+        "sixGHz": false,
+        "wanMaxGbps": 1,
+        "lanMaxGbps": 1,
+        "simultaneous10gWanLan": false,
+        "wan25": false,
+        "wan10": false,
+        "lan25": false,
+        "within70k": true,
+        "priceYen": 13800
+      }
+    },
+    {
+      "id": "wifi-router-104",
+      "name": "I-O DATA WN-7D36QR",
+      "description": "Wi-Fi 7対応のデュアルバンドルーター。2.5GbpsのWANポートを備え、高速な光回線を活かせます。",
+      "priceRange": 2,
+      "features": [
+        "Wi-Fi 7・デュアルバンド",
+        "2.5Gbps WAN・1Gbps LAN",
+        "EasyMesh対応・推奨40台"
+      ],
+      "pros": [
+        "2.5Gbps回線を手頃な価格で活かせる",
+        "国内メーカーで設定しやすい"
+      ],
+      "cons": [
+        "LANポートは1Gbpsです"
+      ],
+      "recommendFor": "2.5Gbps程度の回線を、手頃な価格のルーターで活かしたい人",
+      "caution": "リンク先はコジマの出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4957180163468%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11513527%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001192/4957180163468_1.jpg?_ex=300x300",
+      "attributes": {
+        "wirelessSpeed": 3,
+        "coverage": 4,
+        "multiDevice": 4,
+        "wiredSpeed": 2,
+        "gaming": 3,
+        "stability": 4,
+        "mesh": 5,
+        "ease": 5,
+        "security": 4,
+        "futureProof": 4,
+        "compact": 5,
+        "value": 4,
+        "neutralFit": 3,
+        "wifi7": true,
+        "sixGHz": false,
+        "wanMaxGbps": 2.5,
+        "lanMaxGbps": 1,
+        "simultaneous10gWanLan": false,
+        "wan25": true,
+        "wan10": false,
+        "lan25": false,
+        "within70k": true,
+        "priceYen": 15850
+      }
+    },
+    {
+      "id": "wifi-router-105",
+      "name": "ELECOM WRC-BE94XSD-B",
+      "description": "Wi-Fi 7対応のトライバンドルーター（5765+2882+688Mbps）。6GHz帯と10GbpsのWANポートに対応し、セキュリティ機能も備えています。",
+      "priceRange": 4,
+      "features": [
+        "Wi-Fi 7・5765+2882+688Mbps・6GHz対応",
+        "10Gbps WAN・2.5Gbps LAN",
+        "F-Secureのセキュリティ機能・EasyMesh対応"
+      ],
+      "pros": [
+        "比較的手頃な価格で10Gbps回線と6GHz帯に対応",
+        "セキュリティ機能を備えている"
+      ],
+      "cons": [
+        "10Gbpsの有線LANには対応していません"
+      ],
+      "recommendFor": "比較的手頃な価格で、10Gbps回線と6GHz帯のWi-Fi 7を使いたい人",
+      "caution": "リンク先はJoshinの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0F3CBPVX2/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4549550346238-44-35101-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14529757%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0496/4549550346238.jpg?_ex=300x300",
+      "attributes": {
+        "wirelessSpeed": 4,
+        "coverage": 4,
+        "multiDevice": 4,
+        "wiredSpeed": 5,
+        "gaming": 4,
+        "stability": 4,
+        "mesh": 5,
+        "ease": 5,
+        "security": 5,
+        "futureProof": 5,
+        "compact": 4,
+        "value": 4,
+        "neutralFit": 3,
+        "wifi7": true,
+        "sixGHz": true,
+        "wanMaxGbps": 10,
+        "lanMaxGbps": 2.5,
+        "simultaneous10gWanLan": false,
+        "wan25": true,
+        "wan10": true,
+        "lan25": true,
+        "within70k": true,
+        "priceYen": 37511
+      }
+    },
+    {
+      "id": "wifi-router-106",
+      "name": "TP-Link Archer BE550 Pro",
+      "description": "Wi-Fi 7（BE9700）対応のトライバンドルーター。6GHz帯と10Gbps回線に対応し、多くの機器を高速につなげます。",
+      "priceRange": 4,
+      "features": [
+        "Wi-Fi 7・BE9700・2.4/5/6GHz",
+        "10Gbps WAN/LAN×1・2.5Gbps系ポート",
+        "EasyMesh対応"
+      ],
+      "pros": [
+        "6GHz帯と10Gbps回線に比較的手頃に対応",
+        "多くの機器をつなぎやすい"
+      ],
+      "cons": [
+        "10Gbpsポートは1つのため、10Gbps回線と10Gbps有線LANは同時に使えません"
+      ],
+      "recommendFor": "6GHz帯のWi-Fi 7と10Gbps回線を、比較的手頃に使いたい人",
+      "caution": "リンク先はJoshinの出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F8885020624823-44-35101-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14599207%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0002/8885020624823.jpg?_ex=300x300",
+      "attributes": {
+        "wirelessSpeed": 4,
+        "coverage": 4,
+        "multiDevice": 5,
+        "wiredSpeed": 4,
+        "gaming": 4,
+        "stability": 4,
+        "mesh": 5,
+        "ease": 5,
+        "security": 4,
+        "futureProof": 5,
+        "compact": 4,
+        "value": 4,
+        "neutralFit": 3,
+        "wifi7": true,
+        "sixGHz": true,
+        "wanMaxGbps": 10,
+        "lanMaxGbps": 2.5,
+        "simultaneous10gWanLan": false,
+        "wan25": true,
+        "wan10": true,
+        "lan25": true,
+        "within70k": true,
+        "priceYen": 36800
+      }
+    },
+    {
+      "id": "wifi-router-107",
+      "name": "BUFFALO WSR6500BE6P",
+      "description": "Wi-Fi 7対応のデュアルバンドルーター（5764+688Mbps）。2.5GbpsのINTERNETポートを備え、安定した通信と設定のしやすさが特長です。",
+      "priceRange": 3,
+      "features": [
+        "Wi-Fi 7・5764+688Mbps",
+        "2.5Gbps INTERNET・LAN最大1Gbps",
+        "EasyMesh対応"
+      ],
+      "pros": [
+        "5GHz帯が高速で安定しやすい",
+        "国内メーカーで設定しやすい"
+      ],
+      "cons": [
+        "6GHz帯には対応していません",
+        "LANポートは最大1Gbpsです"
+      ],
+      "recommendFor": "国内メーカーの高速なWi-Fi 7ルーターを、手頃に選びたい人",
+      "caution": "リンク先はJoshinの出品（WSR6500BE6P-BK・ブラック）です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FYNFNBD4/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4981254072868-44-35101-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14645142%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0003/4981254072868.jpg?_ex=300x300",
+      "attributes": {
+        "wirelessSpeed": 4,
+        "coverage": 5,
+        "multiDevice": 4,
+        "wiredSpeed": 3,
+        "gaming": 3,
+        "stability": 5,
+        "mesh": 5,
+        "ease": 5,
+        "security": 5,
+        "futureProof": 4,
+        "compact": 4,
+        "value": 4,
+        "neutralFit": 3,
+        "wifi7": true,
+        "sixGHz": false,
+        "wanMaxGbps": 2.5,
+        "lanMaxGbps": 1,
+        "simultaneous10gWanLan": false,
+        "wan25": true,
+        "wan10": false,
+        "lan25": false,
+        "within70k": true,
+        "priceYen": 25650
+      }
+    },
+    {
+      "id": "wifi-router-108",
+      "name": "NEC Aterm 7200D8BE（PA-7200D8BE）",
+      "description": "Wi-Fi 7対応のデュアルバンドルーター。10GbpsのWANポートと2.5GbpsのLANポートを備え、多くの機器を安定してつなげます。",
+      "priceRange": 4,
+      "features": [
+        "Wi-Fi 7・5GHz 5764Mbps・2.4GHz 1376Mbps",
+        "10Gbps WAN・2.5Gbps LAN",
+        "メッシュ対応・36台・12人目安"
+      ],
+      "pros": [
+        "10Gbps回線に対応",
+        "国内メーカーで安定性が高い"
+      ],
+      "cons": [
+        "6GHz帯には対応していません"
+      ],
+      "recommendFor": "10Gbps回線で、多くの機器を安定してつなぎたい人",
+      "caution": "リンク先はNEC公式店（Shop@Aterm）の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FCFF6SFP/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u77ao.d8zueb20.g00u77ao.d8zuf833/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnec-aterm%2F4550559358030_1%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnec-aterm%2Fi%2F10000081%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/nec-aterm/cabinet/11546649/7200d8be_700_700.jpg?_ex=300x300",
+      "attributes": {
+        "wirelessSpeed": 4,
+        "coverage": 5,
+        "multiDevice": 5,
+        "wiredSpeed": 5,
+        "gaming": 4,
+        "stability": 5,
+        "mesh": 5,
+        "ease": 5,
+        "security": 5,
+        "futureProof": 5,
+        "compact": 4,
+        "value": 4,
+        "neutralFit": 3,
+        "wifi7": true,
+        "sixGHz": false,
+        "wanMaxGbps": 10,
+        "lanMaxGbps": 2.5,
+        "simultaneous10gWanLan": false,
+        "wan25": true,
+        "wan10": true,
+        "lan25": true,
+        "within70k": true,
+        "priceYen": 48928
+      }
+    },
+    {
+      "id": "wifi-router-109",
+      "name": "BUFFALO WXR9300BE6P",
+      "description": "Wi-Fi 7対応のトライバンドルーター（5764+2882+688Mbps）。6GHz帯と10GbpsのINTERNETポートに対応し、広い家でも使いやすいモデルです。",
+      "priceRange": 4,
+      "features": [
+        "Wi-Fi 7・2.4/5/6GHz",
+        "10Gbps INTERNET・LAN最大1Gbps",
+        "EasyMesh対応"
+      ],
+      "pros": [
+        "6GHz帯と10Gbps回線に対応",
+        "広い家でも電波が届きやすい"
+      ],
+      "cons": [
+        "LANポートは最大1Gbpsです",
+        "本体が大きめです"
+      ],
+      "recommendFor": "広い家で、6GHz帯と10Gbps回線を活かしたい人",
+      "caution": "リンク先はコジマの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0DXZ4Y79T/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4981254070659%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11551087%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001275/4981254070659_1.jpg?_ex=300x300",
+      "attributes": {
+        "wirelessSpeed": 4,
+        "coverage": 5,
+        "multiDevice": 5,
+        "wiredSpeed": 4,
+        "gaming": 4,
+        "stability": 5,
+        "mesh": 5,
+        "ease": 5,
+        "security": 5,
+        "futureProof": 5,
+        "compact": 2,
+        "value": 4,
+        "neutralFit": 3,
+        "wifi7": true,
+        "sixGHz": true,
+        "wanMaxGbps": 10,
+        "lanMaxGbps": 1,
+        "simultaneous10gWanLan": false,
+        "wan25": true,
+        "wan10": true,
+        "lan25": false,
+        "within70k": true,
+        "priceYen": 31700
+      }
+    },
+    {
+      "id": "wifi-router-110",
+      "name": "ASUS RT-BE92U",
+      "description": "Wi-Fi 7対応のトライバンドルーター。10Gbpsと2.5Gbpsのポートを備え、AiMeshやセキュリティ機能、ゲーム向け機能も充実しています。",
+      "priceRange": 4,
+      "features": [
+        "Wi-Fi 7・最大9700Mbps・トライバンド",
+        "10Gbps WAN/LAN×1・2.5Gbpsポート",
+        "AiMesh・セキュリティ機能"
+      ],
+      "pros": [
+        "6GHz帯と10Gbps回線に対応",
+        "ゲーム向けの機能が充実"
+      ],
+      "cons": [
+        "10Gbpsポートは1つのため、10Gbps回線と10Gbps有線LANは同時に使えません"
+      ],
+      "recommendFor": "6GHz帯と10Gbps回線を、ゲームにも活かしたい人",
+      "caution": "リンク先はコジマの出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F0197105650411%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11552479%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001276/0197105650411_1.jpg?_ex=300x300",
+      "attributes": {
+        "wirelessSpeed": 4,
+        "coverage": 5,
+        "multiDevice": 5,
+        "wiredSpeed": 5,
+        "gaming": 5,
+        "stability": 5,
+        "mesh": 5,
+        "ease": 4,
+        "security": 5,
+        "futureProof": 5,
+        "compact": 3,
+        "value": 4,
+        "neutralFit": 3,
+        "wifi7": true,
+        "sixGHz": true,
+        "wanMaxGbps": 10,
+        "lanMaxGbps": 10,
+        "simultaneous10gWanLan": false,
+        "wan25": true,
+        "wan10": true,
+        "lan25": true,
+        "within70k": true,
+        "priceYen": 49800
+      }
+    },
+    {
+      "id": "wifi-router-111",
+      "name": "I-O DATA WN-7T100XXR",
+      "description": "Wi-Fi 7対応のトライバンドルーター。10GbpsのINTERNETポートとLANポートを1つずつ備え、10Gbps回線と10Gbps有線LANを同時に使えます。",
+      "priceRange": 4,
+      "features": [
+        "Wi-Fi 7・6GHz 5765Mbps・5GHz 2882Mbps",
+        "10Gbps INTERNET×1・10Gbps LAN×1",
+        "EasyMesh対応"
+      ],
+      "pros": [
+        "10Gbps回線と10Gbps有線LANを同時に使える",
+        "国内メーカーで設定しやすい"
+      ],
+      "cons": [
+        "価格は高めです"
+      ],
+      "recommendFor": "10Gbps回線を、有線LANも含めてフルに活かしたい人",
+      "caution": "リンク先はJoshinの出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4957180186764-44-74732-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14886521%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0096/4957180186764.jpg?_ex=300x300",
+      "attributes": {
+        "wirelessSpeed": 4,
+        "coverage": 5,
+        "multiDevice": 5,
+        "wiredSpeed": 5,
+        "gaming": 4,
+        "stability": 5,
+        "mesh": 5,
+        "ease": 5,
+        "security": 4,
+        "futureProof": 5,
+        "compact": 3,
+        "value": 4,
+        "neutralFit": 3,
+        "wifi7": true,
+        "sixGHz": true,
+        "wanMaxGbps": 10,
+        "lanMaxGbps": 10,
+        "simultaneous10gWanLan": true,
+        "wan25": true,
+        "wan10": true,
+        "lan25": true,
+        "within70k": true,
+        "priceYen": 47080
+      }
+    },
+    {
+      "id": "wifi-router-112",
+      "name": "BUFFALO WXR18000BE10P",
+      "description": "Wi-Fi 7対応のトライバンドルーター（11529+5764+688Mbps）。10GbpsのINTERNETポートとLANポートを備えた、BUFFALOの最上位クラスです。",
+      "priceRange": 5,
+      "features": [
+        "Wi-Fi 7・11529+5764+688Mbps",
+        "10Gbps INTERNET×1・10Gbps LAN×1",
+        "EasyMesh対応・63台・21人クラス"
+      ],
+      "pros": [
+        "とても高速で多くの機器をつなげる",
+        "10Gbps回線と10Gbps有線LANを同時に使える"
+      ],
+      "cons": [
+        "本体がとても大きいです",
+        "価格は高めです"
+      ],
+      "recommendFor": "広い家で、多くの機器を最上位クラスの速度でつなぎたい人",
+      "caution": "リンク先はJoshinの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0CSKCFZF3/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4981254070505-44-35101-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14112855%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0167/4981254070505.jpg?_ex=300x300",
+      "attributes": {
+        "wirelessSpeed": 5,
+        "coverage": 5,
+        "multiDevice": 5,
+        "wiredSpeed": 5,
+        "gaming": 4,
+        "stability": 5,
+        "mesh": 5,
+        "ease": 5,
+        "security": 5,
+        "futureProof": 5,
+        "compact": 1,
+        "value": 3,
+        "neutralFit": 3,
+        "wifi7": true,
+        "sixGHz": true,
+        "wanMaxGbps": 10,
+        "lanMaxGbps": 10,
+        "simultaneous10gWanLan": true,
+        "wan25": true,
+        "wan10": true,
+        "lan25": true,
+        "within70k": true,
+        "priceYen": 68102
+      }
+    },
+    {
+      "id": "wifi-router-113",
+      "name": "ASUS RT-BE18000",
+      "description": "Wi-Fi 7対応のトライバンドルーター。最大18Gbpsで、10Gbpsポートを2つ備え、非常に広い家や多くの機器に対応します。",
+      "priceRange": 5,
+      "features": [
+        "Wi-Fi 7・最大18Gbps・トライバンド",
+        "10G WAN/LAN×1・10G LAN×1",
+        "AiMesh・最大80台クラス"
+      ],
+      "pros": [
+        "10Gbps回線と10Gbps有線LANを同時に使える",
+        "非常に広い家や多くの機器に対応"
+      ],
+      "cons": [
+        "価格は高めです"
+      ],
+      "recommendFor": "非常に広い家で、多くの機器を高速につなぎたい人",
+      "caution": "リンク先はJoshinの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0F1MLZZ5F/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F0199291439955-44-35101-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14811124%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0090/0199291439955.jpg?_ex=300x300",
+      "attributes": {
+        "wirelessSpeed": 5,
+        "coverage": 5,
+        "multiDevice": 5,
+        "wiredSpeed": 5,
+        "gaming": 4,
+        "stability": 5,
+        "mesh": 5,
+        "ease": 4,
+        "security": 5,
+        "futureProof": 5,
+        "compact": 3,
+        "value": 4,
+        "neutralFit": 3,
+        "wifi7": true,
+        "sixGHz": true,
+        "wanMaxGbps": 10,
+        "lanMaxGbps": 10,
+        "simultaneous10gWanLan": true,
+        "wan25": true,
+        "wan10": true,
+        "lan25": true,
+        "within70k": true,
+        "priceYen": 56980
+      }
+    },
+    {
+      "id": "wifi-router-114",
+      "name": "TP-Link Archer BE805",
+      "description": "Wi-Fi 7（BE19000）対応のトライバンドルーター。10Gbpsポートを2つ備え、10Gbps回線と10Gbps有線LANを同時に使えます。",
+      "priceRange": 5,
+      "features": [
+        "Wi-Fi 7・BE19000・トライバンド",
+        "10Gbps WAN/LAN×2",
+        "EasyMesh対応"
+      ],
+      "pros": [
+        "とても高速で広い家にも対応",
+        "10Gbps回線と10Gbps有線LANを同時に使える"
+      ],
+      "cons": [
+        "本体が大きめです",
+        "価格は高めです"
+      ],
+      "recommendFor": "広い家で、10Gbps回線と10Gbps有線LANをフルに活かしたい人",
+      "caution": "リンク先はJoshinの出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4895252503470-44-35101-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14227293%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0360/4895252503470.jpg?_ex=300x300",
+      "attributes": {
+        "wirelessSpeed": 5,
+        "coverage": 5,
+        "multiDevice": 5,
+        "wiredSpeed": 5,
+        "gaming": 4,
+        "stability": 5,
+        "mesh": 5,
+        "ease": 4,
+        "security": 5,
+        "futureProof": 5,
+        "compact": 2,
+        "value": 3,
+        "neutralFit": 3,
+        "wifi7": true,
+        "sixGHz": true,
+        "wanMaxGbps": 10,
+        "lanMaxGbps": 10,
+        "simultaneous10gWanLan": true,
+        "wan25": true,
+        "wan10": true,
+        "lan25": true,
+        "within70k": true,
+        "priceYen": 64800
+      }
+    },
+    {
+      "id": "wifi-router-115",
+      "name": "NEC Aterm 19000T12BE（PA-19000T12BE）",
+      "description": "Wi-Fi 7対応のトライバンドルーター。全帯域4ストリームで、10GbpsのWANポートとLANポートを備えたAtermの最上位モデルです。",
+      "priceRange": 5,
+      "features": [
+        "Wi-Fi 7・6GHz 11529Mbps・5GHz 5764Mbps",
+        "10Gbps WAN・10Gbps LAN",
+        "全帯域4ストリーム・メッシュ対応"
+      ],
+      "pros": [
+        "国内メーカーの最上位で安定性が高い",
+        "10Gbps回線と10Gbps有線LANを同時に使える"
+      ],
+      "cons": [
+        "価格は高めです"
+      ],
+      "recommendFor": "国内メーカーの最上位モデルで、安定した高速通信を求める人",
+      "caution": "リンク先はNEC公式店（Shop@Aterm）の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u77ao.d8zueb20.g00u77ao.d8zuf833/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnec-aterm%2F4991515300340_1%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnec-aterm%2Fi%2F10000085%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/nec-aterm/cabinet/12654304/19000t12be_700_700.jpg?_ex=300x300",
+      "attributes": {
+        "wirelessSpeed": 5,
+        "coverage": 5,
+        "multiDevice": 5,
+        "wiredSpeed": 5,
+        "gaming": 4,
+        "stability": 5,
+        "mesh": 5,
+        "ease": 5,
+        "security": 5,
+        "futureProof": 5,
+        "compact": 2,
+        "value": 3,
+        "neutralFit": 3,
+        "wifi7": true,
+        "sixGHz": true,
+        "wanMaxGbps": 10,
+        "lanMaxGbps": 10,
+        "simultaneous10gWanLan": true,
+        "wan25": true,
+        "wan10": true,
+        "lan25": true,
+        "within70k": false,
+        "priceYen": 97878
+      }
+    }
+  ],
+  "scoring": {
+    "tieBreak": true,
+    "softenPartialReason": true,
+    "lowMatchNotice": "条件をすべて満たす商品が少ないため、近い候補を表示しています。"
+  },
+  "guide": {
+    "title": "Wi-Fiルーターの選び方",
+    "intro": "この診断は、メーカー公表の仕様をもとに、以下のポイントとあなたの回答を照らし合わせて相性を計算しています。",
+    "sections": [
+      {
+        "heading": "Wi-Fi規格と6GHz帯",
+        "body": "Wi-Fi 7は最新の規格で、対応するスマホやパソコンと組み合わせると高速に通信できます。6GHz帯は混雑が少なく、対応機器なら安定した高速通信を使いやすくなります。"
+      },
+      {
+        "heading": "回線速度と有線LAN",
+        "body": "2.5Gbpsや10Gbpsの光回線を活かすには、WAN（回線側）のポートが回線速度に対応している必要があります。10Gbps回線と10Gbpsの有線LANを同時に使うには、10Gbpsポートが2つ以上あるモデルを選びます。"
+      },
+      {
+        "heading": "住まいの広さと接続台数",
+        "body": "広い家や接続台数が多い場合は、電波の届きやすさや同時接続に強い上位モデルが向いています。届きにくい部屋がある場合は、メッシュ（EasyMesh・AiMeshなど）で中継機を追加する方法もあります。"
+      }
+    ]
+  },
+  "notice": "通信速度や接続台数は各メーカーの公表値（規格上の最大値・目安）で、実際の速度は回線や接続する機器、設置環境によって変わります。Wi-Fi 7や6GHz帯の通信には、スマホやパソコン側の対応も必要です。価格は変動するため、購入時に販売ページでご確認ください。"
+}
