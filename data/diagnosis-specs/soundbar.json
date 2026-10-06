@@ -1,0 +1,1326 @@
+{
+  "id": "soundbar",
+  "enabled": false,
+  "title": "サウンドバー診断",
+  "itemName": "サウンドバー",
+  "group": "digital",
+  "icon": "🔈",
+  "cardDescription": "セリフの聞きやすさ、映画の臨場感、重低音、Dolby Atmos、サブウーファー、ゲーム、予算から、あなたにぴったりのサウンドバーを診断。",
+  "description": "重視したいことや部屋・テレビの大きさ、Dolby Atmos、スピーカーの構成、音楽、ゲーム機の接続、予算から、あなたにぴったりのサウンドバーを絞り込みます。",
+  "searchKeywords": [
+    "サウンドバー",
+    "サウンドバーおすすめ",
+    "テレビスピーカー",
+    "ホームシアター",
+    "おすすめ",
+    "Dolby Atmos",
+    "ドルビーアトモス",
+    "重低音",
+    "セリフ",
+    "映画",
+    "ゲーム",
+    "PS5",
+    "サブウーファー",
+    "リアスピーカー",
+    "JBL",
+    "Sony",
+    "ソニー",
+    "BRAVIA Theatre",
+    "Bose",
+    "ボーズ",
+    "Sonos",
+    "ソノス",
+    "Yamaha",
+    "ヤマハ",
+    "Denon",
+    "デノン",
+    "一人暮らし",
+    "テレビ"
+  ],
+  "seo": {
+    "title": "サウンドバーの選び方診断｜あなたにぴったりのサウンドバーを7問で診断",
+    "description": "セリフの聞きやすさ、映画の臨場感、重低音、Dolby Atmos、サブウーファー、ゲーム、予算など7つの質問から、あなたにぴったりのサウンドバーを診断します。"
+  },
+  "priceLabels": {
+    "1": "〜30,000円",
+    "2": "30,000〜40,000円",
+    "3": "40,000〜60,000円",
+    "4": "60,000〜90,000円",
+    "5": "90,000円〜"
+  },
+  "questions": [
+    {
+      "id": "priority",
+      "text": "サウンドバーで一番重視したいことは？",
+      "shortLabel": "重視すること",
+      "weight": 22,
+      "options": [
+        {
+          "id": "dialogue",
+          "label": "セリフや人の声を聞き取りやすくしたい",
+          "summary": "セリフを聞き取りやすくしたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "dialogue",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "ease",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "cinema",
+          "label": "映画館のような臨場感を楽しみたい",
+          "summary": "映画館のような臨場感を楽しみたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "immersion",
+              "value": 5,
+              "weight": 40
+            },
+            {
+              "type": "atLeast",
+              "attr": "surround",
+              "value": 5,
+              "weight": 35
+            },
+            {
+              "type": "atLeast",
+              "attr": "bass",
+              "value": 5,
+              "weight": 25
+            }
+          ]
+        },
+        {
+          "id": "bass",
+          "label": "重低音・迫力を重視したい",
+          "summary": "重低音・迫力を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "bass",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "immersion",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "music",
+          "label": "音楽も高音質で楽しみたい",
+          "summary": "音楽も高音質で楽しみたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "music",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "streaming",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "design",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "game",
+          "label": "ゲームを迫力ある音で楽しみたい",
+          "summary": "ゲームを迫力ある音で楽しみたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "gaming",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "immersion",
+              "value": 5,
+              "weight": 20
+            },
+            {
+              "type": "atLeast",
+              "attr": "bass",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "value",
+          "label": "価格・コスパ",
+          "summary": "価格・コスパを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "ease",
+              "value": 5,
+              "weight": 20
+            },
+            {
+              "type": "atLeast",
+              "attr": "compact",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "room",
+      "text": "どんな部屋・テレビで使いますか？",
+      "shortLabel": "部屋・テレビ",
+      "weight": 16,
+      "options": [
+        {
+          "id": "small",
+          "label": "寝室・小さめの部屋／50型以下",
+          "summary": "小さめの部屋・50型以下のテレビ",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "compact",
+              "value": 5,
+              "weight": 45
+            },
+            {
+              "type": "atLeast",
+              "attr": "dialogue",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "ease",
+              "value": 5,
+              "weight": 25
+            }
+          ]
+        },
+        {
+          "id": "living",
+          "label": "一般的なリビング／55〜65型",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "large",
+          "label": "広めのリビング／65〜75型",
+          "summary": "広めのリビング・65〜75型のテレビ",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "immersion",
+              "value": 5,
+              "weight": 40
+            },
+            {
+              "type": "atLeast",
+              "attr": "surround",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "bass",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "huge",
+          "label": "大画面・広い部屋／75型以上",
+          "summary": "大画面・広い部屋",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "surround",
+              "value": 5,
+              "weight": 40
+            },
+            {
+              "type": "atLeast",
+              "attr": "immersion",
+              "value": 5,
+              "weight": 35
+            },
+            {
+              "type": "atLeast",
+              "attr": "bass",
+              "value": 5,
+              "weight": 25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "atmos",
+      "text": "Dolby Atmosは必要ですか？",
+      "shortLabel": "Dolby Atmos",
+      "weight": 12,
+      "options": [
+        {
+          "id": "must",
+          "label": "Dolby Atmosは必須",
+          "summary": "Dolby Atmosは必須",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "immersion",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "surround",
+              "value": 5,
+              "weight": 50
+            }
+          ],
+          "eligibility": {
+            "attr": "atmosSupported",
+            "value": true,
+            "notice": "Dolby Atmos対応の機種からおすすめを表示しています。",
+            "supplementLabel": "Dolby Atmosには対応していません"
+          }
+        },
+        {
+          "id": "nice",
+          "label": "対応していればうれしい",
+          "summary": "Dolby Atmosに対応していればうれしい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "immersion",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "surround",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 40
+            }
+          ]
+        },
+        {
+          "id": "none",
+          "label": "特にこだわらない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "layout",
+      "text": "スピーカーの置き方はどれがいいですか？",
+      "shortLabel": "置き方",
+      "weight": 14,
+      "options": [
+        {
+          "id": "one",
+          "label": "サウンドバー1本だけで完結したい",
+          "summary": "サウンドバー1本で完結したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "compact",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "ease",
+              "value": 5,
+              "weight": 50
+            }
+          ],
+          "eligibility": {
+            "attr": "allInOne",
+            "value": true,
+            "notice": "サウンドバー1本で完結する機種からおすすめを表示しています。",
+            "supplementLabel": "サブウーファーなどを別に置くタイプです"
+          }
+        },
+        {
+          "id": "sub",
+          "label": "サブウーファー付きで低音をしっかり出したい",
+          "summary": "サブウーファー付きで低音をしっかり出したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "bass",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "subwooferIncluded",
+            "value": true,
+            "notice": "サブウーファーが付属する機種からおすすめを表示しています。",
+            "supplementLabel": "サブウーファーは付属していません"
+          }
+        },
+        {
+          "id": "rear",
+          "label": "リアスピーカーまで付いた本格サラウンドがほしい",
+          "summary": "リアスピーカー付きの本格サラウンドがほしい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "surround",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "immersion",
+              "value": 5,
+              "weight": 40
+            }
+          ],
+          "eligibility": {
+            "attr": "rearSpeakersIncluded",
+            "value": true,
+            "notice": "リアスピーカーが付属する機種からおすすめを表示しています。",
+            "supplementLabel": "リアスピーカーは付属していません"
+          }
+        }
+      ]
+    },
+    {
+      "id": "music",
+      "text": "テレビ以外に音楽もよく聴きますか？",
+      "shortLabel": "音楽",
+      "weight": 12,
+      "options": [
+        {
+          "id": "wifi",
+          "label": "Wi-Fiストリーミングで音楽も本格的に楽しみたい",
+          "summary": "Wi-Fiで音楽も本格的に楽しみたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "music",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "streaming",
+              "value": 5,
+              "weight": 50
+            }
+          ]
+        },
+        {
+          "id": "bt",
+          "label": "Bluetoothで音楽が聴ければ十分",
+          "summary": "Bluetoothで音楽が聴ければ十分",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "music",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "ease",
+              "value": 5,
+              "weight": 40
+            }
+          ]
+        },
+        {
+          "id": "tv",
+          "label": "ほぼテレビ・映画専用",
+          "summary": "ほぼテレビ・映画専用",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "dialogue",
+              "value": 5,
+              "weight": 40
+            },
+            {
+              "type": "atLeast",
+              "attr": "immersion",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "ease",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "game",
+      "text": "ゲーム機の接続はどうしたいですか？",
+      "shortLabel": "ゲーム機の接続",
+      "weight": 12,
+      "options": [
+        {
+          "id": "direct",
+          "label": "PS5などをサウンドバーへ直接つなぎたい",
+          "summary": "ゲーム機をサウンドバーへ直接つなぎたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "gaming",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "hdmiInput",
+            "value": true,
+            "notice": "HDMI入力端子のある機種からおすすめを表示しています。",
+            "supplementLabel": "ゲーム機などをつなぐHDMI入力端子はありません"
+          }
+        },
+        {
+          "id": "viaTv",
+          "label": "ゲームはするがテレビ経由の接続でOK",
+          "summary": "ゲームはテレビ経由でつなぐ",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "gaming",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 40
+            }
+          ]
+        },
+        {
+          "id": "none",
+          "label": "ゲームはほとんどしない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "budget",
+      "text": "予算は？",
+      "shortLabel": "予算",
+      "weight": 8,
+      "options": [
+        {
+          "id": "b1",
+          "label": "30,000円以下",
+          "summary": "予算30,000円以下",
+          "effects": [],
+          "maxPriceRange": 1
+        },
+        {
+          "id": "b2",
+          "label": "40,000円以下",
+          "summary": "予算40,000円以下",
+          "effects": [],
+          "maxPriceRange": 2
+        },
+        {
+          "id": "b3",
+          "label": "60,000円以下",
+          "summary": "予算60,000円以下",
+          "effects": [],
+          "maxPriceRange": 3
+        },
+        {
+          "id": "b4",
+          "label": "90,000円以下",
+          "summary": "予算90,000円以下",
+          "effects": [],
+          "maxPriceRange": 4
+        },
+        {
+          "id": "b5",
+          "label": "130,000円以下",
+          "summary": "予算130,000円以下",
+          "effects": [],
+          "eligibility": {
+            "attr": "within130k",
+            "value": true,
+            "notice": "予算130,000円以下の機種からおすすめを表示しています。",
+            "supplementLabel": "予算130,000円を超えます"
+          }
+        },
+        {
+          "id": "any",
+          "label": "上限なし",
+          "effects": []
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "soundbar-101",
+      "name": "Denon DHT-S218",
+      "description": "デュアルサブウーファーを内蔵したDolby Atmos対応のサウンドバー。HDMI入力と4Kパススルー、VRR・ALLMにも対応しています。",
+      "priceRange": 1,
+      "features": [
+        "Dolby Atmos・デュアルサブウーファー内蔵",
+        "HDMI入力・HDMI eARC・4Kパススルー（VRR/ALLM）",
+        "ダイアログエンハンサー・Bluetooth LE Audio"
+      ],
+      "pros": [
+        "手頃な価格で音楽も映画も高音質",
+        "ゲーム機をサウンドバーに直接つなげる"
+      ],
+      "cons": [
+        "外付けのサブウーファーはありません"
+      ],
+      "recommendFor": "手頃な価格で、音質にもこだわったサウンドバーが欲しい人",
+      "caution": "リンク先はJoshinの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0CYGWF7TK/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F0747192143404-35-51313-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14273512%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0354/0747192143404.jpg?_ex=300x300",
+      "attributes": {
+        "dialogue": 4,
+        "immersion": 4,
+        "bass": 4,
+        "music": 5,
+        "gaming": 4,
+        "compact": 4,
+        "surround": 3,
+        "streaming": 2,
+        "expandability": 3,
+        "ease": 5,
+        "design": 4,
+        "value": 5,
+        "neutralFit": 3,
+        "atmosSupported": true,
+        "allInOne": true,
+        "subwooferIncluded": false,
+        "rearSpeakersIncluded": false,
+        "hdmiInput": true,
+        "within130k": true,
+        "priceYen": 28749
+      }
+    },
+    {
+      "id": "soundbar-102",
+      "name": "Yamaha SR-B30A",
+      "description": "Dolby Atmos対応のワンボディサウンドバー。クリアボイスでセリフが聞き取りやすく、アプリでも操作できます。",
+      "priceRange": 2,
+      "features": [
+        "Dolby Atmos・ワンボディ",
+        "クリアボイス・バスエクステンション",
+        "HDMI eARC・Bluetooth・アプリ操作"
+      ],
+      "pros": [
+        "セリフが聞き取りやすい",
+        "1本で手軽に設置できる"
+      ],
+      "cons": [
+        "ゲーム機などをつなぐHDMI入力端子はありません"
+      ],
+      "recommendFor": "セリフの聞きやすさを重視して、手軽にテレビの音を良くしたい人",
+      "caution": "リンク先はJoshinの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0CB7YN6YS/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4957812694223-35-51313-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14771967%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0067/4957812694223.jpg?_ex=300x300",
+      "attributes": {
+        "dialogue": 5,
+        "immersion": 4,
+        "bass": 4,
+        "music": 4,
+        "gaming": 3,
+        "compact": 4,
+        "surround": 4,
+        "streaming": 2,
+        "expandability": 2,
+        "ease": 5,
+        "design": 4,
+        "value": 5,
+        "neutralFit": 3,
+        "atmosSupported": true,
+        "allInOne": true,
+        "subwooferIncluded": false,
+        "rearSpeakersIncluded": false,
+        "hdmiInput": false,
+        "within130k": true,
+        "priceYen": 36850
+      }
+    },
+    {
+      "id": "soundbar-103",
+      "name": "JBL CINEMA SB580 ALL-IN-ONE",
+      "description": "独立センターチャンネルとサブウーファーを内蔵した3.1chのサウンドバー。Dolby Atmosに対応し、1本で迫力ある音を楽しめます。",
+      "priceRange": 2,
+      "features": [
+        "3.1ch・Dolby Atmos",
+        "独立センターチャンネル・サブウーファー内蔵・最大200W",
+        "HDMI入力・HDMI eARC"
+      ],
+      "pros": [
+        "セリフも低音も1本でしっかり出る",
+        "ゲーム機をサウンドバーに直接つなげる"
+      ],
+      "cons": [
+        "外付けのサブウーファーはありません"
+      ],
+      "recommendFor": "セリフも迫力も、1本のサウンドバーで手頃に楽しみたい人",
+      "caution": "リンク先はJoshinの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FW4MB2XX/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4968929227365-35-51313-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14668151%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0020/4968929227365.jpg?_ex=300x300",
+      "attributes": {
+        "dialogue": 5,
+        "immersion": 4,
+        "bass": 4,
+        "music": 3,
+        "gaming": 4,
+        "compact": 3,
+        "surround": 4,
+        "streaming": 2,
+        "expandability": 2,
+        "ease": 5,
+        "design": 4,
+        "value": 5,
+        "neutralFit": 3,
+        "atmosSupported": true,
+        "allInOne": true,
+        "subwooferIncluded": false,
+        "rearSpeakersIncluded": false,
+        "hdmiInput": true,
+        "within130k": true,
+        "priceYen": 32890
+      }
+    },
+    {
+      "id": "soundbar-104",
+      "name": "Sonos Ray",
+      "description": "コンパクトなオールインワンのサウンドバー。Wi-FiやAirPlay 2に対応し、Sonosのスピーカーと組み合わせて拡張できます。",
+      "priceRange": 2,
+      "features": [
+        "オールインワン・コンパクト",
+        "スピーチエンハンスメント",
+        "Wi-Fi・AirPlay 2・Sonosシステム拡張"
+      ],
+      "pros": [
+        "小さめの部屋に置きやすい",
+        "音楽ストリーミングも楽しめる"
+      ],
+      "cons": [
+        "Dolby Atmosには対応していません",
+        "接続は光デジタルが中心です"
+      ],
+      "recommendFor": "小さめの部屋で、テレビも音楽も手軽に楽しみたい人",
+      "caution": "リンク先は楽天ビックの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0BF3T9TP8/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldo.d8zue716.g00r7ldo.d8zuf884/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F8717755778536%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F13830044%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/7206/00000010419529_a01.jpg?_ex=300x300",
+      "attributes": {
+        "dialogue": 5,
+        "immersion": 2,
+        "bass": 3,
+        "music": 5,
+        "gaming": 2,
+        "compact": 5,
+        "surround": 2,
+        "streaming": 5,
+        "expandability": 5,
+        "ease": 5,
+        "design": 5,
+        "value": 3,
+        "neutralFit": 3,
+        "atmosSupported": false,
+        "allInOne": true,
+        "subwooferIncluded": false,
+        "rearSpeakersIncluded": false,
+        "hdmiInput": false,
+        "within130k": true,
+        "priceYen": 34800
+      }
+    },
+    {
+      "id": "soundbar-105",
+      "name": "Yamaha SR-B40A",
+      "description": "ワイヤレスサブウーファーが付属したDolby Atmos対応のサウンドバー。クリアボイスでセリフも聞き取りやすく、重低音も楽しめます。",
+      "priceRange": 2,
+      "features": [
+        "Dolby Atmos・ワイヤレスサブウーファー付属",
+        "クリアボイス・バスエクステンション",
+        "HDMI eARC・Bluetooth・アプリEQ"
+      ],
+      "pros": [
+        "手頃な価格でサブウーファーの重低音を楽しめる",
+        "セリフも聞き取りやすい"
+      ],
+      "cons": [
+        "ゲーム機などをつなぐHDMI入力端子はありません"
+      ],
+      "recommendFor": "手頃な価格で、サブウーファー付きの迫力ある音を楽しみたい人",
+      "caution": "リンク先はXPRICEの出品です。「本体＋メーカー保証」を選んで購入してください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0CB7TSN6V/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qn68o.d8zuee0f.g00qn68o.d8zuf9b5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fa-price%2F4957812694339%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fa-price%2Fi%2F11169455%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/a-price/cabinet/pics/678/4957812694339.jpg?_ex=300x300",
+      "attributes": {
+        "dialogue": 5,
+        "immersion": 4,
+        "bass": 5,
+        "music": 4,
+        "gaming": 3,
+        "compact": 3,
+        "surround": 4,
+        "streaming": 2,
+        "expandability": 3,
+        "ease": 5,
+        "design": 4,
+        "value": 5,
+        "neutralFit": 3,
+        "atmosSupported": true,
+        "allInOne": false,
+        "subwooferIncluded": true,
+        "rearSpeakersIncluded": false,
+        "hdmiInput": false,
+        "within130k": true,
+        "priceYen": 37500
+      }
+    },
+    {
+      "id": "soundbar-106",
+      "name": "Bose TV Speaker（第2世代）",
+      "description": "セリフの聞き取りやすさを重視したコンパクトなサウンドバー。幅約60cmクラスで、シンプルな操作でテレビの音を良くできます。",
+      "priceRange": 2,
+      "features": [
+        "オールインワン・幅約60cmクラス",
+        "セリフを聞き取りやすい音作り",
+        "Bluetooth・シンプル操作"
+      ],
+      "pros": [
+        "テレビ番組のセリフが聞き取りやすい",
+        "小さめのテレビにも合わせやすい"
+      ],
+      "cons": [
+        "Dolby Atmosには対応していません"
+      ],
+      "recommendFor": "テレビ番組のセリフを、シンプルな操作で聞き取りやすくしたい人",
+      "caution": "リンク先はコジマの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0HF52WXLG/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4969929262080%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11755804%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001880/4969929262080_1.jpg?_ex=300x300",
+      "attributes": {
+        "dialogue": 5,
+        "immersion": 2,
+        "bass": 3,
+        "music": 4,
+        "gaming": 2,
+        "compact": 5,
+        "surround": 2,
+        "streaming": 2,
+        "expandability": 3,
+        "ease": 5,
+        "design": 5,
+        "value": 3,
+        "neutralFit": 3,
+        "atmosSupported": false,
+        "allInOne": true,
+        "subwooferIncluded": false,
+        "rearSpeakersIncluded": false,
+        "hdmiInput": false,
+        "within130k": true,
+        "priceYen": 39600
+      }
+    },
+    {
+      "id": "soundbar-107",
+      "name": "Sony BRAVIA Theatre Bar 5（HT-B500）",
+      "description": "ワイヤレスサブウーファーが付属した3.1chのサウンドバー。センタースピーカーでセリフが聞き取りやすく、BRAVIAとの連携にも対応しています。",
+      "priceRange": 3,
+      "features": [
+        "3.1ch・Dolby Atmos/DTS:X",
+        "ワイヤレスサブウーファー付属・センタースピーカー",
+        "BRAVIA連携・HDMI eARC"
+      ],
+      "pros": [
+        "セリフと重低音のバランスがよい",
+        "ソニーのテレビと連携しやすい"
+      ],
+      "cons": [
+        "ゲーム機などをつなぐHDMI入力端子はありません"
+      ],
+      "recommendFor": "サブウーファー付きで、映画もテレビ番組も楽しみたい人",
+      "caution": "リンク先はコジマの出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4548736174542%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11714684%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001741/4548736174542_1.jpg?_ex=300x300",
+      "attributes": {
+        "dialogue": 5,
+        "immersion": 4,
+        "bass": 5,
+        "music": 4,
+        "gaming": 3,
+        "compact": 3,
+        "surround": 4,
+        "streaming": 2,
+        "expandability": 2,
+        "ease": 5,
+        "design": 4,
+        "value": 4,
+        "neutralFit": 3,
+        "atmosSupported": true,
+        "allInOne": false,
+        "subwooferIncluded": true,
+        "rearSpeakersIncluded": false,
+        "hdmiInput": false,
+        "within130k": true,
+        "priceYen": 44548
+      }
+    },
+    {
+      "id": "soundbar-108",
+      "name": "JBL Bar 300MK2",
+      "description": "5.0chのオールインワンサウンドバー。MultiBeam 3.0とDolby Atmosで広がりのある音を再現し、Wi-Fiで音楽ストリーミングも楽しめます。",
+      "priceRange": 3,
+      "features": [
+        "5.0ch・Dolby Atmos・DTS Virtual:X",
+        "MultiBeam 3.0・PureVoice 2.0・最大450W",
+        "HDMI入力・HDMI eARC・Wi-Fi"
+      ],
+      "pros": [
+        "1本で広がりのあるサラウンドを楽しめる",
+        "音楽ストリーミングにも対応"
+      ],
+      "cons": [
+        "外付けのサブウーファーはありません"
+      ],
+      "recommendFor": "1本のサウンドバーで、映画も音楽も本格的に楽しみたい人",
+      "caution": "リンク先はJBL・AKG公式ストアの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FBRDCH3B/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzaoo.d8zue94f.g00tzaoo.d8zufb94/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjblstore%2Fbar-300-mk2%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjblstore%2Fi%2F10000214%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jblstore/cabinet/08084253/bar-300-mk2/bar-300mk2.jpg?_ex=300x300",
+      "attributes": {
+        "dialogue": 5,
+        "immersion": 5,
+        "bass": 4,
+        "music": 5,
+        "gaming": 4,
+        "compact": 3,
+        "surround": 5,
+        "streaming": 5,
+        "expandability": 2,
+        "ease": 5,
+        "design": 4,
+        "value": 5,
+        "neutralFit": 3,
+        "atmosSupported": true,
+        "allInOne": true,
+        "subwooferIncluded": false,
+        "rearSpeakersIncluded": false,
+        "hdmiInput": true,
+        "within130k": true,
+        "priceYen": 41000
+      }
+    },
+    {
+      "id": "soundbar-109",
+      "name": "Sonos Beam (Gen 2)",
+      "description": "コンパクトなDolby Atmos対応のサウンドバー。Trueplayで部屋に合わせて音を調整し、Wi-FiやAirPlay 2、Sonosのサブウーファーやリアスピーカーへの拡張にも対応しています。",
+      "priceRange": 4,
+      "features": [
+        "Dolby Atmos・オールインワン・コンパクト",
+        "Trueplay・スピーチエンハンスメント",
+        "HDMI eARC・Wi-Fi・AirPlay 2・拡張可能"
+      ],
+      "pros": [
+        "コンパクトでも映画も音楽も高音質",
+        "あとからサブウーファーなどを追加できる"
+      ],
+      "cons": [
+        "ゲーム機などをつなぐHDMI入力端子はありません"
+      ],
+      "recommendFor": "コンパクトで、映画も音楽も高音質に楽しみたい人",
+      "caution": "リンク先は楽天ビックの出品（ホワイト）です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B09GWC9NDK/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldo.d8zue716.g00r7ldo.d8zuf884/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F8717755778147%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F13721716%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/6952/00000009978171_a01.jpg?_ex=300x300",
+      "attributes": {
+        "dialogue": 5,
+        "immersion": 5,
+        "bass": 4,
+        "music": 5,
+        "gaming": 3,
+        "compact": 5,
+        "surround": 4,
+        "streaming": 5,
+        "expandability": 5,
+        "ease": 5,
+        "design": 5,
+        "value": 4,
+        "neutralFit": 3,
+        "atmosSupported": true,
+        "allInOne": true,
+        "subwooferIncluded": false,
+        "rearSpeakersIncluded": false,
+        "hdmiInput": false,
+        "within130k": true,
+        "priceYen": 64800
+      }
+    },
+    {
+      "id": "soundbar-110",
+      "name": "Sony BRAVIA Theatre Bar 6（HT-B600）",
+      "description": "上向きスピーカーとワイヤレスサブウーファーを備えた3.1.2chのサウンドバー。Dolby Atmos・DTS:Xで立体的な音を楽しめます。",
+      "priceRange": 4,
+      "features": [
+        "3.1.2ch・Dolby Atmos・DTS:X",
+        "上向きスピーカー・ワイヤレスサブウーファー・最大350W",
+        "ボイスモード・HDMI eARC"
+      ],
+      "pros": [
+        "立体的な音と重低音で映画を楽しめる",
+        "ボイスモードでセリフも聞き取りやすい"
+      ],
+      "cons": [
+        "ゲーム機などをつなぐHDMI入力端子はありません"
+      ],
+      "recommendFor": "サブウーファー付きで、立体的な映画の音を楽しみたい人",
+      "caution": "リンク先はウインクデジタルの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0F6BW37BB/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00s0bro.d8zuee6a.g00s0bro.d8zufd9e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fwinkstore%2F267971%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fwinkstore%2Fi%2F10039923%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/winkstore/cabinet/268000/267971.jpg?_ex=300x300",
+      "attributes": {
+        "dialogue": 5,
+        "immersion": 5,
+        "bass": 5,
+        "music": 4,
+        "gaming": 3,
+        "compact": 3,
+        "surround": 5,
+        "streaming": 2,
+        "expandability": 2,
+        "ease": 5,
+        "design": 4,
+        "value": 4,
+        "neutralFit": 3,
+        "atmosSupported": true,
+        "allInOne": false,
+        "subwooferIncluded": true,
+        "rearSpeakersIncluded": false,
+        "hdmiInput": false,
+        "within130k": true,
+        "priceYen": 60880
+      }
+    },
+    {
+      "id": "soundbar-111",
+      "name": "Bose Smart Soundbar",
+      "description": "Dolby Atmos対応のコンパクトなスマートサウンドバー。AIダイアログモードでセリフが聞き取りやすく、Wi-Fiでの音楽再生や拡張にも対応しています。",
+      "priceRange": 4,
+      "features": [
+        "Dolby Atmos・Bose TrueSpace・幅約69cm",
+        "AIダイアログモード",
+        "Wi-Fi・Bluetooth・AirPlay 2・Chromecast・拡張可能"
+      ],
+      "pros": [
+        "コンパクトでもセリフも音楽も高音質",
+        "あとから低音用・リア用スピーカーを追加できる"
+      ],
+      "cons": [
+        "ゲーム機などをつなぐHDMI入力端子はありません"
+      ],
+      "recommendFor": "コンパクトで、セリフも音楽も上質に楽しみたい人",
+      "caution": "リンク先はヤマダ電機の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0DHS5VY3M/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00t3jpo.d8zuedce.g00t3jpo.d8zufb63/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyamada-denki%2F1593646019%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyamada-denki%2Fi%2F10633847%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/yamada-denki/cabinet/a07000400/1593646019.jpg?_ex=300x300",
+      "attributes": {
+        "dialogue": 5,
+        "immersion": 5,
+        "bass": 4,
+        "music": 5,
+        "gaming": 3,
+        "compact": 5,
+        "surround": 5,
+        "streaming": 5,
+        "expandability": 5,
+        "ease": 5,
+        "design": 5,
+        "value": 4,
+        "neutralFit": 3,
+        "atmosSupported": true,
+        "allInOne": true,
+        "subwooferIncluded": false,
+        "rearSpeakersIncluded": false,
+        "hdmiInput": false,
+        "within130k": true,
+        "priceYen": 71160
+      }
+    },
+    {
+      "id": "soundbar-112",
+      "name": "JBL Bar 500MK2",
+      "description": "25cmワイヤレスサブウーファーが付属した5.1chのサウンドバー。Dolby AtmosとMultiBeam 3.0で、映画やゲームを迫力ある音で楽しめます。",
+      "priceRange": 4,
+      "features": [
+        "5.1ch・Dolby Atmos・DTS Virtual:X",
+        "25cmワイヤレスサブウーファー・総合750W",
+        "HDMI入力・HDMI eARC・Wi-Fi"
+      ],
+      "pros": [
+        "重低音が力強く映画やゲームに迫力がある",
+        "ゲーム機をサウンドバーに直接つなげる"
+      ],
+      "cons": [
+        "サブウーファーの置き場所が必要です"
+      ],
+      "recommendFor": "強力な低音で、映画もゲームも迫力ある音で楽しみたい人",
+      "caution": "リンク先はJBL・AKG公式ストアの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FBRDQCWC/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzaoo.d8zue94f.g00tzaoo.d8zufb94/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjblstore%2Fbar-500-mk2%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjblstore%2Fi%2F10000215%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jblstore/cabinet/08084253/bar-500-mk2/bar-500-mk2_1.jpg?_ex=300x300",
+      "attributes": {
+        "dialogue": 5,
+        "immersion": 5,
+        "bass": 5,
+        "music": 5,
+        "gaming": 4,
+        "compact": 2,
+        "surround": 5,
+        "streaming": 5,
+        "expandability": 3,
+        "ease": 5,
+        "design": 4,
+        "value": 4,
+        "neutralFit": 3,
+        "atmosSupported": true,
+        "allInOne": false,
+        "subwooferIncluded": true,
+        "rearSpeakersIncluded": false,
+        "hdmiInput": true,
+        "within130k": true,
+        "priceYen": 87890
+      }
+    },
+    {
+      "id": "soundbar-113",
+      "name": "Sony BRAVIA Theatre Bar 7（HT-A7100）",
+      "description": "5.0.2chのDolby Atmos対応サウンドバー。360 Spatial Sound Mappingで立体的な音を再現し、4K120パススルーやVRR・ALLMにも対応しています。",
+      "priceRange": 5,
+      "features": [
+        "5.0.2ch・Dolby Atmos・DTS:X",
+        "360 Spatial Sound Mapping・LDAC",
+        "HDMI入力（4K120パススルー・VRR・ALLM）・HDMI eARC・Wi-Fi"
+      ],
+      "pros": [
+        "ゲーム機を直接つないでも高画質のまま",
+        "あとからサブウーファーやリアスピーカーを追加できる"
+      ],
+      "cons": [
+        "価格は高めです"
+      ],
+      "recommendFor": "ゲームも映画も、1本で高音質に楽しみたい人",
+      "caution": "リンク先はJoshinの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0GVRS12C3/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4548736174054-35-51313-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14788143%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0075/4548736174054.jpg?_ex=300x300",
+      "attributes": {
+        "dialogue": 5,
+        "immersion": 5,
+        "bass": 4,
+        "music": 5,
+        "gaming": 5,
+        "compact": 2,
+        "surround": 5,
+        "streaming": 5,
+        "expandability": 5,
+        "ease": 5,
+        "design": 5,
+        "value": 4,
+        "neutralFit": 3,
+        "atmosSupported": true,
+        "allInOne": true,
+        "subwooferIncluded": false,
+        "rearSpeakersIncluded": false,
+        "hdmiInput": true,
+        "within130k": true,
+        "priceYen": 110000
+      }
+    },
+    {
+      "id": "soundbar-114",
+      "name": "JBL Bar 800MK2",
+      "description": "着脱式のワイヤレスリアスピーカーと25cmサブウーファーが付属した7.1chのサウンドバー。本格的なサラウンドで映画を楽しめます。",
+      "priceRange": 5,
+      "features": [
+        "7.1ch・Dolby Atmos・DTS Virtual:X",
+        "着脱式ワイヤレスリアスピーカー・25cmワイヤレスサブウーファー",
+        "HDMI入力・HDMI eARC・Wi-Fi・総合780W"
+      ],
+      "pros": [
+        "リアスピーカーで本格的なサラウンドを楽しめる",
+        "重低音にも迫力がある"
+      ],
+      "cons": [
+        "設置スペースが必要です"
+      ],
+      "recommendFor": "リアスピーカー付きの本格ホームシアターを楽しみたい人",
+      "caution": "リンク先はJBL・AKG公式ストアの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FRRMQ6HY/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzaoo.d8zue94f.g00tzaoo.d8zufb94/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjblstore%2Fbar-800-mk2%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjblstore%2Fi%2F10000233%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jblstore/cabinet/event/2610m_thumb/th_bar800mk2_2610m.jpg?_ex=300x300",
+      "attributes": {
+        "dialogue": 5,
+        "immersion": 5,
+        "bass": 5,
+        "music": 5,
+        "gaming": 4,
+        "compact": 1,
+        "surround": 5,
+        "streaming": 5,
+        "expandability": 4,
+        "ease": 4,
+        "design": 4,
+        "value": 4,
+        "neutralFit": 3,
+        "atmosSupported": true,
+        "allInOne": false,
+        "subwooferIncluded": true,
+        "rearSpeakersIncluded": true,
+        "hdmiInput": true,
+        "within130k": true,
+        "priceYen": 121000
+      }
+    },
+    {
+      "id": "soundbar-115",
+      "name": "JBL Bar 1000MK2",
+      "description": "着脱式リアスピーカーと上向きスピーカー、25cmサブウーファーを備えた7.1.4chのサウンドバー。HDMI入力3系統で、本格的なホームシアターを構築できます。",
+      "priceRange": 5,
+      "features": [
+        "7.1.4ch・Dolby Atmos・DTS:X",
+        "着脱式ワイヤレスリアスピーカー・上向きスピーカー・25cmサブウーファー",
+        "HDMI入力3系統・HDMI eARC・Wi-Fi・総合960W"
+      ],
+      "pros": [
+        "最高クラスの立体的なサラウンド",
+        "大画面・広い部屋でも迫力がある"
+      ],
+      "cons": [
+        "価格はとても高めです",
+        "設置スペースが必要です"
+      ],
+      "recommendFor": "大画面・広い部屋で、最高クラスのホームシアターを楽しみたい人",
+      "caution": "リンク先はケーズデンキの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FS1H8CYL/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tit6o.d8zuebed.g00tit6o.d8zuf23f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fksdenki%2F4968929223978%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fksdenki%2Fi%2F10517884%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ksdenki/cabinet/images/78_5/4968929223978_5.jpg?_ex=300x300",
+      "attributes": {
+        "dialogue": 5,
+        "immersion": 5,
+        "bass": 5,
+        "music": 5,
+        "gaming": 5,
+        "compact": 1,
+        "surround": 5,
+        "streaming": 5,
+        "expandability": 5,
+        "ease": 4,
+        "design": 5,
+        "value": 3,
+        "neutralFit": 3,
+        "atmosSupported": true,
+        "allInOne": false,
+        "subwooferIncluded": true,
+        "rearSpeakersIncluded": true,
+        "hdmiInput": true,
+        "within130k": false,
+        "priceYen": 175998
+      }
+    }
+  ],
+  "scoring": {
+    "tieBreak": true,
+    "softenPartialReason": true,
+    "lowMatchNotice": "条件をすべて満たす商品が少ないため、近い候補を表示しています。"
+  },
+  "guide": {
+    "title": "サウンドバーの選び方",
+    "intro": "この診断は、メーカー公表の仕様をもとに、以下のポイントとあなたの回答を照らし合わせて相性を計算しています。",
+    "sections": [
+      {
+        "heading": "スピーカーの構成",
+        "body": "1本で完結するタイプは設置が手軽で、小さめの部屋にも向いています。サブウーファー付きは低音の迫力が増し、リアスピーカー付きは後ろからも音が聞こえる本格的なサラウンドを楽しめます。"
+      },
+      {
+        "heading": "Dolby Atmosとセリフの聞きやすさ",
+        "body": "Dolby Atmos対応モデルは、高さ方向も含めた立体的な音を楽しめます。テレビ番組を中心に見るなら、セリフを強調する機能があるモデルが便利です。"
+      },
+      {
+        "heading": "ゲーム機の接続",
+        "body": "PS5などをサウンドバーに直接つなぐには、HDMI入力端子が必要です。HDMI eARC端子だけのモデルは、テレビを経由して音を出します。"
+      }
+    ]
+  },
+  "notice": "チャンネル数や出力、対応フォーマットは各メーカーの公表値に基づきます。Dolby Atmosの効果は再生するコンテンツや部屋の環境によって変わります。価格は変動するため、購入時に販売ページでご確認ください。"
+}

@@ -38,6 +38,7 @@ import { tv } from './tv.ts'
 import { wifiRouter } from './wifiRouter.ts'
 import { electricPressureCooker } from './electricPressureCooker.ts'
 import { bluetoothSpeaker } from './bluetoothSpeaker.ts'
+import { soundbar } from './soundbar.ts'
 
 /**
  * 診断の一覧（登録簿）。
@@ -84,6 +85,7 @@ const allDiagnoses: Diagnosis[] = [
   wifiRouter,
   electricPressureCooker,
   bluetoothSpeaker,
+  soundbar,
 ]
 
 /**
