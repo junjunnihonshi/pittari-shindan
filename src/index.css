@@ -355,6 +355,26 @@ h4 {
   font-size: 1rem;
   line-height: 1.8;
 }
+.hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 4px 10px;
+  margin: -12px auto 22px;
+  color: var(--color-text);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+.hero__stats strong {
+  color: var(--color-primary);
+  font-size: 1.25rem;
+}
+.hero__stats-note {
+  color: var(--color-muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+}
 .steps {
   display: flex;
   justify-content: center;
@@ -413,6 +433,16 @@ h4 {
 }
 .section__title--small::before {
   width: 5px;
+}
+/* カテゴリジャンプ：検索欄の下に置き、ジャンプ先の見出しが画面端に張り付かないようにする */
+.category-jump {
+  margin: 14px 0 24px;
+}
+.category-jump .chip {
+  padding: 8px 16px;
+}
+.category-group {
+  scroll-margin-top: 16px;
 }
 .category-group + .category-group {
   margin-top: 28px;
@@ -1687,6 +1717,37 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   font-size: 3rem;
   font-weight: 800;
   color: var(--color-primary);
+}
+
+/* 人気・新着の一覧はスマホで2列のコンパクト表示にして、検索・カテゴリ一覧を下へ押し下げすぎないようにする */
+@media (max-width: 639px) {
+  .card-grid--compact {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .card-grid--compact .diagnosis-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 16px 12px 14px;
+  }
+  .card-grid--compact .diagnosis-card__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    font-size: 1.35rem;
+  }
+  .card-grid--compact .diagnosis-card__title {
+    font-size: 0.95rem;
+    overflow-wrap: anywhere;
+  }
+  .card-grid--compact .diagnosis-card__desc,
+  .card-grid--compact .diagnosis-card__arrow {
+    display: none;
+  }
+  .card-grid--compact .diagnosis-card__meta {
+    margin-top: 6px;
+  }
 }
 
 /* ---------- タブレット・PC ---------- */
