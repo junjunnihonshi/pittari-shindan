@@ -4,6 +4,7 @@ import { diagnosisPath, staticPages } from '../config/seo.ts'
 import { site } from '../config/site.ts'
 import { AdSlot } from '../components/AdSlot.tsx'
 import { DiagnosisCard } from '../components/DiagnosisCard.tsx'
+import { columnPath, columns } from '../data/columns/index.ts'
 import { diagnoses, enabledDiagnoses, getDiagnosisBySlug, isDiagnosisEnabled } from '../data/diagnoses/index.ts'
 import { Link } from '../components/Link.tsx'
 import { SideAds } from '../components/SideAds.tsx'
@@ -17,6 +18,8 @@ const popularSlugs = ['tv', 'washing-machine', 'rice-cooker', 'wireless-earbuds'
 const popularDiagnoses = popularSlugs.map(getDiagnosisBySlug).filter((d): d is Diagnosis => d !== undefined && isDiagnosisEnabled(d))
 // 新着の診断：登録順（公開した順）の最後から6件
 const newDiagnoses = enabledDiagnoses.slice(-6).reverse()
+/** 選び方コラム：公開日の新しい順に最大3件 */
+const latestColumns = [...columns].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt)).slice(0, 3)
 // 公開中の診断の質問数の範囲（「○〜○問に答える」の表示用）
 const questionCounts = enabledDiagnoses.map((d) => d.questions.length)
 const minQuestions = Math.min(...questionCounts)
@@ -143,6 +146,32 @@ export function HomePage() {
             ))}
           </div>
         </section>
+
+        {latestColumns.length > 0 && (
+          <section className="container section" aria-labelledby="column-home-title">
+            <h2 id="column-home-title" className="section__title">
+              選び方コラム
+            </h2>
+            <p className="column-home__lead">買う前に知っておきたいポイントを、わかりやすく解説しています。</p>
+            <ul className="column-home__grid">
+              {latestColumns.map((c) => (
+                <li key={c.slug}>
+                  <Link to={columnPath(c.slug)} className="diagnosis-card column-card">
+                    <span className="diagnosis-card__body">
+                      <span className="diagnosis-card__meta column-card__category">{c.category}</span>
+                      <span className="diagnosis-card__title">{c.title}</span>
+                      <span className="diagnosis-card__desc">{c.description}</span>
+                      <span className="column-card__more">記事を読む →</span>
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p className="column-home__more">
+              <Link to="/column/">選び方コラム一覧を見る →</Link>
+            </p>
+          </section>
+        )}
 
         <section id="categories" className="container section" tabIndex={-1} aria-labelledby="categories-title">
           <h2 id="categories-title" className="section__title">

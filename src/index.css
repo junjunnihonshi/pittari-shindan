@@ -1787,6 +1787,38 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   white-space: normal;
   line-height: 1.5;
 }
+.column-home__lead {
+  margin: -6px 0 14px;
+  color: var(--color-muted);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+.column-home__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.column-home__grid > li {
+  display: flex;
+}
+.column-home__grid .column-card {
+  flex: 1;
+}
+/* トップページでは説明文を2行までにして、セクションをコンパクトに保つ */
+.column-home__grid .diagnosis-card__desc {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+.column-home__more {
+  margin: 12px 0 0;
+  font-weight: 700;
+}
 .column-link {
   max-width: 720px;
   margin: 16px auto 0;
