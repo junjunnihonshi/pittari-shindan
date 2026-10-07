@@ -3,6 +3,7 @@
  * 記事を追加するときは、このフォルダに記事ファイルを作り、下の columns に追加するだけで
  * コラム一覧・記事ページ・sitemap.xml・プリレンダリングに反映されます。
  */
+import { airConditionerHowToChoose } from './airConditionerHowToChoose.ts'
 import { refrigeratorHowToChoose } from './refrigeratorHowToChoose.ts'
 
 export interface Column {
@@ -29,8 +30,8 @@ export interface Column {
   body: string
 }
 
-/** 新しい記事を下に追加していきます（一覧には新しい順に表示） */
-export const columns: Column[] = [refrigeratorHowToChoose]
+/** 一覧には公開日の新しい順に表示（同じ公開日の記事はこの配列の順） */
+export const columns: Column[] = [airConditionerHowToChoose, refrigeratorHowToChoose]
 
 export function columnPath(slug: string): string {
   return `/column/${slug}/`
