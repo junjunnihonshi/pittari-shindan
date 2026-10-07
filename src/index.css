@@ -1698,6 +1698,101 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
 .info-table dd {
   margin: 0;
 }
+/* ---------- 選び方コラム ---------- */
+.column-list {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.column-list__title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.column-list__lead {
+  margin: 0 0 18px;
+  color: var(--color-muted);
+  line-height: 1.8;
+}
+.column-list__items {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.column-card .column-card__category {
+  margin: 0 0 6px;
+}
+.column-card__more {
+  margin-top: 10px;
+  color: var(--color-primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+.column-article__header .column-card__category {
+  display: inline-block;
+  margin: 0 0 10px;
+}
+.column-article h1 {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  margin-bottom: 6px;
+  overflow-wrap: anywhere;
+}
+.column-article__date {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+.column-article h2 {
+  scroll-margin-top: 16px;
+}
+.column-article h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  margin: 22px 0 8px;
+  line-height: 1.5;
+}
+.column-article ul,
+.column-article ol {
+  margin: 0 0 14px;
+  padding-left: 1.4em;
+  line-height: 1.85;
+}
+.column-toc {
+  margin: 20px 0 8px;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary-soft);
+}
+.column-toc__title {
+  margin: 0 0 6px !important;
+  font-weight: 800;
+}
+.column-toc ol {
+  margin: 0;
+}
+.column-toc li + li {
+  margin-top: 2px;
+}
+.column-toc a {
+  display: inline-block;
+  padding: 3px 0;
+}
+.column-cta {
+  margin: 18px 0 20px !important;
+  text-align: center;
+}
+.column-cta__button {
+  max-width: 100%;
+  white-space: normal;
+  line-height: 1.5;
+}
+.column-link {
+  max-width: 720px;
+  margin: 16px auto 0;
+  text-align: right;
+  font-weight: 700;
+}
 .empty-state {
   text-align: center;
   padding: 36px 8px;

@@ -1,8 +1,10 @@
 import { Component, type ReactNode } from 'react'
 import { Footer } from './components/Footer.tsx'
 import { Header } from './components/Header.tsx'
+import { getColumnBySlug } from './data/columns/index.ts'
 import { getDiagnosisBySlug, isDiagnosisEnabled } from './data/diagnoses/index.ts'
 import { usePathname } from './lib/router.ts'
+import { ColumnArticlePage, ColumnListPage } from './pages/ColumnPages.tsx'
 import { ComingSoonPage } from './pages/ComingSoonPage.tsx'
 import { DiagnosisPage } from './pages/DiagnosisPage.tsx'
 import { HomePage } from './pages/HomePage.tsx'
@@ -16,11 +18,18 @@ const staticRoutes: Record<string, () => ReactNode> = {
   '/disclaimer': () => <DisclaimerPage />,
   '/contact': () => <ContactPage />,
   '/ads': () => <AdsPage />,
+  '/column': () => <ColumnListPage />,
 }
 
 function Routes({ path }: { path: string }) {
   const render = staticRoutes[path]
   if (render) return render()
+
+  const column = path.match(/^\/column\/([^/]+)$/)
+  if (column) {
+    const c = getColumnBySlug(decodeURIComponent(column[1]))
+    return c ? <ColumnArticlePage key={c.slug} column={c} /> : <NotFoundPage />
+  }
 
   const match = path.match(/^\/diagnosis\/([^/]+)$/)
   if (match) {

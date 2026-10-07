@@ -6,6 +6,7 @@ import { ProgressBar } from '../components/ProgressBar.tsx'
 import { QuestionStep } from '../components/QuestionStep.tsx'
 import { ResultCard } from '../components/ResultCard.tsx'
 import { diagnosisPath } from '../config/seo.ts'
+import { columnPath, getColumnForDiagnosis } from '../data/columns/index.ts'
 import { site } from '../config/site.ts'
 import { isComplete, runDiagnosis, sanitizeAnswers, visibleOptions } from '../engine/diagnosisEngine.ts'
 import { trackEvent } from '../lib/analytics.ts'
@@ -26,6 +27,7 @@ export function DiagnosisPage({ diagnosis }: { diagnosis: Diagnosis }) {
   })
 
   const { questions } = diagnosis
+  const column = getColumnForDiagnosis(diagnosis.id)
   const [phase, setPhase] = useState<Phase>('intro')
   const [step, setStep] = useState(0)
   const [answers, setAnswers] = useState<Answers>({})
@@ -269,6 +271,11 @@ export function DiagnosisPage({ diagnosis }: { diagnosis: Diagnosis }) {
         </div>
 
         <GuideSection guide={diagnosis.guide} />
+        {column && (
+          <p className="column-link">
+            <Link to={columnPath(column.slug)}>{column.relatedLinkLabel ?? column.shortTitle} →</Link>
+          </p>
+        )}
         <RelatedDiagnoses slug={diagnosis.slug} />
       </div>
     </div>

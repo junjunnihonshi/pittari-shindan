@@ -4,6 +4,7 @@
  * - このファイルはトップページや固定ページの情報と、共通の組み立てルールを持ちます。
  * ビルド時にもこのファイルを使って、ページごとのHTML・sitemap.xml・robots.txt を生成します。
  */
+import { columnPath, columns, type Column } from '../data/columns/index.ts'
 import { enabledDiagnoses } from '../data/diagnoses/index.ts'
 import type { Diagnosis } from '../types/diagnosis.ts'
 import { site } from './site.ts'
@@ -57,10 +58,23 @@ export function comingSoonMeta(d: Diagnosis): PageMeta {
   }
 }
 
+export const columnListMeta: PageMeta = {
+  path: '/column/',
+  title: `選び方コラム｜${site.name}`,
+  description: `家電や暮らしの商品を選ぶときに知っておきたいポイントを、わかりやすく解説する${site.name}の選び方コラムです。`,
+  priority: 0.6,
+}
+
+export function columnMeta(c: Column): PageMeta {
+  return { path: columnPath(c.slug), title: c.title, description: c.description, ogType: 'article', priority: 0.6 }
+}
+
 /** サイト内の全ページ（404・準備中の診断を除く）。sitemap.xml とページ別HTMLの生成に使用 */
 export function getAllPages(): PageMeta[] {
   return [
     ...staticPages,
+    columnListMeta,
+    ...columns.map(columnMeta),
     ...enabledDiagnoses.map<PageMeta>((d) => ({
       path: diagnosisPath(d.slug),
       title: d.seo.title,

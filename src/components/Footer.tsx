@@ -2,6 +2,7 @@ import { site } from '../config/site.ts'
 import { Link } from './Link.tsx'
 
 const links = [
+  { to: '/column/', label: '選び方コラム' },
   { to: '/about/', label: '運営者情報' },
   { to: '/privacy/', label: 'プライバシーポリシー' },
   { to: '/disclaimer/', label: '免責事項' },
