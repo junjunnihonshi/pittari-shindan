@@ -6,8 +6,11 @@
 import { airConditionerHowToChoose } from './airConditionerHowToChoose.ts'
 import { mattressHowToChoose } from './mattressHowToChoose.ts'
 import { refrigeratorHowToChoose } from './refrigeratorHowToChoose.ts'
+import { riceCookerHowToChoose } from './riceCookerHowToChoose.ts'
+import { robotVacuumHowToChoose } from './robotVacuumHowToChoose.ts'
 import { tvHowToChoose } from './tvHowToChoose.ts'
 import { washingMachineHowToChoose } from './washingMachineHowToChoose.ts'
+import { wirelessEarbudsHowToChoose } from './wirelessEarbudsHowToChoose.ts'
 
 export interface Column {
   /** URL の一部（/column/<slug>/） */
@@ -35,6 +38,9 @@ export interface Column {
 
 /** 一覧には公開日の新しい順に表示（同じ公開日の記事はこの配列の順） */
 export const columns: Column[] = [
+  riceCookerHowToChoose,
+  robotVacuumHowToChoose,
+  wirelessEarbudsHowToChoose,
   washingMachineHowToChoose,
   tvHowToChoose,
   mattressHowToChoose,
