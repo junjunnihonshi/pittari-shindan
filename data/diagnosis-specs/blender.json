@@ -1,0 +1,1302 @@
+{
+  "id": "blender",
+  "enabled": false,
+  "title": "ミキサー・ブレンダー診断",
+  "itemName": "ミキサー・ブレンダー",
+  "group": "kitchen",
+  "icon": "🥤",
+  "cardDescription": "スムージー、氷・冷凍フルーツ、容量、温かいスープ、持ち運び、洗いやすさ、予算から、あなたにぴったりのミキサー・ブレンダーを診断。",
+  "description": "重視したいことや作る量、氷・冷凍フルーツ、温かいスープ、持ち運び、使いやすさ、予算から、あなたにぴったりのミキサー・ブレンダーを絞り込みます。",
+  "searchKeywords": [
+    "ミキサー",
+    "ミキサーおすすめ",
+    "ブレンダー",
+    "ブレンダーおすすめ",
+    "ミキサーブレンダー",
+    "スムージー",
+    "スムージーミキサー",
+    "おすすめ",
+    "氷も砕ける",
+    "冷凍フルーツ",
+    "スープ",
+    "ポタージュ",
+    "コードレスミキサー",
+    "パーソナルブレンダー",
+    "高性能ブレンダー",
+    "Vitamix",
+    "バイタミックス",
+    "Ninja",
+    "ニンジャ",
+    "T-fal",
+    "ティファール",
+    "Braun",
+    "ブラウン",
+    "象印",
+    "Panasonic",
+    "パナソニック",
+    "イワタニ",
+    "レコルト",
+    "一人暮らし",
+    "離乳食"
+  ],
+  "seo": {
+    "title": "ミキサー・ブレンダーの選び方診断｜あなたにぴったりのミキサー・ブレンダーを7問で診断",
+    "description": "スムージー、氷・冷凍フルーツ、容量、温かいスープ、持ち運び、洗いやすさ、予算など7つの質問から、あなたにぴったりのミキサー・ブレンダーを診断します。"
+  },
+  "priceLabels": {
+    "1": "〜10,000円",
+    "2": "10,000〜15,000円",
+    "3": "15,000〜20,000円",
+    "4": "20,000〜40,000円",
+    "5": "40,000円〜"
+  },
+  "questions": [
+    {
+      "id": "priority",
+      "text": "ミキサー・ブレンダーで一番重視したいことは？",
+      "shortLabel": "重視すること",
+      "weight": 22,
+      "options": [
+        {
+          "id": "smoothie",
+          "label": "なめらかなスムージーを作りたい",
+          "summary": "なめらかなスムージーを作りたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "smoothness",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "ice",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "ice",
+          "label": "氷・冷凍フルーツをしっかり砕きたい",
+          "summary": "氷・冷凍フルーツをしっかり砕きたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "ice",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "smoothness",
+              "value": 5,
+              "weight": 20
+            },
+            {
+              "type": "atLeast",
+              "attr": "durability",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "soup",
+          "label": "温かいスープや料理にも使いたい",
+          "summary": "温かいスープや料理にも使いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "hotSoup",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "versatility",
+              "value": 5,
+              "weight": 20
+            },
+            {
+              "type": "atLeast",
+              "attr": "automation",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "family",
+          "label": "家族分を一度にたっぷり作りたい",
+          "summary": "家族分を一度にたっぷり作りたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "capacity",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "durability",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "togo",
+          "label": "作ってそのまま持ち運びたい",
+          "summary": "作ってそのまま持ち運びたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "portability",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "compact",
+              "value": 5,
+              "weight": 20
+            },
+            {
+              "type": "atLeast",
+              "attr": "cleanup",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "value",
+          "label": "価格・コスパ",
+          "summary": "価格・コスパを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "compact",
+              "value": 5,
+              "weight": 20
+            },
+            {
+              "type": "atLeast",
+              "attr": "cleanup",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "amount",
+      "text": "一度にどれくらい作りますか？",
+      "shortLabel": "作る量",
+      "weight": 16,
+      "options": [
+        {
+          "id": "one",
+          "label": "1人分が中心",
+          "summary": "1人分が中心",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "compact",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "portability",
+              "value": 5,
+              "weight": 50
+            }
+          ]
+        },
+        {
+          "id": "two",
+          "label": "2〜3人分",
+          "summary": "2〜3人分を作る",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "capacity",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 40
+            }
+          ],
+          "eligibility": {
+            "attr": "capacity600",
+            "value": true,
+            "notice": "容量600mL以上の機種からおすすめを表示しています。",
+            "supplementLabel": "容量が600mL未満です"
+          }
+        },
+        {
+          "id": "four",
+          "label": "4人分以上・作り置き",
+          "summary": "4人分以上・作り置きを作る",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "capacity",
+              "value": 5,
+              "weight": 80
+            },
+            {
+              "type": "atLeast",
+              "attr": "durability",
+              "value": 5,
+              "weight": 20
+            }
+          ],
+          "eligibility": {
+            "attr": "capacity1000",
+            "value": true,
+            "notice": "容量1,000mL以上の機種からおすすめを表示しています。",
+            "supplementLabel": "容量が1,000mL未満です"
+          }
+        }
+      ]
+    },
+    {
+      "id": "iceUse",
+      "text": "氷や冷凍フルーツを使いますか？",
+      "shortLabel": "氷・冷凍フルーツ",
+      "weight": 12,
+      "options": [
+        {
+          "id": "must",
+          "label": "氷・冷凍フルーツ対応は必須",
+          "summary": "氷・冷凍フルーツ対応は必須",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "ice",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "smoothness",
+              "value": 5,
+              "weight": 25
+            },
+            {
+              "type": "atLeast",
+              "attr": "durability",
+              "value": 5,
+              "weight": 25
+            }
+          ],
+          "eligibility": {
+            "attr": "iceSupported",
+            "value": true,
+            "notice": "氷・冷凍フルーツに対応した機種からおすすめを表示しています。",
+            "supplementLabel": "氷や冷凍フルーツの粉砕には向きません"
+          }
+        },
+        {
+          "id": "some",
+          "label": "ときどき使いたい",
+          "summary": "氷・冷凍フルーツをときどき使いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "ice",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 40
+            }
+          ]
+        },
+        {
+          "id": "none",
+          "label": "ほとんど使わない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "soup",
+      "text": "温かいスープはどう作りたいですか？",
+      "shortLabel": "温かいスープ",
+      "weight": 12,
+      "options": [
+        {
+          "id": "hot",
+          "label": "温かいスープまでこの1台で作りたい",
+          "summary": "温かいスープまでこの1台で作りたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "hotSoup",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "versatility",
+              "value": 5,
+              "weight": 40
+            }
+          ],
+          "eligibility": {
+            "attr": "hotSoupSupported",
+            "value": true,
+            "notice": "温かいスープに対応した機種からおすすめを表示しています。",
+            "supplementLabel": "温かいスープを作る用途には対応していません"
+          }
+        },
+        {
+          "id": "cool",
+          "label": "スープにも使いたいが冷ましてからでもよい",
+          "summary": "スープにも使いたい（冷ましてからでもよい）",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "hotSoup",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "versatility",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 40
+            }
+          ]
+        },
+        {
+          "id": "none",
+          "label": "スープには使わない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "togo",
+      "text": "作ったドリンクをそのまま持ち運びたいですか？",
+      "shortLabel": "持ち運び",
+      "weight": 12,
+      "options": [
+        {
+          "id": "must",
+          "label": "ボトルのまま持ち運べることが必須",
+          "summary": "ボトルのまま持ち運べることが必須",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "portability",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "compact",
+              "value": 5,
+              "weight": 40
+            }
+          ],
+          "eligibility": {
+            "attr": "toGoCupIncluded",
+            "value": true,
+            "notice": "持ち運び用のボトル・タンブラーが付属する機種からおすすめを表示しています。",
+            "supplementLabel": "持ち運び用のボトル・タンブラーは付属しません"
+          }
+        },
+        {
+          "id": "nice",
+          "label": "できれば持ち運べると便利",
+          "summary": "できれば持ち運べると便利",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "portability",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 50
+            }
+          ]
+        },
+        {
+          "id": "none",
+          "label": "据え置き型で問題ない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "usability",
+      "text": "使いやすさで一番重視することは？",
+      "shortLabel": "使いやすさ",
+      "weight": 12,
+      "options": [
+        {
+          "id": "cleanup",
+          "label": "洗いやすさ・お手入れの簡単さ",
+          "summary": "洗いやすさを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "cleanup",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "quiet",
+          "label": "動作音の静かさ",
+          "summary": "動作音の静かさを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "quiet",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "auto",
+          "label": "自動メニュー・おまかせ機能",
+          "summary": "自動メニュー・おまかせ機能を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "automation",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "budget",
+      "text": "予算は？",
+      "shortLabel": "予算",
+      "weight": 8,
+      "options": [
+        {
+          "id": "b1",
+          "label": "10,000円以下",
+          "summary": "予算10,000円以下",
+          "effects": [],
+          "maxPriceRange": 1
+        },
+        {
+          "id": "b2",
+          "label": "15,000円以下",
+          "summary": "予算15,000円以下",
+          "effects": [],
+          "maxPriceRange": 2
+        },
+        {
+          "id": "b3",
+          "label": "20,000円以下",
+          "summary": "予算20,000円以下",
+          "effects": [],
+          "maxPriceRange": 3
+        },
+        {
+          "id": "b4",
+          "label": "40,000円以下",
+          "summary": "予算40,000円以下",
+          "effects": [],
+          "maxPriceRange": 4
+        },
+        {
+          "id": "b5",
+          "label": "100,000円以下",
+          "summary": "予算100,000円以下",
+          "effects": [],
+          "eligibility": {
+            "attr": "within100k",
+            "value": true,
+            "notice": "予算100,000円以下の機種からおすすめを表示しています。",
+            "supplementLabel": "予算100,000円を超えます"
+          }
+        },
+        {
+          "id": "any",
+          "label": "上限なし",
+          "effects": []
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "blender-101",
+      "name": "récolte ソロブレンダー シエル RSB-4",
+      "description": "約300mLのコンパクトなソロブレンダー。作ったボトルをそのままタンブラーとして使えます。",
+      "priceRange": 1,
+      "features": [
+        "約300mL・約0.8kg",
+        "170W・家庭用の氷や半解凍の冷凍フルーツに対応",
+        "ボトルをタンブラーとして使用可能"
+      ],
+      "pros": [
+        "とても手頃な価格",
+        "作ってそのまま飲める"
+      ],
+      "cons": [
+        "ハイパワーな据え置き型ほどの氷の粉砕力はありません"
+      ],
+      "recommendFor": "1人分のスムージーを、手頃な価格で手軽に作りたい人",
+      "caution": "リンク先は楽天スーパーDEALSHOPの出品です。色はホワイト・ピンク・ブルーから選べます。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00t81xo.d8zue9fa.g00t81xo.d8zuf044/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsuperdeal%2F13290rsb4231204%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsuperdeal%2Fi%2F10003902%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/superdeal/cabinet/09061004/10528769/10823792/imgrc0327813904.jpg?_ex=300x300",
+      "attributes": {
+        "smoothness": 2,
+        "ice": 2,
+        "hotSoup": 1,
+        "capacity": 1,
+        "portability": 5,
+        "quiet": 4,
+        "cleanup": 4,
+        "automation": 2,
+        "versatility": 2,
+        "compact": 5,
+        "durability": 3,
+        "value": 5,
+        "neutralFit": 3,
+        "capacityMl": 300,
+        "iceSupported": true,
+        "hotSoupSupported": false,
+        "toGoCupIncluded": true,
+        "capacity600": false,
+        "capacity1000": false,
+        "within100k": true,
+        "priceYen": 4950
+      }
+    },
+    {
+      "id": "blender-102",
+      "name": "Panasonic MX-XP102",
+      "description": "400mLのタンブラーミキサー。作ったスムージーやプロテインドリンクを、そのまま持ち運べます。",
+      "priceRange": 1,
+      "features": [
+        "400mL・タンブラーとして持ち運び可能",
+        "トライタン容器・家庭用角氷の粉砕対応",
+        "タンブラー・ふたは食洗機対応"
+      ],
+      "pros": [
+        "作ったドリンクをそのまま持ち運べる",
+        "国内大手メーカーで安心"
+      ],
+      "cons": [
+        "ハイパワーな据え置き型ほどの氷の粉砕力はありません"
+      ],
+      "recommendFor": "1人分のスムージーやプロテインを、持ち運んで飲みたい人",
+      "caution": "リンク先はJoshinの出品（ホワイト）です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B07RWBT345/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4549980350690-24-14912-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F12392270%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0893/4549980350690.jpg?_ex=300x300",
+      "attributes": {
+        "smoothness": 3,
+        "ice": 3,
+        "hotSoup": 1,
+        "capacity": 1,
+        "portability": 5,
+        "quiet": 4,
+        "cleanup": 5,
+        "automation": 2,
+        "versatility": 3,
+        "compact": 5,
+        "durability": 4,
+        "value": 5,
+        "neutralFit": 3,
+        "capacityMl": 400,
+        "iceSupported": true,
+        "hotSoupSupported": false,
+        "toGoCupIncluded": true,
+        "capacity600": false,
+        "capacity1000": false,
+        "within100k": true,
+        "priceYen": 6800
+      }
+    },
+    {
+      "id": "blender-103",
+      "name": "象印 BM-SA10",
+      "description": "1.0Lのシンプルなミキサー。チタンコートブレードで氷も砕け、少量から1Lまで作れます。",
+      "priceRange": 1,
+      "features": [
+        "1.0L・氷の粉砕対応",
+        "クラッシュ＆カット チタンコートブレード",
+        "HI / LO / FLASH・分解して洗いやすい"
+      ],
+      "pros": [
+        "手頃な価格で家族分も作れる",
+        "氷も砕ける"
+      ],
+      "cons": [
+        "温かいスープを作る用途には対応していません"
+      ],
+      "recommendFor": "手頃な価格で、家族分のスムージーやジュースを作りたい人",
+      "caution": "リンク先はコジマの出品（グレージュ）です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B09FJVBY5H/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4974305220714%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11201808%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000000401/4974305220714_1.jpg?_ex=300x300",
+      "attributes": {
+        "smoothness": 3,
+        "ice": 4,
+        "hotSoup": 1,
+        "capacity": 4,
+        "portability": 1,
+        "quiet": 3,
+        "cleanup": 4,
+        "automation": 2,
+        "versatility": 3,
+        "compact": 4,
+        "durability": 4,
+        "value": 5,
+        "neutralFit": 3,
+        "capacityMl": 1000,
+        "iceSupported": true,
+        "hotSoupSupported": false,
+        "toGoCupIncluded": false,
+        "capacity600": true,
+        "capacity1000": true,
+        "within100k": true,
+        "priceYen": 6068
+      }
+    },
+    {
+      "id": "blender-104",
+      "name": "Braun PowerBlend 1 JB1160BK",
+      "description": "耐熱ガラスジャグを採用した1.0Lのブレンダー。氷にも温かいスープにも対応しています。",
+      "priceRange": 1,
+      "features": [
+        "1.0L・サーモレジスト耐熱ガラス",
+        "氷対応・温かいスープ対応",
+        "トライアクションジャグ・シンプル操作"
+      ],
+      "pros": [
+        "手頃な価格で温かいスープまで作れる",
+        "氷も砕ける"
+      ],
+      "cons": [
+        "持ち運び用の容器は付属しません"
+      ],
+      "recommendFor": "手頃な価格で、スムージーも温かいスープも作りたい人",
+      "caution": "リンク先はブラウン公式ショップの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0BJ84G73C/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u1ooo.d8zuee92.g00u1ooo.d8zufa06/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbraunhousehold%2F0x22311099%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbraunhousehold%2Fi%2F10000105%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/braunhousehold/cabinet/ss06618479/item/blender/0x22311099_2.jpg?_ex=300x300",
+      "attributes": {
+        "smoothness": 4,
+        "ice": 4,
+        "hotSoup": 5,
+        "capacity": 4,
+        "portability": 1,
+        "quiet": 3,
+        "cleanup": 4,
+        "automation": 2,
+        "versatility": 4,
+        "compact": 3,
+        "durability": 4,
+        "value": 5,
+        "neutralFit": 3,
+        "capacityMl": 1000,
+        "iceSupported": true,
+        "hotSoupSupported": true,
+        "toGoCupIncluded": false,
+        "capacity600": true,
+        "capacity1000": true,
+        "within100k": true,
+        "priceYen": 9680
+      }
+    },
+    {
+      "id": "blender-105",
+      "name": "T-fal ミックス＆ドリンク ネオ BL1601JP",
+      "description": "700mLのコンパクトなミキサー。家庭用の氷に対応し、本体以外は食洗機で洗えます。",
+      "priceRange": 1,
+      "features": [
+        "700mL・300W",
+        "家庭用氷対応・2段階速度",
+        "幅11.6cm・本体以外食洗機対応"
+      ],
+      "pros": [
+        "コンパクトで置きやすい",
+        "お手入れが簡単"
+      ],
+      "cons": [
+        "温かいスープを作る用途には対応していません"
+      ],
+      "recommendFor": "1〜2人分を、コンパクトなミキサーで手軽に作りたい人",
+      "caution": "リンク先はT-fal公認ショップの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0CV3T9Q6F/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q1q9o.d8zueef4.g00q1q9o.d8zufcee/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbellevie-harima%2Ft-fal-315%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbellevie-harima%2Fi%2F10166059%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/bellevie-harima/cabinet/0121/default/s1/t-fal-315_s1.jpg?_ex=300x300",
+      "attributes": {
+        "smoothness": 3,
+        "ice": 4,
+        "hotSoup": 1,
+        "capacity": 3,
+        "portability": 2,
+        "quiet": 3,
+        "cleanup": 5,
+        "automation": 2,
+        "versatility": 3,
+        "compact": 5,
+        "durability": 4,
+        "value": 5,
+        "neutralFit": 3,
+        "capacityMl": 700,
+        "iceSupported": true,
+        "hotSoupSupported": false,
+        "toGoCupIncluded": false,
+        "capacity600": true,
+        "capacity1000": false,
+        "within100k": true,
+        "priceYen": 6095
+      }
+    },
+    {
+      "id": "blender-106",
+      "name": "T-fal ブレンドフォース ネオ BL4201JP",
+      "description": "1.25Lの大容量ミキサー。氷にも対応し、家族分のスムージーやジュースを一度に作れます。",
+      "priceRange": 1,
+      "features": [
+        "1.25L・350W",
+        "氷対応・HIGH / LOW・パルス",
+        "軽量プラスチック容器"
+      ],
+      "pros": [
+        "手頃な価格で家族分を一度に作れる",
+        "軽くて扱いやすい"
+      ],
+      "cons": [
+        "温かいスープを作る用途には対応していません"
+      ],
+      "recommendFor": "手頃な価格で、家族分をたっぷり作りたい人",
+      "caution": "リンク先はコジマの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0854KN13X/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F3016661157868%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F10909647%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000000018/3016661157868_1.jpg?_ex=300x300",
+      "attributes": {
+        "smoothness": 3,
+        "ice": 4,
+        "hotSoup": 1,
+        "capacity": 5,
+        "portability": 1,
+        "quiet": 3,
+        "cleanup": 4,
+        "automation": 2,
+        "versatility": 3,
+        "compact": 3,
+        "durability": 4,
+        "value": 5,
+        "neutralFit": 3,
+        "capacityMl": 1250,
+        "iceSupported": true,
+        "hotSoupSupported": false,
+        "toGoCupIncluded": false,
+        "capacity600": true,
+        "capacity1000": true,
+        "within100k": true,
+        "priceYen": 6922
+      }
+    },
+    {
+      "id": "blender-107",
+      "name": "Ninja SOUPi QH201J",
+      "description": "刻む・加熱・かくはんを自動で行うスープメーカー。ポタージュやスープ、ソース、煮込み、ジュースまで作れます。",
+      "priceRange": 1,
+      "features": [
+        "約600mL",
+        "刻む・加熱・かくはんを自動・保温・タイマー",
+        "洗浄モード・強力洗浄モード"
+      ],
+      "pros": [
+        "ボタンひとつで温かいスープが作れる",
+        "洗浄モードでお手入れが簡単"
+      ],
+      "cons": [
+        "氷の粉砕を目的とした機種ではありません"
+      ],
+      "recommendFor": "ボタンひとつで、温かいスープやポタージュを作りたい人",
+      "caution": "リンク先はSharkNinja公式店の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00toapo.d8zue9b0.g00toapo.d8zufff5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fshark%2Fqh201j%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fshark%2Fi%2F10000580%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/shark/cabinet/products/qh201j/qh201j_01.jpg?_ex=300x300",
+      "attributes": {
+        "smoothness": 4,
+        "ice": 1,
+        "hotSoup": 5,
+        "capacity": 3,
+        "portability": 1,
+        "quiet": 4,
+        "cleanup": 5,
+        "automation": 5,
+        "versatility": 5,
+        "compact": 4,
+        "durability": 4,
+        "value": 5,
+        "neutralFit": 3,
+        "capacityMl": 600,
+        "iceSupported": false,
+        "hotSoupSupported": true,
+        "toGoCupIncluded": false,
+        "capacity600": true,
+        "capacity1000": false,
+        "within100k": true,
+        "priceYen": 9900
+      }
+    },
+    {
+      "id": "blender-108",
+      "name": "Braun PowerBlend 1 JB1169BK",
+      "description": "耐熱ガラスジャグにミルとスムージータンブラーが付属したブレンダー。氷や温かいスープにも対応しています。",
+      "priceRange": 2,
+      "features": [
+        "1.0L・耐熱ガラスジャグ",
+        "氷対応・温かいスープ対応",
+        "ミル・スムージータンブラー付属・2段階＋パルス"
+      ],
+      "pros": [
+        "1台でジャグ・ミル・タンブラーを使い分けられる",
+        "温かいスープまで作れる"
+      ],
+      "cons": [
+        "本体はやや大きめです"
+      ],
+      "recommendFor": "スムージーもスープも、持ち運びも1台でこなしたい人",
+      "caution": "リンク先はブラウン公式ショップの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0BJ8754T9/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u1ooo.d8zuee92.g00u1ooo.d8zufa06/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbraunhousehold%2F0x22311097%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbraunhousehold%2Fi%2F10000103%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/braunhousehold/cabinet/ss06618479/item/blender/0x22311097_2.jpg?_ex=300x300",
+      "attributes": {
+        "smoothness": 4,
+        "ice": 4,
+        "hotSoup": 5,
+        "capacity": 4,
+        "portability": 4,
+        "quiet": 3,
+        "cleanup": 5,
+        "automation": 2,
+        "versatility": 5,
+        "compact": 3,
+        "durability": 4,
+        "value": 5,
+        "neutralFit": 3,
+        "capacityMl": 1000,
+        "iceSupported": true,
+        "hotSoupSupported": true,
+        "toGoCupIncluded": true,
+        "capacity600": true,
+        "capacity1000": true,
+        "within100k": true,
+        "priceYen": 12980
+      }
+    },
+    {
+      "id": "blender-109",
+      "name": "T-fal ブレンドフォース ネオ パウエリックス マルチ BL42X1JP",
+      "description": "1.25Lの大容量ミキサーにチョッパーが付属したモデル。パウエリックス6枚刃で、料理の下ごしらえにも使えます。",
+      "priceRange": 2,
+      "features": [
+        "1.25L・350W",
+        "パウエリックス6枚刃・氷対応",
+        "チョッパー付属"
+      ],
+      "pros": [
+        "家族分を一度に作れる",
+        "下ごしらえにも使える"
+      ],
+      "cons": [
+        "温かいスープを作る用途には対応していません"
+      ],
+      "recommendFor": "家族分のスムージーも、料理の下ごしらえも1台でこなしたい人",
+      "caution": "リンク先はJoshinの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0BWHDCZFP/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F3016667250280-24-14912-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14773435%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/1956/3016667250280.jpg?_ex=300x300",
+      "attributes": {
+        "smoothness": 4,
+        "ice": 5,
+        "hotSoup": 1,
+        "capacity": 5,
+        "portability": 1,
+        "quiet": 3,
+        "cleanup": 4,
+        "automation": 2,
+        "versatility": 5,
+        "compact": 3,
+        "durability": 5,
+        "value": 5,
+        "neutralFit": 3,
+        "capacityMl": 1250,
+        "iceSupported": true,
+        "hotSoupSupported": false,
+        "toGoCupIncluded": false,
+        "capacity600": true,
+        "capacity1000": true,
+        "within100k": true,
+        "priceYen": 14300
+      }
+    },
+    {
+      "id": "blender-110",
+      "name": "Ninja Blast Max BC251J",
+      "description": "コードレスで持ち運べるパーソナルブレンダー。8枚刃とAuto-iQで、氷や冷凍フルーツもなめらかに仕上げます。",
+      "priceRange": 2,
+      "features": [
+        "最大充填約530mL・コードレス",
+        "氷対応・8枚刃・Auto-iQ",
+        "作った容器で持ち運び可能・食洗機対応パーツ"
+      ],
+      "pros": [
+        "どこでも氷や冷凍フルーツのスムージーを作れる",
+        "作った容器のまま持ち運べる"
+      ],
+      "cons": [
+        "温かいスープを作る用途には対応していません"
+      ],
+      "recommendFor": "コードレスで、外出先でも冷たいスムージーを作りたい人",
+      "caution": "リンク先はSharkNinja公式店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0F4Q9V951/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00toapo.d8zue9b0.g00toapo.d8zufff5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fshark%2Fbc251j%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fshark%2Fi%2F10000429%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/shark/cabinet/renamethum/p10/bc251j_m26off.jpg?_ex=300x300",
+      "attributes": {
+        "smoothness": 4,
+        "ice": 5,
+        "hotSoup": 1,
+        "capacity": 2,
+        "portability": 5,
+        "quiet": 4,
+        "cleanup": 5,
+        "automation": 4,
+        "versatility": 3,
+        "compact": 5,
+        "durability": 4,
+        "value": 4,
+        "neutralFit": 3,
+        "capacityMl": 530,
+        "iceSupported": true,
+        "hotSoupSupported": false,
+        "toGoCupIncluded": true,
+        "capacity600": false,
+        "capacity1000": false,
+        "within100k": true,
+        "priceYen": 14960
+      }
+    },
+    {
+      "id": "blender-111",
+      "name": "イワタニ サイレントミルサー IFM-S30G",
+      "description": "低騒音設計のミルサー。氷や冷凍食材、ナッツにも対応し、強化ガラス容器は電子レンジ加熱や煮沸消毒ができます。",
+      "priceRange": 3,
+      "features": [
+        "大容器260mL・小容器75mL",
+        "氷・冷凍食材・ナッツ対応・低騒音設計",
+        "強化ガラス容器（電子レンジ加熱・煮沸消毒可）"
+      ],
+      "pros": [
+        "動作音が静か",
+        "少量の離乳食や介護食にも使いやすい"
+      ],
+      "cons": [
+        "熱い材料を入れて撹拌する機種ではありません",
+        "一度に作れる量は少なめです"
+      ],
+      "recommendFor": "静かな動作で、少量の調理や離乳食を作りたい人",
+      "caution": "リンク先はイワタニ公式店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B078H85FD4/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r5deo.d8zue0f3.g00r5deo.d8zuf2e2/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fi-collect%2F0003572%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fi-collect%2Fi%2F10011145%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/i-collect/cabinet/item02/2000002749.jpg?_ex=300x300",
+      "attributes": {
+        "smoothness": 3,
+        "ice": 5,
+        "hotSoup": 2,
+        "capacity": 1,
+        "portability": 3,
+        "quiet": 5,
+        "cleanup": 5,
+        "automation": 2,
+        "versatility": 5,
+        "compact": 5,
+        "durability": 5,
+        "value": 4,
+        "neutralFit": 3,
+        "capacityMl": 260,
+        "iceSupported": true,
+        "hotSoupSupported": false,
+        "toGoCupIncluded": false,
+        "capacity600": false,
+        "capacity1000": false,
+        "within100k": true,
+        "priceYen": 17800
+      }
+    },
+    {
+      "id": "blender-112",
+      "name": "Ninja Stealth iQ QX201J",
+      "description": "800WのBLDCモーターと8枚刃を備えた高性能ブレンダー。BlendSenseで食材の量や硬さを検知し、静かに自動で仕上げます。",
+      "priceRange": 4,
+      "features": [
+        "1.0L・800W BLDCモーター・8枚刃",
+        "BlendSense・仕上がり3段階",
+        "内蔵タンパー・氷対応・食洗機対応パーツ"
+      ],
+      "pros": [
+        "自動制御でなめらかに仕上がる",
+        "高性能ながら動作音が静か"
+      ],
+      "cons": [
+        "温かいスープを作る用途には対応していません"
+      ],
+      "recommendFor": "静かで高性能なブレンダーに、おまかせで作ってほしい人",
+      "caution": "リンク先はSharkNinja公式店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0F74M2VPM/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00toapo.d8zue9b0.g00toapo.d8zufff5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fshark%2Fqx201j%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fshark%2Fi%2F10000430%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/shark/cabinet/products/qx201j/qx201j_02.jpg?_ex=300x300",
+      "attributes": {
+        "smoothness": 5,
+        "ice": 5,
+        "hotSoup": 1,
+        "capacity": 4,
+        "portability": 1,
+        "quiet": 5,
+        "cleanup": 5,
+        "automation": 5,
+        "versatility": 5,
+        "compact": 3,
+        "durability": 5,
+        "value": 4,
+        "neutralFit": 3,
+        "capacityMl": 1000,
+        "iceSupported": true,
+        "hotSoupSupported": false,
+        "toGoCupIncluded": false,
+        "capacity600": true,
+        "capacity1000": true,
+        "within100k": true,
+        "priceYen": 39600
+      }
+    },
+    {
+      "id": "blender-113",
+      "name": "Vitamix E310（VM0202）",
+      "description": "プロ級の粉砕力を持つ1.4Lのハイパワーブレンダー。ロックアイスやナッツ、温かいスープまで幅広く作れます。",
+      "priceRange": 5,
+      "features": [
+        "1.4L・ハイパワー",
+        "ロックアイス対応・温かいスープ・ナッツバター",
+        "パルス・タンパー・5年保証"
+      ],
+      "pros": [
+        "プロ級の粉砕力でなめらかに仕上がる",
+        "料理全般に幅広く使える"
+      ],
+      "cons": [
+        "動作音は大きめです",
+        "価格は高めです"
+      ],
+      "recommendFor": "プロ級の性能で、スムージーから料理まで作りたい人",
+      "caution": "リンク先はplywoodの出品（日本正規品・5年保証）です。色は在庫のあるものを選んで購入してください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B07K1S648W/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pzd8o.d8zue1ad.g00pzd8o.d8zuf7e9/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fplywood%2F00349091%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fplywood%2Fi%2F10015506%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/plywood/cabinet/kaden6/00349091i.jpg?_ex=300x300",
+      "attributes": {
+        "smoothness": 5,
+        "ice": 5,
+        "hotSoup": 5,
+        "capacity": 4,
+        "portability": 1,
+        "quiet": 2,
+        "cleanup": 4,
+        "automation": 2,
+        "versatility": 5,
+        "compact": 2,
+        "durability": 5,
+        "value": 4,
+        "neutralFit": 3,
+        "capacityMl": 1400,
+        "iceSupported": true,
+        "hotSoupSupported": true,
+        "toGoCupIncluded": false,
+        "capacity600": true,
+        "capacity1000": true,
+        "within100k": true,
+        "priceYen": 89000
+      }
+    },
+    {
+      "id": "blender-114",
+      "name": "Vitamix V1200i",
+      "description": "2.0Lの大容量ハイパワーブレンダー。カウントダウンタイマーやインターロックを備え、温かいスープや料理全般に使えます。",
+      "priceRange": 5,
+      "features": [
+        "2.0L・高い粉砕性能",
+        "氷・温かいスープ・スピードダイヤル・パルス",
+        "カウントダウンタイマー・インターロック・10年保証"
+      ],
+      "pros": [
+        "大容量で家族分や作り置きも作れる",
+        "タイマーで仕上がりを調整しやすい"
+      ],
+      "cons": [
+        "本体が大きめです",
+        "価格は高めです"
+      ],
+      "recommendFor": "大容量で、スムージーから料理まで本格的に作りたい人",
+      "caution": "リンク先はバイタミックス公式店の出品（2.0L）です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B08KJ4MXVF/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00us2ko.d8zue547.g00us2ko.d8zuf437/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fvitamix%2F703113658136%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fvitamix%2Fi%2F10000000%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/vitamix/cabinet/vitamix/item/imgrc0106075579.jpg?_ex=300x300",
+      "attributes": {
+        "smoothness": 5,
+        "ice": 5,
+        "hotSoup": 5,
+        "capacity": 5,
+        "portability": 1,
+        "quiet": 2,
+        "cleanup": 4,
+        "automation": 4,
+        "versatility": 5,
+        "compact": 1,
+        "durability": 5,
+        "value": 3,
+        "neutralFit": 3,
+        "capacityMl": 2000,
+        "iceSupported": true,
+        "hotSoupSupported": true,
+        "toGoCupIncluded": false,
+        "capacity600": true,
+        "capacity1000": true,
+        "within100k": true,
+        "priceYen": 98000
+      }
+    },
+    {
+      "id": "blender-115",
+      "name": "Vitamix A3500i",
+      "description": "5つの自動プログラムを備えたVitamixの最上位モデル。スムージー・スープ・アイス・ディップの自動調理と自動洗浄に対応しています。",
+      "priceRange": 5,
+      "features": [
+        "2.0L・5つの自動プログラム",
+        "スムージー・スープ・アイス・ディップ・自動洗浄",
+        "Self-Detect・タイマー・インターロック・10年保証"
+      ],
+      "pros": [
+        "自動プログラムでおまかせ調理ができる",
+        "最高クラスの性能で料理全般に使える"
+      ],
+      "cons": [
+        "価格はとても高めです",
+        "本体が大きめです"
+      ],
+      "recommendFor": "最高クラスの性能と自動調理で、料理全般をこなしたい人",
+      "caution": "リンク先はバイタミックス公式店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B07TSJ3ZPQ/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00us2ko.d8zue547.g00us2ko.d8zuf437/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fvitamix%2F703113664557%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fvitamix%2Fi%2F10000001%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/vitamix/cabinet/vitamix/item/imgrc0106075569.jpg?_ex=300x300",
+      "attributes": {
+        "smoothness": 5,
+        "ice": 5,
+        "hotSoup": 5,
+        "capacity": 5,
+        "portability": 1,
+        "quiet": 3,
+        "cleanup": 5,
+        "automation": 5,
+        "versatility": 5,
+        "compact": 1,
+        "durability": 5,
+        "value": 2,
+        "neutralFit": 3,
+        "capacityMl": 2000,
+        "iceSupported": true,
+        "hotSoupSupported": true,
+        "toGoCupIncluded": false,
+        "capacity600": true,
+        "capacity1000": true,
+        "within100k": false,
+        "priceYen": 160000
+      }
+    }
+  ],
+  "scoring": {
+    "tieBreak": true,
+    "softenPartialReason": true,
+    "lowMatchNotice": "条件をすべて満たす商品が少ないため、近い候補を表示しています。"
+  },
+  "guide": {
+    "title": "ミキサー・ブレンダーの選び方",
+    "intro": "この診断は、メーカー公表の仕様をもとに、以下のポイントとあなたの回答を照らし合わせて相性を計算しています。",
+    "sections": [
+      {
+        "heading": "容量と作る量",
+        "body": "1人分なら300〜500mL前後のパーソナルタイプ、家族分なら1L以上のモデルが目安です。作ったボトルのまま持ち運べるタイプは、通勤や運動時のドリンク作りに便利です。"
+      },
+      {
+        "heading": "氷・冷凍フルーツと温かいスープ",
+        "body": "氷や冷凍フルーツを使うなら、氷対応のモデルを選びましょう。温かいスープまで作るなら、耐熱容器や加熱機能を備えたモデルが必要です。"
+      },
+      {
+        "heading": "使いやすさ",
+        "body": "分解して洗える容器や食洗機対応のパーツがあるとお手入れが簡単です。静音設計や自動プログラムを備えた上位モデルもあります。"
+      }
+    ]
+  },
+  "notice": "容量や対応食材は各メーカーの公表値に基づきます。氷や冷凍フルーツは、メーカーが推奨する量や大きさを守って使いましょう。価格は変動するため、購入時に販売ページでご確認ください。"
+}
