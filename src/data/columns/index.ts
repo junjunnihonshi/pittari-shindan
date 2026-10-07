@@ -4,7 +4,10 @@
  * コラム一覧・記事ページ・sitemap.xml・プリレンダリングに反映されます。
  */
 import { airConditionerHowToChoose } from './airConditionerHowToChoose.ts'
+import { mattressHowToChoose } from './mattressHowToChoose.ts'
 import { refrigeratorHowToChoose } from './refrigeratorHowToChoose.ts'
+import { tvHowToChoose } from './tvHowToChoose.ts'
+import { washingMachineHowToChoose } from './washingMachineHowToChoose.ts'
 
 export interface Column {
   /** URL の一部（/column/<slug>/） */
@@ -25,13 +28,19 @@ export interface Column {
   relatedLinkLabel?: string
   /**
    * 本文。「## 見出し」「### 小見出し」「- 箇条書き」「1. 番号付きリスト」「→ 診断へのリンク」と、
-   * 空行区切りの段落で書きます（「→」の行は relatedDiagnosisId の診断へのリンクになります）。
+   * 空行区切りの段落で書きます（空行の後の「→」の行は relatedDiagnosisId の診断へのリンクになります）。
    */
   body: string
 }
 
 /** 一覧には公開日の新しい順に表示（同じ公開日の記事はこの配列の順） */
-export const columns: Column[] = [airConditionerHowToChoose, refrigeratorHowToChoose]
+export const columns: Column[] = [
+  washingMachineHowToChoose,
+  tvHowToChoose,
+  mattressHowToChoose,
+  airConditionerHowToChoose,
+  refrigeratorHowToChoose,
+]
 
 export function columnPath(slug: string): string {
   return `/column/${slug}/`

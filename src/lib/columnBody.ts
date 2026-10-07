@@ -7,7 +7,10 @@ export type ColumnBlock =
 export function parseColumnBody(body: string): ColumnBlock[] {
   const blocks: ColumnBlock[] = []
   let h2Count = 0
+  let prevBlank = true
   for (const line of body.split('\n').map((l) => l.trim())) {
+    const afterBlank = prevBlank
+    prevBlank = !line
     if (!line) continue
     const listItem = line.match(/^(?:(-)|\d+\.)\s+(.*)$/)
     if (listItem) {
@@ -19,7 +22,8 @@ export function parseColumnBody(body: string): ColumnBlock[] {
       blocks.push({ type: 'h2', id: `section-${++h2Count}`, text: line.slice(3) })
     } else if (line.startsWith('### ')) {
       blocks.push({ type: 'h3', text: line.slice(4) })
-    } else if (line.startsWith('→ ')) {
+    } else if (line.startsWith('→ ') && afterBlank) {
+      // 空行の後の「→」行だけを診断へのリンクにする（「A」の次の行の「→ B」のような例示はそのまま段落として表示）
       blocks.push({ type: 'cta', text: line.slice(2) })
     } else {
       blocks.push({ type: 'p', text: line })

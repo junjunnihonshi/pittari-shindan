@@ -1815,6 +1815,12 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   line-clamp: 2;
   overflow: hidden;
 }
+/* スマホでは診断を主役にするため、トップのコラムは最新2件まで（3件目以降は /column/ で読める） */
+@media (max-width: 639px) {
+  .column-home__grid > li:nth-child(n + 3) {
+    display: none;
+  }
+}
 .column-home__more {
   margin: 12px 0 0;
   font-weight: 700;
