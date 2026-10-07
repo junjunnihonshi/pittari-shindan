@@ -5,7 +5,7 @@
  */
 import type { ReactNode } from 'react'
 import { findPageMeta } from '../config/seo.ts'
-import { site } from '../config/site.ts'
+import { hasContact, site } from '../config/site.ts'
 import { normalizeUrl } from '../config/shops.ts'
 import { Link } from '../components/Link.tsx'
 import { useSeo } from '../lib/seo.ts'
@@ -38,15 +38,13 @@ function ContactInfo() {
   const formUrl = normalizeUrl(site.operator.contactFormUrl)
   return (
     <>
-      {formUrl ? (
+      {formUrl && (
         <p>
           <a className="button button--primary" href={formUrl} target="_blank" rel="noopener noreferrer">
             お問い合わせフォームを開く
             <span className="visually-hidden">（新しいタブで開きます）</span>
           </a>
         </p>
-      ) : (
-        <p>お問い合わせフォームは準備中です。</p>
       )}
       {site.operator.email && (
         <p>
@@ -73,18 +71,24 @@ export function AboutPage() {
           <dt>運営者</dt>
           <dd>{site.operator.name}</dd>
         </div>
-        <div>
-          <dt>お問い合わせ</dt>
-          <dd>
-            <Link to="/contact/">お問い合わせページ</Link>をご覧ください。
-          </dd>
-        </div>
+        {hasContact && (
+          <div>
+            <dt>お問い合わせ</dt>
+            <dd>
+              <Link to="/contact/">お問い合わせページ</Link>をご覧ください。
+            </dd>
+          </div>
+        )}
       </dl>
       <h2>サイトについて</h2>
       <p>
         {site.name}
         は、いくつかの質問に答えるだけで、使い方や好み・予算に合いそうな日用品・家電・生活用品を探せる診断サイトです。
-        診断結果は、回答内容と商品の特徴をもとにしたルールで機械的に計算しており、人気や売上のランキングではありません。
+        商品選びで迷ったときに、自分の条件に合う候補を短時間で絞り込めるようにすることを目的としています。
+      </p>
+      <p>
+        診断結果は、回答内容と商品の特徴をもとにしたルールで機械的に計算した「相性順」で、人気や売上のランキングではありません。
+        アフィリエイトリンクの有無や紹介料によって順位を変えることはありません。
       </p>
     </StaticLayout>
   )
@@ -111,7 +115,7 @@ export function PrivacyPage() {
 
       <h2>第三者配信の広告について</h2>
       <p>
-        当サイトでは、第三者配信の広告サービス「忍者AdMax」を利用しているほか、「Google アドセンス」を利用する場合があります。
+        当サイトでは、第三者配信の広告サービス「Google アドセンス」を利用する場合があります。
         Googleなどの広告配信事業者は、利用者の興味に応じた広告を表示するために、Cookie等を使用して当サイトや他のサイトへの過去のアクセスに関する情報を取得し、その情報に基づいて広告を配信する場合があります。
         当サイトが、氏名・メールアドレスなど利用者個人を特定できる情報を広告配信事業者に提供することはありません。
       </p>
@@ -122,8 +126,8 @@ export function PrivacyPage() {
           <span className="visually-hidden">（新しいタブで開きます）</span>
         </a>
         で無効にしたり管理したりできます。Googleによるデータの利用については、
-        <a href="https://policies.google.com/technologies/partner-sites?hl=ja" target="_blank" rel="noopener noreferrer">
-          Googleのポリシーと規約
+        <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">
+          Googleのサービスを使用するサイトやアプリから収集した情報のGoogleによる使用
           <span className="visually-hidden">（新しいタブで開きます）</span>
         </a>
         をご確認ください。
@@ -184,8 +188,14 @@ export function DisclaimerPage() {
 export function ContactPage() {
   return (
     <StaticLayout path="/contact/" title="お問い合わせ">
-      <p>当サイトに関するお問い合わせは、以下よりお願いいたします。内容によってはお返事に時間がかかる場合や、お答えできない場合があります。</p>
-      <ContactInfo />
+      {hasContact ? (
+        <>
+          <p>当サイトに関するお問い合わせは、以下よりお願いいたします。内容によってはお返事に時間がかかる場合や、お答えできない場合があります。</p>
+          <ContactInfo />
+        </>
+      ) : (
+        <p>現在、当サイトでは個別のお問い合わせの受付を行っていません。</p>
+      )}
       <p className="muted">※ 商品の購入・配送・返品等に関するお問い合わせは、各販売サイトへお願いいたします。</p>
     </StaticLayout>
   )
@@ -205,10 +215,14 @@ export function AdsPage() {
         結果は回答内容と商品の特徴から計算した「相性順」で表示しています。
       </p>
       <p>商品の価格・在庫・配送等については、リンク先の各販売サイトでご確認ください。</p>
-      <h2>広告掲載・タイアップのご相談</h2>
-      <p>
-        広告掲載に関するご相談は、<Link to="/contact/">お問い合わせページ</Link>からご連絡ください。
-      </p>
+      <h2>広告掲載・タイアップについて</h2>
+      {hasContact ? (
+        <p>
+          広告掲載に関するご相談は、<Link to="/contact/">お問い合わせページ</Link>からご連絡ください。
+        </p>
+      ) : (
+        <p>現在、個別の広告掲載・タイアップの受付は行っていません。</p>
+      )}
     </StaticLayout>
   )
 }

@@ -21,10 +21,13 @@ export const site = {
   twitter: '',
   /** 運営者情報 */
   operator: {
-    name: '（運営者名を入力してください）',
+    name: 'ぴったり診断ナビ運営',
     /** お問い合わせ用メールアドレス。空なら表示しません */
     email: '',
-    /** お問い合わせフォーム（Googleフォーム等）のURL。空なら「準備中」 */
+    /**
+     * お問い合わせフォーム（Googleフォーム等）のURL。
+     * email と contactFormUrl がどちらも空の間は、お問い合わせページをフッター・sitemap・他ページからの案内に出さず、noindex にします
+     */
     contactFormUrl: '',
   },
   /** 広告表記（ヘッダー直下に表示） */
@@ -34,3 +37,6 @@ export const site = {
   /** 結果画面の価格・在庫に関する注意書き */
   priceNotice: '掲載情報は変更されている場合があります。最新情報は販売サイトをご確認ください。',
 } as const
+
+/** お問い合わせ先（メールアドレスかフォーム）が設定されているか */
+export const hasContact = Boolean(site.operator.email || site.operator.contactFormUrl)

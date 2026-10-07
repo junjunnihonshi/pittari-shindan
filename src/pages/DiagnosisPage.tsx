@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { DiagnosisOverview } from '../components/DiagnosisOverview.tsx'
 import { GuideSection } from '../components/GuideSection.tsx'
 import { RelatedDiagnoses } from '../components/RelatedDiagnoses.tsx'
-import { SideAds } from '../components/SideAds.tsx'
 import { ProgressBar } from '../components/ProgressBar.tsx'
 import { QuestionStep } from '../components/QuestionStep.tsx'
 import { ResultCard } from '../components/ResultCard.tsx'
@@ -95,8 +95,7 @@ export function DiagnosisPage({ diagnosis }: { diagnosis: Diagnosis }) {
   const onlyOverBudget = supplements.every((r) => r.overBudget && !r.ineligible)
 
   return (
-    <div className="side-ad-host">
-      <SideAds />
+    <div>
       <div className="container page">
         <nav className="breadcrumb" aria-label="パンくずリスト">
           <ol>
@@ -270,6 +269,7 @@ export function DiagnosisPage({ diagnosis }: { diagnosis: Diagnosis }) {
           )}
         </div>
 
+        <DiagnosisOverview diagnosis={diagnosis} />
         <GuideSection guide={diagnosis.guide} />
         {column && (
           <p className="column-link">

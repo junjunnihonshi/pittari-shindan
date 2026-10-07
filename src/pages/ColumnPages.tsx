@@ -76,9 +76,7 @@ export function ColumnArticlePage({ column }: { column: Column }) {
         <header className="column-article__header">
           <span className="diagnosis-card__meta column-card__category">{column.category}</span>
           <h1>{column.title}</h1>
-          <p className="column-article__date">
-            公開日：<time dateTime={column.publishedAt}>{formatDate(column.publishedAt)}</time>
-          </p>
+          <p className="column-article__date">公開日：{formatDate(column.publishedAt)}</p>
         </header>
         {blocks.map((b, i) => {
           const before =

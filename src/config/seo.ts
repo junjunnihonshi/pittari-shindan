@@ -7,7 +7,7 @@
 import { columnPath, columns, type Column } from '../data/columns/index.ts'
 import { enabledDiagnoses } from '../data/diagnoses/index.ts'
 import type { Diagnosis } from '../types/diagnosis.ts'
-import { site } from './site.ts'
+import { hasContact, site } from './site.ts'
 
 export interface PageMeta {
   path: string
@@ -33,7 +33,8 @@ export const staticPages: PageMeta[] = [
   { path: '/about/', title: `運営者情報｜${site.name}`, description: `${site.name}の運営者情報です。`, priority: 0.3 },
   { path: '/privacy/', title: `プライバシーポリシー｜${site.name}`, description: `${site.name}のプライバシーポリシーです。`, priority: 0.3 },
   { path: '/disclaimer/', title: `免責事項｜${site.name}`, description: `${site.name}の免責事項です。`, priority: 0.3 },
-  { path: '/contact/', title: `お問い合わせ｜${site.name}`, description: `${site.name}へのお問い合わせ方法のご案内です。`, priority: 0.3 },
+  // お問い合わせ先が未設定の間は、検索エンジン・sitemap に載せない
+  { path: '/contact/', title: `お問い合わせ｜${site.name}`, description: `${site.name}へのお問い合わせ方法のご案内です。`, priority: 0.3, noindex: !hasContact },
   { path: '/ads/', title: `広告掲載について｜${site.name}`, description: `${site.name}における広告（アフィリエイトプログラム）の利用についてのご案内です。`, priority: 0.3 },
 ]
 

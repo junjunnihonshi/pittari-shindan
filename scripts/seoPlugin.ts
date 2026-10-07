@@ -5,7 +5,7 @@
  *   - dist/404.html（Cloudflare Pages が存在しないURLで返す404ページ）
  *   - dist/sitemap.xml
  *   - dist/robots.txt
- *   - トップページと公開中の診断ページの本文（プリレンダリング）
+ *   - トップページ・固定ページ・公開中の診断ページ・選び方コラムの本文（プリレンダリング）
  *       src/entry-prerender.tsx でアプリの最初の表示内容を HTML にし、<div id="root"> の中に入れる。
  *       ブラウザでは main.tsx の createRoot が同じ内容で描き直す（hydration はしない）。
  * 検索エンジンやSNSが JavaScript を実行しなくても、正しいタイトルや説明文・本文を読み取れるようにするためのものです。
@@ -13,7 +13,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { createServer, type Plugin, type ResolvedConfig } from 'vite'
-import { absoluteUrl, buildHeadTags, canonicalUrl, columnListMeta, diagnosisPath, getAllPages, notFoundMeta, type PageMeta } from '../src/config/seo.ts'
+import { absoluteUrl, buildHeadTags, canonicalUrl, columnListMeta, diagnosisPath, getAllPages, notFoundMeta, staticPages, type PageMeta } from '../src/config/seo.ts'
 import { columnPath, columns } from '../src/data/columns/index.ts'
 import { diagnoses, enabledDiagnoses } from '../src/data/diagnoses/index.ts'
 import { validateDiagnoses } from '../src/data/validate.ts'
@@ -40,9 +40,14 @@ function renderPage(template: string, meta: PageMeta, body = ''): string {
     .replace('<div id="root"></div>', () => `<div id="root">${body}</div>`)
 }
 
-/** 本文をプリレンダリングするページ：トップページ・公開中（enabled: true）の診断ページ・選び方コラム */
+/** 本文をプリレンダリングするページ：トップページ・固定ページ・公開中（enabled: true）の診断ページ・選び方コラム */
 function prerenderPaths(): string[] {
-  return ['/', ...enabledDiagnoses.map((d) => diagnosisPath(d.slug)), columnListMeta.path, ...columns.map((c) => columnPath(c.slug))]
+  return [
+    ...staticPages.map((p) => p.path),
+    ...enabledDiagnoses.map((d) => diagnosisPath(d.slug)),
+    columnListMeta.path,
+    ...columns.map((c) => columnPath(c.slug)),
+  ]
 }
 
 /** アプリの最初の表示内容を HTML にする（Vite の SSR 読み込みで TSX をそのまま実行する。ビルド時だけ使い、SSRサーバーは不要） */

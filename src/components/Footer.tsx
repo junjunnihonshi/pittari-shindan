@@ -1,4 +1,4 @@
-import { site } from '../config/site.ts'
+import { hasContact, site } from '../config/site.ts'
 import { Link } from './Link.tsx'
 
 const links = [
@@ -6,7 +6,8 @@ const links = [
   { to: '/about/', label: '運営者情報' },
   { to: '/privacy/', label: 'プライバシーポリシー' },
   { to: '/disclaimer/', label: '免責事項' },
-  { to: '/contact/', label: 'お問い合わせ' },
+  // お問い合わせ先が未設定の間は案内しない
+  ...(hasContact ? [{ to: '/contact/', label: 'お問い合わせ' }] : []),
   { to: '/ads/', label: '広告掲載について' },
 ]
 

@@ -2,12 +2,10 @@ import { useMemo, useState, type MouseEvent } from 'react'
 import { categoryGroups } from '../config/categories.ts'
 import { diagnosisPath, staticPages } from '../config/seo.ts'
 import { site } from '../config/site.ts'
-import { AdSlot } from '../components/AdSlot.tsx'
 import { DiagnosisCard } from '../components/DiagnosisCard.tsx'
 import { columnPath, columns } from '../data/columns/index.ts'
-import { diagnoses, enabledDiagnoses, getDiagnosisBySlug, isDiagnosisEnabled } from '../data/diagnoses/index.ts'
+import { enabledDiagnoses, getDiagnosisBySlug, isDiagnosisEnabled } from '../data/diagnoses/index.ts'
 import { Link } from '../components/Link.tsx'
-import { SideAds } from '../components/SideAds.tsx'
 import { matchesDiagnosis, toSearchWords } from '../lib/diagnosisSearch.ts'
 import { useSeo } from '../lib/seo.ts'
 import { getRecentDiagnoses } from '../lib/storage.ts'
@@ -39,8 +37,8 @@ export function HomePage() {
   const [query, setQuery] = useState('')
   const words = useMemo(() => toSearchWords(query), [query])
   const searching = words.length > 0
-  // 検索中は公開中の診断だけを対象にする（準備中の診断は出さない）
-  const visible = searching ? diagnoses.filter((d) => isDiagnosisEnabled(d) && matchesDiagnosis(d, words)) : diagnoses
+  // 一覧・検索とも公開中の診断だけを表示する（準備中の診断は出さない）
+  const visible = searching ? enabledDiagnoses.filter((d) => matchesDiagnosis(d, words)) : enabledDiagnoses
 
   // カテゴリへ移動。検索で絞り込み中ならいったん解除してから移動する
   const jumpToCategory = (e: MouseEvent<HTMLAnchorElement>, id: string) => {
@@ -90,8 +88,6 @@ export function HomePage() {
       </section>
 
       <div className="home-body">
-        <SideAds />
-
         <section className="container section" aria-labelledby="about-title">
           <div className="info-box">
             <h2 id="about-title" className="section__title section__title--small">
@@ -224,7 +220,7 @@ export function HomePage() {
           <nav className="category-jump" aria-label="カテゴリから探す">
             <ul className="chip-list">
               {categoryGroups
-                .filter((group) => diagnoses.some((d) => d.group === group.id))
+                .filter((group) => enabledDiagnoses.some((d) => d.group === group.id))
                 .map((group) => (
                   <li key={group.id}>
                     <a href={`#category-${group.id}`} className="chip" onClick={(e) => jumpToCategory(e, `category-${group.id}`)}>
@@ -249,9 +245,6 @@ export function HomePage() {
             )
           })}
         </section>
-
-        {/* 300×250 を幅320pxのスマホでも切らずに表示するため、左右余白のある container の外に置く */}
-        <AdSlot id="homeBelowCategories" />
       </div>
     </>
   )
