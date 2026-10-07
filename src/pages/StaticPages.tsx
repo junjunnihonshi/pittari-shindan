@@ -11,7 +11,7 @@ import { Link } from '../components/Link.tsx'
 import { useSeo } from '../lib/seo.ts'
 
 /** 最終更新日（内容を変更したら書き換えてください） */
-const UPDATED_AT = '2026年9月23日'
+const UPDATED_AT = '2026年10月8日'
 
 function StaticLayout({ path, title, children }: { path: string; title: string; children: ReactNode }) {
   useSeo(findPageMeta(path) ?? { path, title: `${title}｜${site.name}`, description: title })
@@ -111,9 +111,22 @@ export function PrivacyPage() {
 
       <h2>第三者配信の広告について</h2>
       <p>
-        当サイトでは、第三者配信の広告サービス「忍者AdMax」を利用しています。
-        広告配信事業者は、利用者の興味に応じた広告を表示するために、Cookie等を使用して当サイトや他のサイトへのアクセスに関する情報を取得する場合があります。
+        当サイトでは、第三者配信の広告サービス「忍者AdMax」を利用しているほか、「Google アドセンス」を利用する場合があります。
+        Googleなどの広告配信事業者は、利用者の興味に応じた広告を表示するために、Cookie等を使用して当サイトや他のサイトへの過去のアクセスに関する情報を取得し、その情報に基づいて広告を配信する場合があります。
         当サイトが、氏名・メールアドレスなど利用者個人を特定できる情報を広告配信事業者に提供することはありません。
+      </p>
+      <p>
+        Googleによるパーソナライズ広告は、
+        <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer">
+          Googleの広告設定
+          <span className="visually-hidden">（新しいタブで開きます）</span>
+        </a>
+        で無効にしたり管理したりできます。Googleによるデータの利用については、
+        <a href="https://policies.google.com/technologies/partner-sites?hl=ja" target="_blank" rel="noopener noreferrer">
+          Googleのポリシーと規約
+          <span className="visually-hidden">（新しいタブで開きます）</span>
+        </a>
+        をご確認ください。
       </p>
       <p>
         Cookieはブラウザの設定で無効にすることができます。ただし、無効にした場合、一部の広告が正しく表示されないことがあります。
