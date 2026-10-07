@@ -42,6 +42,7 @@ import { soundbar } from './soundbar.ts'
 import { blender } from './blender.ts'
 import { airFryer } from './airFryer.ts'
 import { printer } from './printer.ts'
+import { refrigerator } from './refrigerator.ts'
 
 /**
  * 診断の一覧（登録簿）。
@@ -92,6 +93,7 @@ const allDiagnoses: Diagnosis[] = [
   blender,
   airFryer,
   printer,
+  refrigerator,
 ]
 
 /**

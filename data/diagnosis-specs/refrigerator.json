@@ -1,0 +1,1568 @@
+{
+  "id": "refrigerator",
+  "enabled": false,
+  "title": "冷蔵庫診断",
+  "itemName": "冷蔵庫",
+  "group": "kitchen",
+  "icon": "🧊",
+  "cardDescription": "人数、設置幅、冷凍室、野菜室、収納レイアウト、省エネ、予算から、あなたの暮らしにぴったりの冷蔵庫を診断。",
+  "description": "人数や設置できる幅、冷凍室・野菜室の使い方、収納レイアウト、重視するポイント、予算から、あなたにぴったりの冷蔵庫を絞り込みます。",
+  "searchKeywords": [
+    "冷蔵庫",
+    "冷蔵庫おすすめ",
+    "冷蔵庫選び方",
+    "冷蔵庫診断",
+    "冷蔵庫比較",
+    "冷蔵庫一人暮らし",
+    "一人暮らし冷蔵庫",
+    "二人暮らし冷蔵庫",
+    "家族冷蔵庫",
+    "大型冷蔵庫",
+    "冷蔵庫500L",
+    "冷蔵庫400L",
+    "冷蔵庫300L",
+    "冷蔵庫幅60cm",
+    "スリム冷蔵庫",
+    "冷凍室大きい冷蔵庫",
+    "冷凍室大容量",
+    "野菜室真ん中",
+    "冷凍室真ん中",
+    "フレンチドア冷蔵庫",
+    "観音開き冷蔵庫",
+    "省エネ冷蔵庫",
+    "冷蔵庫安い",
+    "冷蔵庫コスパ",
+    "冷蔵庫おすすめ家族",
+    "冷蔵庫おすすめ一人暮らし",
+    "おすすめ",
+    "Panasonic",
+    "パナソニック",
+    "日立",
+    "HITACHI",
+    "三菱",
+    "三菱電機",
+    "MITSUBISHI",
+    "東芝",
+    "TOSHIBA",
+    "VEGETA",
+    "ベジータ",
+    "SHARP",
+    "シャープ",
+    "どっちもドア冷蔵庫"
+  ],
+  "seo": {
+    "title": "冷蔵庫の選び方診断｜あなたにぴったりの冷蔵庫を7問で診断",
+    "description": "人数、設置幅、冷凍室、野菜室、収納レイアウト、省エネ、予算など7つの質問から、あなたの暮らしにぴったりの冷蔵庫を診断します。"
+  },
+  "priceLabels": {
+    "1": "〜50,000円",
+    "2": "50,000〜100,000円",
+    "3": "100,000〜160,000円",
+    "4": "160,000〜220,000円",
+    "5": "220,000円〜"
+  },
+  "questions": [
+    {
+      "id": "people",
+      "text": "何人分の食材を入れることが多いですか？",
+      "shortLabel": "人数",
+      "weight": 18,
+      "options": [
+        {
+          "id": "p1",
+          "label": "1人",
+          "summary": "1人分の食材を入れる",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "smallFit",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "p2",
+          "label": "2人",
+          "summary": "2人分の食材を入れる",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "twoFit",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "p34",
+          "label": "3〜4人",
+          "summary": "3〜4人分の食材を入れる",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "familyFit",
+              "value": 5,
+              "weight": 45
+            },
+            {
+              "type": "atLeast",
+              "attr": "capacity",
+              "value": 5,
+              "weight": 20
+            },
+            {
+              "type": "atLeast",
+              "attr": "freezer",
+              "value": 5,
+              "weight": 20
+            },
+            {
+              "type": "atLeast",
+              "attr": "storageEase",
+              "value": 5,
+              "weight": 15
+            }
+          ],
+          "eligibility": {
+            "attr": "capacity300",
+            "value": true,
+            "notice": "容量300L以上の機種からおすすめを表示しています。",
+            "supplementLabel": "容量が300L未満です"
+          }
+        },
+        {
+          "id": "p5",
+          "label": "5人以上・まとめ買い多め",
+          "summary": "5人以上・まとめ買いが多い",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "capacity",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "freezer",
+              "value": 5,
+              "weight": 20
+            },
+            {
+              "type": "atLeast",
+              "attr": "storageEase",
+              "value": 5,
+              "weight": 20
+            }
+          ],
+          "eligibility": {
+            "attr": "capacity450",
+            "value": true,
+            "notice": "容量450L以上の機種からおすすめを表示しています。",
+            "supplementLabel": "容量が450L未満です"
+          }
+        }
+      ]
+    },
+    {
+      "id": "width",
+      "text": "冷蔵庫本体の幅はどこまで置けそうですか？",
+      "shortLabel": "設置幅",
+      "weight": 12,
+      "options": [
+        {
+          "id": "w55",
+          "label": "55cm以下",
+          "summary": "幅55cm以下",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "spaceEfficiency",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "width550",
+            "value": true,
+            "notice": "本体幅55cm以下の機種からおすすめを表示しています。",
+            "supplementLabel": "本体幅が55cmを超えます"
+          }
+        },
+        {
+          "id": "w60",
+          "label": "60cm以下",
+          "summary": "幅60cm以下",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "spaceEfficiency",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 30
+            }
+          ],
+          "eligibility": {
+            "attr": "width600",
+            "value": true,
+            "notice": "本体幅60cm以下の機種からおすすめを表示しています。",
+            "supplementLabel": "本体幅が60cmを超えます"
+          }
+        },
+        {
+          "id": "w65",
+          "label": "65cm以下",
+          "summary": "幅65cm以下",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "spaceEfficiency",
+              "value": 5,
+              "weight": 40
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 60
+            }
+          ],
+          "eligibility": {
+            "attr": "width650",
+            "value": true,
+            "notice": "本体幅65cm以下の機種からおすすめを表示しています。",
+            "supplementLabel": "本体幅が65cmを超えます"
+          }
+        },
+        {
+          "id": "w685",
+          "label": "68.5cm以下",
+          "summary": "幅68.5cm以下",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "spaceEfficiency",
+              "value": 5,
+              "weight": 20
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 80
+            }
+          ],
+          "eligibility": {
+            "attr": "width685",
+            "value": true,
+            "notice": "本体幅68.5cm以下の機種からおすすめを表示しています。",
+            "supplementLabel": "本体幅が68.5cmを超えます"
+          }
+        },
+        {
+          "id": "any",
+          "label": "特に制限なし",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "freezer",
+      "text": "冷凍室はどのくらい使いますか？",
+      "shortLabel": "冷凍室",
+      "weight": 14,
+      "options": [
+        {
+          "id": "low",
+          "label": "冷凍食品は少なめ",
+          "summary": "冷凍食品は少なめ",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "freshness",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "vegetable",
+              "value": 5,
+              "weight": 50
+            }
+          ]
+        },
+        {
+          "id": "normal",
+          "label": "普通に使う",
+          "summary": "冷凍室を普通に使う",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "freezer",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 40
+            }
+          ]
+        },
+        {
+          "id": "bulk",
+          "label": "まとめ買いをよくする",
+          "summary": "まとめ買いをよくする",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "freezer",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "capacity",
+              "value": 5,
+              "weight": 20
+            },
+            {
+              "type": "atLeast",
+              "attr": "storageEase",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "lots",
+          "label": "冷凍食品・作り置きをたっぷり保存したい",
+          "summary": "冷凍食品・作り置きをたっぷり保存したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "freezer",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "storageEase",
+              "value": 5,
+              "weight": 15
+            },
+            {
+              "type": "atLeast",
+              "attr": "capacity",
+              "value": 5,
+              "weight": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vegetable",
+      "text": "野菜室はどのくらい重視しますか？",
+      "shortLabel": "野菜室",
+      "weight": 12,
+      "options": [
+        {
+          "id": "low",
+          "label": "あまり重視しない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "some",
+          "label": "ある程度重視する",
+          "summary": "野菜室をある程度重視する",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "vegetable",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 40
+            }
+          ]
+        },
+        {
+          "id": "high",
+          "label": "野菜をよく買うのでかなり重視する",
+          "summary": "野菜室をかなり重視する",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "vegetable",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "freshness",
+              "value": 5,
+              "weight": 20
+            },
+            {
+              "type": "atLeast",
+              "attr": "middleVegetableFit",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "layout",
+      "text": "使いやすい収納レイアウトは？",
+      "shortLabel": "レイアウト",
+      "weight": 14,
+      "options": [
+        {
+          "id": "any",
+          "label": "特にこだわらない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "dailyEase",
+              "value": 5,
+              "weight": 40
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 60
+            }
+          ]
+        },
+        {
+          "id": "freezer",
+          "label": "冷凍室が真ん中だとうれしい",
+          "summary": "冷凍室が真ん中だとうれしい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "middleFreezerFit",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "vegetable",
+          "label": "野菜室が真ん中だとうれしい",
+          "summary": "野菜室が真ん中だとうれしい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "middleVegetableFit",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "french",
+          "label": "フレンチドア（観音開き）がいい",
+          "summary": "フレンチドア（観音開き）がいい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "frenchDoorFit",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "priority",
+      "text": "一番重視したいポイントは？",
+      "shortLabel": "重視するポイント",
+      "weight": 16,
+      "options": [
+        {
+          "id": "value",
+          "label": "本体価格・コスパ",
+          "summary": "本体価格・コスパを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "energy",
+          "label": "省エネ性能",
+          "summary": "省エネ性能を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "energy",
+              "value": 5,
+              "weight": 80
+            },
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "fresh",
+          "label": "肉・魚・野菜の鮮度保持",
+          "summary": "鮮度保持を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "freshness",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "vegetable",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "ease",
+          "label": "収納しやすさ・毎日の使いやすさ",
+          "summary": "収納しやすさ・使いやすさを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "storageEase",
+              "value": 5,
+              "weight": 40
+            },
+            {
+              "type": "atLeast",
+              "attr": "dailyEase",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "doorConvenience",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "smart",
+          "label": "スマホ連携など高機能さ",
+          "summary": "スマホ連携など高機能さを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "smartFeatures",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "iceConvenience",
+              "value": 5,
+              "weight": 20
+            },
+            {
+              "type": "atLeast",
+              "attr": "doorConvenience",
+              "value": 5,
+              "weight": 15
+            },
+            {
+              "type": "atLeast",
+              "attr": "freshness",
+              "value": 5,
+              "weight": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "budget",
+      "text": "予算は？",
+      "shortLabel": "予算",
+      "weight": 8,
+      "options": [
+        {
+          "id": "b1",
+          "label": "50,000円以下",
+          "summary": "予算50,000円以下",
+          "effects": [],
+          "maxPriceRange": 1
+        },
+        {
+          "id": "b2",
+          "label": "100,000円以下",
+          "summary": "予算100,000円以下",
+          "effects": [],
+          "maxPriceRange": 2
+        },
+        {
+          "id": "b3",
+          "label": "160,000円以下",
+          "summary": "予算160,000円以下",
+          "effects": [],
+          "maxPriceRange": 3
+        },
+        {
+          "id": "b4",
+          "label": "220,000円以下",
+          "summary": "予算220,000円以下",
+          "effects": [],
+          "maxPriceRange": 4
+        },
+        {
+          "id": "b5",
+          "label": "300,000円以下",
+          "summary": "予算300,000円以下",
+          "effects": [],
+          "eligibility": {
+            "attr": "within300k",
+            "value": true,
+            "notice": "予算300,000円以下の機種からおすすめを表示しています。",
+            "supplementLabel": "予算300,000円を超えます"
+          }
+        },
+        {
+          "id": "any",
+          "label": "上限なし",
+          "effects": []
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "refrigerator-101",
+      "name": "三菱電機 MR-P15M",
+      "description": "定格内容積146Lのコンパクトな2ドア冷蔵庫。幅48cmで、一人暮らしの限られたスペースにも置きやすいモデルです。",
+      "priceRange": 1,
+      "features": [
+        "146L・幅48cm・2ドア",
+        "耐熱トップテーブル",
+        "ガラスシェルフ"
+      ],
+      "pros": [
+        "手頃な価格",
+        "狭いスペースにも置きやすい"
+      ],
+      "cons": [
+        "冷凍室・野菜室の容量は小さめです"
+      ],
+      "recommendFor": "一人暮らしで、手頃なコンパクト冷蔵庫を選びたい人",
+      "caution": "リンク先はJoshinの出品（標準設置料込み）です。色はマットホワイト・右開きです。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0H44VRGCK/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4573637016806-21-18844-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14650204%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0007/4573637016806.jpg?_ex=300x300",
+      "attributes": {
+        "capacity": 1,
+        "freezer": 2,
+        "vegetable": 1,
+        "freshness": 2,
+        "energy": 3,
+        "spaceEfficiency": 5,
+        "storageEase": 4,
+        "iceConvenience": 1,
+        "smartFeatures": 1,
+        "doorConvenience": 2,
+        "dailyEase": 4,
+        "value": 5,
+        "neutralFit": 3,
+        "capacityL": 146,
+        "bodyWidthMm": 480,
+        "middleFreezer": false,
+        "middleVegetable": false,
+        "frenchDoor": false,
+        "smallFit": 5,
+        "twoFit": 1,
+        "familyFit": 1,
+        "middleFreezerFit": 1,
+        "middleVegetableFit": 1,
+        "frenchDoorFit": 1,
+        "capacity300": false,
+        "capacity450": false,
+        "width550": true,
+        "width600": true,
+        "width650": true,
+        "width685": true,
+        "within300k": true,
+        "priceYen": 44230
+      }
+    },
+    {
+      "id": "refrigerator-102",
+      "name": "三菱電機 MR-P17M",
+      "description": "定格内容積168Lのコンパクトな2ドア冷蔵庫。幅48cmのまま、MR-P15Mより容量に余裕があります。",
+      "priceRange": 1,
+      "features": [
+        "168L・幅48cm・2ドア",
+        "耐熱トップテーブル",
+        "ガラスシェルフ"
+      ],
+      "pros": [
+        "コンパクトでも容量に余裕がある",
+        "手頃な価格"
+      ],
+      "cons": [
+        "野菜室はありません"
+      ],
+      "recommendFor": "一人暮らしで、冷凍食品なども少し多めに入れたい人",
+      "caution": "リンク先はコジマの出品（標準設置無料）です。色はマットホワイト・右開きです。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4573637016783%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11697241%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001609/4573637016783_1.jpg?_ex=300x300",
+      "attributes": {
+        "capacity": 1,
+        "freezer": 3,
+        "vegetable": 1,
+        "freshness": 2,
+        "energy": 3,
+        "spaceEfficiency": 5,
+        "storageEase": 4,
+        "iceConvenience": 1,
+        "smartFeatures": 1,
+        "doorConvenience": 2,
+        "dailyEase": 4,
+        "value": 5,
+        "neutralFit": 3,
+        "capacityL": 168,
+        "bodyWidthMm": 480,
+        "middleFreezer": false,
+        "middleVegetable": false,
+        "frenchDoor": false,
+        "smallFit": 5,
+        "twoFit": 1,
+        "familyFit": 1,
+        "middleFreezerFit": 1,
+        "middleVegetableFit": 1,
+        "frenchDoorFit": 1,
+        "capacity300": false,
+        "capacity450": false,
+        "width550": true,
+        "width600": true,
+        "width650": true,
+        "width685": true,
+        "within300k": true,
+        "priceYen": 49800
+      }
+    },
+    {
+      "id": "refrigerator-103",
+      "name": "三菱電機 MR-CX27N",
+      "description": "定格内容積272Lの3ドア冷蔵庫。幅54cmのスリムな本体に、氷点下ストッカーやうるおいキープ野菜室を備えています。",
+      "priceRange": 4,
+      "features": [
+        "272L・幅54cm・3ドア",
+        "氷点下ストッカー",
+        "うるおいキープ野菜室"
+      ],
+      "pros": [
+        "スリムでも食材の鮮度を保ちやすい",
+        "野菜室が使いやすい"
+      ],
+      "cons": [
+        "価格は容量のわりに高めです"
+      ],
+      "recommendFor": "1〜2人暮らしで、スリムでも鮮度保持にこだわりたい人",
+      "caution": "リンク先はJoshinの出品（標準設置料込み）です。色はマットホワイト・右開きです。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4573637019395-21-373-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14927886%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0116/4573637019395.jpg?_ex=300x300",
+      "attributes": {
+        "capacity": 2,
+        "freezer": 3,
+        "vegetable": 4,
+        "freshness": 4,
+        "energy": 4,
+        "spaceEfficiency": 5,
+        "storageEase": 4,
+        "iceConvenience": 3,
+        "smartFeatures": 1,
+        "doorConvenience": 3,
+        "dailyEase": 4,
+        "value": 3,
+        "neutralFit": 3,
+        "capacityL": 272,
+        "bodyWidthMm": 540,
+        "middleFreezer": false,
+        "middleVegetable": true,
+        "frenchDoor": false,
+        "smallFit": 4,
+        "twoFit": 5,
+        "familyFit": 1,
+        "middleFreezerFit": 1,
+        "middleVegetableFit": 5,
+        "frenchDoorFit": 1,
+        "capacity300": false,
+        "capacity450": false,
+        "width550": true,
+        "width600": true,
+        "width650": true,
+        "width685": true,
+        "within300k": true,
+        "priceYen": 165000
+      }
+    },
+    {
+      "id": "refrigerator-104",
+      "name": "Panasonic NR-C28BC3",
+      "description": "定格内容積284Lの3ドア冷蔵庫。野菜室が真ん中にあり、奥行も抑えたスリムなモデルです。",
+      "priceRange": 3,
+      "features": [
+        "284L・幅54.1cm・奥行62.5cm・3ドア",
+        "野菜室が真ん中",
+        "奥行スリム"
+      ],
+      "pros": [
+        "野菜を出し入れしやすい",
+        "省スペースに置ける"
+      ],
+      "cons": [
+        "冷凍室は大きくありません"
+      ],
+      "recommendFor": "1〜2人暮らしで、野菜室を使いやすい冷蔵庫を手頃に選びたい人",
+      "caution": "リンク先はJoshinの出品（標準設置料込み）です。色はマットホワイト・右開きです。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4550719035603-21-373-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14782336%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0073/4550719035603.jpg?_ex=300x300",
+      "attributes": {
+        "capacity": 2,
+        "freezer": 3,
+        "vegetable": 4,
+        "freshness": 3,
+        "energy": 4,
+        "spaceEfficiency": 5,
+        "storageEase": 4,
+        "iceConvenience": 2,
+        "smartFeatures": 1,
+        "doorConvenience": 3,
+        "dailyEase": 4,
+        "value": 4,
+        "neutralFit": 3,
+        "capacityL": 284,
+        "bodyWidthMm": 541,
+        "middleFreezer": false,
+        "middleVegetable": true,
+        "frenchDoor": false,
+        "smallFit": 4,
+        "twoFit": 5,
+        "familyFit": 1,
+        "middleFreezerFit": 1,
+        "middleVegetableFit": 5,
+        "frenchDoorFit": 1,
+        "capacity300": false,
+        "capacity450": false,
+        "width550": true,
+        "width600": true,
+        "width650": true,
+        "width685": true,
+        "within300k": true,
+        "priceYen": 101907
+      }
+    },
+    {
+      "id": "refrigerator-105",
+      "name": "日立 R-V32Y",
+      "description": "定格内容積315Lの3ドア冷蔵庫。幅54cmのスリムな本体で、まんなか野菜とうるおいチルドルームを備えています。",
+      "priceRange": 3,
+      "features": [
+        "315L・幅54cm・3ドア",
+        "まんなか野菜・うるおい野菜室",
+        "うるおいチルドルーム"
+      ],
+      "pros": [
+        "スリムでも300L以上の容量",
+        "野菜を出し入れしやすい"
+      ],
+      "cons": [
+        "冷凍室は大きくありません"
+      ],
+      "recommendFor": "2〜3人暮らしで、スリムな冷蔵庫に野菜をたっぷり入れたい人",
+      "caution": "リンク先はJoshinの出品（標準設置料込み）です。色はグラファイトシルバー・右開きです。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0HGCN5GHK/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4549873229195-21-45217-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14928068%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0116/4549873229195.jpg?_ex=300x300",
+      "attributes": {
+        "capacity": 3,
+        "freezer": 3,
+        "vegetable": 4,
+        "freshness": 4,
+        "energy": 3,
+        "spaceEfficiency": 5,
+        "storageEase": 4,
+        "iceConvenience": 3,
+        "smartFeatures": 1,
+        "doorConvenience": 3,
+        "dailyEase": 4,
+        "value": 3,
+        "neutralFit": 3,
+        "capacityL": 315,
+        "bodyWidthMm": 540,
+        "middleFreezer": false,
+        "middleVegetable": true,
+        "frenchDoor": false,
+        "smallFit": 3,
+        "twoFit": 5,
+        "familyFit": 5,
+        "middleFreezerFit": 1,
+        "middleVegetableFit": 5,
+        "frenchDoorFit": 1,
+        "capacity300": true,
+        "capacity450": false,
+        "width550": true,
+        "width600": true,
+        "width650": true,
+        "width685": true,
+        "within300k": true,
+        "priceYen": 153576
+      }
+    },
+    {
+      "id": "refrigerator-106",
+      "name": "三菱電機 MR-CX33N",
+      "description": "定格内容積330Lの3ドア冷蔵庫。高さを抑えたロータイプで、氷点下ストッカーD A.I.や急速冷凍に対応しています。",
+      "priceRange": 4,
+      "features": [
+        "330L・幅60cm・高さ169.8cm・3ドア",
+        "野菜室が真ん中・氷点下ストッカーD A.I.",
+        "ワイドチルド・急速冷凍"
+      ],
+      "pros": [
+        "肉や魚の鮮度を保ちやすい",
+        "高さが低めで上段まで手が届きやすい"
+      ],
+      "cons": [
+        "冷凍室は大きくありません"
+      ],
+      "recommendFor": "2〜3人暮らしで、鮮度保持と使いやすさを重視したい人",
+      "caution": "リンク先はJoshinの出品（標準設置料込み）です。色はマットホワイト・右開きです。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4573637019296-21-45217-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14927717%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0116/4573637019296.jpg?_ex=300x300",
+      "attributes": {
+        "capacity": 3,
+        "freezer": 3,
+        "vegetable": 4,
+        "freshness": 5,
+        "energy": 4,
+        "spaceEfficiency": 4,
+        "storageEase": 4,
+        "iceConvenience": 3,
+        "smartFeatures": 1,
+        "doorConvenience": 3,
+        "dailyEase": 4,
+        "value": 3,
+        "neutralFit": 3,
+        "capacityL": 330,
+        "bodyWidthMm": 600,
+        "middleFreezer": false,
+        "middleVegetable": true,
+        "frenchDoor": false,
+        "smallFit": 3,
+        "twoFit": 5,
+        "familyFit": 5,
+        "middleFreezerFit": 1,
+        "middleVegetableFit": 5,
+        "frenchDoorFit": 1,
+        "capacity300": true,
+        "capacity450": false,
+        "width550": false,
+        "width600": true,
+        "width650": true,
+        "width685": true,
+        "within300k": true,
+        "priceYen": 161463
+      }
+    },
+    {
+      "id": "refrigerator-107",
+      "name": "SHARP SJ-PW37R",
+      "description": "定格内容積374Lの3ドア冷蔵庫。左右どちらからでも開けられるオートクローズどっちもドアと、真ん中のシャキット野菜室を備えています。",
+      "priceRange": 3,
+      "features": [
+        "374L・幅60cm・奥行65cm・3ドア",
+        "オートクローズどっちもドア・真ん中シャキット野菜室（70L）",
+        "冷凍室97L・おいそぎ冷凍・自動製氷・プラズマクラスター"
+      ],
+      "pros": [
+        "左右どちらからでも開けられて設置場所を選びにくい",
+        "野菜室も冷凍室も使いやすい"
+      ],
+      "cons": [
+        "大容量の冷凍が必要な場合は5ドアモデルが向いています"
+      ],
+      "recommendFor": "3〜4人家族で、使いやすさとコスパを重視したい人",
+      "caution": "リンク先はJoshinの出品（標準設置料込み）です。色はシルキーマットホワイトです。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0GRY5WQ2G/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4550556174992-21-45213-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14719811%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0050/4550556174992.jpg?_ex=300x300",
+      "attributes": {
+        "capacity": 3,
+        "freezer": 4,
+        "vegetable": 5,
+        "freshness": 4,
+        "energy": 3,
+        "spaceEfficiency": 5,
+        "storageEase": 5,
+        "iceConvenience": 5,
+        "smartFeatures": 1,
+        "doorConvenience": 5,
+        "dailyEase": 5,
+        "value": 5,
+        "neutralFit": 3,
+        "capacityL": 374,
+        "bodyWidthMm": 600,
+        "middleFreezer": false,
+        "middleVegetable": true,
+        "frenchDoor": false,
+        "smallFit": 3,
+        "twoFit": 3,
+        "familyFit": 5,
+        "middleFreezerFit": 1,
+        "middleVegetableFit": 5,
+        "frenchDoorFit": 1,
+        "capacity300": true,
+        "capacity450": false,
+        "width550": false,
+        "width600": true,
+        "width650": true,
+        "width685": true,
+        "within300k": true,
+        "priceYen": 118396
+      }
+    },
+    {
+      "id": "refrigerator-108",
+      "name": "三菱電機 MR-N40N",
+      "description": "定格内容積403Lの4ドア冷蔵庫。幅60cmで、野菜室が真ん中にあり、氷点下ストッカーA.I.やワイドチルドで鮮度を保ちます。",
+      "priceRange": 4,
+      "features": [
+        "403L・幅60cm・4ドア",
+        "野菜室が真ん中・氷点下ストッカーA.I.",
+        "ワイドチルド・自動製氷"
+      ],
+      "pros": [
+        "幅60cmで400L以上の容量",
+        "肉や魚・野菜の鮮度を保ちやすい"
+      ],
+      "cons": [
+        "価格は高めです"
+      ],
+      "recommendFor": "3〜4人家族で、スリムな幅に鮮度保持の機能を求める人",
+      "caution": "リンク先はJoshinの出品（標準設置料込み）です。色はホワイト・右開きです。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4573637019449-21-22061-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14927936%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0116/4573637019449.jpg?_ex=300x300",
+      "attributes": {
+        "capacity": 4,
+        "freezer": 4,
+        "vegetable": 5,
+        "freshness": 5,
+        "energy": 3,
+        "spaceEfficiency": 5,
+        "storageEase": 4,
+        "iceConvenience": 4,
+        "smartFeatures": 1,
+        "doorConvenience": 4,
+        "dailyEase": 4,
+        "value": 4,
+        "neutralFit": 3,
+        "capacityL": 403,
+        "bodyWidthMm": 600,
+        "middleFreezer": false,
+        "middleVegetable": true,
+        "frenchDoor": false,
+        "smallFit": 2,
+        "twoFit": 3,
+        "familyFit": 5,
+        "middleFreezerFit": 1,
+        "middleVegetableFit": 5,
+        "frenchDoorFit": 1,
+        "capacity300": true,
+        "capacity450": false,
+        "width550": false,
+        "width600": true,
+        "width650": true,
+        "width685": true,
+        "within300k": true,
+        "priceYen": 220000
+      }
+    },
+    {
+      "id": "refrigerator-109",
+      "name": "東芝 VEGETA GR-A450GT",
+      "description": "定格内容積452Lの5ドア冷蔵庫。幅60cmで大容量を確保し、3段冷凍室ともっと潤う摘みたて野菜室を備えています。",
+      "priceRange": 4,
+      "features": [
+        "452L・幅60cm・5ドア",
+        "3段冷凍室・もっと潤う摘みたて野菜室",
+        "氷結晶チルド・IoLIFE対応"
+      ],
+      "pros": [
+        "幅60cmでも大容量",
+        "野菜も冷凍食品もたっぷり入る"
+      ],
+      "cons": [
+        "本体は高さがあります"
+      ],
+      "recommendFor": "3〜4人家族で、幅60cmに大容量の冷蔵庫を置きたい人",
+      "caution": "リンク先はJoshinの出品（標準設置料込み）です。色はフロストホワイト・右開きです。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4904530139055-21-22058-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14719306%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0051/4904530139055.jpg?_ex=300x300",
+      "attributes": {
+        "capacity": 4,
+        "freezer": 4,
+        "vegetable": 5,
+        "freshness": 5,
+        "energy": 4,
+        "spaceEfficiency": 5,
+        "storageEase": 5,
+        "iceConvenience": 4,
+        "smartFeatures": 4,
+        "doorConvenience": 4,
+        "dailyEase": 5,
+        "value": 4,
+        "neutralFit": 3,
+        "capacityL": 452,
+        "bodyWidthMm": 600,
+        "middleFreezer": false,
+        "middleVegetable": true,
+        "frenchDoor": false,
+        "smallFit": 2,
+        "twoFit": 1,
+        "familyFit": 4,
+        "middleFreezerFit": 1,
+        "middleVegetableFit": 5,
+        "frenchDoorFit": 1,
+        "capacity300": true,
+        "capacity450": true,
+        "width550": false,
+        "width600": true,
+        "width650": true,
+        "width685": true,
+        "within300k": true,
+        "priceYen": 195094
+      }
+    },
+    {
+      "id": "refrigerator-110",
+      "name": "日立 R-HWS47Y",
+      "description": "定格内容積470Lの5ドア冷蔵庫。まんなかに3段の大容量冷凍室を備え、特鮮氷温ルームや新鮮スリープ野菜室で鮮度を保ちます。",
+      "priceRange": 5,
+      "features": [
+        "470L・幅60cm・5ドア",
+        "まんなか3段大容量冷凍・急冷凍・霜ブロック",
+        "特鮮氷温ルーム・まるごとチルド・新鮮スリープ野菜室"
+      ],
+      "pros": [
+        "冷凍室が真ん中で出し入れしやすい",
+        "冷凍食品や作り置きをたっぷり保存できる"
+      ],
+      "cons": [
+        "価格は高めです"
+      ],
+      "recommendFor": "3〜4人家族で、冷凍室をたっぷり使いたい人",
+      "caution": "リンク先はJoshinの出品（標準設置料込み）です。色はライトゴールド・右開きです。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0HGD2M6FC/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4549873229348-21-22058-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14927777%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0116/4549873229348.jpg?_ex=300x300",
+      "attributes": {
+        "capacity": 4,
+        "freezer": 5,
+        "vegetable": 4,
+        "freshness": 5,
+        "energy": 4,
+        "spaceEfficiency": 5,
+        "storageEase": 5,
+        "iceConvenience": 4,
+        "smartFeatures": 2,
+        "doorConvenience": 4,
+        "dailyEase": 5,
+        "value": 2,
+        "neutralFit": 3,
+        "capacityL": 470,
+        "bodyWidthMm": 600,
+        "middleFreezer": true,
+        "middleVegetable": false,
+        "frenchDoor": false,
+        "smallFit": 2,
+        "twoFit": 1,
+        "familyFit": 4,
+        "middleFreezerFit": 5,
+        "middleVegetableFit": 1,
+        "frenchDoorFit": 1,
+        "capacity300": true,
+        "capacity450": true,
+        "width550": false,
+        "width600": true,
+        "width650": true,
+        "width685": true,
+        "within300k": true,
+        "priceYen": 277744
+      }
+    },
+    {
+      "id": "refrigerator-111",
+      "name": "東芝 VEGETA GR-A500GT",
+      "description": "定格内容積501Lの5ドア冷蔵庫。幅60cmで500Lを超える大容量を確保し、野菜室が真ん中にあります。",
+      "priceRange": 4,
+      "features": [
+        "501L・幅60cm・5ドア",
+        "野菜室がまんなか・3段冷凍室",
+        "もっと潤う摘みたて野菜室・氷結晶チルド・IoLIFE対応"
+      ],
+      "pros": [
+        "幅60cmで500L超の大容量",
+        "野菜も冷凍食品もたっぷり入る"
+      ],
+      "cons": [
+        "本体は高さがあります"
+      ],
+      "recommendFor": "家族が多く、幅60cmに大容量の冷蔵庫を置きたい人",
+      "caution": "リンク先はコジマの出品（標準設置無料）です。色はフロストホワイト・右開きです。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4904530139079%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11685874%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001663/4904530139079_1.jpg?_ex=300x300",
+      "attributes": {
+        "capacity": 5,
+        "freezer": 5,
+        "vegetable": 5,
+        "freshness": 5,
+        "energy": 4,
+        "spaceEfficiency": 5,
+        "storageEase": 5,
+        "iceConvenience": 4,
+        "smartFeatures": 4,
+        "doorConvenience": 4,
+        "dailyEase": 5,
+        "value": 5,
+        "neutralFit": 3,
+        "capacityL": 501,
+        "bodyWidthMm": 600,
+        "middleFreezer": false,
+        "middleVegetable": true,
+        "frenchDoor": false,
+        "smallFit": 1,
+        "twoFit": 1,
+        "familyFit": 3,
+        "middleFreezerFit": 1,
+        "middleVegetableFit": 5,
+        "frenchDoorFit": 1,
+        "capacity300": true,
+        "capacity450": true,
+        "width550": false,
+        "width600": true,
+        "width650": true,
+        "width685": true,
+        "within300k": true,
+        "priceYen": 195361
+      }
+    },
+    {
+      "id": "refrigerator-112",
+      "name": "Panasonic NR-F50HY3",
+      "description": "定格内容積501Lの6ドアフレンチドア冷蔵庫。冷凍室が真ん中にあり、霜つき抑制冷凍や急速冷凍、パーシャルに対応しています。",
+      "priceRange": 5,
+      "features": [
+        "501L・幅65cm・6ドア（フレンチドア）",
+        "冷凍室が真ん中・大容量冷凍・霜つき抑制冷凍",
+        "急速冷凍・パーシャル"
+      ],
+      "pros": [
+        "冷凍食品をたっぷり保存できる",
+        "省エネ性能が高い"
+      ],
+      "cons": [
+        "価格は高めです"
+      ],
+      "recommendFor": "家族が多く、冷凍室をたっぷり使いたい人",
+      "caution": "リンク先はコジマの出品（標準設置無料）です。色はパールホワイトです。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0GSYNXGBY/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4550719153611%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11714978%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001750/4550719153611_1.jpg?_ex=300x300",
+      "attributes": {
+        "capacity": 5,
+        "freezer": 5,
+        "vegetable": 4,
+        "freshness": 5,
+        "energy": 5,
+        "spaceEfficiency": 4,
+        "storageEase": 5,
+        "iceConvenience": 5,
+        "smartFeatures": 3,
+        "doorConvenience": 5,
+        "dailyEase": 5,
+        "value": 3,
+        "neutralFit": 3,
+        "capacityL": 501,
+        "bodyWidthMm": 650,
+        "middleFreezer": true,
+        "middleVegetable": false,
+        "frenchDoor": true,
+        "smallFit": 1,
+        "twoFit": 1,
+        "familyFit": 3,
+        "middleFreezerFit": 5,
+        "middleVegetableFit": 1,
+        "frenchDoorFit": 5,
+        "capacity300": true,
+        "capacity450": true,
+        "width550": false,
+        "width600": false,
+        "width650": true,
+        "width685": true,
+        "within300k": true,
+        "priceYen": 269752
+      }
+    },
+    {
+      "id": "refrigerator-113",
+      "name": "三菱電機 MR-WZ55N",
+      "description": "定格内容積547Lの6ドアフレンチドア冷蔵庫。冷凍室が真ん中にあり、切れちゃう瞬冷凍A.I.や全室独立おまかせA.I.を備えた高機能モデルです。",
+      "priceRange": 5,
+      "features": [
+        "547L・幅65cm・6ドア（フレンチドア）",
+        "冷凍室が真ん中・切れちゃう瞬冷凍A.I.",
+        "全室独立おまかせA.I.・朝どれ野菜室・スマートフォン連携"
+      ],
+      "pros": [
+        "大容量で冷凍も鮮度保持も高性能",
+        "スマートフォン連携など機能が充実"
+      ],
+      "cons": [
+        "価格は高めです"
+      ],
+      "recommendFor": "家族が多く、冷凍も鮮度保持も最上位の性能を求める人",
+      "caution": "リンク先はJoshinの出品（標準設置料込み）です。色はグランドリネンホワイトです。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0GVND73MG/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4573637027451-21-22522-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14714786%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0049/4573637027451.jpg?_ex=300x300",
+      "attributes": {
+        "capacity": 5,
+        "freezer": 5,
+        "vegetable": 5,
+        "freshness": 5,
+        "energy": 5,
+        "spaceEfficiency": 4,
+        "storageEase": 5,
+        "iceConvenience": 5,
+        "smartFeatures": 5,
+        "doorConvenience": 5,
+        "dailyEase": 5,
+        "value": 2,
+        "neutralFit": 3,
+        "capacityL": 547,
+        "bodyWidthMm": 650,
+        "middleFreezer": true,
+        "middleVegetable": false,
+        "frenchDoor": true,
+        "smallFit": 1,
+        "twoFit": 1,
+        "familyFit": 3,
+        "middleFreezerFit": 5,
+        "middleVegetableFit": 1,
+        "frenchDoorFit": 5,
+        "capacity300": true,
+        "capacity450": true,
+        "width550": false,
+        "width600": false,
+        "width650": true,
+        "width685": true,
+        "within300k": true,
+        "priceYen": 280541
+      }
+    },
+    {
+      "id": "refrigerator-114",
+      "name": "三菱電機 MR-MZ54N",
+      "description": "定格内容積540Lの6ドアフレンチドア冷蔵庫。野菜室が真ん中にあり、真ん中朝どれ野菜室や全室独立おまかせA.I.を備えた高機能モデルです。",
+      "priceRange": 5,
+      "features": [
+        "540L・幅65cm・6ドア（フレンチドア）",
+        "野菜室が真ん中・真ん中朝どれ野菜室",
+        "全室独立おまかせA.I.・切れちゃう瞬冷凍A.I.・スマートフォン連携"
+      ],
+      "pros": [
+        "野菜をたっぷり出し入れしやすい",
+        "鮮度保持の機能が充実"
+      ],
+      "cons": [
+        "価格は高めです"
+      ],
+      "recommendFor": "家族が多く、野菜室を重視した高機能な冷蔵庫が欲しい人",
+      "caution": "リンク先はJoshinの出品（標準設置料込み）です。色はグランドリネンホワイトです。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0GVNC6ZSN/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4573637027291-21-22522-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14715302%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0049/4573637027291.jpg?_ex=300x300",
+      "attributes": {
+        "capacity": 5,
+        "freezer": 4,
+        "vegetable": 5,
+        "freshness": 5,
+        "energy": 5,
+        "spaceEfficiency": 4,
+        "storageEase": 5,
+        "iceConvenience": 5,
+        "smartFeatures": 5,
+        "doorConvenience": 5,
+        "dailyEase": 5,
+        "value": 2,
+        "neutralFit": 3,
+        "capacityL": 540,
+        "bodyWidthMm": 650,
+        "middleFreezer": false,
+        "middleVegetable": true,
+        "frenchDoor": true,
+        "smallFit": 1,
+        "twoFit": 1,
+        "familyFit": 3,
+        "middleFreezerFit": 1,
+        "middleVegetableFit": 5,
+        "frenchDoorFit": 5,
+        "capacity300": true,
+        "capacity450": true,
+        "width550": false,
+        "width600": false,
+        "width650": true,
+        "width685": true,
+        "within300k": false,
+        "priceYen": 300522
+      }
+    },
+    {
+      "id": "refrigerator-115",
+      "name": "日立 R-HWC62Y",
+      "description": "定格内容積617Lの6ドアフレンチドア冷蔵庫。まんなか冷凍と3段大容量冷凍で、まとめ買いや作り置きもたっぷり保存できます。",
+      "priceRange": 5,
+      "features": [
+        "617L・幅68.5cm・6ドア（フレンチドア）",
+        "まんなか冷凍・3段大容量冷凍・デリシャス冷凍",
+        "特鮮氷温ルーム・まるごとチルド・新鮮スリープ野菜室・スマートフォン連携"
+      ],
+      "pros": [
+        "超大容量でまとめ買いにも対応",
+        "冷凍も鮮度保持も充実"
+      ],
+      "cons": [
+        "本体の幅が68.5cmあります"
+      ],
+      "recommendFor": "5人以上の家族や、まとめ買いが多い人",
+      "caution": "リンク先はJoshinの出品（標準設置料込み）です。色はライトゴールドです。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4549873218083-21-11519-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14722376%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0052/4549873218083.jpg?_ex=300x300",
+      "attributes": {
+        "capacity": 5,
+        "freezer": 5,
+        "vegetable": 5,
+        "freshness": 5,
+        "energy": 5,
+        "spaceEfficiency": 4,
+        "storageEase": 5,
+        "iceConvenience": 5,
+        "smartFeatures": 4,
+        "doorConvenience": 5,
+        "dailyEase": 5,
+        "value": 4,
+        "neutralFit": 3,
+        "capacityL": 617,
+        "bodyWidthMm": 685,
+        "middleFreezer": true,
+        "middleVegetable": false,
+        "frenchDoor": true,
+        "smallFit": 1,
+        "twoFit": 1,
+        "familyFit": 2,
+        "middleFreezerFit": 5,
+        "middleVegetableFit": 1,
+        "frenchDoorFit": 5,
+        "capacity300": true,
+        "capacity450": true,
+        "width550": false,
+        "width600": false,
+        "width650": false,
+        "width685": true,
+        "within300k": true,
+        "priceYen": 298213
+      }
+    }
+  ],
+  "scoring": {
+    "tieBreak": true,
+    "softenPartialReason": true,
+    "lowMatchNotice": "条件をすべて満たす商品が少ないため、近い候補を表示しています。"
+  },
+  "guide": {
+    "title": "冷蔵庫の選び方",
+    "intro": "この診断は、メーカー公表の仕様をもとに、以下のポイントとあなたの回答を照らし合わせて相性を計算しています。",
+    "sections": [
+      {
+        "heading": "容量と人数",
+        "body": "一人暮らしなら150L前後、2人なら250〜350L、3〜4人なら400L前後、5人以上やまとめ買いが多いなら500L以上が目安です。"
+      },
+      {
+        "heading": "設置幅と搬入",
+        "body": "本体の幅だけでなく、メーカーが指定する放熱スペースや、玄関・廊下などの搬入経路も確認しましょう。幅60cmでも400〜500L級の大容量モデルがあります。"
+      },
+      {
+        "heading": "冷凍室・野菜室のレイアウト",
+        "body": "冷凍食品をよく使うなら冷凍室が真ん中、野菜をよく使うなら野菜室が真ん中のモデルが出し入れしやすくなります。フレンチドアは扉の開閉スペースが小さく済みます。"
+      }
+    ]
+  },
+  "notice": "本体幅は外形寸法です。設置にはメーカーが指定する放熱スペースが必要なため、購入前に設置場所の寸法と搬入経路を必ず確認してください。容量や機能は各メーカーの公表値に基づきます。価格は変動し、設置料金の扱いは販売店によって異なるため、購入時に販売ページでご確認ください。"
+}
