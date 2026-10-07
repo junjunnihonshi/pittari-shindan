@@ -41,6 +41,7 @@ import { bluetoothSpeaker } from './bluetoothSpeaker.ts'
 import { soundbar } from './soundbar.ts'
 import { blender } from './blender.ts'
 import { airFryer } from './airFryer.ts'
+import { printer } from './printer.ts'
 
 /**
  * 診断の一覧（登録簿）。
@@ -90,6 +91,7 @@ const allDiagnoses: Diagnosis[] = [
   soundbar,
   blender,
   airFryer,
+  printer,
 ]
 
 /**
