@@ -1,0 +1,1554 @@
+{
+  "id": "air-conditioner",
+  "enabled": false,
+  "title": "エアコン診断",
+  "itemName": "エアコン",
+  "group": "life",
+  "icon": "❄️",
+  "cardDescription": "部屋の広さ、冷房・暖房、省エネ、自動お掃除、清潔機能、使いやすさ、予算から、あなたにぴったりのエアコンを診断。",
+  "description": "部屋の広さや冷房・暖房の使い方、省エネ、フィルター自動お掃除、清潔・空気機能、使いやすさ、予算から、あなたにぴったりのエアコンを絞り込みます。",
+  "searchKeywords": [
+    "エアコン",
+    "エアコンおすすめ",
+    "エアコン選び方",
+    "エアコン診断",
+    "エアコン比較",
+    "エアコン6畳",
+    "エアコン10畳",
+    "エアコン14畳",
+    "エアコン18畳",
+    "エアコン20畳",
+    "エアコン23畳",
+    "エアコン26畳",
+    "6畳エアコン",
+    "10畳エアコン",
+    "14畳エアコン",
+    "18畳エアコン",
+    "リビングエアコン",
+    "寝室エアコン",
+    "省エネエアコン",
+    "電気代安いエアコン",
+    "暖房強いエアコン",
+    "冷房強いエアコン",
+    "除湿エアコン",
+    "フィルター自動お掃除",
+    "自動お掃除エアコン",
+    "空気清浄エアコン",
+    "スマホ対応エアコン",
+    "コンパクトエアコン",
+    "エアコン本体",
+    "エアコン本体価格",
+    "おすすめ",
+    "霧ヶ峰",
+    "三菱電機",
+    "MITSUBISHI",
+    "エオリア",
+    "Panasonic",
+    "パナソニック",
+    "白くまくん",
+    "日立",
+    "HITACHI",
+    "ダイキン",
+    "DAIKIN",
+    "うるさらX"
+  ],
+  "seo": {
+    "title": "エアコンの選び方診断｜あなたにぴったりのエアコンを7問で診断",
+    "description": "部屋の広さ、冷房・暖房、省エネ、自動お掃除、清潔機能、使いやすさ、予算など7つの質問から、あなたにぴったりのエアコンを診断します。"
+  },
+  "priceLabels": {
+    "1": "〜80,000円",
+    "2": "80,000〜120,000円",
+    "3": "120,000〜180,000円",
+    "4": "180,000〜250,000円",
+    "5": "250,000〜350,000円"
+  },
+  "questions": [
+    {
+      "id": "room",
+      "text": "どのくらいの広さの部屋で使いますか？",
+      "shortLabel": "部屋の広さ",
+      "weight": 24,
+      "options": [
+        {
+          "id": "r6",
+          "label": "6畳以下",
+          "summary": "6畳以下の部屋",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "fit6",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "size6",
+            "value": true,
+            "notice": "おもに6畳用以上の機種からおすすめを表示しています。",
+            "supplementLabel": "おもに6畳用に足りません"
+          }
+        },
+        {
+          "id": "r10",
+          "label": "7〜10畳",
+          "summary": "7〜10畳の部屋",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "fit10",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "size10",
+            "value": true,
+            "notice": "おもに10畳用以上の機種からおすすめを表示しています。",
+            "supplementLabel": "おもに10畳用に足りません"
+          }
+        },
+        {
+          "id": "r14",
+          "label": "11〜14畳",
+          "summary": "11〜14畳の部屋",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "fit14",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "size14",
+            "value": true,
+            "notice": "おもに14畳用以上の機種からおすすめを表示しています。",
+            "supplementLabel": "おもに14畳用に足りません"
+          }
+        },
+        {
+          "id": "r18",
+          "label": "15〜18畳",
+          "summary": "15〜18畳の部屋",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "fit18",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "size18",
+            "value": true,
+            "notice": "おもに18畳用以上の機種からおすすめを表示しています。",
+            "supplementLabel": "おもに18畳用に足りません"
+          }
+        },
+        {
+          "id": "r20",
+          "label": "19〜20畳",
+          "summary": "19〜20畳の部屋",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "fit20",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "size20",
+            "value": true,
+            "notice": "おもに20畳用以上の機種からおすすめを表示しています。",
+            "supplementLabel": "おもに20畳用に足りません"
+          }
+        },
+        {
+          "id": "r23",
+          "label": "21〜23畳",
+          "summary": "21〜23畳の部屋",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "fit23",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "size23",
+            "value": true,
+            "notice": "おもに23畳用以上の機種からおすすめを表示しています。",
+            "supplementLabel": "おもに23畳用に足りません"
+          }
+        },
+        {
+          "id": "r26",
+          "label": "24〜26畳",
+          "summary": "24〜26畳の部屋",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "fit26",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "size26",
+            "value": true,
+            "notice": "おもに26畳用以上の機種からおすすめを表示しています。",
+            "supplementLabel": "おもに26畳用に足りません"
+          }
+        }
+      ]
+    },
+    {
+      "id": "usage",
+      "text": "一番重視したい使い方は？",
+      "shortLabel": "使い方",
+      "weight": 16,
+      "options": [
+        {
+          "id": "price",
+          "label": "本体価格を抑えたい",
+          "summary": "本体価格を抑えたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "cool",
+          "label": "夏の冷房・除湿を重視",
+          "summary": "夏の冷房・除湿を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "cooling",
+              "value": 5,
+              "weight": 40
+            },
+            {
+              "type": "atLeast",
+              "attr": "dehumidification",
+              "value": 5,
+              "weight": 35
+            },
+            {
+              "type": "atLeast",
+              "attr": "comfort",
+              "value": 5,
+              "weight": 25
+            }
+          ]
+        },
+        {
+          "id": "heat",
+          "label": "冬の暖房を重視",
+          "summary": "冬の暖房を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "heating",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "energy",
+              "value": 5,
+              "weight": 20
+            },
+            {
+              "type": "atLeast",
+              "attr": "comfort",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "balance",
+          "label": "一年中バランスよく使いたい",
+          "summary": "一年中バランスよく使いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "cooling",
+              "value": 5,
+              "weight": 25
+            },
+            {
+              "type": "atLeast",
+              "attr": "heating",
+              "value": 5,
+              "weight": 25
+            },
+            {
+              "type": "atLeast",
+              "attr": "dehumidification",
+              "value": 5,
+              "weight": 25
+            },
+            {
+              "type": "atLeast",
+              "attr": "comfort",
+              "value": 5,
+              "weight": 25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "energy",
+      "text": "電気代・省エネ性能はどのくらい重視しますか？",
+      "shortLabel": "省エネ",
+      "weight": 14,
+      "options": [
+        {
+          "id": "price",
+          "label": "本体価格の方を重視",
+          "summary": "本体価格の方を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "energy",
+              "value": 5,
+              "weight": 10
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "balance",
+          "label": "本体価格と電気代のバランス",
+          "summary": "本体価格と電気代のバランスを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "energy",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 50
+            }
+          ]
+        },
+        {
+          "id": "high",
+          "label": "長く使うので省エネをかなり重視",
+          "summary": "省エネをかなり重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "energy",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "filter",
+      "text": "フィルターのお手入れは？",
+      "shortLabel": "お手入れ",
+      "weight": 10,
+      "options": [
+        {
+          "id": "self",
+          "label": "自分で掃除するので自動お掃除は不要",
+          "summary": "フィルターは自分で掃除する",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "cleaning",
+              "value": 5,
+              "weight": 10
+            },
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 60
+            }
+          ]
+        },
+        {
+          "id": "want",
+          "label": "フィルター自動お掃除があるとうれしい",
+          "summary": "フィルター自動お掃除があるとうれしい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "cleaning",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "autoCleanFit",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "must",
+          "label": "フィルター自動お掃除は必須",
+          "summary": "フィルター自動お掃除は必須",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "cleaning",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "autoFilterClean",
+            "value": true,
+            "notice": "フィルター自動お掃除に対応した機種からおすすめを表示しています。",
+            "supplementLabel": "フィルター自動お掃除に対応していません"
+          }
+        }
+      ]
+    },
+    {
+      "id": "clean",
+      "text": "清潔・空気機能で重視するものは？",
+      "shortLabel": "清潔・空気機能",
+      "weight": 12,
+      "options": [
+        {
+          "id": "basic",
+          "label": "基本的な内部清潔機能があれば十分",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "cleaning",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 20
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "care",
+          "label": "カビ・汚れ対策や空気ケアを重視",
+          "summary": "カビ・汚れ対策や空気ケアを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "cleaning",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "airCare",
+              "value": 5,
+              "weight": 50
+            }
+          ]
+        },
+        {
+          "id": "humid",
+          "label": "加湿・換気までできる高機能タイプがほしい",
+          "summary": "加湿・換気までできる高機能タイプがほしい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "humidFit",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "airCare",
+              "value": 5,
+              "weight": 20
+            },
+            {
+              "type": "atLeast",
+              "attr": "comfort",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ease",
+      "text": "使いやすさで重視するなら？",
+      "shortLabel": "使いやすさ",
+      "weight": 12,
+      "options": [
+        {
+          "id": "smart",
+          "label": "スマホから操作したい",
+          "summary": "スマホから操作したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "smart",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "auto",
+          "label": "センサーや自動運転に任せたい",
+          "summary": "センサーや自動運転に任せたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "autoComfort",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "comfort",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "compact",
+          "label": "室内機がコンパクトな方がいい",
+          "summary": "室内機がコンパクトな方がいい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "compact",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "quiet",
+          "label": "静かで快適な風を重視",
+          "summary": "静かで快適な風を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "quiet",
+              "value": 5,
+              "weight": 55
+            },
+            {
+              "type": "atLeast",
+              "attr": "comfort",
+              "value": 5,
+              "weight": 45
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "budget",
+      "text": "エアコン本体の予算は？",
+      "shortLabel": "予算",
+      "weight": 8,
+      "options": [
+        {
+          "id": "b1",
+          "label": "80,000円以下",
+          "summary": "本体予算80,000円以下",
+          "effects": [],
+          "maxPriceRange": 1
+        },
+        {
+          "id": "b2",
+          "label": "120,000円以下",
+          "summary": "本体予算120,000円以下",
+          "effects": [],
+          "maxPriceRange": 2
+        },
+        {
+          "id": "b3",
+          "label": "180,000円以下",
+          "summary": "本体予算180,000円以下",
+          "effects": [],
+          "maxPriceRange": 3
+        },
+        {
+          "id": "b4",
+          "label": "250,000円以下",
+          "summary": "本体予算250,000円以下",
+          "effects": [],
+          "maxPriceRange": 4
+        },
+        {
+          "id": "b5",
+          "label": "350,000円以下",
+          "summary": "本体予算350,000円以下",
+          "effects": [],
+          "maxPriceRange": 5
+        },
+        {
+          "id": "any",
+          "label": "上限なし",
+          "effects": []
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "air-conditioner-101",
+      "name": "三菱電機 霧ヶ峰 MSZ-GV2226",
+      "description": "おもに6畳用のスタンダードモデル。基本性能と品質にこだわった、手頃な価格の2026年度モデルです。",
+      "priceRange": 1,
+      "features": [
+        "おもに6畳用・2.2kW・単相100V",
+        "内部クリーン・選べる除湿",
+        "スタンダードモデル"
+      ],
+      "pros": [
+        "手頃な価格",
+        "シンプルで使いやすい"
+      ],
+      "cons": [
+        "フィルター自動お掃除はありません"
+      ],
+      "recommendFor": "6畳前後の部屋に、手頃なエアコンを選びたい人",
+      "caution": "リンク先はPCあきんどの出品です（本体のみ）。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pii8o.d8zuea56.g00pii8o.d8zuf71a/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fakindo%2Fmsz-gv2226-w-set%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fakindo%2Fi%2F10207238%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/akindo/cabinet/l50/msz-gv2226-w-set.jpg?_ex=300x300",
+      "attributes": {
+        "cooling": 3,
+        "heating": 2,
+        "dehumidification": 3,
+        "energy": 3,
+        "cleaning": 2,
+        "airCare": 1,
+        "comfort": 2,
+        "quiet": 3,
+        "compact": 4,
+        "smart": 3,
+        "autoComfort": 2,
+        "value": 5,
+        "neutralFit": 3,
+        "ratedTatami": 6,
+        "autoFilterClean": false,
+        "voltage200": false,
+        "humidityVentilation": false,
+        "size6": true,
+        "fit6": 5,
+        "size10": false,
+        "fit10": 1,
+        "size14": false,
+        "fit14": 1,
+        "size18": false,
+        "fit18": 1,
+        "size20": false,
+        "fit20": 1,
+        "size23": false,
+        "fit23": 1,
+        "size26": false,
+        "fit26": 1,
+        "autoCleanFit": 1,
+        "humidFit": 1,
+        "priceYen": 63800
+      }
+    },
+    {
+      "id": "air-conditioner-102",
+      "name": "Panasonic エオリア CS-226DJR",
+      "description": "おもに6畳用のスタンダードモデル。ナノイーXを搭載し、室内機の奥行229mmの薄型設計です。",
+      "priceRange": 1,
+      "features": [
+        "おもに6畳用・2.2kW・単相100V",
+        "ナノイーX",
+        "室内機の奥行229mm"
+      ],
+      "pros": [
+        "手頃な価格で清潔機能も充実",
+        "薄型で設置しやすい"
+      ],
+      "cons": [
+        "フィルター自動お掃除はありません"
+      ],
+      "recommendFor": "6畳前後の部屋に、清潔機能もある手頃なエアコンが欲しい人",
+      "caution": "リンク先はディーライズ2号店の出品です（本体のみ）。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0GQFB376R/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rd00o.d8zue612.g00rd00o.d8zuf99b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fe-cutestyle%2Fp000000930596%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fe-cutestyle%2Fi%2F19798275%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/e-cutestyle/cabinet/img055/p000000930596_1.jpg?_ex=300x300",
+      "attributes": {
+        "cooling": 3,
+        "heating": 2,
+        "dehumidification": 3,
+        "energy": 3,
+        "cleaning": 3,
+        "airCare": 4,
+        "comfort": 3,
+        "quiet": 3,
+        "compact": 5,
+        "smart": 4,
+        "autoComfort": 3,
+        "value": 4,
+        "neutralFit": 3,
+        "ratedTatami": 6,
+        "autoFilterClean": false,
+        "voltage200": false,
+        "humidityVentilation": false,
+        "size6": true,
+        "fit6": 5,
+        "size10": false,
+        "fit10": 1,
+        "size14": false,
+        "fit14": 1,
+        "size18": false,
+        "fit18": 1,
+        "size20": false,
+        "fit20": 1,
+        "size23": false,
+        "fit23": 1,
+        "size26": false,
+        "fit26": 1,
+        "autoCleanFit": 1,
+        "humidFit": 1,
+        "priceYen": 65961
+      }
+    },
+    {
+      "id": "air-conditioner-103",
+      "name": "日立 白くまくん RAS-GR2226S",
+      "description": "おもに6畳用の薄型モデル。凍結洗浄Lightやフィルター自動お掃除で、内部を清潔に保ちやすいモデルです。",
+      "priceRange": 3,
+      "features": [
+        "おもに6畳用・2.2kW・単相100V",
+        "凍結洗浄Light・カビバスター・ステンレス・クリーン",
+        "フィルター自動お掃除・3モード除湿・白くまくんアプリ・奥行約250mm"
+      ],
+      "pros": [
+        "お手入れの手間を減らせる",
+        "薄型で設置しやすい"
+      ],
+      "cons": [
+        "6畳用としては価格が高めです"
+      ],
+      "recommendFor": "6畳前後の部屋で、清潔さとお手入れの手軽さを重視したい人",
+      "caution": "リンク先はBサプライズの出品です（本体のみ）。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0H1MKDHPM/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00sjs2o.d8zue9b1.g00sjs2o.d8zufcca/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fb-surprise2%2F2571200008533%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fb-surprise2%2Fi%2F10150818%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/b-surprise2/cabinet/cm214/ras-gr2226.jpg?_ex=300x300",
+      "attributes": {
+        "cooling": 3,
+        "heating": 3,
+        "dehumidification": 4,
+        "energy": 4,
+        "cleaning": 5,
+        "airCare": 4,
+        "comfort": 4,
+        "quiet": 4,
+        "compact": 5,
+        "smart": 4,
+        "autoComfort": 4,
+        "value": 3,
+        "neutralFit": 3,
+        "ratedTatami": 6,
+        "autoFilterClean": true,
+        "voltage200": false,
+        "humidityVentilation": false,
+        "size6": true,
+        "fit6": 5,
+        "size10": false,
+        "fit10": 1,
+        "size14": false,
+        "fit14": 1,
+        "size18": false,
+        "fit18": 1,
+        "size20": false,
+        "fit20": 1,
+        "size23": false,
+        "fit23": 1,
+        "size26": false,
+        "fit26": 1,
+        "autoCleanFit": 5,
+        "humidFit": 1,
+        "priceYen": 125060
+      }
+    },
+    {
+      "id": "air-conditioner-104",
+      "name": "三菱電機 霧ヶ峰 MSZ-GV2826",
+      "description": "おもに10畳用のスタンダードモデル。基本性能と品質にこだわった、手頃な価格の2026年度モデルです。",
+      "priceRange": 2,
+      "features": [
+        "おもに10畳用・2.8kW・単相100V",
+        "内部クリーン・選べる除湿",
+        "スタンダードモデル"
+      ],
+      "pros": [
+        "手頃な価格",
+        "シンプルで使いやすい"
+      ],
+      "cons": [
+        "フィルター自動お掃除はありません"
+      ],
+      "recommendFor": "10畳前後の部屋に、手頃なエアコンを選びたい人",
+      "caution": "リンク先はPREMOAの出品です。「工事なし」「本体＋メーカー保証」を選んでください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0H4FW3FKY/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8gxo.d8zue496.g00r8gxo.d8zufe17/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpremoa%2F4573637018848%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpremoa%2Fi%2F11328603%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/premoa/cabinet/orj/53/0-4573637018848.jpg?_ex=300x300",
+      "attributes": {
+        "cooling": 3,
+        "heating": 2,
+        "dehumidification": 3,
+        "energy": 3,
+        "cleaning": 2,
+        "airCare": 1,
+        "comfort": 2,
+        "quiet": 3,
+        "compact": 4,
+        "smart": 3,
+        "autoComfort": 2,
+        "value": 5,
+        "neutralFit": 3,
+        "ratedTatami": 10,
+        "autoFilterClean": false,
+        "voltage200": false,
+        "humidityVentilation": false,
+        "size6": true,
+        "fit6": 4,
+        "size10": true,
+        "fit10": 5,
+        "size14": false,
+        "fit14": 1,
+        "size18": false,
+        "fit18": 1,
+        "size20": false,
+        "fit20": 1,
+        "size23": false,
+        "fit23": 1,
+        "size26": false,
+        "fit26": 1,
+        "autoCleanFit": 1,
+        "humidFit": 1,
+        "priceYen": 90300
+      }
+    },
+    {
+      "id": "air-conditioner-105",
+      "name": "Panasonic エオリア CS-GX286D",
+      "description": "おもに10畳用のコンパクトモデル。高さ249mmの室内機にフィルターお掃除ロボットとナノイーXを搭載しています。",
+      "priceRange": 3,
+      "features": [
+        "おもに10畳用・2.8kW・単相100V",
+        "室内機の高さ249mm",
+        "フィルターお掃除ロボット・ナノイーX"
+      ],
+      "pros": [
+        "コンパクトで設置しやすい",
+        "お手入れの手間を減らせる"
+      ],
+      "cons": [
+        "加湿・換気の機能はありません"
+      ],
+      "recommendFor": "10畳前後の部屋で、設置しやすさとお手入れの手軽さを両立したい人",
+      "caution": "リンク先は家電のSAKURAの出品です（本体のみ）。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q4jmo.d8zue02d.g00q4jmo.d8zuf7a0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkaden-sakura%2F4550719036396%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkaden-sakura%2Fi%2F10185650%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/kaden-sakura/cabinet/gazou77/cs-gx286d-w.jpg?_ex=300x300",
+      "attributes": {
+        "cooling": 4,
+        "heating": 3,
+        "dehumidification": 4,
+        "energy": 4,
+        "cleaning": 5,
+        "airCare": 4,
+        "comfort": 4,
+        "quiet": 4,
+        "compact": 5,
+        "smart": 4,
+        "autoComfort": 4,
+        "value": 3,
+        "neutralFit": 3,
+        "ratedTatami": 10,
+        "autoFilterClean": true,
+        "voltage200": false,
+        "humidityVentilation": false,
+        "size6": true,
+        "fit6": 4,
+        "size10": true,
+        "fit10": 5,
+        "size14": false,
+        "fit14": 1,
+        "size18": false,
+        "fit18": 1,
+        "size20": false,
+        "fit20": 1,
+        "size23": false,
+        "fit23": 1,
+        "size26": false,
+        "fit26": 1,
+        "autoCleanFit": 5,
+        "humidFit": 1,
+        "priceYen": 140019
+      }
+    },
+    {
+      "id": "air-conditioner-106",
+      "name": "ダイキン うるさらX S286ATRS",
+      "description": "おもに10畳用のプレミアムモデル。うるる加湿・さらら除湿・換気・ストリーマを備え、一年中快適に使えます。",
+      "priceRange": 4,
+      "features": [
+        "おもに10畳用・2.8kW・単相100V（20A）",
+        "うるる加湿・さらら除湿・換気",
+        "ストリーマ・フィルター自動お掃除・スマホ操作"
+      ],
+      "pros": [
+        "冷暖房も除湿も高性能",
+        "加湿・換気までできる"
+      ],
+      "cons": [
+        "室内機が大きめで、価格も高めです"
+      ],
+      "recommendFor": "10畳前後の部屋で、加湿・換気まで備えた高機能なエアコンが欲しい人",
+      "caution": "リンク先は家電のSAKURAの出品です（本体のみ）。電源は単相100V・20Aです。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0G7191JHF/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q4jmo.d8zue02d.g00q4jmo.d8zuf7a0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkaden-sakura%2F4573535489467%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkaden-sakura%2Fi%2F10184814%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/kaden-sakura/cabinet/gazou75/s286atrs-w.jpg?_ex=300x300",
+      "attributes": {
+        "cooling": 5,
+        "heating": 5,
+        "dehumidification": 5,
+        "energy": 5,
+        "cleaning": 5,
+        "airCare": 5,
+        "comfort": 5,
+        "quiet": 4,
+        "compact": 2,
+        "smart": 5,
+        "autoComfort": 5,
+        "value": 2,
+        "neutralFit": 3,
+        "ratedTatami": 10,
+        "autoFilterClean": true,
+        "voltage200": false,
+        "humidityVentilation": true,
+        "size6": true,
+        "fit6": 4,
+        "size10": true,
+        "fit10": 5,
+        "size14": false,
+        "fit14": 1,
+        "size18": false,
+        "fit18": 1,
+        "size20": false,
+        "fit20": 1,
+        "size23": false,
+        "fit23": 1,
+        "size26": false,
+        "fit26": 1,
+        "autoCleanFit": 5,
+        "humidFit": 5,
+        "priceYen": 193870
+      }
+    },
+    {
+      "id": "air-conditioner-107",
+      "name": "Panasonic エオリア CS-406DJR2",
+      "description": "おもに14畳用のスタンダードモデル。ナノイーXを搭載し、14畳クラスを手頃な価格で選べます。",
+      "priceRange": 3,
+      "features": [
+        "おもに14畳用・4.0kW・単相200V",
+        "ナノイーX",
+        "スタンダードモデル"
+      ],
+      "pros": [
+        "14畳クラスでも手頃な価格",
+        "清潔機能も充実"
+      ],
+      "cons": [
+        "フィルター自動お掃除はありません"
+      ],
+      "recommendFor": "14畳前後の部屋に、手頃なエアコンを選びたい人",
+      "caution": "リンク先はPREMOAの出品です。「工事なし」「本体＋メーカー保証」を選んでください。200V機種です。設置場所のコンセント・専用回路をご確認ください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0GQFK4F3T/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8gxo.d8zue496.g00r8gxo.d8zufe17/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpremoa%2F4550719037454%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpremoa%2Fi%2F11304649%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/premoa/cabinet/orj/49/0-4550719037454.jpg?_ex=300x300",
+      "attributes": {
+        "cooling": 4,
+        "heating": 3,
+        "dehumidification": 3,
+        "energy": 2,
+        "cleaning": 3,
+        "airCare": 4,
+        "comfort": 3,
+        "quiet": 3,
+        "compact": 5,
+        "smart": 4,
+        "autoComfort": 3,
+        "value": 5,
+        "neutralFit": 3,
+        "ratedTatami": 14,
+        "autoFilterClean": false,
+        "voltage200": true,
+        "humidityVentilation": false,
+        "size6": true,
+        "fit6": 2,
+        "size10": true,
+        "fit10": 4,
+        "size14": true,
+        "fit14": 5,
+        "size18": false,
+        "fit18": 1,
+        "size20": false,
+        "fit20": 1,
+        "size23": false,
+        "fit23": 1,
+        "size26": false,
+        "fit26": 1,
+        "autoCleanFit": 1,
+        "humidFit": 1,
+        "priceYen": 120450
+      }
+    },
+    {
+      "id": "air-conditioner-108",
+      "name": "日立 白くまくん RAS-WR4026D",
+      "description": "おもに14畳用の清潔重視モデル。凍結洗浄 除菌ヒートプラスやファンお掃除ロボで、内部まで清潔に保ちます。",
+      "priceRange": 4,
+      "features": [
+        "おもに14畳用・4.0kW・単相200V",
+        "凍結洗浄 除菌ヒートプラス・ファンお掃除ロボ・フィルター自動お掃除",
+        "カビバスター・カラッと除湿・白くまくんアプリ・高さ248mm"
+      ],
+      "pros": [
+        "内部の清潔さを保ちやすい",
+        "除湿性能が高い"
+      ],
+      "cons": [
+        "価格は高めです"
+      ],
+      "recommendFor": "14畳前後の部屋で、清潔さと除湿を重視したい人",
+      "caution": "リンク先は家電と雑貨のemonの出品です（本体のみ）。200V機種です。設置場所のコンセント・専用回路をご確認ください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0H28DCQH1/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00scfjo.d8zue611.g00scfjo.d8zufbe1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Femon-shop%2Fras-wr4026d-w-set%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Femon-shop%2Fi%2F10056483%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/emon-shop/cabinet/l33/ras-wr4026d-w-set.jpg?_ex=300x300",
+      "attributes": {
+        "cooling": 4,
+        "heating": 4,
+        "dehumidification": 5,
+        "energy": 3,
+        "cleaning": 5,
+        "airCare": 4,
+        "comfort": 4,
+        "quiet": 4,
+        "compact": 4,
+        "smart": 4,
+        "autoComfort": 4,
+        "value": 3,
+        "neutralFit": 3,
+        "ratedTatami": 14,
+        "autoFilterClean": true,
+        "voltage200": true,
+        "humidityVentilation": false,
+        "size6": true,
+        "fit6": 2,
+        "size10": true,
+        "fit10": 4,
+        "size14": true,
+        "fit14": 5,
+        "size18": false,
+        "fit18": 1,
+        "size20": false,
+        "fit20": 1,
+        "size23": false,
+        "fit23": 1,
+        "size26": false,
+        "fit26": 1,
+        "autoCleanFit": 5,
+        "humidFit": 1,
+        "priceYen": 228800
+      }
+    },
+    {
+      "id": "air-conditioner-109",
+      "name": "ダイキン うるさらX S406ATRP",
+      "description": "おもに14畳用のプレミアムモデル。うるる加湿・さらら除湿・換気と高い省エネ性・暖房能力を備えています。",
+      "priceRange": 4,
+      "features": [
+        "おもに14畳用・4.0kW・単相200V",
+        "うるる加湿・さらら除湿・換気",
+        "ストリーマ・フィルター自動お掃除・スマホ操作"
+      ],
+      "pros": [
+        "冷暖房も除湿も高性能で省エネ",
+        "加湿・換気までできる"
+      ],
+      "cons": [
+        "室内機が大きめで、価格も高めです"
+      ],
+      "recommendFor": "14畳前後の部屋で、加湿・換気まで備えた高機能なエアコンが欲しい人",
+      "caution": "リンク先はLifeStage Nana!の出品です（本体のみ）。200V機種です。設置場所のコンセント・専用回路をご確認ください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0G718RP8X/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r62zo.d8zue8c5.g00r62zo.d8zuf424/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fl-nana%2F4573535489740%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fl-nana%2Fi%2F10159890%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/l-nana/cabinet/gazou75/s406atrp-w.jpg?_ex=300x300",
+      "attributes": {
+        "cooling": 5,
+        "heating": 5,
+        "dehumidification": 5,
+        "energy": 5,
+        "cleaning": 5,
+        "airCare": 5,
+        "comfort": 5,
+        "quiet": 4,
+        "compact": 2,
+        "smart": 5,
+        "autoComfort": 5,
+        "value": 2,
+        "neutralFit": 3,
+        "ratedTatami": 14,
+        "autoFilterClean": true,
+        "voltage200": true,
+        "humidityVentilation": true,
+        "size6": true,
+        "fit6": 2,
+        "size10": true,
+        "fit10": 4,
+        "size14": true,
+        "fit14": 5,
+        "size18": false,
+        "fit18": 1,
+        "size20": false,
+        "fit20": 1,
+        "size23": false,
+        "fit23": 1,
+        "size26": false,
+        "fit26": 1,
+        "autoCleanFit": 5,
+        "humidFit": 5,
+        "priceYen": 211981
+      }
+    },
+    {
+      "id": "air-conditioner-110",
+      "name": "ダイキン Eシリーズ S566ATEP",
+      "description": "おもに18畳用のスタンダードモデル。大部屋向けでも価格を抑えやすく、ストリーマによる内部クリーンも備えています。",
+      "priceRange": 3,
+      "features": [
+        "おもに18畳用・5.6kW・単相200V",
+        "ストリーマ内部クリーン",
+        "スタンダードモデル"
+      ],
+      "pros": [
+        "大部屋向けでも手頃な価格",
+        "コンパクトな室内機"
+      ],
+      "cons": [
+        "フィルター自動お掃除はありません"
+      ],
+      "recommendFor": "18畳前後のリビングに、手頃なエアコンを選びたい人",
+      "caution": "リンク先はヒロ電材ショップの出品です（本体のみ）。200V機種です。設置場所のコンセント・専用回路をご確認ください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0GSQ37ZDM/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qktpo.d8zue51c.g00qktpo.d8zuf5ed/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fhiro-den%2F230501003%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fhiro-den%2Fi%2F10021964%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/hiro-den/cabinet/04163295/s406atep.jpg?_ex=300x300",
+      "attributes": {
+        "cooling": 4,
+        "heating": 3,
+        "dehumidification": 4,
+        "energy": 2,
+        "cleaning": 3,
+        "airCare": 4,
+        "comfort": 3,
+        "quiet": 3,
+        "compact": 5,
+        "smart": 3,
+        "autoComfort": 3,
+        "value": 5,
+        "neutralFit": 3,
+        "ratedTatami": 18,
+        "autoFilterClean": false,
+        "voltage200": true,
+        "humidityVentilation": false,
+        "size6": true,
+        "fit6": 1,
+        "size10": true,
+        "fit10": 2,
+        "size14": true,
+        "fit14": 4,
+        "size18": true,
+        "fit18": 5,
+        "size20": false,
+        "fit20": 1,
+        "size23": false,
+        "fit23": 1,
+        "size26": false,
+        "fit26": 1,
+        "autoCleanFit": 1,
+        "humidFit": 1,
+        "priceYen": 143300
+      }
+    },
+    {
+      "id": "air-conditioner-111",
+      "name": "Panasonic エオリア CS-EX566D2",
+      "description": "おもに18畳用のコンパクトモデル。奥行249mmの室内機にフィルターお掃除ロボットとナノイーXを搭載しています。",
+      "priceRange": 4,
+      "features": [
+        "おもに18畳用・5.6kW・単相200V",
+        "室内機の奥行249mm",
+        "フィルターお掃除ロボット・ナノイーX"
+      ],
+      "pros": [
+        "大部屋向けでもコンパクト",
+        "お手入れの手間を減らせる"
+      ],
+      "cons": [
+        "加湿・換気の機能はありません"
+      ],
+      "recommendFor": "18畳前後のリビングで、設置しやすさとお手入れの手軽さを両立したい人",
+      "caution": "リンク先は家電のSAKURAの出品です（本体のみ）。200V機種です。設置場所のコンセント・専用回路をご確認ください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0GQF5RG2L/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q4jmo.d8zue02d.g00q4jmo.d8zuf7a0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkaden-sakura%2F4550719037799%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkaden-sakura%2Fi%2F10185645%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/kaden-sakura/cabinet/gazou77/cs-ex566d2-w.jpg?_ex=300x300",
+      "attributes": {
+        "cooling": 4,
+        "heating": 4,
+        "dehumidification": 4,
+        "energy": 3,
+        "cleaning": 5,
+        "airCare": 4,
+        "comfort": 4,
+        "quiet": 4,
+        "compact": 5,
+        "smart": 4,
+        "autoComfort": 4,
+        "value": 4,
+        "neutralFit": 3,
+        "ratedTatami": 18,
+        "autoFilterClean": true,
+        "voltage200": true,
+        "humidityVentilation": false,
+        "size6": true,
+        "fit6": 1,
+        "size10": true,
+        "fit10": 2,
+        "size14": true,
+        "fit14": 4,
+        "size18": true,
+        "fit18": 5,
+        "size20": false,
+        "fit20": 1,
+        "size23": false,
+        "fit23": 1,
+        "size26": false,
+        "fit26": 1,
+        "autoCleanFit": 5,
+        "humidFit": 1,
+        "priceYen": 186179
+      }
+    },
+    {
+      "id": "air-conditioner-112",
+      "name": "三菱電機 霧ヶ峰 MSZ-JXV5626S",
+      "description": "おもに18畳用のハイスペックモデル。ムーブアイで人や部屋の状況を見て、快適な気流と省エネを両立します。",
+      "priceRange": 4,
+      "features": [
+        "おもに18畳用・5.6kW・単相200V",
+        "ムーブアイ・気流制御",
+        "フィルター自動お掃除・ハイスペックモデル"
+      ],
+      "pros": [
+        "センサーで自動的に快適にしてくれる",
+        "冷暖房性能が高い"
+      ],
+      "cons": [
+        "室内機は奥行があります"
+      ],
+      "recommendFor": "18畳前後のリビングで、快適性と省エネを重視したい人",
+      "caution": "リンク先は家電のネイビーの出品です（本体のみ）。200V機種です。設置場所のコンセント・専用回路をご確認ください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0H361FVZK/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rg6ho.d8zuef0d.g00rg6ho.d8zuf20c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fk-navy%2Fmsz-jxv5626s-w%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fk-navy%2Fi%2F10086727%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/k-navy/cabinet/aircon2026/msz-jxv5626s-w.jpg?_ex=300x300",
+      "attributes": {
+        "cooling": 5,
+        "heating": 5,
+        "dehumidification": 5,
+        "energy": 4,
+        "cleaning": 5,
+        "airCare": 4,
+        "comfort": 5,
+        "quiet": 4,
+        "compact": 3,
+        "smart": 5,
+        "autoComfort": 5,
+        "value": 3,
+        "neutralFit": 3,
+        "ratedTatami": 18,
+        "autoFilterClean": true,
+        "voltage200": true,
+        "humidityVentilation": false,
+        "size6": true,
+        "fit6": 1,
+        "size10": true,
+        "fit10": 2,
+        "size14": true,
+        "fit14": 4,
+        "size18": true,
+        "fit18": 5,
+        "size20": false,
+        "fit20": 1,
+        "size23": false,
+        "fit23": 1,
+        "size26": false,
+        "fit26": 1,
+        "autoCleanFit": 5,
+        "humidFit": 1,
+        "priceYen": 193800
+      }
+    },
+    {
+      "id": "air-conditioner-113",
+      "name": "日立 白くまくん RAS-GR6326D",
+      "description": "おもに20畳用の薄型モデル。凍結洗浄Lightやフィルター自動お掃除で、大部屋でも清潔に使えます。",
+      "priceRange": 4,
+      "features": [
+        "おもに20畳用・6.3kW・単相200V",
+        "凍結洗浄Light・カビバスター・フィルター自動お掃除",
+        "3モード除湿・白くまくんアプリ・奥行250mm"
+      ],
+      "pros": [
+        "大部屋向けでも薄型",
+        "お手入れの手間を減らせる"
+      ],
+      "cons": [
+        "省エネ性能は上位モデルに及びません"
+      ],
+      "recommendFor": "20畳前後のリビングで、清潔さと設置しやすさを重視したい人",
+      "caution": "リンク先はソフマップの出品です（本体のみ）。200V機種です。設置場所のコンセント・専用回路をご確認ください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0H1MMDJPS/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pyd1o.d8zuede2.g00pyd1o.d8zuf064/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdtc%2F80049840%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdtc%2Fi%2F13161937%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/dtc/cabinet/aircon2026/80049840.jpg?_ex=300x300",
+      "attributes": {
+        "cooling": 4,
+        "heating": 4,
+        "dehumidification": 4,
+        "energy": 2,
+        "cleaning": 5,
+        "airCare": 4,
+        "comfort": 4,
+        "quiet": 3,
+        "compact": 5,
+        "smart": 4,
+        "autoComfort": 4,
+        "value": 4,
+        "neutralFit": 3,
+        "ratedTatami": 20,
+        "autoFilterClean": true,
+        "voltage200": true,
+        "humidityVentilation": false,
+        "size6": true,
+        "fit6": 1,
+        "size10": true,
+        "fit10": 1,
+        "size14": true,
+        "fit14": 2,
+        "size18": true,
+        "fit18": 4,
+        "size20": true,
+        "fit20": 5,
+        "size23": false,
+        "fit23": 1,
+        "size26": false,
+        "fit26": 1,
+        "autoCleanFit": 5,
+        "humidFit": 1,
+        "priceYen": 220610
+      }
+    },
+    {
+      "id": "air-conditioner-114",
+      "name": "Panasonic エオリア CS-EX716D2",
+      "description": "おもに23畳用のコンパクトモデル。奥行249mmの室内機で大空間に対応し、フィルターお掃除ロボットとナノイーXを搭載しています。",
+      "priceRange": 4,
+      "features": [
+        "おもに23畳用・7.1kW・単相200V",
+        "室内機の奥行249mm",
+        "フィルターお掃除ロボット・ナノイーX"
+      ],
+      "pros": [
+        "大空間向けでもコンパクト",
+        "お手入れの手間を減らせる"
+      ],
+      "cons": [
+        "省エネ性能は上位モデルに及びません"
+      ],
+      "recommendFor": "23畳前後の広いリビングで、設置しやすさとお手入れの手軽さを重視したい人",
+      "caution": "リンク先は家電のSAKURAの出品です（本体のみ）。200V機種です。設置場所のコンセント・専用回路をご確認ください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0GQFK13G3/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q4jmo.d8zue02d.g00q4jmo.d8zuf7a0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkaden-sakura%2F4550719037812%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkaden-sakura%2Fi%2F10185647%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/kaden-sakura/cabinet/gazou77/cs-ex716d2-w.jpg?_ex=300x300",
+      "attributes": {
+        "cooling": 5,
+        "heating": 4,
+        "dehumidification": 4,
+        "energy": 2,
+        "cleaning": 5,
+        "airCare": 4,
+        "comfort": 4,
+        "quiet": 3,
+        "compact": 5,
+        "smart": 4,
+        "autoComfort": 4,
+        "value": 4,
+        "neutralFit": 3,
+        "ratedTatami": 23,
+        "autoFilterClean": true,
+        "voltage200": true,
+        "humidityVentilation": false,
+        "size6": true,
+        "fit6": 1,
+        "size10": true,
+        "fit10": 1,
+        "size14": true,
+        "fit14": 1,
+        "size18": true,
+        "fit18": 2,
+        "size20": true,
+        "fit20": 4,
+        "size23": true,
+        "fit23": 5,
+        "size26": false,
+        "fit26": 1,
+        "autoCleanFit": 5,
+        "humidFit": 1,
+        "priceYen": 215000
+      }
+    },
+    {
+      "id": "air-conditioner-115",
+      "name": "ダイキン うるさらX S806ATRP",
+      "description": "おもに26畳用のプレミアムモデル。うるる加湿・さらら除湿・換気を備え、広い空間を一年中快適にします。",
+      "priceRange": 5,
+      "features": [
+        "おもに26畳用・8.0kW・単相200V",
+        "うるる加湿・さらら除湿・換気",
+        "ストリーマ・フィルター自動お掃除・スマホ操作"
+      ],
+      "pros": [
+        "大空間でも冷暖房がパワフル",
+        "加湿・換気までできる"
+      ],
+      "cons": [
+        "室内機が大きめで、価格も高めです"
+      ],
+      "recommendFor": "26畳前後の広い空間で、加湿・換気まで備えた高機能なエアコンが欲しい人",
+      "caution": "リンク先は家電のSAKURAの出品です（本体のみ）。200V機種です。設置場所のコンセント・専用回路をご確認ください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0G71YHX3J/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q4jmo.d8zue02d.g00q4jmo.d8zuf7a0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkaden-sakura%2F4573535489856%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkaden-sakura%2Fi%2F10184820%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/kaden-sakura/cabinet/gazou75/s806atrp-w.jpg?_ex=300x300",
+      "attributes": {
+        "cooling": 5,
+        "heating": 5,
+        "dehumidification": 5,
+        "energy": 3,
+        "cleaning": 5,
+        "airCare": 5,
+        "comfort": 5,
+        "quiet": 4,
+        "compact": 2,
+        "smart": 5,
+        "autoComfort": 5,
+        "value": 2,
+        "neutralFit": 3,
+        "ratedTatami": 26,
+        "autoFilterClean": true,
+        "voltage200": true,
+        "humidityVentilation": true,
+        "size6": true,
+        "fit6": 1,
+        "size10": true,
+        "fit10": 1,
+        "size14": true,
+        "fit14": 1,
+        "size18": true,
+        "fit18": 1,
+        "size20": true,
+        "fit20": 2,
+        "size23": true,
+        "fit23": 4,
+        "size26": true,
+        "fit26": 5,
+        "autoCleanFit": 5,
+        "humidFit": 5,
+        "priceYen": 304790
+      }
+    }
+  ],
+  "scoring": {
+    "tieBreak": true,
+    "softenPartialReason": true,
+    "lowMatchNotice": "条件をすべて満たす商品が少ないため、近い候補を表示しています。"
+  },
+  "guide": {
+    "title": "エアコンの選び方",
+    "intro": "この診断は、メーカー公表の仕様をもとに、以下のポイントとあなたの回答を照らし合わせて相性を計算しています。",
+    "sections": [
+      {
+        "heading": "部屋の広さと能力",
+        "body": "「おもに○畳用」を目安に、部屋の広さに合った能力の機種を選びましょう。実際に必要な能力は、木造・鉄筋などの構造や断熱性能、方角、窓の大きさ、地域、最上階かどうかなどでも変わります。"
+      },
+      {
+        "heading": "省エネと本体価格",
+        "body": "上位モデルは本体価格が高めですが、省エネ性能が高く、長く使うほど電気代の差が出やすくなります。使う時間が長い部屋ほど、省エネ性能も重視しましょう。"
+      },
+      {
+        "heading": "お手入れと電源",
+        "body": "フィルター自動お掃除があると、お手入れの手間を減らせます。14畳用以上の多くは単相200Vの機種のため、設置場所のコンセントや専用回路を確認しましょう。"
+      }
+    ]
+  },
+  "notice": "価格帯はエアコン本体（室内機＋室外機）の目安で、標準取付工事費などは含みません。エアコンは別途、設置工事費等が必要になる場合があります。実際の必要能力は住宅条件で変わるため、購入前に販売店等で設置条件をご確認ください。"
+}

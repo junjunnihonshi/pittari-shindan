@@ -44,6 +44,7 @@ import { airFryer } from './airFryer.ts'
 import { printer } from './printer.ts'
 import { refrigerator } from './refrigerator.ts'
 import { circulatorFan } from './circulatorFan.ts'
+import { airConditioner } from './airConditioner.ts'
 
 /**
  * 診断の一覧（登録簿）。
@@ -96,6 +97,7 @@ const allDiagnoses: Diagnosis[] = [
   printer,
   refrigerator,
   circulatorFan,
+  airConditioner,
 ]
 
 /**
