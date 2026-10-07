@@ -1,0 +1,1294 @@
+{
+  "id": "air-fryer",
+  "enabled": false,
+  "title": "エアフライヤー診断",
+  "itemName": "エアフライヤー",
+  "group": "kitchen",
+  "icon": "🍟",
+  "cardDescription": "容量、スチーム、中が見えるタイプ、調理メニュー、使いやすさ、洗いやすさ、予算から、あなたにぴったりのエアフライヤーを診断。",
+  "description": "重視したいことや作る量、中が見えるタイプ、スチーム機能、使い方、使いやすさ、予算から、あなたにぴったりのエアフライヤーを絞り込みます。",
+  "searchKeywords": [
+    "エアフライヤー",
+    "エアフライヤーおすすめ",
+    "ノンフライヤー",
+    "ノンフライヤーおすすめ",
+    "ノンオイルフライヤー",
+    "おすすめ",
+    "唐揚げ",
+    "フライドポテト",
+    "揚げ物",
+    "冷凍食品",
+    "温め直し",
+    "ヘルシー",
+    "油なし",
+    "大容量",
+    "一人暮らし",
+    "家族",
+    "スチーム",
+    "過熱水蒸気",
+    "ガラスエアフライヤー",
+    "中が見える",
+    "COSORI",
+    "コソリ",
+    "Ninja",
+    "ニンジャ",
+    "アイリスオーヤマ",
+    "山善",
+    "YAMAZEN",
+    "レコルト",
+    "BRUNO",
+    "Xiaomi",
+    "MAXZEN",
+    "EPEIOS"
+  ],
+  "seo": {
+    "title": "エアフライヤーの選び方診断｜あなたにぴったりのエアフライヤーを7問で診断",
+    "description": "容量、スチーム、中が見えるタイプ、調理メニュー、使いやすさ、洗いやすさ、予算など7つの質問から、あなたにぴったりのエアフライヤーを診断します。"
+  },
+  "priceLabels": {
+    "1": "〜8,000円",
+    "2": "8,000〜10,000円",
+    "3": "10,000〜15,000円",
+    "4": "15,000〜20,000円",
+    "5": "20,000円〜"
+  },
+  "questions": [
+    {
+      "id": "priority",
+      "text": "エアフライヤーで一番重視したいことは？",
+      "shortLabel": "重視すること",
+      "weight": 22,
+      "options": [
+        {
+          "id": "crisp",
+          "label": "揚げ物をカリッとおいしく仕上げたい",
+          "summary": "揚げ物をカリッと仕上げたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "crisp",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "speed",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "reheat",
+          "label": "お惣菜・冷凍食品をおいしく温め直したい",
+          "summary": "お惣菜・冷凍食品をおいしく温め直したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "reheat",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "crisp",
+              "value": 5,
+              "weight": 20
+            },
+            {
+              "type": "atLeast",
+              "attr": "ease",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "family",
+          "label": "家族分を一度にたくさん作りたい",
+          "summary": "家族分を一度にたくさん作りたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "capacity",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "speed",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "steam",
+          "label": "スチームで肉や魚をジューシーにしたい",
+          "summary": "スチームで肉や魚をジューシーにしたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "steam",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "versatility",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "cook",
+          "label": "揚げ物以外の料理にも幅広く使いたい",
+          "summary": "揚げ物以外の料理にも幅広く使いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "versatility",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "automation",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "value",
+          "label": "価格・コスパ",
+          "summary": "価格・コスパを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "ease",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "amount",
+      "text": "一度にどのくらい作りたいですか？",
+      "shortLabel": "作る量",
+      "weight": 16,
+      "options": [
+        {
+          "id": "p12",
+          "label": "1〜2人分",
+          "summary": "1〜2人分を作る",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "compact",
+              "value": 5,
+              "weight": 80
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "p34",
+          "label": "3〜4人分",
+          "summary": "3〜4人分を作る",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "capacity",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "speed",
+              "value": 5,
+              "weight": 50
+            }
+          ],
+          "eligibility": {
+            "attr": "capacity3",
+            "value": true,
+            "notice": "容量3L以上の機種からおすすめを表示しています。",
+            "supplementLabel": "容量が3L未満です"
+          }
+        },
+        {
+          "id": "p4",
+          "label": "4人以上・作り置き",
+          "summary": "4人以上・作り置きを作る",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "capacity",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "capacity5",
+            "value": true,
+            "notice": "容量5L以上の機種からおすすめを表示しています。",
+            "supplementLabel": "容量が5L未満です"
+          }
+        }
+      ]
+    },
+    {
+      "id": "window",
+      "text": "調理中の焼け具合を外から確認したいですか？",
+      "shortLabel": "中が見える",
+      "weight": 12,
+      "options": [
+        {
+          "id": "must",
+          "label": "中が見えることは必須",
+          "summary": "中が見えることは必須",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "visibility",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "visibleCooking",
+            "value": true,
+            "notice": "調理中の食材が見える機種からおすすめを表示しています。",
+            "supplementLabel": "調理中の食材は外から見えません"
+          }
+        },
+        {
+          "id": "nice",
+          "label": "見えればうれしい",
+          "summary": "中が見えればうれしい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "visibility",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 50
+            }
+          ]
+        },
+        {
+          "id": "none",
+          "label": "特にこだわらない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "steam",
+      "text": "スチーム・過熱水蒸気機能は必要ですか？",
+      "shortLabel": "スチーム",
+      "weight": 12,
+      "options": [
+        {
+          "id": "must",
+          "label": "スチーム機能は必須",
+          "summary": "スチーム機能は必須",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "steam",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "steamSupported",
+            "value": true,
+            "notice": "スチーム・過熱水蒸気に対応した機種からおすすめを表示しています。",
+            "supplementLabel": "スチーム・過熱水蒸気の機能はありません"
+          }
+        },
+        {
+          "id": "nice",
+          "label": "あればうれしい",
+          "summary": "スチーム機能があればうれしい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "steam",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "versatility",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 40
+            }
+          ]
+        },
+        {
+          "id": "none",
+          "label": "必要ない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "neutralFit",
+              "value": 3,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "usage",
+      "text": "どんな使い方をしたいですか？",
+      "shortLabel": "使い方",
+      "weight": 12,
+      "options": [
+        {
+          "id": "fry",
+          "label": "唐揚げ・ポテトなどエアフライ中心",
+          "summary": "エアフライ中心で使いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "crisp",
+              "value": 5,
+              "weight": 40
+            },
+            {
+              "type": "atLeast",
+              "attr": "speed",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "ease",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "cook",
+          "label": "焼き魚・肉・お菓子など料理にも幅広く使いたい",
+          "summary": "料理にも幅広く使いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "versatility",
+              "value": 5,
+              "weight": 40
+            },
+            {
+              "type": "atLeast",
+              "attr": "automation",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "reheat",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "bulk",
+          "label": "一度にたくさん・作り置きしたい",
+          "summary": "一度にたくさん作りたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "capacity",
+              "value": 5,
+              "weight": 40
+            },
+            {
+              "type": "atLeast",
+              "attr": "speed",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "versatility",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "usability",
+      "text": "使いやすさで一番重視することは？",
+      "shortLabel": "使いやすさ",
+      "weight": 12,
+      "options": [
+        {
+          "id": "easy",
+          "label": "とにかく操作が簡単",
+          "summary": "操作が簡単なほうがいい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "ease",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "compact",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "auto",
+          "label": "自動メニュー・おまかせ調理",
+          "summary": "自動メニュー・おまかせ調理を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "automation",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "versatility",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        },
+        {
+          "id": "clean",
+          "label": "洗いやすさ・後片付け",
+          "summary": "洗いやすさ・後片付けを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "cleanup",
+              "value": 5,
+              "weight": 70
+            },
+            {
+              "type": "atLeast",
+              "attr": "ease",
+              "value": 5,
+              "weight": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "budget",
+      "text": "予算は？",
+      "shortLabel": "予算",
+      "weight": 8,
+      "options": [
+        {
+          "id": "b1",
+          "label": "8,000円以下",
+          "summary": "予算8,000円以下",
+          "effects": [],
+          "maxPriceRange": 1
+        },
+        {
+          "id": "b2",
+          "label": "10,000円以下",
+          "summary": "予算10,000円以下",
+          "effects": [],
+          "maxPriceRange": 2
+        },
+        {
+          "id": "b3",
+          "label": "15,000円以下",
+          "summary": "予算15,000円以下",
+          "effects": [],
+          "maxPriceRange": 3
+        },
+        {
+          "id": "b4",
+          "label": "20,000円以下",
+          "summary": "予算20,000円以下",
+          "effects": [],
+          "maxPriceRange": 4
+        },
+        {
+          "id": "b5",
+          "label": "30,000円以下",
+          "summary": "予算30,000円以下",
+          "effects": [],
+          "eligibility": {
+            "attr": "within30k",
+            "value": true,
+            "notice": "予算30,000円以下の機種からおすすめを表示しています。",
+            "supplementLabel": "予算30,000円を超えます"
+          }
+        },
+        {
+          "id": "any",
+          "label": "上限なし",
+          "effects": []
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "air-fryer-101",
+      "name": "MAXZEN ノンオイルフライヤー MAF-LT01",
+      "description": "2Lのコンパクトなノンオイルフライヤー。ダイヤル式のシンプルな操作で、手軽にエアフライを始められます。",
+      "priceRange": 1,
+      "features": [
+        "2L・1000W",
+        "80〜200℃・最大30分",
+        "約2.8kg・幅20.5cm・ダイヤル式"
+      ],
+      "pros": [
+        "とても手頃な価格",
+        "コンパクトで一人暮らしでも置きやすい"
+      ],
+      "cons": [
+        "調理中の食材は外から見えません",
+        "スチーム・過熱水蒸気の機能はありません"
+      ],
+      "recommendFor": "一人暮らしで、手頃な価格のエアフライヤーを試したい人",
+      "caution": "リンク先はMAXZEN公式店の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ufgpo.d8zue581.g00ufgpo.d8zuf574/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmaxzen%2F4571495434275%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmaxzen%2Fi%2F10000521%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/maxzen/cabinet/pics/04/0-4571495434268.jpg?_ex=300x300",
+      "attributes": {
+        "crisp": 3,
+        "reheat": 3,
+        "capacity": 1,
+        "steam": 1,
+        "versatility": 2,
+        "speed": 3,
+        "visibility": 1,
+        "automation": 1,
+        "cleanup": 3,
+        "ease": 5,
+        "compact": 5,
+        "value": 5,
+        "neutralFit": 3,
+        "capacityLiters": 2,
+        "visibleCooking": false,
+        "steamSupported": false,
+        "capacity3": false,
+        "capacity5": false,
+        "within30k": true,
+        "priceYen": 5480
+      }
+    },
+    {
+      "id": "air-fryer-102",
+      "name": "COSORI Lite 2L ミニノンフライヤー",
+      "description": "2Lのコンパクトなノンフライヤー。ノンフライのほか、ベイク・ロースト・温め直しにも使え、パーツは食洗機で洗えます。",
+      "priceRange": 3,
+      "features": [
+        "2L・一人用",
+        "ノンフライ・ベイク・ロースト・温め直し",
+        "食洗機対応パーツ"
+      ],
+      "pros": [
+        "小型でも高性能",
+        "お手入れが簡単"
+      ],
+      "cons": [
+        "調理中の食材は外から見えません",
+        "スチーム・過熱水蒸気の機能はありません"
+      ],
+      "recommendFor": "一人暮らしで、小型でも性能にこだわりたい人",
+      "caution": "リンク先はXPRICEの出品（COLI211C-WH・ホワイト）です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qn68o.d8zuee0f.g00qn68o.d8zuf9b5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fa-price%2F0810123672370%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fa-price%2Fi%2F11281350%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/a-price/cabinet/orj/45/0-0810123672370.jpg?_ex=300x300",
+      "attributes": {
+        "crisp": 4,
+        "reheat": 4,
+        "capacity": 1,
+        "steam": 1,
+        "versatility": 3,
+        "speed": 4,
+        "visibility": 1,
+        "automation": 3,
+        "cleanup": 4,
+        "ease": 5,
+        "compact": 5,
+        "value": 4,
+        "neutralFit": 3,
+        "capacityLiters": 2,
+        "visibleCooking": false,
+        "steamSupported": false,
+        "capacity3": false,
+        "capacity5": false,
+        "within30k": true,
+        "priceYen": 10800
+      }
+    },
+    {
+      "id": "air-fryer-103",
+      "name": "Toffy エアフライヤーミニ K-HAF1",
+      "description": "容量1.2Lのコンパクトなエアフライヤー。シンプルな操作で、揚げ物や温め直しを手軽にできる、デザイン性の高いモデルです。",
+      "priceRange": 1,
+      "features": [
+        "容量1.2L",
+        "30分タイマー・シンプル操作",
+        "レトロなデザイン"
+      ],
+      "pros": [
+        "とてもコンパクトで置きやすい",
+        "手頃な価格で温め直しにも使える"
+      ],
+      "cons": [
+        "調理中の食材は外から見えません",
+        "スチーム・過熱水蒸気の機能はありません",
+        "一度に作れる量は少なめです"
+      ],
+      "recommendFor": "一人暮らしで、おしゃれで小さなエアフライヤーが欲しい人",
+      "caution": "リンク先はToffy公式ショップの出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rzjwo.d8zue911.g00rzjwo.d8zuf22c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftoffy%2Fk-haf1%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftoffy%2Fi%2F10008560%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/toffy/cabinet/item01/item13/k-haf1_1.jpg?_ex=300x300",
+      "attributes": {
+        "crisp": 4,
+        "reheat": 4,
+        "capacity": 1,
+        "steam": 1,
+        "versatility": 2,
+        "speed": 3,
+        "visibility": 1,
+        "automation": 1,
+        "cleanup": 4,
+        "ease": 5,
+        "compact": 5,
+        "value": 5,
+        "neutralFit": 3,
+        "capacityLiters": 1.2,
+        "visibleCooking": false,
+        "steamSupported": false,
+        "capacity3": false,
+        "capacity5": false,
+        "within30k": true,
+        "priceYen": 6600
+      }
+    },
+    {
+      "id": "air-fryer-104",
+      "name": "Xiaomi エアフライヤー エッセンシャル 6L（MAF13）",
+      "description": "6Lの大容量エアフライヤー。360°循環加熱で裏返さずに調理でき、手頃な価格で家族分を作れます。",
+      "priceRange": 1,
+      "features": [
+        "6L・80〜200℃・最大60分",
+        "360°循環加熱・裏返し不要設計",
+        "ダイヤル式・ノンスティック加工"
+      ],
+      "pros": [
+        "手頃な価格で家族分を一度に作れる",
+        "操作がシンプル"
+      ],
+      "cons": [
+        "調理中の食材は外から見えません",
+        "スチーム・過熱水蒸気の機能はありません",
+        "本体は大きめです"
+      ],
+      "recommendFor": "手頃な価格で、家族分を一度にたっぷり作りたい人",
+      "caution": "リンク先はXiaomi公式店の出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0DP9PTK8L/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u4hyo.d8zued8c.g00u4hyo.d8zuf50c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fxiaomiofficial%2Fm61135%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fxiaomiofficial%2Fi%2F10000289%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/xiaomiofficial/cabinet/11199481/11199483/mainx.jpg?_ex=300x300",
+      "attributes": {
+        "crisp": 4,
+        "reheat": 4,
+        "capacity": 5,
+        "steam": 1,
+        "versatility": 3,
+        "speed": 4,
+        "visibility": 1,
+        "automation": 1,
+        "cleanup": 4,
+        "ease": 5,
+        "compact": 2,
+        "value": 5,
+        "neutralFit": 3,
+        "capacityLiters": 6,
+        "visibleCooking": false,
+        "steamSupported": false,
+        "capacity3": true,
+        "capacity5": true,
+        "within30k": true,
+        "priceYen": 7980
+      }
+    },
+    {
+      "id": "air-fryer-105",
+      "name": "山善 ノンフライヤー YAH-AC120",
+      "description": "4.5Lのノンフライヤー。ダイヤル操作でシンプルに使え、バスケットと網プレートは丸洗いできます。",
+      "priceRange": 2,
+      "features": [
+        "4.5L・1200W",
+        "最大200℃・最大30分",
+        "バスケット・網プレート丸洗い・ダイヤル操作"
+      ],
+      "pros": [
+        "手頃な価格で3〜4人分を作れる",
+        "操作がシンプル"
+      ],
+      "cons": [
+        "調理中の食材は外から見えません",
+        "スチーム・過熱水蒸気の機能はありません"
+      ],
+      "recommendFor": "手頃な価格で、家族向けのシンプルなノンフライヤーが欲しい人",
+      "caution": "リンク先は山善公式店の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tlfdo.d8zuefb3.g00tlfdo.d8zufad3/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyamazenkaden%2Fr8q36%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyamazenkaden%2Fi%2F10005504%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/yamazenkaden/cabinet/main-img/018/main-r8q36.jpg?_ex=300x300",
+      "attributes": {
+        "crisp": 4,
+        "reheat": 4,
+        "capacity": 4,
+        "steam": 1,
+        "versatility": 3,
+        "speed": 3,
+        "visibility": 1,
+        "automation": 1,
+        "cleanup": 4,
+        "ease": 5,
+        "compact": 3,
+        "value": 5,
+        "neutralFit": 3,
+        "capacityLiters": 4.5,
+        "visibleCooking": false,
+        "steamSupported": false,
+        "capacity3": true,
+        "capacity5": false,
+        "within30k": true,
+        "priceYen": 8980
+      }
+    },
+    {
+      "id": "air-fryer-106",
+      "name": "アイリスオーヤマ 過熱水蒸気エアフライヤー FV-M30A-C",
+      "description": "過熱水蒸気に対応したエアフライヤー。揚げ物や焼き物、冷凍食品、お惣菜の温め直しをジューシーに仕上げます。",
+      "priceRange": 1,
+      "features": [
+        "約3Lクラス・1200W",
+        "75〜200℃・最大60分",
+        "過熱水蒸気・冷凍食品・惣菜の温め直し"
+      ],
+      "pros": [
+        "手頃な価格でスチーム調理ができる",
+        "お惣菜の温め直しもおいしい"
+      ],
+      "cons": [
+        "調理中の食材は外から見えません"
+      ],
+      "recommendFor": "手頃な価格で、スチームを使ったジューシーな調理を楽しみたい人",
+      "caution": "リンク先はエディオンの出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r9svo.d8zue4d3.g00r9svo.d8zuf0f9/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fedion%2F4967576809078%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fedion%2Fi%2F10905727%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/edion/cabinet/goods/ll/img_575/4967576809078_1.jpg?_ex=300x300",
+      "attributes": {
+        "crisp": 4,
+        "reheat": 4,
+        "capacity": 3,
+        "steam": 5,
+        "versatility": 4,
+        "speed": 4,
+        "visibility": 1,
+        "automation": 4,
+        "cleanup": 4,
+        "ease": 5,
+        "compact": 4,
+        "value": 5,
+        "neutralFit": 3,
+        "capacityLiters": 3,
+        "visibleCooking": false,
+        "steamSupported": true,
+        "capacity3": true,
+        "capacity5": false,
+        "within30k": true,
+        "priceYen": 7850
+      }
+    },
+    {
+      "id": "air-fryer-107",
+      "name": "BRUNO ガラスエアフライヤー BOE122",
+      "description": "耐熱ガラスバスケットで、調理中の食材が見えるエアフライヤー。食卓になじむデザインも特長です。",
+      "priceRange": 3,
+      "features": [
+        "3.5L・1000W",
+        "耐熱ガラスバスケット・調理中の食材が見える",
+        "コンパクト・デザイン性"
+      ],
+      "pros": [
+        "焼け具合を見ながら調理できる",
+        "おしゃれで食卓になじむ"
+      ],
+      "cons": [
+        "スチーム・過熱水蒸気の機能はありません"
+      ],
+      "recommendFor": "焼け具合を見ながら、おしゃれなエアフライヤーで調理したい人",
+      "caution": "リンク先はコジマの出品（アイボリー）です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4514499183725%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11667051%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001615/4514499183725_1.jpg?_ex=300x300",
+      "attributes": {
+        "crisp": 4,
+        "reheat": 4,
+        "capacity": 3,
+        "steam": 1,
+        "versatility": 3,
+        "speed": 3,
+        "visibility": 5,
+        "automation": 4,
+        "cleanup": 4,
+        "ease": 5,
+        "compact": 4,
+        "value": 4,
+        "neutralFit": 3,
+        "capacityLiters": 3.5,
+        "visibleCooking": true,
+        "steamSupported": false,
+        "capacity3": true,
+        "capacity5": false,
+        "within30k": true,
+        "priceYen": 13200
+      }
+    },
+    {
+      "id": "air-fryer-108",
+      "name": "COSORI PRO LE 4.7L",
+      "description": "4.7Lのノンフライヤー。最大230℃と9つの調理機能で、揚げ物をカリッと仕上げます。食洗機にも対応しています。",
+      "priceRange": 4,
+      "features": [
+        "4.7L・1230W・最大230℃",
+        "9調理機能・自動停止・シェイクお知らせ",
+        "比較的静か・食洗機対応・ノンスティック"
+      ],
+      "pros": [
+        "カリッとした仕上がり",
+        "自動メニューで使いやすい"
+      ],
+      "cons": [
+        "調理中の食材は外から見えません",
+        "スチーム・過熱水蒸気の機能はありません"
+      ],
+      "recommendFor": "揚げ物をカリッと仕上げたい、家族向けの高性能モデルが欲しい人",
+      "caution": "リンク先はXPRICEの出品（CAF-L501-KJPR・グレー）です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qn68o.d8zuee0f.g00qn68o.d8zuf9b5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fa-price%2F0810043378574%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fa-price%2Fi%2F11281348%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/a-price/cabinet/orj/45/0-0810043378574.jpg?_ex=300x300",
+      "attributes": {
+        "crisp": 5,
+        "reheat": 5,
+        "capacity": 4,
+        "steam": 1,
+        "versatility": 4,
+        "speed": 4,
+        "visibility": 1,
+        "automation": 5,
+        "cleanup": 5,
+        "ease": 5,
+        "compact": 3,
+        "value": 5,
+        "neutralFit": 3,
+        "capacityLiters": 4.7,
+        "visibleCooking": false,
+        "steamSupported": false,
+        "capacity3": true,
+        "capacity5": false,
+        "within30k": true,
+        "priceYen": 15280
+      }
+    },
+    {
+      "id": "air-fryer-109",
+      "name": "山善 ノンフライヤー YAJ-AC1355",
+      "description": "5.5Lの大容量ノンフライヤー。ガラス窓で調理中の様子が見え、バスケットと網プレートは丸洗いできます。",
+      "priceRange": 3,
+      "features": [
+        "5.5L・1300W",
+        "60〜200℃・最大30分",
+        "ガラス窓・バスケット・網プレート丸洗い・レシピブック"
+      ],
+      "pros": [
+        "大容量で家族分を作れる",
+        "中が見えて焼け具合を確認しやすい"
+      ],
+      "cons": [
+        "スチーム・過熱水蒸気の機能はありません",
+        "本体は大きめです"
+      ],
+      "recommendFor": "中の様子を見ながら、家族分をたっぷり作りたい人",
+      "caution": "リンク先は山善公式店の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tlfdo.d8zuefb3.g00tlfdo.d8zufad3/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyamazenkaden%2Fxacgg%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyamazenkaden%2Fi%2F10006486%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/yamazenkaden/cabinet/main-img/021/main-xacgg.jpg?_ex=300x300",
+      "attributes": {
+        "crisp": 4,
+        "reheat": 4,
+        "capacity": 5,
+        "steam": 1,
+        "versatility": 3,
+        "speed": 3,
+        "visibility": 5,
+        "automation": 3,
+        "cleanup": 4,
+        "ease": 5,
+        "compact": 2,
+        "value": 5,
+        "neutralFit": 3,
+        "capacityLiters": 5.5,
+        "visibleCooking": true,
+        "steamSupported": false,
+        "capacity3": true,
+        "capacity5": true,
+        "within30k": true,
+        "priceYen": 11800
+      }
+    },
+    {
+      "id": "air-fryer-110",
+      "name": "Russell Hobbs エアフライオーブン 1420JP",
+      "description": "スリムなエアフライオーブン。エアフライ・ベイク・ロースト・グリル・温め直しの自動モードを備え、バスケットは食洗機で洗えます。",
+      "priceRange": 4,
+      "features": [
+        "容積4L（最大調理容量3L）・1300W",
+        "60〜200℃・最大60分",
+        "AIR FRY・BAKE・ROAST・GRILL・REHEAT・食洗機対応・幅21cm"
+      ],
+      "pros": [
+        "スリムで置き場所を選ばない",
+        "自動モードで料理の幅が広い"
+      ],
+      "cons": [
+        "調理中の食材は外から見えません",
+        "スチーム・過熱水蒸気の機能はありません"
+      ],
+      "recommendFor": "少人数で、スリムなエアフライオーブンをいろいろな料理に使いたい人",
+      "caution": "リンク先はJoshinの出品です。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0G236ZGNR/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4560132470806-24-15117-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14730372%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0055/4560132470806.jpg?_ex=300x300",
+      "attributes": {
+        "crisp": 4,
+        "reheat": 5,
+        "capacity": 3,
+        "steam": 1,
+        "versatility": 5,
+        "speed": 4,
+        "visibility": 1,
+        "automation": 5,
+        "cleanup": 5,
+        "ease": 5,
+        "compact": 5,
+        "value": 4,
+        "neutralFit": 3,
+        "capacityLiters": 3,
+        "visibleCooking": false,
+        "steamSupported": false,
+        "capacity3": true,
+        "capacity5": false,
+        "within30k": true,
+        "priceYen": 16500
+      }
+    },
+    {
+      "id": "air-fryer-111",
+      "name": "récolte エアーオーブン 4L RAO-4",
+      "description": "約4Lのエアーオーブン。予熱不要で、6つのオートメニューとタッチ操作で手軽に使えます。",
+      "priceRange": 4,
+      "features": [
+        "約4L（MAXライン3.95L）・1200W",
+        "予熱不要・6つのオートメニュー",
+        "ノンフライ・焼き魚・温め直し・冷凍食品"
+      ],
+      "pros": [
+        "予熱不要ですぐに調理できる",
+        "自動メニューで使いやすい"
+      ],
+      "cons": [
+        "調理中の食材は外から見えません",
+        "スチーム・過熱水蒸気の機能はありません"
+      ],
+      "recommendFor": "家族分を、予熱なしで手軽に作りたい人",
+      "caution": "リンク先はセレクトショップ・AQUAの出品です。オーブンペーパー付きではない「本体のみ」の色を選んで購入してください。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pz5qo.d8zue590.g00pz5qo.d8zufa9f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fimportshopaqua%2Faq000183%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fimportshopaqua%2Fi%2F10009943%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/importshopaqua/cabinet/kitchen18/aq000183-fl1_4.jpg?_ex=300x300",
+      "attributes": {
+        "crisp": 4,
+        "reheat": 5,
+        "capacity": 4,
+        "steam": 1,
+        "versatility": 4,
+        "speed": 5,
+        "visibility": 1,
+        "automation": 5,
+        "cleanup": 4,
+        "ease": 5,
+        "compact": 4,
+        "value": 4,
+        "neutralFit": 3,
+        "capacityLiters": 4,
+        "visibleCooking": false,
+        "steamSupported": false,
+        "capacity3": true,
+        "capacity5": false,
+        "within30k": true,
+        "priceYen": 16500
+      }
+    },
+    {
+      "id": "air-fryer-112",
+      "name": "COSORI TurboBlaze 6.0L",
+      "description": "DCモーターを搭載した6Lの大容量ノンフライヤー。最大230℃の高速熱風で、家族分を素早く仕上げます。",
+      "priceRange": 4,
+      "features": [
+        "6L・1500W・最大230℃",
+        "DCモーター・高速熱風",
+        "多彩な調理モード・発酵にも対応"
+      ],
+      "pros": [
+        "大容量でも高速・高火力",
+        "総合力が高い"
+      ],
+      "cons": [
+        "調理中の食材は外から見えません",
+        "スチーム・過熱水蒸気の機能はありません",
+        "本体は大きめです"
+      ],
+      "recommendFor": "家族分を、高火力で素早くカリッと仕上げたい人",
+      "caution": "リンク先はVeSync公式店の出品（ブラック）です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u8ebo.d8zue9b8.g00u8ebo.d8zufd2e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fvesync%2Fkaapafcsnjp0106y%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fvesync%2Fi%2F10000022%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/vesync/cabinet/09152443/10953403/imgrc0092746154.jpg?_ex=300x300",
+      "attributes": {
+        "crisp": 5,
+        "reheat": 5,
+        "capacity": 5,
+        "steam": 1,
+        "versatility": 5,
+        "speed": 5,
+        "visibility": 1,
+        "automation": 5,
+        "cleanup": 5,
+        "ease": 5,
+        "compact": 2,
+        "value": 5,
+        "neutralFit": 3,
+        "capacityLiters": 6,
+        "visibleCooking": false,
+        "steamSupported": false,
+        "capacity3": true,
+        "capacity5": true,
+        "within30k": true,
+        "priceYen": 19980
+      }
+    },
+    {
+      "id": "air-fryer-113",
+      "name": "Ninja Crispi FN100J",
+      "description": "耐熱ガラス容器で中が見えるエアフライヤー。調理した容器のまま食卓に出し、フタをして保存や電子レンジ加熱もできます。",
+      "priceRange": 4,
+      "features": [
+        "Lサイズ3.8L・最大4人前・1420W",
+        "耐熱ガラス・クリスプ・ベイク・ロースト・リクリスプ・保温",
+        "保存用フタ・電子レンジ対応・本体以外食洗機対応"
+      ],
+      "pros": [
+        "調理から食卓、保存まで同じ容器で使える",
+        "中が見えて洗いやすい"
+      ],
+      "cons": [
+        "スチーム・過熱水蒸気の機能はありません"
+      ],
+      "recommendFor": "調理から保存まで、ガラス容器ひとつで済ませたい人",
+      "caution": "リンク先はSharkNinja公式店の出品です。2025年モデル（FN101J）ではなく、FN100Jの色を選んで購入してください。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00toapo.d8zue9b0.g00toapo.d8zufff5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fshark%2Ffn101j%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fshark%2Fi%2F10000489%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/shark/cabinet/products/fn100j/fn100j_01.jpg?_ex=300x300",
+      "attributes": {
+        "crisp": 5,
+        "reheat": 5,
+        "capacity": 3,
+        "steam": 1,
+        "versatility": 5,
+        "speed": 5,
+        "visibility": 5,
+        "automation": 4,
+        "cleanup": 5,
+        "ease": 5,
+        "compact": 5,
+        "value": 4,
+        "neutralFit": 3,
+        "capacityLiters": 3.8,
+        "visibleCooking": true,
+        "steamSupported": false,
+        "capacity3": true,
+        "capacity5": false,
+        "within30k": true,
+        "priceYen": 19800
+      }
+    },
+    {
+      "id": "air-fryer-114",
+      "name": "récolte ハイスチームエアーオーブン RAO-3",
+      "description": "ハイスチームとエアーオーブンを組み合わせたコンパクトな調理家電。肉や魚をジューシーに仕上げ、お手入れモードも備えています。",
+      "priceRange": 5,
+      "features": [
+        "約3L（MAXライン約2.6L）・1200W",
+        "ハイスチーム・エアーオーブン・コンボモード・55〜200℃",
+        "水タンク約500mL・お手入れモード・幅23cm"
+      ],
+      "pros": [
+        "スチームで肉や魚をジューシーに仕上げられる",
+        "コンパクトで料理の幅が広い"
+      ],
+      "cons": [
+        "調理中の食材は外から見えません"
+      ],
+      "recommendFor": "スチームを使って、肉や魚をジューシーに仕上げたい人",
+      "caution": "リンク先は楽天スーパーDEALSHOPの出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00t81xo.d8zue9fa.g00t81xo.d8zuf044/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsuperdeal%2F16662rao32512%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsuperdeal%2Fi%2F10007620%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/superdeal/cabinet/09061004/11661997/12735678/rao-3_00.jpg?_ex=300x300",
+      "attributes": {
+        "crisp": 5,
+        "reheat": 5,
+        "capacity": 3,
+        "steam": 5,
+        "versatility": 5,
+        "speed": 4,
+        "visibility": 1,
+        "automation": 4,
+        "cleanup": 5,
+        "ease": 5,
+        "compact": 5,
+        "value": 4,
+        "neutralFit": 3,
+        "capacityLiters": 3,
+        "visibleCooking": false,
+        "steamSupported": true,
+        "capacity3": true,
+        "capacity5": false,
+        "within30k": true,
+        "priceYen": 29700
+      }
+    },
+    {
+      "id": "air-fryer-115",
+      "name": "EPEIOS FoElem スマートノンフライオーブン Chef EPAO502",
+      "description": "14Lの大容量スマートノンフライオーブン。スチームや上下加熱、2段調理、自動メニュー、アプリ連携に対応しています。",
+      "priceRange": 5,
+      "features": [
+        "14L・1350W・50〜220℃",
+        "ノンフライ・オーブン・スチーム・上下加熱・2段調理",
+        "自動メニュー・Wi-Fi／アプリ"
+      ],
+      "pros": [
+        "大容量で本格的な料理まで作れる",
+        "スチームも中が見える前面ドアも備える"
+      ],
+      "cons": [
+        "本体がとても大きいです",
+        "価格は高めです"
+      ],
+      "recommendFor": "大容量で、ノンフライからスチーム・オーブン料理まで1台でこなしたい人",
+      "caution": "リンク先はEPEIOS公式店の出品です。「ブラック・本体のみ」を選んで購入してください。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u6m8o.d8zuef7e.g00u6m8o.d8zuf1dc/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fepeios-official%2Fao502agjp1%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fepeios-official%2Fi%2F10000034%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/epeios-official/cabinet/ao502agjp1/chef-main0423.jpg?_ex=300x300",
+      "attributes": {
+        "crisp": 5,
+        "reheat": 5,
+        "capacity": 5,
+        "steam": 5,
+        "versatility": 5,
+        "speed": 4,
+        "visibility": 5,
+        "automation": 5,
+        "cleanup": 4,
+        "ease": 4,
+        "compact": 1,
+        "value": 3,
+        "neutralFit": 3,
+        "capacityLiters": 14,
+        "visibleCooking": true,
+        "steamSupported": true,
+        "capacity3": true,
+        "capacity5": true,
+        "within30k": false,
+        "priceYen": 44000
+      }
+    }
+  ],
+  "scoring": {
+    "tieBreak": true,
+    "softenPartialReason": true,
+    "lowMatchNotice": "条件をすべて満たす商品が少ないため、近い候補を表示しています。"
+  },
+  "guide": {
+    "title": "エアフライヤーの選び方",
+    "intro": "この診断は、メーカー公表の仕様をもとに、以下のポイントとあなたの回答を照らし合わせて相性を計算しています。",
+    "sections": [
+      {
+        "heading": "容量と人数",
+        "body": "1〜2人なら2L前後のコンパクトなモデル、3〜4人なら3〜4L、家族分や作り置きには5L以上のモデルが目安です。容量が大きいほど本体も大きくなるので、置き場所も確認しましょう。"
+      },
+      {
+        "heading": "スチームと中が見えるタイプ",
+        "body": "スチームや過熱水蒸気に対応したモデルは、肉や魚をジューシーに仕上げやすくなります。ガラス窓やガラス容器のモデルは、調理中の焼け具合を確認しながら使えます。"
+      },
+      {
+        "heading": "使いやすさとお手入れ",
+        "body": "ダイヤル式はシンプルで使いやすく、自動メニュー付きのモデルは料理の幅が広がります。バスケットが食洗機に対応していると、後片付けが簡単です。"
+      }
+    ]
+  },
+  "notice": "容量や機能は各メーカーの公表値に基づきます。作れる量は食材や料理によって変わります。価格は変動するため、購入時に販売ページでご確認ください。"
+}
