@@ -43,6 +43,7 @@ import { blender } from './blender.ts'
 import { airFryer } from './airFryer.ts'
 import { printer } from './printer.ts'
 import { refrigerator } from './refrigerator.ts'
+import { circulatorFan } from './circulatorFan.ts'
 
 /**
  * 診断の一覧（登録簿）。
@@ -94,6 +95,7 @@ const allDiagnoses: Diagnosis[] = [
   airFryer,
   printer,
   refrigerator,
+  circulatorFan,
 ]
 
 /**
