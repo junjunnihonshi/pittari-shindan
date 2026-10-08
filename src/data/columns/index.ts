@@ -6,12 +6,15 @@
 import { airConditionerHowToChoose } from './airConditionerHowToChoose.ts'
 import { electricPressureCookerHowToChoose } from './electricPressureCookerHowToChoose.ts'
 import { hairDryerHowToChoose } from './hairDryerHowToChoose.ts'
+import { humidifierHowToChoose } from './humidifierHowToChoose.ts'
 import { mattressHowToChoose } from './mattressHowToChoose.ts'
 import { microwaveHowToChoose } from './microwaveHowToChoose.ts'
+import { mobileBatteryHowToChoose } from './mobileBatteryHowToChoose.ts'
 import { printerHowToChoose } from './printerHowToChoose.ts'
 import { refrigeratorHowToChoose } from './refrigeratorHowToChoose.ts'
 import { riceCookerHowToChoose } from './riceCookerHowToChoose.ts'
 import { robotVacuumHowToChoose } from './robotVacuumHowToChoose.ts'
+import { tabletHowToChoose } from './tabletHowToChoose.ts'
 import { tvHowToChoose } from './tvHowToChoose.ts'
 import { vacuumHowToChoose } from './vacuumHowToChoose.ts'
 import { washingMachineHowToChoose } from './washingMachineHowToChoose.ts'
@@ -44,6 +47,9 @@ export interface Column {
 
 /** 一覧には公開日の新しい順に表示（同じ公開日の記事はこの配列の順） */
 export const columns: Column[] = [
+  humidifierHowToChoose,
+  tabletHowToChoose,
+  mobileBatteryHowToChoose,
   vacuumHowToChoose,
   microwaveHowToChoose,
   hairDryerHowToChoose,
