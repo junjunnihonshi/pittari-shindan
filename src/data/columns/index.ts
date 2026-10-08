@@ -4,12 +4,15 @@
  * コラム一覧・記事ページ・sitemap.xml・プリレンダリングに反映されます。
  */
 import { airConditionerHowToChoose } from './airConditionerHowToChoose.ts'
+import { electricPressureCookerHowToChoose } from './electricPressureCookerHowToChoose.ts'
 import { mattressHowToChoose } from './mattressHowToChoose.ts'
+import { printerHowToChoose } from './printerHowToChoose.ts'
 import { refrigeratorHowToChoose } from './refrigeratorHowToChoose.ts'
 import { riceCookerHowToChoose } from './riceCookerHowToChoose.ts'
 import { robotVacuumHowToChoose } from './robotVacuumHowToChoose.ts'
 import { tvHowToChoose } from './tvHowToChoose.ts'
 import { washingMachineHowToChoose } from './washingMachineHowToChoose.ts'
+import { wifiRouterHowToChoose } from './wifiRouterHowToChoose.ts'
 import { wirelessEarbudsHowToChoose } from './wirelessEarbudsHowToChoose.ts'
 
 export interface Column {
@@ -38,6 +41,9 @@ export interface Column {
 
 /** 一覧には公開日の新しい順に表示（同じ公開日の記事はこの配列の順） */
 export const columns: Column[] = [
+  printerHowToChoose,
+  wifiRouterHowToChoose,
+  electricPressureCookerHowToChoose,
   riceCookerHowToChoose,
   robotVacuumHowToChoose,
   wirelessEarbudsHowToChoose,
