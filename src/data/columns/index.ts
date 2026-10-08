@@ -4,8 +4,11 @@
  * コラム一覧・記事ページ・sitemap.xml・プリレンダリングに反映されます。
  */
 import { airConditionerHowToChoose } from './airConditionerHowToChoose.ts'
+import { airPurifierHowToChoose } from './airPurifierHowToChoose.ts'
+import { dishwasherHowToChoose } from './dishwasherHowToChoose.ts'
 import { electricPressureCookerHowToChoose } from './electricPressureCookerHowToChoose.ts'
 import { hairDryerHowToChoose } from './hairDryerHowToChoose.ts'
+import { heaterHowToChoose } from './heaterHowToChoose.ts'
 import { humidifierHowToChoose } from './humidifierHowToChoose.ts'
 import { mattressHowToChoose } from './mattressHowToChoose.ts'
 import { microwaveHowToChoose } from './microwaveHowToChoose.ts'
@@ -47,6 +50,9 @@ export interface Column {
 
 /** 一覧には公開日の新しい順に表示（同じ公開日の記事はこの配列の順） */
 export const columns: Column[] = [
+  heaterHowToChoose,
+  airPurifierHowToChoose,
+  dishwasherHowToChoose,
   humidifierHowToChoose,
   tabletHowToChoose,
   mobileBatteryHowToChoose,
