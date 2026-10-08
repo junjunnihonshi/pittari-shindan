@@ -4,6 +4,7 @@
  * コラム一覧・記事ページ・sitemap.xml・プリレンダリングに反映されます。
  */
 import { airConditionerHowToChoose } from './airConditionerHowToChoose.ts'
+import { airFryerHowToChoose } from './airFryerHowToChoose.ts'
 import { airPurifierHowToChoose } from './airPurifierHowToChoose.ts'
 import { coffeeMakerHowToChoose } from './coffeeMakerHowToChoose.ts'
 import { deskChairHowToChoose } from './deskChairHowToChoose.ts'
@@ -11,6 +12,7 @@ import { dishwasherHowToChoose } from './dishwasherHowToChoose.ts'
 import { electricBlanketHowToChoose } from './electricBlanketHowToChoose.ts'
 import { electricKettleHowToChoose } from './electricKettleHowToChoose.ts'
 import { electricPressureCookerHowToChoose } from './electricPressureCookerHowToChoose.ts'
+import { electricToothbrushHowToChoose } from './electricToothbrushHowToChoose.ts'
 import { hairDryerHowToChoose } from './hairDryerHowToChoose.ts'
 import { heaterHowToChoose } from './heaterHowToChoose.ts'
 import { humidifierHowToChoose } from './humidifierHowToChoose.ts'
@@ -21,6 +23,7 @@ import { mobileBatteryHowToChoose } from './mobileBatteryHowToChoose.ts'
 import { monitorHowToChoose } from './monitorHowToChoose.ts'
 import { pillowHowToChoose } from './pillowHowToChoose.ts'
 import { printerHowToChoose } from './printerHowToChoose.ts'
+import { projectorHowToChoose } from './projectorHowToChoose.ts'
 import { refrigeratorHowToChoose } from './refrigeratorHowToChoose.ts'
 import { riceCookerHowToChoose } from './riceCookerHowToChoose.ts'
 import { robotVacuumHowToChoose } from './robotVacuumHowToChoose.ts'
@@ -59,6 +62,9 @@ export interface Column {
 
 /** 一覧には公開日の新しい順に表示（同じ公開日の記事はこの配列の順） */
 export const columns: Column[] = [
+  airFryerHowToChoose,
+  projectorHowToChoose,
+  electricToothbrushHowToChoose,
   toasterHowToChoose,
   mensShaverHowToChoose,
   smartwatchHowToChoose,
