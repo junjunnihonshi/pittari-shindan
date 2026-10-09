@@ -16,7 +16,9 @@ import { electricPressureCookerHowToChoose } from './electricPressureCookerHowTo
 import { electricToothbrushHowToChoose } from './electricToothbrushHowToChoose.ts'
 import { fryingPanHowToChoose } from './fryingPanHowToChoose.ts'
 import { hairDryerHowToChoose } from './hairDryerHowToChoose.ts'
+import { hairIronHowToChoose } from './hairIronHowToChoose.ts'
 import { heaterHowToChoose } from './heaterHowToChoose.ts'
+import { hotPlateHowToChoose } from './hotPlateHowToChoose.ts'
 import { humidifierHowToChoose } from './humidifierHowToChoose.ts'
 import { mattressHowToChoose } from './mattressHowToChoose.ts'
 import { mensShaverHowToChoose } from './mensShaverHowToChoose.ts'
@@ -31,6 +33,7 @@ import { riceCookerHowToChoose } from './riceCookerHowToChoose.ts'
 import { robotVacuumHowToChoose } from './robotVacuumHowToChoose.ts'
 import { showerHeadHowToChoose } from './showerHeadHowToChoose.ts'
 import { smartwatchHowToChoose } from './smartwatchHowToChoose.ts'
+import { suitcaseHowToChoose } from './suitcaseHowToChoose.ts'
 import { tabletHowToChoose } from './tabletHowToChoose.ts'
 import { toasterHowToChoose } from './toasterHowToChoose.ts'
 import { tvHowToChoose } from './tvHowToChoose.ts'
@@ -65,6 +68,9 @@ export interface Column {
 
 /** 一覧には公開日の新しい順に表示（同じ公開日の記事はこの配列の順） */
 export const columns: Column[] = [
+  suitcaseHowToChoose,
+  hotPlateHowToChoose,
+  hairIronHowToChoose,
   fryingPanHowToChoose,
   dehumidifierHowToChoose,
   showerHeadHowToChoose,
