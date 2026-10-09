@@ -7,12 +7,14 @@ import { airConditionerHowToChoose } from './airConditionerHowToChoose.ts'
 import { airFryerHowToChoose } from './airFryerHowToChoose.ts'
 import { airPurifierHowToChoose } from './airPurifierHowToChoose.ts'
 import { coffeeMakerHowToChoose } from './coffeeMakerHowToChoose.ts'
+import { dehumidifierHowToChoose } from './dehumidifierHowToChoose.ts'
 import { deskChairHowToChoose } from './deskChairHowToChoose.ts'
 import { dishwasherHowToChoose } from './dishwasherHowToChoose.ts'
 import { electricBlanketHowToChoose } from './electricBlanketHowToChoose.ts'
 import { electricKettleHowToChoose } from './electricKettleHowToChoose.ts'
 import { electricPressureCookerHowToChoose } from './electricPressureCookerHowToChoose.ts'
 import { electricToothbrushHowToChoose } from './electricToothbrushHowToChoose.ts'
+import { fryingPanHowToChoose } from './fryingPanHowToChoose.ts'
 import { hairDryerHowToChoose } from './hairDryerHowToChoose.ts'
 import { heaterHowToChoose } from './heaterHowToChoose.ts'
 import { humidifierHowToChoose } from './humidifierHowToChoose.ts'
@@ -27,6 +29,7 @@ import { projectorHowToChoose } from './projectorHowToChoose.ts'
 import { refrigeratorHowToChoose } from './refrigeratorHowToChoose.ts'
 import { riceCookerHowToChoose } from './riceCookerHowToChoose.ts'
 import { robotVacuumHowToChoose } from './robotVacuumHowToChoose.ts'
+import { showerHeadHowToChoose } from './showerHeadHowToChoose.ts'
 import { smartwatchHowToChoose } from './smartwatchHowToChoose.ts'
 import { tabletHowToChoose } from './tabletHowToChoose.ts'
 import { toasterHowToChoose } from './toasterHowToChoose.ts'
@@ -62,6 +65,9 @@ export interface Column {
 
 /** 一覧には公開日の新しい順に表示（同じ公開日の記事はこの配列の順） */
 export const columns: Column[] = [
+  fryingPanHowToChoose,
+  dehumidifierHowToChoose,
+  showerHeadHowToChoose,
   airFryerHowToChoose,
   projectorHowToChoose,
   electricToothbrushHowToChoose,
