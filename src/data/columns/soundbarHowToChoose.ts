@@ -2,7 +2,7 @@ import type { Column } from './index.ts'
 
 export const soundbarHowToChoose: Column = {
   slug: 'soundbar-how-to-choose',
-  title: 'サウンドバーの選び方｜HDMI eARC・Dolby Atmos・サブウーファーで失敗しない7つのポイント',
+  title: 'サウンドバーの選び方｜テレビ接続・eARC・Dolby Atmos・重低音',
   shortTitle: 'サウンドバーの選び方',
   description:
     'サウンドバーの選び方を7つのポイントで解説。HDMI ARC・eARC、Dolby Atmos、2.1ch・5.1ch、サブウーファー、テレビとの接続、PS5などのゲーム機、音楽再生、設置サイズまで比較します。',

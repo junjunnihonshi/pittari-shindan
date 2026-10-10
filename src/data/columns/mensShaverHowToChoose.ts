@@ -2,7 +2,7 @@ import type { Column } from './index.ts'
 
 export const mensShaverHowToChoose: Column = {
   slug: 'mens-shaver-how-to-choose',
-  title: '電気シェーバーの選び方｜往復式・回転式・深剃り・肌への当たりで失敗しない7つのポイント',
+  title: 'メンズ電気シェーバーの選び方｜往復式・回転式・深剃り・肌への当たり',
   shortTitle: '電気シェーバーの選び方',
   description:
     'メンズ電気シェーバーの選び方を7つのポイントで解説。往復式と回転式の違い、ヒゲの濃さと生え方、深剃り、肌への当たり、ウェット剃り、洗浄機、替刃、充電、予算まで比較します。',

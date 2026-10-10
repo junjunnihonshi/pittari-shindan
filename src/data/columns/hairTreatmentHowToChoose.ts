@@ -2,7 +2,7 @@ import type { Column } from './index.ts'
 
 export const hairTreatmentHowToChoose: Column = {
   slug: 'hair-treatment-how-to-choose',
-  title: 'ヘアトリートメントの選び方｜ダメージ・パサつき・うねり・ヘアマスクで失敗しない7つのポイント',
+  title: '洗い流すヘアトリートメントの選び方｜ダメージ・パサつき・ヘアマスク',
   shortTitle: 'ヘアトリートメントの選び方',
   description:
     '洗い流すヘアトリートメントの選び方を7つのポイントで解説。ダメージの程度、乾燥・うねり、カラー・ブリーチ、アイロンの熱、しっとり・さらさらの仕上がり、ヘアマスクとの違い、使い方、予算まで比較します。',

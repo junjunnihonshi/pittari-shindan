@@ -2,7 +2,7 @@ import type { Column } from './index.ts'
 
 export const monitorHowToChoose: Column = {
   slug: 'monitor-how-to-choose',
-  title: 'PCモニターの選び方｜24・27・32インチ・4K・リフレッシュレートで失敗しない7つのポイント',
+  title: 'PCモニターの選び方｜24・27・32インチと4K・リフレッシュレート',
   shortTitle: 'PCモニターの選び方',
   description:
     'PCモニターの選び方を7つのポイントで解説。24・27・32インチ、フルHD・WQHD・4K、IPS・VA・OLED、リフレッシュレート、USB-C給電、PS5の4K・120Hz対応、設置サイズまで比較します。',

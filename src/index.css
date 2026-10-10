@@ -2015,6 +2015,74 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   line-height: 1.5;
 }
 
+/* 比較表（スマホでは表の枠内だけ横スクロール） */
+.column-table {
+  margin: 24px 0;
+}
+.column-table__scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  -webkit-overflow-scrolling: touch;
+}
+.column-table__scroll:focus-visible {
+  outline: 3px solid var(--color-primary-soft);
+  outline-offset: 2px;
+}
+.column-table table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 0.92em;
+  line-height: 1.6;
+}
+.column-table caption {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg);
+  font-weight: 800;
+  text-align: left;
+}
+.column-table th,
+.column-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+  text-align: left;
+}
+.column-table thead th {
+  background: var(--color-primary-tint);
+  color: var(--color-primary-dark);
+  font-size: 0.86rem;
+  white-space: nowrap;
+}
+.column-table tbody th {
+  min-width: 7.5em;
+  font-weight: 700;
+}
+.column-table tbody tr:last-child th,
+.column-table tbody tr:last-child td {
+  border-bottom: none;
+}
+/* 3列までの表はスマホの画面幅に収める */
+.column-table[data-cols='2'] table,
+.column-table[data-cols='3'] table {
+  min-width: 0;
+}
+.prose .column-table__hint {
+  margin: 0 0 6px;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  text-align: right;
+}
+.prose .column-table__note {
+  margin: 8px 0 0;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
 /* 記事の編集者表示（運営者情報へのリンク） */
 .column-article__by {
   margin-left: 12px;
@@ -2209,6 +2277,9 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   }
   .column-related__list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .prose .column-table__hint {
+    display: none;
   }
   .column-filter__cats {
     flex-wrap: wrap;

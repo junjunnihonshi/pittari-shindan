@@ -2,7 +2,7 @@ import type { Column } from './index.ts'
 
 export const smartwatchHowToChoose: Column = {
   slug: 'smartwatch-how-to-choose',
-  title: 'スマートウォッチの選び方｜iPhone・Android・Suica・バッテリーで失敗しない7つのポイント',
+  title: 'スマートウォッチの選び方｜iPhone・Android対応とSuica・電池持ち',
   shortTitle: 'スマートウォッチの選び方',
   description:
     'スマートウォッチの選び方を7つのポイントで解説。iPhone・Androidとの互換性、Apple WatchやGalaxy Watchの違い、バッテリー、Suica、GPS、健康管理、サイズ、防水、LTEモデル、予算まで比較します。',

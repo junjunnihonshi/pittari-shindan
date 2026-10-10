@@ -294,6 +294,51 @@ export function ColumnArticlePage({ column }: { column: Column }) {
                 </ol>
               )
               break
+            case 'table':
+              el = (
+                <figure className="column-table" data-cols={b.head.length}>
+                  {b.head.length >= 4 && (
+                    <p className="column-table__hint" aria-hidden="true">
+                      表は横にスクロールできます →
+                    </p>
+                  )}
+                  <div className="column-table__scroll" role="region" aria-label={b.caption} tabIndex={0}>
+                    <table>
+                      <caption>{b.caption}</caption>
+                      <thead>
+                        <tr>
+                          {b.head.map((h) => (
+                            <th key={h} scope="col">
+                              {h}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {b.rows.map((row) => (
+                          <tr key={row[0]}>
+                            {row.map((cell, j) =>
+                              j === 0 ? (
+                                <th key={j} scope="row">
+                                  {cell}
+                                </th>
+                              ) : (
+                                <td key={j}>{cell}</td>
+                              ),
+                            )}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                  {b.notes.map((n) => (
+                    <p key={n} className="column-table__note">
+                      {n}
+                    </p>
+                  ))}
+                </figure>
+              )
+              break
             case 'cta':
               el = diagnosisUrl ? (
                 <p className="column-cta">
