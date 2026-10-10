@@ -1,12 +1,12 @@
 /**
- * 選び方コラム（一覧・記事）。記事の内容は src/data/columns/ に書きます。
+ * 選び方コラム・買い替え時期コラム（一覧・記事）。記事の内容は src/data/columns/ に書きます。
  */
 import { Fragment, useMemo, useState, type ReactNode } from 'react'
 import { Link } from '../components/Link.tsx'
 import { categoryGroups } from '../config/categories.ts'
-import { canonicalUrl, columnListMeta, columnMeta, diagnosisPath } from '../config/seo.ts'
+import { canonicalUrl, columnListMeta, columnMeta, diagnosisPath, replacementListMeta } from '../config/seo.ts'
 import { site } from '../config/site.ts'
-import { allColumns, columnPath, getReplacementColumnsForGuide, type Column } from '../data/columns/index.ts'
+import { allColumns, columnPath, columns, getReplacementColumnsForGuide, replacementColumns, type Column } from '../data/columns/index.ts'
 import { getRelatedColumns } from '../data/columns/related.ts'
 import { diagnoses, isDiagnosisEnabled } from '../data/diagnoses/index.ts'
 import { parseColumnBody } from '../lib/columnBody.ts'
@@ -59,12 +59,37 @@ const searchTextBySlug = new Map(
   }),
 )
 
+/** 一覧ページの種類：選び方コラム（/column/）と買い替え時期コラム（/column/replacement/） */
+type ColumnListKind = 'guide' | 'replacement'
+const listPages = {
+  guide: {
+    meta: columnListMeta,
+    tab: '選び方コラム',
+    title: '選び方コラム',
+    lead: '家電や暮らしの商品を選ぶときに知っておきたいポイントを、わかりやすく解説します。',
+    items: columns,
+  },
+  replacement: {
+    meta: replacementListMeta,
+    tab: '買い替え時期',
+    title: '家電の寿命・買い替え時期',
+    lead: '家電の調子が悪くなったとき、修理するか買い替えるか迷うことがあります。寿命の目安や故障のサイン、買い替える前に確認したいポイントを紹介します。',
+    items: replacementColumns,
+  },
+} as const
+
+/** 記事が掲載される一覧（パンくず・BreadcrumbList に使う） */
+function listPageFor(c: Column) {
+  return listPages[c.articleType === 'replacement' ? 'replacement' : 'guide']
+}
+
 const ALL = 'all'
 const EMPTY_MESSAGE = '該当する記事がありません。検索条件を変更してください。'
 
-export function ColumnListPage() {
-  useSeo(columnListMeta)
-  const list = useMemo(() => [...allColumns].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt)), [])
+export function ColumnListPage({ kind }: { kind: ColumnListKind }) {
+  const page = listPages[kind]
+  useSeo(page.meta)
+  const list = useMemo(() => [...page.items].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt)), [page])
   // カテゴリは既存の分類の順に、記事があるものだけを並べる（分類にないカテゴリ名は末尾に追加）
   const categories = useMemo(() => {
     const labels = [...categoryGroups.map((g) => g.label), ...list.map((c) => c.category)]
@@ -94,14 +119,22 @@ export function ColumnListPage() {
           <li>
             <Link to="/">トップ</Link>
           </li>
-          <li aria-current="page">選び方コラム</li>
+          <li aria-current="page">{page.tab}</li>
         </ol>
       </nav>
       <section className="column-list" aria-labelledby="column-list-title">
+        <nav className="column-tabs" aria-label="コラムの種類">
+          {(Object.keys(listPages) as ColumnListKind[]).map((k) => (
+            <Link key={k} to={listPages[k].meta.path} className="column-tabs__tab" aria-current={k === kind ? 'page' : undefined}>
+              {listPages[k].tab}
+              <span className="column-tabs__count">{listPages[k].items.length}</span>
+            </Link>
+          ))}
+        </nav>
         <h1 id="column-list-title" className="column-list__title">
-          選び方コラム
+          {page.title}
         </h1>
-        <p className="column-list__lead">家電や暮らしの商品を選ぶときに知っておきたいポイントを、わかりやすく解説します。</p>
+        <p className="column-list__lead">{page.lead}</p>
         <p className="column-list__count">
           公開中の記事：<strong>{list.length}</strong>本
         </p>
@@ -187,7 +220,7 @@ export function ColumnListPage() {
                   <span className="column-entry__title">{cardTitle(c)}</span>
                   <span className="column-entry__desc">{c.description}</span>
                   <span className="column-entry__more">
-                    選び方を読む <span aria-hidden="true">→</span>
+                    {c.articleType === 'replacement' ? '記事を読む' : '選び方を読む'} <span aria-hidden="true">→</span>
                   </span>
                 </Link>
               </li>
@@ -229,7 +262,7 @@ function articleJsonLd(column: Column): string {
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'トップ', item: canonicalUrl('/') },
-        { '@type': 'ListItem', position: 2, name: '選び方コラム', item: canonicalUrl('/column/') },
+        { '@type': 'ListItem', position: 2, name: listPageFor(column).tab, item: canonicalUrl(listPageFor(column).meta.path) },
         { '@type': 'ListItem', position: 3, name: column.shortTitle, item: url },
       ],
     },
@@ -259,7 +292,7 @@ export function ColumnArticlePage({ column }: { column: Column }) {
             <Link to="/">トップ</Link>
           </li>
           <li>
-            <Link to="/column/">選び方コラム</Link>
+            <Link to={listPageFor(column).meta.path}>{listPageFor(column).tab}</Link>
           </li>
           <li aria-current="page">{column.shortTitle}</li>
         </ol>

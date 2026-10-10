@@ -1673,6 +1673,56 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   font-size: 1.05rem;
 }
 
+/* 選び方コラム・買い替え時期の一覧の切り替え（通常のリンク） */
+.column-tabs {
+  display: flex;
+  gap: 4px;
+  margin: 0 0 18px;
+  padding: 4px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-bg-deep);
+  max-width: 420px;
+}
+.column-tabs__tab {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 0;
+  min-height: 44px;
+  padding: 0 12px;
+  border-radius: 999px;
+  color: var(--color-muted);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.column-tabs__tab:hover {
+  color: var(--color-primary-dark);
+}
+.column-tabs__tab[aria-current='page'] {
+  background: var(--color-surface);
+  color: var(--color-primary-dark);
+  box-shadow: var(--shadow-sm);
+}
+.column-tabs__count {
+  min-width: 1.6em;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-muted);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  text-align: center;
+}
+.column-tabs__tab[aria-current='page'] .column-tabs__count {
+  background: var(--color-primary-soft);
+  color: var(--color-primary-dark);
+}
+
 /* 検索・カテゴリ絞り込み */
 .column-filter {
   margin-bottom: 20px;
@@ -2159,6 +2209,9 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   }
 }
 .column-home__more {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 24px;
   margin: 12px 0 0;
   font-weight: 700;
 }

@@ -66,6 +66,13 @@ export const columnListMeta: PageMeta = {
   priority: 0.6,
 }
 
+export const replacementListMeta: PageMeta = {
+  path: '/column/replacement/',
+  title: `家電の寿命・買い替え時期｜${site.name}`,
+  description: '洗濯機・冷蔵庫・炊飯器などの寿命と買い替え時期を解説。故障のサイン、修理と買い替えの判断、処分方法まで確認できるコラム一覧です。',
+  priority: 0.6,
+}
+
 export function columnMeta(c: Column): PageMeta {
   return { path: columnPath(c.slug), title: c.title, description: c.description, ogType: 'article', priority: 0.6 }
 }
@@ -75,6 +82,7 @@ export function getAllPages(): PageMeta[] {
   return [
     ...staticPages,
     columnListMeta,
+    replacementListMeta,
     ...allColumns.map(columnMeta),
     ...enabledDiagnoses.map<PageMeta>((d) => ({
       path: diagnosisPath(d.slug),

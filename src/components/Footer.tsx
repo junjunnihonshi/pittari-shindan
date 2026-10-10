@@ -3,6 +3,7 @@ import { Link } from './Link.tsx'
 
 const links = [
   { to: '/column/', label: '選び方コラム' },
+  { to: '/column/replacement/', label: '家電の寿命・買い替え時期' },
   { to: '/about/', label: '運営者情報' },
   { to: '/privacy/', label: 'プライバシーポリシー' },
   { to: '/disclaimer/', label: '免責事項' },

@@ -163,6 +163,7 @@ export function findColumnProblems(): string[] {
   const problems: string[] = []
   const slugs = allColumns.map((c) => c.slug)
   for (const s of new Set(slugs)) if (slugs.filter((x) => x === s).length > 1) problems.push(`コラムの slug ${s} が重複しています`)
+  if (slugs.includes('replacement')) problems.push('slug replacement は買い替え時期コラム一覧（/column/replacement/）の URL なので使えません')
   for (const c of columns) if (c.articleType) problems.push(`${c.slug} は選び方コラムですが articleType が指定されています`)
   for (const c of replacementColumns) {
     if (c.articleType !== 'replacement') problems.push(`${c.slug} に articleType: 'replacement' がありません`)

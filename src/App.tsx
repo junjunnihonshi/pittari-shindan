@@ -18,7 +18,9 @@ const staticRoutes: Record<string, () => ReactNode> = {
   '/disclaimer': () => <DisclaimerPage />,
   '/contact': () => <ContactPage />,
   '/ads': () => <AdsPage />,
-  '/column': () => <ColumnListPage />,
+  '/column': () => <ColumnListPage key="guide" kind="guide" />,
+  // 買い替え時期コラムの一覧（/column/:slug の個別記事より先に判定する。記事の slug に replacement は使わない）
+  '/column/replacement': () => <ColumnListPage key="replacement" kind="replacement" />,
 }
 
 function Routes({ path }: { path: string }) {
