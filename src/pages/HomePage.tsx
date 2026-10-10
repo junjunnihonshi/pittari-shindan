@@ -165,7 +165,7 @@ export function HomePage() {
             </ul>
             <p className="column-home__more">
               <Link to="/column/">選び方コラムを見る →</Link>
-              <Link to="/column/replacement/">家電の寿命・買い替え時期を見る →</Link>
+              <Link to="/column/replacement/">商品の寿命・使用期限・買い替え時期を見る →</Link>
             </p>
           </section>
         )}
