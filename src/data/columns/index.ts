@@ -4,8 +4,11 @@
  * コラム一覧・記事ページ・sitemap.xml・プリレンダリングに反映されます。
  */
 import { airConditionerHowToChoose } from './airConditionerHowToChoose.ts'
+import { airConditionerLifespan } from './replacement/airConditionerLifespan.ts'
+import { microwaveLifespan } from './replacement/microwaveLifespan.ts'
 import { refrigeratorLifespan } from './replacement/refrigeratorLifespan.ts'
 import { riceCookerLifespan } from './replacement/riceCookerLifespan.ts'
+import { vacuumLifespan } from './replacement/vacuumLifespan.ts'
 import { washingMachineLifespan } from './replacement/washingMachineLifespan.ts'
 import { airFryerHowToChoose } from './airFryerHowToChoose.ts'
 import { airPurifierHowToChoose } from './airPurifierHowToChoose.ts'
@@ -140,7 +143,14 @@ export const columns: Column[] = [
  * 買い替え時期コラム。選び方コラム（columns）とは別に管理し、診断との1対1対応・関連コラムの検査の対象にしない。
  * 記事ページ・コラム一覧・sitemap.xml・プリレンダリングには allColumns として反映されます。
  */
-export const replacementColumns: Column[] = [washingMachineLifespan, refrigeratorLifespan, riceCookerLifespan]
+export const replacementColumns: Column[] = [
+  washingMachineLifespan,
+  refrigeratorLifespan,
+  riceCookerLifespan,
+  airConditionerLifespan,
+  microwaveLifespan,
+  vacuumLifespan,
+]
 
 /** 公開中のすべてのコラム（選び方＋買い替え時期） */
 export const allColumns: Column[] = [...columns, ...replacementColumns]
