@@ -12,6 +12,7 @@ import { bluetoothSpeakerLifespan } from './replacement/bluetoothSpeakerLifespan
 import { circulatorFanLifespan } from './replacement/circulatorFanLifespan.ts'
 import { coffeeMakerLifespan } from './replacement/coffeeMakerLifespan.ts'
 import { dehumidifierLifespan } from './replacement/dehumidifierLifespan.ts'
+import { deskChairLifespan } from './replacement/deskChairLifespan.ts'
 import { dishwasherLifespan } from './replacement/dishwasherLifespan.ts'
 import { electricBlanketLifespan } from './replacement/electricBlanketLifespan.ts'
 import { electricKettleLifespan } from './replacement/electricKettleLifespan.ts'
@@ -28,6 +29,7 @@ import { mensShaverLifespan } from './replacement/mensShaverLifespan.ts'
 import { microwaveLifespan } from './replacement/microwaveLifespan.ts'
 import { mobileBatteryLifespan } from './replacement/mobileBatteryLifespan.ts'
 import { monitorLifespan } from './replacement/monitorLifespan.ts'
+import { pillowLifespan } from './replacement/pillowLifespan.ts'
 import { printerLifespan } from './replacement/printerLifespan.ts'
 import { projectorLifespan } from './replacement/projectorLifespan.ts'
 import { refrigeratorLifespan } from './replacement/refrigeratorLifespan.ts'
@@ -36,6 +38,7 @@ import { robotVacuumLifespan } from './replacement/robotVacuumLifespan.ts'
 import { showerHeadLifespan } from './replacement/showerHeadLifespan.ts'
 import { smartwatchLifespan } from './replacement/smartwatchLifespan.ts'
 import { soundbarLifespan } from './replacement/soundbarLifespan.ts'
+import { suitcaseLifespan } from './replacement/suitcaseLifespan.ts'
 import { tabletLifespan } from './replacement/tabletLifespan.ts'
 import { toasterLifespan } from './replacement/toasterLifespan.ts'
 import { tvLifespan } from './replacement/tvLifespan.ts'
@@ -216,6 +219,9 @@ export const replacementColumns: Column[] = [
   mattressLifespan,
   fryingPanLifespan,
   soundbarLifespan,
+  pillowLifespan,
+  deskChairLifespan,
+  suitcaseLifespan,
 ]
 
 /** 公開中のすべてのコラム（選び方＋買い替え時期） */
