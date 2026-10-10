@@ -1,7 +1,7 @@
 /**
  * 選び方コラム・買い替え時期コラム（一覧・記事）。記事の内容は src/data/columns/ に書きます。
  */
-import { Fragment, useMemo, useState, type ReactNode } from 'react'
+import { Fragment, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { Link } from '../components/Link.tsx'
 import { categoryGroups } from '../config/categories.ts'
 import { canonicalUrl, columnListMeta, columnMeta, diagnosisPath, replacementListMeta } from '../config/seo.ts'
@@ -284,6 +284,23 @@ export function ColumnArticlePage({ column }: { column: Column }) {
   const tocInitiallyOpen = typeof window === 'undefined' || !window.matchMedia('(max-width: 639px)').matches
   const relatedColumns = getRelatedColumns(column.slug)
   const replacementColumns = getReplacementColumnsForGuide(column.slug)
+  // 導入文の中に診断ボタンがない記事だけ、最初の見出しの前に控えめな診断リンクを出す（文言は本文の診断ボタンと同じ）
+  const ctaBlocks = blocks.flatMap((b) => (b.type === 'cta' ? [b] : []))
+  const quickCtaText = blocks.slice(0, Math.max(firstH2, 0)).some((b) => b.type === 'cta') ? undefined : ctaBlocks[0]?.text
+  // 比較表が枠からはみ出すとき（横スクロールできるとき）だけ案内を出す
+  const articleRef = useRef<HTMLElement>(null)
+  useEffect(() => {
+    const figures = [...(articleRef.current?.querySelectorAll<HTMLElement>('.column-table') ?? [])]
+    const update = () => {
+      for (const f of figures) {
+        const s = f.querySelector<HTMLElement>('.column-table__scroll')
+        if (s) f.dataset.overflow = String(s.scrollWidth > s.clientWidth + 1)
+      }
+    }
+    update()
+    window.addEventListener('resize', update)
+    return () => window.removeEventListener('resize', update)
+  }, [column.slug])
 
   return (
     <div className="container page">
@@ -299,7 +316,7 @@ export function ColumnArticlePage({ column }: { column: Column }) {
           <li aria-current="page">{column.shortTitle}</li>
         </ol>
       </nav>
-      <article className="prose column-article">
+      <article className="prose column-article" ref={articleRef}>
         <header className="column-article__header">
           <span className="diagnosis-card__meta column-card__category">{column.category}</span>
           <h1>{column.title}</h1>
@@ -311,12 +328,26 @@ export function ColumnArticlePage({ column }: { column: Column }) {
           </p>
         </header>
         {blocks.map((b, i) => {
+          const quickCta =
+            i === firstH2 && quickCtaText && diagnosisUrl ? (
+              <p className="column-quick-cta">
+                自分に合う商品を探すなら
+                <Link to={diagnosisUrl}>
+                  {quickCtaText}
+                  <span aria-hidden="true"> →</span>
+                </Link>
+              </p>
+            ) : null
           const before =
             i === firstH2 && toc.length > 0 ? (
               <nav className="column-toc" aria-label="この記事の目次">
                 <details key={column.slug} open={tocInitiallyOpen}>
                   <summary className="column-toc__title">
                     この記事の目次<span className="column-toc__count">{toc.length}項目</span>
+                    <span className="column-toc__toggle" aria-hidden="true">
+                      <span className="column-toc__toggle-open">目次を開く</span>
+                      <span className="column-toc__toggle-close">目次を閉じる</span>
+                    </span>
                   </summary>
                   <ol>
                     {toc.map((t) => (
@@ -357,11 +388,9 @@ export function ColumnArticlePage({ column }: { column: Column }) {
             case 'table':
               el = (
                 <figure className="column-table" data-cols={b.head.length}>
-                  {b.head.length >= 4 && (
-                    <p className="column-table__hint" aria-hidden="true">
-                      表は横にスクロールできます →
-                    </p>
-                  )}
+                  <p className="column-table__hint" aria-hidden="true">
+                    表は横にスクロールできます →
+                  </p>
                   <div className="column-table__scroll" role="region" aria-label={b.caption} tabIndex={0}>
                     <table>
                       <caption>{b.caption}</caption>
@@ -414,6 +443,7 @@ export function ColumnArticlePage({ column }: { column: Column }) {
           }
           return (
             <Fragment key={i}>
+              {quickCta}
               {before}
               {el}
             </Fragment>

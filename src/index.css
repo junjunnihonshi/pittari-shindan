@@ -2025,6 +2025,24 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   font-size: 0.8rem;
   font-weight: 700;
 }
+/* 開閉の操作を文字でも示す（矢印の左に表示） */
+.column-toc__toggle {
+  margin-left: auto;
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.column-toc details[open] .column-toc__toggle-open,
+.column-toc details:not([open]) .column-toc__toggle-close {
+  display: none;
+}
+.column-toc__title:has(.column-toc__toggle)::after {
+  margin-left: 4px;
+}
+.column-toc__title:focus-visible {
+  outline: 3px solid var(--color-primary-soft);
+  outline-offset: -3px;
+}
 .column-toc ol {
   margin: 0 !important;
   padding: 0 16px 10px !important;
@@ -2121,10 +2139,47 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   min-width: 0;
 }
 .prose .column-table__hint {
+  display: none;
   margin: 0 0 6px;
   color: var(--color-muted);
   font-size: 0.8rem;
   text-align: right;
+}
+/* 横スクロールできるときだけ案内を出す（JavaScript が動かない場合は4列以上の表で表示） */
+.prose .column-table[data-overflow='true'] .column-table__hint,
+.prose .column-table:not([data-overflow]):not([data-cols='2']):not([data-cols='3']) .column-table__hint {
+  display: block;
+}
+/* 3列までの表は見出しも折り返して画面幅に収める */
+.column-table[data-cols='2'] thead th,
+.column-table[data-cols='3'] thead th {
+  white-space: normal;
+}
+@media (max-width: 479px) {
+  .column-table[data-cols='2'] tbody th,
+  .column-table[data-cols='3'] tbody th {
+    min-width: 5.5em;
+  }
+  .column-table[data-cols='2'] th,
+  .column-table[data-cols='2'] td,
+  .column-table[data-cols='3'] th,
+  .column-table[data-cols='3'] td {
+    padding: 9px 8px;
+  }
+}
+
+/* 導入文のあとの控えめな診断リンク（導入文に診断ボタンがない記事のみ） */
+.prose .column-quick-cta {
+  margin: 18px 0 0;
+  padding: 10px 14px;
+  border-left: 3px solid var(--color-primary);
+  background: var(--color-bg);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+.column-quick-cta a {
+  margin-left: 0.4em;
+  font-weight: 700;
 }
 .prose .column-table__note {
   margin: 8px 0 0;
