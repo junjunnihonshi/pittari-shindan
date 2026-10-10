@@ -72,8 +72,8 @@ const listPages = {
   replacement: {
     meta: replacementListMeta,
     tab: '買い替え時期',
-    title: '家電の寿命・買い替え時期',
-    lead: '家電の調子が悪くなったとき、修理するか買い替えるか迷うことがあります。寿命の目安や故障のサイン、買い替える前に確認したいポイントを紹介します。',
+    title: '商品の寿命・使用期限・買い替え時期',
+    lead: '家電の故障、家具や日用品の劣化、シャンプーなどの使用期限。毎日使う商品には、買い替えや交換を考えるタイミングがあります。\nこのページでは、45テーマの商品について、寿命や使用期限の目安、故障・劣化のサイン、買い替える前に確認したいポイントを紹介しています。',
     items: replacementColumns,
   },
 } as const
@@ -134,7 +134,9 @@ export function ColumnListPage({ kind }: { kind: ColumnListKind }) {
         <h1 id="column-list-title" className="column-list__title">
           {page.title}
         </h1>
-        <p className="column-list__lead">{page.lead}</p>
+        {page.lead.split('\n').map((t) => (
+          <p key={t} className="column-list__lead">{t}</p>
+        ))}
         <p className="column-list__count">
           公開中の記事：<strong>{list.length}</strong>本
         </p>

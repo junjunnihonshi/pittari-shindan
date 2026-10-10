@@ -68,8 +68,8 @@ export const columnListMeta: PageMeta = {
 
 export const replacementListMeta: PageMeta = {
   path: '/column/replacement/',
-  title: `家電の寿命・買い替え時期｜${site.name}`,
-  description: '洗濯機・冷蔵庫・炊飯器などの寿命と買い替え時期を解説。故障のサイン、修理と買い替えの判断、処分方法まで確認できるコラム一覧です。',
+  title: `商品の寿命・使用期限・買い替え時期｜${site.name}`,
+  description: '家電・家具・日用品など45テーマの寿命・使用期限・買い替え時期を解説。故障や劣化のサイン、交換の目安、修理と買い替えの判断、処分方法まで確認できるコラム一覧です。',
   priority: 0.6,
 }
 
