@@ -5,7 +5,9 @@
  */
 import { airConditionerHowToChoose } from './airConditionerHowToChoose.ts'
 import { airConditionerLifespan } from './replacement/airConditionerLifespan.ts'
+import { airFryerLifespan } from './replacement/airFryerLifespan.ts'
 import { airPurifierLifespan } from './replacement/airPurifierLifespan.ts'
+import { circulatorFanLifespan } from './replacement/circulatorFanLifespan.ts'
 import { coffeeMakerLifespan } from './replacement/coffeeMakerLifespan.ts'
 import { dehumidifierLifespan } from './replacement/dehumidifierLifespan.ts'
 import { dishwasherLifespan } from './replacement/dishwasherLifespan.ts'
@@ -23,6 +25,7 @@ import { microwaveLifespan } from './replacement/microwaveLifespan.ts'
 import { mobileBatteryLifespan } from './replacement/mobileBatteryLifespan.ts'
 import { monitorLifespan } from './replacement/monitorLifespan.ts'
 import { printerLifespan } from './replacement/printerLifespan.ts'
+import { projectorLifespan } from './replacement/projectorLifespan.ts'
 import { refrigeratorLifespan } from './replacement/refrigeratorLifespan.ts'
 import { riceCookerLifespan } from './replacement/riceCookerLifespan.ts'
 import { robotVacuumLifespan } from './replacement/robotVacuumLifespan.ts'
@@ -198,6 +201,9 @@ export const replacementColumns: Column[] = [
   tabletLifespan,
   mensShaverLifespan,
   hotPlateLifespan,
+  projectorLifespan,
+  circulatorFanLifespan,
+  airFryerLifespan,
 ]
 
 /** 公開中のすべてのコラム（選び方＋買い替え時期） */
