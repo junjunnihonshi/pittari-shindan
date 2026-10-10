@@ -7,6 +7,8 @@ import { airConditionerHowToChoose } from './airConditionerHowToChoose.ts'
 import { airFryerHowToChoose } from './airFryerHowToChoose.ts'
 import { airPurifierHowToChoose } from './airPurifierHowToChoose.ts'
 import { blenderHowToChoose } from './blenderHowToChoose.ts'
+import { bluetoothSpeakerHowToChoose } from './bluetoothSpeakerHowToChoose.ts'
+import { bodySoapHowToChoose } from './bodySoapHowToChoose.ts'
 import { circulatorFanHowToChoose } from './circulatorFanHowToChoose.ts'
 import { coffeeMakerHowToChoose } from './coffeeMakerHowToChoose.ts'
 import { dehumidifierHowToChoose } from './dehumidifierHowToChoose.ts'
@@ -19,6 +21,7 @@ import { electricToothbrushHowToChoose } from './electricToothbrushHowToChoose.t
 import { fryingPanHowToChoose } from './fryingPanHowToChoose.ts'
 import { hairDryerHowToChoose } from './hairDryerHowToChoose.ts'
 import { hairIronHowToChoose } from './hairIronHowToChoose.ts'
+import { hairTreatmentHowToChoose } from './hairTreatmentHowToChoose.ts'
 import { heaterHowToChoose } from './heaterHowToChoose.ts'
 import { hotPlateHowToChoose } from './hotPlateHowToChoose.ts'
 import { humidifierHowToChoose } from './humidifierHowToChoose.ts'
@@ -33,6 +36,7 @@ import { projectorHowToChoose } from './projectorHowToChoose.ts'
 import { refrigeratorHowToChoose } from './refrigeratorHowToChoose.ts'
 import { riceCookerHowToChoose } from './riceCookerHowToChoose.ts'
 import { robotVacuumHowToChoose } from './robotVacuumHowToChoose.ts'
+import { shampooHowToChoose } from './shampooHowToChoose.ts'
 import { showerHeadHowToChoose } from './showerHeadHowToChoose.ts'
 import { smartwatchHowToChoose } from './smartwatchHowToChoose.ts'
 import { soundbarHowToChoose } from './soundbarHowToChoose.ts'
@@ -71,6 +75,10 @@ export interface Column {
 
 /** 一覧には公開日の新しい順に表示（同じ公開日の記事はこの配列の順） */
 export const columns: Column[] = [
+  shampooHowToChoose,
+  hairTreatmentHowToChoose,
+  bodySoapHowToChoose,
+  bluetoothSpeakerHowToChoose,
   blenderHowToChoose,
   soundbarHowToChoose,
   circulatorFanHowToChoose,
