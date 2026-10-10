@@ -1650,7 +1650,7 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
 }
 /* ---------- 選び方コラム ---------- */
 .column-list {
-  max-width: 720px;
+  max-width: 1080px;
   margin: 0 auto;
 }
 .column-list__title {
@@ -1659,17 +1659,215 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   margin-bottom: 8px;
 }
 .column-list__lead {
-  margin: 0 0 18px;
+  margin: 0 0 6px;
   color: var(--color-muted);
   line-height: 1.8;
 }
-.column-list__items {
+.column-list__count {
+  margin: 0 0 20px;
+  color: var(--color-muted);
+  font-size: 0.92rem;
+}
+.column-list__count strong {
+  color: var(--color-text);
+  font-size: 1.05rem;
+}
+
+/* 検索・カテゴリ絞り込み */
+.column-filter {
+  margin-bottom: 20px;
+}
+.column-filter__search {
+  max-width: none;
+  margin-bottom: 14px;
+}
+/* スマホではカテゴリを横スクロール（ページ全体は横にはみ出さない） */
+.column-filter__cats {
+  display: flex;
+  gap: 8px;
+  margin: 0 -16px;
+  padding: 2px 16px 6px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+.column-filter__cat {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 0.15s,
+    border-color 0.15s,
+    color 0.15s;
+}
+.column-filter__cat:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary-dark);
+}
+.column-filter__cat[aria-pressed='true'] {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: #fff;
+}
+.column-filter__cat-count {
+  min-width: 1.6em;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--color-bg-deep);
+  color: var(--color-muted);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  text-align: center;
+}
+.column-filter__cat[aria-pressed='true'] .column-filter__cat-count {
+  background: rgb(255 255 255 / 0.22);
+  color: #fff;
+}
+.column-filter__status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-top: 10px;
+}
+.column-filter__status p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.92rem;
+}
+.column-filter__status strong {
+  color: var(--color-text);
+}
+.column-filter__reset {
+  min-height: 44px;
+  padding: 0 4px;
+  border: none;
+  background: none;
+  color: var(--color-primary);
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.column-empty p {
+  margin: 0 0 14px;
+}
+
+/* 記事カード一覧 */
+.column-grid {
   display: grid;
+  grid-template-columns: 1fr;
   gap: 14px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
+.column-grid > li {
+  display: flex;
+  min-width: 0;
+}
+.column-entry {
+  --entry-accent: var(--color-primary);
+  --entry-soft: var(--color-primary-soft);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  padding: 18px 18px 16px;
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--entry-accent);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+.column-entry:hover {
+  color: var(--color-text);
+  border-color: var(--color-border-strong);
+  border-top-color: var(--entry-accent);
+  box-shadow: var(--shadow);
+}
+.column-entry:hover .column-entry__title {
+  color: var(--color-primary-dark);
+}
+.column-entry:focus-visible {
+  outline: 3px solid var(--color-primary-soft);
+  outline-offset: 2px;
+  border-color: var(--color-primary);
+}
+/* カテゴリごとの控えめなアクセント */
+.column-entry[data-group='kitchen'] {
+  --entry-accent: #c7772a;
+  --entry-soft: #fbf0e4;
+}
+.column-entry[data-group='beauty'] {
+  --entry-accent: #b85c7a;
+  --entry-soft: #f9ecf1;
+}
+.column-entry[data-group='digital'] {
+  --entry-accent: var(--color-accent-blue);
+  --entry-soft: #e8f1fa;
+}
+.column-entry[data-group='travel'] {
+  --entry-accent: #6f68b8;
+  --entry-soft: #efeef9;
+}
+.column-entry__category {
+  align-self: flex-start;
+  padding: 1px 10px;
+  border-radius: 999px;
+  background: var(--entry-soft);
+  color: var(--color-text);
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1.7;
+}
+.column-entry__title {
+  margin-top: 10px;
+  font-size: 1.12rem;
+  font-weight: 800;
+  line-height: 1.5;
+  transition: color 0.2s;
+}
+.column-entry__desc {
+  display: -webkit-box;
+  margin-top: 6px;
+  overflow: hidden;
+  color: var(--color-muted);
+  font-size: 0.88rem;
+  line-height: 1.7;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+.column-entry__more {
+  margin-top: auto;
+  padding-top: 12px;
+  color: var(--color-primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* トップページのコラムカード（diagnosis-card と組み合わせて使う） */
 .column-card .column-card__category {
   margin: 0 0 6px;
 }
@@ -1679,61 +1877,140 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   font-size: 0.9rem;
   font-weight: 700;
 }
+
+/* 記事ページ */
+.prose.column-article {
+  max-width: 820px;
+  padding: 24px 18px 28px;
+}
+.column-article__header {
+  margin-bottom: 22px;
+}
 .column-article__header .column-card__category {
   display: inline-block;
   margin: 0 0 10px;
 }
 .column-article h1 {
-  font-size: 1.4rem;
+  font-size: 1.45rem;
   line-height: 1.5;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   overflow-wrap: anywhere;
 }
 .column-article__date {
+  margin: 0 !important;
   font-size: 0.85rem;
   color: var(--color-muted);
 }
+.column-article p,
+.column-article li {
+  line-height: 1.85;
+}
+.column-article p {
+  margin: 0 0 14px;
+}
 .column-article h2 {
+  margin: 44px 0 16px;
+  padding: 10px 14px;
+  border-left: 4px solid var(--color-primary);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: var(--color-primary-tint);
+  font-size: 1.22rem;
+  line-height: 1.5;
   scroll-margin-top: 16px;
 }
 .column-article h3 {
-  font-size: 1rem;
+  margin: 28px 0 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 1.06rem;
   font-weight: 800;
-  margin: 22px 0 8px;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 .column-article ul,
 .column-article ol {
-  margin: 0 0 14px;
+  margin: 0 0 16px;
   padding-left: 1.4em;
-  line-height: 1.85;
 }
-.column-toc {
-  margin: 20px 0 8px;
-  padding: 14px 16px;
-  border-radius: var(--radius-sm);
-  background: var(--color-primary-soft);
-}
-.column-toc__title {
-  margin: 0 0 6px !important;
-  font-weight: 800;
-}
-.column-toc ol {
-  margin: 0;
-}
-.column-toc li + li {
+.column-article li + li {
   margin-top: 2px;
 }
-.column-toc a {
-  display: inline-block;
-  padding: 3px 0;
+
+/* 目次（<details> で折り畳み可能） */
+.column-toc {
+  margin: 24px 0 8px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
 }
+.column-toc__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 10px 16px;
+  font-weight: 800;
+  cursor: pointer;
+  list-style: none;
+}
+.column-toc__title::-webkit-details-marker {
+  display: none;
+}
+.column-toc__title::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  margin-left: auto;
+  border-right: 2px solid var(--color-muted);
+  border-bottom: 2px solid var(--color-muted);
+  margin-top: -4px;
+  transform: rotate(45deg);
+  transition: transform 0.2s;
+}
+.column-toc details[open] > .column-toc__title::after {
+  margin-top: 4px;
+  transform: rotate(225deg);
+}
+.column-toc__count {
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.column-toc ol {
+  margin: 0 !important;
+  padding: 0 16px 10px !important;
+  border-top: 1px solid var(--color-border);
+  /* 見出しの文言に番号が含まれるため、リストの自動番号は付けない */
+  list-style: none;
+}
+.column-toc li {
+  margin: 0 !important;
+  line-height: 1.6;
+}
+.column-toc a {
+  display: block;
+  padding: 9px 0;
+  text-decoration: none;
+}
+.column-toc a:hover {
+  text-decoration: underline;
+}
+.column-toc li + li a {
+  border-top: 1px dashed var(--color-border);
+}
+
+/* 診断への案内ボタン */
 .column-cta {
-  margin: 18px 0 20px !important;
+  margin: 28px 0 !important;
+  padding: 18px 16px;
+  border: 1px solid #cfe9e3;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary-tint);
   text-align: center;
 }
 .column-cta__button {
-  max-width: 100%;
+  width: 100%;
+  max-width: 420px;
+  min-height: 52px;
   white-space: normal;
   line-height: 1.5;
 }
@@ -1870,6 +2147,30 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   .prose {
     padding: 36px 44px;
   }
+  .prose.column-article {
+    padding: 40px 48px 44px;
+  }
+  .column-article {
+    font-size: 1.0625rem;
+  }
+  .column-article h1 {
+    font-size: 1.7rem;
+  }
+  .column-article h2 {
+    font-size: 1.32rem;
+  }
+  .column-article h3 {
+    font-size: 1.12rem;
+  }
+  .column-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .column-filter__cats {
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
 }
 
 @media (min-width: 900px) {
@@ -1891,6 +2192,9 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
 
 /* PC（幅1024px以上）だけの調整。タブレット・スマホの表示は変えない */
 @media (min-width: 1024px) {
+  .column-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
   /* 結果表示中だけメインコンテンツを広げる（質問画面は 720px のまま） */
   .panel--result {
     max-width: 920px;
