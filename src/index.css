@@ -2014,6 +2014,48 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   white-space: normal;
   line-height: 1.5;
 }
+
+/* 記事の編集者表示（運営者情報へのリンク） */
+.column-article__by {
+  margin-left: 12px;
+}
+.column-article__by a {
+  color: var(--color-muted);
+}
+
+/* 関連する選び方コラム */
+.column-related {
+  max-width: 820px;
+  margin: 24px auto 0;
+}
+.column-related__title {
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+.column-related__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.column-related__list > li {
+  display: flex;
+  min-width: 0;
+}
+.column-entry--compact {
+  padding: 14px 16px;
+}
+.column-entry--compact .column-entry__title {
+  margin-top: 6px;
+  font-size: 1rem;
+}
+.column-entry--compact .column-entry__desc {
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
 .column-home__lead {
   margin: -6px 0 14px;
   color: var(--color-muted);
@@ -2163,6 +2205,9 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
     font-size: 1.12rem;
   }
   .column-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .column-related__list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .column-filter__cats {

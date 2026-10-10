@@ -4,8 +4,10 @@
 import { Fragment, useMemo, useState } from 'react'
 import { Link } from '../components/Link.tsx'
 import { categoryGroups } from '../config/categories.ts'
-import { columnListMeta, columnMeta, diagnosisPath } from '../config/seo.ts'
+import { canonicalUrl, columnListMeta, columnMeta, diagnosisPath } from '../config/seo.ts'
+import { site } from '../config/site.ts'
 import { columnPath, columns, type Column } from '../data/columns/index.ts'
+import { getRelatedColumns } from '../data/columns/related.ts'
 import { diagnoses, isDiagnosisEnabled } from '../data/diagnoses/index.ts'
 import { parseColumnBody } from '../lib/columnBody.ts'
 import { normalizeSearchText, toSearchWords } from '../lib/diagnosisSearch.ts'
@@ -180,6 +182,38 @@ export function ColumnListPage() {
   )
 }
 
+/** 記事の構造化データ（Article・BreadcrumbList）。値はすべて表示中の記事データと一致させる（画像・更新日は記録がないため入れない） */
+function articleJsonLd(column: Column): string {
+  const url = canonicalUrl(columnPath(column.slug))
+  const operator = { '@type': 'Organization', name: site.operator.name, url: canonicalUrl('/about/') }
+  const data = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: column.title,
+      description: column.description,
+      url,
+      mainEntityOfPage: url,
+      datePublished: column.publishedAt,
+      inLanguage: 'ja',
+      articleSection: column.category,
+      author: operator,
+      publisher: { '@type': 'Organization', name: site.name, url: canonicalUrl('/') },
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'トップ', item: canonicalUrl('/') },
+        { '@type': 'ListItem', position: 2, name: '選び方コラム', item: canonicalUrl('/column/') },
+        { '@type': 'ListItem', position: 3, name: column.shortTitle, item: url },
+      ],
+    },
+  ]
+  // </script> などで閉じられないよう < をエスケープする
+  return JSON.stringify(data).replace(/</g, '\\u003c')
+}
+
 export function ColumnArticlePage({ column }: { column: Column }) {
   useSeo(columnMeta(column))
   const blocks = parseColumnBody(column.body)
@@ -189,9 +223,11 @@ export function ColumnArticlePage({ column }: { column: Column }) {
   const diagnosisUrl = diagnosis ? `${diagnosisPath(diagnosis.slug)}/` : undefined
   // 目次は <details> で折り畳める。初期 HTML では開いた状態（JavaScript 無効でも見える）、スマホのブラウザでは閉じて表示する
   const tocInitiallyOpen = typeof window === 'undefined' || !window.matchMedia('(max-width: 639px)').matches
+  const relatedColumns = getRelatedColumns(column.slug)
 
   return (
     <div className="container page">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: articleJsonLd(column) }} />
       <nav className="breadcrumb" aria-label="パンくずリスト">
         <ol>
           <li>
@@ -207,7 +243,12 @@ export function ColumnArticlePage({ column }: { column: Column }) {
         <header className="column-article__header">
           <span className="diagnosis-card__meta column-card__category">{column.category}</span>
           <h1>{column.title}</h1>
-          <p className="column-article__date">公開日：{formatDate(column.publishedAt)}</p>
+          <p className="column-article__date">
+            公開日：{formatDate(column.publishedAt)}
+            <span className="column-article__by">
+              編集：<Link to="/about/">{site.operator.name}</Link>
+            </span>
+          </p>
         </header>
         {blocks.map((b, i) => {
           const before =
@@ -274,6 +315,24 @@ export function ColumnArticlePage({ column }: { column: Column }) {
           )
         })}
       </article>
+      {relatedColumns.length > 0 && (
+        <section className="column-related" aria-labelledby="column-related-title">
+          <h2 id="column-related-title" className="column-related__title">
+            関連する選び方コラム
+          </h2>
+          <ul className="column-related__list">
+            {relatedColumns.map((c) => (
+              <li key={c.slug}>
+                <Link to={columnPath(c.slug)} className="column-entry column-entry--compact" data-group={groupIdByLabel.get(c.category)}>
+                  <span className="column-entry__category">{c.category}</span>
+                  <span className="column-entry__title">{c.shortTitle}</span>
+                  <span className="column-entry__desc">{c.description}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
     </div>
   )
 }

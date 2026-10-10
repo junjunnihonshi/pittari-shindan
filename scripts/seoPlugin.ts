@@ -15,6 +15,7 @@ import path from 'node:path'
 import { createServer, type Plugin, type ResolvedConfig } from 'vite'
 import { absoluteUrl, buildHeadTags, canonicalUrl, columnListMeta, diagnosisPath, getAllPages, notFoundMeta, staticPages, type PageMeta } from '../src/config/seo.ts'
 import { columnPath, columns } from '../src/data/columns/index.ts'
+import { findRelatedProblems } from '../src/data/columns/related.ts'
 import { diagnoses, enabledDiagnoses } from '../src/data/diagnoses/index.ts'
 import { validateDiagnoses } from '../src/data/validate.ts'
 
@@ -78,6 +79,8 @@ export function seoPlugin(): Plugin {
     buildStart() {
       const problems = validateDiagnoses(diagnoses)
       for (const p of problems) this.warn(`[診断データ] ${p}`)
+      const relatedProblems = findRelatedProblems()
+      if (relatedProblems.length > 0) this.error(`[関連コラム] ${relatedProblems.join(' / ')}`)
     },
     async closeBundle() {
       const outDir = path.resolve(config.root, config.build.outDir)
