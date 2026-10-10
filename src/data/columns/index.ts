@@ -9,6 +9,7 @@ import { airFryerLifespan } from './replacement/airFryerLifespan.ts'
 import { airPurifierLifespan } from './replacement/airPurifierLifespan.ts'
 import { blenderLifespan } from './replacement/blenderLifespan.ts'
 import { bluetoothSpeakerLifespan } from './replacement/bluetoothSpeakerLifespan.ts'
+import { bodySoapLifespan } from './replacement/bodySoapLifespan.ts'
 import { circulatorFanLifespan } from './replacement/circulatorFanLifespan.ts'
 import { coffeeMakerLifespan } from './replacement/coffeeMakerLifespan.ts'
 import { dehumidifierLifespan } from './replacement/dehumidifierLifespan.ts'
@@ -21,6 +22,7 @@ import { electricToothbrushLifespan } from './replacement/electricToothbrushLife
 import { fryingPanLifespan } from './replacement/fryingPanLifespan.ts'
 import { hairDryerLifespan } from './replacement/hairDryerLifespan.ts'
 import { hairIronLifespan } from './replacement/hairIronLifespan.ts'
+import { hairTreatmentLifespan } from './replacement/hairTreatmentLifespan.ts'
 import { heaterLifespan } from './replacement/heaterLifespan.ts'
 import { hotPlateLifespan } from './replacement/hotPlateLifespan.ts'
 import { humidifierLifespan } from './replacement/humidifierLifespan.ts'
@@ -35,6 +37,7 @@ import { projectorLifespan } from './replacement/projectorLifespan.ts'
 import { refrigeratorLifespan } from './replacement/refrigeratorLifespan.ts'
 import { riceCookerLifespan } from './replacement/riceCookerLifespan.ts'
 import { robotVacuumLifespan } from './replacement/robotVacuumLifespan.ts'
+import { shampooLifespan } from './replacement/shampooLifespan.ts'
 import { showerHeadLifespan } from './replacement/showerHeadLifespan.ts'
 import { smartwatchLifespan } from './replacement/smartwatchLifespan.ts'
 import { soundbarLifespan } from './replacement/soundbarLifespan.ts'
@@ -222,6 +225,9 @@ export const replacementColumns: Column[] = [
   pillowLifespan,
   deskChairLifespan,
   suitcaseLifespan,
+  shampooLifespan,
+  hairTreatmentLifespan,
+  bodySoapLifespan,
 ]
 
 /** 公開中のすべてのコラム（選び方＋買い替え時期） */
