@@ -4,6 +4,9 @@
  * コラム一覧・記事ページ・sitemap.xml・プリレンダリングに反映されます。
  */
 import { airConditionerHowToChoose } from './airConditionerHowToChoose.ts'
+import { refrigeratorLifespan } from './replacement/refrigeratorLifespan.ts'
+import { riceCookerLifespan } from './replacement/riceCookerLifespan.ts'
+import { washingMachineLifespan } from './replacement/washingMachineLifespan.ts'
 import { airFryerHowToChoose } from './airFryerHowToChoose.ts'
 import { airPurifierHowToChoose } from './airPurifierHowToChoose.ts'
 import { blenderHowToChoose } from './blenderHowToChoose.ts'
@@ -62,14 +65,24 @@ export interface Column {
   category: string
   /** 公開日（YYYY-MM-DD） */
   publishedAt: string
-  /** 関連する診断のID。指定すると、その診断ページからこの記事へリンクします */
+  /**
+   * 関連する診断のID。本文の「→」行はこの診断へのリンクになります。
+   * 選び方コラム（columns）は、その診断ページからこの記事へリンクされます（診断と1対1）
+   */
   relatedDiagnosisId?: string
+  /** 記事の種類。未指定は選び方コラム、'replacement' は買い替え時期コラム（replacementColumns に登録） */
+  articleType?: 'replacement'
+  /** 買い替え時期コラムが対応する選び方コラムの slug（選び方コラムの末尾から、この記事へリンクします） */
+  guideSlug?: string
+  /** コラム一覧の検索にだけ使うキーワード */
+  searchKeywords?: string[]
   /** 診断ページに表示するこの記事へのリンク文言 */
   relatedLinkLabel?: string
   /**
    * 本文。「## 見出し」「### 小見出し」「- 箇条書き」「1. 番号付きリスト」「→ 診断へのリンク」と、
    * 空行区切りの段落で書きます（空行の後の「→」の行は relatedDiagnosisId の診断へのリンクになります）。
    * 比較表は「[表] キャプション」の次の行から「| 見出し | … |」「|---|」「| 行 | … |」と書き、直後の「※」行は表の注記になります。
+   * 段落の中の「[文字](サイト内のURL)」はリンクになります。
    */
   body: string
 }
@@ -123,12 +136,39 @@ export const columns: Column[] = [
   refrigeratorHowToChoose,
 ]
 
+/**
+ * 買い替え時期コラム。選び方コラム（columns）とは別に管理し、診断との1対1対応・関連コラムの検査の対象にしない。
+ * 記事ページ・コラム一覧・sitemap.xml・プリレンダリングには allColumns として反映されます。
+ */
+export const replacementColumns: Column[] = [washingMachineLifespan, refrigeratorLifespan, riceCookerLifespan]
+
+/** 公開中のすべてのコラム（選び方＋買い替え時期） */
+export const allColumns: Column[] = [...columns, ...replacementColumns]
+
 export function columnPath(slug: string): string {
   return `/column/${slug}/`
 }
 
 export function getColumnBySlug(slug: string): Column | undefined {
-  return columns.find((c) => c.slug === slug)
+  return allColumns.find((c) => c.slug === slug)
+}
+
+/** 選び方コラムに対応する買い替え時期コラム */
+export function getReplacementColumnsForGuide(guideSlug: string): Column[] {
+  return replacementColumns.filter((c) => c.guideSlug === guideSlug)
+}
+
+/** データの確認用：slug の重複、買い替え時期コラムの対応先・種別の誤り（ビルド時の検査に使う） */
+export function findColumnProblems(): string[] {
+  const problems: string[] = []
+  const slugs = allColumns.map((c) => c.slug)
+  for (const s of new Set(slugs)) if (slugs.filter((x) => x === s).length > 1) problems.push(`コラムの slug ${s} が重複しています`)
+  for (const c of columns) if (c.articleType) problems.push(`${c.slug} は選び方コラムですが articleType が指定されています`)
+  for (const c of replacementColumns) {
+    if (c.articleType !== 'replacement') problems.push(`${c.slug} に articleType: 'replacement' がありません`)
+    if (!columns.some((g) => g.slug === c.guideSlug)) problems.push(`${c.slug} の guideSlug ${c.guideSlug} が選び方コラムにありません`)
+  }
+  return problems
 }
 
 export function getColumnForDiagnosis(diagnosisId: string): Column | undefined {

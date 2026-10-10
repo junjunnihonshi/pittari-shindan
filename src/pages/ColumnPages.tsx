@@ -1,12 +1,12 @@
 /**
  * 選び方コラム（一覧・記事）。記事の内容は src/data/columns/ に書きます。
  */
-import { Fragment, useMemo, useState } from 'react'
+import { Fragment, useMemo, useState, type ReactNode } from 'react'
 import { Link } from '../components/Link.tsx'
 import { categoryGroups } from '../config/categories.ts'
 import { canonicalUrl, columnListMeta, columnMeta, diagnosisPath } from '../config/seo.ts'
 import { site } from '../config/site.ts'
-import { columnPath, columns, type Column } from '../data/columns/index.ts'
+import { allColumns, columnPath, getReplacementColumnsForGuide, type Column } from '../data/columns/index.ts'
 import { getRelatedColumns } from '../data/columns/related.ts'
 import { diagnoses, isDiagnosisEnabled } from '../data/diagnoses/index.ts'
 import { parseColumnBody } from '../lib/columnBody.ts'
@@ -18,19 +18,43 @@ function formatDate(ymd: string): string {
   return `${y}年${m}月${d}日`
 }
 
-/** 一覧カード用の短い表示名（正式タイトルの「｜」より前）。title・H1・メタ情報は変えない */
-function cardTitle(title: string): string {
-  return title.split('｜')[0].trim() || title
+/**
+ * 一覧カード用の短い表示名。title・H1・メタ情報は変えない。
+ * 選び方コラムは正式タイトルの「｜」より前、買い替え時期コラムは shortTitle（例：洗濯機の寿命・買い替え時期）
+ */
+function cardTitle(c: Column): string {
+  if (c.articleType === 'replacement') return c.shortTitle
+  return c.title.split('｜')[0].trim() || c.title
+}
+
+/** 段落の中の「[文字](サイト内のURL)」をリンクにする（サイト外のURLはリンクにしない） */
+const INLINE_LINK = /\[([^\]]+)\]\((?:https:\/\/pittari-shindan-navi\.com)?(\/[^)\s]*)\)/g
+function renderInline(text: string) {
+  if (!text.includes('](')) return text
+  const parts: ReactNode[] = []
+  let last = 0
+  for (const m of text.matchAll(INLINE_LINK)) {
+    const start = m.index ?? 0
+    parts.push(text.slice(last, start))
+    parts.push(
+      <Link key={start} to={m[2]}>
+        {m[1]}
+      </Link>,
+    )
+    last = start + m[0].length
+  }
+  parts.push(text.slice(last))
+  return parts
 }
 
 /** カテゴリ名 → categoryGroups の id（カードのアクセント色に使う） */
 const groupIdByLabel = new Map(categoryGroups.map((g) => [g.label, g.id]))
 
-/** 検索対象：タイトル・説明文・カテゴリ名と、関連する診断の名前・検索用キーワード（ある場合） */
+/** 検索対象：タイトル・説明文・カテゴリ名・記事の検索用キーワードと、関連する診断の名前・検索用キーワード（ある場合） */
 const searchTextBySlug = new Map(
-  columns.map((c) => {
+  allColumns.map((c) => {
     const d = diagnoses.find((x) => x.id === c.relatedDiagnosisId)
-    const parts = [c.title, c.shortTitle, c.description, c.category, d?.name, d?.itemName, ...(d?.searchKeywords ?? [])]
+    const parts = [c.title, c.shortTitle, c.description, c.category, ...(c.searchKeywords ?? []), d?.name, d?.itemName, ...(d?.searchKeywords ?? [])]
     return [c.slug, normalizeSearchText(parts.filter(Boolean).join(' '))]
   }),
 )
@@ -40,7 +64,7 @@ const EMPTY_MESSAGE = '該当する記事がありません。検索条件を変
 
 export function ColumnListPage() {
   useSeo(columnListMeta)
-  const list = useMemo(() => [...columns].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt)), [])
+  const list = useMemo(() => [...allColumns].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt)), [])
   // カテゴリは既存の分類の順に、記事があるものだけを並べる（分類にないカテゴリ名は末尾に追加）
   const categories = useMemo(() => {
     const labels = [...categoryGroups.map((g) => g.label), ...list.map((c) => c.category)]
@@ -160,7 +184,7 @@ export function ColumnListPage() {
               <li key={c.slug}>
                 <Link to={columnPath(c.slug)} className="column-entry" data-group={groupIdByLabel.get(c.category)}>
                   <span className="column-entry__category">{c.category}</span>
-                  <span className="column-entry__title">{cardTitle(c.title)}</span>
+                  <span className="column-entry__title">{cardTitle(c)}</span>
                   <span className="column-entry__desc">{c.description}</span>
                   <span className="column-entry__more">
                     選び方を読む <span aria-hidden="true">→</span>
@@ -224,6 +248,7 @@ export function ColumnArticlePage({ column }: { column: Column }) {
   // 目次は <details> で折り畳める。初期 HTML では開いた状態（JavaScript 無効でも見える）、スマホのブラウザでは閉じて表示する
   const tocInitiallyOpen = typeof window === 'undefined' || !window.matchMedia('(max-width: 639px)').matches
   const relatedColumns = getRelatedColumns(column.slug)
+  const replacementColumns = getReplacementColumnsForGuide(column.slug)
 
   return (
     <div className="container page">
@@ -350,7 +375,7 @@ export function ColumnArticlePage({ column }: { column: Column }) {
               ) : null
               break
             default:
-              el = <p>{b.text}</p>
+              el = <p>{renderInline(b.text)}</p>
           }
           return (
             <Fragment key={i}>
@@ -360,6 +385,24 @@ export function ColumnArticlePage({ column }: { column: Column }) {
           )
         })}
       </article>
+      {replacementColumns.length > 0 && (
+        <section className="column-related" aria-labelledby="column-replacement-title">
+          <h2 id="column-replacement-title" className="column-related__title">
+            買い替え時期も確認する
+          </h2>
+          <ul className="column-related__list">
+            {replacementColumns.map((c) => (
+              <li key={c.slug}>
+                <Link to={columnPath(c.slug)} className="column-entry column-entry--compact" data-group={groupIdByLabel.get(c.category)}>
+                  <span className="column-entry__category">{c.category}</span>
+                  <span className="column-entry__title">{c.shortTitle}</span>
+                  <span className="column-entry__desc">{c.description}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
       {relatedColumns.length > 0 && (
         <section className="column-related" aria-labelledby="column-related-title">
           <h2 id="column-related-title" className="column-related__title">

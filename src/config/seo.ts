@@ -4,7 +4,7 @@
  * - このファイルはトップページや固定ページの情報と、共通の組み立てルールを持ちます。
  * ビルド時にもこのファイルを使って、ページごとのHTML・sitemap.xml・robots.txt を生成します。
  */
-import { columnPath, columns, type Column } from '../data/columns/index.ts'
+import { allColumns, columnPath, type Column } from '../data/columns/index.ts'
 import { enabledDiagnoses } from '../data/diagnoses/index.ts'
 import type { Diagnosis } from '../types/diagnosis.ts'
 import { hasContact, site } from './site.ts'
@@ -75,7 +75,7 @@ export function getAllPages(): PageMeta[] {
   return [
     ...staticPages,
     columnListMeta,
-    ...columns.map(columnMeta),
+    ...allColumns.map(columnMeta),
     ...enabledDiagnoses.map<PageMeta>((d) => ({
       path: diagnosisPath(d.slug),
       title: d.seo.title,
