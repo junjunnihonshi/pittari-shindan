@@ -11,10 +11,13 @@ import { dehumidifierLifespan } from './replacement/dehumidifierLifespan.ts'
 import { dishwasherLifespan } from './replacement/dishwasherLifespan.ts'
 import { electricBlanketLifespan } from './replacement/electricBlanketLifespan.ts'
 import { electricKettleLifespan } from './replacement/electricKettleLifespan.ts'
+import { electricToothbrushLifespan } from './replacement/electricToothbrushLifespan.ts'
 import { hairDryerLifespan } from './replacement/hairDryerLifespan.ts'
+import { heaterLifespan } from './replacement/heaterLifespan.ts'
 import { humidifierLifespan } from './replacement/humidifierLifespan.ts'
 import { microwaveLifespan } from './replacement/microwaveLifespan.ts'
 import { mobileBatteryLifespan } from './replacement/mobileBatteryLifespan.ts'
+import { monitorLifespan } from './replacement/monitorLifespan.ts'
 import { printerLifespan } from './replacement/printerLifespan.ts'
 import { refrigeratorLifespan } from './replacement/refrigeratorLifespan.ts'
 import { riceCookerLifespan } from './replacement/riceCookerLifespan.ts'
@@ -180,6 +183,9 @@ export const replacementColumns: Column[] = [
   mobileBatteryLifespan,
   electricBlanketLifespan,
   coffeeMakerLifespan,
+  heaterLifespan,
+  electricToothbrushLifespan,
+  monitorLifespan,
 ]
 
 /** 公開中のすべてのコラム（選び方＋買い替え時期） */
