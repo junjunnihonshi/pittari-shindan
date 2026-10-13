@@ -18,7 +18,7 @@ const products: Product[] = [
     cons: ['後方・側面・車内は記録できない', '駐車監視には別売の直接配線コード（HDROP-14）が必要'],
     recommendFor: 'まずは前方だけを手頃に記録したい人',
     caution: '本体単品の出品です。駐車監視を使う場合は別売のHDROP-14と配線作業が必要です。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0DG8J377H/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00qjlqo.d8zue1ff.g00qjlqo.d8zuf768/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsyatihoko%2Fhdr003%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsyatihoko%2Fi%2F10004372%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/syatihoko/cabinet/02548057/1-hdr003.jpg?_ex=300x300',
     attributes: {
@@ -67,7 +67,7 @@ const products: Product[] = [
     cons: ['後方は記録できない', '駐車録画には別売の車載電源ケーブル（CA-DR100）が必要'],
     recommendFor: '前方だけでよく、日本製と保証を重視する人',
     caution: '本体単品の出品です。駐車録画を使う場合は別売のCA-DR100と配線作業が必要です。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0DSH351TL/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00u9oco.d8zuea30.g00u9oco.d8zufc16/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fautobacs-ec%2F4975514066223%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fautobacs-ec%2Fi%2F10060469%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/autobacs-ec/cabinet/item_images/item_images05/101-200/01779241_1.jpg?_ex=300x300',
     attributes: {
@@ -116,7 +116,7 @@ const products: Product[] = [
     cons: ['電源は直接配線で、シガープラグコードは別売', '駐車監視には別売のHDROP-14が必要', 'DC12V専用'],
     recommendFor: '前後2カメラを、価格を抑えて導入したい人',
     caution: '本体単品の出品です。電源は付属の直接配線コードで車両に配線します（DC12V専用）。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0GTZLFG1M/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00qjlqo.d8zue1ff.g00qjlqo.d8zuf768/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsyatihoko%2Fzdr-550d%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsyatihoko%2Fi%2F10004481%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/syatihoko/cabinet/02548057/1-550d.jpg?_ex=300x300',
     attributes: {
@@ -165,7 +165,7 @@ const products: Product[] = [
     cons: ['駐車録画には別売の車載電源ケーブル（CA-DR350）が必要', '楽天での取り扱い店舗が少ない'],
     recommendFor: 'トラックなどの24V車で、前後を記録したい人',
     caution: '本体セットの出品です。取り扱い店舗が少ないため、購入前に価格と在庫をご確認ください。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0CGL6L55W/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00u87zo.d8zuedda.g00u87zo.d8zuf17c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsea-story-kagoshima%2F2822-003380%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsea-story-kagoshima%2Fi%2F10000946%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/sea-story-kagoshima/cabinet/amayahoo/09883783/2822-003380.jpg?_ex=300x300',
     attributes: {
@@ -263,7 +263,7 @@ const products: Product[] = [
     cons: ['駐車監視には別売のHDROP-14が必要', 'DC12V専用'],
     recommendFor: '夜間性能と前方の精細さを両立した前後2カメラがほしい人',
     caution: '本体単品の出品です（DC12V専用）。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0FDK55FLZ/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00qjlqo.d8zue1ff.g00qjlqo.d8zuf768/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsyatihoko%2Fzdr065%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsyatihoko%2Fi%2F10004444%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/syatihoko/cabinet/02548057/065_no1.jpg?_ex=300x300',
     attributes: {
@@ -312,7 +312,7 @@ const products: Product[] = [
     cons: ['暗所向けセンサー（STARVIS）の記載はない', '電源は直接配線で、駐車監視には別売のHDROP-14が必要', 'DC12V専用'],
     recommendFor: 'とにかく価格を抑えて前後2カメラを導入したい人',
     caution: '本体単品の出品です。電源は付属の直接配線コードで車両に配線します（DC12V専用）。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0GTZJSSFP/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00qjlqo.d8zue1ff.g00qjlqo.d8zuf768/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsyatihoko%2Fzdr-250d%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsyatihoko%2Fi%2F10004480%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/syatihoko/cabinet/02548057/1-250d.jpg?_ex=300x300',
     attributes: {
@@ -361,7 +361,7 @@ const products: Product[] = [
     cons: ['4K設定時は一部の運転支援機能が使えない', '駐車監視には別売のHDROP-14が必要', 'DC12V専用'],
     recommendFor: '前方のナンバーや細部を高精細に残したい人',
     caution: '本体単品の出品です。初期設定は前方WQHDで、4Kで記録するには設定の変更が必要です。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0GTZTMK21/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00qjlqo.d8zue1ff.g00qjlqo.d8zuf768/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsyatihoko%2Fzdr-750d%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsyatihoko%2Fi%2F10004482%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/syatihoko/cabinet/02548057/1-750d.jpg?_ex=300x300',
     attributes: {
@@ -410,7 +410,7 @@ const products: Product[] = [
     cons: ['駐車監視には別売の専用電源ケーブルが必要', '対応電圧・保証期間は公式ページで確認できていない'],
     recommendFor: 'スマホで映像を確認したい、高精細な前後2カメラがほしい人',
     caution: 'メーカー公式店のリアカメラ付きセットの出品です。4G通信を使う機能は、日本での利用可否を確認できていません。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0CQX4WDLQ/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00ugs9o.d8zuec2d.g00ugs9o.d8zuf867/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2F70mai%2Fa810s%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2F70mai%2Fi%2F10000093%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/70mai/cabinet/a810s/a810s01.jpg?_ex=300x300',
     attributes: {
@@ -459,7 +459,7 @@ const products: Product[] = [
     cons: ['自動防眩ミラー装着車など、取り付けできない車がある', '電源は直接配線で、駐車監視には別売のCDOP-01Pが必要', 'DC12V専用'],
     recommendFor: 'ミラー型で後方を見ながら、前後も記録したい人',
     caution: '本体単品の出品です。純正デジタルインナーミラー装着車などには取り付けできません。購入前に車両の適合をご確認ください。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0GTZQMGMX/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00u9oco.d8zuea30.g00u9oco.d8zufc16/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fautobacs-ec%2F4952040150695%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fautobacs-ec%2Fi%2F10091288%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/autobacs-ec/cabinet/image/12821157/01853532_1.jpg?_ex=300x300',
     attributes: {
@@ -508,7 +508,7 @@ const products: Product[] = [
     cons: ['駐車監視には別売のHDROP-14が必要', '360°映像の視点切替はパソコンのビューワで行う', 'DC12V専用'],
     recommendFor: '横からの接触やあおり運転など、周囲を広く記録したい人',
     caution: '本体単品の出品です（DC12V専用）。死角になる部分は記録できません。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0FGXZX52S/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00qjlqo.d8zue1ff.g00qjlqo.d8zuf768/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsyatihoko%2Fzdr-850r%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsyatihoko%2Fi%2F10004447%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/syatihoko/cabinet/02548057/zdr850r-1r.jpg?_ex=300x300',
     attributes: {
@@ -557,7 +557,7 @@ const products: Product[] = [
     cons: ['後方専用のカメラは付属しない', 'パーキングモードには別売の常時電源コード（GDO-41など）が必要'],
     recommendFor: '後方カメラの配線をせずに、側面と車内を記録したい人',
     caution: '本体単品の出品です。後方は車内カメラ越しの記録になります。付属の電源コードの種類は販売ページでご確認ください。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0DT6SBR7L/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4962886010435-37-53519-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14642930%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0465/4962886010435.jpg?_ex=300x300',
     attributes: {
@@ -655,7 +655,7 @@ const products: Product[] = [
     cons: ['今回の15機種で最も高価格', '一部の駐車監視機能には別売のHardwire Kitが必要', '4G機能は日本では利用できない'],
     recommendFor: '前後とも高精細に残し、車内も記録したい人',
     caution: 'メーカー公式店の3カメラセットの出品です。4Gを使う機能は日本では利用できません。対応電圧・保証期間は公式ページで確認できていません。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0FH4VGYWN/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00ugs9o.d8zuec2d.g00ugs9o.d8zuf867/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2F70mai%2Fdashcamt800%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2F70mai%2Fi%2F10000075%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/70mai/cabinet/t800/t8001.jpg?_ex=300x300',
     attributes: {
@@ -704,7 +704,7 @@ const products: Product[] = [
     cons: ['駐車録画には別売の車載電源ケーブル（CA-DR100）が必要', '駐車録画は動体検知に非対応'],
     recommendFor: '24V車も含め、周囲を広く記録したい人',
     caution: '本体セットの出品です。駐車録画を使う場合は別売のCA-DR100と配線作業が必要です。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0DFGDN82P/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00u9oco.d8zuea30.g00u9oco.d8zufc16/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fautobacs-ec%2F4975514066025%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fautobacs-ec%2Fi%2F10056836%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/autobacs-ec/cabinet/item_images/item_images05/101-200/01770652_1.jpg?_ex=300x300',
     attributes: {

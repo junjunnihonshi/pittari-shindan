@@ -23,7 +23,7 @@ const products: Product[] = [
     cons: ['マットを広げる・たたむ手間がある'],
     recommendFor: '手間がかかってもマットでふとん全体をしっかり乾かしたい、価格重視の人',
     caution: 'グレー（ZFD-Y500(H)）の出品です。エアマットの対応サイズは約80×180cmで、ダブルサイズへの対応は公式情報で確認できていません。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B01N8QB3B8/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00tlfdo.d8zuefb3.g00tlfdo.d8zufad3/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyamazenkaden%2F17627%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyamazenkaden%2Fi%2F10001855%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/yamazenkaden/cabinet/main-img/001/main-17627.jpg?_ex=300x300',
     attributes: {
@@ -68,7 +68,7 @@ const products: Product[] = [
     cons: ['1組ずつの乾燥になる', '楽天での取り扱い店舗が少なく、価格が変わりやすい'],
     recommendFor: 'マットなしの手軽な1台を、できるだけ安く選びたい人',
     caution: 'ホワイト（FK-EC2-W）の単品出品です。取り扱い店舗が少ないため、購入前に価格と在庫をご確認ください。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0F5HF24SX/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00uq9uo.d8zue6c0.g00uq9uo.d8zuf0e0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Factonlineshop%2Facton266a36706729%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Factonlineshop%2Fi%2F10026223%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/actonlineshop/cabinet/onesell028/acton266a36706729_0.jpg?_ex=300x300',
     attributes: {
@@ -113,7 +113,7 @@ const products: Product[] = [
     cons: ['ノズルは1本のため、2組同時には使えない'],
     recommendFor: '小さく軽い本体で、すばやくふとんを温めたい人',
     caution: 'カラーは購入時に選択します（ホワイトはJSK-S10-W）。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0DR8FPHCW/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00su2mo.d8zue2de.g00su2mo.d8zuf37b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fu-denki%2F288494%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fu-denki%2Fi%2F10035837%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/u-denki/cabinet/tenposupport07/207021_ins.jpg?_ex=300x300',
     attributes: {
@@ -158,7 +158,7 @@ const products: Product[] = [
     cons: ['上位のBSK-210より最大消費電力・あたため速度はやや控えめ'],
     recommendFor: '2組のふとんを同時に、価格を抑えて乾燥したい人',
     caution: 'メーカー公式店の出品で、カラーは購入時に選択します（ホワイトはJSK-W10-W）。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0G34MKLL8/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00t3zto.d8zuee14.g00t3zto.d8zuf2f4/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F211203%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10172519%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/12632916/211203_01.jpg?_ex=300x300',
     attributes: {
@@ -248,7 +248,7 @@ const products: Product[] = [
     cons: ['最大消費電力が小さめで、速さ重視の人には物足りない場合がある'],
     recommendFor: '準備と片付けをとにかく簡単にしたい人',
     caution: 'ブルーグレー（HFK-CV1B-AH）の出品です。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0BRR85YQ2/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00r7ldo.d8zue716.g00r7ldo.d8zuf884/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4526044017379%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F13887047%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/7350/00000010695919_a01.jpg?_ex=300x300',
     attributes: {
@@ -293,7 +293,7 @@ const products: Product[] = [
     cons: ['本体が大きく重めで、持ち運びや収納には不向き'],
     recommendFor: '湿気の多い時期も、ふとんをしっかり乾かしたい人',
     caution: 'アイボリー（HFK-VS6000-C）の出品です。デオドラント剤や衣類乾燥カバーを使う機能は、別売品が必要な場合があります。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0CLXVXXPB/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00s0bro.d8zuee6a.g00s0bro.d8zufd9e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fwinkstore%2F258423%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fwinkstore%2Fi%2F10036626%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/winkstore/cabinet/258500/258423.jpg?_ex=300x300',
     attributes: {
@@ -338,7 +338,7 @@ const products: Product[] = [
     cons: ['本体は約3.4kgあり、持ち歩きには向かない'],
     recommendFor: 'ホースもマットも使わず、毎日気軽に使いたい人',
     caution: 'グレー（RF-UA10-HA）の出品です。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0CD3LG6NN/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4974305224415-21-51982-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14017933%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0094/4974305224415.jpg?_ex=300x300',
     attributes: {
@@ -383,7 +383,7 @@ const products: Product[] = [
     cons: ['本体は約3.8kgと重め', 'ホースなし機の中では価格が高め'],
     recommendFor: '手軽さも乾燥スピードもあきらめたくない人',
     caution: 'ホワイト（RF-FB20-WA）の出品です。約35分は標準(冬)コース・シングルの場合のメーカー条件です。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0CD3KPHLQ/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00t3jpo.d8zuedce.g00t3jpo.d8zufb63/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyamada-denki%2F4474411010%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyamada-denki%2Fi%2F10598386%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/yamada-denki/cabinet/a07000330/4474411010.jpg?_ex=300x300',
     attributes: {
@@ -428,7 +428,7 @@ const products: Product[] = [
     cons: ['ホースを伸ばしてセットする手間がある'],
     recommendFor: 'ふとんや枕のニオイが気になる人',
     caution: 'ホワイト系（UD-DF1-W）の出品です。消臭効果は使用環境やニオイの種類によって異なります。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B08L5RHRCW/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00qn68o.d8zuee0f.g00qn68o.d8zuf9b5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fa-price%2F2980000208645%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fa-price%2Fi%2F10849818%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/a-price/cabinet/pics/194/2-4974019167565.jpg?_ex=300x300',
     attributes: {
@@ -473,7 +473,7 @@ const products: Product[] = [
     cons: ['パワーは標準的で、速さ重視の人には物足りない場合がある'],
     recommendFor: '見た目にもこだわって、いろいろな用途に使いたい人',
     caution: 'メーカー公式店の出品で、カラーは購入時に選択します（アイボリーはBOE047-IV）。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B07HQFGZGK/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00tf8to.d8zue0a0.g00tf8to.d8zufb8f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbruno-official%2F7760509%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbruno-official%2Fi%2F10000108%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/bruno-official/cabinet/item/2026_1/7760509_page1_02.jpg?_ex=300x300',
     attributes: {
@@ -561,7 +561,7 @@ const products: Product[] = [
     cons: ['適用サイズはシングルまで', 'くつ乾燥には別売スタンドが必要'],
     recommendFor: '旅行や出張にも持っていける、軽い1台がほしい人',
     caution: 'ウォームグレー（FEN-L01-WG）の出品です。海外で使う場合は、渡航先のプラグ形状や周波数などもご確認ください。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0F3CFZWPP/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00r7ldo.d8zue716.g00r7ldo.d8zuf884/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4562337507714%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F15151696%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/12887/00000014139571_a01.jpg?_ex=300x300',
     attributes: {
@@ -605,7 +605,7 @@ const products: Product[] = [
     cons: ['価格が高め', 'くつ乾燥には別売スタンドが必要'],
     recommendFor: 'ニオイ対策を重視しつつ、旅行先でも使いたい人',
     caution: 'ダークグレー（FEN-003-DG）の出品です。海外で使う場合は、渡航先のプラグ形状や周波数などもご確認ください。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0FXLJQ121/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00r7ldo.d8zue716.g00r7ldo.d8zuf884/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4562337507820%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F15295736%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/14686/00000014553033_a01.jpg?_ex=300x300',
     attributes: {
@@ -648,7 +648,7 @@ const products: Product[] = [
     cons: ['今回の15機種で最も高価格', '国内AC100V専用で、くつ乾燥には別売スタンドが必要'],
     recommendFor: 'クイーン・キングサイズのふとんも、しっかり乾燥・消臭したい人',
     caution: 'ストーンブラック（FEN-P01-SB）の出品です。国内AC100V専用です。',
-    amazonUrl: '',
+    amazonUrl: 'https://www.amazon.co.jp/dp/B0DLJMHF1G/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00r7ldo.d8zue716.g00r7ldo.d8zuf884/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4562337507615%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F15044330%2F',
     imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/11399/00000013787732_a01.jpg?_ex=300x300',
     attributes: {
