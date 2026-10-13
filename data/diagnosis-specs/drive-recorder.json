@@ -1,0 +1,1560 @@
+{
+  "id": "drive-recorder",
+  "enabled": false,
+  "title": "ドライブレコーダー診断",
+  "itemName": "ドライブレコーダー",
+  "group": "digital",
+  "icon": "🚗",
+  "cardDescription": "記録したい範囲や夜間性能、駐車監視、予算から、あなたに合うドライブレコーダーを診断。",
+  "description": "前方だけでよいのか、後方や側面、車内まで記録したいのか。夜間の運転や駐車監視、取り付け方によっても選ぶべき機種は変わります。7つの質問に答えるだけで、15機種の中からあなたに合うドライブレコーダーを提案します。",
+  "searchKeywords": [
+    "ドライブレコーダー おすすめ",
+    "ドライブレコーダー 診断",
+    "ドライブレコーダー 比較",
+    "ドラレコ 選び方",
+    "ドライブレコーダー 2026",
+    "ドラレコ 前後2カメラ",
+    "ドライブレコーダー 360度",
+    "ドライブレコーダー 3カメラ",
+    "ドライブレコーダー 4K",
+    "ドライブレコーダー ミラー型",
+    "ドラレコ 夜間性能",
+    "ドラレコ 駐車監視",
+    "ドライブレコーダー 安い",
+    "ドライブレコーダー コスパ",
+    "ドライブレコーダー 24V",
+    "ドライブレコーダー スマホ連携",
+    "ドライブレコーダー 日本製",
+    "ドラレコ ナンバープレート",
+    "コムテック ドライブレコーダー",
+    "ユピテル ドライブレコーダー",
+    "ケンウッド ドライブレコーダー"
+  ],
+  "seo": {
+    "title": "ドライブレコーダーおすすめ診断｜7問であなたに合う1台を比較",
+    "description": "ドライブレコーダー15機種を比較。前後2カメラ、360度、4K、ミラー型、駐車監視、夜間性能、価格から、7問であなたにぴったりの1台を診断できます。"
+  },
+  "priceLabels": {
+    "1": "〜12,000円",
+    "2": "12,001〜20,000円",
+    "3": "20,001〜30,000円",
+    "4": "30,001〜45,000円",
+    "5": "45,001円〜"
+  },
+  "questions": [
+    {
+      "id": "budget",
+      "text": "本体の予算はいくらですか？",
+      "shortLabel": "予算",
+      "weight": 10,
+      "help": "購入リンク先の税込本体セット価格で判定します。取り付け工賃や、別売の駐車監視用ケーブルなどの費用は別途必要です。",
+      "options": [
+        {
+          "id": "b1",
+          "label": "12,000円以内",
+          "summary": "予算12,000円以内",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "V",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "within12k",
+            "value": true,
+            "notice": "本体セット価格が12,000円以内の機種を探しましたが、現在の15機種には条件を満たす商品がありません。下に表示しているのは、予算を超える参考候補です。",
+            "supplementLabel": "予算（12,000円）を超えます"
+          }
+        },
+        {
+          "id": "b2",
+          "label": "20,000円以内",
+          "summary": "予算20,000円以内",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "V",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "maxPriceRange": 2
+        },
+        {
+          "id": "b3",
+          "label": "30,000円以内",
+          "summary": "予算30,000円以内",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "V",
+              "value": 4,
+              "weight": 100
+            }
+          ],
+          "maxPriceRange": 3
+        },
+        {
+          "id": "b4",
+          "label": "45,000円以内",
+          "summary": "予算45,000円以内",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "V",
+              "value": 3,
+              "weight": 100
+            }
+          ],
+          "maxPriceRange": 4
+        },
+        {
+          "id": "b5",
+          "label": "65,000円以内",
+          "summary": "予算65,000円以内",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "V",
+              "value": 3,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "within65k",
+            "value": true,
+            "notice": "本体セット価格が65,000円以内の機種からおすすめを表示しています。",
+            "supplementLabel": "予算（65,000円）を超えます"
+          }
+        },
+        {
+          "id": "any",
+          "label": "予算の上限なし",
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "coverage",
+      "text": "どの範囲を記録したいですか？",
+      "shortLabel": "記録する範囲",
+      "weight": 22,
+      "options": [
+        {
+          "id": "front",
+          "label": "前方が撮れれば十分",
+          "summary": "前方が撮れれば十分",
+          "effects": [
+            {
+              "type": "equals",
+              "attr": "frontOnly",
+              "value": true,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "E",
+              "value": 5,
+              "weight": 30
+            },
+            {
+              "type": "atLeast",
+              "attr": "V",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "rear",
+          "label": "前方と後方を記録したい",
+          "summary": "前方と後方を記録したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "R",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "rearCamera",
+            "value": true,
+            "notice": "後方撮影用のカメラが同梱された機種からおすすめを表示しています。",
+            "supplementLabel": "後方撮影用のカメラが付属しません"
+          }
+        },
+        {
+          "id": "side",
+          "label": "左右の側面まで広く記録したい",
+          "summary": "側面まで広く記録したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "S",
+              "value": 5,
+              "weight": 62
+            },
+            {
+              "type": "atLeast",
+              "attr": "W",
+              "value": 5,
+              "weight": 38
+            }
+          ],
+          "eligibility": {
+            "attr": "sideRecording",
+            "value": true,
+            "notice": "メーカーが側面の記録に対応すると明示している機種からおすすめを表示しています。",
+            "supplementLabel": "側面の記録への対応は明示されていません"
+          }
+        },
+        {
+          "id": "cabin",
+          "label": "車内の様子も記録したい",
+          "summary": "車内も記録したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "I",
+              "value": 5,
+              "weight": 71
+            },
+            {
+              "type": "atLeast",
+              "attr": "W",
+              "value": 5,
+              "weight": 29
+            }
+          ],
+          "eligibility": {
+            "attr": "cabinRecording",
+            "value": true,
+            "notice": "車内を記録できる機種からおすすめを表示しています。",
+            "supplementLabel": "車内は記録できません"
+          }
+        },
+        {
+          "id": "mirror",
+          "label": "ミラー型で後方を見たい",
+          "summary": "ミラー型で後方を見たい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "D",
+              "value": 5,
+              "weight": 75
+            },
+            {
+              "type": "atLeast",
+              "attr": "R",
+              "value": 5,
+              "weight": 25
+            }
+          ],
+          "eligibility": {
+            "attr": "digitalMirror",
+            "value": true,
+            "notice": "デジタルインナーミラー機能を備えた機種からおすすめを表示しています。取り付けできない車両があるため、購入前に適合をご確認ください。",
+            "supplementLabel": "デジタルインナーミラー機能はありません"
+          }
+        }
+      ]
+    },
+    {
+      "id": "environment",
+      "text": "どんな運転環境が多いですか？",
+      "shortLabel": "運転環境",
+      "weight": 14,
+      "options": [
+        {
+          "id": "day",
+          "label": "昼間の運転が中心",
+          "summary": "昼間の運転が中心",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "E",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "V",
+              "value": 5,
+              "weight": 50
+            }
+          ]
+        },
+        {
+          "id": "night",
+          "label": "夜間の運転が多い",
+          "summary": "夜間の運転が多い",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "N",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "contrast",
+          "label": "トンネルや逆光など明暗差が大きい",
+          "summary": "明暗差の大きい場面が多い",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "N",
+              "value": 5,
+              "weight": 60
+            },
+            {
+              "type": "atLeast",
+              "attr": "F",
+              "value": 5,
+              "weight": 40
+            }
+          ]
+        },
+        {
+          "id": "detail",
+          "label": "ナンバーや細部まで高精細に残したい",
+          "summary": "細部まで高精細に残したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "F",
+              "value": 5,
+              "weight": 75
+            },
+            {
+              "type": "atLeast",
+              "attr": "R",
+              "value": 5,
+              "weight": 25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "parking",
+      "text": "駐車監視は必要ですか？",
+      "shortLabel": "駐車監視",
+      "weight": 12,
+      "options": [
+        {
+          "id": "none",
+          "label": "走行中の録画が中心",
+          "effects": []
+        },
+        {
+          "id": "nice",
+          "label": "できれば欲しい",
+          "summary": "駐車監視もできれば欲しい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "P",
+              "value": 4,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "optional",
+          "label": "別売ケーブルを使っても必要",
+          "summary": "別売ケーブルを使っても駐車監視が必要",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "P",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "parkingSupported",
+            "value": true,
+            "notice": "駐車監視に正式対応した機種からおすすめを表示しています。多くの機種では別売の電源コード（例：コムテック HDROP-14、ケンウッド CA-DR100、セルスター GDO-10 など）と追加費用、配線作業が必要です。各商品の「気になる点」をご確認ください。",
+            "supplementLabel": "駐車監視への対応を確認できていません"
+          }
+        },
+        {
+          "id": "included",
+          "label": "必要な電源コードが標準付属する機種がよい",
+          "summary": "駐車監視用の電源コードが標準付属する機種がよい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "P",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "parkingWiringIncluded",
+            "value": true,
+            "notice": "駐車監視に必要な電源コードが標準付属する機種からおすすめを表示しています。車両への配線作業は必要です。",
+            "supplementLabel": "駐車監視には別売の電源コードが必要です"
+          }
+        }
+      ]
+    },
+    {
+      "id": "vehicle",
+      "text": "使用する車や取り付け方は？",
+      "shortLabel": "車・取り付け方",
+      "weight": 10,
+      "options": [
+        {
+          "id": "car12v",
+          "label": "一般的な12V乗用車",
+          "effects": []
+        },
+        {
+          "id": "truck24v",
+          "label": "24V車（トラックなど）",
+          "summary": "24V車で使う",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "L",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "supports24V",
+            "value": true,
+            "notice": "メーカーが24V車に対応する電源仕様を明示している機種からおすすめを表示しています。",
+            "supplementLabel": "24V車への対応を確認できていません"
+          }
+        },
+        {
+          "id": "cigar",
+          "label": "付属シガープラグから給電したい",
+          "summary": "付属のシガープラグから給電したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "E",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "cigarPowerIncluded",
+            "value": true,
+            "notice": "シガープラグコードが標準付属し、通常録画に使える機種からおすすめを表示しています。リアカメラの配線は別に必要な場合があります。",
+            "supplementLabel": "シガープラグコードの標準付属を確認できていません"
+          }
+        },
+        {
+          "id": "hardwire",
+          "label": "車両電源への直結配線でもよい",
+          "summary": "直結配線でもよい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "P",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "playback",
+      "text": "録画映像はどう確認したいですか？",
+      "shortLabel": "映像の確認方法",
+      "weight": 10,
+      "options": [
+        {
+          "id": "phone",
+          "label": "スマホのアプリで確認したい（必須）",
+          "summary": "スマホのアプリで確認したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "M",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "smartphonePlayback",
+            "value": true,
+            "notice": "録画映像をスマートフォンのアプリで確認できると公式に確認できた機種からおすすめを表示しています。",
+            "supplementLabel": "録画映像のスマホ確認には対応していません"
+          }
+        },
+        {
+          "id": "phoneNice",
+          "label": "スマホ対応なら便利",
+          "summary": "スマホ対応なら便利",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "M",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "monitor",
+          "label": "本体画面で確認したい",
+          "summary": "本体画面で確認したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "E",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "pc",
+          "label": "パソコンで確認できれば十分",
+          "summary": "パソコンで確認できれば十分",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "L",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "priority",
+      "text": "最も重視するポイントは？",
+      "shortLabel": "重視すること",
+      "weight": 22,
+      "options": [
+        {
+          "id": "price",
+          "label": "価格の安さ",
+          "summary": "価格の安さを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "V",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "night",
+          "label": "夜間の映りやすさ",
+          "summary": "夜間の映りやすさを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "N",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "resolution",
+          "label": "高解像度",
+          "summary": "高解像度を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "F",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "range",
+          "label": "記録できる範囲の広さ",
+          "summary": "記録できる範囲の広さを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "W",
+              "value": 5,
+              "weight": 57
+            },
+            {
+              "type": "atLeast",
+              "attr": "S",
+              "value": 5,
+              "weight": 43
+            }
+          ]
+        },
+        {
+          "id": "reliability",
+          "label": "保証・記録の安定性",
+          "summary": "保証・記録の安定性を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "L",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "drive-recorder-101",
+      "name": "コムテック ドライブレコーダー HDR003",
+      "description": "前方だけを記録する1カメラのシンプルモデル。シガープラグコードが付属し、12V／24V車に対応します。",
+      "priceRange": 2,
+      "features": [
+        "前方1カメラ・フルHD（200万画素）・2.0インチ液晶",
+        "シガープラグコード付属・DC12V/24V対応",
+        "microSD 16GB付属・メンテナンスフリー・3年保証"
+      ],
+      "pros": [
+        "今回の15機種で最も手頃",
+        "シガーソケットに挿すだけで通常録画を始めやすい",
+        "24V車でも使える"
+      ],
+      "cons": [
+        "後方・側面・車内は記録できない",
+        "駐車監視には別売の直接配線コード（HDROP-14）が必要"
+      ],
+      "recommendFor": "まずは前方だけを手頃に記録したい人",
+      "caution": "本体単品の出品です。駐車監視を使う場合は別売のHDROP-14と配線作業が必要です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qjlqo.d8zue1ff.g00qjlqo.d8zuf768/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsyatihoko%2Fhdr003%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsyatihoko%2Fi%2F10004372%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/syatihoko/cabinet/02548057/1-hdr003.jpg?_ex=300x300",
+      "attributes": {
+        "N": 3,
+        "F": 3,
+        "R": 1,
+        "S": 1,
+        "I": 1,
+        "P": 2,
+        "E": 5,
+        "M": 1,
+        "D": 1,
+        "W": 3,
+        "L": 4,
+        "V": 5,
+        "cameraType": "front",
+        "frontMaxResolution": "FHD",
+        "rearCamera": false,
+        "rearMaxResolution": "none",
+        "cabinRecording": false,
+        "sideRecording": false,
+        "digitalMirror": false,
+        "supports24V": true,
+        "cigarPowerIncluded": true,
+        "parkingSupported": true,
+        "parkingWiringIncluded": false,
+        "smartphonePlayback": false,
+        "starvis": "none",
+        "includedSdGb": 16,
+        "warrantyYears": 3,
+        "frontOnly": true,
+        "priceYen": 18500,
+        "within65k": true,
+        "within12k": false
+      }
+    },
+    {
+      "id": "drive-recorder-102",
+      "name": "ケンウッド ドライブレコーダー DRV-R30S",
+      "description": "日本製・3年保証の前方1カメラ。3D NAND型のmicroSDカード32GBとシガープラグコードが付属します。",
+      "priceRange": 2,
+      "features": [
+        "前方1カメラ・フルHD・2.7V型液晶",
+        "シガープラグコード（3.5m）付属・電源電圧8.5〜30V",
+        "日本製・3年保証・SDカードメンテナンスフリー"
+      ],
+      "pros": [
+        "日本製と3年保証で選べる",
+        "シガーソケット給電で取り付けやすい",
+        "12V車・24V車のどちらでも使える電源仕様"
+      ],
+      "cons": [
+        "後方は記録できない",
+        "駐車録画には別売の車載電源ケーブル（CA-DR100）が必要"
+      ],
+      "recommendFor": "前方だけでよく、日本製と保証を重視する人",
+      "caution": "本体単品の出品です。駐車録画を使う場合は別売のCA-DR100と配線作業が必要です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u9oco.d8zuea30.g00u9oco.d8zufc16/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fautobacs-ec%2F4975514066223%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fautobacs-ec%2Fi%2F10060469%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/autobacs-ec/cabinet/item_images/item_images05/101-200/01779241_1.jpg?_ex=300x300",
+      "attributes": {
+        "N": 3,
+        "F": 3,
+        "R": 1,
+        "S": 1,
+        "I": 1,
+        "P": 2,
+        "E": 5,
+        "M": 1,
+        "D": 1,
+        "W": 3,
+        "L": 5,
+        "V": 3,
+        "cameraType": "front",
+        "frontMaxResolution": "FHD",
+        "rearCamera": false,
+        "rearMaxResolution": "none",
+        "cabinRecording": false,
+        "sideRecording": false,
+        "digitalMirror": false,
+        "supports24V": true,
+        "cigarPowerIncluded": true,
+        "parkingSupported": true,
+        "parkingWiringIncluded": false,
+        "smartphonePlayback": false,
+        "starvis": "none",
+        "includedSdGb": 32,
+        "warrantyYears": 3,
+        "frontOnly": true,
+        "priceYen": 19800,
+        "within65k": true,
+        "within12k": false
+      }
+    },
+    {
+      "id": "drive-recorder-103",
+      "name": "コムテック ドライブレコーダー ZDR-550D",
+      "description": "前後ともSTARVIS技術搭載センサーのフルHD 2カメラ。前後2カメラの中では手頃な標準モデルです。",
+      "priceRange": 3,
+      "features": [
+        "前後2カメラ・前後フルHD・STARVIS技術搭載",
+        "直接配線コード付属（シガープラグコードは別売HDROP-18）",
+        "microSD 64GB付属・メンテナンスフリー・3年保証"
+      ],
+      "pros": [
+        "前後2カメラを手頃に導入できる",
+        "前後とも暗所に配慮したセンサー",
+        "64GBのカードが付属"
+      ],
+      "cons": [
+        "電源は直接配線で、シガープラグコードは別売",
+        "駐車監視には別売のHDROP-14が必要",
+        "DC12V専用"
+      ],
+      "recommendFor": "前後2カメラを、価格を抑えて導入したい人",
+      "caution": "本体単品の出品です。電源は付属の直接配線コードで車両に配線します（DC12V専用）。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qjlqo.d8zue1ff.g00qjlqo.d8zuf768/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsyatihoko%2Fzdr-550d%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsyatihoko%2Fi%2F10004481%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/syatihoko/cabinet/02548057/1-550d.jpg?_ex=300x300",
+      "attributes": {
+        "N": 4,
+        "F": 3,
+        "R": 4,
+        "S": 1,
+        "I": 1,
+        "P": 2,
+        "E": 3,
+        "M": 1,
+        "D": 1,
+        "W": 4,
+        "L": 4,
+        "V": 5,
+        "cameraType": "front-rear",
+        "frontMaxResolution": "FHD",
+        "rearCamera": true,
+        "rearMaxResolution": "FHD",
+        "cabinRecording": false,
+        "sideRecording": false,
+        "digitalMirror": false,
+        "supports24V": false,
+        "cigarPowerIncluded": false,
+        "parkingSupported": true,
+        "parkingWiringIncluded": false,
+        "smartphonePlayback": false,
+        "starvis": "starvis",
+        "includedSdGb": 64,
+        "warrantyYears": 3,
+        "frontOnly": false,
+        "priceYen": 21900,
+        "within65k": true,
+        "within12k": false
+      }
+    },
+    {
+      "id": "drive-recorder-104",
+      "name": "ケンウッド ドライブレコーダー DRV-MR480",
+      "description": "前後ともHDR搭載のフルHD 2カメラ。12V／24V車両用のシガープラグコードが付属します。",
+      "priceRange": 3,
+      "features": [
+        "前後2カメラ・前後フルHD・HDR",
+        "12/24V車両用シガープラグコード（3.5m）付属",
+        "microSD 32GB付属・SDカードメンテナンスフリー・3年保証"
+      ],
+      "pros": [
+        "24V車でも使える前後2カメラ",
+        "シガーソケット給電で通常録画を始めやすい",
+        "3年保証"
+      ],
+      "cons": [
+        "駐車録画には別売の車載電源ケーブル（CA-DR350）が必要",
+        "楽天での取り扱い店舗が少ない"
+      ],
+      "recommendFor": "トラックなどの24V車で、前後を記録したい人",
+      "caution": "本体セットの出品です。取り扱い店舗が少ないため、購入前に価格と在庫をご確認ください。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u87zo.d8zuedda.g00u87zo.d8zuf17c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsea-story-kagoshima%2F2822-003380%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsea-story-kagoshima%2Fi%2F10000946%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/sea-story-kagoshima/cabinet/amayahoo/09883783/2822-003380.jpg?_ex=300x300",
+      "attributes": {
+        "N": 3,
+        "F": 3,
+        "R": 4,
+        "S": 1,
+        "I": 1,
+        "P": 2,
+        "E": 3,
+        "M": 1,
+        "D": 1,
+        "W": 3,
+        "L": 5,
+        "V": 3,
+        "cameraType": "front-rear",
+        "frontMaxResolution": "FHD",
+        "rearCamera": true,
+        "rearMaxResolution": "FHD",
+        "cabinRecording": false,
+        "sideRecording": false,
+        "digitalMirror": false,
+        "supports24V": true,
+        "cigarPowerIncluded": true,
+        "parkingSupported": true,
+        "parkingWiringIncluded": false,
+        "smartphonePlayback": false,
+        "starvis": "none",
+        "includedSdGb": 32,
+        "warrantyYears": 3,
+        "frontOnly": false,
+        "priceYen": 25500,
+        "within65k": true,
+        "within12k": false
+      }
+    },
+    {
+      "id": "drive-recorder-105",
+      "name": "ユピテル ドライブレコーダー SUPER NIGHT Y-350d",
+      "description": "前後ともSTARVIS 2技術搭載の2カメラ。+B/ACC電源直結コードが標準付属し、追加部品なしで駐車記録に対応します。",
+      "priceRange": 3,
+      "features": [
+        "前後2カメラ・前後フルHD・前後STARVIS 2",
+        "+B/ACC電源直結コード（約4m）標準付属・駐車記録対応",
+        "microSD 64GB付属・フォーマット不要・3年保証"
+      ],
+      "pros": [
+        "夜間の記録を重視できる",
+        "駐車記録に必要な電源コードが付属している",
+        "64GBのカードが付属"
+      ],
+      "cons": [
+        "電源は車両への直結配線が前提（シガープラグコードは付属しない）",
+        "DC12V専用"
+      ],
+      "recommendFor": "夜間の運転が多く、駐車記録も追加部品なしで使いたい人",
+      "caution": "カー用品量販店向けモデルです。電源の直結配線は取り付け作業が必要です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u9oco.d8zuea30.g00u9oco.d8zufc16/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fautobacs-ec%2F4968543715217%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fautobacs-ec%2Fi%2F10065973%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/autobacs-ec/cabinet/item_images/item_images05/201-300/01814180_1.jpg?_ex=300x300",
+      "attributes": {
+        "N": 5,
+        "F": 3,
+        "R": 5,
+        "S": 1,
+        "I": 1,
+        "P": 5,
+        "E": 2,
+        "M": 1,
+        "D": 1,
+        "W": 4,
+        "L": 5,
+        "V": 4,
+        "cameraType": "front-rear",
+        "frontMaxResolution": "FHD",
+        "rearCamera": true,
+        "rearMaxResolution": "FHD",
+        "cabinRecording": false,
+        "sideRecording": false,
+        "digitalMirror": false,
+        "supports24V": false,
+        "cigarPowerIncluded": false,
+        "parkingSupported": true,
+        "parkingWiringIncluded": true,
+        "smartphonePlayback": false,
+        "starvis": "starvis2",
+        "includedSdGb": 64,
+        "warrantyYears": 3,
+        "frontOnly": false,
+        "priceYen": 25800,
+        "within65k": true,
+        "within12k": false
+      }
+    },
+    {
+      "id": "drive-recorder-106",
+      "name": "コムテック ドライブレコーダー ZDR065",
+      "description": "前方WQHD（370万画素）＋後方フルHDの2カメラ。前後ともSTARVIS 2技術搭載で、シガープラグコードが付属します。",
+      "priceRange": 3,
+      "features": [
+        "前後2カメラ・前方WQHD／後方フルHD・前後STARVIS 2",
+        "シガープラグコード（約4m）付属",
+        "microSD 32GB付属・メンテナンスフリー・3年保証"
+      ],
+      "pros": [
+        "フルHDより高精細な前方映像",
+        "前後とも夜間に配慮したセンサー",
+        "シガーソケット給電で始めやすい"
+      ],
+      "cons": [
+        "駐車監視には別売のHDROP-14が必要",
+        "DC12V専用"
+      ],
+      "recommendFor": "夜間性能と前方の精細さを両立した前後2カメラがほしい人",
+      "caution": "本体単品の出品です（DC12V専用）。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qjlqo.d8zue1ff.g00qjlqo.d8zuf768/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsyatihoko%2Fzdr065%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsyatihoko%2Fi%2F10004444%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/syatihoko/cabinet/02548057/065_no1.jpg?_ex=300x300",
+      "attributes": {
+        "N": 5,
+        "F": 4,
+        "R": 5,
+        "S": 1,
+        "I": 1,
+        "P": 2,
+        "E": 3,
+        "M": 1,
+        "D": 1,
+        "W": 4,
+        "L": 5,
+        "V": 4,
+        "cameraType": "front-rear",
+        "frontMaxResolution": "WQHD",
+        "rearCamera": true,
+        "rearMaxResolution": "FHD",
+        "cabinRecording": false,
+        "sideRecording": false,
+        "digitalMirror": false,
+        "supports24V": false,
+        "cigarPowerIncluded": true,
+        "parkingSupported": true,
+        "parkingWiringIncluded": false,
+        "smartphonePlayback": false,
+        "starvis": "starvis2",
+        "includedSdGb": 32,
+        "warrantyYears": 3,
+        "frontOnly": false,
+        "priceYen": 26300,
+        "within65k": true,
+        "within12k": false
+      }
+    },
+    {
+      "id": "drive-recorder-107",
+      "name": "コムテック ドライブレコーダー ZDR-250D",
+      "description": "前後フルHDのコンパクトな2カメラ。今回の前後2カメラの中で最も手頃で、64GBのmicroSDカードが付属します。",
+      "priceRange": 3,
+      "features": [
+        "前後2カメラ・前後フルHD（200万画素）・2.0インチ液晶",
+        "直接配線コード付属（シガープラグコードは別売HDROP-18）",
+        "microSD 64GB付属・メンテナンスフリー・3年保証"
+      ],
+      "pros": [
+        "前後2カメラを最も手頃に導入できる",
+        "本体がコンパクト",
+        "64GBのカードが付属"
+      ],
+      "cons": [
+        "暗所向けセンサー（STARVIS）の記載はない",
+        "電源は直接配線で、駐車監視には別売のHDROP-14が必要",
+        "DC12V専用"
+      ],
+      "recommendFor": "とにかく価格を抑えて前後2カメラを導入したい人",
+      "caution": "本体単品の出品です。電源は付属の直接配線コードで車両に配線します（DC12V専用）。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qjlqo.d8zue1ff.g00qjlqo.d8zuf768/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsyatihoko%2Fzdr-250d%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsyatihoko%2Fi%2F10004480%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/syatihoko/cabinet/02548057/1-250d.jpg?_ex=300x300",
+      "attributes": {
+        "N": 3,
+        "F": 3,
+        "R": 3,
+        "S": 1,
+        "I": 1,
+        "P": 2,
+        "E": 3,
+        "M": 1,
+        "D": 1,
+        "W": 3,
+        "L": 4,
+        "V": 5,
+        "cameraType": "front-rear",
+        "frontMaxResolution": "FHD",
+        "rearCamera": true,
+        "rearMaxResolution": "FHD",
+        "cabinRecording": false,
+        "sideRecording": false,
+        "digitalMirror": false,
+        "supports24V": false,
+        "cigarPowerIncluded": false,
+        "parkingSupported": true,
+        "parkingWiringIncluded": false,
+        "smartphonePlayback": false,
+        "starvis": "none",
+        "includedSdGb": 64,
+        "warrantyYears": 3,
+        "frontOnly": false,
+        "priceYen": 20900,
+        "within65k": true,
+        "within12k": false
+      }
+    },
+    {
+      "id": "drive-recorder-108",
+      "name": "コムテック ドライブレコーダー ZDR-750D",
+      "description": "前方4K（約830万画素）＋後方フルHDの2カメラ。前方の細部まで高精細に残したい人向けです。",
+      "priceRange": 3,
+      "features": [
+        "前後2カメラ・前方4K／後方フルHD・STARVIS技術搭載",
+        "直接配線コード付属（シガープラグコードは別売HDROP-18）",
+        "microSD 64GB付属・メンテナンスフリー・3年保証"
+      ],
+      "pros": [
+        "前方を4Kで記録できる",
+        "4K対応機の中では手頃",
+        "64GBのカードが付属"
+      ],
+      "cons": [
+        "4K設定時は一部の運転支援機能が使えない",
+        "駐車監視には別売のHDROP-14が必要",
+        "DC12V専用"
+      ],
+      "recommendFor": "前方のナンバーや細部を高精細に残したい人",
+      "caution": "本体単品の出品です。初期設定は前方WQHDで、4Kで記録するには設定の変更が必要です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qjlqo.d8zue1ff.g00qjlqo.d8zuf768/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsyatihoko%2Fzdr-750d%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsyatihoko%2Fi%2F10004482%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/syatihoko/cabinet/02548057/1-750d.jpg?_ex=300x300",
+      "attributes": {
+        "N": 4,
+        "F": 5,
+        "R": 4,
+        "S": 1,
+        "I": 1,
+        "P": 2,
+        "E": 3,
+        "M": 1,
+        "D": 1,
+        "W": 3,
+        "L": 4,
+        "V": 4,
+        "cameraType": "front-rear",
+        "frontMaxResolution": "4K",
+        "rearCamera": true,
+        "rearMaxResolution": "FHD",
+        "cabinRecording": false,
+        "sideRecording": false,
+        "digitalMirror": false,
+        "supports24V": false,
+        "cigarPowerIncluded": false,
+        "parkingSupported": true,
+        "parkingWiringIncluded": false,
+        "smartphonePlayback": false,
+        "starvis": "starvis",
+        "includedSdGb": 64,
+        "warrantyYears": 3,
+        "frontOnly": false,
+        "priceYen": 25389,
+        "within65k": true,
+        "within12k": false
+      }
+    },
+    {
+      "id": "drive-recorder-109",
+      "name": "70mai Dash Cam 4K A810S（リアカメラセット）",
+      "description": "前方4K（STARVIS 2 IMX678）＋リアカメラのセット。Wi-Fiでスマートフォンに録画映像を取り込めます。",
+      "priceRange": 4,
+      "features": [
+        "前方4K＋リア1080P・前方STARVIS 2",
+        "Wi-Fi 6でスマホアプリに映像を転送・3インチIPS液晶",
+        "microSD 128GB付属（販売店表記）"
+      ],
+      "pros": [
+        "録画映像をスマホで確認できる",
+        "前方4Kで高精細",
+        "大容量のカードが付属"
+      ],
+      "cons": [
+        "駐車監視には別売の専用電源ケーブルが必要",
+        "対応電圧・保証期間は公式ページで確認できていない"
+      ],
+      "recommendFor": "スマホで映像を確認したい、高精細な前後2カメラがほしい人",
+      "caution": "メーカー公式店のリアカメラ付きセットの出品です。4G通信を使う機能は、日本での利用可否を確認できていません。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ugs9o.d8zuec2d.g00ugs9o.d8zuf867/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2F70mai%2Fa810s%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2F70mai%2Fi%2F10000093%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/70mai/cabinet/a810s/a810s01.jpg?_ex=300x300",
+      "attributes": {
+        "N": 5,
+        "F": 5,
+        "R": 4,
+        "S": 1,
+        "I": 1,
+        "P": 2,
+        "E": 3,
+        "M": 5,
+        "D": 1,
+        "W": 4,
+        "L": 3,
+        "V": 3,
+        "cameraType": "front-rear",
+        "frontMaxResolution": "4K",
+        "rearCamera": true,
+        "rearMaxResolution": "FHD",
+        "cabinRecording": false,
+        "sideRecording": false,
+        "digitalMirror": false,
+        "supports24V": false,
+        "cigarPowerIncluded": false,
+        "parkingSupported": true,
+        "parkingWiringIncluded": false,
+        "smartphonePlayback": true,
+        "starvis": "starvis2",
+        "includedSdGb": 128,
+        "warrantyYears": 3,
+        "frontOnly": false,
+        "priceYen": 39990,
+        "within65k": true,
+        "within12k": false
+      }
+    },
+    {
+      "id": "drive-recorder-110",
+      "name": "コムテック ミラー型ドライブレコーダー ZDR-880M",
+      "description": "10.66インチ液晶のデジタルインナーミラー機能を備えたミラー型。前後フルHDの2カメラで、後方をミラーに映せます。",
+      "priceRange": 4,
+      "features": [
+        "ミラー型・前後2カメラ・前後フルHD・10.66インチ液晶",
+        "デジタルインナーミラー機能（通常ミラーと切替可）",
+        "microSD 64GB付属・メンテナンスフリー・3年保証"
+      ],
+      "pros": [
+        "荷物や同乗者で後方が見えにくいときもミラーで確認できる",
+        "前後を1台で記録できる",
+        "64GBのカードが付属"
+      ],
+      "cons": [
+        "自動防眩ミラー装着車など、取り付けできない車がある",
+        "電源は直接配線で、駐車監視には別売のCDOP-01Pが必要",
+        "DC12V専用"
+      ],
+      "recommendFor": "ミラー型で後方を見ながら、前後も記録したい人",
+      "caution": "本体単品の出品です。純正デジタルインナーミラー装着車などには取り付けできません。購入前に車両の適合をご確認ください。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u9oco.d8zuea30.g00u9oco.d8zufc16/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fautobacs-ec%2F4952040150695%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fautobacs-ec%2Fi%2F10091288%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/autobacs-ec/cabinet/image/12821157/01853532_1.jpg?_ex=300x300",
+      "attributes": {
+        "N": 4,
+        "F": 3,
+        "R": 4,
+        "S": 1,
+        "I": 1,
+        "P": 2,
+        "E": 2,
+        "M": 1,
+        "D": 5,
+        "W": 4,
+        "L": 4,
+        "V": 3,
+        "cameraType": "mirror",
+        "frontMaxResolution": "FHD",
+        "rearCamera": true,
+        "rearMaxResolution": "FHD",
+        "cabinRecording": false,
+        "sideRecording": false,
+        "digitalMirror": true,
+        "supports24V": false,
+        "cigarPowerIncluded": false,
+        "parkingSupported": true,
+        "parkingWiringIncluded": false,
+        "smartphonePlayback": false,
+        "starvis": "none",
+        "includedSdGb": 64,
+        "warrantyYears": 3,
+        "frontOnly": false,
+        "priceYen": 42800,
+        "within65k": true,
+        "within12k": false
+      }
+    },
+    {
+      "id": "drive-recorder-111",
+      "name": "コムテック 360°ドライブレコーダー ZDR-850R",
+      "description": "360°カメラで前方・側面・車内を記録し、別体のリヤカメラで後方も記録するモデル。シガープラグコードが付属します。",
+      "priceRange": 4,
+      "features": [
+        "360°カメラ（水平360°）＋リヤカメラ（フルHD）",
+        "シガープラグコード（約4m）付属・STARVIS技術搭載",
+        "microSD 32GB付属・メンテナンスフリー・3年保証"
+      ],
+      "pros": [
+        "側面や車内まで広く記録できる",
+        "後方は専用カメラで記録できる",
+        "シガーソケット給電で始めやすい"
+      ],
+      "cons": [
+        "駐車監視には別売のHDROP-14が必要",
+        "360°映像の視点切替はパソコンのビューワで行う",
+        "DC12V専用"
+      ],
+      "recommendFor": "横からの接触やあおり運転など、周囲を広く記録したい人",
+      "caution": "本体単品の出品です（DC12V専用）。死角になる部分は記録できません。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qjlqo.d8zue1ff.g00qjlqo.d8zuf768/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsyatihoko%2Fzdr-850r%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsyatihoko%2Fi%2F10004447%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/syatihoko/cabinet/02548057/zdr850r-1r.jpg?_ex=300x300",
+      "attributes": {
+        "N": 4,
+        "F": 3,
+        "R": 4,
+        "S": 5,
+        "I": 4,
+        "P": 2,
+        "E": 3,
+        "M": 1,
+        "D": 1,
+        "W": 5,
+        "L": 4,
+        "V": 3,
+        "cameraType": "surround-rear",
+        "frontMaxResolution": "other",
+        "rearCamera": true,
+        "rearMaxResolution": "FHD",
+        "cabinRecording": true,
+        "sideRecording": true,
+        "digitalMirror": false,
+        "supports24V": false,
+        "cigarPowerIncluded": true,
+        "parkingSupported": true,
+        "parkingWiringIncluded": false,
+        "smartphonePlayback": false,
+        "starvis": "starvis",
+        "includedSdGb": 32,
+        "warrantyYears": 3,
+        "frontOnly": false,
+        "priceYen": 31621,
+        "within65k": true,
+        "within12k": false
+      }
+    },
+    {
+      "id": "drive-recorder-112",
+      "name": "セルスター 360°ドライブレコーダー CS-364FH",
+      "description": "1つの本体に車外カメラ（前方180°）と車内カメラ（左右・車内180°）を備えた2カメラ。独立した後方カメラはありません。",
+      "priceRange": 4,
+      "features": [
+        "前方180°＋左右・車内180°の2カメラ・各フルHD",
+        "車内カメラは赤外線LED搭載・DC12V/24V対応",
+        "日本製・3年保証・microSD 32GB付属"
+      ],
+      "pros": [
+        "側面と車内を1台で記録できる",
+        "24V車でも使える",
+        "日本製と3年保証"
+      ],
+      "cons": [
+        "後方専用のカメラは付属しない",
+        "パーキングモードには別売の常時電源コード（GDO-41など）が必要"
+      ],
+      "recommendFor": "後方カメラの配線をせずに、側面と車内を記録したい人",
+      "caution": "本体単品の出品です。後方は車内カメラ越しの記録になります。付属の電源コードの種類は販売ページでご確認ください。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4962886010435-37-53519-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14642930%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0465/4962886010435.jpg?_ex=300x300",
+      "attributes": {
+        "N": 4,
+        "F": 3,
+        "R": 1,
+        "S": 4,
+        "I": 5,
+        "P": 2,
+        "E": 3,
+        "M": 1,
+        "D": 1,
+        "W": 5,
+        "L": 5,
+        "V": 3,
+        "cameraType": "surround",
+        "frontMaxResolution": "FHD",
+        "rearCamera": false,
+        "rearMaxResolution": "none",
+        "cabinRecording": true,
+        "sideRecording": true,
+        "digitalMirror": false,
+        "supports24V": true,
+        "cigarPowerIncluded": false,
+        "parkingSupported": true,
+        "parkingWiringIncluded": false,
+        "smartphonePlayback": false,
+        "starvis": "starvis",
+        "includedSdGb": 32,
+        "warrantyYears": 3,
+        "frontOnly": false,
+        "priceYen": 36800,
+        "within65k": true,
+        "within12k": false
+      }
+    },
+    {
+      "id": "drive-recorder-113",
+      "name": "ユピテル 全方面3カメラドライブレコーダー marumie Y-3300",
+      "description": "前方・後方・左右と車内を3つのカメラで記録。3カメラともSTARVIS 2技術搭載で、駐車記録用の電源直結コードも標準付属します。",
+      "priceRange": 4,
+      "features": [
+        "3カメラ（前方＋後方＋左右・車内）・各フルHD・STARVIS 2",
+        "+B/ACC電源直結コード標準付属・駐車記録対応",
+        "microSD 64GB付属・フォーマット不要・3年保証"
+      ],
+      "pros": [
+        "前後・左右・車内を広く記録できる",
+        "駐車記録に必要な電源コードが付属している",
+        "夜間の記録を重視できる"
+      ],
+      "cons": [
+        "電源は車両への直結配線が前提",
+        "DC12V専用"
+      ],
+      "recommendFor": "周囲と車内を広く記録し、駐車記録も標準の付属品で使いたい人",
+      "caution": "本体セットの出品です。電源の直結配線は取り付け作業が必要です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u9oco.d8zuea30.g00u9oco.d8zufc16/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fautobacs-ec%2F4968543715538%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fautobacs-ec%2Fi%2F10086496%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/autobacs-ec/cabinet/image/image29/01828902_1.jpg?_ex=300x300",
+      "attributes": {
+        "N": 5,
+        "F": 3,
+        "R": 5,
+        "S": 4,
+        "I": 5,
+        "P": 5,
+        "E": 2,
+        "M": 1,
+        "D": 1,
+        "W": 5,
+        "L": 5,
+        "V": 3,
+        "cameraType": "triple",
+        "frontMaxResolution": "FHD",
+        "rearCamera": true,
+        "rearMaxResolution": "FHD",
+        "cabinRecording": true,
+        "sideRecording": true,
+        "digitalMirror": false,
+        "supports24V": false,
+        "cigarPowerIncluded": false,
+        "parkingSupported": true,
+        "parkingWiringIncluded": true,
+        "smartphonePlayback": false,
+        "starvis": "starvis2",
+        "includedSdGb": 64,
+        "warrantyYears": 3,
+        "frontOnly": false,
+        "priceYen": 40800,
+        "within65k": true,
+        "within12k": false
+      }
+    },
+    {
+      "id": "drive-recorder-114",
+      "name": "70mai Dash Cam 4K T800（3カメラ）",
+      "description": "前後とも4K（STARVIS 2 IMX678）、車内は1080Pの3カメラ。Wi-Fiでスマートフォンに録画映像を取り込めます。",
+      "priceRange": 5,
+      "features": [
+        "前方4K＋後方4K＋車内1080P（赤外線）",
+        "Wi-Fi 6でスマホアプリに映像を転送・3インチIPS液晶",
+        "microSD 256GB付属（販売店表記）"
+      ],
+      "pros": [
+        "後方も4Kで記録できる",
+        "車内も記録できる",
+        "録画映像をスマホで確認できる"
+      ],
+      "cons": [
+        "今回の15機種で最も高価格",
+        "一部の駐車監視機能には別売のHardwire Kitが必要",
+        "4G機能は日本では利用できない"
+      ],
+      "recommendFor": "前後とも高精細に残し、車内も記録したい人",
+      "caution": "メーカー公式店の3カメラセットの出品です。4Gを使う機能は日本では利用できません。対応電圧・保証期間は公式ページで確認できていません。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ugs9o.d8zuec2d.g00ugs9o.d8zuf867/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2F70mai%2Fdashcamt800%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2F70mai%2Fi%2F10000075%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/70mai/cabinet/t800/t8001.jpg?_ex=300x300",
+      "attributes": {
+        "N": 5,
+        "F": 5,
+        "R": 5,
+        "S": 2,
+        "I": 5,
+        "P": 2,
+        "E": 2,
+        "M": 5,
+        "D": 1,
+        "W": 4,
+        "L": 3,
+        "V": 2,
+        "cameraType": "triple",
+        "frontMaxResolution": "4K",
+        "rearCamera": true,
+        "rearMaxResolution": "4K",
+        "cabinRecording": true,
+        "sideRecording": false,
+        "digitalMirror": false,
+        "supports24V": false,
+        "cigarPowerIncluded": false,
+        "parkingSupported": true,
+        "parkingWiringIncluded": false,
+        "smartphonePlayback": true,
+        "starvis": "starvis2",
+        "includedSdGb": 256,
+        "warrantyYears": 3,
+        "frontOnly": false,
+        "priceYen": 57990,
+        "within65k": true,
+        "within12k": false
+      }
+    },
+    {
+      "id": "drive-recorder-115",
+      "name": "ケンウッド 360°撮影対応2カメラドライブレコーダー DRV-G60CW",
+      "description": "水平360°のメインカメラとリアカメラのセット。前後左右と車室内を記録でき、シガープラグコードが付属します。",
+      "priceRange": 4,
+      "features": [
+        "360°メインカメラ＋リアカメラ（フルHD）・前後STARVIS",
+        "シガープラグコード（3.5m）付属・電源電圧8.5〜30V",
+        "microSD 64GB付属・SDカードメンテナンスフリー・3年保証"
+      ],
+      "pros": [
+        "前後左右と車室内を広く記録できる",
+        "12V車・24V車のどちらでも使える電源仕様",
+        "シガーソケット給電で始めやすい"
+      ],
+      "cons": [
+        "駐車録画には別売の車載電源ケーブル（CA-DR100）が必要",
+        "駐車録画は動体検知に非対応"
+      ],
+      "recommendFor": "24V車も含め、周囲を広く記録したい人",
+      "caution": "本体セットの出品です。駐車録画を使う場合は別売のCA-DR100と配線作業が必要です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u9oco.d8zuea30.g00u9oco.d8zufc16/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fautobacs-ec%2F4975514066025%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fautobacs-ec%2Fi%2F10056836%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/autobacs-ec/cabinet/item_images/item_images05/101-200/01770652_1.jpg?_ex=300x300",
+      "attributes": {
+        "N": 4,
+        "F": 3,
+        "R": 4,
+        "S": 5,
+        "I": 4,
+        "P": 2,
+        "E": 3,
+        "M": 1,
+        "D": 1,
+        "W": 5,
+        "L": 5,
+        "V": 3,
+        "cameraType": "surround-rear",
+        "frontMaxResolution": "other",
+        "rearCamera": true,
+        "rearMaxResolution": "FHD",
+        "cabinRecording": true,
+        "sideRecording": true,
+        "digitalMirror": false,
+        "supports24V": true,
+        "cigarPowerIncluded": true,
+        "parkingSupported": true,
+        "parkingWiringIncluded": false,
+        "smartphonePlayback": false,
+        "starvis": "starvis",
+        "includedSdGb": 64,
+        "warrantyYears": 3,
+        "frontOnly": false,
+        "priceYen": 37980,
+        "within65k": true,
+        "within12k": false
+      }
+    }
+  ],
+  "scoring": {
+    "tieBreak": true,
+    "softenPartialReason": true,
+    "lowMatchNotice": "この条件をすべて満たす商品が少ない（または見つからない）ため、近い候補を表示しています。予算を上げる、駐車監視を「別売ケーブルを使っても必要」に変える、スマホ確認や24V対応などの必須条件を見直す、などで候補が広がります。"
+  },
+  "guide": {
+    "title": "ドライブレコーダーの選び方",
+    "intro": "この診断は、ドライブレコーダー15機種を対象に、メーカーが公表する仕様と販売セットの内容をもとに、以下のポイントとあなたの回答を照らし合わせて相性を計算しています。評価はメーカー仕様に基づく相対的なもので、同じ環境で撮影して比べた実測結果ではありません。",
+    "sections": [
+      {
+        "heading": "前方1カメラと前後2カメラの違い",
+        "body": "前方1カメラは本体だけを取り付けるため導入しやすく、価格も手頃です。前後2カメラは後方用のカメラが加わり、追突やあおり運転など後ろからのトラブルも記録できますが、リアカメラまでの配線が必要になります。"
+      },
+      {
+        "heading": "360度と3カメラの違い",
+        "body": "360度タイプは1つのカメラで前方・左右・車内を広く記録し、後方は別体のリアカメラで補う機種があります。3カメラタイプは前方・後方・車内（または左右）を別々のカメラで記録します。後方専用のカメラが付属するかどうかは機種によって異なるため、セット内容を確認しましょう。"
+      },
+      {
+        "heading": "画質・夜間性能・STARVIS系センサー",
+        "body": "解像度はフルHD、WQHD、4Kの順に細かくなります。夜間の映りやすさは解像度だけでは決まらず、STARVISやSTARVIS 2といった暗所に配慮したセンサー技術、レンズの明るさ、HDRなどが関係します。4Kであっても、条件によってはナンバーを読み取れない場合があります。"
+      },
+      {
+        "heading": "駐車監視と電源ケーブル",
+        "body": "駐車中の記録には、多くの機種で別売の専用電源コードと車両への配線が必要です。必要なコードが標準付属する機種もありますが、その場合も配線作業は必要です。バッテリーへの負担を抑えるための電圧監視やタイマーの設定も確認しましょう。"
+      },
+      {
+        "heading": "ミラー型の特徴と注意点",
+        "body": "ミラー型は、ルームミラーに後方カメラの映像を映すデジタルインナーミラー機能を備えています。荷物や同乗者で後ろが見えにくいときに役立ちますが、自動防眩ミラーや純正デジタルインナーミラーの装着車など、取り付けできない車両があります。"
+      },
+      {
+        "heading": "自分で取り付ける場合の確認点",
+        "body": "車種への適合、フロントガラスの取り付け可能な位置（保安基準で定められた範囲）、エアバッグや運転支援システムのカメラ・センサーへの干渉がないかを確認しましょう。電源の直結配線やリアカメラの配線に不安がある場合は、販売店や整備工場への依頼も検討してください。"
+      },
+      {
+        "heading": "SDカードと定期的な映像確認",
+        "body": "microSDカードは書き込みを繰り返す消耗品です。フォーマット不要をうたう機種でも、定期的に映像が正しく記録されているかを確認し、メーカーが案内する時期や異常表示が出たときは交換しましょう。"
+      },
+      {
+        "heading": "よくある質問：前後2カメラと360度はどちらがおすすめ？",
+        "body": "追突など後方の記録を重視するなら前後2カメラ、横からの接触や車内も含めて広く記録したいなら360度や3カメラが向いています。360度タイプでも、後方は専用のリアカメラが付属する機種のほうがはっきり記録しやすくなります。"
+      },
+      {
+        "heading": "よくある質問：4Kなら夜間のナンバーも必ず映る？",
+        "body": "必ず映るとは限りません。距離、相手車両の速度、ライトの反射、天候などによって読み取れない場合があります。夜間はセンサーやレンズ、HDRなどの性能も合わせて確認しましょう。"
+      },
+      {
+        "heading": "よくある質問：駐車監視には別売ケーブルが必要？",
+        "body": "多くの機種で別売の電源コードが必要です。この診断では、必要な電源コードが標準付属する機種と、別売コードで対応する機種を分けて扱っています。どちらの場合も車両への配線作業が必要です。"
+      },
+      {
+        "heading": "よくある質問：自分で取り付けできる？",
+        "body": "シガープラグコードが付属する1カメラの機種は比較的取り付けやすいものの、リアカメラの配線や電源の直結配線には内張りの脱着などの作業が必要です。取扱説明書の手順と注意事項に従い、難しい場合は専門店に依頼しましょう。"
+      },
+      {
+        "heading": "よくある質問：24V車でも使用できる？",
+        "body": "メーカーが24V車に対応する電源仕様を明示している機種だけが使用できます。12V専用の機種を24V車に接続すると故障の原因になります。この診断の「24V車」は、対応を確認できた機種だけを対象にしています。"
+      },
+      {
+        "heading": "よくある質問：SDカードは定期的に交換した方がよい？",
+        "body": "microSDカードは消耗品のため、定期的な点検と交換が必要です。交換時期の目安や推奨カードはメーカーによって異なるため、取扱説明書を確認してください。"
+      }
+    ]
+  },
+  "notice": "ドライブレコーダーは、すべての状況や事故の記録を保証するものではありません。評価はメーカー仕様に基づく相対的なもので、実際の映りは取り付け位置・天候・時間帯などで変わります。取り付けの際は、車種への適合、フロントガラスの取り付け位置、エアバッグや運転支援システムへの干渉、配線作業の注意事項を必ず確認してください。価格は本体セットの税込価格で、取り付け工賃や別売ケーブルの費用は含みません。価格は変動するため、購入時に販売ページでご確認ください。"
+}

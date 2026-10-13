@@ -552,4 +552,17 @@ export const presets: Record<string, RakutenPreset> = {
     priceThresholds: [10000, 15000, 20000, 25000],
     attributeKeys: ['W', 'D', 'M', 'O', 'E', 'C', 'T', 'P', 'S', 'U', 'A', 'V'],
   },
+  'drive-recorder': {
+    category: 'drive-recorder',
+    // 採用機種は指示書で確定済み。型番の確認は --keyword "メーカー 型番" で行う
+    keywords: ['ドライブレコーダー 前後2カメラ', 'ドライブレコーダー 360度', 'ドライブレコーダー ミラー型', 'ドライブレコーダー 4K'],
+    ngKeyword: '中古 部品 ケーブルのみ 取付工賃 取り付けチケット',
+    sort: '-reviewCount',
+    hits: 20,
+    minPrice: 3000,
+    maxPerShop: 3,
+    // driveRecorder の priceLabels（12,000 / 20,000 / 30,000 / 45,000円）と同じ区分
+    priceThresholds: [12000, 20000, 30000, 45000],
+    attributeKeys: ['N', 'F', 'R', 'S', 'I', 'P', 'E', 'M', 'D', 'W', 'L', 'V'],
+  },
 }
