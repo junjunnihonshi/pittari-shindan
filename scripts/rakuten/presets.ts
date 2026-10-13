@@ -539,4 +539,17 @@ export const presets: Record<string, RakutenPreset> = {
     // deskChair.ts の評価項目・true/false 項目（公式仕様を確認して記入する）
     attributeKeys: ['lowSeat', 'seatRange', 'compactness', 'breathability', 'armLevel', 'recline', 'adjust', 'width62', 'width68', 'armFree', 'hasArm', 'headrest', 'lumbarAdjust', 'seatDepth', 'relax'],
   },
+  'futon-dryer': {
+    category: 'futon-dryer',
+    // 採用機種は指示書で確定済み。型番の確認は --keyword "メーカー 型番" で行う
+    keywords: ['布団乾燥機', '布団乾燥機 ツインノズル', '布団乾燥機 ホースなし', '布団乾燥機 マット'],
+    ngKeyword: '中古 部品 交換用 ホースのみ マットのみ アタッチメントのみ',
+    sort: '-reviewCount',
+    hits: 20,
+    minPrice: 3000,
+    maxPerShop: 3,
+    // futonDryer の priceLabels（10,000 / 15,000 / 20,000 / 25,000円）と同じ区分
+    priceThresholds: [10000, 15000, 20000, 25000],
+    attributeKeys: ['W', 'D', 'M', 'O', 'E', 'C', 'T', 'P', 'S', 'U', 'A', 'V'],
+  },
 }

@@ -6,6 +6,7 @@ export const relatedDiagnoses: Record<string, { slug: string; text: string }[]> 
   pillow: [
     { slug: 'electric-blanket', text: '寝るときの寒さ対策に' },
     { slug: 'humidifier', text: '寝室の乾燥が気になるなら' },
+    { slug: 'futon-dryer', text: '布団の湿気やダニ対策に' },
   ],
   'hair-dryer': [
     { slug: 'shower-head', text: 'バスタイムをもっと快適に' },
@@ -50,6 +51,7 @@ export const relatedDiagnoses: Record<string, { slug: string; text: string }[]> 
   'electric-blanket': [
     { slug: 'heater', text: '部屋全体を暖めるなら' },
     { slug: 'pillow', text: '眠りの質をもっと高めるなら' },
+    { slug: 'futon-dryer', text: '寝る前に布団ごと温めるなら' },
   ],
   toaster: [
     { slug: 'electric-kettle', text: '朝のコーヒー・お茶の準備に' },
@@ -101,5 +103,10 @@ export const relatedDiagnoses: Record<string, { slug: string; text: string }[]> 
   'body-soap': [
     { slug: 'shower-head', text: 'バスタイムをもっと快適に' },
     { slug: 'shampoo', text: '髪と頭皮に合うシャンプーも選ぶなら' },
+  ],
+  'futon-dryer': [
+    { slug: 'mattress', text: '寝心地そのものを見直すなら' },
+    { slug: 'pillow', text: '眠りの質をもっと高めるなら' },
+    { slug: 'dehumidifier', text: '部屋の湿気対策もするなら' },
   ],
 }

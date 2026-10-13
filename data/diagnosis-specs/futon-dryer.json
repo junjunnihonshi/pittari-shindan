@@ -1,0 +1,1406 @@
+{
+  "id": "futon-dryer",
+  "enabled": false,
+  "title": "布団乾燥機診断",
+  "itemName": "布団乾燥機",
+  "group": "life",
+  "icon": "🛏️",
+  "cardDescription": "予算や使う目的、布団のサイズ、セットの手間から、あなたに合う布団乾燥機を診断。",
+  "description": "布団をすぐにあたためたい、湿気やダニ対策をしたい、毎日の準備を簡単にしたい。布団乾燥機は使い方によって選ぶべき機種が変わります。7つの質問に答えるだけで、15機種の中からあなたの暮らしに合う布団乾燥機を提案します。",
+  "searchKeywords": [
+    "布団乾燥機 おすすめ",
+    "布団乾燥機 診断",
+    "布団乾燥機 選び方",
+    "布団乾燥機 比較",
+    "布団乾燥機 人気",
+    "布団乾燥機 2026",
+    "布団乾燥機 コスパ",
+    "布団乾燥機 一人暮らし",
+    "布団乾燥機 家族",
+    "布団乾燥機 ダニ対策",
+    "布団乾燥機 湿気対策",
+    "布団乾燥機 ホースなし",
+    "布団乾燥機 マット式",
+    "布団乾燥機 ツインノズル",
+    "布団乾燥機 2枚同時",
+    "布団乾燥機 速乾",
+    "布団乾燥機 小型",
+    "布団乾燥機 靴乾燥",
+    "布団乾燥機 カラリエ",
+    "布団乾燥機 象印",
+    "布団乾燥機 カドー"
+  ],
+  "seo": {
+    "title": "布団乾燥機おすすめ診断｜7問であなたに合う1台を比較",
+    "description": "布団乾燥機15機種を比較。7つの質問に答えるだけで、予算・乾燥性能・ダニ対策・ホース不要・収納性などから、あなたにぴったりの布団乾燥機を診断できます。"
+  },
+  "priceLabels": {
+    "1": "〜10,000円",
+    "2": "10,001〜15,000円",
+    "3": "15,001〜20,000円",
+    "4": "20,001〜25,000円",
+    "5": "25,001円〜"
+  },
+  "questions": [
+    {
+      "id": "budget",
+      "text": "予算はいくらくらいですか？",
+      "shortLabel": "予算",
+      "weight": 12,
+      "options": [
+        {
+          "id": "b1",
+          "label": "10,000円以内",
+          "summary": "予算10,000円以内",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "V",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "maxPriceRange": 1
+        },
+        {
+          "id": "b2",
+          "label": "15,000円以内",
+          "summary": "予算15,000円以内",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "V",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "maxPriceRange": 2
+        },
+        {
+          "id": "b3",
+          "label": "20,000円以内",
+          "summary": "予算20,000円以内",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "V",
+              "value": 4,
+              "weight": 100
+            }
+          ],
+          "maxPriceRange": 3
+        },
+        {
+          "id": "b4",
+          "label": "30,000円以内",
+          "summary": "予算30,000円以内",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "V",
+              "value": 3,
+              "weight": 100
+            }
+          ],
+          "maxPriceRange": 5
+        },
+        {
+          "id": "any",
+          "label": "価格は気にしない",
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "purpose",
+      "text": "主にどんな目的で使いますか？",
+      "shortLabel": "使う目的",
+      "weight": 22,
+      "options": [
+        {
+          "id": "warm",
+          "label": "寝る前に布団をあたためたい",
+          "summary": "寝る前に布団をあたためたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "W",
+              "value": 5,
+              "weight": 80
+            },
+            {
+              "type": "atLeast",
+              "attr": "E",
+              "value": 5,
+              "weight": 20
+            }
+          ]
+        },
+        {
+          "id": "dry",
+          "label": "湿気を取り、しっかり乾燥したい",
+          "summary": "しっかり乾燥したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "D",
+              "value": 5,
+              "weight": 67
+            },
+            {
+              "type": "atLeast",
+              "attr": "C",
+              "value": 5,
+              "weight": 33
+            }
+          ]
+        },
+        {
+          "id": "mite",
+          "label": "ダニ対策を重視したい",
+          "summary": "ダニ対策を重視したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "M",
+              "value": 5,
+              "weight": 83
+            },
+            {
+              "type": "atLeast",
+              "attr": "C",
+              "value": 5,
+              "weight": 17
+            }
+          ]
+        },
+        {
+          "id": "odor",
+          "label": "布団のニオイが気になる",
+          "summary": "布団のニオイが気になる",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "O",
+              "value": 5,
+              "weight": 83
+            },
+            {
+              "type": "atLeast",
+              "attr": "D",
+              "value": 5,
+              "weight": 17
+            }
+          ]
+        },
+        {
+          "id": "shoes",
+          "label": "靴乾燥にも使いたい（付属品だけで）",
+          "summary": "付属品だけで靴乾燥もしたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "U",
+              "value": 5,
+              "weight": 80
+            },
+            {
+              "type": "atLeast",
+              "attr": "E",
+              "value": 5,
+              "weight": 20
+            }
+          ],
+          "eligibility": {
+            "attr": "shoeReady",
+            "value": true,
+            "notice": "標準の付属品（または本体のノズル）だけで靴を乾燥できる機種からおすすめを表示しています。",
+            "supplementLabel": "靴乾燥には別売の付属品が必要です"
+          }
+        }
+      ]
+    },
+    {
+      "id": "size",
+      "text": "使う布団のサイズは？",
+      "shortLabel": "布団のサイズ",
+      "weight": 12,
+      "options": [
+        {
+          "id": "single",
+          "label": "シングル・セミダブル",
+          "effects": []
+        },
+        {
+          "id": "double",
+          "label": "ダブル",
+          "summary": "ダブルサイズの布団に使う",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "C",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "feature",
+              "attr": "doubleOk",
+              "weight": 40
+            },
+            {
+              "type": "atLeast",
+              "attr": "D",
+              "value": 5,
+              "weight": 10
+            }
+          ]
+        },
+        {
+          "id": "king",
+          "label": "クイーン・キング",
+          "summary": "クイーン・キングサイズの布団に使う",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "C",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "kingOk",
+            "value": true,
+            "notice": "メーカーがキングサイズまでの対応を公表している機種からおすすめを表示しています。",
+            "supplementLabel": "キングサイズへの対応は公表されていません"
+          }
+        }
+      ]
+    },
+    {
+      "id": "beds",
+      "text": "同時に乾燥したい布団は何組ですか？",
+      "shortLabel": "同時に使う組数",
+      "weight": 10,
+      "options": [
+        {
+          "id": "one",
+          "label": "1組",
+          "effects": []
+        },
+        {
+          "id": "two",
+          "label": "2組を同時に乾燥したい",
+          "summary": "2組を同時に乾燥したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "T",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "twinSimultaneous",
+            "value": true,
+            "notice": "メーカーが2組同時の乾燥に対応すると公表している機種からおすすめを表示しています。",
+            "supplementLabel": "2組同時には乾燥できません"
+          }
+        },
+        {
+          "id": "turns",
+          "label": "2組あるが順番に使えればよい",
+          "summary": "2組を順番に乾燥したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "E",
+              "value": 5,
+              "weight": 67
+            },
+            {
+              "type": "atLeast",
+              "attr": "P",
+              "value": 5,
+              "weight": 33
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "setup",
+      "text": "セットの手間はどこまで許容できますか？",
+      "shortLabel": "セットの手間",
+      "weight": 14,
+      "options": [
+        {
+          "id": "mat",
+          "label": "マット式でも問題ない",
+          "summary": "マット式でもよい",
+          "effects": [
+            {
+              "type": "equals",
+              "attr": "setupType",
+              "value": "mat",
+              "weight": 75
+            },
+            {
+              "type": "atLeast",
+              "attr": "C",
+              "value": 5,
+              "weight": 25
+            }
+          ]
+        },
+        {
+          "id": "hose",
+          "label": "ホース式なら問題ない",
+          "summary": "マットなしのホース式ならよい",
+          "effects": [
+            {
+              "type": "equals",
+              "attr": "matFree",
+              "value": true,
+              "weight": 67
+            },
+            {
+              "type": "atLeast",
+              "attr": "E",
+              "value": 5,
+              "weight": 33
+            }
+          ]
+        },
+        {
+          "id": "hoseless",
+          "label": "ホースなしで使いたい",
+          "summary": "ホースなしで使いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "E",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "hoseless",
+            "value": true,
+            "notice": "マットもホースも使わずにセットできる機種からおすすめを表示しています。",
+            "supplementLabel": "ホースやマットを使うタイプです"
+          }
+        }
+      ]
+    },
+    {
+      "id": "portability",
+      "text": "サイズや持ち運びについては？",
+      "shortLabel": "収納・持ち運び",
+      "weight": 12,
+      "options": [
+        {
+          "id": "home",
+          "label": "自宅で使うので大きくてもよい",
+          "effects": []
+        },
+        {
+          "id": "storage",
+          "label": "収納場所が少ない",
+          "summary": "収納場所が少ない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "S",
+              "value": 5,
+              "weight": 83
+            },
+            {
+              "type": "atLeast",
+              "attr": "P",
+              "value": 5,
+              "weight": 17
+            }
+          ]
+        },
+        {
+          "id": "move",
+          "label": "部屋を移動して使いたい",
+          "summary": "部屋を移動して使いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "P",
+              "value": 5,
+              "weight": 71
+            },
+            {
+              "type": "atLeast",
+              "attr": "S",
+              "value": 5,
+              "weight": 29
+            }
+          ]
+        },
+        {
+          "id": "overseas",
+          "label": "海外でも使いたい",
+          "summary": "海外でも使いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "P",
+              "value": 5,
+              "weight": 100
+            }
+          ],
+          "eligibility": {
+            "attr": "overseas",
+            "value": true,
+            "notice": "メーカー仕様でAC100〜240Vに対応する機種からおすすめを表示しています。渡航先のプラグ形状や周波数なども事前にご確認ください。",
+            "supplementLabel": "国内AC100V専用です"
+          }
+        }
+      ]
+    },
+    {
+      "id": "priority",
+      "text": "最後に、特に重視したいのは？",
+      "shortLabel": "重視すること",
+      "weight": 18,
+      "options": [
+        {
+          "id": "price",
+          "label": "価格の安さ",
+          "summary": "価格の安さを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "V",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "speed",
+          "label": "あたため・乾燥スピード",
+          "summary": "あたため・乾燥のスピードを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "W",
+              "value": 5,
+              "weight": 50
+            },
+            {
+              "type": "atLeast",
+              "attr": "D",
+              "value": 5,
+              "weight": 50
+            }
+          ]
+        },
+        {
+          "id": "easy",
+          "label": "準備と片付けの簡単さ",
+          "summary": "準備と片付けの簡単さを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "E",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "design",
+          "label": "デザイン・見た目",
+          "summary": "デザインを重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "A",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "id": "multi",
+          "label": "いろいろな用途に使えること",
+          "summary": "いろいろな用途に使いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "U",
+              "value": 5,
+              "weight": 100
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "futon-dryer-101",
+      "name": "山善 布団乾燥機 ZFD-Y500(H)",
+      "description": "エアマットでふとん全体を包んで乾かすマット式。付属品は本体に収納でき、1万円以内で選べる価格も魅力です。",
+      "priceRange": 1,
+      "features": [
+        "マット式（エアマット 約80×180cm）",
+        "消費電力500W・質量約2.7kg",
+        "あたため・夏・冬・ダニ対策・小物衣類乾燥コース"
+      ],
+      "pros": [
+        "マットでふとんの広い範囲に温風を行き渡らせやすい",
+        "くつ乾燥アタッチメントが付属",
+        "今回の15機種で最も手頃な価格帯"
+      ],
+      "cons": [
+        "マットを広げる・たたむ手間がある"
+      ],
+      "recommendFor": "手間がかかってもマットでふとん全体をしっかり乾かしたい、価格重視の人",
+      "caution": "グレー（ZFD-Y500(H)）の出品です。エアマットの対応サイズは約80×180cmで、ダブルサイズへの対応は公式情報で確認できていません。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tlfdo.d8zuefb3.g00tlfdo.d8zufad3/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyamazenkaden%2F17627%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyamazenkaden%2Fi%2F10001855%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/yamazenkaden/cabinet/main-img/001/main-17627.jpg?_ex=300x300",
+      "attributes": {
+        "W": 2,
+        "D": 3,
+        "M": 4,
+        "O": 1,
+        "E": 1,
+        "C": 5,
+        "T": 1,
+        "P": 1,
+        "S": 2,
+        "U": 5,
+        "A": 2,
+        "V": 5,
+        "setupType": "mat",
+        "hoseCount": 1,
+        "simultaneousBeds": 1,
+        "matFree": false,
+        "hoseless": false,
+        "twinSimultaneous": false,
+        "kingOk": false,
+        "doubleOk": "unknown",
+        "overseas": false,
+        "shoeReady": true,
+        "miteMode": true,
+        "deodorization": "none",
+        "weightGrams": 2700,
+        "powerW": 500,
+        "priceYen": 8980
+      }
+    },
+    {
+      "id": "futon-dryer-102",
+      "name": "アイリスオーヤマ ふとん乾燥機 カラリエ FK-EC2-W",
+      "description": "ノズルをふとんに差し込むだけのシングルノズル。マット不要で、手頃に導入しやすい定番タイプです。",
+      "priceRange": 2,
+      "features": [
+        "シングルノズル・マット不要",
+        "定格消費電力 最大690W・質量約1.8kg",
+        "くつ乾燥アタッチメント付属"
+      ],
+      "pros": [
+        "マットを敷かずにすぐ使える",
+        "1万円前後で導入しやすい",
+        "くつ乾燥にも使える"
+      ],
+      "cons": [
+        "1組ずつの乾燥になる",
+        "楽天での取り扱い店舗が少なく、価格が変わりやすい"
+      ],
+      "recommendFor": "マットなしの手軽な1台を、できるだけ安く選びたい人",
+      "caution": "ホワイト（FK-EC2-W）の単品出品です。取り扱い店舗が少ないため、購入前に価格と在庫をご確認ください。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00uq9uo.d8zue6c0.g00uq9uo.d8zuf0e0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Factonlineshop%2Facton266a36706729%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Factonlineshop%2Fi%2F10026223%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/actonlineshop/cabinet/onesell028/acton266a36706729_0.jpg?_ex=300x300",
+      "attributes": {
+        "W": 3,
+        "D": 3,
+        "M": 3,
+        "O": 1,
+        "E": 3,
+        "C": 3,
+        "T": 1,
+        "P": 2,
+        "S": 3,
+        "U": 4,
+        "A": 2,
+        "V": 5,
+        "setupType": "hose",
+        "hoseCount": 1,
+        "simultaneousBeds": 1,
+        "matFree": true,
+        "hoseless": false,
+        "twinSimultaneous": false,
+        "kingOk": false,
+        "doubleOk": "unknown",
+        "overseas": false,
+        "shoeReady": true,
+        "miteMode": true,
+        "deodorization": "none",
+        "weightGrams": 1800,
+        "powerW": 690,
+        "priceYen": 10876
+      }
+    },
+    {
+      "id": "futon-dryer-103",
+      "name": "アイリスオーヤマ ふとん乾燥機 カラリエmini TURBO JSK-S10",
+      "description": "質量約700gの小型ボディに最大1100Wのハイパワーを詰め込んだシングルノズル。収納場所が少ない人にも向いています。",
+      "priceRange": 2,
+      "features": [
+        "シングルノズル・マット不要",
+        "定格消費電力 最大1100W・製品質量約700g",
+        "シングル〜ダブルのふとんに対応（メーカー表記）"
+      ],
+      "pros": [
+        "小型・軽量で収納や持ち運びがしやすい",
+        "ハイパワーで速く温めやすい",
+        "くつ乾燥アタッチメントが付属"
+      ],
+      "cons": [
+        "ノズルは1本のため、2組同時には使えない"
+      ],
+      "recommendFor": "小さく軽い本体で、すばやくふとんを温めたい人",
+      "caution": "カラーは購入時に選択します（ホワイトはJSK-S10-W）。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00su2mo.d8zue2de.g00su2mo.d8zuf37b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fu-denki%2F288494%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fu-denki%2Fi%2F10035837%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/u-denki/cabinet/tenposupport07/207021_ins.jpg?_ex=300x300",
+      "attributes": {
+        "W": 4,
+        "D": 4,
+        "M": 4,
+        "O": 1,
+        "E": 3,
+        "C": 3,
+        "T": 1,
+        "P": 4,
+        "S": 5,
+        "U": 4,
+        "A": 3,
+        "V": 4,
+        "setupType": "hose",
+        "hoseCount": 1,
+        "simultaneousBeds": 1,
+        "matFree": true,
+        "hoseless": false,
+        "twinSimultaneous": false,
+        "kingOk": false,
+        "doubleOk": true,
+        "overseas": false,
+        "shoeReady": true,
+        "miteMode": true,
+        "deodorization": "none",
+        "weightGrams": 700,
+        "powerW": 1100,
+        "priceYen": 14080
+      }
+    },
+    {
+      "id": "futon-dryer-104",
+      "name": "アイリスオーヤマ ふとん乾燥機 カラリエmini TURBO ツインノズル JSK-W10-W",
+      "description": "ノズル2本で2組のふとんやくつ2足を同時に乾燥できるツインノズル。性能と価格のバランスが取れた1台です。",
+      "priceRange": 3,
+      "features": [
+        "ツインノズル（2組同時に乾燥・あたため）",
+        "定格消費電力 最大1360W・質量約1.4kg",
+        "くつ乾燥アタッチメント×2付属"
+      ],
+      "pros": [
+        "家族のふとん2組を同時に乾燥できる",
+        "くつ2足を同時に乾燥できる",
+        "ツインノズル機の中では手頃な価格帯"
+      ],
+      "cons": [
+        "上位のBSK-210より最大消費電力・あたため速度はやや控えめ"
+      ],
+      "recommendFor": "2組のふとんを同時に、価格を抑えて乾燥したい人",
+      "caution": "メーカー公式店の出品で、カラーは購入時に選択します（ホワイトはJSK-W10-W）。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00t3zto.d8zuee14.g00t3zto.d8zuf2f4/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firisplaza-r%2F211203%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Firisplaza-r%2Fi%2F10172519%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/11073544/12632916/211203_01.jpg?_ex=300x300",
+      "attributes": {
+        "W": 4,
+        "D": 4,
+        "M": 4,
+        "O": 1,
+        "E": 3,
+        "C": 4,
+        "T": 5,
+        "P": 3,
+        "S": 4,
+        "U": 5,
+        "A": 3,
+        "V": 4,
+        "setupType": "hose",
+        "hoseCount": 2,
+        "simultaneousBeds": 2,
+        "matFree": true,
+        "hoseless": false,
+        "twinSimultaneous": true,
+        "kingOk": false,
+        "doubleOk": "unknown",
+        "overseas": false,
+        "shoeReady": true,
+        "miteMode": true,
+        "deodorization": "none",
+        "weightGrams": 1400,
+        "powerW": 1360,
+        "priceYen": 19580
+      }
+    },
+    {
+      "id": "futon-dryer-105",
+      "name": "アイリスオーヤマ ふとん乾燥機 カラリエmini TURBO ツインノズル BSK-210-W",
+      "description": "最大1380Wのツインノズル上位モデル。ノズル2本をシングルふとんに入れると最速約2分であたためられる速暖タイプです。",
+      "priceRange": 4,
+      "features": [
+        "ツインノズル（シングル2組を同時に速暖・速乾）",
+        "定格消費電力 最大1380W・質量約1.44kg",
+        "くつ乾燥アタッチメント×2付属"
+      ],
+      "pros": [
+        "あたため・乾燥のスピードを重視できる",
+        "2組同時に乾燥できる",
+        "ダニ対策モードを搭載"
+      ],
+      "cons": [
+        "ツインノズル機の中では価格が高め"
+      ],
+      "recommendFor": "忙しい朝晩でも、2組のふとんをすばやく温め・乾燥したい人",
+      "caution": "ホワイト（BSK-210-W）の出品です。最速約2分はターボ設定のあたためモードでシングルふとんにノズル2本を入れた場合のメーカー条件です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00t3jpo.d8zuedce.g00t3jpo.d8zufb63/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyamada-denki%2F4475226019%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyamada-denki%2Fi%2F10675806%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/yamada-denki/cabinet/a07000498/4475226019.jpg?_ex=300x300",
+      "attributes": {
+        "W": 5,
+        "D": 5,
+        "M": 5,
+        "O": 1,
+        "E": 3,
+        "C": 5,
+        "T": 5,
+        "P": 3,
+        "S": 4,
+        "U": 5,
+        "A": 3,
+        "V": 2,
+        "setupType": "hose",
+        "hoseCount": 2,
+        "simultaneousBeds": 2,
+        "matFree": true,
+        "hoseless": false,
+        "twinSimultaneous": true,
+        "kingOk": false,
+        "doubleOk": "unknown",
+        "overseas": false,
+        "shoeReady": true,
+        "miteMode": true,
+        "deodorization": "none",
+        "weightGrams": 1440,
+        "powerW": 1380,
+        "priceYen": 21580
+      }
+    },
+    {
+      "id": "futon-dryer-106",
+      "name": "日立 ふとん乾燥機 アッとドライ HFK-CV1B-AH",
+      "description": "ホースやアタッチメントをすべて本体に収められるオールインワン収納。操作がシンプルで、出し入れがしやすいモデルです。",
+      "priceRange": 2,
+      "features": [
+        "マット不要・V字型ふとん乾燥アタッチメント",
+        "消費電力 最大420W・質量約2.3kg（付属品収納時）",
+        "くつ乾燥アタッチメント付属"
+      ],
+      "pros": [
+        "付属品を本体にまとめて収納できる",
+        "操作がシンプル",
+        "1万円台前半で選べる"
+      ],
+      "cons": [
+        "最大消費電力が小さめで、速さ重視の人には物足りない場合がある"
+      ],
+      "recommendFor": "準備と片付けをとにかく簡単にしたい人",
+      "caution": "ブルーグレー（HFK-CV1B-AH）の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldo.d8zue716.g00r7ldo.d8zuf884/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4526044017379%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F13887047%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/7350/00000010695919_a01.jpg?_ex=300x300",
+      "attributes": {
+        "W": 3,
+        "D": 3,
+        "M": 3,
+        "O": 1,
+        "E": 5,
+        "C": 3,
+        "T": 1,
+        "P": 2,
+        "S": 4,
+        "U": 4,
+        "A": 2,
+        "V": 4,
+        "setupType": "hose",
+        "hoseCount": 1,
+        "simultaneousBeds": 1,
+        "matFree": true,
+        "hoseless": false,
+        "twinSimultaneous": false,
+        "kingOk": false,
+        "doubleOk": "unknown",
+        "overseas": false,
+        "shoeReady": true,
+        "miteMode": true,
+        "deodorization": "none",
+        "weightGrams": 2300,
+        "powerW": 420,
+        "priceYen": 10472
+      }
+    },
+    {
+      "id": "futon-dryer-107",
+      "name": "日立 ふとん乾燥機 アッとドライ HFK-VS6000-C",
+      "description": "伸びる・広がるV字型アタッチメントで温風を行き渡らせるハイパワータイプ。しっかり乾燥させたい人向けです。",
+      "priceRange": 3,
+      "features": [
+        "マット不要・伸縮するV字型ふとん乾燥アタッチメント",
+        "消費電力 最大680W・質量約4.3kg（付属品収納時）",
+        "シングル／セミダブル／ダブルに対応（販売店表記）"
+      ],
+      "pros": [
+        "乾燥性能を重視できる",
+        "くつ乾燥アタッチメントが付属",
+        "ダニ対策コースを搭載"
+      ],
+      "cons": [
+        "本体が大きく重めで、持ち運びや収納には不向き"
+      ],
+      "recommendFor": "湿気の多い時期も、ふとんをしっかり乾かしたい人",
+      "caution": "アイボリー（HFK-VS6000-C）の出品です。デオドラント剤や衣類乾燥カバーを使う機能は、別売品が必要な場合があります。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00s0bro.d8zuee6a.g00s0bro.d8zufd9e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fwinkstore%2F258423%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fwinkstore%2Fi%2F10036626%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/winkstore/cabinet/258500/258423.jpg?_ex=300x300",
+      "attributes": {
+        "W": 4,
+        "D": 5,
+        "M": 5,
+        "O": 2,
+        "E": 3,
+        "C": 5,
+        "T": 1,
+        "P": 1,
+        "S": 2,
+        "U": 5,
+        "A": 2,
+        "V": 3,
+        "setupType": "hose",
+        "hoseCount": 1,
+        "simultaneousBeds": 1,
+        "matFree": true,
+        "hoseless": false,
+        "twinSimultaneous": false,
+        "kingOk": false,
+        "doubleOk": true,
+        "overseas": false,
+        "shoeReady": true,
+        "miteMode": true,
+        "deodorization": "optional",
+        "weightGrams": 4300,
+        "powerW": 680,
+        "priceYen": 16100
+      }
+    },
+    {
+      "id": "futon-dryer-108",
+      "name": "象印 ふとん乾燥機 スマートドライ RF-UA10-HA",
+      "description": "マットもホースも不要で、本体を開いてふとんの間に置くだけ。セットの手軽さと買いやすい価格を両立したモデルです。",
+      "priceRange": 3,
+      "features": [
+        "マット・ホース不要",
+        "消費電力 670W（50Hz）・質量約3.4kg",
+        "衣類・くつは角度調整ノズルでアタッチメント不要"
+      ],
+      "pros": [
+        "セットと片付けがとても簡単",
+        "くつや衣類の乾燥にアタッチメントが要らない",
+        "ホースなしの象印機の中では手頃"
+      ],
+      "cons": [
+        "本体は約3.4kgあり、持ち歩きには向かない"
+      ],
+      "recommendFor": "ホースもマットも使わず、毎日気軽に使いたい人",
+      "caution": "グレー（RF-UA10-HA）の出品です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwo.d8zue5e8.g00pukwo.d8zuf592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4974305224415-21-51982-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14017933%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0094/4974305224415.jpg?_ex=300x300",
+      "attributes": {
+        "W": 3,
+        "D": 3,
+        "M": 3,
+        "O": 1,
+        "E": 5,
+        "C": 3,
+        "T": 1,
+        "P": 1,
+        "S": 3,
+        "U": 5,
+        "A": 3,
+        "V": 3,
+        "setupType": "hoseless",
+        "hoseCount": 0,
+        "simultaneousBeds": 1,
+        "matFree": true,
+        "hoseless": true,
+        "twinSimultaneous": false,
+        "kingOk": false,
+        "doubleOk": "unknown",
+        "overseas": false,
+        "shoeReady": true,
+        "miteMode": true,
+        "deodorization": "none",
+        "weightGrams": 3400,
+        "powerW": 670,
+        "priceYen": 16022
+      }
+    },
+    {
+      "id": "futon-dryer-109",
+      "name": "象印 ふとん乾燥機 スマートドライ RF-FB20-WA",
+      "description": "ツインファンの大風量で、シングルの標準(冬)コースは約35分。ホースなしの手軽さと乾燥スピードを両立しています。",
+      "priceRange": 3,
+      "features": [
+        "マット・ホース不要・ツインファン",
+        "消費電力 905W（50Hz）・質量約3.8kg",
+        "サイズキーでシングル／ダブルを選択"
+      ],
+      "pros": [
+        "ホースなしでも乾燥が速い",
+        "ダブルサイズの運転時間を選べる",
+        "くつ・衣類の乾燥にアタッチメント不要"
+      ],
+      "cons": [
+        "本体は約3.8kgと重め",
+        "ホースなし機の中では価格が高め"
+      ],
+      "recommendFor": "手軽さも乾燥スピードもあきらめたくない人",
+      "caution": "ホワイト（RF-FB20-WA）の出品です。約35分は標準(冬)コース・シングルの場合のメーカー条件です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00t3jpo.d8zuedce.g00t3jpo.d8zufb63/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyamada-denki%2F4474411010%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyamada-denki%2Fi%2F10598386%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/yamada-denki/cabinet/a07000330/4474411010.jpg?_ex=300x300",
+      "attributes": {
+        "W": 5,
+        "D": 5,
+        "M": 4,
+        "O": 1,
+        "E": 5,
+        "C": 5,
+        "T": 1,
+        "P": 1,
+        "S": 2,
+        "U": 5,
+        "A": 3,
+        "V": 3,
+        "setupType": "hoseless",
+        "hoseCount": 0,
+        "simultaneousBeds": 1,
+        "matFree": true,
+        "hoseless": true,
+        "twinSimultaneous": false,
+        "kingOk": false,
+        "doubleOk": true,
+        "overseas": false,
+        "shoeReady": true,
+        "miteMode": true,
+        "deodorization": "none",
+        "weightGrams": 3800,
+        "powerW": 905,
+        "priceYen": 17970
+      }
+    },
+    {
+      "id": "futon-dryer-110",
+      "name": "シャープ ふとん乾燥機 プラズマクラスター UD-DF1-W",
+      "description": "プラズマクラスター7000の温風で、ふとんの消臭乾燥ができるモデル。ニオイ対策を重視する人に向いています。",
+      "priceRange": 2,
+      "features": [
+        "きのこアタッチメント・マット不要",
+        "ふとん乾燥時 480W・質量約3.1kg",
+        "ダブルサイズまで対応（メーカー表記）"
+      ],
+      "pros": [
+        "プラズマクラスターによる消臭乾燥ができる",
+        "くつ乾燥アタッチメント付属",
+        "小空間の空気浄化運転もできる"
+      ],
+      "cons": [
+        "ホースを伸ばしてセットする手間がある"
+      ],
+      "recommendFor": "ふとんや枕のニオイが気になる人",
+      "caution": "ホワイト系（UD-DF1-W）の出品です。消臭効果は使用環境やニオイの種類によって異なります。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qn68o.d8zuee0f.g00qn68o.d8zuf9b5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fa-price%2F2980000208645%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fa-price%2Fi%2F10849818%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/a-price/cabinet/pics/194/2-4974019167565.jpg?_ex=300x300",
+      "attributes": {
+        "W": 3,
+        "D": 3,
+        "M": 4,
+        "O": 5,
+        "E": 3,
+        "C": 4,
+        "T": 1,
+        "P": 1,
+        "S": 2,
+        "U": 5,
+        "A": 3,
+        "V": 4,
+        "setupType": "hose",
+        "hoseCount": 1,
+        "simultaneousBeds": 1,
+        "matFree": true,
+        "hoseless": false,
+        "twinSimultaneous": false,
+        "kingOk": false,
+        "doubleOk": true,
+        "overseas": false,
+        "shoeReady": true,
+        "miteMode": true,
+        "deodorization": "ion",
+        "weightGrams": 3100,
+        "powerW": 480,
+        "priceYen": 11740
+      }
+    },
+    {
+      "id": "futon-dryer-111",
+      "name": "BRUNO マルチふとんドライヤー BOE047",
+      "description": "ウッド調のハンドルとダイヤル操作がおしゃれなマルチふとんドライヤー。衣類・くつ乾燥や暖房にも使えます。",
+      "priceRange": 3,
+      "features": [
+        "チューブを差し込むだけ・マット不要",
+        "定格消費電力500W・質量約1.4kg",
+        "くつ乾燥アタッチメント付属"
+      ],
+      "pros": [
+        "インテリアになじむデザイン",
+        "ダイヤル式で操作がわかりやすい",
+        "ふとん以外の用途にも使いやすい"
+      ],
+      "cons": [
+        "パワーは標準的で、速さ重視の人には物足りない場合がある"
+      ],
+      "recommendFor": "見た目にもこだわって、いろいろな用途に使いたい人",
+      "caution": "メーカー公式店の出品で、カラーは購入時に選択します（アイボリーはBOE047-IV）。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tf8to.d8zue0a0.g00tf8to.d8zufb8f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbruno-official%2F7760509%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbruno-official%2Fi%2F10000108%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/bruno-official/cabinet/item/2026_1/7760509_page1_02.jpg?_ex=300x300",
+      "attributes": {
+        "W": 3,
+        "D": 3,
+        "M": 3,
+        "O": 1,
+        "E": 4,
+        "C": 3,
+        "T": 1,
+        "P": 2,
+        "S": 4,
+        "U": 5,
+        "A": 5,
+        "V": 3,
+        "setupType": "hose",
+        "hoseCount": 1,
+        "simultaneousBeds": 1,
+        "matFree": true,
+        "hoseless": false,
+        "twinSimultaneous": false,
+        "kingOk": false,
+        "doubleOk": "unknown",
+        "overseas": false,
+        "shoeReady": true,
+        "miteMode": true,
+        "deodorization": "none",
+        "weightGrams": 1400,
+        "powerW": 500,
+        "priceYen": 15400
+      }
+    },
+    {
+      "id": "futon-dryer-112",
+      "name": "ドウシシャ ふとんジェット R500 HKA-042BG",
+      "description": "ふとんに差し込むだけのスティック型。軽くて場所を取らず、出し入れの手軽さを重視する人に向いています。",
+      "priceRange": 2,
+      "features": [
+        "スティック型・マット・ホース不要",
+        "あたため・乾燥・ダニ対策モード",
+        "くつ乾燥は別売アタッチメント（セット品はHKA-042BGS）"
+      ],
+      "pros": [
+        "差し込むだけでセットが簡単",
+        "細長い本体で収納しやすい",
+        "部屋を移動して使いやすい"
+      ],
+      "cons": [
+        "この型番にはくつ乾燥アタッチメントが付属しない"
+      ],
+      "recommendFor": "できるだけ手軽に、収納場所を取らずに使いたい人",
+      "caution": "ベージュ（HKA-042BG）の本体単品です。くつ乾燥アタッチメント付きのセット（HKA-042BGS）とは別の型番です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rvzfo.d8zuecd1.g00rvzfo.d8zuf1bc/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flucentstyle%2Fdss-hka-042bg%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Flucentstyle%2Fi%2F10009376%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/lucentstyle/cabinet/item/dss/pic/dss-hka-042bg_1.jpg?_ex=300x300",
+      "attributes": {
+        "W": 3,
+        "D": 3,
+        "M": 3,
+        "O": 1,
+        "E": 5,
+        "C": 3,
+        "T": 1,
+        "P": 5,
+        "S": 5,
+        "U": 2,
+        "A": 4,
+        "V": 4,
+        "setupType": "hoseless",
+        "hoseCount": 0,
+        "simultaneousBeds": 1,
+        "matFree": true,
+        "hoseless": true,
+        "twinSimultaneous": false,
+        "kingOk": false,
+        "doubleOk": "unknown",
+        "overseas": false,
+        "shoeReady": false,
+        "miteMode": true,
+        "deodorization": "none",
+        "priceYen": 14080
+      }
+    },
+    {
+      "id": "futon-dryer-113",
+      "name": "cado ふとん乾燥機 FOEHN LITE FEN-L01-WG",
+      "description": "約400gのスティック型で、AC100〜240Vに対応。旅行や出張先にも持っていきやすいモデルです。",
+      "priceRange": 3,
+      "features": [
+        "スティック型・マット・ホース不要",
+        "AC100〜240V対応・質量約400g",
+        "適用サイズ：シングル"
+      ],
+      "pros": [
+        "とても軽く持ち運びやすい",
+        "海外の電圧でも使える",
+        "コンパクトで収納しやすい"
+      ],
+      "cons": [
+        "適用サイズはシングルまで",
+        "くつ乾燥には別売スタンドが必要"
+      ],
+      "recommendFor": "旅行や出張にも持っていける、軽い1台がほしい人",
+      "caution": "ウォームグレー（FEN-L01-WG）の出品です。海外で使う場合は、渡航先のプラグ形状や周波数などもご確認ください。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldo.d8zue716.g00r7ldo.d8zuf884/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4562337507714%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F15151696%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/12887/00000014139571_a01.jpg?_ex=300x300",
+      "attributes": {
+        "W": 3,
+        "D": 3,
+        "M": 3,
+        "O": 1,
+        "E": 5,
+        "C": 3,
+        "T": 1,
+        "P": 5,
+        "S": 5,
+        "U": 2,
+        "A": 4,
+        "V": 3,
+        "setupType": "hoseless",
+        "hoseCount": 0,
+        "simultaneousBeds": 1,
+        "matFree": true,
+        "hoseless": true,
+        "twinSimultaneous": false,
+        "kingOk": false,
+        "doubleOk": false,
+        "overseas": true,
+        "shoeReady": false,
+        "miteMode": true,
+        "deodorization": "none",
+        "weightGrams": 400,
+        "priceYen": 16500
+      }
+    },
+    {
+      "id": "futon-dryer-114",
+      "name": "cado ふとん乾燥機 FOEHN 003 FEN-003-DG",
+      "description": "デジタルモーターとオゾン生成ユニットを搭載したスティック型。ワンタッチでダブルサイズまで乾燥・あたためでき、海外電圧にも対応します。",
+      "priceRange": 4,
+      "features": [
+        "スティック型・マット・ホース不要",
+        "AC100〜240V対応",
+        "オゾンによるニオイ対策・ダブルサイズまで対応"
+      ],
+      "pros": [
+        "ニオイ対策と乾燥を1台でこなせる",
+        "海外の電圧でも使える",
+        "スリムでインテリアになじみやすい"
+      ],
+      "cons": [
+        "価格が高め",
+        "くつ乾燥には別売スタンドが必要"
+      ],
+      "recommendFor": "ニオイ対策を重視しつつ、旅行先でも使いたい人",
+      "caution": "ダークグレー（FEN-003-DG）の出品です。海外で使う場合は、渡航先のプラグ形状や周波数などもご確認ください。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldo.d8zue716.g00r7ldo.d8zuf884/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4562337507820%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F15295736%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/14686/00000014553033_a01.jpg?_ex=300x300",
+      "attributes": {
+        "W": 3,
+        "D": 4,
+        "M": 4,
+        "O": 5,
+        "E": 5,
+        "C": 4,
+        "T": 1,
+        "P": 5,
+        "S": 4,
+        "U": 3,
+        "A": 5,
+        "V": 2,
+        "setupType": "hoseless",
+        "hoseCount": 0,
+        "simultaneousBeds": 1,
+        "matFree": true,
+        "hoseless": true,
+        "twinSimultaneous": false,
+        "kingOk": false,
+        "doubleOk": true,
+        "overseas": true,
+        "shoeReady": false,
+        "miteMode": true,
+        "deodorization": "ozone",
+        "priceYen": 24200
+      }
+    },
+    {
+      "id": "futon-dryer-115",
+      "name": "cado ふとん乾燥機 FOEHN PRO FEN-P01-SB",
+      "description": "従来機より風量を約50%高めた急速モードを備え、キングサイズまで対応するスティック型。パワーと消臭機能を求める人に向いています。",
+      "priceRange": 5,
+      "features": [
+        "スティック型・マット・ホース不要",
+        "AC100V・最大620W・質量約720g（コード除く）",
+        "キングサイズまで対応・オゾンによるニオイ対策"
+      ],
+      "pros": [
+        "大きなふとんにも対応できる",
+        "急速モードで乾燥を急げる",
+        "オゾンでニオイ対策ができる"
+      ],
+      "cons": [
+        "今回の15機種で最も高価格",
+        "国内AC100V専用で、くつ乾燥には別売スタンドが必要"
+      ],
+      "recommendFor": "クイーン・キングサイズのふとんも、しっかり乾燥・消臭したい人",
+      "caution": "ストーンブラック（FEN-P01-SB）の出品です。国内AC100V専用です。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldo.d8zue716.g00r7ldo.d8zuf884/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4562337507615%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F15044330%2F",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/11399/00000013787732_a01.jpg?_ex=300x300",
+      "attributes": {
+        "W": 5,
+        "D": 5,
+        "M": 5,
+        "O": 5,
+        "E": 5,
+        "C": 5,
+        "T": 1,
+        "P": 4,
+        "S": 4,
+        "U": 3,
+        "A": 5,
+        "V": 1,
+        "setupType": "hoseless",
+        "hoseCount": 0,
+        "simultaneousBeds": 1,
+        "matFree": true,
+        "hoseless": true,
+        "twinSimultaneous": false,
+        "kingOk": true,
+        "doubleOk": true,
+        "overseas": false,
+        "shoeReady": false,
+        "miteMode": true,
+        "deodorization": "ozone",
+        "weightGrams": 720,
+        "powerW": 620,
+        "priceYen": 29920
+      }
+    }
+  ],
+  "scoring": {
+    "tieBreak": true,
+    "softenPartialReason": true,
+    "lowMatchNotice": "指定した条件をすべて満たす商品が少ない（または見つからない）ため、近い候補を表示しています。予算を上げる、「2組を同時に」を「順番に使えればよい」に変える、ホースなしの条件をゆるめる、海外使用と大型布団対応の組み合わせを見直す、などで候補が広がります。"
+  },
+  "guide": {
+    "title": "布団乾燥機の選び方",
+    "intro": "この診断は、家庭用の布団乾燥機15機種を対象に、メーカーや販売店が公表する仕様をもとに、以下のポイントとあなたの回答を照らし合わせて相性を計算しています。",
+    "sections": [
+      {
+        "heading": "布団乾燥機の主な乾燥方式",
+        "body": "布団乾燥機は、本体で温めた空気を布団の中へ送り込んで乾燥させる家電です。送り込み方によって、エアマットを敷くマット式、ノズルやホースを布団に差し込むホース式、本体を布団に挟んだり差し込んだりするホースなし（スティック型など）に分かれます。"
+      },
+      {
+        "heading": "マット式・ホース式・ホースなしの違い",
+        "body": "マット式は布団の広い範囲を包んで乾かしやすい一方、マットを広げてたたむ手間があります。ホース式はマットが不要で、ノズルを差し込むだけで使えます。ホースなしはセットと片付けが最も簡単ですが、本体が重いモデルや、適用サイズがシングルまでのモデルもあります。"
+      },
+      {
+        "heading": "2組同時乾燥を選ぶ際の注意点",
+        "body": "ツインノズルの機種なら、2組の布団を同時に乾燥できるものがあります。ノズルが2本あっても、メーカーが2組同時の乾燥を公表しているかを確認しましょう。同時に乾燥しなくてよい場合は、1本ノズルの機種を順番に使う方法もあります。"
+      },
+      {
+        "heading": "速乾性能を比較する際のポイント",
+        "body": "メーカーが公表する乾燥時間やあたため時間は、布団のサイズ・素材、コース、室温などの条件が機種ごとに異なります。消費電力の大きさだけで速さを判断せず、同じ条件の数値かどうかを確認しましょう。"
+      },
+      {
+        "heading": "ダニ対策モードの使い方と注意点",
+        "body": "多くの機種にダニ対策コースがあり、高温の温風で布団を温めます。ダニ対策コースの後は、布団に掃除機をかけてダニの死がいやフンを取り除くことがメーカーから案内されています。効果の条件はメーカーの公表内容を確認してください。"
+      },
+      {
+        "heading": "予算別の選び方",
+        "body": "1万円前後ではマット式や1本ノズルのシンプルな機種、1万〜2万円ではハイパワーな小型機やホースなしの機種、2万円以上ではツインノズルの上位機やオゾンによるニオイ対策、キングサイズ対応などの機能を持つ機種が候補になります。"
+      },
+      {
+        "heading": "布団の素材やサイズの確認方法",
+        "body": "使う前に布団の洗濯表示や品質表示で、素材と乾燥機の使用可否を確認しましょう。羽毛布団や羊毛布団に使えるかどうか、対応する布団サイズは機種ごとに異なるため、取扱説明書の注意事項に従ってください。"
+      },
+      {
+        "heading": "よくある質問：布団乾燥機は毎日使ってもいい？",
+        "body": "布団乾燥機は日常的な使用を想定した家電ですが、使用頻度や運転時間の目安はメーカーによって異なります。布団の洗濯表示と取扱説明書の注意事項に従って使いましょう。"
+      },
+      {
+        "heading": "よくある質問：マット式とホース式はどちらがおすすめ？",
+        "body": "布団の広い範囲をしっかり包んで乾かしたいならマット式、準備と片付けを簡単にしたいならホース式やホースなしが向いています。毎日使うなら、手間が少ない方式のほうが続けやすいでしょう。"
+      },
+      {
+        "heading": "よくある質問：ダニ対策モードだけでダニ対策は十分？",
+        "body": "ダニ対策モードは高温の温風で布団を温める機能です。運転後に掃除機をかける、定期的に布団を洗う・干すなど、メーカーの案内に沿ったお手入れと組み合わせましょう。"
+      },
+      {
+        "heading": "よくある質問：布団2枚を同時に乾燥できる？",
+        "body": "2組同時の乾燥に対応した機種なら可能です。この診断では、メーカーが2組同時の乾燥を公表している機種だけを「2組同時」の条件に合う機種として扱っています。"
+      },
+      {
+        "heading": "よくある質問：靴や衣類にも使える？",
+        "body": "くつ乾燥アタッチメントが付属する機種や、本体のノズル角度を変えて靴・衣類に温風を当てられる機種があります。別売のアタッチメントやスタンドが必要な機種もあるため、付属品を確認しましょう。"
+      },
+      {
+        "heading": "よくある質問：羽毛布団にも使える？",
+        "body": "羽毛布団に対応する機種は多いものの、布団側の洗濯表示や品質表示で乾燥機の使用が認められているかを確認する必要があります。布団と布団乾燥機の両方の注意事項に従ってください。"
+      }
+    ]
+  },
+  "notice": "乾燥時間・あたため時間・対応サイズなどはメーカーや販売店が公表する条件での値で、布団の素材・量、室温、湿度などによって変わります。布団の洗濯表示と、布団乾燥機の取扱説明書の注意事項に従ってご使用ください。価格は変動するため、購入時に販売ページでご確認ください。"
+}

@@ -219,6 +219,10 @@ export async function checkDiagnosisPages(
           await new Promise((r) => setTimeout(r, 180))
         }
         await new Promise((r) => setTimeout(r, 1000))
+        // 画像配信が一時的に遅いことがあるため、結果カードの画像が読み込み終わるまで待つ（最大20秒。失敗した画像はそのまま判定に回す）
+        await page
+          .waitForFunction(() => [...document.querySelectorAll<HTMLImageElement>('.result-card img')].every((img) => img.complete), { timeout: 20000 })
+          .catch(() => {})
         const view = await page.evaluate(() => {
           const card = (c: Element) => {
             const rect = c.getBoundingClientRect()
