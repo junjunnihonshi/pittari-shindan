@@ -4,6 +4,7 @@ import { Link } from './Link.tsx'
 const links = [
   { to: '/column/', label: '選び方コラム' },
   { to: '/column/replacement/', label: '商品の寿命・使用期限・買い替え時期' },
+  { to: '/column/usage/', label: '使い方・お手入れ・トラブル対策' },
   { to: '/about/', label: '運営者情報' },
   { to: '/privacy/', label: 'プライバシーポリシー' },
   { to: '/disclaimer/', label: '免責事項' },

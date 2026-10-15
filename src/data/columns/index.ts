@@ -50,7 +50,10 @@ import { washingMachineLifespan } from './replacement/washingMachineLifespan.ts'
 import { wifiRouterLifespan } from './replacement/wifiRouterLifespan.ts'
 import { wirelessEarbudsLifespan } from './replacement/wirelessEarbudsLifespan.ts'
 import { dehumidifierUsage } from './usage/dehumidifierUsage.ts'
+import { electricToothbrushUsage } from './usage/electricToothbrushUsage.ts'
 import { humidifierUsage } from './usage/humidifierUsage.ts'
+import { riceCookerUsage } from './usage/riceCookerUsage.ts'
+import { washingMachineUsage } from './usage/washingMachineUsage.ts'
 import { wifiRouterUsage } from './usage/wifiRouterUsage.ts'
 import { airFryerHowToChoose } from './airFryerHowToChoose.ts'
 import { airPurifierHowToChoose } from './airPurifierHowToChoose.ts'
@@ -240,7 +243,14 @@ export const replacementColumns: Column[] = [
  * 使い方・お手入れ・トラブル対策コラム。買い替え時期コラムと同じく、選び方コラムとは別に管理する。
  * 記事ページ・コラム一覧（/column/usage/）・sitemap.xml・プリレンダリングには allColumns として反映されます。
  */
-export const usageColumns: Column[] = [wifiRouterUsage, humidifierUsage, dehumidifierUsage]
+export const usageColumns: Column[] = [
+  wifiRouterUsage,
+  humidifierUsage,
+  dehumidifierUsage,
+  washingMachineUsage,
+  riceCookerUsage,
+  electricToothbrushUsage,
+]
 
 /** 公開中のすべてのコラム（選び方＋買い替え時期＋使い方） */
 export const allColumns: Column[] = [...columns, ...replacementColumns, ...usageColumns]
