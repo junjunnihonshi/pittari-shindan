@@ -4,9 +4,9 @@
 import { Fragment, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { Link } from '../components/Link.tsx'
 import { categoryGroups } from '../config/categories.ts'
-import { canonicalUrl, columnListMeta, columnMeta, diagnosisPath, replacementListMeta } from '../config/seo.ts'
+import { canonicalUrl, columnListMeta, columnMeta, diagnosisPath, replacementListMeta, usageListMeta } from '../config/seo.ts'
 import { site } from '../config/site.ts'
-import { allColumns, columnPath, columns, getReplacementColumnsForGuide, replacementColumns, type Column } from '../data/columns/index.ts'
+import { allColumns, columnPath, columns, getReplacementColumnsForGuide, getUsageColumnsForGuide, replacementColumns, usageColumns, type Column } from '../data/columns/index.ts'
 import { getRelatedColumns } from '../data/columns/related.ts'
 import { diagnoses, isDiagnosisEnabled } from '../data/diagnoses/index.ts'
 import { parseColumnBody } from '../lib/columnBody.ts'
@@ -20,10 +20,10 @@ function formatDate(ymd: string): string {
 
 /**
  * 一覧カード用の短い表示名。title・H1・メタ情報は変えない。
- * 選び方コラムは正式タイトルの「｜」より前、買い替え時期コラムは shortTitle（例：洗濯機の寿命・買い替え時期）
+ * 選び方コラムは正式タイトルの「｜」より前、買い替え時期・使い方コラムは shortTitle（例：洗濯機の寿命・買い替え時期）
  */
 function cardTitle(c: Column): string {
-  if (c.articleType === 'replacement') return c.shortTitle
+  if (c.articleType) return c.shortTitle
   return c.title.split('｜')[0].trim() || c.title
 }
 
@@ -59,8 +59,8 @@ const searchTextBySlug = new Map(
   }),
 )
 
-/** 一覧ページの種類：選び方コラム（/column/）と買い替え時期コラム（/column/replacement/） */
-type ColumnListKind = 'guide' | 'replacement'
+/** 一覧ページの種類：選び方コラム（/column/）、買い替え時期コラム（/column/replacement/）、使い方コラム（/column/usage/） */
+type ColumnListKind = 'guide' | 'replacement' | 'usage'
 const listPages = {
   guide: {
     meta: columnListMeta,
@@ -76,11 +76,18 @@ const listPages = {
     lead: '家電の故障、家具や日用品の劣化、シャンプーなどの使用期限。毎日使う商品には、買い替えや交換を考えるタイミングがあります。\nこのページでは、45テーマの商品について、寿命や使用期限の目安、故障・劣化のサイン、買い替える前に確認したいポイントを紹介しています。',
     items: replacementColumns,
   },
+  usage: {
+    meta: usageListMeta,
+    tab: '使い方・お手入れ',
+    title: '使い方・お手入れ・トラブル対策',
+    lead: '商品を快適に使うためには、購入後の使い方やお手入れも大切です。\nこのページでは、設定方法、掃除、電気代、トラブルへの対処など、毎日の暮らしで役立つ情報を紹介しています。',
+    items: usageColumns,
+  },
 } as const
 
 /** 記事が掲載される一覧（パンくず・BreadcrumbList に使う） */
 function listPageFor(c: Column) {
-  return listPages[c.articleType === 'replacement' ? 'replacement' : 'guide']
+  return listPages[c.articleType ?? 'guide']
 }
 
 const ALL = 'all'
@@ -126,7 +133,19 @@ export function ColumnListPage({ kind }: { kind: ColumnListKind }) {
         <nav className="column-tabs" aria-label="コラムの種類">
           {(Object.keys(listPages) as ColumnListKind[]).map((k) => (
             <Link key={k} to={listPages[k].meta.path} className="column-tabs__tab" aria-current={k === kind ? 'page' : undefined}>
-              {listPages[k].tab}
+              {/* スマホでは「・」の後ろで折り返す（例：使い方・／お手入れ） */}
+              <span className="column-tabs__label">
+                {listPages[k].tab.split('・').map((part, i) => (
+                  <Fragment key={i}>
+                    {i > 0 && (
+                      <>
+                        ・<wbr />
+                      </>
+                    )}
+                    {part}
+                  </Fragment>
+                ))}
+              </span>
               <span className="column-tabs__count">{listPages[k].items.length}</span>
             </Link>
           ))}
@@ -222,7 +241,7 @@ export function ColumnListPage({ kind }: { kind: ColumnListKind }) {
                   <span className="column-entry__title">{cardTitle(c)}</span>
                   <span className="column-entry__desc">{c.description}</span>
                   <span className="column-entry__more">
-                    {c.articleType === 'replacement' ? '記事を読む' : '選び方を読む'} <span aria-hidden="true">→</span>
+                    {c.articleType ? '記事を読む' : '選び方を読む'} <span aria-hidden="true">→</span>
                   </span>
                 </Link>
               </li>
@@ -284,6 +303,9 @@ export function ColumnArticlePage({ column }: { column: Column }) {
   const tocInitiallyOpen = typeof window === 'undefined' || !window.matchMedia('(max-width: 639px)').matches
   const relatedColumns = getRelatedColumns(column.slug)
   const replacementColumns = getReplacementColumnsForGuide(column.slug)
+  // 使い方コラムは、対応する選び方・買い替え時期コラムの末尾から案内する（使い方コラム自身には出さない）
+  const usageGuideSlug = column.articleType === 'replacement' ? column.guideSlug : column.articleType ? undefined : column.slug
+  const usageColumns = usageGuideSlug ? getUsageColumnsForGuide(usageGuideSlug) : []
   // 導入文の中に診断ボタンがない記事だけ、最初の見出しの前に控えめな診断リンクを出す（文言は本文の診断ボタンと同じ）
   const ctaBlocks = blocks.flatMap((b) => (b.type === 'cta' ? [b] : []))
   const quickCtaText = blocks.slice(0, Math.max(firstH2, 0)).some((b) => b.type === 'cta') ? undefined : ctaBlocks[0]?.text
@@ -457,6 +479,24 @@ export function ColumnArticlePage({ column }: { column: Column }) {
           </h2>
           <ul className="column-related__list">
             {replacementColumns.map((c) => (
+              <li key={c.slug}>
+                <Link to={columnPath(c.slug)} className="column-entry column-entry--compact" data-group={groupIdByLabel.get(c.category)}>
+                  <span className="column-entry__category">{c.category}</span>
+                  <span className="column-entry__title">{c.shortTitle}</span>
+                  <span className="column-entry__desc">{c.description}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+      {usageColumns.length > 0 && (
+        <section className="column-related" aria-labelledby="column-usage-title">
+          <h2 id="column-usage-title" className="column-related__title">
+            使い方・お手入れも確認する
+          </h2>
+          <ul className="column-related__list">
+            {usageColumns.map((c) => (
               <li key={c.slug}>
                 <Link to={columnPath(c.slug)} className="column-entry column-entry--compact" data-group={groupIdByLabel.get(c.category)}>
                   <span className="column-entry__category">{c.category}</span>

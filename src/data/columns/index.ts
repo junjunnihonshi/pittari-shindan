@@ -49,6 +49,9 @@ import { vacuumLifespan } from './replacement/vacuumLifespan.ts'
 import { washingMachineLifespan } from './replacement/washingMachineLifespan.ts'
 import { wifiRouterLifespan } from './replacement/wifiRouterLifespan.ts'
 import { wirelessEarbudsLifespan } from './replacement/wirelessEarbudsLifespan.ts'
+import { dehumidifierUsage } from './usage/dehumidifierUsage.ts'
+import { humidifierUsage } from './usage/humidifierUsage.ts'
+import { wifiRouterUsage } from './usage/wifiRouterUsage.ts'
 import { airFryerHowToChoose } from './airFryerHowToChoose.ts'
 import { airPurifierHowToChoose } from './airPurifierHowToChoose.ts'
 import { blenderHowToChoose } from './blenderHowToChoose.ts'
@@ -112,9 +115,12 @@ export interface Column {
    * 選び方コラム（columns）は、その診断ページからこの記事へリンクされます（診断と1対1）
    */
   relatedDiagnosisId?: string
-  /** 記事の種類。未指定は選び方コラム、'replacement' は買い替え時期コラム（replacementColumns に登録） */
-  articleType?: 'replacement'
-  /** 買い替え時期コラムが対応する選び方コラムの slug（選び方コラムの末尾から、この記事へリンクします） */
+  /**
+   * 記事の種類。未指定は選び方コラム、'replacement' は買い替え時期コラム（replacementColumns に登録）、
+   * 'usage' は使い方・お手入れコラム（usageColumns に登録）
+   */
+  articleType?: 'replacement' | 'usage'
+  /** 買い替え時期・使い方コラムが対応する選び方コラムの slug（選び方・買い替え時期コラムの末尾から、この記事へリンクします） */
   guideSlug?: string
   /** コラム一覧の検索にだけ使うキーワード */
   searchKeywords?: string[]
@@ -230,8 +236,14 @@ export const replacementColumns: Column[] = [
   bodySoapLifespan,
 ]
 
-/** 公開中のすべてのコラム（選び方＋買い替え時期） */
-export const allColumns: Column[] = [...columns, ...replacementColumns]
+/**
+ * 使い方・お手入れ・トラブル対策コラム。買い替え時期コラムと同じく、選び方コラムとは別に管理する。
+ * 記事ページ・コラム一覧（/column/usage/）・sitemap.xml・プリレンダリングには allColumns として反映されます。
+ */
+export const usageColumns: Column[] = [wifiRouterUsage, humidifierUsage, dehumidifierUsage]
+
+/** 公開中のすべてのコラム（選び方＋買い替え時期＋使い方） */
+export const allColumns: Column[] = [...columns, ...replacementColumns, ...usageColumns]
 
 export function columnPath(slug: string): string {
   return `/column/${slug}/`
@@ -246,15 +258,25 @@ export function getReplacementColumnsForGuide(guideSlug: string): Column[] {
   return replacementColumns.filter((c) => c.guideSlug === guideSlug)
 }
 
-/** データの確認用：slug の重複、買い替え時期コラムの対応先・種別の誤り（ビルド時の検査に使う） */
+/** 選び方コラムに対応する使い方・お手入れコラム（記事がないテーマは空配列） */
+export function getUsageColumnsForGuide(guideSlug: string): Column[] {
+  return usageColumns.filter((c) => c.guideSlug === guideSlug)
+}
+
+/** データの確認用：slug の重複、買い替え時期・使い方コラムの対応先・種別の誤り（ビルド時の検査に使う） */
 export function findColumnProblems(): string[] {
   const problems: string[] = []
   const slugs = allColumns.map((c) => c.slug)
   for (const s of new Set(slugs)) if (slugs.filter((x) => x === s).length > 1) problems.push(`コラムの slug ${s} が重複しています`)
   if (slugs.includes('replacement')) problems.push('slug replacement は買い替え時期コラム一覧（/column/replacement/）の URL なので使えません')
+  if (slugs.includes('usage')) problems.push('slug usage は使い方コラム一覧（/column/usage/）の URL なので使えません')
   for (const c of columns) if (c.articleType) problems.push(`${c.slug} は選び方コラムですが articleType が指定されています`)
   for (const c of replacementColumns) {
     if (c.articleType !== 'replacement') problems.push(`${c.slug} に articleType: 'replacement' がありません`)
+    if (!columns.some((g) => g.slug === c.guideSlug)) problems.push(`${c.slug} の guideSlug ${c.guideSlug} が選び方コラムにありません`)
+  }
+  for (const c of usageColumns) {
+    if (c.articleType !== 'usage') problems.push(`${c.slug} に articleType: 'usage' がありません`)
     if (!columns.some((g) => g.slug === c.guideSlug)) problems.push(`${c.slug} の guideSlug ${c.guideSlug} が選び方コラムにありません`)
   }
   return problems

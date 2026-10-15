@@ -21,6 +21,8 @@ const staticRoutes: Record<string, () => ReactNode> = {
   '/column': () => <ColumnListPage key="guide" kind="guide" />,
   // 買い替え時期コラムの一覧（/column/:slug の個別記事より先に判定する。記事の slug に replacement は使わない）
   '/column/replacement': () => <ColumnListPage key="replacement" kind="replacement" />,
+  // 使い方・お手入れコラムの一覧（記事の slug に usage は使わない）
+  '/column/usage': () => <ColumnListPage key="usage" kind="usage" />,
 }
 
 function Routes({ path }: { path: string }) {

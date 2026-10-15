@@ -73,6 +73,13 @@ export const replacementListMeta: PageMeta = {
   priority: 0.6,
 }
 
+export const usageListMeta: PageMeta = {
+  path: '/column/usage/',
+  title: `使い方・お手入れ・トラブル対策｜${site.name}`,
+  description: '家電や生活用品の使い方、お手入れ、掃除、接続トラブル、電気代などを解説。Wi-Fiルーター、加湿器、除湿機をはじめ、毎日の暮らしに役立つ記事を紹介します。',
+  priority: 0.6,
+}
+
 export function columnMeta(c: Column): PageMeta {
   return { path: columnPath(c.slug), title: c.title, description: c.description, ogType: 'article', priority: 0.6 }
 }
@@ -83,6 +90,7 @@ export function getAllPages(): PageMeta[] {
     ...staticPages,
     columnListMeta,
     replacementListMeta,
+    usageListMeta,
     ...allColumns.map(columnMeta),
     ...enabledDiagnoses.map<PageMeta>((d) => ({
       path: diagnosisPath(d.slug),

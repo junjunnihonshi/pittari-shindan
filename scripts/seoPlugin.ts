@@ -13,7 +13,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { createServer, type Plugin, type ResolvedConfig } from 'vite'
-import { absoluteUrl, buildHeadTags, canonicalUrl, columnListMeta, diagnosisPath, getAllPages, notFoundMeta, replacementListMeta, staticPages, type PageMeta } from '../src/config/seo.ts'
+import { absoluteUrl, buildHeadTags, canonicalUrl, columnListMeta, diagnosisPath, getAllPages, notFoundMeta, replacementListMeta, staticPages, usageListMeta, type PageMeta } from '../src/config/seo.ts'
 import { allColumns, columnPath, findColumnProblems } from '../src/data/columns/index.ts'
 import { findRelatedProblems } from '../src/data/columns/related.ts'
 import { diagnoses, enabledDiagnoses } from '../src/data/diagnoses/index.ts'
@@ -48,6 +48,7 @@ function prerenderPaths(): string[] {
     ...enabledDiagnoses.map((d) => diagnosisPath(d.slug)),
     columnListMeta.path,
     replacementListMeta.path,
+    usageListMeta.path,
     ...allColumns.map((c) => columnPath(c.slug)),
   ]
 }
