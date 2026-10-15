@@ -47,6 +47,7 @@ import { circulatorFan } from './circulatorFan.ts'
 import { airConditioner } from './airConditioner.ts'
 import { futonDryer } from './futonDryer.ts'
 import { driveRecorder } from './driveRecorder.ts'
+import { ironSteamer } from './ironSteamer.ts'
 
 /**
  * 診断の一覧（登録簿）。
@@ -102,6 +103,7 @@ const allDiagnoses: Diagnosis[] = [
   airConditioner,
   futonDryer,
   driveRecorder,
+  ironSteamer,
 ]
 
 /**

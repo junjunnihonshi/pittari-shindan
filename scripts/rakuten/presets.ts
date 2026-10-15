@@ -565,4 +565,17 @@ export const presets: Record<string, RakutenPreset> = {
     priceThresholds: [12000, 20000, 30000, 45000],
     attributeKeys: ['N', 'F', 'R', 'S', 'I', 'P', 'E', 'M', 'D', 'W', 'L', 'V'],
   },
+  'iron-steamer': {
+    category: 'iron-steamer',
+    // 採用機種は指示書で確定済み。型番の確認は --keyword "メーカー 型番" で行う
+    keywords: ['スチームアイロン コードレス', '衣類スチーマー', '衣類スチーマー 2WAY', 'スチームアイロン'],
+    ngKeyword: '中古 部品 アイロン台のみ カバーのみ ミトンのみ',
+    sort: '-reviewCount',
+    hits: 20,
+    minPrice: 2000,
+    maxPerShop: 3,
+    // ironSteamer の priceLabels（8,000 / 12,000 / 16,000 / 22,000円）と同じ区分
+    priceThresholds: [8000, 12000, 16000, 22000],
+    attributeKeys: ['P', 'H', 'V', 'Q', 'L', 'T', 'G', 'R', 'D', 'C', 'S', 'K'],
+  },
 }
