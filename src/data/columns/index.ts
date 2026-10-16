@@ -54,6 +54,7 @@ import { airPurifierUsage } from './usage/airPurifierUsage.ts'
 import { dehumidifierUsage } from './usage/dehumidifierUsage.ts'
 import { electricBlanketUsage } from './usage/electricBlanketUsage.ts'
 import { electricKettleUsage } from './usage/electricKettleUsage.ts'
+import { electricPressureCookerUsage } from './usage/electricPressureCookerUsage.ts'
 import { electricToothbrushUsage } from './usage/electricToothbrushUsage.ts'
 import { fryingPanUsage } from './usage/fryingPanUsage.ts'
 import { hairDryerUsage } from './usage/hairDryerUsage.ts'
@@ -61,11 +62,13 @@ import { heaterUsage } from './usage/heaterUsage.ts'
 import { humidifierUsage } from './usage/humidifierUsage.ts'
 import { microwaveUsage } from './usage/microwaveUsage.ts'
 import { pillowUsage } from './usage/pillowUsage.ts'
+import { printerUsage } from './usage/printerUsage.ts'
 import { refrigeratorUsage } from './usage/refrigeratorUsage.ts'
 import { riceCookerUsage } from './usage/riceCookerUsage.ts'
 import { robotVacuumUsage } from './usage/robotVacuumUsage.ts'
 import { smartwatchUsage } from './usage/smartwatchUsage.ts'
 import { tabletUsage } from './usage/tabletUsage.ts'
+import { tvUsage } from './usage/tvUsage.ts'
 import { vacuumUsage } from './usage/vacuumUsage.ts'
 import { washingMachineUsage } from './usage/washingMachineUsage.ts'
 import { wifiRouterUsage } from './usage/wifiRouterUsage.ts'
@@ -280,6 +283,9 @@ export const usageColumns: Column[] = [
   refrigeratorUsage,
   robotVacuumUsage,
   heaterUsage,
+  printerUsage,
+  tvUsage,
+  electricPressureCookerUsage,
 ]
 
 /** 公開中のすべてのコラム（選び方＋買い替え時期＋使い方） */
