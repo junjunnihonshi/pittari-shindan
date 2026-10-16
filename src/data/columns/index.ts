@@ -56,11 +56,14 @@ import { electricBlanketUsage } from './usage/electricBlanketUsage.ts'
 import { electricKettleUsage } from './usage/electricKettleUsage.ts'
 import { electricToothbrushUsage } from './usage/electricToothbrushUsage.ts'
 import { fryingPanUsage } from './usage/fryingPanUsage.ts'
+import { hairDryerUsage } from './usage/hairDryerUsage.ts'
 import { humidifierUsage } from './usage/humidifierUsage.ts'
 import { microwaveUsage } from './usage/microwaveUsage.ts'
 import { pillowUsage } from './usage/pillowUsage.ts'
 import { riceCookerUsage } from './usage/riceCookerUsage.ts'
 import { smartwatchUsage } from './usage/smartwatchUsage.ts'
+import { tabletUsage } from './usage/tabletUsage.ts'
+import { vacuumUsage } from './usage/vacuumUsage.ts'
 import { washingMachineUsage } from './usage/washingMachineUsage.ts'
 import { wifiRouterUsage } from './usage/wifiRouterUsage.ts'
 import { wirelessEarbudsUsage } from './usage/wirelessEarbudsUsage.ts'
@@ -268,6 +271,9 @@ export const usageColumns: Column[] = [
   electricBlanketUsage,
   airPurifierUsage,
   microwaveUsage,
+  vacuumUsage,
+  hairDryerUsage,
+  tabletUsage,
 ]
 
 /** 公開中のすべてのコラム（選び方＋買い替え時期＋使い方） */
