@@ -1659,9 +1659,10 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   margin-bottom: 8px;
 }
 .column-list__lead {
-  margin: 0 0 6px;
+  margin: 0 0 4px;
   color: var(--color-muted);
-  line-height: 1.8;
+  font-size: 0.95rem;
+  line-height: 1.75;
 }
 .column-list__count {
   margin: 0 0 20px;
@@ -1677,7 +1678,7 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
 .column-tabs {
   display: flex;
   gap: 4px;
-  margin: 0 0 18px;
+  margin: 18px 0 18px;
   padding: 4px;
   border: 1px solid var(--color-border);
   border-radius: 999px;
@@ -1707,6 +1708,17 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   background: var(--color-surface);
   color: var(--color-primary-dark);
   box-shadow: var(--shadow-sm);
+  /* 選択中のタブは色だけでなく下線でも示す */
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+.column-tabs__tab:focus-visible,
+.column-filter__cat:focus-visible,
+.column-filter__reset:focus-visible,
+.column-backtop a:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
 }
 .column-tabs__count {
   min-width: 1.6em;
@@ -1748,15 +1760,17 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   max-width: none;
   margin-bottom: 14px;
 }
-/* スマホではカテゴリを横スクロール（ページ全体は横にはみ出さない） */
+/* 幅の狭いスマホでも検索欄の例文が切れないよう、例文の文字を少し小さくする */
+@media (max-width: 359px) {
+  .column-filter__search .search-box__input::placeholder {
+    font-size: 0.78em;
+  }
+}
+/* カテゴリはスマホでも折り返して表示する（ページ全体は横にはみ出さない） */
 .column-filter__cats {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
-  margin: 0 -16px;
-  padding: 2px 16px 6px;
-  overflow-x: auto;
-  scrollbar-width: thin;
-  -webkit-overflow-scrolling: touch;
 }
 .column-filter__cat {
   flex: none;
@@ -1910,9 +1924,10 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
 }
 .column-entry__title {
   margin-top: 10px;
-  font-size: 1.12rem;
+  font-size: 1.14rem;
   font-weight: 800;
   line-height: 1.5;
+  overflow-wrap: anywhere;
   transition: color 0.2s;
 }
 .column-entry__desc {
@@ -1970,7 +1985,7 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
 }
 .column-article p,
 .column-article li {
-  line-height: 1.85;
+  line-height: 1.9;
 }
 .column-article p {
   margin: 0 0 14px;
@@ -2146,6 +2161,9 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   min-width: 7.5em;
   font-weight: 700;
 }
+.column-table tbody tr:nth-child(even) {
+  background: var(--color-bg);
+}
 .column-table tbody tr:last-child th,
 .column-table tbody tr:last-child td {
   border-bottom: none;
@@ -2158,8 +2176,9 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
 .prose .column-table__hint {
   display: none;
   margin: 0 0 6px;
-  color: var(--color-muted);
-  font-size: 0.8rem;
+  color: var(--color-primary-dark);
+  font-size: 0.82rem;
+  font-weight: 700;
   text-align: right;
 }
 /* 横スクロールできるときだけ案内を出す（JavaScript が動かない場合は4列以上の表で表示） */
@@ -2203,6 +2222,48 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   color: var(--color-muted);
   font-size: 0.85rem;
   line-height: 1.7;
+}
+
+/* スマホでは記事の枠を少し広げ、本文の左右の余白を約19pxにする */
+@media (max-width: 639px) {
+  .prose.column-article {
+    margin-right: -12px;
+    margin-left: -12px;
+    padding: 22px 14px 26px;
+  }
+}
+
+/* よくある質問：質問と回答を1問ずつ薄い枠で囲む */
+.column-faq {
+  margin: 14px 0;
+  padding: 14px 16px 2px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+.column-article .column-faq h3 {
+  margin: 0 0 8px;
+  padding: 0 0 8px;
+  font-size: 1.02rem;
+}
+.column-article .column-faq p {
+  margin-bottom: 12px;
+}
+
+/* 記事の末尾から先頭へ戻る（画面に固定しない通常のリンク） */
+.prose .column-backtop {
+  margin: 32px 0 0;
+  text-align: right;
+  font-size: 0.9rem;
+}
+.column-backtop a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 700;
+}
+#column-top {
+  scroll-margin-top: 16px;
 }
 
 /* 記事の編集者表示（運営者情報へのリンク） */
@@ -2397,20 +2458,11 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
   .column-article h3 {
     font-size: 1.12rem;
   }
-  .column-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
   .column-related__list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .prose .column-table__hint {
     display: none;
-  }
-  .column-filter__cats {
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
-    overflow: visible;
   }
 }
 
@@ -2428,6 +2480,12 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
     position: absolute;
     top: 22px;
     right: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .column-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 

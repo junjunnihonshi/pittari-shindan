@@ -9,7 +9,7 @@ import { site } from '../config/site.ts'
 import { allColumns, columnPath, columns, getReplacementColumnsForGuide, getUsageColumnsForGuide, replacementColumns, usageColumns, type Column } from '../data/columns/index.ts'
 import { getRelatedColumns } from '../data/columns/related.ts'
 import { diagnoses, isDiagnosisEnabled } from '../data/diagnoses/index.ts'
-import { parseColumnBody } from '../lib/columnBody.ts'
+import { parseColumnBody, type ColumnBlock } from '../lib/columnBody.ts'
 import { normalizeSearchText, toSearchWords } from '../lib/diagnosisSearch.ts'
 import { useSeo } from '../lib/seo.ts'
 
@@ -130,6 +130,12 @@ export function ColumnListPage({ kind }: { kind: ColumnListKind }) {
         </ol>
       </nav>
       <section className="column-list" aria-labelledby="column-list-title">
+        <h1 id="column-list-title" className="column-list__title">
+          {page.title}
+        </h1>
+        {page.lead.split('\n').map((t) => (
+          <p key={t} className="column-list__lead">{t}</p>
+        ))}
         <nav className="column-tabs" aria-label="コラムの種類">
           {(Object.keys(listPages) as ColumnListKind[]).map((k) => (
             <Link key={k} to={listPages[k].meta.path} className="column-tabs__tab" aria-current={k === kind ? 'page' : undefined}>
@@ -150,15 +156,6 @@ export function ColumnListPage({ kind }: { kind: ColumnListKind }) {
             </Link>
           ))}
         </nav>
-        <h1 id="column-list-title" className="column-list__title">
-          {page.title}
-        </h1>
-        {page.lead.split('\n').map((t) => (
-          <p key={t} className="column-list__lead">{t}</p>
-        ))}
-        <p className="column-list__count">
-          公開中の記事：<strong>{list.length}</strong>本
-        </p>
         {canFilter && (
           <div className="column-filter">
             <div className="search-box column-filter__search" role="search">
@@ -175,7 +172,7 @@ export function ColumnListPage({ kind }: { kind: ColumnListKind }) {
                 id="column-search"
                 type="search"
                 className="search-box__input"
-                placeholder="商品名・キーワードで探す"
+                placeholder="記事を検索（例：掃除機、電気代）"
                 autoComplete="off"
                 enterKeyHint="search"
                 value={query}
@@ -241,7 +238,7 @@ export function ColumnListPage({ kind }: { kind: ColumnListKind }) {
                   <span className="column-entry__title">{cardTitle(c)}</span>
                   <span className="column-entry__desc">{c.description}</span>
                   <span className="column-entry__more">
-                    {c.articleType ? '記事を読む' : '選び方を読む'} <span aria-hidden="true">→</span>
+                    記事を読む <span aria-hidden="true">→</span>
                   </span>
                 </Link>
               </li>
@@ -258,6 +255,30 @@ export function ColumnListPage({ kind }: { kind: ColumnListKind }) {
       </section>
     </div>
   )
+}
+
+/**
+ * 「よくある質問」の章では、質問（H3）とその直後の回答の段落を1組にまとめる（表示上の枠付けだけに使う）。
+ * 回答は段落だけを対象にし、表・リスト・診断ボタン・次の見出しが来たらそこで区切る
+ */
+function groupFaq(blocks: ColumnBlock[]): { block: ColumnBlock; index: number; answers?: { text: string }[] }[] {
+  const out: { block: ColumnBlock; index: number; answers?: { text: string }[] }[] = []
+  let inFaq = false
+  for (let i = 0; i < blocks.length; i++) {
+    const b = blocks[i]
+    if (b.type === 'h2') inFaq = b.text.includes('よくある質問')
+    if (inFaq && b.type === 'h3') {
+      const answers: { text: string }[] = []
+      for (let next = blocks[i + 1]; next?.type === 'p'; next = blocks[i + 1]) {
+        answers.push(next)
+        i++
+      }
+      out.push({ block: b, index: i - answers.length, answers })
+      continue
+    }
+    out.push({ block: b, index: i })
+  }
+  return out
 }
 
 /** 記事の構造化データ（Article・BreadcrumbList）。値はすべて表示中の記事データと一致させる（画像・更新日は記録がないため入れない） */
@@ -339,7 +360,7 @@ export function ColumnArticlePage({ column }: { column: Column }) {
         </ol>
       </nav>
       <article className="prose column-article" ref={articleRef}>
-        <header className="column-article__header">
+        <header className="column-article__header" id="column-top">
           <span className="diagnosis-card__meta column-card__category">{column.category}</span>
           <h1>{column.title}</h1>
           <p className="column-article__date">
@@ -349,7 +370,7 @@ export function ColumnArticlePage({ column }: { column: Column }) {
             </span>
           </p>
         </header>
-        {blocks.map((b, i) => {
+        {groupFaq(blocks).map(({ block: b, index: i, answers }) => {
           const quickCta =
             i === firstH2 && quickCtaText && diagnosisUrl ? (
               <p className="column-quick-cta">
@@ -467,10 +488,24 @@ export function ColumnArticlePage({ column }: { column: Column }) {
             <Fragment key={i}>
               {quickCta}
               {before}
-              {el}
+              {answers ? (
+                <div className="column-faq">
+                  {el}
+                  {answers.map((a, k) => (
+                    <p key={k}>{renderInline(a.text)}</p>
+                  ))}
+                </div>
+              ) : (
+                el
+              )}
             </Fragment>
           )
         })}
+        <p className="column-backtop">
+          <a href="#column-top">
+            ページの先頭へ戻る<span aria-hidden="true"> ↑</span>
+          </a>
+        </p>
       </article>
       {replacementColumns.length > 0 && (
         <section className="column-related" aria-labelledby="column-replacement-title">
