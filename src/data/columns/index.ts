@@ -52,6 +52,7 @@ import { wirelessEarbudsLifespan } from './replacement/wirelessEarbudsLifespan.t
 import { airConditionerUsage } from './usage/airConditionerUsage.ts'
 import { airPurifierUsage } from './usage/airPurifierUsage.ts'
 import { dehumidifierUsage } from './usage/dehumidifierUsage.ts'
+import { dishwasherUsage } from './usage/dishwasherUsage.ts'
 import { electricBlanketUsage } from './usage/electricBlanketUsage.ts'
 import { electricKettleUsage } from './usage/electricKettleUsage.ts'
 import { electricPressureCookerUsage } from './usage/electricPressureCookerUsage.ts'
@@ -61,6 +62,7 @@ import { hairDryerUsage } from './usage/hairDryerUsage.ts'
 import { heaterUsage } from './usage/heaterUsage.ts'
 import { humidifierUsage } from './usage/humidifierUsage.ts'
 import { microwaveUsage } from './usage/microwaveUsage.ts'
+import { mobileBatteryUsage } from './usage/mobileBatteryUsage.ts'
 import { pillowUsage } from './usage/pillowUsage.ts'
 import { printerUsage } from './usage/printerUsage.ts'
 import { refrigeratorUsage } from './usage/refrigeratorUsage.ts'
@@ -68,6 +70,7 @@ import { riceCookerUsage } from './usage/riceCookerUsage.ts'
 import { robotVacuumUsage } from './usage/robotVacuumUsage.ts'
 import { smartwatchUsage } from './usage/smartwatchUsage.ts'
 import { tabletUsage } from './usage/tabletUsage.ts'
+import { toasterUsage } from './usage/toasterUsage.ts'
 import { tvUsage } from './usage/tvUsage.ts'
 import { vacuumUsage } from './usage/vacuumUsage.ts'
 import { washingMachineUsage } from './usage/washingMachineUsage.ts'
@@ -286,6 +289,9 @@ export const usageColumns: Column[] = [
   printerUsage,
   tvUsage,
   electricPressureCookerUsage,
+  dishwasherUsage,
+  toasterUsage,
+  mobileBatteryUsage,
 ]
 
 /** 公開中のすべてのコラム（選び方＋買い替え時期＋使い方） */
