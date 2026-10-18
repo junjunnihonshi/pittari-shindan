@@ -52,9 +52,11 @@ import { wirelessEarbudsLifespan } from './replacement/wirelessEarbudsLifespan.t
 import { airConditionerUsage } from './usage/airConditionerUsage.ts'
 import { airPurifierUsage } from './usage/airPurifierUsage.ts'
 import { blenderUsage } from './usage/blenderUsage.ts'
+import { bluetoothSpeakerUsage } from './usage/bluetoothSpeakerUsage.ts'
 import { circulatorFanUsage } from './usage/circulatorFanUsage.ts'
 import { coffeeMakerUsage } from './usage/coffeeMakerUsage.ts'
 import { dehumidifierUsage } from './usage/dehumidifierUsage.ts'
+import { deskChairUsage } from './usage/deskChairUsage.ts'
 import { dishwasherUsage } from './usage/dishwasherUsage.ts'
 import { electricBlanketUsage } from './usage/electricBlanketUsage.ts'
 import { electricKettleUsage } from './usage/electricKettleUsage.ts'
@@ -64,6 +66,7 @@ import { fryingPanUsage } from './usage/fryingPanUsage.ts'
 import { hairDryerUsage } from './usage/hairDryerUsage.ts'
 import { hairIronUsage } from './usage/hairIronUsage.ts'
 import { heaterUsage } from './usage/heaterUsage.ts'
+import { hotPlateUsage } from './usage/hotPlateUsage.ts'
 import { mattressUsage } from './usage/mattressUsage.ts'
 import { humidifierUsage } from './usage/humidifierUsage.ts'
 import { mensShaverUsage } from './usage/mensShaverUsage.ts'
@@ -310,6 +313,9 @@ export const usageColumns: Column[] = [
   mattressUsage,
   showerHeadUsage,
   circulatorFanUsage,
+  bluetoothSpeakerUsage,
+  hotPlateUsage,
+  deskChairUsage,
 ]
 
 /** 公開中のすべてのコラム（選び方＋買い替え時期＋使い方） */
