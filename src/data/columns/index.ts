@@ -51,6 +51,7 @@ import { wifiRouterLifespan } from './replacement/wifiRouterLifespan.ts'
 import { wirelessEarbudsLifespan } from './replacement/wirelessEarbudsLifespan.ts'
 import { airConditionerUsage } from './usage/airConditionerUsage.ts'
 import { airPurifierUsage } from './usage/airPurifierUsage.ts'
+import { blenderUsage } from './usage/blenderUsage.ts'
 import { coffeeMakerUsage } from './usage/coffeeMakerUsage.ts'
 import { dehumidifierUsage } from './usage/dehumidifierUsage.ts'
 import { dishwasherUsage } from './usage/dishwasherUsage.ts'
@@ -63,11 +64,13 @@ import { hairDryerUsage } from './usage/hairDryerUsage.ts'
 import { hairIronUsage } from './usage/hairIronUsage.ts'
 import { heaterUsage } from './usage/heaterUsage.ts'
 import { humidifierUsage } from './usage/humidifierUsage.ts'
+import { mensShaverUsage } from './usage/mensShaverUsage.ts'
 import { microwaveUsage } from './usage/microwaveUsage.ts'
 import { mobileBatteryUsage } from './usage/mobileBatteryUsage.ts'
 import { monitorUsage } from './usage/monitorUsage.ts'
 import { pillowUsage } from './usage/pillowUsage.ts'
 import { printerUsage } from './usage/printerUsage.ts'
+import { projectorUsage } from './usage/projectorUsage.ts'
 import { refrigeratorUsage } from './usage/refrigeratorUsage.ts'
 import { riceCookerUsage } from './usage/riceCookerUsage.ts'
 import { robotVacuumUsage } from './usage/robotVacuumUsage.ts'
@@ -298,6 +301,9 @@ export const usageColumns: Column[] = [
   coffeeMakerUsage,
   hairIronUsage,
   monitorUsage,
+  mensShaverUsage,
+  blenderUsage,
+  projectorUsage,
 ]
 
 /** 公開中のすべてのコラム（選び方＋買い替え時期＋使い方） */
