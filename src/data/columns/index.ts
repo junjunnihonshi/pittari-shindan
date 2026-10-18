@@ -50,9 +50,11 @@ import { washingMachineLifespan } from './replacement/washingMachineLifespan.ts'
 import { wifiRouterLifespan } from './replacement/wifiRouterLifespan.ts'
 import { wirelessEarbudsLifespan } from './replacement/wirelessEarbudsLifespan.ts'
 import { airConditionerUsage } from './usage/airConditionerUsage.ts'
+import { airFryerUsage } from './usage/airFryerUsage.ts'
 import { airPurifierUsage } from './usage/airPurifierUsage.ts'
 import { blenderUsage } from './usage/blenderUsage.ts'
 import { bluetoothSpeakerUsage } from './usage/bluetoothSpeakerUsage.ts'
+import { bodySoapUsage } from './usage/bodySoapUsage.ts'
 import { circulatorFanUsage } from './usage/circulatorFanUsage.ts'
 import { coffeeMakerUsage } from './usage/coffeeMakerUsage.ts'
 import { dehumidifierUsage } from './usage/dehumidifierUsage.ts'
@@ -65,6 +67,7 @@ import { electricToothbrushUsage } from './usage/electricToothbrushUsage.ts'
 import { fryingPanUsage } from './usage/fryingPanUsage.ts'
 import { hairDryerUsage } from './usage/hairDryerUsage.ts'
 import { hairIronUsage } from './usage/hairIronUsage.ts'
+import { hairTreatmentUsage } from './usage/hairTreatmentUsage.ts'
 import { heaterUsage } from './usage/heaterUsage.ts'
 import { hotPlateUsage } from './usage/hotPlateUsage.ts'
 import { mattressUsage } from './usage/mattressUsage.ts'
@@ -79,8 +82,11 @@ import { projectorUsage } from './usage/projectorUsage.ts'
 import { refrigeratorUsage } from './usage/refrigeratorUsage.ts'
 import { riceCookerUsage } from './usage/riceCookerUsage.ts'
 import { robotVacuumUsage } from './usage/robotVacuumUsage.ts'
+import { shampooUsage } from './usage/shampooUsage.ts'
 import { showerHeadUsage } from './usage/showerHeadUsage.ts'
 import { smartwatchUsage } from './usage/smartwatchUsage.ts'
+import { soundbarUsage } from './usage/soundbarUsage.ts'
+import { suitcaseUsage } from './usage/suitcaseUsage.ts'
 import { tabletUsage } from './usage/tabletUsage.ts'
 import { toasterUsage } from './usage/toasterUsage.ts'
 import { tvUsage } from './usage/tvUsage.ts'
@@ -316,6 +322,12 @@ export const usageColumns: Column[] = [
   bluetoothSpeakerUsage,
   hotPlateUsage,
   deskChairUsage,
+  shampooUsage,
+  hairTreatmentUsage,
+  bodySoapUsage,
+  soundbarUsage,
+  suitcaseUsage,
+  airFryerUsage,
 ]
 
 /** 公開中のすべてのコラム（選び方＋買い替え時期＋使い方） */
