@@ -40,7 +40,7 @@ function feature(attr: string): Effect {
 /** 商品データ（実商品9機種。評価値はメーカー公式情報に基づく：data/rakuten-candidates/desk-chair/product-evaluations.json、採点基準 v2） */
 const products: Product[] = [
   {
-    // 山善 HMC-992H（メッシュ座面。PVC座面は別型番 HMC-P992H） / 幅62×奥行57×高さ104.5〜112cm・座面高42〜49.5cm / 11,470円（2026-09-29 確認）
+    // 山善 HMC-992H（メッシュ座面。PVC座面は別型番 HMC-P992H） / 幅62×奥行57×高さ104.5〜112cm・座面高42〜49.5cm / 9,999円（山善公式 くらしのeショップ、送料込、2026-10-21 確認）
     id: 'desk-chair-101',
     name: '山善 オフィスチェア ハイバック メッシュ HMC-992H',
     category: 'desk-chair',
@@ -50,10 +50,10 @@ const products: Product[] = [
     pros: ['手頃な価格で、座面までメッシュ', '本体幅62cmと比較的置きやすい'],
     cons: ['肘掛け・ランバーサポートは調整できません', 'リクライニングの角度固定・ヘッドレスト・座面奥行調整はありません', '楽天での取り扱いが少なく、価格や在庫が変わりやすい商品です'],
     recommendFor: '手頃な価格で、座面まで蒸れにくいチェアがほしい人',
-    caution: 'メッシュ座面の HMC-992H を想定しています（PVC座面は別型番 HMC-P992H）。楽天での取り扱い店舗が少なく、価格・在庫が変わりやすいため、購入前に販売ページで型番とカラーを確認してください。',
+    caution: 'メッシュ座面の HMC-992H を想定しています。リンク先の山善公式ショップでは座面（メッシュ／PVC）と色を選んで購入するため、メッシュ座面を選んでください（PVC座面は別型番 HMC-P992H）。',
     amazonUrl: 'https://www.amazon.co.jp/dp/B0DP1XFZ1K/ref=nosim?tag=pittarishinda-22',
-    rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00ux1uo.d8zued05.g00ux1uo.d8zufe48/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fgramsky2nd%2F2nd0dp1wqwsr%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fgramsky2nd%2Fi%2F10042396%2F',
-    imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/gramsky2nd/cabinet/rakutenpic/systempic041/b0dp1wqwsr-00.jpg?_ex=300x300',
+    rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00pui9o.d8zue242.g00pui9o.d8zufcf1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fe-kurashi%2Fq3324%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fe-kurashi%2Fi%2F10006917%2F',
+    imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/e-kurashi/cabinet/main-img/020/main-main-s5q56_b.jpg?_ex=300x300',
     enabled: true,
     attributes: {
       lowSeat: 4, seatRange: 2, compactness: 3, breathability: 5, armLevel: 2, recline: 2, adjust: 1,

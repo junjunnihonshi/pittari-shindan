@@ -57,8 +57,8 @@ const products: Product[] = [
     recommendFor: '超小型で、気軽に持ち歩けるスピーカーが欲しい人',
     caution: 'リンク先はケーズデンキの出品（ブラック）です。',
     amazonUrl: 'https://www.amazon.co.jp/dp/B0CZD87HWR/ref=nosim?tag=pittarishinda-22',
-    rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00tit6o.d8zuebed.g00tit6o.d8zuf23f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fksdenki%2F4968929220755%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fksdenki%2Fi%2F10506015%2F',
-    imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/ksdenki/cabinet/images/55_5/4968929220755_5.jpg?_ex=300x300',
+    rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00tit6o.d8zuebed.g00tit6o.d8zuf23f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fksdenki%2F4968929220755%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fksdenki%2Fi%2F10548405%2F',
+    imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/ksdenki/cabinet/images/n0000000055/4968929220755_1.jpg?_ex=300x300',
     attributes: {
       soundQuality: 2,
       bass: 2,

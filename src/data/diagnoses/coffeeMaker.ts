@@ -100,7 +100,7 @@ const products: Product[] = [
     caution: 'リンク先はリコリスブラック（GDV2-BK-W）の出品です。楽天では取り扱い店舗が少なく、価格が変わりやすい商品です。',
     amazonUrl: 'https://www.amazon.co.jp/dp/B0BS5VS114/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: 'https://hb.afl.rakuten.co.jp/hgc/g00ue6jo.d8zuead3.g00ue6jo.d8zuf7d6/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fraspberrymarket%2Fgr-e9evpsvuuh%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fraspberrymarket%2Fi%2F10096957%2F',
-    imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/raspberrymarket/cabinet/g/8/e9evpsvuuh-5.jpg?_ex=300x300',
+    imageUrl: 'https://thumbnail.image.rakuten.co.jp/@0_mall/raspberrymarket/cabinet/g/8/e9evpsvuuh-6.jpg?_ex=300x300',
     attributes: {
       extractionControl: 4,
       grinderQuality: 1,
