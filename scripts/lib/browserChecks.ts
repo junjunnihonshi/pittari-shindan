@@ -27,6 +27,15 @@ export function isOfficialStoreUrl(href: string): boolean {
   return href.startsWith('https://www.apple.com/jp/shop/')
 }
 
+/** Amazon の商品リンクの ASIN（/dp/<ASIN>）。取り出せなければ空文字 */
+export function asinOf(href: string): string {
+  try {
+    return new URL(href).pathname.match(/^\/dp\/([A-Z0-9]{10})(\/|$)/)?.[1] ?? ''
+  } catch {
+    return ''
+  }
+}
+
 export function isAmazonAssociateUrl(href: string): boolean {
   try {
     const u = new URL(href)
@@ -245,6 +254,13 @@ export async function checkDiagnosisPages(
             ranked: [...document.querySelectorAll('.result-list:not(.supplements .result-list) > .result-card')].map(card),
             supplements: [...document.querySelectorAll('.supplements .result-card')].map(card),
             notices: [...document.querySelectorAll('.result-notice')].map((n) => n.textContent?.trim() ?? ''),
+            // 条件に合う商品が0件のときの表示（scoring.strictEligibility の診断）
+            empty: {
+              title: document.querySelector('.empty-state h3')?.textContent?.trim() ?? '',
+              texts: [...document.querySelectorAll('.empty-state p')].map((p) => p.textContent?.trim() ?? ''),
+              conditions: [...document.querySelectorAll('.empty-state__conditions li')].map((l) => l.textContent?.trim() ?? ''),
+            },
+            pageButtons: document.querySelectorAll('a.shop-button').length,
             clipped: texts.filter((e) => e.scrollWidth > e.clientWidth + 2 && getComputedStyle(e).overflow !== 'visible').length,
           }
         })
@@ -254,14 +270,34 @@ export async function checkDiagnosisPages(
           shown.every((c, i) => c.name === exp[i].product.name && c.pct === exp[i].matchPercent && c.reason === exp[i].reason)
         if (!same(view.ranked, expected.ranked)) issues.push({ where, message: '通常ランキングの表示が計算結果と一致しません' })
         if (!same(view.supplements, expected.supplements)) issues.push({ where, message: '別枠の表示が計算結果と一致しません' })
-        for (const n of expected.notices) if (!view.notices.includes(n)) issues.push({ where, message: `注意書きが表示されていません: ${n.slice(0, 30)}…` })
+        if (d.scoring?.strictEligibility && expected.noMatchConditions) {
+          // 条件に合う商品が0件：「〜からおすすめを表示しています」ではなく、該当なしの説明と選んだ条件を表示する
+          if (view.empty.title !== '条件に合う商品が見つかりませんでした') issues.push({ where, message: '該当なしの見出しが表示されていません' })
+          if (!view.empty.texts.some((t) => t.includes('変更して再診断'))) issues.push({ where, message: '条件を変更して再診断する案内が表示されていません' })
+          if (JSON.stringify(view.empty.conditions) !== JSON.stringify(expected.noMatchConditions)) issues.push({ where, message: '選んだ必須条件の一覧が計算結果と一致しません' })
+          if (view.notices.length) issues.push({ where, message: '該当なしなのに「おすすめを表示しています」の注意書きが出ています' })
+          if (view.ranked.length || view.supplements.length || view.pageButtons) issues.push({ where, message: '該当なしなのに商品カードまたは購入ボタンが表示されています' })
+        } else {
+          for (const n of expected.notices) if (!view.notices.includes(n)) issues.push({ where, message: `注意書きが表示されていません: ${n.slice(0, 30)}…` })
+        }
         const cards = [...view.ranked, ...view.supplements]
         // 楽天で扱いのない商品（公式ストアのみ）は、画像未設定（プレースホルダー）と公式ストアのボタンを許可する
         const officialOnly = new Set(d.products.filter((p) => !p.rakutenUrl && p.officialUrl).map((p) => p.name))
-        const noImage = new Set(d.products.filter((p) => officialOnly.has(p.name) && !p.imageUrl).map((p) => p.name))
+        // 楽天で扱いのない商品で、購入先が Amazon だけのもの（公式ストアのみの商品を除く）。商品データの ASIN と同じ Amazon アソシエイトリンクが必要
+        const amazonOnly = new Map(
+          d.products.filter((p) => !p.rakutenUrl && !p.officialUrl && p.amazonUrl && isAmazonAssociateUrl(p.amazonUrl)).map((p) => [p.name, asinOf(p.amazonUrl!)]),
+        )
+        const noImage = new Set(d.products.filter((p) => (officialOnly.has(p.name) || amazonOnly.has(p.name)) && !p.imageUrl).map((p) => p.name))
         if (cards.some((c) => !c.img && !noImage.has(c.name))) issues.push({ where, message: '読み込めない商品画像があります' })
-        // 楽天ボタンは全カードに必須（公式ストアのみの商品は公式ボタン）。ほかに許可するのは Amazon アソシエイトの商品リンクだけ
-        if (cards.some((c) => (officialOnly.has(c.name) ? !c.buttons.some(isOfficialStoreUrl) : !c.buttons.some(isRakutenAffiliateUrl)))) {
+        // 楽天ボタンは全カードに必須（公式ストアのみの商品は公式ボタン、Amazon のみの商品は同じ ASIN の Amazon アソシエイトリンク）。
+        // ほかに許可するのは Amazon アソシエイトの商品リンクだけ
+        const hasPurchaseLink = (c: CardView) =>
+          officialOnly.has(c.name)
+            ? c.buttons.some(isOfficialStoreUrl)
+            : amazonOnly.has(c.name)
+              ? c.buttons.some((h) => isAmazonAssociateUrl(h) && asinOf(h) === amazonOnly.get(c.name))
+              : c.buttons.some(isRakutenAffiliateUrl)
+        if (cards.some((c) => !hasPurchaseLink(c))) {
           issues.push({ where, message: '楽天ボタン（公式ストアのみの商品は公式ボタン）がない、またはURLが正しくないカードがあります' })
         }
         const unknown = cards.flatMap((c) => c.buttons.filter((h) => !isRakutenAffiliateUrl(h) && !isAmazonAssociateUrl(h) && !isOfficialStoreUrl(h)))

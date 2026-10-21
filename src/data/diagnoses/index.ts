@@ -48,6 +48,7 @@ import { airConditioner } from './airConditioner.ts'
 import { futonDryer } from './futonDryer.ts'
 import { driveRecorder } from './driveRecorder.ts'
 import { ironSteamer } from './ironSteamer.ts'
+import { portablePowerStation } from './portablePowerStation.ts'
 
 /**
  * 診断の一覧（登録簿）。
@@ -104,6 +105,7 @@ const allDiagnoses: Diagnosis[] = [
   futonDryer,
   driveRecorder,
   ironSteamer,
+  portablePowerStation,
 ]
 
 /**

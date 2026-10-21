@@ -25,6 +25,7 @@ import { site } from '../src/config/site.ts'
 import { validateDiagnoses } from '../src/data/validate.ts'
 import type { Diagnosis } from '../src/types/diagnosis.ts'
 import { checkDiagnosisPages, checkTopPage, DEFAULT_WIDTHS, launchBrowser, representativePatterns, type UiIssue } from './lib/browserChecks.ts'
+import { amazonOnlyDataProblems, amazonOnlyItemProblems, fetchAmazonItem, isAmazonOnlyProduct } from './lib/amazonItem.ts'
 import { determineScope, type ChangeScope } from './lib/changeScope.ts'
 import { checkPatterns, snapshot, type RunDiagnosis } from './lib/diagnosisChecks.ts'
 import { clearDryRun, findDryRun, fingerprint, saveDryRun } from './lib/dryRunCache.ts'
@@ -168,6 +169,14 @@ async function checkProductLinks(d: Diagnosis) {
   const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
   for (const p of d.products.filter((x) => x.enabled)) {
     const label = `${p.id}（${p.name}）`
+    // Amazon でだけ購入できる商品：Amazon の商品ページで、商品・販売元・税込価格（送料込み）・在庫・価格帯を確認する
+    if (isAmazonOnlyProduct(p)) {
+      const info = await fetchAmazonItem(String(p.attributes.amazonAsin)).catch(() => null)
+      if (!info) problems.push(`${label}：Amazon の商品ページに接続できません`)
+      else for (const m of amazonOnlyItemProblems(p, info, thresholds)) problems.push(`${label}：${m}`)
+      await sleep(2500)
+      continue
+    }
     // 楽天で扱いのない商品は公式ストア（officialUrl）を購入先にする。現行の販売ページが開ければ有効とし、楽天の在庫・価格確認は行わない
     if (!p.rakutenUrl && p.officialUrl) {
       const official = await fetch(p.officialUrl).catch(() => null)
@@ -206,7 +215,12 @@ async function checkProductLinks(d: Diagnosis) {
     stop(`商品の最終チェックで ${problems.length} 件の問題があります`)
   }
   const officialOnly = d.products.filter((x) => x.enabled && !x.rakutenUrl && x.officialUrl).length
-  ok(`商品${d.products.filter((x) => x.enabled).length}件：画像・楽天URL（rafcidなし・転送OK）・価格帯・在庫に問題なし${officialOnly ? `（うち公式ストアのみ ${officialOnly}件はページ表示を確認）` : ''}`)
+  const amazonOnly = d.products.filter((x) => x.enabled && isAmazonOnlyProduct(x)).length
+  ok(
+    `商品${d.products.filter((x) => x.enabled).length}件：画像・楽天URL（rafcidなし・転送OK）・価格帯・在庫に問題なし` +
+      (officialOnly ? `（うち公式ストアのみ ${officialOnly}件はページ表示を確認）` : '') +
+      (amazonOnly ? `（うち Amazon のみ ${amazonOnly}件は商品名・販売元・価格・在庫・送料を確認）` : ''),
+  )
 }
 
 function checkBuiltSeo(d: Diagnosis) {
@@ -356,8 +370,14 @@ async function main() {
   const enabledProducts = target.products.filter((p) => p.enabled)
   if (target.products.some((p) => p.sample)) stop('仮商品（sample: true）が残っています')
   if (enabledProducts.length < 3) stop(`表示できる商品が ${enabledProducts.length} 件しかありません（3件以上必要）`)
-  // 公式ストアのみの商品（楽天URLなし・officialUrlあり）は画像未設定（プレースホルダー表示）を許可する
-  if (enabledProducts.some((p) => (p.rakutenUrl ? !p.imageUrl : !p.officialUrl))) stop('楽天URL（または公式ストアURL）か画像URLが空の商品があります')
+  // 公式ストアのみの商品（楽天URLなし・officialUrlあり）と Amazon のみの商品は、画像未設定（プレースホルダー表示）を許可する
+  if (enabledProducts.some((p) => (p.rakutenUrl ? !p.imageUrl : !p.officialUrl && !isAmazonOnlyProduct(p)))) stop('楽天URL（または公式ストアURL）か画像URLが空の商品があります')
+  // Amazon のみの商品は、リンクの形式・ASIN・確認用の商品データがそろっていること（価格・在庫は商品の最終チェックで確認する）
+  const amazonDataProblems = enabledProducts.filter(isAmazonOnlyProduct).flatMap((p) => amazonOnlyDataProblems(p).map((m) => `${p.id}：${m}`))
+  if (amazonDataProblems.length) {
+    for (const m of amazonDataProblems) console.error('   ✖', m)
+    stop(`Amazon のみの商品で ${amazonDataProblems.length} 件の問題があります`)
+  }
   const problems = validateDiagnoses([target])
   if (problems.length) stop(`データの入力チェックで問題があります：${problems.join(' / ')}`)
   ok(`${target.name}（${file}）：実商品${enabledProducts.length}件・${verifyOnly ? '公開済み' : 'enabled: false'}・入力チェックOK`)

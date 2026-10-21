@@ -578,4 +578,17 @@ export const presets: Record<string, RakutenPreset> = {
     priceThresholds: [8000, 12000, 16000, 22000],
     attributeKeys: ['P', 'H', 'V', 'Q', 'L', 'T', 'G', 'R', 'D', 'C', 'S', 'K'],
   },
+  'portable-power-station': {
+    category: 'portable-power-station',
+    // 採用機種は指示書で確定済み。型番の確認は --keyword "メーカー 型番" で行う
+    keywords: ['ポータブル電源', 'ポータブル電源 1000Wh', 'ポータブル電源 2000Wh', 'ポータブル電源 小型'],
+    ngKeyword: '中古 整備済み 再生品 ソーラーパネルのみ ケース カバー 延長ケーブル',
+    sort: '-reviewCount',
+    hits: 20,
+    minPrice: 10000,
+    maxPerShop: 3,
+    // portablePowerStation の priceLabels（40,000 / 50,000 / 80,000 / 120,000円）と同じ区分
+    priceThresholds: [40000, 50000, 80000, 120000],
+    attributeKeys: ['capacity', 'continuousOutput', 'portability', 'value', 'recharge', 'solar', 'outageBackup', 'usbC', 'expandability', 'ports', 'durability', 'quietness'],
+  },
 }

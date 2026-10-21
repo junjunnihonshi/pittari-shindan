@@ -1,0 +1,1709 @@
+{
+  "id": "portable-power-station",
+  "enabled": false,
+  "title": "ポータブル電源診断",
+  "itemName": "ポータブル電源",
+  "group": "life",
+  "icon": "🔋",
+  "cardDescription": "使う目的、必要な出力と容量、重さ、充電方法、予算から、あなたに合うポータブル電源を診断。",
+  "description": "ポータブル電源は容量や出力、重さ、充電方法によって使い勝手が大きく変わります。7つの質問に答えて、使いたい家電や予算に合うモデルを探しましょう。",
+  "searchKeywords": [
+    "ポータブル電源 診断",
+    "ポータブル電源 おすすめ",
+    "ポータブル電源 比較",
+    "ポータブル電源 防災",
+    "ポータブル電源 キャンプ",
+    "ポータブル電源 車中泊",
+    "ポータブル電源 1000Wh",
+    "ポータブル電源 2000Wh",
+    "ポータブル電源 容量 選び方",
+    "ポータブル電源 定格出力",
+    "Jackery Anker EcoFlow 比較",
+    "ポータブル電源 ソーラー充電"
+  ],
+  "seo": {
+    "title": "ポータブル電源診断｜7問で防災・キャンプ・車中泊向けの1台を比較",
+    "description": "防災や停電対策、キャンプ、車中泊に使うポータブル電源を7問で診断。容量Wh・定格出力W・重量・充電方法・予算から、Jackery・Anker・EcoFlow・BLUETTI・DJIの候補を比較します。"
+  },
+  "priceLabels": {
+    "1": "〜40,000円",
+    "2": "40,001〜50,000円",
+    "3": "50,001〜80,000円",
+    "4": "80,001〜120,000円",
+    "5": "120,001円〜"
+  },
+  "questions": [
+    {
+      "id": "purpose",
+      "text": "主に何のために使いますか？",
+      "shortLabel": "使う目的",
+      "weight": 9,
+      "options": [
+        {
+          "id": "disaster",
+          "label": "災害・停電の備え",
+          "summary": "災害・停電に備えたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "capacity",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "outageBackup",
+              "value": 5,
+              "weight": 4
+            },
+            {
+              "type": "atLeast",
+              "attr": "durability",
+              "value": 5,
+              "weight": 2
+            }
+          ]
+        },
+        {
+          "id": "camp",
+          "label": "キャンプ・アウトドア",
+          "summary": "キャンプやアウトドアで使いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "portability",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "solar",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "quietness",
+              "value": 5,
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "id": "car",
+          "label": "車中泊",
+          "summary": "車中泊で使いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "capacity",
+              "value": 5,
+              "weight": 2
+            },
+            {
+              "type": "atLeast",
+              "attr": "portability",
+              "value": 5,
+              "weight": 2
+            },
+            {
+              "type": "atLeast",
+              "attr": "quietness",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "ports",
+              "value": 5,
+              "weight": 2
+            }
+          ]
+        },
+        {
+          "id": "home",
+          "label": "自宅の非常用・在宅ワーク",
+          "summary": "自宅の非常用・在宅ワークに使いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "outageBackup",
+              "value": 5,
+              "weight": 4
+            },
+            {
+              "type": "atLeast",
+              "attr": "usbC",
+              "value": 5,
+              "weight": 2
+            },
+            {
+              "type": "atLeast",
+              "attr": "quietness",
+              "value": 5,
+              "weight": 3
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "label": "屋外作業・イベント",
+          "summary": "屋外作業やイベントで使いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "continuousOutput",
+              "value": 5,
+              "weight": 4
+            },
+            {
+              "type": "atLeast",
+              "attr": "ports",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "durability",
+              "value": 5,
+              "weight": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "power",
+      "text": "使いたい機器の最大消費電力は？",
+      "shortLabel": "必要な出力",
+      "help": "例とW数は目安です。家電の消費電力は機種によって異なるため、使いたい家電の表示を確認し、合計の消費電力が高い場合はひとつ上の選択肢を選んでください。判定には瞬間最大出力や電力リフトなどではなく、定格出力を使います。",
+      "weight": 4,
+      "options": [
+        {
+          "id": "usb",
+          "label": "スマホ・タブレット中心",
+          "summary": "スマホ・タブレットの充電が中心",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "usbC",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "portability",
+              "value": 5,
+              "weight": 2
+            }
+          ]
+        },
+        {
+          "id": "small",
+          "label": "ノートPC・電気毛布・照明など（定格300W以上）",
+          "summary": "ノートPC・電気毛布・照明などを使いたい（定格300W以上）",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "usbC",
+              "value": 5,
+              "weight": 3
+            }
+          ],
+          "eligibility": {
+            "attr": "ac300",
+            "value": true,
+            "notice": "AC定格出力300W以上の機種からおすすめを表示しています。"
+          }
+        },
+        {
+          "id": "blanket",
+          "label": "小型調理家電・複数の家電など（定格600W以上）",
+          "summary": "小型調理家電や複数の家電を使いたい（定格600W以上）",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "capacity",
+              "value": 5,
+              "weight": 2
+            },
+            {
+              "type": "atLeast",
+              "attr": "quietness",
+              "value": 5,
+              "weight": 2
+            }
+          ],
+          "eligibility": {
+            "attr": "ac600",
+            "value": true,
+            "notice": "AC定格出力600W以上の機種からおすすめを表示しています。"
+          }
+        },
+        {
+          "id": "cooker",
+          "label": "電子レンジ・ケトルなど（定格1,200W以上）",
+          "summary": "電子レンジやケトルを使いたい（定格1,200W以上）",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "continuousOutput",
+              "value": 5,
+              "weight": 4
+            }
+          ],
+          "eligibility": {
+            "attr": "ac1200",
+            "value": true,
+            "notice": "AC定格出力1,200W以上の機種からおすすめを表示しています。"
+          }
+        },
+        {
+          "id": "heavy",
+          "label": "高出力家電・工具など（定格1,800W以上）",
+          "summary": "高出力の家電や工具を使いたい（定格1,800W以上）",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "continuousOutput",
+              "value": 5,
+              "weight": 5
+            }
+          ],
+          "eligibility": {
+            "attr": "ac1800",
+            "value": true,
+            "notice": "AC定格出力1,800W以上の機種からおすすめを表示しています。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "capacity",
+      "text": "どれくらいの電力量を確保したい？",
+      "shortLabel": "必要な容量",
+      "help": "必要な容量は、使う機器の消費電力と使用時間によって変わります。容量は本体単体のメーカー公称値で判定します（拡張バッテリーを足した容量は含みません）。",
+      "weight": 4,
+      "options": [
+        {
+          "id": "light",
+          "label": "スマホ充電・日帰り用（200Wh以上）",
+          "summary": "200Wh以上",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "portability",
+              "value": 5,
+              "weight": 2
+            },
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 2
+            }
+          ],
+          "eligibility": {
+            "attr": "cap200",
+            "value": true,
+            "notice": "本体容量200Wh以上の機種からおすすめを表示しています。"
+          }
+        },
+        {
+          "id": "medium",
+          "label": "小型家電を短時間（500Wh以上）",
+          "summary": "500Wh以上",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "capacity",
+              "value": 5,
+              "weight": 2
+            },
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 1
+            }
+          ],
+          "eligibility": {
+            "attr": "cap500",
+            "value": true,
+            "notice": "本体容量500Wh以上の機種からおすすめを表示しています。"
+          }
+        },
+        {
+          "id": "overnight",
+          "label": "一晩の長時間利用に余裕を持たせたい（1,000Wh以上）",
+          "summary": "1,000Wh以上",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "capacity",
+              "value": 5,
+              "weight": 4
+            }
+          ],
+          "eligibility": {
+            "attr": "cap1000",
+            "value": true,
+            "notice": "本体容量1,000Wh以上の機種からおすすめを表示しています。"
+          }
+        },
+        {
+          "id": "long",
+          "label": "停電長期化への備え（2,000Wh以上）",
+          "summary": "2,000Wh以上",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "capacity",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "atLeast",
+              "attr": "durability",
+              "value": 5,
+              "weight": 2
+            }
+          ],
+          "eligibility": {
+            "attr": "cap2000",
+            "value": true,
+            "notice": "本体容量2,000Wh以上の機種からおすすめを表示しています。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "weight",
+      "text": "持ち運びはどれくらい重視しますか？",
+      "shortLabel": "重さ",
+      "weight": 4,
+      "options": [
+        {
+          "id": "light",
+          "label": "6kg以下が絶対条件",
+          "summary": "6kg以下",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "portability",
+              "value": 5,
+              "weight": 5
+            }
+          ],
+          "eligibility": {
+            "attr": "w6",
+            "value": true,
+            "notice": "本体重量6kg以下の機種からおすすめを表示しています。"
+          }
+        },
+        {
+          "id": "middle",
+          "label": "15kg以下に収めたい",
+          "summary": "15kg以下",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "portability",
+              "value": 5,
+              "weight": 3
+            }
+          ],
+          "eligibility": {
+            "attr": "w15",
+            "value": true,
+            "notice": "本体重量15kg以下の機種からおすすめを表示しています。"
+          }
+        },
+        {
+          "id": "free",
+          "label": "重くても大丈夫",
+          "summary": "重さは問わない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "capacity",
+              "value": 5,
+              "weight": 2
+            },
+            {
+              "type": "atLeast",
+              "attr": "continuousOutput",
+              "value": 5,
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "charge",
+      "text": "充電方法はどれを重視する？",
+      "shortLabel": "充電方法",
+      "help": "ソーラーパネルは別売の機種が多く、車での充電には別売のケーブルが必要な機種もあります。",
+      "weight": 4,
+      "options": [
+        {
+          "id": "solar",
+          "label": "ソーラーパネル充電",
+          "summary": "ソーラーパネルで充電したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "solar",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "atLeast",
+              "attr": "durability",
+              "value": 5,
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "id": "fast",
+          "label": "コンセントでの急速充電",
+          "summary": "コンセントで速く充電したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "recharge",
+              "value": 5,
+              "weight": 5
+            }
+          ]
+        },
+        {
+          "id": "car",
+          "label": "車での走行充電",
+          "summary": "車で走行充電したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "portability",
+              "value": 5,
+              "weight": 1
+            },
+            {
+              "type": "atLeast",
+              "attr": "solar",
+              "value": 5,
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "id": "any",
+          "label": "特にこだわらない",
+          "summary": "充電方法にはこだわらない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "feature",
+      "text": "特に欲しい機能は？",
+      "shortLabel": "欲しい機能",
+      "help": "停電時の切替時間や、使う機器との相性は保証されません。医療機器など、電源が途切れてはいけない機器には使わないでください。",
+      "weight": 5,
+      "options": [
+        {
+          "id": "switch",
+          "label": "停電時の自動切替を重視",
+          "summary": "停電時の自動切替を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "outageBackup",
+              "value": 5,
+              "weight": 5
+            }
+          ]
+        },
+        {
+          "id": "usbC",
+          "label": "USB-CでノートPCを急速充電",
+          "summary": "USB-CでノートPCを急速充電したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "usbC",
+              "value": 5,
+              "weight": 5
+            }
+          ],
+          "eligibility": {
+            "attr": "usbc65",
+            "value": true,
+            "notice": "USB-Cの1ポートで最大65W以上を出せることをメーカーが公表している機種からおすすめを表示しています。"
+          }
+        },
+        {
+          "id": "extend",
+          "label": "後から容量を拡張したい",
+          "summary": "後から容量を拡張したい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "expandability",
+              "value": 5,
+              "weight": 5
+            }
+          ],
+          "eligibility": {
+            "attr": "expandableConfirmed",
+            "value": true,
+            "notice": "メーカーが拡張バッテリーによる容量の拡張に対応すると公表している機種からおすすめを表示しています。"
+          }
+        },
+        {
+          "id": "none",
+          "label": "シンプルで使いやすいもの",
+          "summary": "シンプルで使いやすいものがよい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "ports",
+              "value": 5,
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "budget",
+      "text": "本体に使える予算は？",
+      "shortLabel": "予算",
+      "help": "予算は本体単体の税込購入価格（送料込み）で判定します。",
+      "weight": 3,
+      "options": [
+        {
+          "id": "b1",
+          "label": "40,000円まで",
+          "summary": "予算40,000円まで",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 5
+            }
+          ],
+          "maxPriceRange": 1
+        },
+        {
+          "id": "b2",
+          "label": "50,000円まで",
+          "summary": "予算50,000円まで",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 4
+            }
+          ],
+          "maxPriceRange": 2
+        },
+        {
+          "id": "b3",
+          "label": "80,000円まで",
+          "summary": "予算80,000円まで",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 3
+            }
+          ],
+          "maxPriceRange": 3
+        },
+        {
+          "id": "b4",
+          "label": "120,000円まで",
+          "summary": "予算120,000円まで",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 2
+            }
+          ],
+          "maxPriceRange": 4
+        },
+        {
+          "id": "any",
+          "label": "予算上限なし",
+          "summary": "予算の上限なし",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "capacity",
+              "value": 5,
+              "weight": 1
+            },
+            {
+              "type": "atLeast",
+              "attr": "durability",
+              "value": 5,
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "portable-power-station-101",
+      "name": "Jackery ポータブル電源 240 New（JE-240A）",
+      "description": "約3.6kgの軽量モデル。256Wh・定格300Wで、スマホやノートPC、小型の家電の充電に向きます。",
+      "priceRange": 1,
+      "features": [
+        "容量256Wh・AC定格出力300W",
+        "約3.6kg・緊急充電モードで最短約1時間で満充電",
+        "ソーラー入力最大100W・UPS機能（20ミリ秒未満）"
+      ],
+      "pros": [
+        "今回の比較で特に軽い",
+        "AC充電が速い",
+        "最大5年保証（製品登録時）"
+      ],
+      "cons": [
+        "電気ケトルや電子レンジなど、300Wを超える家電には使えない"
+      ],
+      "recommendFor": "スマホやノートPCの充電を中心に、軽さを重視したい人",
+      "caution": "確認時の価格は32,800円（税込・送料込、楽天市場のJackery Japan）です。価格は変動するため、購入前に販売ページでご確認ください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0CZ7145K1/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tgroo.d8zue673.g00tgroo.d8zufeac/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjackery-japan%2Fn-p-240200-bkor-jk2%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjackery-japan%2Fi%2F10000004%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jackery-japan/cabinet/10003734/10612285/10612630/imgrc0097909897.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "capacity": 1,
+        "continuousOutput": 1,
+        "portability": 5,
+        "value": 2,
+        "recharge": 5,
+        "solar": 3,
+        "outageBackup": 3,
+        "usbC": 4,
+        "expandability": 3,
+        "ports": 3,
+        "durability": 4,
+        "quietness": 3,
+        "capacityWh": 256,
+        "ratedAcW": 300,
+        "weightKg": 3.6,
+        "priceYen": 32800,
+        "usbCMaxW": "unknown",
+        "expandable": "unknown",
+        "solarCompatible": true,
+        "carChargingSupported": "unknown",
+        "fullAcChargeMinutes": 60,
+        "batteryChemistry": "リン酸鉄リチウム",
+        "acPorts": "unknown",
+        "officialSpecUrl": "https://www.jackery.jp/products/explorer-240-new",
+        "stockStatus": "in-stock",
+        "isPreorder": false,
+        "ac300": true,
+        "ac600": false,
+        "ac1200": false,
+        "ac1800": false,
+        "cap200": true,
+        "cap500": false,
+        "cap1000": false,
+        "cap2000": false,
+        "w6": true,
+        "w15": true,
+        "usbc65": false,
+        "expandableConfirmed": false
+      }
+    },
+    {
+      "id": "portable-power-station-102",
+      "name": "EcoFlow RIVER 3（230Wh）",
+      "description": "約3.5kgの小型モデル。230Wh・定格300Wで、日帰りのレジャーやスマホ・ノートPCの充電に向きます。",
+      "priceRange": 1,
+      "features": [
+        "容量230Wh・AC定格出力300W",
+        "約3.5kg・USB-C最大100W",
+        "UPS機能（20ミリ秒以内）"
+      ],
+      "pros": [
+        "今回の比較で最も軽い",
+        "USB-CでノートPCも充電しやすい"
+      ],
+      "cons": [
+        "容量が小さく、長時間の給電には向かない"
+      ],
+      "recommendFor": "できるだけ軽く、手軽に持ち出したい人",
+      "caution": "確認時の価格は26,180円（税込・送料込、AmazonのEcoFlow Direct-JP）です。価格は変動するため、購入前に販売ページでご確認ください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0DB5Y5JZR/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "",
+      "officialUrl": "",
+      "imageUrl": "",
+      "enabled": true,
+      "attributes": {
+        "capacity": 1,
+        "continuousOutput": 1,
+        "portability": 5,
+        "value": 3,
+        "recharge": 5,
+        "solar": 3,
+        "outageBackup": 4,
+        "usbC": 4,
+        "expandability": 3,
+        "ports": 3,
+        "durability": 4,
+        "quietness": 5,
+        "capacityWh": 230,
+        "ratedAcW": 300,
+        "weightKg": 3.5,
+        "priceYen": 26180,
+        "usbCMaxW": 100,
+        "expandable": "unknown",
+        "solarCompatible": "unknown",
+        "carChargingSupported": true,
+        "fullAcChargeMinutes": 60,
+        "batteryChemistry": "リン酸鉄リチウム",
+        "acPorts": "unknown",
+        "officialSpecUrl": "https://jp.ecoflow.com/products/river-3-portable-power-station",
+        "amazonAsin": "B0DB5Y5JZR",
+        "amazonModelToken": "RIVER 3 ポータブル電源 230Wh",
+        "amazonSeller": "EcoFlow Direct-JP",
+        "stockStatus": "in-stock",
+        "isPreorder": false,
+        "ac300": true,
+        "ac600": false,
+        "ac1200": false,
+        "ac1800": false,
+        "cap200": true,
+        "cap500": false,
+        "cap1000": false,
+        "cap2000": false,
+        "w6": true,
+        "w15": true,
+        "usbc65": true,
+        "expandableConfirmed": false
+      }
+    },
+    {
+      "id": "portable-power-station-103",
+      "name": "Anker Solix C300 Portable Power Station（A17225Z1 / A1722511）",
+      "description": "約4.1kgの小型モデル。288Wh・定格300Wに加え、USB-C（最大140W）を2口備えます。",
+      "priceRange": 2,
+      "features": [
+        "容量288Wh・AC定格出力300W",
+        "約4.1kg・USB-C最大140W×2",
+        "AC充電最短約68分・UPS機能（10ミリ秒）"
+      ],
+      "pros": [
+        "USB-Cの出力が高く、ノートPCの充電に向く",
+        "AC出力が3口"
+      ],
+      "cons": [
+        "シガーソケット充電ケーブルは別売",
+        "容量の拡張には対応しない"
+      ],
+      "recommendFor": "ノートPCやスマホを高出力のUSB-Cで充電したい人",
+      "caution": "確認時の価格は49,990円（税込・送料込、楽天市場のアンカー・ダイレクト）です。価格は変動するため、購入前に販売ページでご確認ください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0D5XGP6CW/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rr09o.d8zue50e.g00rr09o.d8zuf491/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Fa17225z1%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fanker%2Fi%2F10002036%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/anker/cabinet/tmb/a1/a17225z1_normal.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "capacity": 1,
+        "continuousOutput": 1,
+        "portability": 4,
+        "value": 1,
+        "recharge": 4,
+        "solar": 3,
+        "outageBackup": 3,
+        "usbC": 5,
+        "expandability": 1,
+        "ports": 3,
+        "durability": 4,
+        "quietness": 3,
+        "capacityWh": 288,
+        "ratedAcW": 300,
+        "weightKg": 4.1,
+        "priceYen": 49990,
+        "usbCMaxW": 140,
+        "expandable": false,
+        "solarCompatible": true,
+        "carChargingSupported": true,
+        "fullAcChargeMinutes": 68,
+        "batteryChemistry": "リン酸鉄リチウム",
+        "acPorts": 3,
+        "officialSpecUrl": "https://www.ankerjapan.com/products/a1722",
+        "stockStatus": "in-stock",
+        "isPreorder": false,
+        "ac300": true,
+        "ac600": false,
+        "ac1200": false,
+        "ac1800": false,
+        "cap200": true,
+        "cap500": false,
+        "cap1000": false,
+        "cap2000": false,
+        "w6": true,
+        "w15": true,
+        "usbc65": true,
+        "expandableConfirmed": false
+      }
+    },
+    {
+      "id": "portable-power-station-104",
+      "name": "BLUETTI AORA 30 V2",
+      "description": "約4.3kgの小型モデル。288Whながら定格600Wで、小型モデルの中では出力に余裕があります。",
+      "priceRange": 1,
+      "features": [
+        "容量288Wh・AC定格出力600W",
+        "約4.3kg・USB-C最大140W（PD 3.1）",
+        "自動切替（約10ミリ秒）・動作音約30dB"
+      ],
+      "pros": [
+        "小型でも定格600W",
+        "車の走行充電ケーブルが付属"
+      ],
+      "cons": [
+        "容量は288Whで、長時間の給電には向かない"
+      ],
+      "recommendFor": "軽さを保ちながら、電気毛布など600W程度までの機器を使いたい人",
+      "caution": "確認時の価格は37,810円（税込・送料込、AmazonのBLUETTI）です。価格は変動するため、購入前に販売ページでご確認ください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0HDPPQCWG/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u57jo.d8zuea06.g00u57jo.d8zufd46/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbluettijapan%2Fbluettijapan_aora30v2_eg%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbluettijapan%2Fi%2F10000195%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/bluettijapan/cabinet/12218357/12514405/imgrc0123506288.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "capacity": 1,
+        "continuousOutput": 2,
+        "portability": 4,
+        "value": 2,
+        "recharge": 3,
+        "solar": 3,
+        "outageBackup": 5,
+        "usbC": 5,
+        "expandability": 3,
+        "ports": 3,
+        "durability": 4,
+        "quietness": 4,
+        "capacityWh": 288,
+        "ratedAcW": 600,
+        "weightKg": 4.3,
+        "priceYen": 37810,
+        "usbCMaxW": 140,
+        "expandable": "unknown",
+        "solarCompatible": true,
+        "carChargingSupported": true,
+        "fullAcChargeMinutes": "unknown",
+        "batteryChemistry": "リン酸鉄リチウム",
+        "acPorts": "unknown",
+        "officialSpecUrl": "https://www.bluetti.jp/products/bluetti-aora-30-v2-portable-power-station",
+        "stockStatus": "in-stock",
+        "isPreorder": false,
+        "ac300": true,
+        "ac600": true,
+        "ac1200": false,
+        "ac1800": false,
+        "cap200": true,
+        "cap500": false,
+        "cap1000": false,
+        "cap2000": false,
+        "w6": true,
+        "w15": true,
+        "usbc65": true,
+        "expandableConfirmed": false
+      }
+    },
+    {
+      "id": "portable-power-station-105",
+      "name": "Jackery ポータブル電源 500 New（JE-500A）",
+      "description": "約5.7kgで512Wh。6kg以下に収まるモデルの中では容量が大きく、1泊程度の備えに向きます。",
+      "priceRange": 3,
+      "features": [
+        "容量512Wh・AC定格出力500W",
+        "約5.7kg・通常モードで約1.3時間で満充電",
+        "ソーラー入力最大200W・UPS機能（10ミリ秒未満）"
+      ],
+      "pros": [
+        "6kg以下で500Wh以上を確保できる",
+        "最大5年保証（製品登録時）"
+      ],
+      "cons": [
+        "定格出力は500Wで、600W以上の家電には使えない"
+      ],
+      "recommendFor": "持ち運べる重さで、500Wh程度の容量を確保したい人",
+      "caution": "確認時の価格は69,800円（税込・送料込、楽天市場のJackery Japan）です。価格は変動するため、購入前に販売ページでご確認ください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FBRK8GSP/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tgroo.d8zue673.g00tgroo.d8zufeac/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjackery-japan%2Fn-p-400200-bkor-jk2%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjackery-japan%2Fi%2F10000000%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jackery-japan/cabinet/11909467/imgrc0109195757.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "capacity": 2,
+        "continuousOutput": 2,
+        "portability": 4,
+        "value": 2,
+        "recharge": 4,
+        "solar": 3,
+        "outageBackup": 3,
+        "usbC": 3,
+        "expandability": 3,
+        "ports": 3,
+        "durability": 4,
+        "quietness": 3,
+        "capacityWh": 512,
+        "ratedAcW": 500,
+        "weightKg": 5.7,
+        "priceYen": 69800,
+        "usbCMaxW": "unknown",
+        "expandable": "unknown",
+        "solarCompatible": true,
+        "carChargingSupported": true,
+        "fullAcChargeMinutes": 78,
+        "batteryChemistry": "リン酸鉄リチウム",
+        "acPorts": "unknown",
+        "officialSpecUrl": "https://www.jackery.jp/products/explorer-500-new",
+        "stockStatus": "in-stock",
+        "isPreorder": false,
+        "ac300": true,
+        "ac600": false,
+        "ac1200": false,
+        "ac1800": false,
+        "cap200": true,
+        "cap500": true,
+        "cap1000": false,
+        "cap2000": false,
+        "w6": true,
+        "w15": true,
+        "usbc65": false,
+        "expandableConfirmed": false
+      }
+    },
+    {
+      "id": "portable-power-station-106",
+      "name": "Anker Solix C800 Plus Portable Power Station（A17545Z1 / A1754511）",
+      "description": "768Wh・定格1200Wで約10.9kg。キャンプライト2個と伸縮ポールを本体に収納できるモデルです。",
+      "priceRange": 4,
+      "features": [
+        "容量768Wh・AC定格出力1200W",
+        "約10.9kg・AC出力5口",
+        "超急速充電モードで約58分（通常モード約90分）・停電時約20ミリ秒で切替"
+      ],
+      "pros": [
+        "キャンプライトと伸縮ポールを内蔵",
+        "シガーソケット充電ケーブルが付属"
+      ],
+      "cons": [
+        "容量の拡張には対応しない",
+        "USB-Cの1ポートあたりの最大出力は公表値を確認できていない"
+      ],
+      "recommendFor": "キャンプで照明も一緒に使いたい人",
+      "caution": "確認時の価格は109,900円（税込・送料込、楽天市場のアンカー・ダイレクト）です。価格は変動するため、購入前に販売ページでご確認ください。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rr09o.d8zue50e.g00rr09o.d8zuf491/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Fa1754%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fanker%2Fi%2F10001890%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/anker/cabinet/tmb/a1/a1754_normal.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "capacity": 3,
+        "continuousOutput": 3,
+        "portability": 3,
+        "value": 1,
+        "recharge": 5,
+        "solar": 4,
+        "outageBackup": 3,
+        "usbC": 3,
+        "expandability": 1,
+        "ports": 3,
+        "durability": 4,
+        "quietness": 3,
+        "capacityWh": 768,
+        "ratedAcW": 1200,
+        "weightKg": 10.9,
+        "priceYen": 109900,
+        "usbCMaxW": "unknown",
+        "expandable": false,
+        "solarCompatible": true,
+        "carChargingSupported": true,
+        "fullAcChargeMinutes": 58,
+        "batteryChemistry": "リン酸鉄リチウム",
+        "acPorts": 5,
+        "officialSpecUrl": "https://www.ankerjapan.com/products/a1754",
+        "stockStatus": "in-stock",
+        "isPreorder": false,
+        "ac300": true,
+        "ac600": true,
+        "ac1200": true,
+        "ac1800": false,
+        "cap200": true,
+        "cap500": true,
+        "cap1000": false,
+        "cap2000": false,
+        "w6": false,
+        "w15": true,
+        "usbc65": false,
+        "expandableConfirmed": false
+      }
+    },
+    {
+      "id": "portable-power-station-107",
+      "name": "Jackery ポータブル電源 1000 New V3（JE-1000G）",
+      "description": "1024Wh・定格1500Wで約10.6kg。容量と重さのバランスがよい1,000Whクラスのモデルです。",
+      "priceRange": 4,
+      "features": [
+        "容量1024Wh・AC定格出力1500W",
+        "約10.6kg・通常のAC充電で約1.25時間",
+        "UPS機能（0.01秒以内）・AC出力を2グループで個別にオン／オフ"
+      ],
+      "pros": [
+        "1,000Whクラスで軽め",
+        "停電時の自動切替に対応"
+      ],
+      "cons": [
+        "最短約50分の充電はACとソーラー／DC入力を同時に使う場合"
+      ],
+      "recommendFor": "1,000Wh以上を確保しつつ、なるべく軽いモデルを選びたい人",
+      "caution": "確認時の価格は82,350円（税込・送料込、AmazonのJackery Japan）です。価格は変動するため、購入前に販売ページでご確認ください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0H6FNJFJJ/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tgroo.d8zue673.g00tgroo.d8zufeac/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjackery-japan%2F21-0001-000448%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjackery-japan%2Fi%2F10000269%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jackery-japan/cabinet/13595446/imgrc0117155211.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "capacity": 3,
+        "continuousOutput": 4,
+        "portability": 3,
+        "value": 4,
+        "recharge": 4,
+        "solar": 3,
+        "outageBackup": 5,
+        "usbC": 3,
+        "expandability": 3,
+        "ports": 3,
+        "durability": 4,
+        "quietness": 3,
+        "capacityWh": 1024,
+        "ratedAcW": 1500,
+        "weightKg": 10.6,
+        "priceYen": 82350,
+        "usbCMaxW": "unknown",
+        "expandable": "unknown",
+        "solarCompatible": true,
+        "carChargingSupported": true,
+        "fullAcChargeMinutes": 75,
+        "batteryChemistry": "リン酸鉄リチウム",
+        "acPorts": 3,
+        "officialSpecUrl": "https://www.jackery.jp/products/explorer-1000-new-v3",
+        "stockStatus": "in-stock",
+        "isPreorder": false,
+        "ac300": true,
+        "ac600": true,
+        "ac1200": true,
+        "ac1800": false,
+        "cap200": true,
+        "cap500": true,
+        "cap1000": true,
+        "cap2000": false,
+        "w6": false,
+        "w15": true,
+        "usbc65": false,
+        "expandableConfirmed": false
+      }
+    },
+    {
+      "id": "portable-power-station-108",
+      "name": "EcoFlow DELTA 3 Classic（1024Wh）",
+      "description": "1024Wh・定格1500Wで約12.1kg。AC充電なら約60分で満充電できる1,000Whクラスのモデルです。",
+      "priceRange": 3,
+      "features": [
+        "容量1024Wh・AC定格出力1500W",
+        "約12.1kg・AC充電約60分で100%・USB-C最大100W",
+        "停電時自動切替（約10ミリ秒・無瞬断ではありません）・動作音は600W未満で約30dB（メーカー公表）"
+      ],
+      "pros": [
+        "AC充電が速い",
+        "1,000Whクラスで価格が手頃"
+      ],
+      "cons": [
+        "AC出力は3口",
+        "容量の拡張には対応しない",
+        "車での充電には別売のアクセサリーが必要"
+      ],
+      "recommendFor": "1,000Whクラスを手頃な価格で選びたい人",
+      "caution": "確認時の価格は69,800円（税込・送料込、AmazonのEcoFlow Direct-JP）です。価格は変動するため、購入前に販売ページでご確認ください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0G8DVFCPP/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "",
+      "officialUrl": "",
+      "imageUrl": "",
+      "enabled": true,
+      "attributes": {
+        "capacity": 3,
+        "continuousOutput": 4,
+        "portability": 2,
+        "value": 5,
+        "recharge": 5,
+        "solar": 3,
+        "outageBackup": 4,
+        "usbC": 4,
+        "expandability": 1,
+        "ports": 3,
+        "durability": 4,
+        "quietness": 4,
+        "capacityWh": 1024,
+        "ratedAcW": 1500,
+        "weightKg": 12.1,
+        "priceYen": 69800,
+        "usbCMaxW": 100,
+        "expandable": false,
+        "solarCompatible": true,
+        "carChargingSupported": true,
+        "fullAcChargeMinutes": 60,
+        "batteryChemistry": "リン酸鉄リチウム",
+        "acPorts": 3,
+        "officialSpecUrl": "https://jp.ecoflow.com/products/delta-3-classic",
+        "amazonAsin": "B0G8DVFCPP",
+        "amazonModelToken": "DELTA 3 Classic ポータブル電源 大容量 1024Wh",
+        "amazonSeller": "EcoFlow Direct-JP",
+        "stockStatus": "in-stock",
+        "isPreorder": false,
+        "ac300": true,
+        "ac600": true,
+        "ac1200": true,
+        "ac1800": false,
+        "cap200": true,
+        "cap500": true,
+        "cap1000": true,
+        "cap2000": false,
+        "w6": false,
+        "w15": true,
+        "usbc65": true,
+        "expandableConfirmed": false
+      }
+    },
+    {
+      "id": "portable-power-station-109",
+      "name": "Anker Solix C1000 Gen 2 Portable Power Station（A17635Z1 / A1763521）",
+      "description": "1024Wh・定格1550Wで約11.3kg。超急速充電モードなら最短約54分で満充電できます。",
+      "priceRange": 5,
+      "features": [
+        "容量1024Wh・AC定格出力1550W",
+        "約11.3kg・USB-C最大100W×2",
+        "超急速充電モードで最短約54分・UPS機能（約10ミリ秒）"
+      ],
+      "pros": [
+        "AC充電が特に速い",
+        "AC出力が5口",
+        "シガーソケット充電ケーブルが付属"
+      ],
+      "cons": [
+        "容量の拡張には対応しない"
+      ],
+      "recommendFor": "停電や外出の前に短時間で充電したい人",
+      "caution": "確認時の価格は129,900円（税込・送料込、楽天市場のアンカー・ダイレクト）です。価格は変動するため、購入前に販売ページでご確認ください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FK9YH385/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rr09o.d8zue50e.g00rr09o.d8zuf491/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Fa1763%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fanker%2Fi%2F10002336%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/anker/cabinet/listing/product/a1763/a1763_sub_2_v3.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "capacity": 3,
+        "continuousOutput": 4,
+        "portability": 3,
+        "value": 2,
+        "recharge": 5,
+        "solar": 5,
+        "outageBackup": 3,
+        "usbC": 4,
+        "expandability": 1,
+        "ports": 3,
+        "durability": 4,
+        "quietness": 3,
+        "capacityWh": 1024,
+        "ratedAcW": 1550,
+        "weightKg": 11.3,
+        "priceYen": 129900,
+        "usbCMaxW": 100,
+        "expandable": false,
+        "solarCompatible": true,
+        "carChargingSupported": true,
+        "fullAcChargeMinutes": 54,
+        "batteryChemistry": "リン酸鉄リチウム",
+        "acPorts": 5,
+        "officialSpecUrl": "https://www.ankerjapan.com/products/a1763",
+        "stockStatus": "in-stock",
+        "isPreorder": false,
+        "ac300": true,
+        "ac600": true,
+        "ac1200": true,
+        "ac1800": false,
+        "cap200": true,
+        "cap500": true,
+        "cap1000": true,
+        "cap2000": false,
+        "w6": false,
+        "w15": true,
+        "usbc65": true,
+        "expandableConfirmed": false
+      }
+    },
+    {
+      "id": "portable-power-station-110",
+      "name": "BLUETTI AORA 100 V2",
+      "description": "1024Wh・定格1800Wで約11.5kg。1,000Whクラスで定格出力に余裕があります。",
+      "priceRange": 3,
+      "features": [
+        "容量1024Wh・AC定格出力1800W",
+        "約11.5kg・USB-C最大140W（PD 3.1）",
+        "45分で80%充電・自動切替（約10ミリ秒）・動作音約30dB"
+      ],
+      "pros": [
+        "1,000Whクラスで定格1800W",
+        "ソーラー入力最大1000W"
+      ],
+      "cons": [
+        "単品にはMC4ソーラー充電ケーブルが付属しない（2026年4月10日以降）"
+      ],
+      "recommendFor": "1,000Whクラスで、1800W程度の家電も使いたい人",
+      "caution": "確認時の価格は77,667円（税込・送料込、AmazonのBLUETTI）です。価格は変動するため、購入前に販売ページでご確認ください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FB3Z3Z97/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "",
+      "officialUrl": "",
+      "imageUrl": "",
+      "enabled": true,
+      "attributes": {
+        "capacity": 3,
+        "continuousOutput": 4,
+        "portability": 3,
+        "value": 4,
+        "recharge": 3,
+        "solar": 3,
+        "outageBackup": 5,
+        "usbC": 5,
+        "expandability": 3,
+        "ports": 3,
+        "durability": 4,
+        "quietness": 4,
+        "capacityWh": 1024,
+        "ratedAcW": 1800,
+        "weightKg": 11.5,
+        "priceYen": 77667,
+        "usbCMaxW": 140,
+        "expandable": "unknown",
+        "solarCompatible": true,
+        "carChargingSupported": true,
+        "fullAcChargeMinutes": "unknown",
+        "batteryChemistry": "リン酸鉄リチウム",
+        "acPorts": "unknown",
+        "officialSpecUrl": "https://www.bluetti.jp/products/bluetti-aora-100-v2-portable-power-station",
+        "amazonAsin": "B0FB3Z3Z97",
+        "amazonModelToken": "AORA100 V2 1024Wh",
+        "amazonSeller": "BLUETTI",
+        "stockStatus": "in-stock",
+        "isPreorder": false,
+        "ac300": true,
+        "ac600": true,
+        "ac1200": true,
+        "ac1800": true,
+        "cap200": true,
+        "cap500": true,
+        "cap1000": true,
+        "cap2000": false,
+        "w6": false,
+        "w15": true,
+        "usbc65": true,
+        "expandableConfirmed": false
+      }
+    },
+    {
+      "id": "portable-power-station-111",
+      "name": "DJI Power 1000 V2",
+      "description": "1024Wh・定格2600Wで約14.2kg。拡張バッテリーで最大11,264Whまで容量を増やせます。",
+      "priceRange": 3,
+      "features": [
+        "容量1024Wh・AC定格出力2600W",
+        "約14.2kg・USB-C最大140W×2",
+        "AC充電0〜100%約56分（条件あり）・UPS（0.01秒以内）"
+      ],
+      "pros": [
+        "1,000Whクラスで定格出力が特に高い",
+        "拡張バッテリーで容量を増やせる",
+        "保証は最大5年（アプリ連携時）"
+      ],
+      "cons": [
+        "車での充電・ソーラー充電には別売のケーブル・アクセサリーが必要",
+        "最短の充電時間は電池残量や周囲温度の条件付き"
+      ],
+      "recommendFor": "高出力の家電も使いながら、後から容量を増やしたい人",
+      "caution": "確認時の価格は59,980円（税込・送料込、AmazonのAmazon.co.jp）です。価格は変動するため、購入前に販売ページでご確認ください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0F5N4YQYG/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzoto.d8zue08d.g00tzoto.d8zuf4af/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdji-shop%2F6937224115132%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdji-shop%2Fi%2F10002365%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/dji-shop/cabinet/thum/power1000v2_thum2.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "capacity": 3,
+        "continuousOutput": 5,
+        "portability": 2,
+        "value": 5,
+        "recharge": 5,
+        "solar": 3,
+        "outageBackup": 5,
+        "usbC": 5,
+        "expandability": 5,
+        "ports": 3,
+        "durability": 4,
+        "quietness": 5,
+        "capacityWh": 1024,
+        "ratedAcW": 2600,
+        "weightKg": 14.2,
+        "priceYen": 59980,
+        "usbCMaxW": 140,
+        "expandable": true,
+        "solarCompatible": true,
+        "carChargingSupported": true,
+        "fullAcChargeMinutes": 56,
+        "batteryChemistry": "リン酸鉄リチウム",
+        "acPorts": 4,
+        "officialSpecUrl": "https://store.dji.com/jp/product/dji-power-1000-v2",
+        "stockStatus": "in-stock",
+        "isPreorder": false,
+        "ac300": true,
+        "ac600": true,
+        "ac1200": true,
+        "ac1800": true,
+        "cap200": true,
+        "cap500": true,
+        "cap1000": true,
+        "cap2000": false,
+        "w6": false,
+        "w15": true,
+        "usbc65": true,
+        "expandableConfirmed": true
+      }
+    },
+    {
+      "id": "portable-power-station-112",
+      "name": "Jackery ポータブル電源 1500 New（JE-1500D）",
+      "description": "1536Wh・定格2000Wで約14.5kg。15kg以下に収まるモデルの中では容量が大きいモデルです。",
+      "priceRange": 4,
+      "features": [
+        "容量1536Wh・AC定格出力2000W",
+        "約14.5kg・AC充電約1.5時間で満充電・USB-C最大100W",
+        "ソーラー入力最大400W・停電時自動切替（約10ミリ秒・無瞬断ではありません）"
+      ],
+      "pros": [
+        "15kg以下で1,500Whクラス",
+        "定格2000Wで高出力の家電にも対応"
+      ],
+      "cons": [
+        "2,000Wh以上が必要な場合は容量が足りない",
+        "容量の拡張には対応しない"
+      ],
+      "recommendFor": "持ち運べる重さで、できるだけ大きな容量がほしい人",
+      "caution": "確認時の価格は100,366円（税込・送料込、AmazonのJackery Japan）です。価格は変動するため、購入前に販売ページでご確認ください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FX431XBQ/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "",
+      "officialUrl": "",
+      "imageUrl": "",
+      "enabled": true,
+      "attributes": {
+        "capacity": 4,
+        "continuousOutput": 5,
+        "portability": 2,
+        "value": 5,
+        "recharge": 4,
+        "solar": 3,
+        "outageBackup": 5,
+        "usbC": 4,
+        "expandability": 1,
+        "ports": 3,
+        "durability": 4,
+        "quietness": 3,
+        "capacityWh": 1536,
+        "ratedAcW": 2000,
+        "weightKg": 14.5,
+        "priceYen": 100366,
+        "usbCMaxW": 100,
+        "expandable": false,
+        "solarCompatible": true,
+        "carChargingSupported": true,
+        "fullAcChargeMinutes": 90,
+        "batteryChemistry": "リン酸鉄リチウム",
+        "acPorts": 3,
+        "officialSpecUrl": "https://www.jackery.jp/products/explorer-1500-new",
+        "amazonAsin": "B0FX431XBQ",
+        "amazonModelToken": "1500 New 1536Wh",
+        "amazonSeller": "Jackery Japan",
+        "stockStatus": "in-stock",
+        "isPreorder": false,
+        "ac300": true,
+        "ac600": true,
+        "ac1200": true,
+        "ac1800": true,
+        "cap200": true,
+        "cap500": true,
+        "cap1000": true,
+        "cap2000": false,
+        "w6": false,
+        "w15": true,
+        "usbc65": true,
+        "expandableConfirmed": false
+      }
+    },
+    {
+      "id": "portable-power-station-113",
+      "name": "Jackery ポータブル電源 2000 New V2（JE-2000F）",
+      "description": "2048Wh・定格2200Wで約18.6kg。2,000Whクラスの大容量モデルです。",
+      "priceRange": 4,
+      "features": [
+        "容量2048Wh・AC定格出力2200W",
+        "約18.6kg・AC充電で約1.8時間で満充電",
+        "ソーラー入力最大400W・UPS機能（10ミリ秒未満）"
+      ],
+      "pros": [
+        "2,000Wh以上の容量",
+        "長期の停電への備えに向く"
+      ],
+      "cons": [
+        "約18.6kgと重く、持ち運びは大変",
+        "シガーソケット充電ケーブルは別売"
+      ],
+      "recommendFor": "長引く停電に備えて、2,000Whクラスを用意したい人",
+      "caution": "確認時の価格は119,880円（税込・送料込、AmazonのJackery Japan）です。価格は変動するため、購入前に販売ページでご確認ください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0F9Y5WT8Q/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "",
+      "officialUrl": "",
+      "imageUrl": "",
+      "enabled": true,
+      "attributes": {
+        "capacity": 5,
+        "continuousOutput": 5,
+        "portability": 1,
+        "value": 5,
+        "recharge": 3,
+        "solar": 4,
+        "outageBackup": 5,
+        "usbC": 3,
+        "expandability": 3,
+        "ports": 3,
+        "durability": 4,
+        "quietness": 3,
+        "capacityWh": 2048,
+        "ratedAcW": 2200,
+        "weightKg": 18.6,
+        "priceYen": 119880,
+        "usbCMaxW": "unknown",
+        "expandable": "unknown",
+        "solarCompatible": true,
+        "carChargingSupported": true,
+        "fullAcChargeMinutes": 108,
+        "batteryChemistry": "リン酸鉄リチウム",
+        "acPorts": "unknown",
+        "officialSpecUrl": "https://www.jackery.jp/products/explorer-2000-new",
+        "amazonAsin": "B0F9Y5WT8Q",
+        "amazonModelToken": "2000 New V2 2048Wh",
+        "amazonSeller": "Jackery Japan",
+        "stockStatus": "in-stock",
+        "isPreorder": false,
+        "ac300": true,
+        "ac600": true,
+        "ac1200": true,
+        "ac1800": true,
+        "cap200": true,
+        "cap500": true,
+        "cap1000": true,
+        "cap2000": true,
+        "w6": false,
+        "w15": false,
+        "usbc65": false,
+        "expandableConfirmed": false
+      }
+    },
+    {
+      "id": "portable-power-station-114",
+      "name": "Anker Solix C2000 Gen 2 Portable Power Station（A17835Z1 / A1783521）",
+      "description": "2048Wh・定格2000Wで約18.9kg。拡張バッテリーで最大5,120Whまで容量を増やせます。",
+      "priceRange": 5,
+      "features": [
+        "容量2048Wh・AC定格出力2000W",
+        "約18.9kg・AC充電で約99分で満充電",
+        "拡張バッテリーで最大5,120Wh・UPS（約10ミリ秒）"
+      ],
+      "pros": [
+        "2,000Whクラスで容量拡張に対応",
+        "シガーソケット充電ケーブルが付属"
+      ],
+      "cons": [
+        "約18.9kgと重い",
+        "USB-Cは最大100W"
+      ],
+      "recommendFor": "大容量を確保し、将来さらに容量を増やしたい人",
+      "caution": "確認時の価格は229,900円（税込・送料込、楽天市場のアンカー・ダイレクト）です。価格は変動するため、購入前に販売ページでご確認ください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FRFSFCQH/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rr09o.d8zue50e.g00rr09o.d8zuf491/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Fa1783%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fanker%2Fi%2F10002468%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/anker/cabinet/listing/product/a1783/a1783_sub_1_v3.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "capacity": 5,
+        "continuousOutput": 5,
+        "portability": 1,
+        "value": 3,
+        "recharge": 3,
+        "solar": 5,
+        "outageBackup": 5,
+        "usbC": 4,
+        "expandability": 5,
+        "ports": 3,
+        "durability": 4,
+        "quietness": 3,
+        "capacityWh": 2048,
+        "ratedAcW": 2000,
+        "weightKg": 18.9,
+        "priceYen": 229900,
+        "usbCMaxW": 100,
+        "expandable": true,
+        "solarCompatible": true,
+        "carChargingSupported": true,
+        "fullAcChargeMinutes": 99,
+        "batteryChemistry": "リン酸鉄リチウム",
+        "acPorts": 4,
+        "officialSpecUrl": "https://www.ankerjapan.com/products/a1783",
+        "stockStatus": "in-stock",
+        "isPreorder": false,
+        "ac300": true,
+        "ac600": true,
+        "ac1200": true,
+        "ac1800": true,
+        "cap200": true,
+        "cap500": true,
+        "cap1000": true,
+        "cap2000": true,
+        "w6": false,
+        "w15": false,
+        "usbc65": true,
+        "expandableConfirmed": true
+      }
+    },
+    {
+      "id": "portable-power-station-115",
+      "name": "BLUETTI AORA 200 V2",
+      "description": "2080Wh・定格2200Wで約20.2kg。今回の比較で最も容量が大きいモデルです。",
+      "priceRange": 5,
+      "features": [
+        "容量2080Wh・AC定格出力2200W",
+        "約20.2kg・急速充電モードで約1.7時間で満充電",
+        "ソーラー入力最大1000W・動作音16dB以下（メーカー公表）"
+      ],
+      "pros": [
+        "今回の比較で容量が最大",
+        "4種類のUPSモード"
+      ],
+      "cons": [
+        "約20.2kgと重い"
+      ],
+      "recommendFor": "最大限の容量で長期の停電に備えたい人",
+      "caution": "確認時の価格は238,000円（税込・送料込、楽天市場のBLUETTI JAPAN）です。価格は変動するため、購入前に販売ページでご確認ください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0HLDX2J94/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u57jo.d8zuea06.g00u57jo.d8zufd46/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbluettijapan%2Fel200v2-jp-gy-bl-rktjp-00%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbluettijapan%2Fi%2F10000157%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/bluettijapan/cabinet/12791981/14009119/200v2_2080.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "capacity": 5,
+        "continuousOutput": 5,
+        "portability": 1,
+        "value": 3,
+        "recharge": 3,
+        "solar": 3,
+        "outageBackup": 3,
+        "usbC": 3,
+        "expandability": 3,
+        "ports": 3,
+        "durability": 4,
+        "quietness": 5,
+        "capacityWh": 2080,
+        "ratedAcW": 2200,
+        "weightKg": 20.2,
+        "priceYen": 238000,
+        "usbCMaxW": "unknown",
+        "expandable": "unknown",
+        "solarCompatible": true,
+        "carChargingSupported": true,
+        "fullAcChargeMinutes": 102,
+        "batteryChemistry": "リン酸鉄リチウム",
+        "acPorts": "unknown",
+        "officialSpecUrl": "https://www.bluetti.jp/products/elite-200-v2-portable-power-station",
+        "stockStatus": "in-stock",
+        "isPreorder": false,
+        "ac300": true,
+        "ac600": true,
+        "ac1200": true,
+        "ac1800": true,
+        "cap200": true,
+        "cap500": true,
+        "cap1000": true,
+        "cap2000": true,
+        "w6": false,
+        "w15": false,
+        "usbc65": false,
+        "expandableConfirmed": false
+      }
+    }
+  ],
+  "scoring": {
+    "tieBreak": true,
+    "softenPartialReason": true,
+    "strictEligibility": true
+  },
+  "guide": {
+    "title": "ポータブル電源の選び方",
+    "intro": "この診断は、ポータブル電源15機種を対象に、メーカーや販売ページで確認できた仕様をもとに、あなたの回答と照らし合わせて相性を計算しています。予算・出力・容量・重さなどの条件を満たさない機種はおすすめに表示しません。評価は公表値に基づく相対的なもので、実機で比べた結果ではありません。",
+    "sections": [
+      {
+        "heading": "Wh（容量）とW（出力）の違い",
+        "body": "Whは蓄えられる電気の量（容量）、Wは家電が使う電力や電源が出せる電力（出力）を表します。使いたい家電の消費電力が、ポータブル電源の定格出力を超えないことを確認しましょう。"
+      },
+      {
+        "heading": "使える時間の目安",
+        "body": "AC出力では変換ロスがあるため、容量（Wh）を消費電力（W）で割った時間どおりには動かないことがあります。冷蔵庫やモーターを使う機器は、起動時に表示より高い電力が必要になる場合があります。"
+      },
+      {
+        "heading": "停電時の自動切替について",
+        "body": "停電時に給電を切り替える機能の性能はメーカーごとに異なります。医療機器や生命維持装置など、瞬時の停電も許されない機器への対応は保証されません。"
+      },
+      {
+        "heading": "充電方法と安全な使い方",
+        "body": "ソーラーパネルや車の充電ケーブルは別売の場合があります。高温・水濡れ・換気・充電・保管については、各メーカーの取扱説明書に従ってください。日本国内のAC100V・周波数への対応や、使う機器との互換性も確認しましょう。"
+      }
+    ]
+  },
+  "notice": "容量・出力・重量・充電時間などはメーカーや販売ページが公表する条件での値で、測定条件は機種ごとに異なります。電子レンジやケトルなどは、実際の消費電力を確認してください。価格は確認時点の税込購入価格（送料込み）で、変動するため購入時に販売ページでご確認ください。"
+}

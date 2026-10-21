@@ -2368,6 +2368,15 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
 .empty-state p {
   color: var(--color-muted);
 }
+/* 条件に合う商品がないときの、選んだ条件の一覧（scoring.strictEligibility の診断） */
+.empty-state__conditions {
+  display: inline-block;
+  margin: 4px 0 14px;
+  padding-left: 1.3em;
+  text-align: left;
+  font-weight: 700;
+  line-height: 1.8;
+}
 .empty-state__code {
   margin: 0;
   font-size: 3rem;

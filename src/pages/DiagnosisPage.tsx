@@ -176,7 +176,8 @@ export function DiagnosisPage({ diagnosis }: { diagnosis: Diagnosis }) {
                 あなたの回答と商品の特徴を照らし合わせ、<strong>相性の高い順</strong>
                 に表示しています。人気や売上のランキングではありません。
               </p>
-              {result?.notices.map((n) => (
+              {/* 条件に合う商品が0件のとき（strictEligibility の診断のみ）は「〜からおすすめを表示しています」を出さない */}
+              {!result?.noMatchConditions && result?.notices.map((n) => (
                 <p key={n} className="result-notice">
                   {n}
                 </p>
@@ -197,7 +198,17 @@ export function DiagnosisPage({ diagnosis }: { diagnosis: Diagnosis }) {
                 </dl>
               </details>
 
-              {top.length === 0 && supplements.length === 0 ? (
+              {result?.noMatchConditions ? (
+                <div className="empty-state">
+                  <h3>条件に合う商品が見つかりませんでした</h3>
+                  <p>選んだ条件を確認し、予算や必要な容量、重量などを変更して再診断してください。</p>
+                  <ul className="empty-state__conditions" aria-label="選んだ条件">
+                    {result.noMatchConditions.map((c) => (
+                      <li key={c}>{c}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : top.length === 0 && supplements.length === 0 ? (
                 <div className="empty-state">
                   <h3>現在表示できる商品がありません</h3>
                   <p>商品情報を準備中です。時間をおいて再度お試しください。</p>

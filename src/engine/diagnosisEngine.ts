@@ -31,6 +31,11 @@ export interface DiagnosisResult {
   supplements: ProductResult[]
   /** 結果画面の上部に表示する説明（適格条件を選んだときなど） */
   notices: string[]
+  /**
+   * scoring.strictEligibility の診断で、条件をすべて満たす商品が1件もないときだけ設定する。
+   * 選んだ回答のうち、商品を絞り込む条件（適格条件・予算）の要約（例：「定格出力1,800W以上」）
+   */
+  noMatchConditions?: string[]
 }
 
 const OVER_BUDGET_LABEL = '予算を少し超えます'
@@ -223,6 +228,25 @@ export function runDiagnosis(diagnosis: Diagnosis, answers: Answers): DiagnosisR
     return { diagnosisId: diagnosis.id, results: plain, ranked: plain.slice(0, TOP_N), supplements: [], notices: withLowMatchNotice(diagnosis, answers, [], plain[0]) }
   }
   const { ordered, ranked, supplements, notices } = applySelection(diagnosis.questions, answers, results)
+  if (diagnosis.scoring?.strictEligibility) {
+    // 条件を満たさない商品は、補完候補・「そのほかの候補」を含めて結果に出さない
+    const eligible = ordered.filter((r) => !r.overBudget && !r.ineligible)
+    const noMatchConditions =
+      eligible.length === 0
+        ? diagnosis.questions.flatMap((q) => {
+            const o = q.options.find((x) => x.id === answers[q.id])
+            return o && (o.eligibility || o.maxPriceRange !== undefined) ? [o.summary ?? o.label] : []
+          })
+        : undefined
+    return {
+      diagnosisId: diagnosis.id,
+      results: eligible.map(strip),
+      ranked: ranked.map(strip),
+      supplements: [],
+      notices: withLowMatchNotice(diagnosis, answers, notices, ranked[0]),
+      ...(noMatchConditions ? { noMatchConditions } : {}),
+    }
+  }
   return {
     diagnosisId: diagnosis.id,
     results: ordered.map(strip),

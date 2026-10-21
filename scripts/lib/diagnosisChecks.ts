@@ -45,10 +45,18 @@ export function checkPatterns(d: Diagnosis, run: RunDiagnosis): PatternReport {
   const enabledCount = d.products.filter((p) => p.enabled).length
   for (const answers of combinations(d)) {
     report.count++
-    const { results, ranked, supplements } = run(d, answers)
+    const { results, ranked, supplements, noMatchConditions } = run(d, answers)
     const fail = (message: string) => report.failures.push({ message, answers })
-    // 画面に出る件数（通常ランキング＋別枠の補完候補）が、商品数の範囲で3件そろっていること
-    if (ranked.length + supplements.length < Math.min(3, enabledCount)) fail('結果件数が不足')
+    if (d.scoring?.strictEligibility) {
+      // 条件外の商品を出さない診断：条件を満たす商品だけが結果に入り、満たす商品が0件なら「見つかりませんでした」を出す
+      if (results.some((r) => r.overBudget || r.ineligible)) fail('条件外の商品が結果に含まれる')
+      if (supplements.length > 0) fail('条件外の商品を出さない診断に補完候補がある')
+      if (ranked.length < Math.min(3, results.length)) fail('条件を満たす商品があるのに表示件数が不足')
+      if ((ranked.length === 0) !== Boolean(noMatchConditions?.length)) fail('該当なしの表示と結果件数が一致しない')
+    } else if (ranked.length + supplements.length < Math.min(3, enabledCount)) {
+      // 画面に出る件数（通常ランキング＋別枠の補完候補）が、商品数の範囲で3件そろっていること
+      fail('結果件数が不足')
+    }
     if (results.some((r) => !(r.matchPercent >= 0 && r.matchPercent <= 100) || !r.reason)) fail('スコアまたは理由が不正')
     // 通常ランキングには条件（予算・適格条件）を満たす商品だけが入り、相性%は上の順位ほど高い（同点は可）
     if (ranked.some((r) => r.overBudget || r.ineligible)) fail('通常ランキングに条件外の商品が混在')
