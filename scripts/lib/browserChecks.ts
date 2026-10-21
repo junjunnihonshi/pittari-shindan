@@ -105,6 +105,10 @@ export function representativePatterns(d: Diagnosis, run: RunDiagnosis, max = 7)
 export interface UiIssue {
   where: string
   message: string
+  /** 問題が出た診断のID（ログと、既存の不具合かどうかの判定に使う） */
+  diagnosisId?: string
+  /** 画像を読み込めなかった商品名（「読み込めない商品画像があります」のときだけ） */
+  imageFailedProducts?: string[]
 }
 
 /** アクセス解析（Cloudflare Web Analytics）の読み込み先。自動確認のアクセスを解析に記録しないよう、空の応答に差し替える */
@@ -155,7 +159,7 @@ export async function checkTopPage(browser: Browser, baseUrl: string, d: Diagnos
     const errors = await collectErrors(page)
     await page.setViewport({ width, height: 900, isMobile: width < 700, hasTouch: width < 700 })
     await page.goto(`${baseUrl}/?t=${Date.now()}`, { waitUntil: 'networkidle2' })
-    const where = `トップ ${width}px`
+    const where = `トップ ${width}px（${d.id} のカード）`
     const card = await page.evaluate((slug) => {
       const a = [...document.querySelectorAll('a')].find((x) => x.getAttribute('href') === `/diagnosis/${slug}`)
       return a ? a.textContent?.replace(/\s+/g, ' ').trim() ?? '' : null
@@ -166,7 +170,7 @@ export async function checkTopPage(browser: Browser, baseUrl: string, d: Diagnos
     if (errors.length) issues.push({ where, message: `JSエラー: ${errors.slice(0, 2).join(' / ')}` })
     await page.close()
   }
-  return issues
+  return issues.map((i) => ({ ...i, diagnosisId: d.id }))
 }
 
 /** 表示された1枚のカードの情報 */
@@ -192,7 +196,7 @@ export async function checkDiagnosisPages(
   let checked = 0
   for (const width of widths) {
     for (const [pi, answers] of patterns.entries()) {
-      const where = `診断 ${width}px パターン${pi + 1}`
+      const where = `${d.id} 診断 ${width}px パターン${pi + 1}`
       const page = await browser.newPage()
       const errors = await collectErrors(page)
       try {
@@ -288,7 +292,8 @@ export async function checkDiagnosisPages(
           d.products.filter((p) => !p.rakutenUrl && !p.officialUrl && p.amazonUrl && isAmazonAssociateUrl(p.amazonUrl)).map((p) => [p.name, asinOf(p.amazonUrl!)]),
         )
         const noImage = new Set(d.products.filter((p) => (officialOnly.has(p.name) || amazonOnly.has(p.name)) && !p.imageUrl).map((p) => p.name))
-        if (cards.some((c) => !c.img && !noImage.has(c.name))) issues.push({ where, message: '読み込めない商品画像があります' })
+        const imageFailed = cards.filter((c) => !c.img && !noImage.has(c.name)).map((c) => c.name)
+        if (imageFailed.length) issues.push({ where, message: `読み込めない商品画像があります（${imageFailed.join('、')}）`, imageFailedProducts: imageFailed })
         // 楽天ボタンは全カードに必須（公式ストアのみの商品は公式ボタン、Amazon のみの商品は同じ ASIN の Amazon アソシエイトリンク）。
         // ほかに許可するのは Amazon アソシエイトの商品リンクだけ
         const hasPurchaseLink = (c: CardView) =>
@@ -314,5 +319,5 @@ export async function checkDiagnosisPages(
       }
     }
   }
-  return { issues, checked }
+  return { issues: issues.map((i) => ({ ...i, diagnosisId: d.id })), checked }
 }

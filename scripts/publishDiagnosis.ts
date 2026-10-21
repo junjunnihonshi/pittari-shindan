@@ -5,6 +5,12 @@
  *   npm run publish:diagnosis -- <diagnosis-id> --dry-run   … 公開前の確認だけ（enabled は元に戻し、commit しない）
  *   npm run publish:diagnosis -- <diagnosis-id> --verify    … 公開済みの診断を再確認（ファイル変更・commit なし）
  *   --base <commit> … 回帰確認の比較先（既定は HEAD。ワークフロー自体の動作確認用）
+ *   --full          … 全体検証モード（変更内容に関係なく全診断の全パターン・既存診断の画面も確認。商品確認の記録も使わない）
+ *   --recheck-products … 商品の最終チェックで、短時間の合格記録（scripts/lib/productCheckCache.ts）を使わずに確認し直す
+ *
+ * 既定は高速（差分）モード：変更内容から検証範囲を自動判定する（判定できなければ自動で全体検証に切り替える）。
+ * 公開処理は同時に1つだけ（scripts/lib/publishLock.ts）。各ステップに制限時間があり（既定 30 分・全体検証は 90 分。
+ * 環境変数 PUBLISH_STEP_TIMEOUT_MINUTES で変更）、時間切れ・Ctrl+C でも enabled を元に戻して停止する。
  *
  * 1つでも失敗したらその時点で停止し、commit・push はしない（enabled を書き換えていれば元に戻す）。
  * 公開工程で変更するのは、対象診断の `enabled: false` → `true` の1行だけ（採点・質問・商品は変更しない）。
@@ -24,12 +30,16 @@ import { canonicalUrl, diagnosisPath } from '../src/config/seo.ts'
 import { site } from '../src/config/site.ts'
 import { validateDiagnoses } from '../src/data/validate.ts'
 import type { Diagnosis } from '../src/types/diagnosis.ts'
+import type { Browser } from 'puppeteer-core'
 import { checkDiagnosisPages, checkTopPage, DEFAULT_WIDTHS, launchBrowser, representativePatterns, type UiIssue } from './lib/browserChecks.ts'
 import { amazonOnlyDataProblems, amazonOnlyItemProblems, fetchAmazonItem, isAmazonOnlyProduct } from './lib/amazonItem.ts'
 import { determineScope, type ChangeScope } from './lib/changeScope.ts'
 import { checkPatterns, snapshot, type RunDiagnosis } from './lib/diagnosisChecks.ts'
 import { clearDryRun, findDryRun, fingerprint, saveDryRun } from './lib/dryRunCache.ts'
 import { loadFromGit, loadFromWorkingTree } from './lib/gitHead.ts'
+import { findPassed, PRODUCT_CACHE_MINUTES, productKey, savePassed } from './lib/productCheckCache.ts'
+import { imageLoads, isPreexistingImageIssue } from './lib/existingDefects.ts'
+import { acquireLock, clearRestorePoint, recoverInterrupted, saveRestorePoint } from './lib/publishLock.ts'
 import { fetchRakutenItem, itemUrlFromAffiliate, priceRangeOf, priceThresholdsFromLabels } from './lib/rakutenItem.ts'
 
 const ROOT = path.resolve(import.meta.dirname, '..')
@@ -54,14 +64,82 @@ const verifyOnly = args.includes('--verify')
 const message = args.includes('--message') ? args[args.indexOf('--message') + 1] : undefined
 const base = args.includes('--base') ? args[args.indexOf('--base') + 1] : 'HEAD'
 const extraAllowed = args.flatMap((a, i) => (a === '--allow' && args[i + 1] ? [args[i + 1]] : []))
+const forceFull = args.includes('--full')
+const recheckProducts = args.includes('--recheck-products') || forceFull || verifyOnly
+/** 既存の商品の不具合として記録済みのもの（別件の修正課題。公開の判定には使わず、報告にだけ使う） */
+const KNOWN_ISSUES_FILE = 'docs/known-product-issues.json'
 
 // ---------- 表示・停止 ----------
 class StopError extends Error {}
 const summary: string[] = []
 let stepNo = 0
+const startedAt = Date.now()
+const stepTimes: { title: string; ms: number }[] = []
+let stepStartedAt = Date.now()
+let currentStep = ''
+let stepTimeoutMinutes = Number(process.env.PUBLISH_STEP_TIMEOUT_MINUTES) || (forceFull ? 90 : 30)
+let watchdog: NodeJS.Timeout | undefined
+const seconds = (ms: number) => (ms >= 60000 ? `${Math.floor(ms / 60000)}分${Math.round((ms % 60000) / 1000)}秒` : `${Math.round(ms / 1000)}秒`)
+function endStep() {
+  if (currentStep) stepTimes.push({ title: `[${stepNo}] ${currentStep}`, ms: Date.now() - stepStartedAt })
+  currentStep = ''
+}
 function step(title: string) {
+  // 同期処理（build など）の途中ではタイマーが動かないため、ステップの切り替え時にも制限時間を確かめる
+  if (currentStep && Date.now() - stepStartedAt > stepTimeoutMinutes * 60 * 1000) {
+    emergencyStop(`[${stepNo}] ${currentStep} が ${stepTimeoutMinutes} 分以内に終わりませんでした（時間切れ）`)
+  }
+  endStep()
   stepNo++
-  console.log(`\n[${stepNo}] ${title}`)
+  currentStep = title
+  stepStartedAt = Date.now()
+  console.log(`\n[${stepNo}] ${id}｜${title}（開始 ${seconds(stepStartedAt - startedAt)}）`)
+  clearTimeout(watchdog)
+  // 制限時間を過ぎたら、途中の状態を元に戻して停止する（重い同期処理の途中では、その処理が終わった時点で止まる）
+  watchdog = setTimeout(() => emergencyStop(`[${stepNo}] ${title} が ${stepTimeoutMinutes} 分以内に終わりませんでした（時間切れ）`), stepTimeoutMinutes * 60 * 1000)
+}
+
+// ---------- 異常停止（時間切れ・中断）時の後始末 ----------
+/** enabled を書き換えた後、commit 前に止まったときに元に戻す処理 */
+let abortRestore: (() => void) | null = null
+let previewChild: ChildProcess | null = null
+let sharedBrowser: Browser | null = null
+let releaseLock: (() => void) | null = null
+function emergencyStop(reason: string): never {
+  clearTimeout(watchdog)
+  console.error(`\n✖ 停止：${reason}`)
+  try {
+    previewChild?.kill()
+  } catch {
+    // 停止済み
+  }
+  try {
+    sharedBrowser?.process()?.kill()
+  } catch {
+    // 停止済み
+  }
+  try {
+    abortRestore?.()
+  } catch (e) {
+    console.error('   ✖ 対象ファイルを元に戻せませんでした。git diff で確認してください', e)
+  }
+  for (const c of tempDirs) {
+    try {
+      c()
+    } catch {
+      // 一時フォルダの削除失敗は無視
+    }
+  }
+  releaseLock?.()
+  console.error(stoppedMessage())
+  process.exit(1)
+}
+for (const sig of ['SIGINT', 'SIGTERM', 'SIGHUP'] as const) process.on(sig, () => emergencyStop(`中断されました（${sig}）`))
+
+/** 画面確認用のブラウザ（ローカル・本番の確認で1つを使い回す） */
+async function getBrowser(): Promise<Browser> {
+  if (!sharedBrowser || !sharedBrowser.connected) sharedBrowser = await launchBrowser()
+  return sharedBrowser
 }
 function ok(text: string) {
   console.log(`   ✔ ${text}`)
@@ -167,15 +245,29 @@ async function checkProductLinks(d: Diagnosis) {
   const thresholds = priceThresholdsFromLabels(d.priceLabels)
   const problems: string[] = []
   const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
+  const passed: string[] = []
+  let reusedCount = 0
   for (const p of d.products.filter((x) => x.enabled)) {
     const label = `${p.id}（${p.name}）`
+    const key = productKey(p, thresholds)
+    if (!recheckProducts && findPassed(ROOT, key)) {
+      // 同じ商品データを有効期限内に確認して問題なしだった（商品データ・価格帯の区切りが1文字でも違えば確認し直す）
+      reusedCount++
+      continue
+    }
+    const before = problems.length
+    await checkOneProduct(p, label)
+    if (problems.length === before) passed.push(key)
+  }
+  savePassed(ROOT, passed)
+  async function checkOneProduct(p: Diagnosis['products'][number], label: string) {
     // Amazon でだけ購入できる商品：Amazon の商品ページで、商品・販売元・税込価格（送料込み）・在庫・価格帯を確認する
     if (isAmazonOnlyProduct(p)) {
       const info = await fetchAmazonItem(String(p.attributes.amazonAsin)).catch(() => null)
       if (!info) problems.push(`${label}：Amazon の商品ページに接続できません`)
       else for (const m of amazonOnlyItemProblems(p, info, thresholds)) problems.push(`${label}：${m}`)
       await sleep(2500)
-      continue
+      return
     }
     // 楽天で扱いのない商品は公式ストア（officialUrl）を購入先にする。現行の販売ページが開ければ有効とし、楽天の在庫・価格確認は行わない
     if (!p.rakutenUrl && p.officialUrl) {
@@ -186,7 +278,7 @@ async function checkProductLinks(d: Diagnosis) {
         if (!img || img.status !== 200 || !(img.headers.get('content-type') ?? '').startsWith('image/')) problems.push(`${label}：商品画像を読み込めません`)
       }
       await sleep(700)
-      continue
+      return
     }
     const rakutenUrl = p.rakutenUrl ?? ''
     if (!rakutenUrl.startsWith('https://hb.afl.rakuten.co.jp/')) problems.push(`${label}：楽天URLがアフィリエイトURLではありません`)
@@ -198,7 +290,7 @@ async function checkProductLinks(d: Diagnosis) {
     const itemUrl = itemUrlFromAffiliate(rakutenUrl)
     if (!itemUrl) {
       problems.push(`${label}：楽天URLから商品ページを特定できません`)
-      continue
+      return
     }
     const item = await fetchRakutenItem(itemUrl).catch(() => null)
     if (!item || item.status !== 200) problems.push(`${label}：楽天の商品ページを開けません（${item?.status ?? '接続失敗'}）`)
@@ -219,7 +311,8 @@ async function checkProductLinks(d: Diagnosis) {
   ok(
     `商品${d.products.filter((x) => x.enabled).length}件：画像・楽天URL（rafcidなし・転送OK）・価格帯・在庫に問題なし` +
       (officialOnly ? `（うち公式ストアのみ ${officialOnly}件はページ表示を確認）` : '') +
-      (amazonOnly ? `（うち Amazon のみ ${amazonOnly}件は商品名・販売元・価格・在庫・送料を確認）` : ''),
+      (amazonOnly ? `（うち Amazon のみ ${amazonOnly}件は商品名・販売元・価格・在庫・送料を確認）` : '') +
+      (reusedCount ? `（うち ${reusedCount}件は ${PRODUCT_CACHE_MINUTES} 分以内に同じ商品データで確認済みの記録を使用）` : ''),
   )
 }
 
@@ -236,9 +329,17 @@ function checkBuiltSeo(d: Diagnosis) {
 /**
  * 画面確認。対象診断はトップカード＋代表パターン、others（共通UIの変更時や変更された既存診断）は代表数パターンだけ確認する。
  */
-async function checkScreens(baseUrl: string, d: Diagnosis, run: RunDiagnosis, widths: number[], where: string, others: Diagnosis[] = []) {
-  const browser = await launchBrowser()
-  try {
+async function checkScreens(
+  baseUrl: string,
+  d: Diagnosis,
+  run: RunDiagnosis,
+  widths: number[],
+  where: string,
+  others: Diagnosis[] = [],
+  isPreexisting: (i: UiIssue) => Promise<boolean> = async () => false,
+) {
+  const browser = await getBrowser()
+  {
     const patterns = representativePatterns(d, run)
     const issues: UiIssue[] = [...(await checkTopPage(browser, baseUrl, d, widths))]
     const pages = await checkDiagnosisPages(browser, baseUrl, d, run, patterns, widths)
@@ -250,19 +351,29 @@ async function checkScreens(baseUrl: string, d: Diagnosis, run: RunDiagnosis, wi
       issues.push(...r.issues)
       otherScreens += r.checked
     }
-    if (issues.length) {
-      for (const i of issues.slice(0, 10)) console.error(`   ✖ ${i.where}：${i.message}`)
-      stop(`${where}の画面確認で ${issues.length} 件の問題があります`)
+    // 対象以外の診断の問題のうち、以前からある外部の不具合（画像の配信元が404など）と確かめられたものは別件として報告する
+    const preexisting: UiIssue[] = []
+    const fresh: UiIssue[] = []
+    for (const i of issues) (i.diagnosisId !== d.id && (await isPreexisting(i)) ? preexisting : fresh).push(i)
+    for (const i of preexisting) {
+      console.log(`   △ 既存の不具合（今回の変更と無関係・別件）${i.where}：${i.message}`)
+      existingDefects.add(`${i.diagnosisId}：${i.message}`)
+    }
+    if (fresh.length) {
+      for (const i of fresh.slice(0, 10)) console.error(`   ✖ ${i.where}：${i.message}`)
+      stop(`${where}の画面確認で ${fresh.length} 件の問題があります`)
     }
     ok(
       `${where}の画面：${d.name}（トップカード＋代表${patterns.length}パターン × ${widths.join('/')}px・${pages.checked}画面）` +
         (others.length ? `＋既存${others.length}診断（${others.map((o) => o.name.replace('診断', '')).join('・')}・${otherScreens}画面）` : '') +
-        'で表示一致・画像・楽天ボタン・横スクロールなし・文字切れなし・JSエラーなし',
+        'で表示一致・画像・楽天ボタン・横スクロールなし・文字切れなし・JSエラーなし' +
+        (preexisting.length ? `（既存の不具合 ${preexisting.length} 件は別件として報告）` : ''),
     )
-  } finally {
-    await browser.close()
   }
 }
+
+/** 既存の不具合（変更前から同じ状態のもの）として報告する一覧 */
+const existingDefects = new Set<string>()
 
 /** ビルド結果（dist）をローカルで配信する */
 async function startPreview(): Promise<ChildProcess> {
@@ -334,11 +445,37 @@ async function checkProductionPages(target: Diagnosis, published: Diagnosis[]) {
   ok(`本番：index, follow・canonical OK／アクセス解析ビーコン ${expected} 件（トップ・診断ページ）／公開中の${statuses.length}診断ページがすべて200（HTTP確認）`)
 }
 
+/** 既存の不具合（今回の変更で起きたものではない）と、記録済みの既知の不具合を報告する */
+function reportExisting() {
+  let known: { diagnosisId: string; productId: string; issue: string }[] = []
+  try {
+    known = (JSON.parse(fs.readFileSync(path.join(ROOT, KNOWN_ISSUES_FILE), 'utf8')) as { issues: typeof known }).issues ?? []
+  } catch {
+    known = []
+  }
+  if (!existingDefects.size && !known.length) return
+  console.log('\n△ 既存の不具合（公開の判定とは別件の修正課題）')
+  for (const m of existingDefects) console.log(`  ・今回の確認で検出：${m}`)
+  for (const k of known) console.log(`  ・記録済み（${KNOWN_ISSUES_FILE}）：${k.diagnosisId} / ${k.productId}：${k.issue}`)
+}
+
+function printTimes() {
+  console.log(`\n⏱ 所要時間 ${seconds(Date.now() - startedAt)}：` + stepTimes.map((s) => `${s.title} ${seconds(s.ms)}`).join(' / '))
+}
+
 // ---------- 本体 ----------
 async function main() {
   if (!id) stop('診断IDを指定してください（例：npm run publish:diagnosis -- humidifier）')
-  const mode = verifyOnly ? '公開済みの再確認' : dryRun ? '公開前の確認のみ（dry-run）' : '公開'
+  const mode = (verifyOnly ? '公開済みの再確認' : dryRun ? '公開前の確認のみ（dry-run）' : '公開') + (forceFull ? '・全体検証モード' : '・高速（差分）モード')
   console.log(`診断公開ワークフロー：${id}（${mode}）`)
+  const lock = acquireLock(ROOT, id, mode)
+  if ('error' in lock) stop(lock.error)
+  releaseLock = lock.release
+  if (lock.note) console.log(`   ・${lock.note}`)
+  // 前回の強制終了で enabled を書き換えたまま残っていれば、ここで元に戻す
+  const recovered = recoverInterrupted(ROOT)
+  for (const n of recovered.notes) console.log(`   ・${n}`)
+  if (recovered.error) stop(recovered.error)
 
   step('対象の診断と作業状態を確認')
   const file = findDiagnosisFile(id)
@@ -360,6 +497,8 @@ async function main() {
   if (!target) stop(`診断「${id}」が見つかりません`)
   const head = await loadFromGit(ROOT, base)
   const publishedAtHead = head.diagnoses.find((d) => d.id === id)?.enabled === true
+  /** 比較先（HEAD）の商品画像URL（診断ID → 商品名 → imageUrl）。既存の不具合かどうかの判定に使う */
+  const baseImages = new Map(head.diagnoses.map((d) => [d.id, new Map(d.products.map((p) => [p.name, p.imageUrl ?? '']))]))
   head.cleanup()
   if (verifyOnly) {
     if (!target.enabled || !publishedAtHead) stop('--verify は公開済み（enabled: true で commit 済み）の診断にだけ使えます')
@@ -383,7 +522,11 @@ async function main() {
   ok(`${target.name}（${file}）：実商品${enabledProducts.length}件・${verifyOnly ? '公開済み' : 'enabled: false'}・入力チェックOK`)
 
   step('検証範囲の判定（変更ファイルと依存ファイルのハッシュ）')
-  const scope = determineScope(ROOT, base, diagnoses.map((d) => d.id))
+  const determined = determineScope(ROOT, base, diagnoses.map((d) => d.id))
+  const scope: ChangeScope = forceFull
+    ? { ...determined, full: true, changedIds: new Set(diagnoses.map((d) => d.id)), unchangedIds: new Set(), uiChanged: true, reasons: [...determined.reasons, 'フル検証：--full（全体検証モード）の指定'] }
+    : determined
+  if (scope.full) stepTimeoutMinutes = Number(process.env.PUBLISH_STEP_TIMEOUT_MINUTES) || 90
   for (const r of scope.reasons) console.log(`   ・${r}`)
   // 対象診断は常に全パターン検証する。ほかは結果が変わりうる診断だけ（full のときは公開中の全診断）
   const patternTargets = diagnoses.filter((d) => d.id === id || (scope.changedIds.has(d.id) && (!scope.full || d.enabled)))
@@ -395,10 +538,21 @@ async function main() {
       (scope.uiChanged ? '・画面に影響する変更あり（既存診断の画面も確認）' : ''),
   )
 
+  // 対象以外の診断で見つかった画面の問題が「変更前から同じ状態の既存の不具合」かを確かめる（判定条件は scripts/lib/existingDefects.ts）
+  const isPreexisting = (i: UiIssue) =>
+    isPreexistingImageIssue(i, {
+      targetId: id,
+      unchangedIds: scope.unchangedIds,
+      currentImage: (diagnosisId, name) => diagnoses.find((d) => d.id === diagnosisId)?.products.find((p) => p.name === name)?.imageUrl,
+      baseImages,
+      imageLoads,
+    })
+
   // dry-run の結果の再利用（公開時のみ。作業ツリー・HEAD・Node.js が dry-run 成功時と完全一致する場合だけ）
   let reused = false
   if (dryRun) clearDryRun(ROOT, id)
-  if (!dryRun && !verifyOnly) {
+  if (!dryRun && !verifyOnly && forceFull) console.log('   ・全体検証モードのため dry-run の記録は使わず、すべて検証します')
+  if (!dryRun && !verifyOnly && !forceFull) {
     const found = findDryRun(ROOT, id, startFingerprint)
     if ('record' in found) {
       reused = true
@@ -423,14 +577,19 @@ async function main() {
       fs.writeFileSync(path.join(ROOT, file), original)
       console.log(`   ↩ ${file} を元の内容（enabled: false）に戻しました`)
     }
+    if (!verifyOnly) clearRestorePoint(ROOT, id)
   }
+  if (!verifyOnly) abortRestore = restore
   let committed = false
   try {
     if (!verifyOnly) {
       step('enabled: true に変更')
       const matches = original.match(/^ {2}enabled: false,$/gm) ?? []
       if (matches.length !== 1) stop(`診断レベルの「enabled: false,」が1か所ではありません（${matches.length} か所）`)
-      fs.writeFileSync(path.join(ROOT, file), original.replace(/^ {2}enabled: false,$/m, '  enabled: true,'))
+      const flipped = original.replace(/^ {2}enabled: false,$/m, '  enabled: true,')
+      // 強制終了（終了処理が動かない）に備えて、書き換える前に元の内容を記録する（次回の起動時に元に戻す）
+      saveRestorePoint(ROOT, id, file, original, flipped)
+      fs.writeFileSync(path.join(ROOT, file), flipped)
       ;({ diagnoses, run } = await loadWorking())
       const now = diagnoses.find((d) => d.id === id)
       if (!now?.enabled) stop('enabled: true に切り替わっていません')
@@ -439,11 +598,13 @@ async function main() {
     }
 
     // build / lint / check は公開処理の中でここの1回だけ（公開直前の状態で実行する）
-    step('build / lint / check')
+    step('build（typecheck を含む）/ lint / check')
     sh('npm', ['run', 'build'], { quiet: false })
     sh('npm', ['run', 'lint'], { quiet: false })
-    sh('npm', ['run', 'check'], { quiet: false })
-    ok('npm run build / lint / check すべて成功')
+    // 高速モードでは、全パターンは結果が変わりうる診断だけ（ほかの診断は依存ファイルのハッシュ一致で結果不変を確認済み）。入力チェックは常に全診断
+    const checkIds = scope.full ? null : patternTargets.map((d) => d.id)
+    sh('npm', ['run', 'check', ...(checkIds ? ['--', '--only', checkIds.join(',')] : [])], { quiet: false })
+    ok(`npm run build（tsc -b による typecheck を含む）/ lint / check すべて成功${checkIds ? `（check の全パターンは ${checkIds.join('・')}、入力チェックは全診断）` : '（check は全診断の全パターン）'}`)
 
     step('sitemap・robots・canonical（ビルド結果）')
     checkBuiltSeo(diagnoses.find((d) => d.id === id)!)
@@ -451,10 +612,13 @@ async function main() {
     if (!verifyOnly) {
       step('ローカルでの画面確認（ビルド結果）')
       const preview = await startPreview()
+      previewChild = preview
       try {
-        await checkScreens(`http://localhost:${PREVIEW_PORT}`, diagnoses.find((d) => d.id === id)!, run, REPRESENTATIVE_WIDTHS, 'ローカル', screenOthers(diagnoses))
+        // 対象の診断はスマホ〜PCの全幅（320/390/768/1280px）。既存の診断（共通UIの変更時など）は代表幅
+        await checkScreens(`http://localhost:${PREVIEW_PORT}`, diagnoses.find((d) => d.id === id)!, run, DEFAULT_WIDTHS, 'ローカル', screenOthers(diagnoses), isPreexisting)
       } finally {
         preview.kill()
+        previewChild = null
       }
 
       step('変更ファイルの確認（git diff）')
@@ -477,6 +641,9 @@ async function main() {
         }
         saveDryRun(ROOT, id, startFingerprint, summary)
         ok(`dry-run のため commit・push はしていません（検証結果を記録：tree ${startFingerprint.tree.slice(0, 12)}。このまま公開すれば重い検証を再利用します）`)
+        endStep()
+        reportExisting()
+        printTimes()
         return
       }
 
@@ -485,6 +652,8 @@ async function main() {
       // メッセージは標準入力で渡す（改行や Co-Authored-By 行を含められる）
       sh('git', ['commit', '-F', '-'], { input: message ?? `Publish ${id} diagnosis` })
       committed = true
+      abortRestore = null
+      clearRestorePoint(ROOT, id)
       progress.commit = git('rev-parse', '--short', 'HEAD')
       clearDryRun(ROOT, id)
       ok(`commit ${git('rev-parse', '--short', 'HEAD')}：${(message ?? `Publish ${id} diagnosis`).split('\n')[0]}`)
@@ -507,10 +676,13 @@ async function main() {
   if (!verifyOnly) await waitForDeploy(current)
   await checkProductionPages(current, published)
   // 通常は対象診断とトップページを代表幅（スマホ・PC）で確認。画面に影響する変更があるときは全幅＋既存診断も確認する
-  await checkScreens(site.url, current, run, scope.uiChanged ? DEFAULT_WIDTHS : REPRESENTATIVE_WIDTHS, '本番', screenOthers(published))
+  await checkScreens(site.url, current, run, scope.uiChanged ? DEFAULT_WIDTHS : REPRESENTATIVE_WIDTHS, '本番', screenOthers(published), isPreexisting)
+  endStep()
 
   console.log(`\n✅ ${current.name}：${verifyOnly ? '再確認' : '公開'}完了 ${canonicalUrl(diagnosisPath(current.slug))}`)
   for (const s of summary) console.log(`  ・${s}`)
+  reportExisting()
+  printTimes()
 }
 
 /** 停止したときの案内（どこまで進んだかで内容を変える） */
@@ -530,10 +702,18 @@ async function run() {
     for (const c of tempDirs) c()
   } catch (e) {
     for (const c of tempDirs) c()
-    console.error(`\n✖ 停止：${(e as Error).message}`)
+    clearTimeout(watchdog)
+    await sharedBrowser?.close().catch(() => {})
+    releaseLock?.()
+    console.error(`\n✖ 停止：${currentStep ? `[${stepNo}] ${currentStep}：` : ''}${(e as Error).message}`)
     if (!(e instanceof StopError)) console.error(e)
     console.error(stoppedMessage())
+    endStep()
+    printTimes()
     process.exit(1)
   }
+  clearTimeout(watchdog)
+  await sharedBrowser?.close().catch(() => {})
+  releaseLock?.()
 }
 void run()

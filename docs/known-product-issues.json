@@ -1,0 +1,41 @@
+{
+  "description": "既存の公開診断で判明している商品の不具合（別件の修正課題）。公開ワークフローは公開の判定には使わず、最後の報告に表示するだけ。修正したら該当の行を削除する。",
+  "issues": [
+    {
+      "diagnosisId": "heater",
+      "productId": "heater-106",
+      "issue": "山善 DHF-S121：楽天の出品が終了（商品ページ・画像とも404）。同じ型番の出品がなく、公式の適用畳数（〜8畳）を確認できる同等の現行品も未確認。非表示にすると「8畳以上」を満たす商品が3件→2件になり結果への影響が大きいため保留",
+      "foundAt": "2026-10-21"
+    },
+    {
+      "diagnosisId": "heater",
+      "productId": "heater-105",
+      "issue": "山善 DCT-B08：楽天の出品が終了（商品ページ・画像とも404）。2026年6月に型番が DCT-B081 に変更（仕様変更なし）。山善公式店は 8,980円で価格帯が 3→2 に変わるため保留",
+      "foundAt": "2026-10-21"
+    },
+    {
+      "diagnosisId": "rice-cooker",
+      "productId": "rice-cooker-103",
+      "issue": "タイガー JRX-S060：楽天で売り切れ・価格（137,000円）が価格帯3（50,000〜80,000円）と合わない",
+      "foundAt": "2026-10-21"
+    },
+    {
+      "diagnosisId": "rice-cooker",
+      "productId": "rice-cooker-104",
+      "issue": "タイガー JPW-K100：楽天の商品ページが404",
+      "foundAt": "2026-10-21"
+    },
+    {
+      "diagnosisId": "bluetooth-speaker",
+      "productId": "bluetooth-speaker-111",
+      "issue": "Marshall Emberton III：楽天の価格（24,980円）が価格帯5（25,000円〜）を下回る",
+      "foundAt": "2026-10-21"
+    },
+    {
+      "diagnosisId": "air-fryer",
+      "productId": "air-fryer-101",
+      "issue": "MAXZEN MAF-LT01：楽天の商品ページが404",
+      "foundAt": "2026-10-21"
+    }
+  ]
+}

@@ -14,7 +14,8 @@
     "publish:diagnosis": "node scripts/publishDiagnosis.ts",
     "diagnosis:generate": "node scripts/generateDiagnosis.ts",
     "diagnosis:validate": "node scripts/validateDiagnosis.ts",
-    "diagnosis:preflight": "node scripts/preflightDiagnosis.ts"
+    "diagnosis:preflight": "node scripts/preflightDiagnosis.ts",
+    "diagnosis:ship": "node scripts/shipDiagnosis.ts"
   },
   "dependencies": {
     "react": "^19.3.0",

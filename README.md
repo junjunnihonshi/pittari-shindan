@@ -335,7 +335,22 @@ officialUrl: 'https://…',
 npm run publish:diagnosis -- humidifier --dry-run   # まず確認だけ（enabled は元に戻し、commit しない）
 npm run publish:diagnosis -- humidifier             # 公開（commit・push・本番確認まで）
 npm run publish:diagnosis -- humidifier --verify    # 公開済みの診断を再確認（ファイル変更なし）
+npm run publish:diagnosis -- humidifier --full      # 全体検証モード（変更内容に関係なく全診断を検証）
 ```
+
+仕様JSON（`data/diagnosis-specs/<id>.json`）ができていれば、生成から公開までを1回で実行できます（`scripts/shipDiagnosis.ts`。既存の手順を順に呼ぶだけで、確認の省略・緩和はしません）。
+
+```bash
+npm run diagnosis:ship -- humidifier --dry-run                     # 生成 → validate → preflight → 公開前の確認
+npm run diagnosis:ship -- humidifier --message "Publish …"         # 公開まで（dry-run 直後なら重い検証・商品確認の記録を再利用）
+```
+
+- **高速（差分）モード（既定）**：下の「検証範囲の自動判定」で範囲を決めます。新しい診断の追加だけなら、新しい診断は全パターン＋画面（320 / 390 / 768 / 1280px）、既存の診断はプログラムで結果不変を確認（依存ファイルのハッシュ一致）し、既存の画面・商品はブラウザで再確認しません。判定できないときは自動で全体検証になります
+- **全体検証モード（`--full`）**：全診断の全パターン・公開版との完全一致・既存全診断の画面（代表2パターン）・`npm run check` の全診断を実行し、dry-run と商品確認の記録も使いません
+- 公開処理は同時に1つだけです（`.git/pittari-publish/lock.json`。前回が異常終了して残ったロックは、プロセスがなければ自動で取り除きます）
+- 各ステップに制限時間があります（既定 30 分・全体検証は 90 分。`PUBLISH_STEP_TIMEOUT_MINUTES` で変更）。時間切れ・Ctrl+C のときも enabled を元に戻し、ブラウザ・確認用サーバーを止めてから停止します。強制終了（タスクの終了など、終了処理が動かない場合）に備えて、enabled を書き換える前に元の内容を `.git/pittari-publish/` に記録し、次回の起動時に自動で元に戻します（書き換え後にほかの変更が加わっていれば、戻さずに停止して確認を求めます）
+- ログの各ステップに診断IDとステップ名・開始時刻、画面確認の問題に診断IDを表示し、最後にステップごとの所要時間を表示します
+- 既存の診断の不具合（画像の配信元が404など）は、その診断の結果に影響するファイルが変更前と同じで、画像URLも変更前と同じ・URL自体が取得できないことを確かめた場合だけ「既存の不具合（別件）」として報告し、公開は止めません。それ以外（新しい診断の問題・変更された診断の問題・判定できない問題）は公開を止めます。記録済みの既知の不具合は `docs/known-product-issues.json` に書き、最後に一覧を表示します（公開の判定には使いません）
 
 自動で行うこと（1つでも失敗したらその時点で停止し、commit・push はしません。enabled を書き換えていれば元に戻します）：
 
@@ -345,8 +360,8 @@ npm run publish:diagnosis -- humidifier --verify    # 公開済みの診断を�
 4. 公開中の全診断が、公開版（HEAD）と同じ結果であること（結果に影響する依存ファイルのハッシュが同じ診断は再計算を省略、それ以外は全パターンで完全一致を確認）
 5. 全商品の画像・楽天アフィリエイトURL（rafcid なし・転送）・楽天の価格が priceRange と合うこと・売り切れでないこと
 6. `enabled: false` → `true`（公開工程で変更するのはこの1行だけ）
-7. `npm run build` / `lint` / `check`（公開処理の中で1回だけ、公開直前の状態で実行）、`dist/sitemap.xml` への掲載・`index, follow`・canonical
-8. ビルド結果をローカルで配信し、トップのカードと代表パターンの画面（390 / 1280px）を確認
+7. `npm run build`（tsc -b による typecheck を含む）/ `lint` / `check`（公開処理の中で1回だけ、公開直前の状態で実行。高速モードの check は全診断の入力チェック＋結果が変わりうる診断の全パターン）、`dist/sitemap.xml` への掲載・`index, follow`・canonical
+8. ビルド結果をローカルで配信し、トップのカードと代表パターンの画面（320 / 390 / 768 / 1280px）を確認
 9. 変更ファイルが対象の診断ファイル（と `scripts/rakuten/presets.ts`）だけで、実行中にほかの変更が加わっていないことを確認して commit → push
 10. Cloudflare Pages の反映を待ち（本番 sitemap に載るまで最大10分）、本番の robots・canonical・アクセス解析ビーコン・公開中の全診断ページ（HTTP 200）を確認し、トップのカードと対象診断の代表パターンを 390 / 1280px で確認（表示が計算結果と一致・画像・楽天ボタン・横スクロール・文字切れ・JSエラー）
 
@@ -366,7 +381,9 @@ npm run publish:diagnosis -- humidifier --verify    # 公開済みの診断を�
 
 #### dry-run の結果の再利用
 
-dry-run が最後まで成功すると、そのときの作業ツリー全体の git tree ハッシュと HEAD・Node.js のバージョンを `.git/pittari-publish/` に記録します（commit には含まれません）。続けて公開したときにこれらが完全に一致すれば、重い検証（全パターン検証・公開版との一致・enabled 切り替えで結果が変わらないこと）を再実行しません。ファイルが1文字でも変わっていたり、HEAD が変わっていたり、記録のハッシュが合わなかったりした場合は、記録を無効にしてすべて検証し直します。商品の最終チェック（在庫・価格）と build / lint / check・画面確認は公開時にも必ず実行します。
+dry-run が最後まで成功すると、そのときの作業ツリー全体の git tree ハッシュと HEAD・Node.js のバージョンを `.git/pittari-publish/` に記録します（commit には含まれません）。続けて公開したときにこれらが完全に一致すれば、重い検証（全パターン検証・公開版との一致・enabled 切り替えで結果が変わらないこと）を再実行しません。ファイルが1文字でも変わっていたり、HEAD が変わっていたり、記録のハッシュが合わなかったりした場合は、記録を無効にしてすべて検証し直します。build / lint / check・画面確認は公開時にも必ず実行します。
+
+商品の最終チェックは、問題なしだった商品を商品データ全体のハッシュとともに `.git/pittari-publish/product-checks.json` に記録し、120 分以内（`PUBLISH_PRODUCT_CACHE_MINUTES`）に同じ商品データを確認するときだけ記録を使います（`--recheck-products`・`--verify`・`--full` では使いません）。商品データが1文字でも違えば確認し直します。
 
 画面確認では、自動確認のアクセスをアクセス解析（Cloudflare Web Analytics）に含めないよう、解析への通信を空の応答に差し替えます。ビーコンが設置されていることは本番の HTML で確認します。
 
