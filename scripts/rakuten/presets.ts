@@ -591,4 +591,17 @@ export const presets: Record<string, RakutenPreset> = {
     priceThresholds: [40000, 50000, 80000, 120000],
     attributeKeys: ['capacity', 'continuousOutput', 'portability', 'value', 'recharge', 'solar', 'outageBackup', 'usbC', 'expandability', 'ports', 'durability', 'quietness'],
   },
+  'mobile-monitor': {
+    category: 'mobile-monitor',
+    // 採用機種は指示書で確定済み。型番の確認は --keyword "メーカー 型番" で行う
+    keywords: ['モバイルモニター', 'モバイルモニター 15.6インチ', 'モバイルモニター 14インチ', 'モバイルディスプレイ USB-C'],
+    ngKeyword: '中古 整備済み 再生品 フィルム 保護 ケース カバー ケーブル スタンドのみ',
+    sort: '-reviewCount',
+    hits: 20,
+    minPrice: 8000,
+    maxPerShop: 3,
+    // mobileMonitor の priceLabels（20,000 / 30,000 / 40,000 / 60,000円）と同じ区分
+    priceThresholds: [20000, 30000, 40000, 60000],
+    attributeKeys: ['portability', 'workspace', 'resolution', 'color', 'gaming', 'connectivity', 'touch', 'passthrough', 'ergonomics', 'entertainment', 'value', 'support'],
+  },
 }

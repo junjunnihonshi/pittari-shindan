@@ -59,7 +59,8 @@ export async function fetchAmazonItem(asin: string): Promise<AmazonItemInfo> {
     seller:
       text(html, /id="sellerProfileTriggerId"[^>]*>([\s\S]*?)<\/a>/) ||
       text(html, /offer-display-feature-name="desktop-merchant-info"[\s\S]*?offer-display-feature-text-message"[^>]*>([\s\S]*?)<\/span>/),
-    inStock: /在庫あり|通常.{0,12}以内に発送/.test(availability),
+    // 「残り10点 ご注文はお早めに」「残り7点（入荷予定あり）」のような残数表示も在庫ありとする（在庫切れ・予約・入荷待ちの表示は含めない）
+    inStock: /在庫あり|通常.{0,12}以内に発送|残り\d+点/.test(availability) && !/在庫切れ|予約|入荷待ち|お取り寄せ|現在お取り扱いできません/.test(availability),
     freeShipping: /無料配送|配送料無料/.test(delivery),
   }
 }

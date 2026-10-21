@@ -49,6 +49,7 @@ import { futonDryer } from './futonDryer.ts'
 import { driveRecorder } from './driveRecorder.ts'
 import { ironSteamer } from './ironSteamer.ts'
 import { portablePowerStation } from './portablePowerStation.ts'
+import { mobileMonitor } from './mobileMonitor.ts'
 
 /**
  * 診断の一覧（登録簿）。
@@ -106,6 +107,7 @@ const allDiagnoses: Diagnosis[] = [
   driveRecorder,
   ironSteamer,
   portablePowerStation,
+  mobileMonitor,
 ]
 
 /**
