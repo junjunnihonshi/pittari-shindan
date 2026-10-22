@@ -604,4 +604,17 @@ export const presets: Record<string, RakutenPreset> = {
     priceThresholds: [20000, 30000, 40000, 60000],
     attributeKeys: ['portability', 'workspace', 'resolution', 'color', 'gaming', 'connectivity', 'touch', 'passthrough', 'ergonomics', 'entertainment', 'value', 'support'],
   },
+  'wireless-mouse': {
+    category: 'wireless-mouse',
+    // 採用機種は指示書で確定済み。型番の確認は --keyword "メーカー 型番" で行う
+    keywords: ['ワイヤレスマウス', 'Bluetooth マウス', '静音 ワイヤレスマウス', 'ワイヤレス ゲーミングマウス'],
+    ngKeyword: '中古 整備済み 再生品 ケース カバー ソール グリップテープ マウスパッド レシーバー単品',
+    sort: '-reviewCount',
+    hits: 20,
+    minPrice: 800,
+    maxPerShop: 3,
+    // wirelessMouse の priceLabels（3,500 / 6,000 / 10,000 / 18,000円）と同じ区分
+    priceThresholds: [3500, 6000, 10000, 18000],
+    attributeKeys: ['portability', 'quietness', 'ergonomics', 'buttons', 'multiDevice', 'productivity', 'gaming', 'connectivity', 'scrolling', 'battery', 'value', 'support'],
+  },
 }
