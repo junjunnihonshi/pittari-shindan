@@ -617,4 +617,17 @@ export const presets: Record<string, RakutenPreset> = {
     priceThresholds: [3500, 6000, 10000, 18000],
     attributeKeys: ['portability', 'quietness', 'ergonomics', 'buttons', 'multiDevice', 'productivity', 'gaming', 'connectivity', 'scrolling', 'battery', 'value', 'support'],
   },
+  'wireless-keyboard': {
+    category: 'wireless-keyboard',
+    // 採用機種は指示書で確定済み。型番の確認は --keyword "メーカー 型番" で行う
+    keywords: ['ワイヤレスキーボード', 'Bluetooth キーボード', '静音 ワイヤレスキーボード', 'ワイヤレスキーボード テンキー'],
+    ngKeyword: '中古 整備済み 再生品 ケース カバー キーボードカバー マウスセット',
+    sort: '-reviewCount',
+    hits: 20,
+    minPrice: 1000,
+    maxPerShop: 3,
+    // wirelessKeyboard の priceLabels（4,500 / 7,000 / 12,000 / 20,000円）と同じ区分
+    priceThresholds: [4500, 7000, 12000, 20000],
+    attributeKeys: ['portability', 'quietness', 'comfort', 'numpad', 'multiDevice', 'connectivity', 'mechanical', 'lowProfile', 'backlight', 'battery', 'value', 'support'],
+  },
 }

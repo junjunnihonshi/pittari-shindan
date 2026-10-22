@@ -51,6 +51,7 @@ import { ironSteamer } from './ironSteamer.ts'
 import { portablePowerStation } from './portablePowerStation.ts'
 import { mobileMonitor } from './mobileMonitor.ts'
 import { wirelessMouse } from './wirelessMouse.ts'
+import { wirelessKeyboard } from './wirelessKeyboard.ts'
 
 /**
  * 診断の一覧（登録簿）。
@@ -110,6 +111,7 @@ const allDiagnoses: Diagnosis[] = [
   portablePowerStation,
   mobileMonitor,
   wirelessMouse,
+  wirelessKeyboard,
 ]
 
 /**
