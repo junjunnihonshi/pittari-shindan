@@ -524,7 +524,7 @@ async function main() {
   step('検証範囲の判定（変更ファイルと依存ファイルのハッシュ）')
   const determined = determineScope(ROOT, base, diagnoses.map((d) => d.id))
   const scope: ChangeScope = forceFull
-    ? { ...determined, full: true, changedIds: new Set(diagnoses.map((d) => d.id)), unchangedIds: new Set(), uiChanged: true, reasons: [...determined.reasons, 'フル検証：--full（全体検証モード）の指定'] }
+    ? { ...determined, full: true, changedIds: new Set(diagnoses.map((d) => d.id)), unchangedIds: new Set(), uiChanged: true, siteAffected: true, reasons: [...determined.reasons, 'フル検証：--full（全体検証モード）の指定'] }
     : determined
   if (scope.full) stepTimeoutMinutes = Number(process.env.PUBLISH_STEP_TIMEOUT_MINUTES) || 90
   for (const r of scope.reasons) console.log(`   ・${r}`)
@@ -532,10 +532,16 @@ async function main() {
   const patternTargets = diagnoses.filter((d) => d.id === id || (scope.changedIds.has(d.id) && (!scope.full || d.enabled)))
   // 画面確認の追加分：共通UIが変わったら公開中の全診断、そうでなければ結果が変わりうる公開中の診断だけ
   const screenOthers = (list: Diagnosis[]) => list.filter((d) => d.id !== id && d.enabled && (scope.uiChanged || scope.changedIds.has(d.id)))
+  // 本番では、既存の診断の公開ページが変わりうる場合だけ既存の診断の画面も確認する（検証の仕組みだけの変更・新しい診断の追加だけなら対象診断とトップのみ）
+  const productionOthers = (list: Diagnosis[]) => (scope.siteAffected ? screenOthers(list) : [])
+  // 商品の最終チェック：対象の診断と、診断ファイル自体が変わった公開中の診断（商品データが変わりうる）。変わっていない既存の診断の商品は確認しない
+  const productTargets = [target, ...diagnoses.filter((d) => d.id !== id && d.enabled && scope.dataChangedIds.has(d.id))]
   const level = scope.full ? '全診断をフル検証' : patternTargets.length > 1 ? '変更された診断のみ全パターン検証' : '対象診断のみ全パターン検証'
   ok(
     `検証範囲：${level}（${patternTargets.map((d) => d.name.replace('診断', '')).join('・')}）` +
-      (scope.uiChanged ? '・画面に影響する変更あり（既存診断の画面も確認）' : ''),
+      (scope.uiChanged ? '・画面に影響する変更あり（既存診断の画面も確認）' : '') +
+      (scope.siteAffected ? '・本番でも既存診断の画面を確認' : '・本番の画面確認は対象診断とトップのみ（既存診断の公開ページは変わらない）') +
+      (productTargets.length > 1 ? `・商品の確認：${productTargets.map((d) => d.name.replace('診断', '')).join('・')}` : ''),
   )
 
   // 対象以外の診断で見つかった画面の問題が「変更前から同じ状態の既存の不具合」かを確かめる（判定条件は scripts/lib/existingDefects.ts）
@@ -569,7 +575,7 @@ async function main() {
   else await checkRegression(target, verifyOnly, scope)
 
   step('商品の最終チェック（画像・楽天URL・価格帯・在庫）')
-  await checkProductLinks(target)
+  for (const d of productTargets) await checkProductLinks(d)
 
   const original = fs.readFileSync(path.join(ROOT, file), 'utf8')
   const restore = () => {
@@ -676,7 +682,8 @@ async function main() {
   if (!verifyOnly) await waitForDeploy(current)
   await checkProductionPages(current, published)
   // 通常は対象診断とトップページを代表幅（スマホ・PC）で確認。画面に影響する変更があるときは全幅＋既存診断も確認する
-  await checkScreens(site.url, current, run, scope.uiChanged ? DEFAULT_WIDTHS : REPRESENTATIVE_WIDTHS, '本番', screenOthers(published), isPreexisting)
+  // 対象の診断は本番でもスマホ〜PCの全幅（320/390/768/1280px）。既存の診断は公開ページが変わりうる場合だけ代表幅で確認
+  await checkScreens(site.url, current, run, DEFAULT_WIDTHS, '本番', productionOthers(published), isPreexisting)
   endStep()
 
   console.log(`\n✅ ${current.name}：${verifyOnly ? '再確認' : '公開'}完了 ${canonicalUrl(diagnosisPath(current.slug))}`)

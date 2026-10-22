@@ -34,11 +34,14 @@ export const SHARED_RESULT_FILES = [
   'src/data/validate.ts', // データの入力チェック
 ]
 
-/** 変わったら全診断をフル検証するファイル（検証の仕組み・ビルドや実行環境の設定） */
+/**
+ * 検証の仕組みだけのファイル（公開サイトのビルド結果には含まれない）。変わったら全診断をフル検証し、ローカルでは全診断の画面も確認するが、
+ * 既存の診断の公開ページ自体は変わらないため、本番での既存診断の画面確認は行わない（siteAffected: false）
+ */
+const TOOLING_PATTERNS = [/^scripts\/lib\//, /^scripts\/checkDiagnoses\.ts$/, /^scripts\/publishDiagnosis\.ts$/]
+
+/** 変わったら全診断をフル検証するファイル（ビルドや実行環境の設定。公開サイトにも影響しうる） */
 const FULL_CHECK_PATTERNS = [
-  /^scripts\/lib\//,
-  /^scripts\/checkDiagnoses\.ts$/,
-  /^scripts\/publishDiagnosis\.ts$/,
   /^package(-lock)?\.json$/,
   /^tsconfig[^/]*\.json$/,
   /^vite\.config\.[^/]+$/,
@@ -83,8 +86,15 @@ export interface ChangeScope {
   unchangedIds: Set<string>
   /** 新しく追加された診断ID */
   newIds: Set<string>
-  /** 画面（共通UI・CSS・文章）に影響する変更があるか */
+  /** 画面（共通UI・CSS・文章）に影響する変更があるか（true ならローカルで既存診断の画面も確認する） */
   uiChanged: boolean
+  /**
+   * 既存の診断の公開ページ（ビルド結果）が変わりうるか。false なら本番での既存診断の画面確認は不要
+   * （検証の仕組みだけの変更・新しい診断の追加だけの場合）。判定できない場合は true
+   */
+  siteAffected: boolean
+  /** 診断ファイル自体が比較先から変わった既存の診断ID（新しい診断は含まない）。商品の最終チェックの対象にする */
+  dataChangedIds: Set<string>
   /** 比較先から変わったファイル */
   changedFiles: string[]
   /** 判定の理由（表示用） */
@@ -200,13 +210,15 @@ export function determineScope(root: string, ref: string, diagnosisIds: string[]
     unchangedIds: new Set(),
     newIds: new Set(),
     uiChanged: false,
+    siteAffected: false,
+    dataChangedIds: new Set(),
     changedFiles: [],
     reasons,
   }
-  const fallback = (reason: string): ChangeScope => {
+  const fallback = (reason: string, siteAffected = true): ChangeScope => {
     reasons.push(`フル検証：${reason}`)
-    // 判定できないときは画面側も含めて最も重い確認にする
-    return { ...scope, full: true, changedIds: new Set(diagnosisIds), unchangedIds: new Set(), uiChanged: true, reasons }
+    // 判定できないときは画面側も含めて最も重い確認にする（本番の既存診断の画面確認を省けるのは、検証の仕組みだけの変更と確認できた場合だけ）
+    return { ...scope, full: true, changedIds: new Set(diagnosisIds), unchangedIds: new Set(), uiChanged: true, siteAffected, reasons }
   }
 
   // 変更ファイル（比較先との差分＋git 管理外の新規ファイル）
@@ -236,6 +248,8 @@ export function determineScope(root: string, ref: string, diagnosisIds: string[]
     const baseIds = diagnosisIdsIn(readBase(f) ?? '')
     if ((baseIds[0] ?? null) !== (idOfFile.get(f) ?? null) || baseIds.length > 1) return fallback(`${f} の診断IDが比較先と一致しません`)
   }
+  // 診断ファイル自体が変わった既存の診断（商品データの確認対象）
+  for (const f of baseDiagFiles) if (changedFiles.includes(f) && idOfFile.has(f)) scope.dataChangedIds.add(idOfFile.get(f)!)
   const fileIds = [...idOfFile.values()]
   if (new Set(fileIds).size !== fileIds.length || fileIds.length !== diagnosisIds.length || diagnosisIds.some((i) => !fileIds.includes(i))) {
     return fallback('診断データに登録された診断と診断ファイルの対応が取れません')
@@ -282,17 +296,25 @@ export function determineScope(root: string, ref: string, diagnosisIds: string[]
     }
 
     // 残りの変更ファイルを分類
+    const tooling: string[] = []
     for (const f of changedFiles) {
       const isUi = UI_PATTERNS.some((re) => re.test(f))
       if (isUi) scope.uiChanged = true
       if (explained.has(f)) continue
-      if (FULL_CHECK_PATTERNS.some((re) => re.test(f))) return fallback(`検証の仕組み・ビルド設定の変更（${f}）`)
+      if (TOOLING_PATTERNS.some((re) => re.test(f))) {
+        tooling.push(f)
+        continue
+      }
+      if (FULL_CHECK_PATTERNS.some((re) => re.test(f))) return fallback(`ビルド設定の変更（${f}）`)
       if (/^src\/(data|engine|types)\//.test(f)) return fallback(`診断結果に関わる場所の、依存関係が不明なファイル（${f}）`)
       if (isUi) continue
       if (NO_EFFECT_PATTERNS.some((re) => re.test(f))) continue
       return fallback(`判定ルールにないファイルの変更（${f}）`)
     }
     if (scope.uiChanged) reasons.push(`画面・文章の変更：${changedFiles.filter((f) => UI_PATTERNS.some((re) => re.test(f))).join(', ')}`)
+    // 既存の診断の公開ページが変わりうるのは、画面・文章の変更か、既存の診断の結果に関わる変更があるときだけ
+    scope.siteAffected = scope.uiChanged || [...scope.changedIds].some((x) => !scope.newIds.has(x))
+    if (tooling.length) return fallback(`検証の仕組みの変更（${tooling.join(', ')}）`, scope.siteAffected)
   } catch (e) {
     if (e instanceof UnknownDependency) return fallback(`依存関係が不明（${e.message}）`)
     throw e

@@ -377,6 +377,8 @@ npm run diagnosis:ship -- humidifier --message "Publish …"         # 公開ま
 | 画面・CSS・文章だけ（`src/components`・`src/pages`・`src/lib`・`src/config`・CSS・`public`・`index.html`・`scripts/seoPlugin.ts`） | 再計算なし（build / lint / check のみ） | 公開中の全診断を 390 / 1280px（本番の対象診断は 320〜1280px の4幅） |
 | 説明文書・楽天の検索ツール（`*.md`・`docs/`・`scripts/rakuten/`） | 再計算なし | 対象診断＋トップ |
 
+本番の画面確認は、対象の診断を常に 320 / 390 / 768 / 1280px で確認し、既存の診断は「既存の診断の公開ページが変わりうる変更」（画面・文章・共通の計算部分・既存の診断データ・ビルド設定・判定できない変更）があるときだけ確認します。検証の仕組み（`scripts/lib` など）だけの変更や新しい診断の追加だけでは、既存の診断の公開ページは変わらないため、本番での既存診断の画面確認は行いません（ローカルでは従来どおり確認します）。商品の最終チェック（画像・リンク・価格帯・在庫）は、対象の診断と、診断ファイル自体が変わった公開中の診断だけを確認します。`--verify` も同じ判定で、変更のない公開済みの診断なら高速に確認できます（全体を確認したいときだけ `--full`）。
+
 次の場合は必ず全診断のフル検証（画面確認も全診断）にします：変更範囲を判定できない／依存関係を解析できない（外部パッケージ・動的 import など）／共通の計算部分・検証の仕組み（`scripts/lib`・`scripts/checkDiagnoses.ts`・`scripts/publishDiagnosis.ts`）・ビルド設定（`package.json`・`tsconfig`・`vite.config.ts`・`eslint.config.js`）の変更／判定ルールにないファイルの変更／診断ファイルの削除や診断IDの不一致／`index.ts` に新しい診断の追加以外の変更。
 
 #### dry-run の結果の再利用
