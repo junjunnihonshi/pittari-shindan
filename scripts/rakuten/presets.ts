@@ -630,4 +630,17 @@ export const presets: Record<string, RakutenPreset> = {
     priceThresholds: [4500, 7000, 12000, 20000],
     attributeKeys: ['portability', 'quietness', 'comfort', 'numpad', 'multiDevice', 'connectivity', 'mechanical', 'lowProfile', 'backlight', 'battery', 'value', 'support'],
   },
+  webcam: {
+    category: 'webcam',
+    // 採用機種は指示書で確定済み。型番の確認は --keyword "メーカー 型番" で行う
+    keywords: ['Webカメラ', 'ウェブカメラ フルHD', 'Webカメラ 4K', 'Webカメラ オートフォーカス'],
+    ngKeyword: '中古 整備済み 再生品 カバー 三脚のみ ライト',
+    sort: '-reviewCount',
+    hits: 20,
+    minPrice: 1500,
+    maxPerShop: 3,
+    // webcam の priceLabels（4,000 / 7,000 / 12,000 / 20,000円）と同じ区分
+    priceThresholds: [4000, 7000, 12000, 20000],
+    attributeKeys: ['resolution', 'smoothness', 'focus', 'lowlight', 'fieldOfView', 'microphone', 'privacy', 'framing', 'portability', 'mounting', 'value', 'support'],
+  },
 }
