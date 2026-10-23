@@ -669,4 +669,17 @@ export const presets: Record<string, RakutenPreset> = {
     priceThresholds: [50000, 80000, 120000, 160000],
     attributeKeys: ['capacity', 'readSpeed', 'writeSpeed', 'durability', 'portability', 'connectivity', 'deviceCompatibility', 'security', 'value', 'warranty', 'creative', 'gaming'],
   },
+  'usb-c-hub': {
+    category: 'usb-c-hub',
+    // 採用機種は指示書で確定済み。型番の確認は --keyword "型番" で行う（色・セット違いに注意）
+    keywords: ['USB-Cハブ', 'ドッキングステーション USB-C', 'USB-Cハブ HDMI', 'USB-Cハブ PD'],
+    ngKeyword: '中古 整備済み 再生品 ケーブルのみ 変換ケーブル 充電器のみ 並行輸入',
+    sort: '-reviewCount',
+    hits: 20,
+    minPrice: 1500,
+    maxPerShop: 3,
+    // usb-c-hub の priceLabels（4,500 / 7,000 / 10,000 / 16,000円）と同じ区分
+    priceThresholds: [4500, 7000, 10000, 16000],
+    attributeKeys: ['hdmiQuality', 'dualDisplay', 'usbAPorts', 'usbCData', 'transferSpeed', 'wiredLan', 'cardReader', 'pdCharging', 'portability', 'workstation', 'value', 'support'],
+  },
 }

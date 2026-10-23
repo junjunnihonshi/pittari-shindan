@@ -1,0 +1,2020 @@
+{
+  "id": "usb-c-hub",
+  "enabled": false,
+  "title": "USB-Cハブ・ドッキングステーション診断",
+  "itemName": "USB-Cハブ",
+  "group": "digital",
+  "icon": "🔌",
+  "cardDescription": "用途、モニター接続、USB端子、転送・給電、必須機能、使い勝手、予算から、あなたに合うUSB-Cハブを診断。",
+  "description": "ノートパソコンのUSB-C端子を増やせるUSB-Cハブ。HDMIでモニターにつなぐもの、USB機器を増やすもの、LANやSDカードに対応するものなど、製品によって使える機能が異なります。7つの質問から必要な機能を整理し、自分に合うモデルを探しましょう。",
+  "searchKeywords": [
+    "USB-Cハブ 診断",
+    "USB-Cハブ おすすめ",
+    "USBハブ 比較",
+    "ドッキングステーション おすすめ",
+    "USB-C HDMI 4K60Hz",
+    "USB-Cハブ PD 100W",
+    "USB-Cハブ LAN",
+    "USB-Cハブ SDカード",
+    "USB-Cハブ 10Gbps",
+    "MacBook USB-Cハブ",
+    "Windows ドッキングステーション",
+    "USB-Cハブ 選び方"
+  ],
+  "seo": {
+    "title": "USB-Cハブの選び方診断｜HDMI・給電・USB端子から7問でおすすめを比較",
+    "description": "USB-Cハブを7問で診断。HDMI映像出力、USB-A・USB-Cポート、USB PD給電、有線LAN、SDカード、転送速度、予算を比較して、用途に合うモデルを探せます。"
+  },
+  "priceLabels": {
+    "1": "〜4,500円",
+    "2": "4,501〜7,000円",
+    "3": "7,001〜10,000円",
+    "4": "10,001〜16,000円",
+    "5": "16,001円〜"
+  },
+  "questions": [
+    {
+      "id": "usage",
+      "text": "主にどんな用途で使いますか？",
+      "shortLabel": "用途",
+      "weight": 10,
+      "options": [
+        {
+          "id": "office",
+          "label": "仕事・事務作業",
+          "summary": "仕事・事務作業",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "usbAPorts",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "workstation",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 4
+            }
+          ]
+        },
+        {
+          "id": "travel",
+          "label": "出張・持ち運び",
+          "summary": "出張・持ち運び",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "portability",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 2
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 3
+            }
+          ]
+        },
+        {
+          "id": "creator",
+          "label": "写真・動画データの移動",
+          "summary": "写真・動画データの移動",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "transferSpeed",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "atLeast",
+              "attr": "usbCData",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "cardReader",
+              "value": 5,
+              "weight": 2
+            }
+          ]
+        },
+        {
+          "id": "remote",
+          "label": "在宅勤務・オンライン会議",
+          "summary": "在宅勤務・オンライン会議",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "wiredLan",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "pdCharging",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "workstation",
+              "value": 5,
+              "weight": 2
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 2
+            }
+          ]
+        },
+        {
+          "id": "multimonitor",
+          "label": "複数モニターのあるデスク",
+          "summary": "複数モニターのあるデスク",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "dualDisplay",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "atLeast",
+              "attr": "hdmiQuality",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "display",
+      "text": "モニターとの接続は必要ですか？",
+      "shortLabel": "モニター接続",
+      "weight": 6.5,
+      "help": "映像出力には、PC側のUSB-C端子がDisplayPort Alternate Modeなどに対応している必要があります。HDMIが2口あっても、macOSやPCによっては2台に別々の画面を表示できない場合があります。",
+      "options": [
+        {
+          "id": "none",
+          "label": "HDMI出力は特に必要ない",
+          "summary": "HDMI出力は不要",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 3.5
+            }
+          ]
+        },
+        {
+          "id": "hdmi",
+          "label": "HDMI端子が1口以上必要",
+          "summary": "HDMI端子が1口以上",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "hdmiQuality",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "equals",
+              "attr": "hdmiAtLeast1",
+              "value": true,
+              "weight": 3.5
+            }
+          ],
+          "eligibility": {
+            "attr": "hdmiAtLeast1",
+            "value": true,
+            "notice": "HDMI端子を1口以上備えた機種からおすすめを表示しています。"
+          }
+        },
+        {
+          "id": "fourK60",
+          "label": "HDMIで4K/60Hz出力できることが必須",
+          "summary": "HDMIで4K/60Hz出力（必須）",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "hdmiQuality",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "equals",
+              "attr": "hdmi4k60",
+              "value": true,
+              "weight": 1.5
+            }
+          ],
+          "eligibility": {
+            "attr": "hdmi4k60",
+            "value": true,
+            "notice": "HDMIで4K/60Hz出力に対応する機種からおすすめを表示しています。PC・ケーブル・モニター側の対応も必要です。"
+          }
+        },
+        {
+          "id": "dualHDMI",
+          "label": "HDMI端子が2口以上必要",
+          "summary": "HDMI端子が2口以上",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "dualDisplay",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "equals",
+              "attr": "hdmiAtLeast2",
+              "value": true,
+              "weight": 1.5
+            }
+          ],
+          "eligibility": {
+            "attr": "hdmiAtLeast2",
+            "value": true,
+            "notice": "HDMI端子を2口以上備えた機種からおすすめを表示しています。2台に別々の画面を表示できるかはPC・OSの対応によります。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "usb",
+      "text": "増やしたいUSB端子は？",
+      "shortLabel": "USB端子",
+      "weight": 5,
+      "help": "データ通信用のUSB-Cと、PD充電専用・映像出力用のUSB-Cは別のポートとして数えています。",
+      "options": [
+        {
+          "id": "usbA",
+          "label": "USB-A端子があると便利",
+          "summary": "USB-A端子があると便利",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "usbAPorts",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 2
+            }
+          ]
+        },
+        {
+          "id": "usbA2",
+          "label": "できればUSB-A端子が2口以上ほしい",
+          "summary": "USB-A端子が2口以上ほしい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "usbAPorts",
+              "value": 5,
+              "weight": 5
+            }
+          ]
+        },
+        {
+          "id": "usbCdata",
+          "label": "データ通信用USB-C端子を増やしたい",
+          "summary": "データ通信用USB-C端子を増やしたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "usbCData",
+              "value": 5,
+              "weight": 5
+            }
+          ]
+        },
+        {
+          "id": "either",
+          "label": "どちらでもよい",
+          "summary": "USB端子はどちらでもよい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transfer",
+      "text": "データ転送や給電で重視することは？",
+      "shortLabel": "転送・給電",
+      "weight": 7,
+      "help": "USBの転送速度は規格上の最大値で、PC・ケーブル・接続機器・同時使用の状況によって変わります。",
+      "options": [
+        {
+          "id": "standard",
+          "label": "USBメモリやマウスをつなげれば十分",
+          "summary": "USBメモリやマウスがつなげれば十分",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 4
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 3
+            }
+          ]
+        },
+        {
+          "id": "fast",
+          "label": "10Gbps級の高速転送ができるとよい",
+          "summary": "10Gbps級の高速転送",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "transferSpeed",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 2
+            }
+          ]
+        },
+        {
+          "id": "charging",
+          "label": "PCを充電しながら使いたい",
+          "summary": "PCを充電しながら使いたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "pdCharging",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 2
+            }
+          ]
+        },
+        {
+          "id": "both",
+          "label": "高速データ転送と給電の両方を重視",
+          "summary": "高速データ転送と給電の両方",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "transferSpeed",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "pdCharging",
+              "value": 5,
+              "weight": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "feature",
+      "text": "絶対に必要な追加機能は？",
+      "shortLabel": "必須機能",
+      "weight": 11.5,
+      "help": "PD給電はPCへの実際の最大出力（ハブ本体の消費を差し引いた値）で判定します。USB PD対応の充電器・ケーブルは別売りです。",
+      "options": [
+        {
+          "id": "lanRequired",
+          "label": "有線LANポートが必要",
+          "summary": "有線LANポート（必須）",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "wiredLan",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "equals",
+              "attr": "wiredLanSupported",
+              "value": true,
+              "weight": 6.5
+            }
+          ],
+          "eligibility": {
+            "attr": "wiredLanSupported",
+            "value": true,
+            "notice": "有線LAN（RJ45）ポートを備えた機種からおすすめを表示しています。"
+          }
+        },
+        {
+          "id": "sdRequired",
+          "label": "SD・microSDカードリーダーが必要",
+          "summary": "SDとmicroSDの両方のスロット（必須）",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "cardReader",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "equals",
+              "attr": "sdAndMicroSdSupported",
+              "value": true,
+              "weight": 2.5
+            },
+            {
+              "type": "equals",
+              "attr": "sdAndMicroSdSupported",
+              "value": true,
+              "weight": 4.0
+            }
+          ],
+          "eligibility": {
+            "attr": "sdAndMicroSdSupported",
+            "value": true,
+            "notice": "SDとmicroSDの両方のスロットを備えた機種からおすすめを表示しています。"
+          }
+        },
+        {
+          "id": "pdRequired",
+          "label": "PCへ85W以上のPDパススルー給電が必要",
+          "summary": "PCへ85W以上のPD給電（必須）",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "pdCharging",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "equals",
+              "attr": "pdHostOutputAtLeast85W",
+              "value": true,
+              "weight": 6.5
+            }
+          ],
+          "eligibility": {
+            "attr": "pdHostOutputAtLeast85W",
+            "value": true,
+            "notice": "PCへの最大給電が85W以上と公式に確認できる機種からおすすめを表示しています。PC側のPD充電対応と、別売りの充電器・ケーブルが必要です。"
+          }
+        },
+        {
+          "id": "none",
+          "label": "特に必須の追加機能はない",
+          "summary": "必須の追加機能はない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 8.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "style",
+      "text": "持ち運びや使い勝手で重視することは？",
+      "shortLabel": "使い勝手",
+      "weight": 5,
+      "options": [
+        {
+          "id": "compact",
+          "label": "小型・軽量",
+          "summary": "小型・軽量",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "portability",
+              "value": 5,
+              "weight": 5
+            }
+          ]
+        },
+        {
+          "id": "desk",
+          "label": "ポート数が多くデスクに置きやすい",
+          "summary": "ポート数が多くデスクに置きやすい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "workstation",
+              "value": 5,
+              "weight": 5
+            }
+          ]
+        },
+        {
+          "id": "reliability",
+          "label": "メーカー保証・サポート",
+          "summary": "メーカー保証・サポート",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "support",
+              "value": 5,
+              "weight": 5
+            }
+          ]
+        },
+        {
+          "id": "allround",
+          "label": "機能と価格のバランス",
+          "summary": "機能と価格のバランス",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "budget",
+      "text": "予算はいくらですか？",
+      "shortLabel": "予算",
+      "weight": 8.0,
+      "help": "予算は税込の購入価格（送料込み）で判定します。",
+      "options": [
+        {
+          "id": "b1",
+          "label": "4,500円まで",
+          "summary": "予算4,500円まで",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "equals",
+              "attr": "priceTierAtMost1",
+              "value": true,
+              "weight": 2.5
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 0.5
+            }
+          ],
+          "maxPriceRange": 1
+        },
+        {
+          "id": "b2",
+          "label": "7,000円まで",
+          "summary": "予算7,000円まで",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 4
+            },
+            {
+              "type": "equals",
+              "attr": "priceTierAtMost2",
+              "value": true,
+              "weight": 4.0
+            }
+          ],
+          "maxPriceRange": 2
+        },
+        {
+          "id": "b3",
+          "label": "10,000円まで",
+          "summary": "予算10,000円まで",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "equals",
+              "attr": "priceTierAtMost3",
+              "value": true,
+              "weight": 3.5
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 1.5
+            }
+          ],
+          "maxPriceRange": 3
+        },
+        {
+          "id": "b4",
+          "label": "16,000円まで",
+          "summary": "予算16,000円まで",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 2
+            },
+            {
+              "type": "equals",
+              "attr": "priceTierAtMost4",
+              "value": true,
+              "weight": 2.0
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 4.0
+            }
+          ],
+          "maxPriceRange": 4
+        },
+        {
+          "id": "any",
+          "label": "上限なし",
+          "summary": "予算の上限なし",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "workstation",
+              "value": 5,
+              "weight": 1
+            },
+            {
+              "type": "atLeast",
+              "attr": "support",
+              "value": 5,
+              "weight": 1
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 6.0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "usb-c-hub-101",
+      "name": "Anker USB-C ハブ (5-in-1, 4K, HDMI)",
+      "description": "USB-A×3とHDMIを備えた手頃なハブ。PCへ最大90Wのパススルー給電に対応します。",
+      "priceRange": 1,
+      "features": [
+        "HDMI 4K/30Hz・USB-A×3（5Gbps）",
+        "PD入力最大100W・PCへ最大90W",
+        "約56g・ケーブル約25cm"
+      ],
+      "pros": [
+        "価格が手頃",
+        "USB-Aが3口"
+      ],
+      "cons": [
+        "HDMIは4K/30Hzまで",
+        "データ用USB-Cはない"
+      ],
+      "recommendFor": "USB-A機器を手頃に増やしたい人",
+      "caution": "確認時の価格は楽天市場のアンカー・ダイレクトで2,290円（税込・送料込）（10/27までのセール価格。通常価格は2,790円）、AmazonのAnkerDirectで2,790円（送料は注文条件により異なる場合があります）です。価格は変動するため、購入前に販売ページでご確認ください。ポート構成：HDMI×1（最大4K/30Hz）・USB-A×3（5Gbps×3）。映像出力には、PC側のUSB-C端子がDisplayPort Alternate Modeなどの映像出力に対応している必要があります。PD給電は入力最大100W・PCへ最大90Wで、USB PD対応の充電器とケーブルは別売りです。PC側がUSB-CからのPD充電に対応している必要があります。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0DLWDJJQ8/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rr09o.d8zue50e.g00rr09o.d8zuf491/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Fa8357%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fanker%2Fi%2F10002225%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/anker/cabinet/images/anker_2/a8357_1.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "hdmiQuality": 2,
+        "dualDisplay": 1,
+        "usbAPorts": 5,
+        "usbCData": 1,
+        "transferSpeed": 2,
+        "wiredLan": 1,
+        "cardReader": 1,
+        "pdCharging": 5,
+        "portability": 5,
+        "workstation": 3,
+        "value": 5,
+        "support": 5,
+        "brand": "Anker",
+        "manufacturerModel": "A8357",
+        "exactSku": "A83570A0（グレー）",
+        "hdmiPortCount": 1,
+        "maximumHdmiResolution": "4K",
+        "maximumHdmiRefreshHz": 30,
+        "usbAPortCount": 3,
+        "usbADataPortCount": 3,
+        "usbCDataPortCount": 0,
+        "usbCVideoPortCount": 0,
+        "usbCChargeOnlyPortCount": 1,
+        "maximumUsbDataGbps": 5,
+        "displayPortCount": 0,
+        "vgaPortCount": 0,
+        "ethernetSupported": false,
+        "ethernetMaximumMbps": 0,
+        "sdSlotSupported": false,
+        "microSdSlotSupported": false,
+        "pdPassThroughSupported": true,
+        "pdMaximumInputWatts": 100,
+        "pdMaximumHostOutputWatts": 90,
+        "bundledPowerAdapter": false,
+        "bundledCable": false,
+        "hostConnector": "USB-C（ケーブル一体型）",
+        "supportedOS": "Windows・macOS 12以降・ChromeOS",
+        "macDualExtendedDisplayVerified": false,
+        "weightGrams": 56,
+        "cableLengthCm": 25,
+        "warrantyMonths": 18,
+        "priceYen": 2290,
+        "priceTier": 1,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.ankerjapan.com/products/a8357",
+        "hdmiAtLeast1": true,
+        "hdmi4k60": false,
+        "hdmiAtLeast2": false,
+        "wiredLanSupported": false,
+        "sdAndMicroSdSupported": false,
+        "pdHostOutputAtLeast85W": true,
+        "amazonAsin": "B0DLWDJJQ8",
+        "priceTierAtMost1": true,
+        "priceTierAtMost2": true,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-c-hub-102",
+      "name": "Anker USB-C ハブ (4-in-1, 10Gbps)",
+      "description": "HDMIはなく、10GbpsのデータUSB-C×3と映像出力対応USB-Cを備えたUSB-C中心のハブです。",
+      "priceRange": 1,
+      "features": [
+        "データ用USB-C×3（10Gbps）",
+        "映像出力対応USB-C×1（PD入力兼用・4K/60Hz）",
+        "PD入力最大100W・PCへ最大85W"
+      ],
+      "pros": [
+        "USB-C機器を高速で使える",
+        "小型軽量"
+      ],
+      "cons": [
+        "HDMI端子がない",
+        "USB-A端子がない"
+      ],
+      "recommendFor": "USB-Cの周辺機器を高速でつなぎたい人",
+      "caution": "確認時の価格は楽天市場のアンカー・ダイレクトで3,590円（税込・送料込）（10/27までのセール価格。通常価格は4,490円）、AmazonのAnkerDirectで4,490円（税込・送料込）です。価格は変動するため、購入前に販売ページでご確認ください。ポート構成：データ用USB-C×3（10Gbps）・映像出力対応USB-C×1。映像出力には、PC側のUSB-C端子がDisplayPort Alternate Modeなどの映像出力に対応している必要があります。PD給電は入力最大100W・PCへ最大85Wで、USB PD対応の充電器とケーブルは別売りです。PC側がUSB-CからのPD充電に対応している必要があります。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0CTQGM5ZN/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rr09o.d8zue50e.g00rr09o.d8zuf491/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Fa8340%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fanker%2Fi%2F10001963%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/anker/cabinet/images/09779934/a8340_1.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "hdmiQuality": 3,
+        "dualDisplay": 1,
+        "usbAPorts": 1,
+        "usbCData": 5,
+        "transferSpeed": 5,
+        "wiredLan": 1,
+        "cardReader": 1,
+        "pdCharging": 4,
+        "portability": 5,
+        "workstation": 3,
+        "value": 4,
+        "support": 5,
+        "brand": "Anker",
+        "manufacturerModel": "A8340",
+        "exactSku": "A8340（楽天：A8340HA1 ブラック）",
+        "hdmiPortCount": 0,
+        "maximumHdmiResolution": "—",
+        "maximumHdmiRefreshHz": 0,
+        "usbAPortCount": 0,
+        "usbADataPortCount": 0,
+        "usbCDataPortCount": 3,
+        "usbCVideoPortCount": 1,
+        "usbCChargeOnlyPortCount": 0,
+        "maximumUsbDataGbps": 10,
+        "displayPortCount": 0,
+        "vgaPortCount": 0,
+        "ethernetSupported": false,
+        "ethernetMaximumMbps": 0,
+        "sdSlotSupported": false,
+        "microSdSlotSupported": false,
+        "pdPassThroughSupported": true,
+        "pdMaximumInputWatts": 100,
+        "pdMaximumHostOutputWatts": 85,
+        "bundledPowerAdapter": false,
+        "bundledCable": false,
+        "hostConnector": "USB-C（ケーブル一体型）",
+        "supportedOS": "Windows・macOS",
+        "macDualExtendedDisplayVerified": false,
+        "weightGrams": 53,
+        "cableLengthCm": "unknown",
+        "warrantyMonths": 18,
+        "priceYen": 3590,
+        "priceTier": 1,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.ankerjapan.com/products/a8340",
+        "hdmiAtLeast1": false,
+        "hdmi4k60": false,
+        "hdmiAtLeast2": false,
+        "wiredLanSupported": false,
+        "sdAndMicroSdSupported": false,
+        "pdHostOutputAtLeast85W": true,
+        "amazonAsin": "B0CTQGM5ZN",
+        "priceTierAtMost1": true,
+        "priceTierAtMost2": true,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-c-hub-103",
+      "name": "Anker PowerExpand 8-in-1 USB-C PD 10Gbps データ ハブ",
+      "description": "HDMI 4K/60Hz・有線LAN・SD/microSD・10GbpsのUSBを備えた8in1ハブです。",
+      "priceRange": 2,
+      "features": [
+        "HDMI 4K/60Hz・USB-A×2／データ用USB-C×1（10Gbps）",
+        "有線LAN（1Gbps）・SD／microSD",
+        "PD入力最大100W・PCへ最大85W"
+      ],
+      "pros": [
+        "機能が一通りそろう",
+        "10Gbpsの高速転送"
+      ],
+      "cons": [
+        "約109gとやや重め"
+      ],
+      "recommendFor": "仕事用に機能をまとめたい人",
+      "caution": "確認時の価格は楽天市場のアンカー・ダイレクトで5,190円（税込・送料込）（10/27までのセール価格。通常価格は6,990円）、AmazonのAnkerDirectで6,990円（税込・送料込）です。価格は変動するため、購入前に販売ページでご確認ください。ポート構成：HDMI×1（最大4K/60Hz）・USB-A×2（10Gbps×2）・データ用USB-C×1（10Gbps）・有線LAN（1Gbps）・SD・microSD。映像出力には、PC側のUSB-C端子がDisplayPort Alternate Modeなどの映像出力に対応している必要があります。PD給電は入力最大100W・PCへ最大85Wで、USB PD対応の充電器とケーブルは別売りです。PC側がUSB-CからのPD充電に対応している必要があります。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B087TB7YM7/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rr09o.d8zue50e.g00rr09o.d8zuf491/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Fa8383%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fanker%2Fi%2F10001022%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_gold/anker/for_create_new_product/hub/A8383/A8383_2.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "hdmiQuality": 5,
+        "dualDisplay": 1,
+        "usbAPorts": 4,
+        "usbCData": 4,
+        "transferSpeed": 5,
+        "wiredLan": 5,
+        "cardReader": 5,
+        "pdCharging": 5,
+        "portability": 3,
+        "workstation": 5,
+        "value": 5,
+        "support": 5,
+        "brand": "Anker",
+        "manufacturerModel": "A8383",
+        "exactSku": "A8383NA1（グレー）",
+        "hdmiPortCount": 1,
+        "maximumHdmiResolution": "4K",
+        "maximumHdmiRefreshHz": 60,
+        "usbAPortCount": 2,
+        "usbADataPortCount": 2,
+        "usbCDataPortCount": 1,
+        "usbCVideoPortCount": 0,
+        "usbCChargeOnlyPortCount": 1,
+        "maximumUsbDataGbps": 10,
+        "displayPortCount": 0,
+        "vgaPortCount": 0,
+        "ethernetSupported": true,
+        "ethernetMaximumMbps": 1000,
+        "sdSlotSupported": true,
+        "microSdSlotSupported": true,
+        "pdPassThroughSupported": true,
+        "pdMaximumInputWatts": 100,
+        "pdMaximumHostOutputWatts": 85,
+        "bundledPowerAdapter": false,
+        "bundledCable": false,
+        "hostConnector": "USB-C（ケーブル一体型）",
+        "supportedOS": "Windows・macOS",
+        "macDualExtendedDisplayVerified": false,
+        "weightGrams": 109,
+        "cableLengthCm": "unknown",
+        "warrantyMonths": 18,
+        "priceYen": 5190,
+        "priceTier": 2,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.ankerjapan.com/products/a8383",
+        "hdmiAtLeast1": true,
+        "hdmi4k60": true,
+        "hdmiAtLeast2": false,
+        "wiredLanSupported": true,
+        "sdAndMicroSdSupported": true,
+        "pdHostOutputAtLeast85W": true,
+        "amazonAsin": "B087TB7YM7",
+        "priceTierAtMost1": false,
+        "priceTierAtMost2": true,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-c-hub-104",
+      "name": "Anker 565 USB-C ハブ (11-in-1)",
+      "description": "HDMIとDisplayPortを備えた11in1ハブ。有線LAN・SD/microSD・オーディオ端子も使えます。",
+      "priceRange": 3,
+      "features": [
+        "HDMI×1・DisplayPort×1（各最大4K/60Hz）",
+        "USB-A×3（10Gbps×1・USB 2.0×2）・データ用USB-C×1（10Gbps）",
+        "有線LAN・SD／microSD・PCへ最大85W"
+      ],
+      "pros": [
+        "映像出力端子が2種類",
+        "ポートが多い"
+      ],
+      "cons": [
+        "HDMIは1口（もう1つはDisplayPort）",
+        "Macでは2画面に別々の画面を表示できない"
+      ],
+      "recommendFor": "デスクで多くの機器をつなぎたい人",
+      "caution": "確認時の価格は楽天市場のアンカー・ダイレクトで9,990円（税込・送料込）（10/27までのセール価格。通常価格は12,990円）です。価格は変動するため、購入前に販売ページでご確認ください。ポート構成：HDMI×1（最大4K/60Hz）・DisplayPort×1・USB-A×3（10Gbps×1・USB 2.0×2）・データ用USB-C×1（10Gbps）・有線LAN（1Gbps）・SD・microSD。映像出力には、PC側のUSB-C端子がDisplayPort Alternate Modeなどの映像出力に対応している必要があります。Macでは複数のディスプレイにそれぞれ異なる画面は表示できません（公式）。PD給電は入力最大100W・PCへ最大85Wで、USB PD対応の充電器とケーブルは別売りです。PC側がUSB-CからのPD充電に対応している必要があります。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rr09o.d8zue50e.g00rr09o.d8zuf491/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Fa8388%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fanker%2Fi%2F10001181%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_gold/anker/for_create_new_product/hub/A8388/A8388_5.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "hdmiQuality": 5,
+        "dualDisplay": 4,
+        "usbAPorts": 4,
+        "usbCData": 4,
+        "transferSpeed": 5,
+        "wiredLan": 5,
+        "cardReader": 5,
+        "pdCharging": 5,
+        "portability": 2,
+        "workstation": 5,
+        "value": 4,
+        "support": 5,
+        "brand": "Anker",
+        "manufacturerModel": "A8388",
+        "exactSku": "A83880A1（グレー）",
+        "hdmiPortCount": 1,
+        "maximumHdmiResolution": "4K",
+        "maximumHdmiRefreshHz": 60,
+        "usbAPortCount": 3,
+        "usbADataPortCount": 3,
+        "usbCDataPortCount": 1,
+        "usbCVideoPortCount": 0,
+        "usbCChargeOnlyPortCount": 1,
+        "maximumUsbDataGbps": 10,
+        "displayPortCount": 1,
+        "vgaPortCount": 0,
+        "ethernetSupported": true,
+        "ethernetMaximumMbps": 1000,
+        "sdSlotSupported": true,
+        "microSdSlotSupported": true,
+        "pdPassThroughSupported": true,
+        "pdMaximumInputWatts": 100,
+        "pdMaximumHostOutputWatts": 85,
+        "bundledPowerAdapter": false,
+        "bundledCable": false,
+        "hostConnector": "USB-C（ケーブル一体型）",
+        "supportedOS": "Windows 11/10/8・macOS 10.12以降・iPadOS",
+        "macDualExtendedDisplayVerified": false,
+        "weightGrams": 139,
+        "cableLengthCm": "unknown",
+        "warrantyMonths": 18,
+        "priceYen": 9990,
+        "priceTier": 3,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.ankerjapan.com/products/a8388",
+        "hdmiAtLeast1": true,
+        "hdmi4k60": true,
+        "hdmiAtLeast2": false,
+        "wiredLanSupported": true,
+        "sdAndMicroSdSupported": true,
+        "pdHostOutputAtLeast85W": true,
+        "priceTierAtMost1": false,
+        "priceTierAtMost2": false,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-c-hub-105",
+      "name": "Anker Nano USB-C ハブ (8-in-1, Dual Display)",
+      "description": "HDMIを2口備えた8in1ハブ。SD/microSDと10GbpsのUSBにも対応します。",
+      "priceRange": 2,
+      "features": [
+        "HDMI×2（最大4K/60Hz）",
+        "USB-A×2・データ用USB-C×1（10Gbps）・SD／microSD",
+        "PD入力最大100W・PCへ最大85W"
+      ],
+      "pros": [
+        "HDMIが2口",
+        "10Gbpsの高速転送"
+      ],
+      "cons": [
+        "有線LANはない",
+        "2画面の拡張表示はPC・OSの対応による"
+      ],
+      "recommendFor": "2台のモニターをつなぎたい人",
+      "caution": "確認時の価格は楽天市場のアンカー・ダイレクトで4,990円（税込・送料込）（10/27までのセール価格。通常価格は5,990円）、AmazonのAnkerDirectで5,990円（税込・送料込）です。価格は変動するため、購入前に販売ページでご確認ください。ポート構成：HDMI×2（最大4K/60Hz）・USB-A×2（10Gbps×2）・データ用USB-C×1（10Gbps）・SD・microSD。映像出力には、PC側のUSB-C端子がDisplayPort Alternate Modeなどの映像出力に対応している必要があります。HDMIが2口あっても、macOSやPCの仕様によっては2台に別々の画面を表示（拡張）できない場合があります。PD給電は入力最大100W・PCへ最大85Wで、USB PD対応の充電器とケーブルは別売りです。PC側がUSB-CからのPD充電に対応している必要があります。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0GQ41RXKL/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rr09o.d8zue50e.g00rr09o.d8zuf491/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Fa210b%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fanker%2Fi%2F10002635%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/anker/cabinet/listing/product/a210b/a210b_sub_2.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "hdmiQuality": 5,
+        "dualDisplay": 5,
+        "usbAPorts": 4,
+        "usbCData": 4,
+        "transferSpeed": 5,
+        "wiredLan": 1,
+        "cardReader": 5,
+        "pdCharging": 5,
+        "portability": 3,
+        "workstation": 5,
+        "value": 5,
+        "support": 5,
+        "brand": "Anker",
+        "manufacturerModel": "A210B",
+        "exactSku": "A210BNA1",
+        "hdmiPortCount": 2,
+        "maximumHdmiResolution": "4K",
+        "maximumHdmiRefreshHz": 60,
+        "usbAPortCount": 2,
+        "usbADataPortCount": 2,
+        "usbCDataPortCount": 1,
+        "usbCVideoPortCount": 0,
+        "usbCChargeOnlyPortCount": 1,
+        "maximumUsbDataGbps": 10,
+        "displayPortCount": 0,
+        "vgaPortCount": 0,
+        "ethernetSupported": false,
+        "ethernetMaximumMbps": 0,
+        "sdSlotSupported": true,
+        "microSdSlotSupported": true,
+        "pdPassThroughSupported": true,
+        "pdMaximumInputWatts": 100,
+        "pdMaximumHostOutputWatts": 85,
+        "bundledPowerAdapter": false,
+        "bundledCable": false,
+        "hostConnector": "USB-C（ケーブル一体型）",
+        "supportedOS": "unknown",
+        "macDualExtendedDisplayVerified": "unknown",
+        "weightGrams": 109,
+        "cableLengthCm": "unknown",
+        "warrantyMonths": 18,
+        "priceYen": 4990,
+        "priceTier": 2,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.ankerjapan.com/products/a210b",
+        "hdmiAtLeast1": true,
+        "hdmi4k60": true,
+        "hdmiAtLeast2": true,
+        "wiredLanSupported": false,
+        "sdAndMicroSdSupported": true,
+        "pdHostOutputAtLeast85W": true,
+        "amazonAsin": "B0GQ41RXKL",
+        "priceTierAtMost1": false,
+        "priceTierAtMost2": true,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-c-hub-106",
+      "name": "エレコム 3in1ドッキングステーション DST-030BPBK",
+      "description": "HDMI 4K/60Hz・USB-A・USB-Cを備えた約30gの小型3in1ハブです。",
+      "priceRange": 1,
+      "features": [
+        "HDMI 4K/60Hz・USB-A×1（5Gbps）",
+        "USB-C×1（PD給電またはデータ通信）",
+        "PD入力最大100W・PCへ最大92W・約30g"
+      ],
+      "pros": [
+        "とても小さく軽い",
+        "4K/60Hz出力"
+      ],
+      "cons": [
+        "USB-Aは1口",
+        "USB-Cは給電とデータ通信を同時に使えない"
+      ],
+      "recommendFor": "出張でHDMIをつなぎたい人",
+      "caution": "確認時の価格は楽天市場のコジマで3,330円（本体2,780円＋送料550円。合計3,980円未満の注文時）（税込・送料込）です。価格は変動するため、購入前に販売ページでご確認ください。ポート構成：HDMI×1（最大4K/60Hz）・USB-A×1（5Gbps×1）・データ用USB-C×1（5Gbps）。映像出力には、PC側のUSB-C端子がDisplayPort Alternate Modeなどの映像出力に対応している必要があります。USB-A端子は1口です。USB-Cポートは給電とデータ通信を同時には使えません。PD給電は入力最大100W・PCへ最大92Wで、USB PD対応の充電器とケーブルは別売りです。PC側がUSB-CからのPD充電に対応している必要があります。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4549550432283%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11724021%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001782/4549550432283_1.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "hdmiQuality": 5,
+        "dualDisplay": 1,
+        "usbAPorts": 1,
+        "usbCData": 3,
+        "transferSpeed": 2,
+        "wiredLan": 1,
+        "cardReader": 1,
+        "pdCharging": 4,
+        "portability": 5,
+        "workstation": 2,
+        "value": 4,
+        "support": 4,
+        "brand": "ELECOM",
+        "manufacturerModel": "DST-030BPBK",
+        "exactSku": "DST-030BPBK（ブラック）",
+        "hdmiPortCount": 1,
+        "maximumHdmiResolution": "4K",
+        "maximumHdmiRefreshHz": 60,
+        "usbAPortCount": 1,
+        "usbADataPortCount": 1,
+        "usbCDataPortCount": 1,
+        "usbCVideoPortCount": 0,
+        "usbCChargeOnlyPortCount": 0,
+        "maximumUsbDataGbps": 5,
+        "displayPortCount": 0,
+        "vgaPortCount": 0,
+        "ethernetSupported": false,
+        "ethernetMaximumMbps": 0,
+        "sdSlotSupported": false,
+        "microSdSlotSupported": false,
+        "pdPassThroughSupported": true,
+        "pdMaximumInputWatts": 100,
+        "pdMaximumHostOutputWatts": 92,
+        "bundledPowerAdapter": false,
+        "bundledCable": false,
+        "hostConnector": "USB-C（ケーブル一体型）",
+        "supportedOS": "Windows 11/10・macOS Tahoe 26・iPadOS 26",
+        "macDualExtendedDisplayVerified": false,
+        "weightGrams": 30,
+        "cableLengthCm": 20,
+        "warrantyMonths": 12,
+        "priceYen": 3330,
+        "priceTier": 1,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.elecom.co.jp/products/DST-030BPBK.html",
+        "hdmiAtLeast1": true,
+        "hdmi4k60": true,
+        "hdmiAtLeast2": false,
+        "wiredLanSupported": false,
+        "sdAndMicroSdSupported": false,
+        "pdHostOutputAtLeast85W": true,
+        "priceTierAtMost1": true,
+        "priceTierAtMost2": true,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-c-hub-107",
+      "name": "エレコム 4in1ドッキングステーション DST-040BPSV",
+      "description": "HDMI 4K/60HzとUSB-A×2、PD充電ポートを備えたスリムな4in1ハブです。",
+      "priceRange": 1,
+      "features": [
+        "HDMI 4K/60Hz・USB-A×2（5Gbps）",
+        "PD充電専用USB-C×1",
+        "PD入力最大100W・PCへ最大92W・約40.5g"
+      ],
+      "pros": [
+        "手頃で4K/60Hz",
+        "小型"
+      ],
+      "cons": [
+        "データ用USB-Cはない"
+      ],
+      "recommendFor": "手頃に4K/60Hzでつなぎたい人",
+      "caution": "確認時の価格は楽天市場のコジマで3,291円（本体2,741円＋送料550円。合計3,980円未満の注文時）（税込・送料込）、AmazonのAmazon.co.jpで2,509円（送料は注文条件により異なる場合があります）です。価格は変動するため、購入前に販売ページでご確認ください。ポート構成：HDMI×1（最大4K/60Hz）・USB-A×2（5Gbps×2）。映像出力には、PC側のUSB-C端子がDisplayPort Alternate Modeなどの映像出力に対応している必要があります。PD給電は入力最大100W・PCへ最大92Wで、USB PD対応の充電器とケーブルは別売りです。PC側がUSB-CからのPD充電に対応している必要があります。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0H1QMQD23/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4549550432306%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11723380%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001824/4549550432306_1.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "hdmiQuality": 5,
+        "dualDisplay": 1,
+        "usbAPorts": 4,
+        "usbCData": 1,
+        "transferSpeed": 2,
+        "wiredLan": 1,
+        "cardReader": 1,
+        "pdCharging": 4,
+        "portability": 5,
+        "workstation": 3,
+        "value": 5,
+        "support": 4,
+        "brand": "ELECOM",
+        "manufacturerModel": "DST-040BPSV",
+        "exactSku": "DST-040BPSV（シルバー）",
+        "hdmiPortCount": 1,
+        "maximumHdmiResolution": "4K",
+        "maximumHdmiRefreshHz": 60,
+        "usbAPortCount": 2,
+        "usbADataPortCount": 2,
+        "usbCDataPortCount": 0,
+        "usbCVideoPortCount": 0,
+        "usbCChargeOnlyPortCount": 1,
+        "maximumUsbDataGbps": 5,
+        "displayPortCount": 0,
+        "vgaPortCount": 0,
+        "ethernetSupported": false,
+        "ethernetMaximumMbps": 0,
+        "sdSlotSupported": false,
+        "microSdSlotSupported": false,
+        "pdPassThroughSupported": true,
+        "pdMaximumInputWatts": 100,
+        "pdMaximumHostOutputWatts": 92,
+        "bundledPowerAdapter": false,
+        "bundledCable": false,
+        "hostConnector": "USB-C（ケーブル一体型）",
+        "supportedOS": "Windows 11/10・macOS Tahoe 26・iPadOS 26",
+        "macDualExtendedDisplayVerified": false,
+        "weightGrams": 40.5,
+        "cableLengthCm": 20,
+        "warrantyMonths": 12,
+        "priceYen": 3291,
+        "priceTier": 1,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.elecom.co.jp/products/DST-040BPSV.html",
+        "hdmiAtLeast1": true,
+        "hdmi4k60": true,
+        "hdmiAtLeast2": false,
+        "wiredLanSupported": false,
+        "sdAndMicroSdSupported": false,
+        "pdHostOutputAtLeast85W": true,
+        "amazonAsin": "B0H1QMQD23",
+        "priceTierAtMost1": true,
+        "priceTierAtMost2": true,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-c-hub-108",
+      "name": "エレコム 5in1ドッキングステーション DST-052BPSV",
+      "description": "HDMI 4K/60Hz・USB-A×3・有線LANを備えた5in1ハブ。PD給電ポートはありません。",
+      "priceRange": 1,
+      "features": [
+        "HDMI 4K/60Hz・USB-A×3（5Gbps）",
+        "有線LAN（1Gbps）",
+        "ケーブル約18cm・約51g"
+      ],
+      "pros": [
+        "有線LANが使える",
+        "手頃な価格"
+      ],
+      "cons": [
+        "PCへのPD給電に対応しない"
+      ],
+      "recommendFor": "有線LANを手頃に使いたい人",
+      "caution": "確認時の価格は楽天市場のコジマで4,290円（税込・送料込）です。価格は変動するため、購入前に販売ページでご確認ください。ポート構成：HDMI×1（最大4K/60Hz）・USB-A×3（5Gbps×3）・有線LAN（1Gbps）。映像出力には、PC側のUSB-C端子がDisplayPort Alternate Modeなどの映像出力に対応している必要があります。PCへのPD給電には対応していません。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4549550411004%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11674157%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001637/4549550411004_1.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "hdmiQuality": 5,
+        "dualDisplay": 1,
+        "usbAPorts": 3,
+        "usbCData": 1,
+        "transferSpeed": 2,
+        "wiredLan": 5,
+        "cardReader": 1,
+        "pdCharging": 1,
+        "portability": 4,
+        "workstation": 4,
+        "value": 3,
+        "support": 4,
+        "brand": "ELECOM",
+        "manufacturerModel": "DST-052BPSV",
+        "exactSku": "DST-052BPSV（シルバー）",
+        "hdmiPortCount": 1,
+        "maximumHdmiResolution": "4K",
+        "maximumHdmiRefreshHz": 60,
+        "usbAPortCount": 3,
+        "usbADataPortCount": 3,
+        "usbCDataPortCount": 0,
+        "usbCVideoPortCount": 0,
+        "usbCChargeOnlyPortCount": 0,
+        "maximumUsbDataGbps": 5,
+        "displayPortCount": 0,
+        "vgaPortCount": 0,
+        "ethernetSupported": true,
+        "ethernetMaximumMbps": 1000,
+        "sdSlotSupported": false,
+        "microSdSlotSupported": false,
+        "pdPassThroughSupported": false,
+        "pdMaximumInputWatts": 0,
+        "pdMaximumHostOutputWatts": 0,
+        "bundledPowerAdapter": false,
+        "bundledCable": false,
+        "hostConnector": "USB-C（ケーブル一体型）",
+        "supportedOS": "Windows・macOS Sequoia 15",
+        "macDualExtendedDisplayVerified": false,
+        "weightGrams": 51,
+        "cableLengthCm": 18,
+        "warrantyMonths": 12,
+        "priceYen": 4290,
+        "priceTier": 1,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.elecom.co.jp/products/DST-052BPSV.html",
+        "hdmiAtLeast1": true,
+        "hdmi4k60": true,
+        "hdmiAtLeast2": false,
+        "wiredLanSupported": true,
+        "sdAndMicroSdSupported": false,
+        "pdHostOutputAtLeast85W": false,
+        "priceTierAtMost1": true,
+        "priceTierAtMost2": true,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-c-hub-109",
+      "name": "エレコム 7in1ドッキングステーション DST-N070BPBK",
+      "description": "マグネットでスチール製デスクに固定できる7in1ハブ。SD/microSDと10GbpsのUSBを備えます。",
+      "priceRange": 3,
+      "features": [
+        "HDMI 4K/60Hz・USB-A×2／データ用USB-C×1（10Gbps）",
+        "SD・microSD（同時使用可）",
+        "PD入力最大100W・PCへ最大88W"
+      ],
+      "pros": [
+        "10Gbpsの高速転送",
+        "カードリーダー付き"
+      ],
+      "cons": [
+        "有線LANはない"
+      ],
+      "recommendFor": "写真データを取り込みながら作業したい人",
+      "caution": "確認時の価格は楽天市場の楽天ビックで7,315円（税込・送料込）です。価格は変動するため、購入前に販売ページでご確認ください。ポート構成：HDMI×1（最大4K/60Hz）・USB-A×2（10Gbps×2）・データ用USB-C×1（10Gbps）・SD・microSD。映像出力には、PC側のUSB-C端子がDisplayPort Alternate Modeなどの映像出力に対応している必要があります。PD給電は入力最大100W・PCへ最大88Wで、USB PD対応の充電器とケーブルは別売りです。PC側がUSB-CからのPD充電に対応している必要があります。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldo.d8zue716.g00r7ldo.d8zuf884/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4549550435444%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F15552574%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/18093/00000015313832_a01.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "hdmiQuality": 5,
+        "dualDisplay": 1,
+        "usbAPorts": 3,
+        "usbCData": 2,
+        "transferSpeed": 5,
+        "wiredLan": 1,
+        "cardReader": 5,
+        "pdCharging": 4,
+        "portability": 4,
+        "workstation": 4,
+        "value": 3,
+        "support": 4,
+        "brand": "ELECOM",
+        "manufacturerModel": "DST-N070BPBK",
+        "exactSku": "DST-N070BPBK（ブラック）",
+        "hdmiPortCount": 1,
+        "maximumHdmiResolution": "4K",
+        "maximumHdmiRefreshHz": 60,
+        "usbAPortCount": 2,
+        "usbADataPortCount": 2,
+        "usbCDataPortCount": 1,
+        "usbCVideoPortCount": 0,
+        "usbCChargeOnlyPortCount": 1,
+        "maximumUsbDataGbps": 10,
+        "displayPortCount": 0,
+        "vgaPortCount": 0,
+        "ethernetSupported": false,
+        "ethernetMaximumMbps": 0,
+        "sdSlotSupported": true,
+        "microSdSlotSupported": true,
+        "pdPassThroughSupported": true,
+        "pdMaximumInputWatts": 100,
+        "pdMaximumHostOutputWatts": 88,
+        "bundledPowerAdapter": false,
+        "bundledCable": false,
+        "hostConnector": "USB-C（ケーブル一体型）",
+        "supportedOS": "Windows・macOS Tahoe 26",
+        "macDualExtendedDisplayVerified": false,
+        "weightGrams": 94,
+        "cableLengthCm": 40,
+        "warrantyMonths": 12,
+        "priceYen": 7315,
+        "priceTier": 3,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.elecom.co.jp/products/DST-N070BPBK.html",
+        "hdmiAtLeast1": true,
+        "hdmi4k60": true,
+        "hdmiAtLeast2": false,
+        "wiredLanSupported": false,
+        "sdAndMicroSdSupported": true,
+        "pdHostOutputAtLeast85W": true,
+        "priceTierAtMost1": false,
+        "priceTierAtMost2": false,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-c-hub-110",
+      "name": "エレコム 10in1ドッキングステーション DST-101BPSV",
+      "description": "HDMI・VGA・有線LAN・SD/microSD・オーディオ端子を備えた10in1ハブです。",
+      "priceRange": 3,
+      "features": [
+        "HDMI（最大4K/30Hz）・VGA（最大1080p）",
+        "USB-A×3（5Gbps×2・USB 2.0×1）・有線LAN",
+        "SD・microSD・PCへ最大90W"
+      ],
+      "pros": [
+        "VGAのプロジェクターにも対応",
+        "ポートが多い"
+      ],
+      "cons": [
+        "HDMIは4K/30Hzまで",
+        "HDMIとVGAの同時使用時は1080pまで"
+      ],
+      "recommendFor": "会議室のプロジェクターにもつなぎたい人",
+      "caution": "確認時の価格は楽天市場のコジマで9,172円（税込・送料込）です。価格は変動するため、購入前に販売ページでご確認ください。ポート構成：HDMI×1（最大4K/30Hz）・VGA×1・USB-A×3（5Gbps×2・USB 2.0×1）・有線LAN（1Gbps）・SD・microSD。映像出力には、PC側のUSB-C端子がDisplayPort Alternate Modeなどの映像出力に対応している必要があります。PD給電は入力最大100W・PCへ最大90Wで、USB PD対応の充電器とケーブルは別売りです。PC側がUSB-CからのPD充電に対応している必要があります。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4549550411011%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11670471%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001632/4549550411011_1.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "hdmiQuality": 2,
+        "dualDisplay": 2,
+        "usbAPorts": 4,
+        "usbCData": 3,
+        "transferSpeed": 2,
+        "wiredLan": 1,
+        "cardReader": 3,
+        "pdCharging": 4,
+        "portability": 2,
+        "workstation": 4,
+        "value": 3,
+        "support": 4,
+        "brand": "ELECOM",
+        "manufacturerModel": "DST-101BPSV",
+        "exactSku": "DST-101BPSV（シルバー）",
+        "hdmiPortCount": 1,
+        "maximumHdmiResolution": "4K",
+        "maximumHdmiRefreshHz": 30,
+        "usbAPortCount": 3,
+        "usbADataPortCount": 3,
+        "usbCDataPortCount": 0,
+        "usbCVideoPortCount": 0,
+        "usbCChargeOnlyPortCount": 1,
+        "maximumUsbDataGbps": 5,
+        "displayPortCount": 0,
+        "vgaPortCount": 1,
+        "ethernetSupported": true,
+        "ethernetMaximumMbps": 1000,
+        "sdSlotSupported": true,
+        "microSdSlotSupported": true,
+        "pdPassThroughSupported": true,
+        "pdMaximumInputWatts": 100,
+        "pdMaximumHostOutputWatts": 90,
+        "bundledPowerAdapter": false,
+        "bundledCable": false,
+        "hostConnector": "USB-C（ケーブル一体型）",
+        "supportedOS": "Windows・macOS Sequoia 15",
+        "macDualExtendedDisplayVerified": false,
+        "weightGrams": "unknown",
+        "cableLengthCm": 25,
+        "warrantyMonths": 12,
+        "priceYen": 9172,
+        "priceTier": 3,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.elecom.co.jp/products/DST-101BPSV.html",
+        "hdmiAtLeast1": true,
+        "hdmi4k60": false,
+        "hdmiAtLeast2": false,
+        "wiredLanSupported": true,
+        "sdAndMicroSdSupported": true,
+        "pdHostOutputAtLeast85W": true,
+        "priceTierAtMost1": false,
+        "priceTierAtMost2": false,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-c-hub-111",
+      "name": "サンワサプライ USB Type-Cハブ付き HDMI変換アダプタ USB-3TCH35BK",
+      "description": "約50cmのケーブルで取り回しやすい、HDMI 4K/60HzとUSBポートを備えた変換アダプタです。",
+      "priceRange": 2,
+      "features": [
+        "HDMI 4K/60Hz・USB-A×1（5Gbps）",
+        "USB-C×1（PD入力・データ通信兼用）",
+        "PCへ約85W・ケーブル約50cm"
+      ],
+      "pros": [
+        "ケーブルが長く取り回しやすい"
+      ],
+      "cons": [
+        "USB-Aは1口",
+        "ポートが少ない"
+      ],
+      "recommendFor": "シェアオフィスなどでHDMIをつなぎたい人",
+      "caution": "確認時の価格は5,873円（税込・送料込、AmazonのAmazon.co.jp）です。価格は変動するため、購入前に販売ページでご確認ください。ポート構成：HDMI×1（最大4K/60Hz）・USB-A×1（5Gbps×1）・データ用USB-C×1（5Gbps）。映像出力には、PC側のUSB-C端子がDisplayPort Alternate Modeなどの映像出力に対応している必要があります。USB-A端子は1口です。PD給電は入力最大100W・PCへ最大85Wで、USB PD対応の充電器とケーブルは別売りです。PC側がUSB-CからのPD充電に対応している必要があります。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B09TDC6ZC6/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "",
+      "officialUrl": "",
+      "imageUrl": "",
+      "enabled": true,
+      "attributes": {
+        "hdmiQuality": 5,
+        "dualDisplay": 1,
+        "usbAPorts": 3,
+        "usbCData": 3,
+        "transferSpeed": 2,
+        "wiredLan": 1,
+        "cardReader": 1,
+        "pdCharging": 5,
+        "portability": 5,
+        "workstation": 3,
+        "value": 2,
+        "support": 4,
+        "brand": "サンワサプライ",
+        "manufacturerModel": "USB-3TCH35BK",
+        "exactSku": "USB-3TCH35BK",
+        "hdmiPortCount": 1,
+        "maximumHdmiResolution": "4K",
+        "maximumHdmiRefreshHz": 60,
+        "usbAPortCount": 1,
+        "usbADataPortCount": 1,
+        "usbCDataPortCount": 1,
+        "usbCVideoPortCount": 0,
+        "usbCChargeOnlyPortCount": 0,
+        "maximumUsbDataGbps": 5,
+        "displayPortCount": 0,
+        "vgaPortCount": 0,
+        "ethernetSupported": false,
+        "ethernetMaximumMbps": 0,
+        "sdSlotSupported": false,
+        "microSdSlotSupported": false,
+        "pdPassThroughSupported": true,
+        "pdMaximumInputWatts": 100,
+        "pdMaximumHostOutputWatts": 85,
+        "bundledPowerAdapter": false,
+        "bundledCable": false,
+        "hostConnector": "USB-C（ケーブル一体型）",
+        "supportedOS": "Windows 11/10・macOS 10.12以降・ChromeOS",
+        "macDualExtendedDisplayVerified": false,
+        "weightGrams": 39,
+        "cableLengthCm": 50,
+        "warrantyMonths": "unknown",
+        "priceYen": 5873,
+        "priceTier": 2,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.sanwa.co.jp/product/syohin?code=USB-3TCH35BK",
+        "hdmiAtLeast1": true,
+        "hdmi4k60": true,
+        "hdmiAtLeast2": false,
+        "wiredLanSupported": false,
+        "sdAndMicroSdSupported": false,
+        "pdHostOutputAtLeast85W": true,
+        "amazonAsin": "B09TDC6ZC6",
+        "amazonModelToken": "USB-3TCH35BK",
+        "amazonSeller": "Amazon.co.jp",
+        "priceTierAtMost1": false,
+        "priceTierAtMost2": true,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-c-hub-112",
+      "name": "サンワサプライ HDMIポート付 USB Type-Cハブ USB-5TCHP18GM",
+      "description": "HDMI出力をボタンでON/OFFできる、USB-A×3付きのUSB-Cハブです。",
+      "priceRange": 3,
+      "features": [
+        "HDMI 4K/60Hz（ON/OFFスイッチ付き）",
+        "USB-A×3・データ用USB-C×1（5Gbps）",
+        "PD入力最大100W・PCへ最大90W"
+      ],
+      "pros": [
+        "画面をワンタッチで消せる",
+        "USB-Aが3口"
+      ],
+      "cons": [
+        "有線LAN・カードリーダーはない"
+      ],
+      "recommendFor": "会議中に画面を一時的に隠したい人",
+      "caution": "確認時の価格は楽天市場のサンワダイレクトで7,280円（税込・送料込）です。価格は変動するため、購入前に販売ページでご確認ください。ポート構成：HDMI×1（最大4K/60Hz）・USB-A×3（5Gbps×3）・データ用USB-C×1（5Gbps）。映像出力には、PC側のUSB-C端子がDisplayPort Alternate Modeなどの映像出力に対応している必要があります。PD給電は入力最大100W・PCへ最大90Wで、USB PD対応の充電器とケーブルは別売りです。PC側がUSB-CからのPD充電に対応している必要があります。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pmmbo.d8zueb66.g00pmmbo.d8zuf986/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsanwadirect%2Fusb-5tchp18gm%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fsanwadirect%2Fi%2F10105637%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/sanwadirect/cabinet/u/usb-5tchp18gm.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "hdmiQuality": 5,
+        "dualDisplay": 1,
+        "usbAPorts": 4,
+        "usbCData": 3,
+        "transferSpeed": 2,
+        "wiredLan": 1,
+        "cardReader": 1,
+        "pdCharging": 5,
+        "portability": 4,
+        "workstation": 4,
+        "value": 2,
+        "support": 4,
+        "brand": "サンワサプライ",
+        "manufacturerModel": "USB-5TCHP18GM",
+        "exactSku": "USB-5TCHP18GM",
+        "hdmiPortCount": 1,
+        "maximumHdmiResolution": "4K",
+        "maximumHdmiRefreshHz": 60,
+        "usbAPortCount": 3,
+        "usbADataPortCount": 3,
+        "usbCDataPortCount": 1,
+        "usbCVideoPortCount": 0,
+        "usbCChargeOnlyPortCount": 1,
+        "maximumUsbDataGbps": 5,
+        "displayPortCount": 0,
+        "vgaPortCount": 0,
+        "ethernetSupported": false,
+        "ethernetMaximumMbps": 0,
+        "sdSlotSupported": false,
+        "microSdSlotSupported": false,
+        "pdPassThroughSupported": true,
+        "pdMaximumInputWatts": 100,
+        "pdMaximumHostOutputWatts": 90,
+        "bundledPowerAdapter": false,
+        "bundledCable": false,
+        "hostConnector": "USB-C（ケーブル一体型）",
+        "supportedOS": "Windows 11/10・macOS 11以降・ChromeOS",
+        "macDualExtendedDisplayVerified": false,
+        "weightGrams": 61,
+        "cableLengthCm": 30,
+        "warrantyMonths": "unknown",
+        "priceYen": 7280,
+        "priceTier": 3,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.sanwa.co.jp/product/syohin?code=USB-5TCHP18GM",
+        "hdmiAtLeast1": true,
+        "hdmi4k60": true,
+        "hdmiAtLeast2": false,
+        "wiredLanSupported": false,
+        "sdAndMicroSdSupported": false,
+        "pdHostOutputAtLeast85W": true,
+        "priceTierAtMost1": false,
+        "priceTierAtMost2": false,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-c-hub-113",
+      "name": "UGREEN Revodok USB-C ハブ 6-in-1 100W（45363）",
+      "description": "10GbpsのUSB-A×2・USB-C×2とHDMI 4K/60Hzを備えた6in1ハブです。",
+      "priceRange": 1,
+      "features": [
+        "HDMI 4K/60Hz",
+        "USB-A×2・データ用USB-C×2（10Gbps）",
+        "最大100WのPDパススルー充電対応"
+      ],
+      "pros": [
+        "10Gbpsのポートが4つ",
+        "価格が手頃"
+      ],
+      "cons": [
+        "PCへの最大給電は公式に記載がない"
+      ],
+      "recommendFor": "高速なUSBポートを手頃に増やしたい人",
+      "caution": "確認時の価格は楽天市場のUGREEN公式で2,999円（税込・送料込）、AmazonのUgreen Japanで1,999円（送料は注文条件により異なる場合があります）です。価格は変動するため、購入前に販売ページでご確認ください。ポート構成：HDMI×1（最大4K/60Hz）・USB-A×2（10Gbps×2）・データ用USB-C×2（10Gbps）。映像出力には、PC側のUSB-C端子がDisplayPort Alternate Modeなどの映像出力に対応している必要があります。PDパススルー充電（入力最大100W）に対応しますが、PCへの最大給電は公式に記載がありません。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0D1XLNWP2/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u0fbo.d8zue39d.g00u0fbo.d8zuf4de/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fugreen-gear%2F45363%2F%3FvariantId%3D45363&m=http%3A%2F%2Fm.rakuten.co.jp%2Fugreen-gear%2Fi%2F10000939%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ugreen-gear/cabinet/10122288/45363.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "hdmiQuality": 5,
+        "dualDisplay": 1,
+        "usbAPorts": 4,
+        "usbCData": 5,
+        "transferSpeed": 5,
+        "wiredLan": 1,
+        "cardReader": 1,
+        "pdCharging": 3,
+        "portability": 4,
+        "workstation": 4,
+        "value": 5,
+        "support": 4,
+        "brand": "UGREEN",
+        "manufacturerModel": "45363",
+        "exactSku": "45363（スタンダード）",
+        "hdmiPortCount": 1,
+        "maximumHdmiResolution": "4K",
+        "maximumHdmiRefreshHz": 60,
+        "usbAPortCount": 2,
+        "usbADataPortCount": 2,
+        "usbCDataPortCount": 2,
+        "usbCVideoPortCount": 0,
+        "usbCChargeOnlyPortCount": 1,
+        "maximumUsbDataGbps": 10,
+        "displayPortCount": 0,
+        "vgaPortCount": 0,
+        "ethernetSupported": false,
+        "ethernetMaximumMbps": 0,
+        "sdSlotSupported": false,
+        "microSdSlotSupported": false,
+        "pdPassThroughSupported": true,
+        "pdMaximumInputWatts": 100,
+        "pdMaximumHostOutputWatts": "unknown",
+        "bundledPowerAdapter": false,
+        "bundledCable": false,
+        "hostConnector": "USB-C（ケーブル一体型）",
+        "supportedOS": "unknown",
+        "macDualExtendedDisplayVerified": false,
+        "weightGrams": "unknown",
+        "cableLengthCm": "unknown",
+        "warrantyMonths": 24,
+        "priceYen": 2999,
+        "priceTier": 1,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://ugreen.jp/products/ugreen-revodok-usb-c-%E3%83%8F%E3%83%96-6-in-1-100w",
+        "hdmiAtLeast1": true,
+        "hdmi4k60": true,
+        "hdmiAtLeast2": false,
+        "wiredLanSupported": false,
+        "sdAndMicroSdSupported": false,
+        "pdHostOutputAtLeast85W": false,
+        "amazonAsin": "B0D1XLNWP2",
+        "priceTierAtMost1": true,
+        "priceTierAtMost2": true,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-c-hub-114",
+      "name": "UGREEN Revodok 9-in-1 USB-Cハブ（15375）",
+      "description": "HDMI 4K/60Hz・有線LAN・SD/microSDを備え、PCへ最大95Wを給電できる9in1ハブです。",
+      "priceRange": 3,
+      "features": [
+        "HDMI 4K/60Hz・USB-A×2／データ用USB-C×2（5Gbps）",
+        "有線LAN（1Gbps）・SD／microSD",
+        "PD入力100W・PCへ最大95W"
+      ],
+      "pros": [
+        "給電能力が高い",
+        "機能が一通りそろう"
+      ],
+      "cons": [
+        "USBは5Gbpsまで"
+      ],
+      "recommendFor": "在宅勤務で機能をまとめたい人",
+      "caution": "確認時の価格は楽天市場のコジマで7,980円（税込・送料込）、AmazonのAmazon.co.jpで8,589円（税込・送料込）です。価格は変動するため、購入前に販売ページでご確認ください。ポート構成：HDMI×1（最大4K/60Hz）・USB-A×2（5Gbps×2）・データ用USB-C×2（5Gbps）・有線LAN（1Gbps）・SD・microSD。映像出力には、PC側のUSB-C端子がDisplayPort Alternate Modeなどの映像出力に対応している必要があります。PD給電は入力最大100W・PCへ最大95Wで、USB PD対応の充電器とケーブルは別売りです。PC側がUSB-CからのPD充電に対応している必要があります。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0BNBJFFB2/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F4595555318961%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11738312%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001787/4595555318961_1.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "hdmiQuality": 5,
+        "dualDisplay": 1,
+        "usbAPorts": 4,
+        "usbCData": 3,
+        "transferSpeed": 2,
+        "wiredLan": 5,
+        "cardReader": 5,
+        "pdCharging": 5,
+        "portability": 3,
+        "workstation": 5,
+        "value": 4,
+        "support": 4,
+        "brand": "UGREEN",
+        "manufacturerModel": "15375",
+        "exactSku": "15375（グレー）",
+        "hdmiPortCount": 1,
+        "maximumHdmiResolution": "4K",
+        "maximumHdmiRefreshHz": 60,
+        "usbAPortCount": 2,
+        "usbADataPortCount": 2,
+        "usbCDataPortCount": 2,
+        "usbCVideoPortCount": 0,
+        "usbCChargeOnlyPortCount": 1,
+        "maximumUsbDataGbps": 5,
+        "displayPortCount": 0,
+        "vgaPortCount": 0,
+        "ethernetSupported": true,
+        "ethernetMaximumMbps": 1000,
+        "sdSlotSupported": true,
+        "microSdSlotSupported": true,
+        "pdPassThroughSupported": true,
+        "pdMaximumInputWatts": 100,
+        "pdMaximumHostOutputWatts": 95,
+        "bundledPowerAdapter": false,
+        "bundledCable": false,
+        "hostConnector": "USB-C（ケーブル一体型）",
+        "supportedOS": "unknown",
+        "macDualExtendedDisplayVerified": false,
+        "weightGrams": 128,
+        "cableLengthCm": "unknown",
+        "warrantyMonths": 24,
+        "priceYen": 7980,
+        "priceTier": 3,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://ugreen.jp/products/revodok-9-in-1-usb-c-hub",
+        "hdmiAtLeast1": true,
+        "hdmi4k60": true,
+        "hdmiAtLeast2": false,
+        "wiredLanSupported": true,
+        "sdAndMicroSdSupported": true,
+        "pdHostOutputAtLeast85W": true,
+        "amazonAsin": "B0BNBJFFB2",
+        "priceTierAtMost1": false,
+        "priceTierAtMost2": false,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-c-hub-115",
+      "name": "UGREEN Revodok Pro 10-in-1 USB-Cハブ（15534）",
+      "description": "HDMIを2口備え、有線LAN・SD/microSDにも対応する10in1ハブです。",
+      "priceRange": 3,
+      "features": [
+        "HDMI×2（最大4K/60Hz）",
+        "USB-A×3（5Gbps×1・USB 2.0×2）・データ用USB-C×1（5Gbps）",
+        "有線LAN・SD／microSD（同時使用可）・PCへ最大85W"
+      ],
+      "pros": [
+        "HDMI 2口と有線LANを両立",
+        "ポートが多い"
+      ],
+      "cons": [
+        "USBは5Gbpsまで",
+        "2画面の拡張表示はPC・OSの対応による"
+      ],
+      "recommendFor": "2画面と有線LANを使うデスクの人",
+      "caution": "確認時の価格は楽天市場のUGREEN公式で8,490円（税込・送料込）です。価格は変動するため、購入前に販売ページでご確認ください。ポート構成：HDMI×2（最大4K/60Hz）・USB-A×3（5Gbps×1・USB 2.0×2）・データ用USB-C×1（5Gbps）・有線LAN（1Gbps）・SD・microSD。映像出力には、PC側のUSB-C端子がDisplayPort Alternate Modeなどの映像出力に対応している必要があります。HDMIが2口あっても、macOSやPCの仕様によっては2台に別々の画面を表示（拡張）できない場合があります。PD給電は入力最大100W・PCへ最大85Wで、USB PD対応の充電器とケーブルは別売りです。PC側がUSB-CからのPD充電に対応している必要があります。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u0fbo.d8zue39d.g00u0fbo.d8zuf4de/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fugreen-gear%2F15534%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fugreen-gear%2Fi%2F10000583%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ugreen-gear/cabinet/10470932/10482044/15534-new.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "hdmiQuality": 5,
+        "dualDisplay": 5,
+        "usbAPorts": 4,
+        "usbCData": 3,
+        "transferSpeed": 2,
+        "wiredLan": 5,
+        "cardReader": 5,
+        "pdCharging": 5,
+        "portability": 2,
+        "workstation": 5,
+        "value": 5,
+        "support": 4,
+        "brand": "UGREEN",
+        "manufacturerModel": "15534",
+        "exactSku": "15534（グレー）",
+        "hdmiPortCount": 2,
+        "maximumHdmiResolution": "4K",
+        "maximumHdmiRefreshHz": 60,
+        "usbAPortCount": 3,
+        "usbADataPortCount": 3,
+        "usbCDataPortCount": 1,
+        "usbCVideoPortCount": 0,
+        "usbCChargeOnlyPortCount": 1,
+        "maximumUsbDataGbps": 5,
+        "displayPortCount": 0,
+        "vgaPortCount": 0,
+        "ethernetSupported": true,
+        "ethernetMaximumMbps": 1000,
+        "sdSlotSupported": true,
+        "microSdSlotSupported": true,
+        "pdPassThroughSupported": true,
+        "pdMaximumInputWatts": 100,
+        "pdMaximumHostOutputWatts": 85,
+        "bundledPowerAdapter": false,
+        "bundledCable": false,
+        "hostConnector": "USB-C（ケーブル一体型）",
+        "supportedOS": "Windows 10・Linux",
+        "macDualExtendedDisplayVerified": "unknown",
+        "weightGrams": 171.6,
+        "cableLengthCm": "unknown",
+        "warrantyMonths": 24,
+        "priceYen": 8490,
+        "priceTier": 3,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://ugreen.jp/products/revodok-pro-10-in-1-usb-c-hub",
+        "hdmiAtLeast1": true,
+        "hdmi4k60": true,
+        "hdmiAtLeast2": true,
+        "wiredLanSupported": true,
+        "sdAndMicroSdSupported": true,
+        "pdHostOutputAtLeast85W": true,
+        "priceTierAtMost1": false,
+        "priceTierAtMost2": false,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    }
+  ],
+  "scoring": {
+    "tieBreak": true,
+    "softenPartialReason": true,
+    "strictEligibility": true
+  },
+  "guide": {
+    "title": "USB-Cハブの選び方",
+    "intro": "この診断は、USB-Cハブ・ドッキングステーションを対象に、メーカーが公表している仕様をもとに、あなたの回答と照らし合わせて相性を計算しています。HDMI（1口以上・4K/60Hz・2口以上の場合）、必須の追加機能（有線LAN・SD/microSD・PCへ85W以上のPD給電）、予算の条件を満たさない機種はおすすめに表示しません。診断で確認できるのはハブ側の機能です。お使いのPCが映像出力やPD充電に対応しているかは、購入前にPCの仕様でご確認ください。",
+    "sections": [
+      {
+        "heading": "映像出力（HDMI・USB-C）",
+        "body": "USB-C端子があっても、すべてのPCが映像出力に対応するとは限りません。HDMIで4K/60Hzを表示するには、PC側（DisplayPort Alternate Modeなど）・ケーブル・モニターの対応が必要です。HDMIが2口あっても、macOSやPCの仕様によっては2台に別々の画面を表示（拡張）できない場合があります。データ通信用のUSB-Cポートでは映像出力できない製品が多くあります。"
+      },
+      {
+        "heading": "USB PD給電",
+        "body": "USB PDの「入力100W」と、PCへ実際に給電できる電力は異なります。ハブ本体が電力の一部を使うため、PCへの最大給電は85〜95W程度になる製品が多くあります。USB PD対応の充電器とケーブルは別売りの場合があり、PC本体もUSB-CからのPD充電に対応している必要があります。"
+      },
+      {
+        "heading": "転送速度・カードリーダー",
+        "body": "USB 5GbpsとUSB 10Gbpsは別の規格で、USB-C端子だから10Gbpsとは限りません。転送速度はPC・ケーブル・接続機器・同時使用の状況によって変わります。SDカードの対応規格・容量・速度は製品によって異なります。端子の数だけでなく、必要な機器を同時に接続できるかも確認しましょう。"
+      }
+    ]
+  },
+  "notice": "仕様はメーカーが公表する値です。価格は確認時点の税込購入価格（送料込み）で、変動するため購入時に販売ページでご確認ください。"
+}

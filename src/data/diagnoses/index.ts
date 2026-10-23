@@ -55,6 +55,7 @@ import { wirelessKeyboard } from './wirelessKeyboard.ts'
 import { webcam } from './webcam.ts'
 import { usbMicrophone } from './usbMicrophone.ts'
 import { externalSsd } from './externalSsd.ts'
+import { usbCHub } from './usbCHub.ts'
 
 /**
  * 診断の一覧（登録簿）。
@@ -118,6 +119,7 @@ const allDiagnoses: Diagnosis[] = [
   webcam,
   usbMicrophone,
   externalSsd,
+  usbCHub,
 ]
 
 /**
