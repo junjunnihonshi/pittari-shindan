@@ -656,4 +656,17 @@ export const presets: Record<string, RakutenPreset> = {
     priceThresholds: [6000, 10000, 15000, 25000],
     attributeKeys: ['soloSpeech', 'noisyRoom', 'multiperson', 'voiceVersatility', 'monitoring', 'mute', 'gainControl', 'deskSetup', 'armMount', 'rgb', 'value', 'support'],
   },
+  'external-ssd': {
+    category: 'external-ssd',
+    // 採用機種は指示書で確定済み。型番・容量の確認は --keyword "型番" で行う（容量違いは別SKU）
+    keywords: ['外付けSSD', 'ポータブルSSD', 'スティック型SSD', '外付けSSD USB-C'],
+    ngKeyword: '中古 整備済み 再生品 ケースのみ 収納ケース 保護フィルム 並行輸入',
+    sort: '-reviewCount',
+    hits: 20,
+    minPrice: 10000,
+    maxPerShop: 3,
+    // external-ssd の priceLabels（50,000 / 80,000 / 120,000 / 160,000円）と同じ区分
+    priceThresholds: [50000, 80000, 120000, 160000],
+    attributeKeys: ['capacity', 'readSpeed', 'writeSpeed', 'durability', 'portability', 'connectivity', 'deviceCompatibility', 'security', 'value', 'warranty', 'creative', 'gaming'],
+  },
 }
