@@ -53,6 +53,7 @@ import { mobileMonitor } from './mobileMonitor.ts'
 import { wirelessMouse } from './wirelessMouse.ts'
 import { wirelessKeyboard } from './wirelessKeyboard.ts'
 import { webcam } from './webcam.ts'
+import { usbMicrophone } from './usbMicrophone.ts'
 
 /**
  * 診断の一覧（登録簿）。
@@ -114,6 +115,7 @@ const allDiagnoses: Diagnosis[] = [
   wirelessMouse,
   wirelessKeyboard,
   webcam,
+  usbMicrophone,
 ]
 
 /**

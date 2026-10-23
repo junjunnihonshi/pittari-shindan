@@ -643,4 +643,17 @@ export const presets: Record<string, RakutenPreset> = {
     priceThresholds: [4000, 7000, 12000, 20000],
     attributeKeys: ['resolution', 'smoothness', 'focus', 'lowlight', 'fieldOfView', 'microphone', 'privacy', 'framing', 'portability', 'mounting', 'value', 'support'],
   },
+  'usb-microphone': {
+    category: 'usb-microphone',
+    // 採用機種は指示書で確定済み。型番の確認は --keyword "メーカー 型番" で行う
+    keywords: ['USBマイク', 'USBマイク コンデンサー', 'USBマイク ダイナミック', 'ゲーミングマイク USB'],
+    ngKeyword: '中古 整備済み 再生品 アームのみ ポップガード ショックマウント ケーブルのみ',
+    sort: '-reviewCount',
+    hits: 20,
+    minPrice: 2500,
+    maxPerShop: 3,
+    // usb-microphone の priceLabels（6,000 / 10,000 / 15,000 / 25,000円）と同じ区分
+    priceThresholds: [6000, 10000, 15000, 25000],
+    attributeKeys: ['soloSpeech', 'noisyRoom', 'multiperson', 'voiceVersatility', 'monitoring', 'mute', 'gainControl', 'deskSetup', 'armMount', 'rgb', 'value', 'support'],
+  },
 }

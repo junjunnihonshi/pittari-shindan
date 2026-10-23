@@ -1,0 +1,1785 @@
+{
+  "id": "usb-microphone",
+  "enabled": false,
+  "title": "USBマイク診断",
+  "itemName": "USBマイク",
+  "group": "digital",
+  "icon": "🎙️",
+  "cardDescription": "用途、使う場所、録り方、設置方法、欲しい機能、操作、予算から、あなたに合うUSBマイクを診断。",
+  "description": "USBマイクは、ゲーム実況やオンライン会議などの用途によって選ぶポイントが変わります。ダイナミック型とコンデンサー型、集音範囲、ヘッドホンでの音声確認、設置方法などを比較し、自分に合うモデルを探しましょう。",
+  "searchKeywords": [
+    "USBマイク 診断",
+    "USBマイク おすすめ",
+    "USBマイク 比較",
+    "配信用マイク",
+    "ゲーム実況 マイク",
+    "Web会議 マイク",
+    "ポッドキャスト マイク",
+    "コンデンサーマイク",
+    "ダイナミックマイク",
+    "マイク 単一指向性",
+    "USBマイク ヘッドホン端子",
+    "マイク 選び方"
+  ],
+  "seo": {
+    "title": "USBマイクの選び方診断｜配信・ゲーム・Web会議に合うマイクを7問で診断",
+    "description": "USBマイクを7問で診断。Web会議、ゲーム実況、動画配信、ポッドキャスト、ナレーションなどの用途に合わせて、集音方式、ミュート、モニタリング機能、設置方法、予算からおすすめモデルを比較します。"
+  },
+  "priceLabels": {
+    "1": "〜6,000円",
+    "2": "6,001〜10,000円",
+    "3": "10,001〜15,000円",
+    "4": "15,001〜25,000円",
+    "5": "25,001円〜"
+  },
+  "questions": [
+    {
+      "id": "usage",
+      "text": "主に何に使いますか？",
+      "shortLabel": "用途",
+      "weight": 8,
+      "options": [
+        {
+          "id": "meeting",
+          "label": "Web会議・オンライン授業",
+          "summary": "Web会議・オンライン授業に使う",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "soloSpeech",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "deskSetup",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "mute",
+              "value": 5,
+              "weight": 2
+            }
+          ]
+        },
+        {
+          "id": "gaming",
+          "label": "ゲームのボイスチャット",
+          "summary": "ゲームのボイスチャットに使う",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "noisyRoom",
+              "value": 5,
+              "weight": 4
+            },
+            {
+              "type": "atLeast",
+              "attr": "mute",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "id": "streaming",
+          "label": "ゲーム実況・ライブ配信",
+          "summary": "ゲーム実況・ライブ配信に使う",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "soloSpeech",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "gainControl",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "mute",
+              "value": 5,
+              "weight": 2
+            }
+          ]
+        },
+        {
+          "id": "podcast",
+          "label": "ポッドキャスト・対談収録",
+          "summary": "ポッドキャスト・対談収録に使う",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "voiceVersatility",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "monitoring",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "multiperson",
+              "value": 5,
+              "weight": 2
+            }
+          ]
+        },
+        {
+          "id": "narration",
+          "label": "ナレーション・歌・音声制作",
+          "summary": "ナレーション・歌・音声制作に使う",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "voiceVersatility",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "atLeast",
+              "attr": "monitoring",
+              "value": 5,
+              "weight": 2
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "room",
+      "text": "どんな場所で使いますか？",
+      "shortLabel": "使う場所",
+      "weight": 7,
+      "help": "マイクの種類や指向性だけで雑音がなくなるわけではありません。マイクとの距離や部屋の反響によっても録音結果は変わります。",
+      "options": [
+        {
+          "id": "quiet",
+          "label": "静かな部屋",
+          "summary": "静かな部屋で使う",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "voiceVersatility",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 4
+            }
+          ]
+        },
+        {
+          "id": "keyboard",
+          "label": "キーボードやマウスの音が気になる",
+          "summary": "キーボードやマウスの音が気になる",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "noisyRoom",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 2
+            }
+          ]
+        },
+        {
+          "id": "noisy",
+          "label": "扇風機・エアコンなどの生活音がある",
+          "summary": "扇風機・エアコンなどの生活音がある",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "noisyRoom",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "atLeast",
+              "attr": "soloSpeech",
+              "value": 5,
+              "weight": 2
+            }
+          ]
+        },
+        {
+          "id": "unsure",
+          "label": "まだ決めていない",
+          "summary": "使う場所はまだ決めていない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "voices",
+      "text": "どのように声を録りますか？",
+      "shortLabel": "録り方",
+      "weight": 7,
+      "help": "複数人を1台で録る場合は、無指向性・双指向性などに切り替えられるマイクが必要です。単一指向性のマイクは正面以外の声を拾いにくくなります。",
+      "options": [
+        {
+          "id": "solo",
+          "label": "基本的に一人で話す",
+          "summary": "一人で話す",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "soloSpeech",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 2
+            }
+          ]
+        },
+        {
+          "id": "interview",
+          "label": "二人で話すことが多い",
+          "summary": "二人で話すことが多い",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "multiperson",
+              "value": 5,
+              "weight": 4
+            },
+            {
+              "type": "atLeast",
+              "attr": "voiceVersatility",
+              "value": 5,
+              "weight": 2
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "id": "multiRequired",
+          "label": "複数人の声を1台で録るため、無指向性などへの切り替えが必須",
+          "summary": "指向性の切り替え（無指向性・双指向性など）が必須",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "multiperson",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "equals",
+              "attr": "switchablePolarPattern",
+              "value": true,
+              "weight": 2
+            }
+          ],
+          "eligibility": {
+            "attr": "switchablePolarPattern",
+            "value": true,
+            "notice": "無指向性・双指向性などに指向性を切り替えられる機種からおすすめを表示しています。"
+          }
+        },
+        {
+          "id": "voice",
+          "label": "ナレーションや歌を中心に録る",
+          "summary": "ナレーションや歌を中心に録る",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "voiceVersatility",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "atLeast",
+              "attr": "monitoring",
+              "value": 5,
+              "weight": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "setup",
+      "text": "どのように設置したいですか？",
+      "shortLabel": "設置方法",
+      "weight": 5,
+      "help": "マイクアームに付ける場合は、マイクのねじ規格（5/8インチ・3/8インチ）と変換アダプターの有無を確認してください。",
+      "options": [
+        {
+          "id": "deskRequired",
+          "label": "机に置けるスタンドが最初から付属している商品が必要",
+          "summary": "机に置けるスタンドが付属（必須）",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "deskSetup",
+              "value": 5,
+              "weight": 5
+            }
+          ],
+          "eligibility": {
+            "attr": "bundledDeskStand",
+            "value": true,
+            "notice": "机に置けるスタンドが付属する（スタンド一体型を含む）機種からおすすめを表示しています。"
+          }
+        },
+        {
+          "id": "arm",
+          "label": "別売のマイクアームに取り付けたい",
+          "summary": "マイクアームに取り付けたい",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "armMount",
+              "value": 5,
+              "weight": 5
+            }
+          ]
+        },
+        {
+          "id": "compact",
+          "label": "机の場所を取らないものがよい",
+          "summary": "机の場所を取らないもの",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "deskSetup",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 2
+            }
+          ]
+        },
+        {
+          "id": "any",
+          "label": "特にこだわらない",
+          "summary": "設置方法はこだわらない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 2
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "feature",
+      "text": "特に欲しい機能は？",
+      "shortLabel": "欲しい機能",
+      "weight": 5,
+      "help": "ヘッドホン端子があっても、PCの音を聞くためだけで自分の声をモニターできない機種があります。",
+      "options": [
+        {
+          "id": "monitorRequired",
+          "label": "マイク本体にヘッドホンをつないで、自分の声を確認したい",
+          "summary": "本体で自分の声をモニター（必須）",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "monitoring",
+              "value": 5,
+              "weight": 5
+            }
+          ],
+          "eligibility": {
+            "attr": "micMonitoringSupported",
+            "value": true,
+            "notice": "マイク本体にヘッドホンをつないで自分の声をモニターできる機種からおすすめを表示しています。"
+          }
+        },
+        {
+          "id": "mute",
+          "label": "マイク本体で簡単にミュートしたい",
+          "summary": "本体で簡単にミュート",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "mute",
+              "value": 5,
+              "weight": 5
+            }
+          ]
+        },
+        {
+          "id": "rgb",
+          "label": "RGBライティングが欲しい",
+          "summary": "RGBライティング",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "rgb",
+              "value": 5,
+              "weight": 5
+            }
+          ]
+        },
+        {
+          "id": "simple",
+          "label": "特にこだわらない",
+          "summary": "機能はこだわらない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "deskSetup",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "control",
+      "text": "操作のしやすさで重視することは？",
+      "shortLabel": "操作",
+      "weight": 6,
+      "help": "ソフトウェアが必要な機能と、マイク本体だけで使える操作は分けて評価しています。",
+      "options": [
+        {
+          "id": "gain",
+          "label": "本体でマイク感度を調整したい",
+          "summary": "本体でマイク感度を調整",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "gainControl",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "id": "arm",
+          "label": "アームに設置しやすいもの",
+          "summary": "アームに設置しやすいもの",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "armMount",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "id": "easy",
+          "label": "つなぐだけで簡単に使えるもの",
+          "summary": "つなぐだけで簡単に使える",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "deskSetup",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "id": "flexible",
+          "label": "録音・配信設定を細かく調整したい",
+          "summary": "録音・配信設定を細かく調整",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "gainControl",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "voiceVersatility",
+              "value": 5,
+              "weight": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "budget",
+      "text": "予算は？",
+      "shortLabel": "予算",
+      "weight": 5,
+      "help": "予算は税込の購入価格（送料込み）で判定します。",
+      "options": [
+        {
+          "id": "b1",
+          "label": "6,000円まで",
+          "summary": "予算6,000円まで",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 5
+            }
+          ],
+          "maxPriceRange": 1
+        },
+        {
+          "id": "b2",
+          "label": "10,000円まで",
+          "summary": "予算10,000円まで",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 4
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 1
+            }
+          ],
+          "maxPriceRange": 2
+        },
+        {
+          "id": "b3",
+          "label": "15,000円まで",
+          "summary": "予算15,000円まで",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 2
+            }
+          ],
+          "maxPriceRange": 3
+        },
+        {
+          "id": "b4",
+          "label": "25,000円まで",
+          "summary": "予算25,000円まで",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 2
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 3
+            }
+          ],
+          "maxPriceRange": 4
+        },
+        {
+          "id": "any",
+          "label": "上限なし",
+          "summary": "予算の上限なし",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "voiceVersatility",
+              "value": 5,
+              "weight": 1
+            },
+            {
+              "type": "atLeast",
+              "attr": "support",
+              "value": 5,
+              "weight": 1
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "usb-microphone-101",
+      "name": "FIFINE K669B",
+      "description": "三脚スタンドが付いた手頃なUSBコンデンサーマイク。本体ノブで入力音量を調整できます。",
+      "priceRange": 1,
+      "features": [
+        "コンデンサー型・単一指向性",
+        "三脚スタンド付属・本体で入力音量を調整",
+        "本体にミュートボタン・ヘッドホン端子はなし"
+      ],
+      "pros": [
+        "価格が手頃",
+        "届いてすぐ机に置ける"
+      ],
+      "cons": [
+        "本体でミュートできない",
+        "自分の声のモニター機能はない"
+      ],
+      "recommendFor": "まずは手頃なマイクでWeb会議や通話をしたい人",
+      "caution": "確認時の価格は4,899円（税込・送料込、Amazonのfifine日本事業部）です。価格は変動するため、購入前に販売ページでご確認ください。本体で自分の声をモニターする機能は公式仕様で確認できていません。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B075PJ7V3V/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ux00o.d8zuec4f.g00ux00o.d8zuf720/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffifine-shop%2Fk669b%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ffifine-shop%2Fi%2F10000004%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/fifine-shop/cabinet/13408354/imgrc0114220807.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "soloSpeech": 4,
+        "noisyRoom": 2,
+        "multiperson": 1,
+        "voiceVersatility": 2,
+        "monitoring": 1,
+        "mute": 1,
+        "gainControl": 4,
+        "deskSetup": 5,
+        "armMount": 2,
+        "rgb": 1,
+        "value": 4,
+        "support": 3,
+        "brand": "FIFINE",
+        "model": "K669B",
+        "microphoneType": "condenser",
+        "polarPatterns": "単一指向性",
+        "usbSupported": true,
+        "xlrSupported": false,
+        "headphoneOutput": "unknown",
+        "hardwareMute": "なし",
+        "tapToMute": false,
+        "onboardGain": "本体ノブ",
+        "rgbLighting": false,
+        "deskStandNote": "三脚スタンド付属",
+        "boomArmSupported": true,
+        "mountThread": "5/8インチ（3/8インチ用アダプターは別途）",
+        "suppliedCable": "USBケーブル（約1.8m）",
+        "hostConnector": "unknown",
+        "bitDepth": "unknown",
+        "sampleRates": "unknown",
+        "noiseProcessing": "なし",
+        "weightGrams": 490,
+        "supportedOS": "Windows・macOS・PS4・PS5",
+        "warrantyYears": 1,
+        "priceYen": 4899,
+        "priceTier": 1,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://fifinemicrophone.com/ja-jp/products/fifine-k669b-microphone",
+        "switchablePolarPattern": false,
+        "bundledDeskStand": true,
+        "micMonitoringSupported": "unknown",
+        "amazonAsin": "B075PJ7V3V",
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-microphone-102",
+      "name": "FIFINE AmpliGame A6V",
+      "description": "RGBライティングとタッチミュートを備えた、三脚スタンド付きのUSBコンデンサーマイクです。",
+      "priceRange": 1,
+      "features": [
+        "コンデンサー型・単一指向性",
+        "タッチミュート・本体で入力音量を調整",
+        "RGBライティング・三脚スタンドとポップフィルター付属"
+      ],
+      "pros": [
+        "手頃な価格でミュートとRGBが使える"
+      ],
+      "cons": [
+        "自分の声のモニター機能はない",
+        "RGBの色は自分で選べない"
+      ],
+      "recommendFor": "手頃なゲーム用マイクを探している人",
+      "caution": "確認時の価格は5,015円（税込・送料込、Amazonのfifine日本事業部）です。価格は変動するため、購入前に販売ページでご確認ください。本体で自分の声をモニターする機能は公式仕様で確認できていません。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B09KNKBCQK/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "",
+      "officialUrl": "",
+      "imageUrl": "",
+      "enabled": true,
+      "attributes": {
+        "soloSpeech": 4,
+        "noisyRoom": 2,
+        "multiperson": 1,
+        "voiceVersatility": 3,
+        "monitoring": 1,
+        "mute": 5,
+        "gainControl": 4,
+        "deskSetup": 5,
+        "armMount": 3,
+        "rgb": 5,
+        "value": 5,
+        "support": 3,
+        "brand": "FIFINE",
+        "model": "A6V",
+        "microphoneType": "condenser",
+        "polarPatterns": "単一指向性",
+        "usbSupported": true,
+        "xlrSupported": false,
+        "headphoneOutput": "unknown",
+        "hardwareMute": "タッチ",
+        "tapToMute": true,
+        "onboardGain": "本体ダイヤル",
+        "rgbLighting": true,
+        "deskStandNote": "三脚スタンド付属",
+        "boomArmSupported": true,
+        "mountThread": "5/8インチ（3/8インチ用アダプターは別途）",
+        "suppliedCable": "USB-Cケーブル（約2m）",
+        "hostConnector": "unknown",
+        "bitDepth": "unknown",
+        "sampleRates": "unknown",
+        "noiseProcessing": "なし（ポップフィルター付属）",
+        "weightGrams": "unknown",
+        "supportedOS": "Windows・macOS・PS4・PS5",
+        "warrantyYears": 1,
+        "priceYen": 5015,
+        "priceTier": 1,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://fifinemicrophone.com/ja-jp/products/fifine-ampligame-a6v-microphone",
+        "switchablePolarPattern": false,
+        "bundledDeskStand": true,
+        "micMonitoringSupported": "unknown",
+        "amazonAsin": "B09KNKBCQK",
+        "amazonModelToken": "A6V",
+        "amazonSeller": "fifine日本事業部",
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-microphone-103",
+      "name": "FIFINE AmpliGame AM8",
+      "description": "USB・XLRの両方で使えるダイナミックマイク。USB接続時は本体でミュート・ゲイン・モニターを操作できます。",
+      "priceRange": 2,
+      "features": [
+        "ダイナミック型・単一指向性・USB/XLR",
+        "USB接続時：タッチミュート・ゲインノブ・ヘッドホンで自分の声を確認",
+        "RGBライティング・卓上スタンド付属"
+      ],
+      "pros": [
+        "本体の操作が充実",
+        "スタンドもアームも使える"
+      ],
+      "cons": [
+        "ミュート・ゲイン・モニター・RGBはUSB接続時のみ"
+      ],
+      "recommendFor": "ゲーム実況や配信を手頃に始めたい人",
+      "caution": "確認時の価格は8,007円（税込・送料込、Amazonのfifine日本事業部）です。価格は変動するため、購入前に販売ページでご確認ください。ミュート・ゲイン・モニターなど本体の機能はUSB接続時に使えます（XLR接続時は使えません）。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0BVVX5FBD/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "",
+      "officialUrl": "",
+      "imageUrl": "",
+      "enabled": true,
+      "attributes": {
+        "soloSpeech": 5,
+        "noisyRoom": 5,
+        "multiperson": 1,
+        "voiceVersatility": 4,
+        "monitoring": 5,
+        "mute": 5,
+        "gainControl": 5,
+        "deskSetup": 5,
+        "armMount": 4,
+        "rgb": 5,
+        "value": 5,
+        "support": 3,
+        "brand": "FIFINE",
+        "model": "AM8",
+        "microphoneType": "dynamic",
+        "polarPatterns": "単一指向性",
+        "usbSupported": true,
+        "xlrSupported": true,
+        "headphoneOutput": true,
+        "hardwareMute": "タッチ（USB接続時）",
+        "tapToMute": true,
+        "onboardGain": "本体ノブ（USB接続時）",
+        "rgbLighting": true,
+        "deskStandNote": "卓上スタンド付属",
+        "boomArmSupported": true,
+        "mountThread": "5/8・3/8インチ（アダプター不要）",
+        "suppliedCable": "USB-C to USB-A",
+        "hostConnector": "USB-A",
+        "bitDepth": "unknown",
+        "sampleRates": "unknown",
+        "noiseProcessing": "なし",
+        "weightGrams": "unknown",
+        "supportedOS": "Windows・macOS・PS4・PS5",
+        "warrantyYears": 1,
+        "priceYen": 8007,
+        "priceTier": 2,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://fifinemicrophone.com/ja-jp/products/fifine-ampligame-am8-microphone",
+        "switchablePolarPattern": false,
+        "bundledDeskStand": true,
+        "micMonitoringSupported": true,
+        "amazonAsin": "B0BVVX5FBD",
+        "amazonModelToken": "AM8",
+        "amazonSeller": "fifine日本事業部",
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-microphone-104",
+      "name": "MAONO DGM20 GamerWave",
+      "description": "ミュートボタンとRGBライティング、ヘッドホン端子を備えたスタンド付きUSBコンデンサーマイクです。",
+      "priceRange": 2,
+      "features": [
+        "コンデンサー型・単一指向性",
+        "ミュートボタン・ゲイン調整・3.5mmヘッドホン端子でモニター",
+        "RGBライティング・マイクスタンド付属"
+      ],
+      "pros": [
+        "手頃な価格で機能が多い",
+        "ノイズリダクション（ENC）付き"
+      ],
+      "cons": [
+        "ノイズ低減の効果は使う環境で変わる"
+      ],
+      "recommendFor": "ゲームのボイスチャットに使いたい人",
+      "caution": "確認時の価格は6,999円（税込・送料込、AmazonのMAONO JP）です。価格は変動するため、購入前に販売ページでご確認ください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0H8RQ3DR5/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "",
+      "officialUrl": "",
+      "imageUrl": "",
+      "enabled": true,
+      "attributes": {
+        "soloSpeech": 4,
+        "noisyRoom": 2,
+        "multiperson": 1,
+        "voiceVersatility": 3,
+        "monitoring": 4,
+        "mute": 5,
+        "gainControl": 4,
+        "deskSetup": 5,
+        "armMount": 3,
+        "rgb": 5,
+        "value": 4,
+        "support": 3,
+        "brand": "MAONO",
+        "model": "DGM20",
+        "microphoneType": "condenser",
+        "polarPatterns": "単一指向性",
+        "usbSupported": true,
+        "xlrSupported": false,
+        "headphoneOutput": true,
+        "hardwareMute": "ボタン",
+        "tapToMute": false,
+        "onboardGain": "本体で調整",
+        "rgbLighting": true,
+        "deskStandNote": "マイクスタンド付属",
+        "boomArmSupported": true,
+        "mountThread": "アーム用アダプター付属",
+        "suppliedCable": "USB-Cケーブル",
+        "hostConnector": "unknown",
+        "bitDepth": 24,
+        "sampleRates": "48kHz",
+        "noiseProcessing": "ノイズリダクション（ENC）",
+        "weightGrams": "unknown",
+        "supportedOS": "Windows・macOS・PS4・PS5",
+        "warrantyYears": 1,
+        "priceYen": 6999,
+        "priceTier": 2,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.maono.com/products/dgm20-gamerwave-condenser-usb-gaming-rgb-internet-microphone",
+        "switchablePolarPattern": false,
+        "bundledDeskStand": true,
+        "micMonitoringSupported": true,
+        "amazonAsin": "B0H8RQ3DR5",
+        "amazonModelToken": "DGM20",
+        "amazonSeller": "MAONO JP",
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-microphone-105",
+      "name": "MAONO PD200X",
+      "description": "USB・XLRの両方で使えるダイナミックマイク。USB接続時は本体でミュート・ゲイン・モニターを操作できます。",
+      "priceRange": 3,
+      "features": [
+        "ダイナミック型・単一指向性・USB/XLR",
+        "USB接続時：ミュート・ゲイン/ヘッドホン音量ノブ・モニター",
+        "RGBライティング・変換ネジ付属（スタンドなし）"
+      ],
+      "pros": [
+        "マイクアームに付けやすい",
+        "本体の操作が充実"
+      ],
+      "cons": [
+        "卓上スタンドは付属しない",
+        "ミュート・ゲイン・モニターはUSB接続時のみ"
+      ],
+      "recommendFor": "マイクアームで配信環境を整えたい人",
+      "caution": "確認時の価格は10,529円（税込・送料込、AmazonのMAONO JP）です。価格は変動するため、購入前に販売ページでご確認ください。机に置くスタンドは付属しません。ミュート・ゲイン・モニターなど本体の機能はUSB接続時に使えます（XLR接続時は使えません）。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0C6XJ9W5T/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "",
+      "officialUrl": "",
+      "imageUrl": "",
+      "enabled": true,
+      "attributes": {
+        "soloSpeech": 5,
+        "noisyRoom": 5,
+        "multiperson": 1,
+        "voiceVersatility": 4,
+        "monitoring": 5,
+        "mute": 5,
+        "gainControl": 5,
+        "deskSetup": 2,
+        "armMount": 5,
+        "rgb": 5,
+        "value": 4,
+        "support": 3,
+        "brand": "MAONO",
+        "model": "PD200X",
+        "microphoneType": "dynamic",
+        "polarPatterns": "単一指向性",
+        "usbSupported": true,
+        "xlrSupported": true,
+        "headphoneOutput": true,
+        "hardwareMute": "ボタン（USB接続時）",
+        "tapToMute": false,
+        "onboardGain": "本体ノブ（USB接続時）",
+        "rgbLighting": true,
+        "deskStandNote": "スタンドなし（マイク単体）",
+        "boomArmSupported": true,
+        "mountThread": "5/8→3/8インチ変換ネジ付属",
+        "suppliedCable": "USB-C to USB-A/C（2.5m）",
+        "hostConnector": "USB-A・USB-C",
+        "bitDepth": 24,
+        "sampleRates": "48kHz",
+        "noiseProcessing": "専用ソフトでリミッター・コンプレッサー（USB接続時）",
+        "weightGrams": 314,
+        "supportedOS": "Windows・macOS・PS4・PS5",
+        "warrantyYears": 1,
+        "priceYen": 10529,
+        "priceTier": 3,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.maono.com/products/maono-pd200x-dynamic-usb-and-xlr-internet-microphone",
+        "switchablePolarPattern": false,
+        "bundledDeskStand": false,
+        "micMonitoringSupported": true,
+        "amazonAsin": "B0C6XJ9W5T",
+        "amazonModelToken": "PD200X",
+        "amazonSeller": "MAONO JP",
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-microphone-106",
+      "name": "HyperX SoloCast 2",
+      "description": "スタンド一体型の小さなUSBコンデンサーマイク。上部をタップしてミュートできます。",
+      "priceRange": 2,
+      "features": [
+        "コンデンサー型・単一指向性",
+        "タップでミュート・スタンド一体型（角度調整）",
+        "24bit/96kHz・アーム用ねじ穴（3/8・5/8インチ）"
+      ],
+      "pros": [
+        "コンパクトで机に置きやすい",
+        "アームにもそのまま付けられる"
+      ],
+      "cons": [
+        "ヘッドホン端子・本体のゲイン調整はない"
+      ],
+      "recommendFor": "机の場所を取らないマイクがほしい人",
+      "caution": "確認時の価格は8,973円（税込・送料込、AmazonのAmazon.co.jp）です。価格は変動するため、購入前に販売ページでご確認ください。本体で自分の声をモニターする機能はありません。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FLKJ7FH7/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldo.d8zue716.g00r7ldo.d8zuf884/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4988481900544%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F15223099%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/14022/00000014369245_a01.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "soloSpeech": 4,
+        "noisyRoom": 3,
+        "multiperson": 1,
+        "voiceVersatility": 3,
+        "monitoring": 1,
+        "mute": 5,
+        "gainControl": 2,
+        "deskSetup": 5,
+        "armMount": 4,
+        "rgb": 1,
+        "value": 3,
+        "support": 5,
+        "brand": "HyperX",
+        "model": "HXR-AR0A0AA",
+        "microphoneType": "condenser",
+        "polarPatterns": "単一指向性（カーディオイド）",
+        "usbSupported": true,
+        "xlrSupported": false,
+        "headphoneOutput": false,
+        "hardwareMute": "タップ",
+        "tapToMute": true,
+        "onboardGain": "なし",
+        "rgbLighting": false,
+        "deskStandNote": "スタンド一体型（角度調整）",
+        "boomArmSupported": true,
+        "mountThread": "3/8・5/8インチ（スタンドに内蔵）",
+        "suppliedCable": "USB-C to A（2m）",
+        "hostConnector": "USB-A",
+        "bitDepth": 24,
+        "sampleRates": "44.1/48/96kHz",
+        "noiseProcessing": "ソフトウェアでフィルター切替",
+        "weightGrams": 330,
+        "supportedOS": "PC・Mac・PS4・PS5",
+        "warrantyYears": 2,
+        "priceYen": 8973,
+        "priceTier": 2,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://jp.ext.hp.com/accessories/personal/solocast_2_s/",
+        "switchablePolarPattern": false,
+        "bundledDeskStand": true,
+        "micMonitoringSupported": false,
+        "amazonAsin": "B0FLKJ7FH7",
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-microphone-107",
+      "name": "HyperX QuadCast 2",
+      "description": "4種類の指向性を切り替えられるUSBコンデンサーマイク。本体ノブでゲインやモニター音量を調整できます。",
+      "priceRange": 4,
+      "features": [
+        "コンデンサー型・カーディオイド／無指向性／双指向性／ステレオ",
+        "タップでミュート・多機能ノブ（ゲイン・モニター音量）",
+        "3.5mmヘッドホン端子で遅延のないモニター・スタンドとショックマウント付属"
+      ],
+      "pros": [
+        "複数人の収録にも使える",
+        "本体の操作が充実"
+      ],
+      "cons": [
+        "価格が高め",
+        "ライティングは赤色のみ"
+      ],
+      "recommendFor": "一人でも複数人でも使えるマイクがほしい人",
+      "caution": "確認時の価格は23,009円（税込・送料込、楽天市場のコジマ）です。価格は変動するため、購入前に販売ページでご確認ください。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F0197497651058%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11522482%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001216/0197497651058_1.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "soloSpeech": 5,
+        "noisyRoom": 3,
+        "multiperson": 5,
+        "voiceVersatility": 5,
+        "monitoring": 5,
+        "mute": 5,
+        "gainControl": 5,
+        "deskSetup": 5,
+        "armMount": 5,
+        "rgb": 2,
+        "value": 4,
+        "support": 5,
+        "brand": "HyperX",
+        "model": "872V1AA",
+        "microphoneType": "condenser",
+        "polarPatterns": "カーディオイド・無指向性・双指向性・ステレオ",
+        "usbSupported": true,
+        "xlrSupported": false,
+        "headphoneOutput": true,
+        "hardwareMute": "タップ",
+        "tapToMute": true,
+        "onboardGain": "本体ノブ",
+        "rgbLighting": false,
+        "deskStandNote": "スタンド・ショックマウント付属",
+        "boomArmSupported": true,
+        "mountThread": "3/8・5/8インチ（ショックマウント）",
+        "suppliedCable": "USB-C to C（3m）＋USB-Aアダプター",
+        "hostConnector": "USB-C・USB-A（アダプター）",
+        "bitDepth": 24,
+        "sampleRates": "44.1/48/96kHz",
+        "noiseProcessing": "なし",
+        "weightGrams": 335,
+        "supportedOS": "PC・Mac・PS4・PS5",
+        "warrantyYears": 2,
+        "priceYen": 23009,
+        "priceTier": 4,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://row.hyperx.com/ja/products/hyperx-quadcast-2-usb-microphone",
+        "switchablePolarPattern": true,
+        "bundledDeskStand": true,
+        "micMonitoringSupported": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-microphone-108",
+      "name": "Razer Seiren V3 Mini",
+      "description": "スタンド一体型の小型USBコンデンサーマイク。上部をタップしてミュートできます。",
+      "priceRange": 2,
+      "features": [
+        "コンデンサー型・スーパーカーディオイド",
+        "タップでミュート・角度調整できるスタンド",
+        "ショックアブソーバー内蔵"
+      ],
+      "pros": [
+        "コンパクトで手頃",
+        "周囲の音を拾いにくい指向性"
+      ],
+      "cons": [
+        "ヘッドホン端子・本体のゲイン調整はない",
+        "アーム用アダプターは別売"
+      ],
+      "recommendFor": "小さくて手頃なゲーム用マイクがほしい人",
+      "caution": "確認時の価格は6,616円（税込・送料込、AmazonのAmazon.co.jp）です。価格は変動するため、購入前に販売ページでご確認ください。本体で自分の声をモニターする機能はありません。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0CMTQPWQ8/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldo.d8zue716.g00r7ldo.d8zuf884/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F8887910000380%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F15667893%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/19417/00000015540335_a01.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "soloSpeech": 4,
+        "noisyRoom": 4,
+        "multiperson": 1,
+        "voiceVersatility": 3,
+        "monitoring": 1,
+        "mute": 5,
+        "gainControl": 2,
+        "deskSetup": 5,
+        "armMount": 4,
+        "rgb": 1,
+        "value": 3,
+        "support": 4,
+        "brand": "Razer",
+        "model": "RZ19-05050100-R3M1",
+        "microphoneType": "condenser",
+        "polarPatterns": "スーパーカーディオイド",
+        "usbSupported": true,
+        "xlrSupported": false,
+        "headphoneOutput": false,
+        "hardwareMute": "タップ",
+        "tapToMute": true,
+        "onboardGain": "なし",
+        "rgbLighting": false,
+        "deskStandNote": "スタンド一体型（角度調整）",
+        "boomArmSupported": true,
+        "mountThread": "5/8→3/8インチアダプターは別売",
+        "suppliedCable": "USBケーブル",
+        "hostConnector": "unknown",
+        "bitDepth": "unknown",
+        "sampleRates": "unknown",
+        "noiseProcessing": "ショックアブソーバー内蔵",
+        "weightGrams": "unknown",
+        "supportedOS": "Windows",
+        "warrantyYears": 1,
+        "priceYen": 6616,
+        "priceTier": 2,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.razer.com/jp-jp/streaming-microphones/razer-seiren-v3-mini",
+        "switchablePolarPattern": false,
+        "bundledDeskStand": true,
+        "micMonitoringSupported": false,
+        "amazonAsin": "B0CMTQPWQ8",
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-microphone-109",
+      "name": "Razer Seiren V3 Chroma",
+      "description": "Chroma RGBライティングとタップミュート、ヘッドホン端子を備えたUSBコンデンサーマイクです。",
+      "priceRange": 4,
+      "features": [
+        "コンデンサー型・スーパーカーディオイド",
+        "タップでミュート・本体ダイヤルで音量とゲインを調整",
+        "Chroma RGB・3.5mmヘッドホン端子でモニター・デスクスタンド付属"
+      ],
+      "pros": [
+        "RGBライティングが充実",
+        "本体で調整できる"
+      ],
+      "cons": [
+        "アーム用アダプターは別売",
+        "対応はWindowsのみ（PS4/PS5非対応）"
+      ],
+      "recommendFor": "ライティングも楽しみたいゲーム配信者",
+      "caution": "確認時の価格は17,160円（税込・送料込、AmazonのAmazon.co.jp）です。価格は変動するため、購入前に販売ページでご確認ください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0CNXKMSJG/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "",
+      "officialUrl": "",
+      "imageUrl": "",
+      "enabled": true,
+      "attributes": {
+        "soloSpeech": 5,
+        "noisyRoom": 4,
+        "multiperson": 1,
+        "voiceVersatility": 4,
+        "monitoring": 5,
+        "mute": 5,
+        "gainControl": 5,
+        "deskSetup": 5,
+        "armMount": 5,
+        "rgb": 5,
+        "value": 4,
+        "support": 4,
+        "brand": "Razer",
+        "model": "RZ19-05060100-R3M1",
+        "microphoneType": "condenser",
+        "polarPatterns": "スーパーカーディオイド",
+        "usbSupported": true,
+        "xlrSupported": false,
+        "headphoneOutput": true,
+        "hardwareMute": "タップ",
+        "tapToMute": true,
+        "onboardGain": "本体ダイヤル（デジタル）",
+        "rgbLighting": true,
+        "deskStandNote": "デスクスタンド付属",
+        "boomArmSupported": true,
+        "mountThread": "5/8→3/8インチアダプターは別売",
+        "suppliedCable": "USB-C to USB-A（2m）",
+        "hostConnector": "USB-A",
+        "bitDepth": 24,
+        "sampleRates": "96kHz",
+        "noiseProcessing": "デジタルゲインリミッター",
+        "weightGrams": 410,
+        "supportedOS": "Windows",
+        "warrantyYears": 1,
+        "priceYen": 17160,
+        "priceTier": 4,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.razer.com/jp-jp/streaming-microphones/razer-seiren-v3-chroma",
+        "switchablePolarPattern": false,
+        "bundledDeskStand": true,
+        "micMonitoringSupported": true,
+        "amazonAsin": "B0CNXKMSJG",
+        "amazonModelToken": "V3 Chroma",
+        "amazonSeller": "Amazon.co.jp",
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-microphone-110",
+      "name": "Logicool G YETI ORB",
+      "description": "RGBライティングを備えた球体デザインのUSBコンデンサーマイク。スタンド付きで置くだけで使えます。",
+      "priceRange": 2,
+      "features": [
+        "コンデンサー型・単一指向性",
+        "RGB（LIGHTSYNC）・着脱式スタンド付属",
+        "ミュート・ゲインはソフトウェア（G HUB）で操作"
+      ],
+      "pros": [
+        "手頃な価格でRGB",
+        "置くだけで使える"
+      ],
+      "cons": [
+        "本体にミュート・ゲインの操作部はない",
+        "自分の声のモニター機能は確認できていない"
+      ],
+      "recommendFor": "手頃でデスクを彩るマイクがほしい人",
+      "caution": "確認時の価格は7,900円（税込・送料込、AmazonのAmazon.co.jp）です。価格は変動するため、購入前に販売ページでご確認ください。本体で自分の声をモニターする機能は公式仕様で確認できていません。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0CRV2C7HD/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tpxdo.d8zuedb9.g00tpxdo.d8zuf693/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flogicool%2Fg-yeti-orb-bk%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Flogicool%2Fi%2F10000586%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/logicool/cabinet/prd/g_mic/g-yeti-orb-bk/g-yeti-orb-bk_.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "soloSpeech": 4,
+        "noisyRoom": 3,
+        "multiperson": 1,
+        "voiceVersatility": 3,
+        "monitoring": 1,
+        "mute": 2,
+        "gainControl": 2,
+        "deskSetup": 5,
+        "armMount": 3,
+        "rgb": 5,
+        "value": 3,
+        "support": 5,
+        "brand": "Logicool G",
+        "model": "G-YETI-ORB-BK",
+        "microphoneType": "condenser",
+        "polarPatterns": "単一指向性（カーディオイド）",
+        "usbSupported": true,
+        "xlrSupported": false,
+        "headphoneOutput": "unknown",
+        "hardwareMute": "ソフトウェア（G HUB）",
+        "tapToMute": false,
+        "onboardGain": "ソフトウェア（G HUB）",
+        "rgbLighting": true,
+        "deskStandNote": "着脱式デスクトップスタンド付属",
+        "boomArmSupported": false,
+        "mountThread": "unknown",
+        "suppliedCable": "USB-C to A（2m）",
+        "hostConnector": "USB-A",
+        "bitDepth": 24,
+        "sampleRates": "48kHz",
+        "noiseProcessing": "ノイズリダクション（Blue VO!CE）",
+        "weightGrams": 230,
+        "supportedOS": "Windows・macOS",
+        "warrantyYears": 2,
+        "priceYen": 7900,
+        "priceTier": 2,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://gaming.logicool.co.jp/ja-jp/shop/p/yeti-orb-gaming-microphone.988-000562",
+        "switchablePolarPattern": false,
+        "bundledDeskStand": true,
+        "micMonitoringSupported": "unknown",
+        "amazonAsin": "B0CRV2C7HD",
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-microphone-111",
+      "name": "Logicool G YETI 2",
+      "description": "6種類の指向性と自動調整に対応したUSBマイク。ディスプレイとダイヤルで設定を確認・調整できます。",
+      "priceRange": 5,
+      "features": [
+        "コンデンサー（3カプセル）・自動／カーディオイド／スーパーカーディオイド／双指向性／無指向性／ステレオ",
+        "タッチミュート・ゲインやEQの自動調整・ディスプレイとダイヤル",
+        "AIノイズリダクション・スタンド一体型"
+      ],
+      "pros": [
+        "複数人の収録にも使える",
+        "自動調整で設定が簡単"
+      ],
+      "cons": [
+        "価格が高い",
+        "本体でのマイクモニターは公式情報で確認できていない"
+      ],
+      "recommendFor": "多機能なマイクで配信や収録をしたい人",
+      "caution": "確認時の価格は26,300円（税込・送料込、AmazonのAmazon.co.jp）です。価格は変動するため、購入前に販売ページでご確認ください。本体で自分の声をモニターする機能は公式仕様で確認できていません。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0HGFMSS7P/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tpxdo.d8zuedb9.g00tpxdo.d8zuf693/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flogicool%2Fg-yeti-2-bk%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Flogicool%2Fi%2F10000888%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/logicool/cabinet/prd/g_mic/g-yeti-2-bk/g-yeti-2-bk_n.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "soloSpeech": 5,
+        "noisyRoom": 4,
+        "multiperson": 5,
+        "voiceVersatility": 5,
+        "monitoring": 1,
+        "mute": 5,
+        "gainControl": 5,
+        "deskSetup": 5,
+        "armMount": 4,
+        "rgb": 2,
+        "value": 3,
+        "support": 5,
+        "brand": "Logicool G",
+        "model": "G-YETI-2-BK",
+        "microphoneType": "condenser",
+        "polarPatterns": "自動・カーディオイド・スーパーカーディオイド・双指向性・無指向性・ステレオ",
+        "usbSupported": true,
+        "xlrSupported": false,
+        "headphoneOutput": "unknown",
+        "hardwareMute": "タッチ",
+        "tapToMute": true,
+        "onboardGain": "自動調整・本体ダイヤル",
+        "rgbLighting": false,
+        "deskStandNote": "スタンド一体型（ダイキャスト）",
+        "boomArmSupported": false,
+        "mountThread": "unknown",
+        "suppliedCable": "USB-C to USB-A",
+        "hostConnector": "USB-A",
+        "bitDepth": 24,
+        "sampleRates": "48kHz",
+        "noiseProcessing": "AIノイズリダクション",
+        "weightGrams": 995,
+        "supportedOS": "Windows・macOS",
+        "warrantyYears": 2,
+        "priceYen": 26300,
+        "priceTier": 5,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://gaming.logicool.co.jp/ja-jp/shop/p/yeti-2",
+        "switchablePolarPattern": true,
+        "bundledDeskStand": true,
+        "micMonitoringSupported": "unknown",
+        "amazonAsin": "B0HGFMSS7P",
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-microphone-112",
+      "name": "Elgato Wave Neo",
+      "description": "卓上スタンドとライザーで口元の高さに合わせやすいUSBコンデンサーマイクです。",
+      "priceRange": 4,
+      "features": [
+        "コンデンサー型・カーディオイド",
+        "タップでミュート・卓上スタンドと延長ライザー付属",
+        "ヘッドホン端子（PCの音を聞く用）"
+      ],
+      "pros": [
+        "机の上で口元に近づけやすい",
+        "つなぐだけで使える"
+      ],
+      "cons": [
+        "ヘッドホン端子で自分の声はモニターできない"
+      ],
+      "recommendFor": "Web会議を手軽に聞き取りやすくしたい人",
+      "caution": "確認時の価格は15,370円（税込・送料込、楽天市場の楽天ビック(ビックカメラ×楽天)）です。価格は変動するため、購入前に販売ページでご確認ください。本体で自分の声をモニターする機能はありません。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldo.d8zue716.g00r7ldo.d8zuf884/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F0840006673460%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F14725728%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/10209/00000012841281_a01.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "soloSpeech": 5,
+        "noisyRoom": 3,
+        "multiperson": 1,
+        "voiceVersatility": 4,
+        "monitoring": 1,
+        "mute": 5,
+        "gainControl": 2,
+        "deskSetup": 5,
+        "armMount": 4,
+        "rgb": 1,
+        "value": 2,
+        "support": 5,
+        "brand": "Elgato",
+        "model": "10MAI9901",
+        "microphoneType": "condenser",
+        "polarPatterns": "カーディオイド",
+        "usbSupported": true,
+        "xlrSupported": false,
+        "headphoneOutput": true,
+        "hardwareMute": "タップ",
+        "tapToMute": true,
+        "onboardGain": "unknown",
+        "rgbLighting": false,
+        "deskStandNote": "卓上スタンド・延長ライザー付属",
+        "boomArmSupported": true,
+        "mountThread": "1/4・5/8・3/8インチ",
+        "suppliedCable": "USB-C to USB-A（1.5m）",
+        "hostConnector": "USB-A",
+        "bitDepth": 24,
+        "sampleRates": "48/96kHz",
+        "noiseProcessing": "なし",
+        "weightGrams": 450,
+        "supportedOS": "Windows 11・macOS 14.2以降",
+        "warrantyYears": "unknown",
+        "priceYen": 15370,
+        "priceTier": 4,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.elgato.com/jp/ja/p/wave-neo",
+        "switchablePolarPattern": false,
+        "bundledDeskStand": true,
+        "micMonitoringSupported": false,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-microphone-113",
+      "name": "Elgato Wave:3 MK.2",
+      "description": "本体DSPとAuto Gainを備えた配信向けUSBコンデンサーマイク。ダイヤルとタップで操作できます。",
+      "priceRange": 5,
+      "features": [
+        "コンデンサー型・カーディオイド",
+        "タップでミュート・多機能ダイヤル（ゲイン・モニターミックス）・Auto Gain",
+        "ヘッドホン端子で遅延のないモニター・Clipguard 2.0・デスクスタンド付属"
+      ],
+      "pros": [
+        "音割れを防ぐ機能が充実",
+        "本体で細かく調整できる"
+      ],
+      "cons": [
+        "価格が高い",
+        "PC側にUSB-C端子が必要"
+      ],
+      "recommendFor": "配信や収録の音にこだわりたい人",
+      "caution": "確認時の価格は31,880円（税込・送料込、楽天市場の楽天ビック(ビックカメラ×楽天)）です。価格は変動するため、購入前に販売ページでご確認ください。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldo.d8zue716.g00r7ldo.d8zuf884/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F0840440416227%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F15372465%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/16416/00000014957836_a01.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "soloSpeech": 5,
+        "noisyRoom": 4,
+        "multiperson": 1,
+        "voiceVersatility": 5,
+        "monitoring": 5,
+        "mute": 5,
+        "gainControl": 5,
+        "deskSetup": 5,
+        "armMount": 5,
+        "rgb": 1,
+        "value": 2,
+        "support": 5,
+        "brand": "Elgato",
+        "model": "10MAO9901",
+        "microphoneType": "condenser",
+        "polarPatterns": "カーディオイド",
+        "usbSupported": true,
+        "xlrSupported": false,
+        "headphoneOutput": true,
+        "hardwareMute": "タップ",
+        "tapToMute": true,
+        "onboardGain": "本体ダイヤル・Auto Gain",
+        "rgbLighting": false,
+        "deskStandNote": "デスクスタンド付属",
+        "boomArmSupported": true,
+        "mountThread": "1/4インチ（5/8・3/8インチアダプター付属）",
+        "suppliedCable": "USB-Cケーブル",
+        "hostConnector": "USB-C",
+        "bitDepth": 24,
+        "sampleRates": "48kHz",
+        "noiseProcessing": "Clipguard 2.0・オンボードDSP",
+        "weightGrams": 250,
+        "supportedOS": "Windows 11・macOS 14.2以降",
+        "warrantyYears": "unknown",
+        "priceYen": 31880,
+        "priceTier": 5,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.elgato.com/jp/ja/p/wave-3",
+        "switchablePolarPattern": false,
+        "bundledDeskStand": true,
+        "micMonitoringSupported": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-microphone-114",
+      "name": "audio-technica AT2020USB-X",
+      "description": "専用スタンド付きのUSBコンデンサーマイク。遅延のないダイレクトモニターとミックス調整に対応します。",
+      "priceRange": 4,
+      "features": [
+        "コンデンサー型・単一指向性・最大24bit/96kHz",
+        "タッチミュート・ヘッドホン音量とミキサー調整ダイヤル",
+        "遅延のないダイレクトモニター・専用スタンド付属"
+      ],
+      "pros": [
+        "自分の声とPCの音のバランスを本体で調整できる"
+      ],
+      "cons": [
+        "本体にマイクゲインの調整部はない",
+        "メーカーでは生産完了"
+      ],
+      "recommendFor": "ナレーションや歌を手元で確認しながら録りたい人",
+      "caution": "確認時の価格は21,780円（税込・送料込、楽天市場のオーディオテクニカ公式）です。価格は変動するため、購入前に販売ページでご確認ください。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u820o.d8zuec63.g00u820o.d8zufbe0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Faudio-technica%2F140316440%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Faudio-technica%2Fi%2F10000049%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/audio-technica/cabinet/09095523/09162163/imgrc0138448854.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "soloSpeech": 5,
+        "noisyRoom": 3,
+        "multiperson": 1,
+        "voiceVersatility": 5,
+        "monitoring": 5,
+        "mute": 5,
+        "gainControl": 2,
+        "deskSetup": 5,
+        "armMount": 5,
+        "rgb": 1,
+        "value": 3,
+        "support": 5,
+        "brand": "audio-technica",
+        "model": "AT2020USB-X",
+        "microphoneType": "condenser",
+        "polarPatterns": "単一指向性",
+        "usbSupported": true,
+        "xlrSupported": false,
+        "headphoneOutput": true,
+        "hardwareMute": "タッチ",
+        "tapToMute": true,
+        "onboardGain": "なし（PC側で調整）",
+        "rgbLighting": false,
+        "deskStandNote": "専用スタンド AT8702 付属",
+        "boomArmSupported": true,
+        "mountThread": "3/8→5/8インチ変換ネジ付属",
+        "suppliedCable": "USB Type-C/Type-A（約2m）＋USB変換アダプター",
+        "hostConnector": "USB-A・USB-C（アダプター）",
+        "bitDepth": 24,
+        "sampleRates": "44.1/48/88.2/96kHz",
+        "noiseProcessing": "なし",
+        "weightGrams": 373,
+        "supportedOS": "Windows・macOS",
+        "warrantyYears": "unknown",
+        "priceYen": 21780,
+        "priceTier": 4,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.audio-technica.co.jp/product/AT2020USB-X",
+        "switchablePolarPattern": false,
+        "bundledDeskStand": true,
+        "micMonitoringSupported": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "usb-microphone-115",
+      "name": "audio-technica AT2040USB",
+      "description": "ハイパーカーディオイドのダイナミック型USBマイク。遅延のないダイレクトモニターとローカットに対応します。",
+      "priceRange": 4,
+      "features": [
+        "ダイナミック型・ハイパーカーディオイド・最大24bit/96kHz",
+        "タッチミュート・ミキサー調整・ローカットスイッチ",
+        "遅延のないダイレクトモニター（スタンドなし・クランプ付属）"
+      ],
+      "pros": [
+        "周囲の音を拾いにくい",
+        "アームでの運用に向く"
+      ],
+      "cons": [
+        "卓上スタンドは別売",
+        "本体にマイクゲインの調整部はない",
+        "メーカーでは生産完了"
+      ],
+      "recommendFor": "マイクアームで声をしっかり録りたい人",
+      "caution": "確認時の価格は22,000円（税込・送料込、楽天市場のRock oN Line）です。価格は変動するため、購入前に販売ページでご確認ください。机に置くスタンドは付属しません。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ry2po.d8zue7f1.g00ry2po.d8zuf766/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frockonline%2F85931%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frockonline%2Fi%2F10009725%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/rockonline/cabinet/product/05132654/at2040usb_1.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "soloSpeech": 5,
+        "noisyRoom": 5,
+        "multiperson": 1,
+        "voiceVersatility": 5,
+        "monitoring": 5,
+        "mute": 5,
+        "gainControl": 2,
+        "deskSetup": 2,
+        "armMount": 5,
+        "rgb": 1,
+        "value": 3,
+        "support": 5,
+        "brand": "audio-technica",
+        "model": "AT2040USB",
+        "microphoneType": "dynamic",
+        "polarPatterns": "ハイパーカーディオイド",
+        "usbSupported": true,
+        "xlrSupported": false,
+        "headphoneOutput": true,
+        "hardwareMute": "タッチ",
+        "tapToMute": true,
+        "onboardGain": "なし（PC側で調整）",
+        "rgbLighting": false,
+        "deskStandNote": "スタンドなし（マウンティングクランプ付属）",
+        "boomArmSupported": true,
+        "mountThread": "5/8→3/8インチ変換ネジ付属",
+        "suppliedCable": "USB Type-C - Type-A（約2m）＋USB変換アダプター",
+        "hostConnector": "USB-A・USB-C（アダプター）",
+        "bitDepth": 24,
+        "sampleRates": "44.1/48/88.2/96kHz",
+        "noiseProcessing": "ローカット（80Hz）",
+        "weightGrams": 600,
+        "supportedOS": "Windows・macOS",
+        "warrantyYears": "unknown",
+        "priceYen": 22000,
+        "priceTier": 4,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.audio-technica.co.jp/product/AT2040USB",
+        "switchablePolarPattern": false,
+        "bundledDeskStand": false,
+        "micMonitoringSupported": true,
+        "baseline": 5
+      }
+    }
+  ],
+  "scoring": {
+    "tieBreak": true,
+    "softenPartialReason": true,
+    "strictEligibility": true
+  },
+  "guide": {
+    "title": "USBマイクの選び方",
+    "intro": "この診断は、USB接続で使えるマイクを対象に、メーカーや販売ページで確認できた仕様をもとに、あなたの回答と照らし合わせて相性を計算しています。予算・指向性の切り替え（必須の場合）・卓上スタンドの付属（必須の場合）・本体での音声モニター（必須の場合）の条件を満たさない機種はおすすめに表示しません。評価はメーカー公表仕様に基づく相対的なもので、実機で音質を測定した結果ではありません。",
+    "sections": [
+      {
+        "heading": "コンデンサー型とダイナミック型",
+        "body": "コンデンサー型は声を細かく拾いやすく、ダイナミック型は口元に近づけて使うと周囲の音を拾いにくい傾向があります。どちらにも特徴があり、指向性やマイクとの距離、部屋の反響によって録音結果は変わります。マイクを替えるだけで騒音や反響、息の吹かれを完全に防げるわけではありません。"
+      },
+      {
+        "heading": "ヘッドホン端子とモニター機能",
+        "body": "マイク本体のヘッドホン端子で自分の声を確認できる機種と、PCの音を聞くための端子しかない機種があります。モニター機能は接続方法やソフトウェアによって異なる場合があり、USB/XLR両対応の機種ではミュートやゲイン調整などの本体機能がUSB接続時のみ使えることがあります。"
+      },
+      {
+        "heading": "設置と接続",
+        "body": "マイクアームを使う場合は、マイクのねじ規格（5/8インチ・3/8インチ）と変換アダプターの有無を確認してください。付属ケーブルのPC側の端子（USB-A・USB-C）も機種によって異なります。ソフトウェアによる音声処理には対応OSなどの制限があります。"
+      }
+    ]
+  },
+  "notice": "仕様はメーカーや販売ページが公表する値です。価格は確認時点の税込購入価格（送料込み）で、変動するため購入時に販売ページでご確認ください。"
+}
