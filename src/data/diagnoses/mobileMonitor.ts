@@ -89,7 +89,7 @@ const products: Product[] = [
     rakutenUrl: '',
     officialUrl: '',
     imageUrl: '',
-    enabled: true,
+    enabled: false,
     attributes: {
       portability: 3,
       workspace: 3,
@@ -675,7 +675,7 @@ const products: Product[] = [
     pros: ['動きの速いゲームが見やすい', 'HDMIでも144Hz'],
     cons: ['144Hz表示にはPC・ゲーム機側の対応が必要'],
     recommendFor: 'ゲームをなめらかな表示で楽しみたい人',
-    caution: '確認時の価格は25,980円（税込・送料込、AmazonのAmazon.co.jp）です。価格は変動するため、購入前に販売ページでご確認ください。144Hzで表示するには、PC・ゲーム機と接続方法が144Hz出力に対応している必要があります。',
+    caution: '確認時の価格は20,784円（税込・送料込、Amazonのアキバプラス）です。価格は変動するため、購入前に販売ページでご確認ください。144Hzで表示するには、PC・ゲーム機と接続方法が144Hz出力に対応している必要があります。',
     amazonUrl: 'https://www.amazon.co.jp/dp/B0D8VDX19P/ref=nosim?tag=pittarishinda-22',
     rakutenUrl: '',
     officialUrl: '',
@@ -711,7 +711,7 @@ const products: Product[] = [
       speakers: true,
       standType: 'スマートケース（スタンド兼用）',
       warrantyYears: 'unknown',
-      priceYen: 25980,
+      priceYen: 20784,
       stockStatus: 'in-stock',
       officialSpecUrl: 'https://jp.japannext.com/products/jn-md-156i144fhdr/',
       sizeCompact: false,
@@ -729,7 +729,7 @@ const products: Product[] = [
       weight800: true,
       amazonAsin: 'B0D8VDX19P',
       amazonModelToken: 'JN-MD-156i144FHDR',
-      amazonSeller: 'Amazon.co.jp',
+      amazonSeller: 'アキバプラス',
     },
     category: 'mobile-monitor',
   },
@@ -1281,7 +1281,7 @@ export const mobileMonitor: Diagnosis = {
   scoring: { tieBreak: true, softenPartialReason: true, strictEligibility: true },
   guide: {
     title: 'モバイルモニターの選び方',
-    intro: 'この診断は、モバイルモニター15機種を対象に、メーカーや販売ページで確認できた仕様をもとに、あなたの回答と照らし合わせて相性を計算しています。画面サイズ・解像度・接続端子・必須機能・重さ・予算の条件を満たさない機種はおすすめに表示しません。評価は公表値に基づく相対的なもので、実機で比べた結果ではありません。',
+    intro: 'この診断は、モバイルモニターを対象に、メーカーや販売ページで確認できた仕様をもとに、あなたの回答と照らし合わせて相性を計算しています。画面サイズ・解像度・接続端子・必須機能・重さ・予算の条件を満たさない機種はおすすめに表示しません。評価は公表値に基づく相対的なもので、実機で比べた結果ではありません。',
     sections: [
       {
         heading: 'USB Type-Cで映像を出すには',
