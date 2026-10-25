@@ -695,4 +695,17 @@ export const presets: Record<string, RakutenPreset> = {
     priceThresholds: [10000, 15000, 20000, 35000],
     attributeKeys: ['imageQuality', 'nightVision', 'outdoorDurability', 'coverage', 'powerFlexibility', 'localRecording', 'continuousRecording', 'aiDetection', 'privacy', 'installation', 'value', 'warranty'],
   },
+  'pressure-washer': {
+    category: 'pressure-washer',
+    // 採用機種は指示書で確定済み。型番の確認は --keyword "型番" で行う（50Hz・60Hz、単品・セット品、ベランダセットの違いに注意）
+    keywords: ['高圧洗浄機', '高圧洗浄機 静音', '高圧洗浄機 コードレス', '高圧洗浄機 タンク式'],
+    ngKeyword: '中古 整備済み 再生品 アウトレット ノズルのみ ホースのみ 交換用 部品 並行輸入',
+    sort: '-reviewCount',
+    hits: 20,
+    minPrice: 5000,
+    maxPerShop: 3,
+    // pressure-washer の priceLabels（15,000 / 25,000 / 40,000 / 60,000円）と同じ区分
+    priceThresholds: [15000, 25000, 40000, 60000],
+    attributeKeys: ['pressure', 'waterFlow', 'portability', 'waterFlexibility', 'cordlessFreedom', 'quietness', 'runtime', 'reach', 'nozzleFlexibility', 'setupEase', 'value', 'support'],
+  },
 }

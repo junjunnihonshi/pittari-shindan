@@ -57,6 +57,7 @@ import { usbMicrophone } from './usbMicrophone.ts'
 import { externalSsd } from './externalSsd.ts'
 import { usbCHub } from './usbCHub.ts'
 import { securityCamera } from './securityCamera.ts'
+import { pressureWasher } from './pressureWasher.ts'
 
 /**
  * 診断の一覧（登録簿）。
@@ -122,6 +123,7 @@ const allDiagnoses: Diagnosis[] = [
   externalSsd,
   usbCHub,
   securityCamera,
+  pressureWasher,
 ]
 
 /**
