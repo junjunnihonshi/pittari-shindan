@@ -682,4 +682,17 @@ export const presets: Record<string, RakutenPreset> = {
     priceThresholds: [4500, 7000, 10000, 16000],
     attributeKeys: ['hdmiQuality', 'dualDisplay', 'usbAPorts', 'usbCData', 'transferSpeed', 'wiredLan', 'cardReader', 'pdCharging', 'portability', 'workstation', 'value', 'support'],
   },
+  'security-camera': {
+    category: 'security-camera',
+    // 採用機種は指示書で確定済み。型番の確認は --keyword "型番" で行う（単体・キット・ソーラーパネル付きセット・microSD付きセットの違いに注意）
+    keywords: ['防犯カメラ 屋外', '見守りカメラ', '防犯カメラ ソーラー', 'ペットカメラ'],
+    ngKeyword: '中古 整備済み 再生品 ダミー 取付金具 スタンド マウント 並行輸入',
+    sort: '-reviewCount',
+    hits: 20,
+    minPrice: 3000,
+    maxPerShop: 3,
+    // security-camera の priceLabels（10,000 / 15,000 / 20,000 / 35,000円）と同じ区分
+    priceThresholds: [10000, 15000, 20000, 35000],
+    attributeKeys: ['imageQuality', 'nightVision', 'outdoorDurability', 'coverage', 'powerFlexibility', 'localRecording', 'continuousRecording', 'aiDetection', 'privacy', 'installation', 'value', 'warranty'],
+  },
 }

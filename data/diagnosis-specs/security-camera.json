@@ -1,0 +1,2324 @@
+{
+  "id": "security-camera",
+  "enabled": false,
+  "title": "防犯カメラ・見守りカメラ診断",
+  "itemName": "防犯カメラ",
+  "group": "life",
+  "icon": "📹",
+  "cardDescription": "設置場所、電源、撮影方法、録画方法、画質、重視する機能、予算から、あなたに合う防犯カメラ・見守りカメラを診断。",
+  "description": "防犯カメラには、屋内の見守りに適したモデルから、雨に強い屋外用、コンセント不要のバッテリー式やソーラー式までさまざまな種類があります。設置場所と必要な機能を7つの質問で整理し、自分に合う製品を探しましょう。",
+  "searchKeywords": [
+    "防犯カメラ おすすめ",
+    "家庭用防犯カメラ",
+    "屋外防犯カメラ",
+    "見守りカメラ",
+    "ペットカメラ",
+    "防犯カメラ ソーラー",
+    "防犯カメラ 工事不要",
+    "防犯カメラ 月額不要",
+    "防犯カメラ 4K",
+    "防犯カメラ Wi-Fi",
+    "防犯カメラ SDカード録画",
+    "防犯カメラ 24時間録画",
+    "玄関 防犯カメラ",
+    "駐車場 防犯カメラ",
+    "防犯カメラ 比較"
+  ],
+  "seo": {
+    "title": "防犯カメラの選び方診断｜屋外・屋内・ソーラー・録画方法から7問で比較",
+    "description": "防犯カメラを7問で診断。玄関・駐車場の防犯、室内のペットや家族の見守りに合わせて、屋外対応、ソーラー給電、画質、首振り、録画方法、予算からおすすめを比較できます。"
+  },
+  "priceLabels": {
+    "1": "〜10,000円",
+    "2": "10,001〜15,000円",
+    "3": "15,001〜20,000円",
+    "4": "20,001〜35,000円",
+    "5": "35,001円〜"
+  },
+  "questions": [
+    {
+      "id": "location",
+      "text": "どこに設置しますか？",
+      "shortLabel": "設置場所",
+      "weight": 9,
+      "help": "屋外を選ぶと、公式に屋外設置に対応し、IP65以上の防水・防塵性能を持つ機種だけを表示します。室内用には、屋外対応の機種も候補になります。",
+      "options": [
+        {
+          "id": "indoorPet",
+          "label": "室内でペットを見守る",
+          "summary": "室内でペットを見守る",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "coverage",
+              "value": 5,
+              "weight": 4
+            },
+            {
+              "type": "atLeast",
+              "attr": "aiDetection",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "indoorSuitability",
+              "value": 5,
+              "weight": 2
+            }
+          ]
+        },
+        {
+          "id": "indoorFamily",
+          "label": "室内で家族・部屋を見守る",
+          "summary": "室内で家族・部屋を見守る",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "privacy",
+              "value": 5,
+              "weight": 4
+            },
+            {
+              "type": "atLeast",
+              "attr": "coverage",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "indoorSuitability",
+              "value": 5,
+              "weight": 2
+            }
+          ]
+        },
+        {
+          "id": "outdoorEntrance",
+          "label": "屋外の玄関・置き配を見守る",
+          "summary": "屋外の玄関・置き配（IP65以上）",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "outdoorDurability",
+              "value": 5,
+              "weight": 4
+            },
+            {
+              "type": "atLeast",
+              "attr": "aiDetection",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "equals",
+              "attr": "outdoorIP65",
+              "value": true,
+              "weight": 0.5
+            },
+            {
+              "type": "equals",
+              "attr": "outdoorIP65",
+              "value": true,
+              "weight": 1.5
+            }
+          ],
+          "eligibility": {
+            "attr": "outdoorIP65",
+            "value": true,
+            "notice": "公式に屋外設置に対応し、IP65以上の防水・防塵性能を持つ機種からおすすめを表示しています。メーカー指定の設置方法を守り、設置場所までWi-Fiの電波が届くか購入前に確認してください。"
+          }
+        },
+        {
+          "id": "outdoorParking",
+          "label": "屋外の駐車場・庭を見守る",
+          "summary": "屋外の駐車場・庭（IP65以上）",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "nightVision",
+              "value": 5,
+              "weight": 4
+            },
+            {
+              "type": "atLeast",
+              "attr": "outdoorDurability",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "equals",
+              "attr": "outdoorIP65",
+              "value": true,
+              "weight": 2
+            }
+          ],
+          "eligibility": {
+            "attr": "outdoorIP65",
+            "value": true,
+            "notice": "公式に屋外設置に対応し、IP65以上の防水・防塵性能を持つ機種からおすすめを表示しています。メーカー指定の設置方法を守り、設置場所までWi-Fiの電波が届くか購入前に確認してください。"
+          }
+        },
+        {
+          "id": "undecided",
+          "label": "まだ決めていない",
+          "summary": "設置場所は未定",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "power",
+      "text": "電源はどう確保しますか？",
+      "shortLabel": "電源",
+      "weight": 8,
+      "help": "バッテリー式・ソーラー式でも、Wi-Fiへの接続は必要です。ソーラー給電は日照条件によって充電量が変わります。この診断の対象機種では、バッテリー式・ソーラー式は通常の24時間連続録画に対応していません。",
+      "options": [
+        {
+          "id": "outlet",
+          "label": "設置場所に電源コンセントがある",
+          "summary": "電源コンセントがある",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "continuousRecording",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 5
+            }
+          ]
+        },
+        {
+          "id": "battery",
+          "label": "電源ケーブルなしで使いたい",
+          "summary": "電源ケーブルなし（バッテリー内蔵が必須）",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "powerFlexibility",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "atLeast",
+              "attr": "installation",
+              "value": 5,
+              "weight": 3
+            }
+          ],
+          "eligibility": {
+            "attr": "batteryPoweredConfirmed",
+            "value": true,
+            "notice": "バッテリーを内蔵し、電源ケーブルなしで使える機種からおすすめを表示しています。定期的な充電が必要で、Wi-Fiへの接続は必要です。"
+          }
+        },
+        {
+          "id": "solar",
+          "label": "ソーラーパネル付属が必須",
+          "summary": "ソーラーパネル付属（必須）",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "powerFlexibility",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "atLeast",
+              "attr": "outdoorDurability",
+              "value": 5,
+              "weight": 2
+            },
+            {
+              "type": "equals",
+              "attr": "solarPanelIncludedConfirmed",
+              "value": true,
+              "weight": 1
+            }
+          ],
+          "eligibility": {
+            "attr": "solarPanelIncludedConfirmed",
+            "value": true,
+            "notice": "購入する商品にソーラーパネルが含まれる機種からおすすめを表示しています。ソーラー給電は日照条件によって充電量が変わり、充電が不要になるとは限りません。"
+          }
+        },
+        {
+          "id": "flexible",
+          "label": "どれでもよい",
+          "summary": "電源方式はこだわらない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "coverage",
+      "text": "どのように撮影したいですか？",
+      "shortLabel": "撮影方法",
+      "weight": 8,
+      "options": [
+        {
+          "id": "fixed",
+          "label": "固定された範囲を撮影できればよい",
+          "summary": "固定された範囲を撮影",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "imageQuality",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 5
+            }
+          ]
+        },
+        {
+          "id": "panTilt",
+          "label": "スマホから上下左右に動かせることが必須",
+          "summary": "スマホで首振り（パンチルト必須）",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "coverage",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "equals",
+              "attr": "panTiltConfirmed",
+              "value": true,
+              "weight": 3
+            }
+          ],
+          "eligibility": {
+            "attr": "panTiltConfirmed",
+            "value": true,
+            "notice": "スマホから上下左右に向きを変えられる（パンチルト対応の）機種からおすすめを表示しています。"
+          }
+        },
+        {
+          "id": "tracking",
+          "label": "人物などを自動追尾できることが必須",
+          "summary": "自動追尾（必須）",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "coverage",
+              "value": 5,
+              "weight": 4
+            },
+            {
+              "type": "atLeast",
+              "attr": "aiDetection",
+              "value": 5,
+              "weight": 4
+            }
+          ],
+          "eligibility": {
+            "attr": "autoTrackingConfirmed",
+            "value": true,
+            "notice": "動く人物などを自動で追尾できる機種からおすすめを表示しています。デュアルレンズの機種では、追尾時の画質が異なる場合があります。"
+          }
+        },
+        {
+          "id": "flexible",
+          "label": "特にこだわらない",
+          "summary": "撮影方法はこだわらない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "recording",
+      "text": "録画方法は？",
+      "shortLabel": "録画方法",
+      "weight": 8,
+      "help": "通常の24時間連続録画に対応しているのは、この診断の対象機種ではコンセント給電の機種だけです。バッテリー式・ソーラー式と組み合わせると該当する商品はありません。省電力の「24時間キャプチャ」（動きがないときは低画質で記録）は、通常の24時間連続録画には含めていません。microSDカードは別売りの場合があります。",
+      "options": [
+        {
+          "id": "local",
+          "label": "月額料金なしで本体側に録画・再生したい",
+          "summary": "月額料金なしでローカル録画",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "localRecording",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "atLeast",
+              "attr": "privacy",
+              "value": 5,
+              "weight": 3
+            }
+          ],
+          "eligibility": {
+            "attr": "localRecordingWithoutSubscription",
+            "value": true,
+            "notice": "microSDカードや本体メモリに、月額料金なしで録画できる機種からおすすめを表示しています。microSDカードは別売りの場合があります。"
+          }
+        },
+        {
+          "id": "continuous",
+          "label": "通常画質の24時間連続録画が必須",
+          "summary": "通常の24時間連続録画（コンセント給電の機種のみ対応）",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "continuousRecording",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "atLeast",
+              "attr": "localRecording",
+              "value": 5,
+              "weight": 2
+            },
+            {
+              "type": "equals",
+              "attr": "continuousRecordingConfirmed",
+              "value": true,
+              "weight": 1
+            }
+          ],
+          "eligibility": {
+            "attr": "continuousRecordingConfirmed",
+            "value": true,
+            "notice": "通常の24時間連続録画にメーカーが対応している機種からおすすめを表示しています。microSDカード（別売り）が必要です。"
+          }
+        },
+        {
+          "id": "cloud",
+          "label": "クラウド保存を重視",
+          "summary": "クラウド保存を重視",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "privacy",
+              "value": 5,
+              "weight": 2
+            },
+            {
+              "type": "atLeast",
+              "attr": "warranty",
+              "value": 5,
+              "weight": 2
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 4
+            }
+          ]
+        },
+        {
+          "id": "flexible",
+          "label": "特にこだわらない",
+          "summary": "録画方法はこだわらない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quality",
+      "text": "希望する画質は？",
+      "shortLabel": "画質",
+      "weight": 5,
+      "help": "録画できる最大解像度で判定します。2Kクラスは約300万画素以上です。デュアルレンズの機種は、4Kが固定（広角）レンズだけの場合があります。",
+      "options": [
+        {
+          "id": "fullHD",
+          "label": "フルHD程度で十分",
+          "summary": "フルHD程度で十分",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 4
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "id": "twoK",
+          "label": "2Kクラス以上が必須",
+          "summary": "2Kクラス（約300万画素）以上",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "imageQuality",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "equals",
+              "attr": "recording2KClass",
+              "value": true,
+              "weight": 1.5
+            },
+            {
+              "type": "equals",
+              "attr": "recording2KClass",
+              "value": true,
+              "weight": 0.5
+            }
+          ],
+          "eligibility": {
+            "attr": "recording2KClass",
+            "value": true,
+            "notice": "約300万画素以上（2Kクラス）で録画できる機種からおすすめを表示しています。"
+          }
+        },
+        {
+          "id": "fourK",
+          "label": "4K UHDが必須",
+          "summary": "4K UHD（3840×2160）で録画",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "imageQuality",
+              "value": 5,
+              "weight": 5
+            }
+          ],
+          "eligibility": {
+            "attr": "recording4KUHD",
+            "value": true,
+            "notice": "4K UHD（3840×2160）で録画できる機種からおすすめを表示しています。デュアルレンズの機種では、4Kは固定（広角）レンズの映像です。"
+          }
+        },
+        {
+          "id": "flexible",
+          "label": "こだわらない",
+          "summary": "画質はこだわらない",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "priority",
+      "text": "一番重視する機能は？",
+      "shortLabel": "重視する機能",
+      "weight": 7,
+      "help": "AI検知の対象（人物・ペット・車両・顔）は機種によって異なり、一部は別売りのハブや有料プランが必要です。",
+      "options": [
+        {
+          "id": "night",
+          "label": "夜間撮影の見やすさ",
+          "summary": "夜間撮影の見やすさ",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "nightVision",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 2
+            }
+          ]
+        },
+        {
+          "id": "ai",
+          "label": "人物・ペットなどの検知",
+          "summary": "人物・ペットなどの検知",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "aiDetection",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 2
+            }
+          ]
+        },
+        {
+          "id": "talk",
+          "label": "双方向通話",
+          "summary": "双方向通話",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "coverage",
+              "value": 5,
+              "weight": 2
+            },
+            {
+              "type": "atLeast",
+              "attr": "installation",
+              "value": 5,
+              "weight": 2
+            },
+            {
+              "type": "equals",
+              "attr": "twoWayAudio",
+              "value": true,
+              "weight": 2
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "id": "privacy",
+          "label": "プライバシー保護・保存方法",
+          "summary": "プライバシー保護・保存方法",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "privacy",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "atLeast",
+              "attr": "localRecording",
+              "value": 5,
+              "weight": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "budget",
+      "text": "予算はいくらですか？",
+      "shortLabel": "予算",
+      "weight": 7.5,
+      "help": "予算は税込の購入価格（送料込み）で判定します。microSDカードなどの記録媒体は含みません。",
+      "options": [
+        {
+          "id": "b1",
+          "label": "10,000円まで",
+          "summary": "予算10,000円まで",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 5
+            },
+            {
+              "type": "equals",
+              "attr": "priceTierAtMost1",
+              "value": true,
+              "weight": 2.5
+            }
+          ],
+          "maxPriceRange": 1
+        },
+        {
+          "id": "b2",
+          "label": "15,000円まで",
+          "summary": "予算15,000円まで",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 4
+            },
+            {
+              "type": "equals",
+              "attr": "priceTierAtMost2",
+              "value": true,
+              "weight": 2.0
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 1.5
+            }
+          ],
+          "maxPriceRange": 2
+        },
+        {
+          "id": "b3",
+          "label": "20,000円まで",
+          "summary": "予算20,000円まで",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 3
+            },
+            {
+              "type": "equals",
+              "attr": "priceTierAtMost3",
+              "value": true,
+              "weight": 1.5
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 3.0
+            }
+          ],
+          "maxPriceRange": 3
+        },
+        {
+          "id": "b4",
+          "label": "35,000円まで",
+          "summary": "予算35,000円まで",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "value",
+              "value": 5,
+              "weight": 2
+            },
+            {
+              "type": "equals",
+              "attr": "priceTierAtMost4",
+              "value": true,
+              "weight": 1.0
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 4.5
+            }
+          ],
+          "maxPriceRange": 4
+        },
+        {
+          "id": "any",
+          "label": "上限なし",
+          "summary": "予算の上限なし",
+          "effects": [
+            {
+              "type": "atLeast",
+              "attr": "imageQuality",
+              "value": 5,
+              "weight": 1
+            },
+            {
+              "type": "atLeast",
+              "attr": "warranty",
+              "value": 5,
+              "weight": 1
+            },
+            {
+              "type": "atLeast",
+              "attr": "baseline",
+              "value": 5,
+              "weight": 5.5
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "security-camera-101",
+      "name": "TP-Link Tapo C220",
+      "description": "首振りと自動追尾に対応した屋内用の2Kカメラ。人物・ペット・車両のAI検知と双方向通話に対応します。",
+      "priceRange": 1,
+      "features": [
+        "屋内専用・2K QHD（400万画素）",
+        "パンチルト（水平360°・垂直114°）・自動追尾",
+        "microSD録画（最大512GB・別売り）・24時間録画対応"
+      ],
+      "pros": [
+        "手頃な価格で首振り・自動追尾",
+        "AI検知を追加料金なしで使える"
+      ],
+      "cons": [
+        "屋外では使えない",
+        "Wi-Fiは2.4GHzのみ"
+      ],
+      "recommendFor": "室内のペットや家族を手頃に見守りたい人",
+      "caution": "確認時の価格は楽天市場のTP-Linkダイレクトで5,880円（3,980円以上の注文で送料無料）（税込・送料込）です。価格は変動するため、購入前に販売ページでご確認ください。設置場所：屋内専用（屋外では使えません）。電源：コンセント（AC給電）。通常の24時間連続録画に対応します（microSDカードが必要）。保存先：microSDカード（最大512GB・別売り）。クラウド保存（Tapo Care（有料））はオプションで、追加の料金がかかります。Wi-Fi：2.4GHz。設置場所までWi-Fiの電波が届くか、購入前に確認してください。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00sbb0o.d8zue1c6.g00sbb0o.d8zuf27b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftplinkdirect%2F4895252502503%2F%3FvariantId%3D4895252502503&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftplinkdirect%2Fi%2F10001693%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/tplinkdirect/cabinet/4895252502503/1.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "imageQuality": 3,
+        "nightVision": 3,
+        "outdoorDurability": 1,
+        "coverage": 5,
+        "powerFlexibility": 1,
+        "localRecording": 5,
+        "continuousRecording": 4,
+        "aiDetection": 4,
+        "privacy": 4,
+        "installation": 5,
+        "value": 5,
+        "warranty": 5,
+        "brand": "TP-Link",
+        "productName": "TP-Link Tapo C220",
+        "manufacturerModel": "Tapo C220",
+        "exactSku": "Tapo C220 本体（JAN 4895252502503）",
+        "intendedLocation": "indoor",
+        "outdoorSupported": false,
+        "ipRating": "—",
+        "videoResolution": "2K QHD（400万画素・2560×1440）",
+        "videoResolutionWidth": 2560,
+        "videoResolutionHeight": 1440,
+        "videoMegapixels": 4,
+        "fixedLensResolution": "—",
+        "trackingLensResolution": "—",
+        "panTiltRange": "水平360°・垂直114°",
+        "nightVisionType": "赤外線（最長12m）",
+        "colorNightVision": false,
+        "personDetection": true,
+        "petDetection": true,
+        "vehicleDetection": true,
+        "twoWayAudio": true,
+        "batteryPowered": false,
+        "acPowered": true,
+        "solarCompatible": false,
+        "solarPanelIncluded": false,
+        "wifiBands": "2.4GHz",
+        "ethernetSupported": false,
+        "poeSupported": false,
+        "localStorageType": "microSDカード（最大512GB・別売り）",
+        "microSdMaximumGB": 512,
+        "storageIncluded": false,
+        "requiredHub": "—",
+        "optionalHub": "—",
+        "hubIncluded": false,
+        "continuousVideoRecording": true,
+        "lowFrameRateCapture": false,
+        "cloudRecording": "Tapo Care（有料）",
+        "cloudSubscriptionRequired": false,
+        "privacyMode": "プライバシーゾーン・プライバシーモード",
+        "warrantyMonths": 36,
+        "indoorSuitability": 5,
+        "priceYen": 5880,
+        "priceTier": 1,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.tp-link.com/jp/home-networking/cloud-camera/tapo-c220/",
+        "outdoorIP65": false,
+        "batteryPoweredConfirmed": false,
+        "solarPanelIncludedConfirmed": false,
+        "panTiltConfirmed": true,
+        "autoTrackingConfirmed": true,
+        "localRecordingWithoutSubscription": true,
+        "continuousRecordingConfirmed": true,
+        "recording2KClass": true,
+        "recording4KUHD": false,
+        "priceTierAtMost1": true,
+        "priceTierAtMost2": true,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "security-camera-102",
+      "name": "TP-Link Tapo C230",
+      "description": "3K（500万画素）で細部まで確認できる屋内用の首振りカメラ。自動追尾とAI検知に対応します。",
+      "priceRange": 1,
+      "features": [
+        "屋内専用・3K（500万画素）",
+        "パンチルト（水平360°・垂直114°）・自動追尾",
+        "microSD録画（最大512GB・別売り）・24時間録画対応"
+      ],
+      "pros": [
+        "2Kより高精細",
+        "価格と機能のバランスがよい"
+      ],
+      "cons": [
+        "屋外では使えない",
+        "Wi-Fiは2.4GHzのみ"
+      ],
+      "recommendFor": "室内を高画質で見守りたい人",
+      "caution": "確認時の価格は楽天市場のTP-Linkダイレクトで6,800円（3,980円以上の注文で送料無料）（税込・送料込）、AmazonのAmazon.co.jpで6,800円（税込・送料込）です。価格は変動するため、購入前に販売ページでご確認ください。設置場所：屋内専用（屋外では使えません）。電源：コンセント（AC給電）。通常の24時間連続録画に対応します（microSDカードが必要）。保存先：microSDカード（最大512GB・別売り）。クラウド保存（Tapo Care（有料））はオプションで、追加の料金がかかります。Wi-Fi：2.4GHz。設置場所までWi-Fiの電波が届くか、購入前に確認してください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0DMV9TL7G/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00sbb0o.d8zue1c6.g00sbb0o.d8zuf27b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftplinkdirect%2F8885021371696%2F%3FvariantId%3D8885021371696&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftplinkdirect%2Fi%2F10001556%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/tplinkdirect/cabinet/11260286/imgrc0103453743.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "imageQuality": 4,
+        "nightVision": 3,
+        "outdoorDurability": 1,
+        "coverage": 5,
+        "powerFlexibility": 1,
+        "localRecording": 5,
+        "continuousRecording": 4,
+        "aiDetection": 5,
+        "privacy": 4,
+        "installation": 5,
+        "value": 5,
+        "warranty": 5,
+        "brand": "TP-Link",
+        "productName": "TP-Link Tapo C230",
+        "manufacturerModel": "Tapo C230",
+        "exactSku": "Tapo C230 本体（JAN 8885021371696）",
+        "intendedLocation": "indoor",
+        "outdoorSupported": false,
+        "ipRating": "—",
+        "videoResolution": "3K（500万画素・2880×1620）",
+        "videoResolutionWidth": 2880,
+        "videoResolutionHeight": 1620,
+        "videoMegapixels": 5,
+        "fixedLensResolution": "—",
+        "trackingLensResolution": "—",
+        "panTiltRange": "水平360°・垂直114°",
+        "nightVisionType": "赤外線（最長12m）",
+        "colorNightVision": false,
+        "personDetection": true,
+        "petDetection": true,
+        "vehicleDetection": true,
+        "twoWayAudio": true,
+        "batteryPowered": false,
+        "acPowered": true,
+        "solarCompatible": false,
+        "solarPanelIncluded": false,
+        "wifiBands": "2.4GHz",
+        "ethernetSupported": false,
+        "poeSupported": false,
+        "localStorageType": "microSDカード（最大512GB・別売り）",
+        "microSdMaximumGB": 512,
+        "storageIncluded": false,
+        "requiredHub": "—",
+        "optionalHub": "—",
+        "hubIncluded": false,
+        "continuousVideoRecording": true,
+        "lowFrameRateCapture": false,
+        "cloudRecording": "Tapo Care（有料）",
+        "cloudSubscriptionRequired": false,
+        "privacyMode": "プライバシーゾーン・プライバシーモード",
+        "warrantyMonths": 36,
+        "indoorSuitability": 5,
+        "priceYen": 6800,
+        "priceTier": 1,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.tp-link.com/jp/home-networking/cloud-camera/tapo-c230/",
+        "outdoorIP65": false,
+        "batteryPoweredConfirmed": false,
+        "solarPanelIncludedConfirmed": false,
+        "panTiltConfirmed": true,
+        "autoTrackingConfirmed": true,
+        "localRecordingWithoutSubscription": true,
+        "continuousRecordingConfirmed": true,
+        "recording2KClass": true,
+        "recording4KUHD": false,
+        "amazonAsin": "B0DMV9TL7G",
+        "priceTierAtMost1": true,
+        "priceTierAtMost2": true,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "security-camera-103",
+      "name": "TP-Link Tapo C250",
+      "description": "4K（800万画素）と18倍デジタルズームに対応した屋内用の首振りカメラ。動きに合わせて自動でズーム・追尾します。",
+      "priceRange": 1,
+      "features": [
+        "屋内専用・4K（800万画素）",
+        "パンチルト（水平360°・垂直116°）・AI自動ズーム追尾",
+        "microSD録画（最大512GB・別売り）・24時間録画対応"
+      ],
+      "pros": [
+        "4Kで細かい部分まで確認できる",
+        "1万円以下で4K"
+      ],
+      "cons": [
+        "屋外では使えない",
+        "Wi-Fiは2.4GHzのみ"
+      ],
+      "recommendFor": "室内のペットや子どもを4Kで見守りたい人",
+      "caution": "確認時の価格は8,800円（税込・送料込、AmazonのAmazon.co.jp）です。価格は変動するため、購入前に販売ページでご確認ください。設置場所：屋内専用（屋外では使えません）。電源：コンセント（AC給電）。通常の24時間連続録画に対応します（microSDカードが必要）。保存先：microSDカード（最大512GB・別売り）。クラウド保存（Tapo Care（有料））はオプションで、追加の料金がかかります。Wi-Fi：2.4GHz。設置場所までWi-Fiの電波が届くか、購入前に確認してください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0GH5M4TB6/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "",
+      "officialUrl": "",
+      "imageUrl": "",
+      "enabled": true,
+      "attributes": {
+        "imageQuality": 5,
+        "nightVision": 3,
+        "outdoorDurability": 1,
+        "coverage": 5,
+        "powerFlexibility": 1,
+        "localRecording": 5,
+        "continuousRecording": 4,
+        "aiDetection": 5,
+        "privacy": 4,
+        "installation": 4,
+        "value": 5,
+        "warranty": 5,
+        "brand": "TP-Link",
+        "productName": "TP-Link Tapo C250",
+        "manufacturerModel": "Tapo C250",
+        "exactSku": "Tapo C250（Amazon.co.jp限定）",
+        "intendedLocation": "indoor",
+        "outdoorSupported": false,
+        "ipRating": "—",
+        "videoResolution": "4K（800万画素・3840×2160）",
+        "videoResolutionWidth": 3840,
+        "videoResolutionHeight": 2160,
+        "videoMegapixels": 8,
+        "fixedLensResolution": "—",
+        "trackingLensResolution": "—",
+        "panTiltRange": "水平360°・垂直116°",
+        "nightVisionType": "赤外線（最長12m）",
+        "colorNightVision": false,
+        "personDetection": true,
+        "petDetection": true,
+        "vehicleDetection": true,
+        "twoWayAudio": true,
+        "batteryPowered": false,
+        "acPowered": true,
+        "solarCompatible": false,
+        "solarPanelIncluded": false,
+        "wifiBands": "2.4GHz",
+        "ethernetSupported": false,
+        "poeSupported": false,
+        "localStorageType": "microSDカード（最大512GB・別売り）",
+        "microSdMaximumGB": 512,
+        "storageIncluded": false,
+        "requiredHub": "—",
+        "optionalHub": "—",
+        "hubIncluded": false,
+        "continuousVideoRecording": true,
+        "lowFrameRateCapture": false,
+        "cloudRecording": "Tapo Care（有料）",
+        "cloudSubscriptionRequired": false,
+        "privacyMode": "プライバシーゾーン・プライバシーモード",
+        "warrantyMonths": 36,
+        "indoorSuitability": 5,
+        "priceYen": 8800,
+        "priceTier": 1,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.tp-link.com/jp/home-networking/cloud-camera/tapo-c250/",
+        "outdoorIP65": false,
+        "batteryPoweredConfirmed": false,
+        "solarPanelIncludedConfirmed": false,
+        "panTiltConfirmed": true,
+        "autoTrackingConfirmed": true,
+        "localRecordingWithoutSubscription": true,
+        "continuousRecordingConfirmed": true,
+        "recording2KClass": true,
+        "recording4KUHD": true,
+        "amazonAsin": "B0GH5M4TB6",
+        "amazonModelToken": "C250",
+        "amazonSeller": "Amazon.co.jp",
+        "priceTierAtMost1": true,
+        "priceTierAtMost2": true,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "security-camera-104",
+      "name": "TP-Link Tapo C236",
+      "description": "屋内外で使えるIP65の首振りカメラ。3K画質・自動追尾・フルカラーの夜間撮影に対応します。",
+      "priceRange": 1,
+      "features": [
+        "屋内外対応（IP65）・3K（500万画素）",
+        "パンチルト（水平360°・垂直151°）・自動追尾",
+        "USB-C給電（コンセント）・microSD録画・24時間録画対応"
+      ],
+      "pros": [
+        "屋外にも室内にも置ける",
+        "首振りと自動追尾で広く見られる"
+      ],
+      "cons": [
+        "電源（コンセント）が必要",
+        "Wi-Fiは2.4GHzのみ"
+      ],
+      "recommendFor": "玄関先の置き配や室内を1台で見守りたい人",
+      "caution": "確認時の価格は楽天市場のTP-Linkダイレクトで7,500円（3,980円以上の注文で送料無料）（税込・送料込）です。価格は変動するため、購入前に販売ページでご確認ください。設置場所：屋内外対応（IP65）。電源：コンセント（AC給電）。通常の24時間連続録画に対応します（microSDカードが必要）。保存先：microSDカード（最大512GB・別売り）。クラウド保存（Tapo Care（有料））はオプションで、追加の料金がかかります。Wi-Fi：2.4GHz。設置場所までWi-Fiの電波が届くか、購入前に確認してください。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00sbb0o.d8zue1c6.g00sbb0o.d8zuf27b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftplinkdirect%2F1210002606813%2F%3FvariantId%3D1210002606813&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftplinkdirect%2Fi%2F10001662%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/tplinkdirect/cabinet/1210002606813/6.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "imageQuality": 4,
+        "nightVision": 4,
+        "outdoorDurability": 4,
+        "coverage": 5,
+        "powerFlexibility": 1,
+        "localRecording": 5,
+        "continuousRecording": 4,
+        "aiDetection": 5,
+        "privacy": 4,
+        "installation": 4,
+        "value": 5,
+        "warranty": 3,
+        "brand": "TP-Link",
+        "productName": "TP-Link Tapo C236",
+        "manufacturerModel": "Tapo C236",
+        "exactSku": "Tapo C236（JAN 1210002606813）",
+        "intendedLocation": "both",
+        "outdoorSupported": true,
+        "ipRating": "IP65",
+        "videoResolution": "3K（500万画素・2880×1620）",
+        "videoResolutionWidth": 2880,
+        "videoResolutionHeight": 1620,
+        "videoMegapixels": 5,
+        "fixedLensResolution": "—",
+        "trackingLensResolution": "—",
+        "panTiltRange": "水平360°・垂直151°",
+        "nightVisionType": "赤外線（最長12m）・フルカラー",
+        "colorNightVision": true,
+        "personDetection": true,
+        "petDetection": true,
+        "vehicleDetection": true,
+        "twoWayAudio": true,
+        "batteryPowered": false,
+        "acPowered": true,
+        "solarCompatible": false,
+        "solarPanelIncluded": false,
+        "wifiBands": "2.4GHz",
+        "ethernetSupported": false,
+        "poeSupported": false,
+        "localStorageType": "microSDカード（最大512GB・別売り）",
+        "microSdMaximumGB": 512,
+        "storageIncluded": false,
+        "requiredHub": "—",
+        "optionalHub": "—",
+        "hubIncluded": false,
+        "continuousVideoRecording": true,
+        "lowFrameRateCapture": false,
+        "cloudRecording": "Tapo Care（有料）",
+        "cloudSubscriptionRequired": false,
+        "privacyMode": "プライバシーゾーン",
+        "warrantyMonths": 12,
+        "indoorSuitability": 4,
+        "priceYen": 7500,
+        "priceTier": 1,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.tp-link.com/jp/home-networking/cloud-camera/tapo-c236/",
+        "outdoorIP65": true,
+        "batteryPoweredConfirmed": false,
+        "solarPanelIncludedConfirmed": false,
+        "panTiltConfirmed": true,
+        "autoTrackingConfirmed": true,
+        "localRecordingWithoutSubscription": true,
+        "continuousRecordingConfirmed": true,
+        "recording2KClass": true,
+        "recording4KUHD": false,
+        "priceTierAtMost1": true,
+        "priceTierAtMost2": true,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "security-camera-105",
+      "name": "TP-Link Tapo C520WS",
+      "description": "IP66の屋外用パンチルトカメラ。2K画質で、夜間はスターライトセンサーとスポットライトでカラー撮影できます。",
+      "priceRange": 1,
+      "features": [
+        "屋外対応（IP66）・2K QHD（400万画素）",
+        "パンチルト（水平360°・垂直130°）・自動追尾",
+        "AC給電・Wi-Fiまたは有線LAN・24時間録画対応"
+      ],
+      "pros": [
+        "夜間もカラーで見やすい",
+        "有線LANでもつなげる"
+      ],
+      "cons": [
+        "電源（コンセント）が必要",
+        "PoE給電には対応しない"
+      ],
+      "recommendFor": "駐車場や庭を夜まで見守りたい人",
+      "caution": "確認時の価格は楽天市場のTP-Linkダイレクトで9,500円（税込・送料込）です。価格は変動するため、購入前に販売ページでご確認ください。設置場所：屋外対応（IP66）。電源：コンセント（AC給電）。通常の24時間連続録画に対応します（microSDカードが必要）。保存先：microSDカード（最大512GB・別売り）。クラウド保存（Tapo Care（有料））はオプションで、追加の料金がかかります。LANポートはありますがPoE給電には対応していません。Wi-Fi：2.4GHz・有線LAN（10/100Mbps）。設置場所までWi-Fiの電波が届くか、購入前に確認してください。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00sbb0o.d8zue1c6.g00sbb0o.d8zuf27b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftplinkdirect%2F4895252504279%2F%3FvariantId%3D4895252504279-a&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftplinkdirect%2Fi%2F10001386%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/tplinkdirect/cabinet/11409216/tapo-c520ws-white.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "imageQuality": 3,
+        "nightVision": 5,
+        "outdoorDurability": 5,
+        "coverage": 5,
+        "powerFlexibility": 1,
+        "localRecording": 5,
+        "continuousRecording": 5,
+        "aiDetection": 5,
+        "privacy": 4,
+        "installation": 3,
+        "value": 5,
+        "warranty": 3,
+        "brand": "TP-Link",
+        "productName": "TP-Link Tapo C520WS",
+        "manufacturerModel": "Tapo C520WS",
+        "exactSku": "Tapo C520WS（JAN 4895252504279）",
+        "intendedLocation": "outdoor",
+        "outdoorSupported": true,
+        "ipRating": "IP66",
+        "videoResolution": "2K QHD（400万画素・2560×1440）",
+        "videoResolutionWidth": 2560,
+        "videoResolutionHeight": 1440,
+        "videoMegapixels": 4,
+        "fixedLensResolution": "—",
+        "trackingLensResolution": "—",
+        "panTiltRange": "水平360°・垂直130°",
+        "nightVisionType": "赤外線（最長30m）・スターライトのフルカラー",
+        "colorNightVision": true,
+        "personDetection": true,
+        "petDetection": true,
+        "vehicleDetection": true,
+        "twoWayAudio": true,
+        "batteryPowered": false,
+        "acPowered": true,
+        "solarCompatible": false,
+        "solarPanelIncluded": false,
+        "wifiBands": "2.4GHz・有線LAN（10/100Mbps）",
+        "ethernetSupported": true,
+        "poeSupported": false,
+        "localStorageType": "microSDカード（最大512GB・別売り）",
+        "microSdMaximumGB": 512,
+        "storageIncluded": false,
+        "requiredHub": "—",
+        "optionalHub": "—",
+        "hubIncluded": false,
+        "continuousVideoRecording": true,
+        "lowFrameRateCapture": false,
+        "cloudRecording": "Tapo Care（有料）",
+        "cloudSubscriptionRequired": false,
+        "privacyMode": "プライバシーモード",
+        "warrantyMonths": 12,
+        "indoorSuitability": 2,
+        "priceYen": 9500,
+        "priceTier": 1,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.tp-link.com/jp/home-networking/cloud-camera/tapo-c520ws/",
+        "outdoorIP65": true,
+        "batteryPoweredConfirmed": false,
+        "solarPanelIncludedConfirmed": false,
+        "panTiltConfirmed": true,
+        "autoTrackingConfirmed": true,
+        "localRecordingWithoutSubscription": true,
+        "continuousRecordingConfirmed": true,
+        "recording2KClass": true,
+        "recording4KUHD": false,
+        "priceTierAtMost1": true,
+        "priceTierAtMost2": true,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "security-camera-106",
+      "name": "TP-Link Tapo C560WS",
+      "description": "4K（800万画素）・Wi-Fi 6に対応した屋外用パンチルトカメラ。本体で処理する顔認識にも対応します。",
+      "priceRange": 2,
+      "features": [
+        "屋外対応（IP66）・4K（800万画素）",
+        "パンチルト（水平360°・垂直98°）・360°自動追尾",
+        "AC給電・Wi-Fi 6（2.4/5GHz）・有線LAN・24時間連続録画"
+      ],
+      "pros": [
+        "4Kで車のナンバーなども確認しやすい",
+        "5GHzのWi-Fiや有線LANが使える"
+      ],
+      "cons": [
+        "電源（コンセント）が必要",
+        "据え置きはできず、壁などへの取り付けが必要"
+      ],
+      "recommendFor": "屋外を4Kで広く監視したい人",
+      "caution": "確認時の価格は楽天市場のTP-Linkダイレクトで14,800円（税込・送料込）、AmazonのAmazon.co.jpで14,814円（税込・送料込）です。価格は変動するため、購入前に販売ページでご確認ください。設置場所：屋外対応（IP66）。電源：コンセント（AC給電）。通常の24時間連続録画に対応します（microSDカードが必要）。保存先：microSDカード（最大512GB・別売り）。クラウド保存（Tapo Care（有料））はオプションで、追加の料金がかかります。壁面・軒下・支柱への取り付けが必要で、据え置きでは使えません。LANポートはありますがPoE給電には対応していません。Wi-Fi：2.4GHz・5GHz（Wi-Fi 6）・有線LAN。設置場所までWi-Fiの電波が届くか、購入前に確認してください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FD96XD4M/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00sbb0o.d8zue1c6.g00sbb0o.d8zuf27b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftplinkdirect%2F4895252504279%2F%3FvariantId%3D1210002602716&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftplinkdirect%2Fi%2F10001386%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/tplinkdirect/cabinet/11409216/tapo-c560ws-white.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "imageQuality": 5,
+        "nightVision": 5,
+        "outdoorDurability": 5,
+        "coverage": 5,
+        "powerFlexibility": 1,
+        "localRecording": 5,
+        "continuousRecording": 5,
+        "aiDetection": 5,
+        "privacy": 5,
+        "installation": 3,
+        "value": 4,
+        "warranty": 3,
+        "brand": "TP-Link",
+        "productName": "TP-Link Tapo C560WS",
+        "manufacturerModel": "Tapo C560WS",
+        "exactSku": "Tapo C560WS（JAN 1210002602716）",
+        "intendedLocation": "outdoor",
+        "outdoorSupported": true,
+        "ipRating": "IP66",
+        "videoResolution": "4K（800万画素・3840×2160）",
+        "videoResolutionWidth": 3840,
+        "videoResolutionHeight": 2160,
+        "videoMegapixels": 8,
+        "fixedLensResolution": "—",
+        "trackingLensResolution": "—",
+        "panTiltRange": "水平360°・垂直98°",
+        "nightVisionType": "赤外線・スターライトのフルカラー",
+        "colorNightVision": true,
+        "personDetection": true,
+        "petDetection": true,
+        "vehicleDetection": true,
+        "twoWayAudio": true,
+        "batteryPowered": false,
+        "acPowered": true,
+        "solarCompatible": false,
+        "solarPanelIncluded": false,
+        "wifiBands": "2.4GHz・5GHz（Wi-Fi 6）・有線LAN",
+        "ethernetSupported": true,
+        "poeSupported": false,
+        "localStorageType": "microSDカード（最大512GB・別売り）",
+        "microSdMaximumGB": 512,
+        "storageIncluded": false,
+        "requiredHub": "—",
+        "optionalHub": "—",
+        "hubIncluded": false,
+        "continuousVideoRecording": true,
+        "lowFrameRateCapture": false,
+        "cloudRecording": "Tapo Care（有料）",
+        "cloudSubscriptionRequired": false,
+        "privacyMode": "ローカル顔認識・microSDのパスワード保護",
+        "warrantyMonths": 12,
+        "indoorSuitability": 1,
+        "priceYen": 14800,
+        "priceTier": 2,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.tp-link.com/jp/home-networking/cloud-camera/tapo-c560ws/",
+        "outdoorIP65": true,
+        "batteryPoweredConfirmed": false,
+        "solarPanelIncludedConfirmed": false,
+        "panTiltConfirmed": true,
+        "autoTrackingConfirmed": true,
+        "localRecordingWithoutSubscription": true,
+        "continuousRecordingConfirmed": true,
+        "recording2KClass": true,
+        "recording4KUHD": true,
+        "amazonAsin": "B0FD96XD4M",
+        "priceTierAtMost1": false,
+        "priceTierAtMost2": true,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "security-camera-107",
+      "name": "TP-Link Tapo C425",
+      "description": "配線なしで設置できるバッテリー式の2Kカメラ。マグネット台座で屋内外どちらにも取り付けられます。",
+      "priceRange": 2,
+      "features": [
+        "屋内外対応（IP66）・2K QHD（400万画素）",
+        "バッテリー内蔵（10000mAh）・固定レンズ",
+        "microSD録画（最大512GB・別売り）"
+      ],
+      "pros": [
+        "電源ケーブルなしで設置できる",
+        "マグネットで取り付けが簡単"
+      ],
+      "cons": [
+        "ソーラーパネルは別売り",
+        "24時間連続録画はできない（動体検知時のみ録画）"
+      ],
+      "recommendFor": "電源のない玄関先を手軽に見守りたい人",
+      "caution": "確認時の価格は楽天市場のTP-Linkダイレクトで14,800円（税込・送料込）です。価格は変動するため、購入前に販売ページでご確認ください。設置場所：屋内外対応（IP66）。電源：バッテリー内蔵。ソーラーパネルは別売りで、このセットには含まれません。通常の24時間連続録画には対応せず、動体を検知したときに録画します。保存先：microSDカード（最大512GB・別売り）。クラウド保存（Tapo Care（有料））はオプションで、追加の料金がかかります。Wi-Fi：2.4GHz。設置場所までWi-Fiの電波が届くか、購入前に確認してください。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00sbb0o.d8zue1c6.g00sbb0o.d8zuf27b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftplinkdirect%2F8885020622065%2F%3FvariantId%3D8885020622065&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftplinkdirect%2Fi%2F10001457%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/tplinkdirect/cabinet/10411844/tapo-c425-white.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "imageQuality": 3,
+        "nightVision": 4,
+        "outdoorDurability": 5,
+        "coverage": 2,
+        "powerFlexibility": 5,
+        "localRecording": 5,
+        "continuousRecording": 1,
+        "aiDetection": 4,
+        "privacy": 4,
+        "installation": 5,
+        "value": 3,
+        "warranty": 3,
+        "brand": "TP-Link",
+        "productName": "TP-Link Tapo C425",
+        "manufacturerModel": "Tapo C425",
+        "exactSku": "Tapo C425 本体のみ（JAN 8885020622065・ソーラーパネルなし）",
+        "intendedLocation": "both",
+        "outdoorSupported": true,
+        "ipRating": "IP66",
+        "videoResolution": "2K QHD（400万画素・2560×1440）",
+        "videoResolutionWidth": 2560,
+        "videoResolutionHeight": 1440,
+        "videoMegapixels": 4,
+        "fixedLensResolution": "—",
+        "trackingLensResolution": "—",
+        "panTiltRange": "—",
+        "nightVisionType": "赤外線（最長15m）・フルカラー",
+        "colorNightVision": true,
+        "personDetection": true,
+        "petDetection": true,
+        "vehicleDetection": true,
+        "twoWayAudio": true,
+        "batteryPowered": true,
+        "acPowered": false,
+        "solarCompatible": true,
+        "solarPanelIncluded": false,
+        "wifiBands": "2.4GHz",
+        "ethernetSupported": false,
+        "poeSupported": false,
+        "localStorageType": "microSDカード（最大512GB・別売り）",
+        "microSdMaximumGB": 512,
+        "storageIncluded": false,
+        "requiredHub": "—",
+        "optionalHub": "—",
+        "hubIncluded": false,
+        "continuousVideoRecording": false,
+        "lowFrameRateCapture": false,
+        "cloudRecording": "Tapo Care（有料）",
+        "cloudSubscriptionRequired": false,
+        "privacyMode": "アクティビティゾーン",
+        "warrantyMonths": 12,
+        "indoorSuitability": 4,
+        "priceYen": 14800,
+        "priceTier": 2,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.tp-link.com/jp/home-networking/cloud-camera/tapo-c425/",
+        "outdoorIP65": true,
+        "batteryPoweredConfirmed": true,
+        "solarPanelIncludedConfirmed": false,
+        "panTiltConfirmed": false,
+        "autoTrackingConfirmed": false,
+        "localRecordingWithoutSubscription": true,
+        "continuousRecordingConfirmed": false,
+        "recording2KClass": true,
+        "recording4KUHD": false,
+        "priceTierAtMost1": false,
+        "priceTierAtMost2": true,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "security-camera-108",
+      "name": "TP-Link Tapo C460 KIT",
+      "description": "4Kカメラとソーラーパネルがセットになったバッテリー式キット。配線なしで屋外に設置できます。",
+      "priceRange": 3,
+      "features": [
+        "屋外対応（カメラIP66・パネルIP65）・4K（800万画素）",
+        "バッテリー内蔵・ソーラーパネル（Tapo A201）同梱",
+        "固定レンズ・microSD録画（最大512GB・別売り）"
+      ],
+      "pros": [
+        "4Kとソーラーパネルが1セット",
+        "電源の配線がいらない"
+      ],
+      "cons": [
+        "首振りはできない",
+        "通常の24時間連続録画はできない（省電力の24時間キャプチャのみ）"
+      ],
+      "recommendFor": "電源のない駐車場や庭を高画質で見守りたい人",
+      "caution": "確認時の価格は19,800円（税込・送料込、AmazonのAmazon.co.jp）です。価格は変動するため、購入前に販売ページでご確認ください。設置場所：屋外対応（IP66）。電源：バッテリー内蔵・ソーラーパネル同梱。ソーラー給電は日照条件（設置場所・向き・天候・季節）によって充電量が変わり、充電不要を保証するものではありません。省電力の「24時間キャプチャ」（動きがないときは低フレームレート・低解像度で記録）に対応しますが、通常画質の24時間連続録画とは異なります。保存先：microSDカード（最大512GB・別売り）。クラウド保存（Tapo Care（有料））はオプションで、追加の料金がかかります。電源アダプターは付属しません。Wi-Fi：2.4GHz・5GHz。設置場所までWi-Fiの電波が届くか、購入前に確認してください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0DZ5Y7RQ4/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "",
+      "officialUrl": "",
+      "imageUrl": "",
+      "enabled": true,
+      "attributes": {
+        "imageQuality": 5,
+        "nightVision": 5,
+        "outdoorDurability": 5,
+        "coverage": 2,
+        "powerFlexibility": 5,
+        "localRecording": 5,
+        "continuousRecording": 2,
+        "aiDetection": 5,
+        "privacy": 4,
+        "installation": 4,
+        "value": 4,
+        "warranty": 3,
+        "brand": "TP-Link",
+        "productName": "TP-Link Tapo C460 KIT",
+        "manufacturerModel": "Tapo C460 KIT",
+        "exactSku": "Tapo C460 KIT（Amazon.co.jp限定・ソーラーパネル Tapo A201 同梱）",
+        "intendedLocation": "outdoor",
+        "outdoorSupported": true,
+        "ipRating": "IP66",
+        "videoResolution": "4K（800万画素・3840×2160）",
+        "videoResolutionWidth": 3840,
+        "videoResolutionHeight": 2160,
+        "videoMegapixels": 8,
+        "fixedLensResolution": "—",
+        "trackingLensResolution": "—",
+        "panTiltRange": "—",
+        "nightVisionType": "赤外線（最長14.9m）・スターライトのフルカラー",
+        "colorNightVision": true,
+        "personDetection": true,
+        "petDetection": true,
+        "vehicleDetection": true,
+        "twoWayAudio": true,
+        "batteryPowered": true,
+        "acPowered": false,
+        "solarCompatible": true,
+        "solarPanelIncluded": true,
+        "wifiBands": "2.4GHz・5GHz",
+        "ethernetSupported": false,
+        "poeSupported": false,
+        "localStorageType": "microSDカード（最大512GB・別売り）",
+        "microSdMaximumGB": 512,
+        "storageIncluded": false,
+        "requiredHub": "—",
+        "optionalHub": "—",
+        "hubIncluded": false,
+        "continuousVideoRecording": false,
+        "lowFrameRateCapture": true,
+        "cloudRecording": "Tapo Care（有料）",
+        "cloudSubscriptionRequired": false,
+        "privacyMode": "microSDの暗号化",
+        "warrantyMonths": 12,
+        "indoorSuitability": 2,
+        "priceYen": 19800,
+        "priceTier": 3,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.tp-link.com/jp/home-networking/cloud-camera/tapo-c460-kit/",
+        "outdoorIP65": true,
+        "batteryPoweredConfirmed": true,
+        "solarPanelIncludedConfirmed": true,
+        "panTiltConfirmed": false,
+        "autoTrackingConfirmed": false,
+        "localRecordingWithoutSubscription": true,
+        "continuousRecordingConfirmed": false,
+        "recording2KClass": true,
+        "recording4KUHD": true,
+        "amazonAsin": "B0DZ5Y7RQ4",
+        "amazonModelToken": "C460 KIT",
+        "amazonSeller": "Amazon.co.jp",
+        "priceTierAtMost1": false,
+        "priceTierAtMost2": false,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "security-camera-109",
+      "name": "TP-Link Tapo C610 KIT",
+      "description": "ソーラーパネルが付いたパンチルトカメラのキット。配線なしで設置でき、人物を自動で追尾します。",
+      "priceRange": 2,
+      "features": [
+        "屋外対応（IP65）・2K（300万画素）",
+        "バッテリー内蔵・ソーラーパネル（Tapo A201）同梱",
+        "パンチルト（水平360°・垂直130°）・自動追尾"
+      ],
+      "pros": [
+        "配線なしで首振り・自動追尾",
+        "ソーラーパネル付きで手頃"
+      ],
+      "cons": [
+        "AI検知は人物のみ",
+        "通常の24時間連続録画はできない"
+      ],
+      "recommendFor": "電源のない場所を首振りで広く見守りたい人",
+      "caution": "確認時の価格は楽天市場のコジマで13,800円（税込・送料込）、Amazonの株式会社コジマで13,662円（税込・送料込）です。価格は変動するため、購入前に販売ページでご確認ください。設置場所：屋外対応（IP65）。電源：バッテリー内蔵・ソーラーパネル同梱。ソーラー給電は日照条件（設置場所・向き・天候・季節）によって充電量が変わり、充電不要を保証するものではありません。通常の24時間連続録画には対応せず、動体を検知したときに録画します。保存先：microSDカード（最大512GB・別売り）。クラウド保存（Tapo Care（有料））はオプションで、追加の料金がかかります。AI検知は人物のみです。支柱への取り付けバンドは付属しません。電源アダプターは付属しません。Wi-Fi：2.4GHz。設置場所までWi-Fiの電波が届くか、購入前に確認してください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0H4KQPNVJ/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F1210002605304%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11709593%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001614/1210002605304_1.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "imageQuality": 3,
+        "nightVision": 4,
+        "outdoorDurability": 4,
+        "coverage": 5,
+        "powerFlexibility": 5,
+        "localRecording": 5,
+        "continuousRecording": 1,
+        "aiDetection": 3,
+        "privacy": 4,
+        "installation": 4,
+        "value": 4,
+        "warranty": 3,
+        "brand": "TP-Link",
+        "productName": "TP-Link Tapo C610 KIT",
+        "manufacturerModel": "Tapo C610 KIT",
+        "exactSku": "Tapo C610 KIT（JAN 1210002605304・ソーラーパネル Tapo A201 同梱）",
+        "intendedLocation": "outdoor",
+        "outdoorSupported": true,
+        "ipRating": "IP65",
+        "videoResolution": "2K（300万画素・2304×1296）",
+        "videoResolutionWidth": 2304,
+        "videoResolutionHeight": 1296,
+        "videoMegapixels": 3,
+        "fixedLensResolution": "—",
+        "trackingLensResolution": "—",
+        "panTiltRange": "水平360°・垂直130°",
+        "nightVisionType": "赤外線（10m）・フルカラー",
+        "colorNightVision": true,
+        "personDetection": true,
+        "petDetection": false,
+        "vehicleDetection": false,
+        "twoWayAudio": true,
+        "batteryPowered": true,
+        "acPowered": false,
+        "solarCompatible": true,
+        "solarPanelIncluded": true,
+        "wifiBands": "2.4GHz",
+        "ethernetSupported": false,
+        "poeSupported": false,
+        "localStorageType": "microSDカード（最大512GB・別売り）",
+        "microSdMaximumGB": 512,
+        "storageIncluded": false,
+        "requiredHub": "—",
+        "optionalHub": "—",
+        "hubIncluded": false,
+        "continuousVideoRecording": false,
+        "lowFrameRateCapture": false,
+        "cloudRecording": "Tapo Care（有料）",
+        "cloudSubscriptionRequired": false,
+        "privacyMode": "アクティビティゾーン",
+        "warrantyMonths": 12,
+        "indoorSuitability": 2,
+        "priceYen": 13800,
+        "priceTier": 2,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.tp-link.com/jp/home-networking/cloud-camera/tapo-c610-kit/",
+        "outdoorIP65": true,
+        "batteryPoweredConfirmed": true,
+        "solarPanelIncludedConfirmed": true,
+        "panTiltConfirmed": true,
+        "autoTrackingConfirmed": true,
+        "localRecordingWithoutSubscription": true,
+        "continuousRecordingConfirmed": false,
+        "recording2KClass": true,
+        "recording4KUHD": false,
+        "amazonAsin": "B0H4KQPNVJ",
+        "priceTierAtMost1": false,
+        "priceTierAtMost2": true,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "security-camera-110",
+      "name": "Anker Eufy Security Indoor Cam S350",
+      "description": "4K広角レンズと2K望遠レンズを備えた屋内用カメラ。最大8倍ズームと自動追跡に対応します。",
+      "priceRange": 2,
+      "features": [
+        "屋内専用・4K広角＋2K望遠のデュアルレンズ",
+        "パンチルト（水平360°・垂直75°）・自動追跡",
+        "microSD録画（最大128GB・別売り）・NAS保存（フルHD）"
+      ],
+      "pros": [
+        "ズームしても細かく見られる",
+        "Wi-Fiは2.4/5GHzに対応"
+      ],
+      "cons": [
+        "屋外では使えない",
+        "通常の24時間連続録画は公式に確認できない"
+      ],
+      "recommendFor": "ペットの表情まで鮮明に見たい人",
+      "caution": "確認時の価格は楽天市場のアンカー・ダイレクトで14,990円（税込・送料込）、AmazonのAnkerDirectで14,990円（税込・送料込）です。価格は変動するため、購入前に販売ページでご確認ください。設置場所：屋内専用（屋外では使えません）。電源：コンセント（AC給電）。通常の24時間連続録画への対応はメーカーの日本向け情報で確認できないため、この診断では非対応として扱っています。保存先：microSDカード（最大128GB・別売り）・NAS（フルHD録画）。クラウド保存（有料クラウドプラン）はオプションで、追加の料金がかかります。4Kは広角レンズの最大解像度です。NAS（ネットワークHDD）に保存する場合の録画はフルHDになります。Wi-Fi：2.4GHz・5GHz。設置場所までWi-Fiの電波が届くか、購入前に確認してください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0CBPQVRNN/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rr09o.d8zue50e.g00rr09o.d8zuf491/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Ft8416%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fanker%2Fi%2F10001686%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/anker/cabinet/t8416_4n.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "imageQuality": 5,
+        "nightVision": 4,
+        "outdoorDurability": 1,
+        "coverage": 5,
+        "powerFlexibility": 1,
+        "localRecording": 5,
+        "continuousRecording": 1,
+        "aiDetection": 5,
+        "privacy": 4,
+        "installation": 4,
+        "value": 3,
+        "warranty": 4,
+        "brand": "Anker Eufy",
+        "productName": "Anker Eufy Security Indoor Cam S350",
+        "manufacturerModel": "Indoor Cam S350",
+        "exactSku": "T8416521（ホワイト）",
+        "intendedLocation": "indoor",
+        "outdoorSupported": false,
+        "ipRating": "—",
+        "videoResolution": "4K（約800万画素）広角＋2K望遠",
+        "videoResolutionWidth": 3840,
+        "videoResolutionHeight": 2160,
+        "videoMegapixels": 8,
+        "fixedLensResolution": "4K（約800万画素）広角＋2K望遠",
+        "trackingLensResolution": "2K望遠レンズ（3倍光学ズーム）",
+        "panTiltRange": "水平360°・垂直75°",
+        "nightVisionType": "赤外線",
+        "colorNightVision": false,
+        "personDetection": true,
+        "petDetection": true,
+        "vehicleDetection": false,
+        "twoWayAudio": true,
+        "batteryPowered": false,
+        "acPowered": true,
+        "solarCompatible": false,
+        "solarPanelIncluded": false,
+        "wifiBands": "2.4GHz・5GHz",
+        "ethernetSupported": false,
+        "poeSupported": false,
+        "localStorageType": "microSDカード（最大128GB・別売り）・NAS（フルHD録画）",
+        "microSdMaximumGB": 128,
+        "storageIncluded": false,
+        "requiredHub": "—",
+        "optionalHub": "—",
+        "hubIncluded": false,
+        "continuousVideoRecording": "unknown",
+        "lowFrameRateCapture": false,
+        "cloudRecording": "有料クラウドプラン",
+        "cloudSubscriptionRequired": false,
+        "privacyMode": "プライバシーモード",
+        "warrantyMonths": 18,
+        "indoorSuitability": 5,
+        "priceYen": 14990,
+        "priceTier": 2,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.ankerjapan.com/products/t8416",
+        "outdoorIP65": false,
+        "batteryPoweredConfirmed": false,
+        "solarPanelIncludedConfirmed": false,
+        "panTiltConfirmed": true,
+        "autoTrackingConfirmed": true,
+        "localRecordingWithoutSubscription": true,
+        "continuousRecordingConfirmed": false,
+        "recording2KClass": true,
+        "recording4KUHD": true,
+        "amazonAsin": "B0CBPQVRNN",
+        "priceTierAtMost1": false,
+        "priceTierAtMost2": true,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "security-camera-111",
+      "name": "Anker Eufy eufyCam C35",
+      "description": "IP67の防水・防塵に対応したバッテリー式の小型カメラ。マグネットで屋内外に手軽に設置できます。",
+      "priceRange": 1,
+      "features": [
+        "屋内外対応（IP67）・フルHD（1920×1080）",
+        "バッテリー内蔵・マグネット設置・固定レンズ",
+        "microSD録画（最大256GB・別売り）"
+      ],
+      "pros": [
+        "小型でどこにでも付けやすい",
+        "夜間もフルカラーで撮影"
+      ],
+      "cons": [
+        "画質はフルHD",
+        "顔認識・ペット・車両検知は別売りの HomeBase が必要"
+      ],
+      "recommendFor": "玄関や勝手口を手軽に見守りたい人",
+      "caution": "確認時の価格は楽天市場のアンカー・ダイレクトで9,990円（税込・送料込）、AmazonのAnkerDirectで9,990円（税込・送料込）です。価格は変動するため、購入前に販売ページでご確認ください。設置場所：屋内外対応（IP67）。電源：バッテリー内蔵。ソーラーパネルは別売りで、このセットには含まれません。通常の24時間連続録画には対応せず、動体を検知したときに録画します。保存先：microSDカード（最大256GB・別売り）。クラウド保存（有料クラウドプラン）はオプションで、追加の料金がかかります。カメラ単体ではローカル録画と人物検知が使えます。顔認識・ペット・車両の検知とHomeBaseへの保存は、別売りのHomeBase S380／HomeBase Miniに接続した場合のみです。Wi-Fi：2.4GHz。設置場所までWi-Fiの電波が届くか、購入前に確認してください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0FDJNT8T3/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rr09o.d8zue50e.g00rr09o.d8zuf491/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Ft8110%2F%3FvariantId%3DT8110421&m=http%3A%2F%2Fm.rakuten.co.jp%2Fanker%2Fi%2F10002510%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/anker/cabinet/listing/product/t8110/t8110_sub_6.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "imageQuality": 2,
+        "nightVision": 4,
+        "outdoorDurability": 5,
+        "coverage": 2,
+        "powerFlexibility": 5,
+        "localRecording": 4,
+        "continuousRecording": 1,
+        "aiDetection": 3,
+        "privacy": 4,
+        "installation": 5,
+        "value": 3,
+        "warranty": 4,
+        "brand": "Anker Eufy",
+        "productName": "Anker Eufy eufyCam C35",
+        "manufacturerModel": "eufyCam C35",
+        "exactSku": "T8110421（ホワイト・カメラ1台）",
+        "intendedLocation": "both",
+        "outdoorSupported": true,
+        "ipRating": "IP67",
+        "videoResolution": "フルHD（1920×1080）",
+        "videoResolutionWidth": 1920,
+        "videoResolutionHeight": 1080,
+        "videoMegapixels": 2,
+        "fixedLensResolution": "—",
+        "trackingLensResolution": "—",
+        "panTiltRange": "—",
+        "nightVisionType": "フルカラー（PureColor Vision）",
+        "colorNightVision": true,
+        "personDetection": true,
+        "petDetection": "unknown",
+        "vehicleDetection": "unknown",
+        "twoWayAudio": true,
+        "batteryPowered": true,
+        "acPowered": false,
+        "solarCompatible": true,
+        "solarPanelIncluded": false,
+        "wifiBands": "2.4GHz",
+        "ethernetSupported": false,
+        "poeSupported": false,
+        "localStorageType": "microSDカード（最大256GB・別売り）",
+        "microSdMaximumGB": 256,
+        "storageIncluded": false,
+        "requiredHub": "—",
+        "optionalHub": "HomeBase S380 / HomeBase Mini（任意・別売り）",
+        "hubIncluded": false,
+        "continuousVideoRecording": false,
+        "lowFrameRateCapture": false,
+        "cloudRecording": "有料クラウドプラン",
+        "cloudSubscriptionRequired": false,
+        "privacyMode": "プライバシーゾーン",
+        "warrantyMonths": 18,
+        "indoorSuitability": 4,
+        "priceYen": 9990,
+        "priceTier": 1,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.ankerjapan.com/products/t8110",
+        "outdoorIP65": true,
+        "batteryPoweredConfirmed": true,
+        "solarPanelIncludedConfirmed": false,
+        "panTiltConfirmed": false,
+        "autoTrackingConfirmed": false,
+        "localRecordingWithoutSubscription": true,
+        "continuousRecordingConfirmed": false,
+        "recording2KClass": false,
+        "recording4KUHD": false,
+        "amazonAsin": "B0FDJNT8T3",
+        "priceTierAtMost1": true,
+        "priceTierAtMost2": true,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "security-camera-112",
+      "name": "Anker Eufy SoloCam S340",
+      "description": "3K広角と2K望遠のデュアルレンズを備えたソーラー一体型カメラです。",
+      "priceRange": 4,
+      "features": [
+        "屋外用（IP55）・3K広角＋2K望遠",
+        "バッテリー内蔵・ソーラーパネル同梱",
+        "本体内蔵メモリ8GB"
+      ],
+      "pros": [
+        "ソーラーパネル付き"
+      ],
+      "cons": [
+        "IP55"
+      ],
+      "recommendFor": "—",
+      "caution": "販売先を確認できていないため、現在おすすめには表示していません。",
+      "amazonUrl": "",
+      "rakutenUrl": "",
+      "officialUrl": "",
+      "imageUrl": "",
+      "enabled": false,
+      "attributes": {
+        "imageQuality": 4,
+        "nightVision": 5,
+        "outdoorDurability": 3,
+        "coverage": 5,
+        "powerFlexibility": 5,
+        "localRecording": 4,
+        "continuousRecording": 1,
+        "aiDetection": 5,
+        "privacy": 4,
+        "installation": 4,
+        "value": 4,
+        "warranty": 4,
+        "brand": "Anker Eufy",
+        "productName": "Anker Eufy SoloCam S340",
+        "manufacturerModel": "SoloCam S340",
+        "exactSku": "T8170522（ホワイト）",
+        "intendedLocation": "outdoor",
+        "outdoorSupported": true,
+        "ipRating": "IP55",
+        "videoResolution": "3K（約450万画素）広角＋2K望遠",
+        "videoResolutionWidth": 2880,
+        "videoResolutionHeight": 1620,
+        "videoMegapixels": 4.5,
+        "fixedLensResolution": "3K（約450万画素）広角＋2K望遠",
+        "trackingLensResolution": "2K望遠レンズ",
+        "panTiltRange": "水平360°・垂直70°",
+        "nightVisionType": "フルカラー",
+        "colorNightVision": true,
+        "personDetection": true,
+        "petDetection": "unknown",
+        "vehicleDetection": "unknown",
+        "twoWayAudio": true,
+        "batteryPowered": true,
+        "acPowered": false,
+        "solarCompatible": true,
+        "solarPanelIncluded": true,
+        "wifiBands": "2.4GHz",
+        "ethernetSupported": false,
+        "poeSupported": false,
+        "localStorageType": "本体内蔵メモリ8GB",
+        "microSdMaximumGB": 0,
+        "storageIncluded": true,
+        "requiredHub": "—",
+        "optionalHub": "HomeBase S380（任意・別売り）",
+        "hubIncluded": false,
+        "continuousVideoRecording": false,
+        "lowFrameRateCapture": false,
+        "cloudRecording": "unknown",
+        "cloudSubscriptionRequired": false,
+        "privacyMode": "ローカル保存（暗号化）",
+        "warrantyMonths": 18,
+        "indoorSuitability": 2,
+        "priceYen": 24990,
+        "priceTier": 4,
+        "stockStatus": "unconfirmed",
+        "officialSpecUrl": "https://www.ankerjapan.com/products/t8170",
+        "outdoorIP65": false,
+        "batteryPoweredConfirmed": true,
+        "solarPanelIncludedConfirmed": true,
+        "panTiltConfirmed": true,
+        "autoTrackingConfirmed": true,
+        "localRecordingWithoutSubscription": true,
+        "continuousRecordingConfirmed": false,
+        "recording2KClass": true,
+        "recording4KUHD": false,
+        "hiddenReason": "公式の防水・防塵等級がIP55で、屋外設置の必須条件（IP65以上）を満たさない。公式ストアは在庫切れで、楽天は第三者の小規模店のみ、Amazonには出品がない",
+        "priceTierAtMost1": false,
+        "priceTierAtMost2": false,
+        "priceTierAtMost3": false,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "security-camera-113",
+      "name": "Anker Eufy eufyCam S4",
+      "description": "4Kの固定レンズと2Kの追尾レンズを備えた屋外カメラ。ソーラーパネルが付属し、配線なしで設置できます。",
+      "priceRange": 5,
+      "features": [
+        "屋外対応（IP65）・固定4K＋追尾2Kのデュアルレンズ",
+        "バッテリー内蔵・ソーラーパネル同梱",
+        "本体内蔵メモリ32GB（microSDにも対応）"
+      ],
+      "pros": [
+        "全体の撮影と追尾を同時にできる",
+        "ソーラーパネル付きで配線不要"
+      ],
+      "cons": [
+        "価格が高い",
+        "追尾レンズの映像は2K（4Kは固定レンズのみ）"
+      ],
+      "recommendFor": "広い庭や駐車場をしっかり守りたい人",
+      "caution": "確認時の価格は楽天市場のアンカー・ダイレクトで49,990円（税込・送料込）、AmazonのAnkerDirectで49,990円（税込・送料込）です。価格は変動するため、購入前に販売ページでご確認ください。設置場所：屋外対応（IP65）。電源：バッテリー内蔵・ソーラーパネル同梱。ソーラー給電は日照条件（設置場所・向き・天候・季節）によって充電量が変わり、充電不要を保証するものではありません。通常の24時間連続録画には対応せず、動体を検知したときに録画します。保存先：本体内蔵メモリ32GB（microSDカードにも対応）。クラウド保存（有料クラウドプラン）はオプションで、追加の料金がかかります。4K録画は固定レンズの映像で、追尾レンズの映像は2K（約400万画素）です。顔認識などの機能は別売りのHomeBase S380が必要で、通知のサムネイル表示には画像の一時的なクラウド保存が必要です。Wi-Fi：2.4GHz。設置場所までWi-Fiの電波が届くか、購入前に確認してください。",
+      "amazonUrl": "https://www.amazon.co.jp/dp/B0F62YYC73/ref=nosim?tag=pittarishinda-22",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rr09o.d8zue50e.g00rr09o.d8zuf491/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Ft8172%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fanker%2Fi%2F10002490%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/anker/cabinet/listing/product/t8172/t8172_sub_1.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "imageQuality": 5,
+        "nightVision": 5,
+        "outdoorDurability": 4,
+        "coverage": 5,
+        "powerFlexibility": 5,
+        "localRecording": 4,
+        "continuousRecording": 1,
+        "aiDetection": 5,
+        "privacy": 4,
+        "installation": 3,
+        "value": 2,
+        "warranty": 4,
+        "brand": "Anker Eufy",
+        "productName": "Anker Eufy eufyCam S4",
+        "manufacturerModel": "eufyCam S4",
+        "exactSku": "T81723W1（ホワイト・カメラ1台・ソーラーパネル同梱）",
+        "intendedLocation": "outdoor",
+        "outdoorSupported": true,
+        "ipRating": "IP65",
+        "videoResolution": "固定レンズ4K（約800万画素）＋追尾レンズ2K（約400万画素）",
+        "videoResolutionWidth": 3840,
+        "videoResolutionHeight": 2160,
+        "videoMegapixels": 8,
+        "fixedLensResolution": "固定レンズ4K（約800万画素）＋追尾レンズ2K（約400万画素）",
+        "trackingLensResolution": "追尾レンズは2K（約400万画素）",
+        "panTiltRange": "追尾レンズ：水平360°・垂直70°",
+        "nightVisionType": "フルカラー（スターライト カラーナイトビジョン）",
+        "colorNightVision": true,
+        "personDetection": true,
+        "petDetection": "unknown",
+        "vehicleDetection": "unknown",
+        "twoWayAudio": true,
+        "batteryPowered": true,
+        "acPowered": false,
+        "solarCompatible": true,
+        "solarPanelIncluded": true,
+        "wifiBands": "2.4GHz",
+        "ethernetSupported": false,
+        "poeSupported": false,
+        "localStorageType": "本体内蔵メモリ32GB（microSDカードにも対応）",
+        "microSdMaximumGB": 256,
+        "storageIncluded": true,
+        "requiredHub": "—",
+        "optionalHub": "HomeBase S380（顔認識などに必要・別売り）",
+        "hubIncluded": false,
+        "continuousVideoRecording": false,
+        "lowFrameRateCapture": false,
+        "cloudRecording": "有料クラウドプラン",
+        "cloudSubscriptionRequired": false,
+        "privacyMode": "ローカル保存",
+        "warrantyMonths": 18,
+        "indoorSuitability": 2,
+        "priceYen": 49990,
+        "priceTier": 5,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.ankerjapan.com/products/t8172",
+        "outdoorIP65": true,
+        "batteryPoweredConfirmed": true,
+        "solarPanelIncludedConfirmed": true,
+        "panTiltConfirmed": true,
+        "autoTrackingConfirmed": true,
+        "localRecordingWithoutSubscription": true,
+        "continuousRecordingConfirmed": false,
+        "recording2KClass": true,
+        "recording4KUHD": true,
+        "amazonAsin": "B0F62YYC73",
+        "priceTierAtMost1": false,
+        "priceTierAtMost2": false,
+        "priceTierAtMost3": false,
+        "priceTierAtMost4": false,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "security-camera-114",
+      "name": "SwitchBot 見守りカメラ 3MP",
+      "description": "首振りに対応した屋内用カメラです。",
+      "priceRange": 1,
+      "features": [
+        "屋内専用・300万画素",
+        "パンチルト",
+        "microSD録画"
+      ],
+      "pros": [
+        "手頃"
+      ],
+      "cons": [
+        "2.4GHzのみ"
+      ],
+      "recommendFor": "—",
+      "caution": "販売先を確認できていないため、現在おすすめには表示していません。",
+      "amazonUrl": "",
+      "rakutenUrl": "",
+      "officialUrl": "",
+      "imageUrl": "",
+      "enabled": false,
+      "attributes": {
+        "imageQuality": 3,
+        "nightVision": 3,
+        "outdoorDurability": 1,
+        "coverage": 5,
+        "powerFlexibility": 1,
+        "localRecording": 5,
+        "continuousRecording": 5,
+        "aiDetection": 4,
+        "privacy": 5,
+        "installation": 5,
+        "value": 5,
+        "warranty": 5,
+        "brand": "SwitchBot",
+        "productName": "SwitchBot 見守りカメラ 3MP",
+        "manufacturerModel": "見守りカメラ 3MP",
+        "exactSku": "JAN 850037096572",
+        "intendedLocation": "indoor",
+        "outdoorSupported": false,
+        "ipRating": "—",
+        "videoResolution": "300万画素",
+        "videoResolutionWidth": "unknown",
+        "videoResolutionHeight": "unknown",
+        "videoMegapixels": 3,
+        "fixedLensResolution": "—",
+        "trackingLensResolution": "—",
+        "panTiltRange": "水平360°・垂直115°",
+        "nightVisionType": "赤外線",
+        "colorNightVision": false,
+        "personDetection": "unknown",
+        "petDetection": "unknown",
+        "vehicleDetection": "unknown",
+        "twoWayAudio": true,
+        "batteryPowered": false,
+        "acPowered": true,
+        "solarCompatible": false,
+        "solarPanelIncluded": false,
+        "wifiBands": "2.4GHz",
+        "ethernetSupported": false,
+        "poeSupported": false,
+        "localStorageType": "microSDカード（最大256GB・別売り）",
+        "microSdMaximumGB": 256,
+        "storageIncluded": false,
+        "requiredHub": "—",
+        "optionalHub": "—",
+        "hubIncluded": false,
+        "continuousVideoRecording": true,
+        "lowFrameRateCapture": false,
+        "cloudRecording": "クラウド保存",
+        "cloudSubscriptionRequired": false,
+        "privacyMode": "レンズの物理カバー・プライバシーモード",
+        "warrantyMonths": 36,
+        "indoorSuitability": 5,
+        "priceYen": 4980,
+        "priceTier": 1,
+        "stockStatus": "unconfirmed",
+        "officialSpecUrl": "https://www.switchbot.jp/products/switchbot-pan-tilt-cam-3mp",
+        "outdoorIP65": false,
+        "batteryPoweredConfirmed": false,
+        "solarPanelIncludedConfirmed": false,
+        "panTiltConfirmed": true,
+        "autoTrackingConfirmed": false,
+        "localRecordingWithoutSubscription": true,
+        "continuousRecordingConfirmed": true,
+        "recording2KClass": true,
+        "recording4KUHD": false,
+        "hiddenReason": "公式ストアで在庫切れ。流通しているのは別モデルの「見守りカメラ Plus 3MP（W3101102）」のみで、指定型番の新品を扱う信頼できる販売先がない",
+        "priceTierAtMost1": true,
+        "priceTierAtMost2": true,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    },
+    {
+      "id": "security-camera-115",
+      "name": "SwitchBot 屋外カメラ 3MP",
+      "description": "配線不要のバッテリー式屋外カメラ。スポットライトで夜間もカラー撮影でき、人・ペット・車のAI検知に対応します。",
+      "priceRange": 2,
+      "features": [
+        "屋外対応（IP65）・300万画素",
+        "バッテリー内蔵（10000mAh）・固定レンズ",
+        "microSD録画（最大256GB・別売り）"
+      ],
+      "pros": [
+        "電源ケーブルなしで設置できる",
+        "SwitchBot製品と連携できる"
+      ],
+      "cons": [
+        "ソーラーパネルは別売り",
+        "通常の24時間連続録画はできない"
+      ],
+      "recommendFor": "SwitchBot製品と組み合わせて防犯したい人",
+      "caution": "確認時の価格は楽天市場のコジマで14,421円（税込・送料込）です。価格は変動するため、購入前に販売ページでご確認ください。設置場所：屋外対応（IP65）。電源：バッテリー内蔵。ソーラーパネルは別売りで、このセットには含まれません。通常の24時間連続録画には対応せず、動体を検知したときに録画します。保存先：microSDカード（最大256GB・別売り）。クラウド保存（クラウド保存）はオプションで、追加の料金がかかります。Wi-Fi：2.4GHz。設置場所までWi-Fiの電波が届くか、購入前に確認してください。",
+      "amazonUrl": "",
+      "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r8mvo.d8zued00.g00r8mvo.d8zuf260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-kojima%2F0850046603952%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-kojima%2Fi%2F11479487%2F",
+      "officialUrl": "",
+      "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-kojima/cabinet/n0000001116/0850046603952_1.jpg?_ex=300x300",
+      "enabled": true,
+      "attributes": {
+        "imageQuality": 3,
+        "nightVision": 4,
+        "outdoorDurability": 4,
+        "coverage": 2,
+        "powerFlexibility": 5,
+        "localRecording": 5,
+        "continuousRecording": 1,
+        "aiDetection": 4,
+        "privacy": 4,
+        "installation": 5,
+        "value": 3,
+        "warranty": 3,
+        "brand": "SwitchBot",
+        "productName": "SwitchBot 屋外カメラ 3MP",
+        "manufacturerModel": "屋外カメラ 3MP",
+        "exactSku": "W4102000（JAN 0850046603952・カメラ単品）",
+        "intendedLocation": "outdoor",
+        "outdoorSupported": true,
+        "ipRating": "IP65",
+        "videoResolution": "300万画素",
+        "videoResolutionWidth": "unknown",
+        "videoResolutionHeight": "unknown",
+        "videoMegapixels": 3,
+        "fixedLensResolution": "—",
+        "trackingLensResolution": "—",
+        "panTiltRange": "—",
+        "nightVisionType": "赤外線（約10m）・フルカラー",
+        "colorNightVision": true,
+        "personDetection": true,
+        "petDetection": true,
+        "vehicleDetection": true,
+        "twoWayAudio": true,
+        "batteryPowered": true,
+        "acPowered": false,
+        "solarCompatible": true,
+        "solarPanelIncluded": false,
+        "wifiBands": "2.4GHz",
+        "ethernetSupported": false,
+        "poeSupported": false,
+        "localStorageType": "microSDカード（最大256GB・別売り）",
+        "microSdMaximumGB": 256,
+        "storageIncluded": false,
+        "requiredHub": "—",
+        "optionalHub": "—",
+        "hubIncluded": false,
+        "continuousVideoRecording": false,
+        "lowFrameRateCapture": false,
+        "cloudRecording": "クラウド保存",
+        "cloudSubscriptionRequired": false,
+        "privacyMode": "アクティビティゾーン",
+        "warrantyMonths": 12,
+        "indoorSuitability": 2,
+        "priceYen": 14421,
+        "priceTier": 2,
+        "stockStatus": "in-stock",
+        "officialSpecUrl": "https://www.switchbot.jp/products/switchbot-outdoor-spotlight-cam-3mp",
+        "outdoorIP65": true,
+        "batteryPoweredConfirmed": true,
+        "solarPanelIncludedConfirmed": false,
+        "panTiltConfirmed": false,
+        "autoTrackingConfirmed": false,
+        "localRecordingWithoutSubscription": true,
+        "continuousRecordingConfirmed": false,
+        "recording2KClass": true,
+        "recording4KUHD": false,
+        "priceTierAtMost1": false,
+        "priceTierAtMost2": true,
+        "priceTierAtMost3": true,
+        "priceTierAtMost4": true,
+        "baseline": 5
+      }
+    }
+  ],
+  "scoring": {
+    "tieBreak": true,
+    "softenPartialReason": true,
+    "strictEligibility": true
+  },
+  "guide": {
+    "title": "防犯カメラ・見守りカメラの選び方",
+    "intro": "この診断は、家庭用のWi-Fi防犯カメラ・見守りカメラを対象に、メーカーが公表している仕様をもとに、あなたの回答と照らし合わせて相性を計算しています。屋外設置（IP65以上）、バッテリー内蔵・ソーラーパネル付属、パンチルト・自動追尾、ローカル録画・通常の24時間連続録画、録画解像度、予算の条件を満たさない機種はおすすめに表示しません。仕様を公式に確認できない機能は、対応していないものとして扱っています。防犯カメラは、犯罪や盗難の防止を保証する機器ではありません。",
+    "sections": [
+      {
+        "heading": "設置場所と防水・防塵",
+        "body": "屋外に設置するときは、メーカーが屋外での使用を認めている機種を選び、防水・防塵等級（IP65以上が目安）と、メーカー指定の設置方法・動作温度を確認しましょう。屋内専用のカメラは、雨や結露のある場所では使えません。本診断はWi-Fiで接続する家庭用カメラが対象です。設置場所までWi-Fiの電波が届くか、ルーターの周波数帯（2.4GHz／5GHz）に対応しているかを購入前に確認してください。"
+      },
+      {
+        "heading": "電源（コンセント・バッテリー・ソーラー）",
+        "body": "バッテリー式は配線なしで設置できますが、定期的な充電が必要で、Wi-Fiへの接続は必要です。ソーラーパネルは日照条件（設置場所・向き・天候・季節）によって充電量が変わり、充電が不要になるとは限りません。ソーラーパネルが別売りの機種もあるため、購入する商品の構成を確認しましょう。"
+      },
+      {
+        "heading": "録画方法（ローカル・連続録画・クラウド）",
+        "body": "バッテリー式の多くは、動きを検知したときだけ録画します。省電力の「24時間キャプチャ」は、動きがないときに低フレームレート・低解像度で記録する機能で、通常の24時間連続録画とは異なります。microSDカードなどの記録媒体は別売りの場合があります。クラウド保存や一部の通知・AI機能は有料プランが必要で、AI検知の対象（人物・ペット・車両・顔）は製品や別売りのハブ、契約プランによって異なります。"
+      },
+      {
+        "heading": "画質と撮影範囲",
+        "body": "画質は録画できる最大解像度で比べましょう。カメラが4Kに対応していても、すべての撮影モードが4Kとは限りません。デュアルレンズの機種は、追尾レンズや望遠レンズの解像度が固定レンズより低い場合があります。首振り（パンチルト）や自動追尾があると、1台で広い範囲を見守れます。"
+      },
+      {
+        "heading": "安全に使うために",
+        "body": "初期パスワードやアカウント設定を確認し、強固なパスワードを使い、多要素認証を利用できる場合は設定しましょう。カメラのファームウェアとアプリは最新の状態に保ちます。他人の私的な空間を不必要に撮影しないようにし、屋外に設置するときは近隣住民のプライバシーに配慮しましょう。賃貸住宅や共用部分に設置する場合は、管理会社などへ必要な許可を確認してください。"
+      }
+    ]
+  },
+  "notice": "仕様はメーカーが公表する値です。価格は確認時点の税込購入価格（送料込み）で、変動するため購入時に販売ページでご確認ください。"
+}
