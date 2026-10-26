@@ -319,7 +319,7 @@ export function ColumnArticlePage({ column }: { column: Column }) {
   const toc = blocks.flatMap((b) => (b.type === 'h2' ? [b] : []))
   const firstH2 = blocks.findIndex((b) => b.type === 'h2')
   const diagnosis = diagnoses.find((d) => d.id === column.relatedDiagnosisId && isDiagnosisEnabled(d))
-  const diagnosisUrl = diagnosis ? `${diagnosisPath(diagnosis.slug)}/` : undefined
+  const diagnosisUrl = diagnosis ? diagnosisPath(diagnosis.slug) : undefined
   // 目次は <details> で折り畳める。初期 HTML では開いた状態（JavaScript 無効でも見える）、スマホのブラウザでは閉じて表示する
   const tocInitiallyOpen = typeof window === 'undefined' || !window.matchMedia('(max-width: 639px)').matches
   const relatedColumns = getRelatedColumns(column.slug)

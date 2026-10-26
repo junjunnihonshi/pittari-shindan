@@ -16,8 +16,8 @@ export function RelatedDiagnoses({ slug }: { slug: string }) {
       <ul className="related__list">
         {items.map(({ d, text }) => (
           <li key={d.id}>
-            {/* 末尾 / なしは Cloudflare Pages で 308 リダイレクトになるため、canonical と同じ末尾 / ありでリンクする */}
-            <Link to={`${diagnosisPath(d.slug)}/`} className="related__link">
+            {/* diagnosisPath は canonical と同じ末尾 / ありのパスを返す（末尾 / なしは Cloudflare Pages で 308 リダイレクトになる） */}
+            <Link to={diagnosisPath(d.slug)} className="related__link">
               <span className="related__icon" aria-hidden="true">
                 {d.icon}
               </span>

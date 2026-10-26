@@ -161,7 +161,8 @@ export async function checkTopPage(browser: Browser, baseUrl: string, d: Diagnos
     await page.goto(`${baseUrl}/?t=${Date.now()}`, { waitUntil: 'networkidle2' })
     const where = `トップ ${width}px（${d.id} のカード）`
     const card = await page.evaluate((slug) => {
-      const a = [...document.querySelectorAll('a')].find((x) => x.getAttribute('href') === `/diagnosis/${slug}`)
+      // 診断カードのリンクは canonical と同じ末尾 / あり（src/config/seo.ts の diagnosisPath）
+      const a = [...document.querySelectorAll('a')].find((x) => x.getAttribute('href') === `/diagnosis/${slug}/`)
       return a ? a.textContent?.replace(/\s+/g, ' ').trim() ?? '' : null
     }, d.slug)
     if (card === null) issues.push({ where, message: '診断カードがリンクになっていません（準備中のまま）' })

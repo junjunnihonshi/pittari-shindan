@@ -27,7 +27,10 @@ export const relatedDiagnoses: Record<string, { slug: string; text: string }[]> 
     { slug: 'hot-plate', text: '食卓で焼肉やたこ焼きを楽しむなら' },
   ],
   suitcase: [{ slug: 'mobile-battery', text: '旅先での充電切れに備えて' }],
-  'mobile-battery': [{ slug: 'suitcase', text: '旅行や出張の準備に' }],
+  'mobile-battery': [
+    { slug: 'suitcase', text: '旅行や出張の準備に' },
+    { slug: 'portable-power-station', text: '家電も動かせる大容量の電源が必要なら' },
+  ],
   'shower-head': [
     { slug: 'hair-dryer', text: 'お風呂上がりのケアに' },
     { slug: 'hair-iron', text: '髪を乾かしたあとのスタイリングに' },
@@ -108,5 +111,71 @@ export const relatedDiagnoses: Record<string, { slug: string; text: string }[]> 
     { slug: 'mattress', text: '寝心地そのものを見直すなら' },
     { slug: 'pillow', text: '眠りの質をもっと高めるなら' },
     { slug: 'dehumidifier', text: '部屋の湿気対策もするなら' },
+  ],
+
+  // ---- パソコンまわり ----
+  monitor: [
+    { slug: 'mobile-monitor', text: '持ち運べるサブモニターがほしいなら' },
+    { slug: 'wireless-keyboard', text: 'デスクの入力環境も整えるなら' },
+    { slug: 'wireless-mouse', text: '手に合うマウスも選ぶなら' },
+    { slug: 'usb-c-hub', text: 'ノートPCとモニターをつなぐなら' },
+  ],
+  'mobile-monitor': [
+    { slug: 'usb-c-hub', text: 'ノートPCの端子が足りないなら' },
+    { slug: 'monitor', text: 'デスクに置く大きなモニターを選ぶなら' },
+  ],
+  'usb-c-hub': [
+    { slug: 'mobile-monitor', text: '外出先でも2画面で作業するなら' },
+    { slug: 'monitor', text: 'デスクで使う外部モニターを選ぶなら' },
+    { slug: 'external-ssd', text: 'データの持ち運び・バックアップに' },
+  ],
+  'wireless-keyboard': [
+    { slug: 'wireless-mouse', text: 'キーボードと一緒にマウスも選ぶなら' },
+    { slug: 'monitor', text: 'デスクの作業環境を整えるなら' },
+  ],
+  'wireless-mouse': [
+    { slug: 'wireless-keyboard', text: 'マウスと一緒にキーボードも選ぶなら' },
+    { slug: 'monitor', text: 'デスクの作業環境を整えるなら' },
+  ],
+  webcam: [
+    { slug: 'usb-microphone', text: 'オンライン会議の声をもっと聞きやすくするなら' },
+    { slug: 'usb-c-hub', text: 'ノートPCのUSB端子が足りないなら' },
+  ],
+  'usb-microphone': [{ slug: 'webcam', text: 'オンライン会議や配信の映像も整えるなら' }],
+  'external-ssd': [{ slug: 'usb-c-hub', text: 'ノートPCの端子を増やすなら' }],
+
+  // ---- 車・屋外・防災 ----
+  'drive-recorder': [
+    { slug: 'security-camera', text: '自宅の玄関や駐車場も見守るなら' },
+    { slug: 'pressure-washer', text: '洗車を自分でするなら' },
+    { slug: 'portable-power-station', text: '車中泊やキャンプの電源に' },
+  ],
+  'pressure-washer': [
+    { slug: 'drive-recorder', text: '車の安全運転・記録対策も見直すなら' },
+    { slug: 'security-camera', text: '玄関・駐車場まわりの防犯対策に' },
+  ],
+  'security-camera': [
+    { slug: 'wifi-router', text: 'カメラの設置場所までWi-Fiを届けるなら' },
+    { slug: 'drive-recorder', text: '車の防犯・記録にも備えるなら' },
+  ],
+  'portable-power-station': [
+    { slug: 'mobile-battery', text: 'スマホの充電を手軽に持ち歩くなら' },
+    { slug: 'drive-recorder', text: '車での移動・車中泊の備えに' },
+  ],
+  'wifi-router': [{ slug: 'security-camera', text: 'Wi-Fiでつなぐ防犯・見守りカメラを選ぶなら' }],
+
+  // ---- 洗濯・部屋干し ----
+  'washing-machine': [
+    { slug: 'iron-steamer', text: '洗ったあとのシワ取りに' },
+    { slug: 'dehumidifier', text: '部屋干しを早く乾かすなら' },
+    { slug: 'futon-dryer', text: '布団の乾燥やダニ対策に' },
+  ],
+  'iron-steamer': [
+    { slug: 'washing-machine', text: '洗濯から見直すなら' },
+    { slug: 'dehumidifier', text: '部屋干しの湿気対策に' },
+  ],
+  dehumidifier: [
+    { slug: 'circulator-fan', text: '部屋干しに風を当てて早く乾かすなら' },
+    { slug: 'futon-dryer', text: '布団の湿気対策に' },
   ],
 }

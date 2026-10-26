@@ -10,10 +10,10 @@ import { normalizeUrl } from '../config/shops.ts'
 import { Link } from '../components/Link.tsx'
 import { useSeo } from '../lib/seo.ts'
 
-/** 最終更新日（内容を変更したら書き換えてください） */
+/** 最終更新日（内容を変更したら書き換えてください）。個別に更新したページは StaticLayout の updatedAt で上書きします */
 const UPDATED_AT = '2026年10月8日'
 
-function StaticLayout({ path, title, children }: { path: string; title: string; children: ReactNode }) {
+function StaticLayout({ path, title, updatedAt = UPDATED_AT, children }: { path: string; title: string; updatedAt?: string; children: ReactNode }) {
   useSeo(findPageMeta(path) ?? { path, title: `${title}｜${site.name}`, description: title })
   return (
     <div className="container page">
@@ -28,7 +28,7 @@ function StaticLayout({ path, title, children }: { path: string; title: string; 
       <article className="prose">
         <h1>{title}</h1>
         {children}
-        <p className="prose__updated">最終更新日：{UPDATED_AT}</p>
+        <p className="prose__updated">最終更新日：{updatedAt}</p>
       </article>
     </div>
   )
@@ -57,7 +57,7 @@ function ContactInfo() {
 
 export function AboutPage() {
   return (
-    <StaticLayout path="/about/" title="運営者情報">
+    <StaticLayout path="/about/" title="運営者情報" updatedAt="2026年10月26日">
       <dl className="info-table">
         <div>
           <dt>サイト名</dt>
@@ -90,13 +90,52 @@ export function AboutPage() {
         診断結果は、回答内容と商品の特徴をもとにしたルールで機械的に計算した「相性順」で、人気や売上のランキングではありません。
         アフィリエイトリンクの有無や紹介料によって順位を変えることはありません。
       </p>
+
+      <h2>診断で紹介する商品の選び方</h2>
+      <p>
+        診断で比較する商品は、原則として、メーカーの公式サイトで型番と主な仕様を確認できる製品のうち、
+        国内の販売先（メーカー公式ストアや家電量販店など）で新品の取り扱いを確認できたものから選んでいます。
+        型番・容量・色・セット内容などが一致する販売ページを確認できない商品や、並行輸入品・中古品しか見つからない商品は、診断の候補に表示しません。
+      </p>
+
+      <h2>情報源</h2>
+      <p>
+        商品の仕様は、メーカーの公式サイトに掲載されている製品情報・仕様表、取扱説明書など、メーカーが公表している情報をもとにしています。
+        公式の情報で確認できなかった機能や仕様は、対応していないもの（または不明）として扱い、診断の必須条件には使いません。
+      </p>
+
+      <h2>販売情報（価格・在庫）の確認方法</h2>
+      <p>
+        購入先のリンクを掲載する際は、原則として楽天市場・Amazonの販売ページで、型番、販売元、税込価格、送料、在庫の表示を確認しています。
+        価格はポイント還元やクーポンを含まない、確認時点の税込価格（送料を含む）を目安にしています。
+      </p>
+      <p>
+        価格・在庫・販売元は日々変わるため、当サイトの表示と販売ページの内容が異なる場合があります。
+        購入の前には、必ず販売ページで最新の情報をご確認ください。
+      </p>
+
+      <h2>診断の評価方法</h2>
+      <p>
+        各商品の特徴は、メーカーが公表している仕様をもとに、診断ごとに決めた評価項目について相対的に評価しています。
+        当サイトで商品を購入・使用して行う実機テストの結果ではありません。
+      </p>
+      <p>
+        診断によっては、回答の一部を「必須の条件」（予算の上限や、必要な機能など）として扱い、その条件を満たさない商品はおすすめに表示しません。
+        その場合、条件に合う商品がなければ、該当する商品がないことと選んだ条件を表示します。
+      </p>
+
+      <h2>編集・更新の方針</h2>
+      <p>
+        掲載内容は運営者が作成・確認しています。
+        新しい診断を公開するときや内容を見直すときに、仕様・販売情報を確認し、誤りや変更に気づいた場合は内容を修正します。
+      </p>
     </StaticLayout>
   )
 }
 
 export function PrivacyPage() {
   return (
-    <StaticLayout path="/privacy/" title="プライバシーポリシー">
+    <StaticLayout path="/privacy/" title="プライバシーポリシー" updatedAt="2026年10月26日">
       <p>{site.name}（以下「当サイト」）は、利用者の個人情報の取り扱いについて、以下のとおり定めます。</p>
 
       <h2>診断の回答について</h2>
@@ -203,8 +242,9 @@ export function ContactPage() {
 
 export function AdsPage() {
   return (
-    <StaticLayout path="/ads/" title="広告掲載について">
+    <StaticLayout path="/ads/" title="広告掲載について" updatedAt="2026年10月26日">
       <p className="callout">{site.adNotice}</p>
+      <h2>アフィリエイトプログラム</h2>
       <p>
         当サイトは、楽天アフィリエイト等のアフィリエイトプログラムを利用しています。
         診断結果に表示される「Amazonで見る」「楽天市場で見る」などのリンクから商品が購入された場合、当サイトに紹介料が支払われることがあります。
@@ -215,6 +255,21 @@ export function AdsPage() {
         結果は回答内容と商品の特徴から計算した「相性順」で表示しています。
       </p>
       <p>商品の価格・在庫・配送等については、リンク先の各販売サイトでご確認ください。</p>
+
+      <h2>ディスプレイ広告</h2>
+      <p>
+        当サイトには、第三者配信の広告サービス「忍者AdMax」の広告枠を設置しています。
+        広告枠は「広告」と表示した場所（トップページの診断一覧の下と、画面幅の広いパソコンでの画面の左右）にあり、広告が配信・表示される場合があります。
+        また、第三者配信の広告サービス「Google アドセンス」を利用する場合があります。
+      </p>
+      <p>
+        広告の内容は各広告配信事業者が配信するもので、当サイトが個別の広告を選んで掲載しているものではありません。
+        広告の掲載によって、診断結果の内容や順位を変更することはありません。
+      </p>
+      <p>
+        広告配信事業者によるCookie等の利用については、
+        <Link to="/privacy/">プライバシーポリシー</Link>をご覧ください。
+      </p>
       <h2>広告掲載・タイアップについて</h2>
       {hasContact ? (
         <p>
