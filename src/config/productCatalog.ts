@@ -30,6 +30,7 @@ export const catalogSpecLinkLabels = {
   distributor: '国内正規代理店の商品情報',
   category: 'メーカー公式の製品一覧',
   support: 'メーカー公式のサポート情報',
+  mixedGenerations: 'メーカー公式の製品情報（旧モデル・V2併載）',
   reference: '参考資料',
 } as const
 export type CatalogSpecLinkKind = keyof typeof catalogSpecLinkLabels
@@ -54,6 +55,9 @@ export const catalogSpecLinkKind: Record<string, CatalogSpecLinkKind> = {
   'webcam-105': 'category',
   'webcam-106': 'category',
   'webcam-113': 'support',
+  // ポータブル電源：DJI は公式ストアの商品ページ。Jackery 2000 New V2 は旧モデル（JE-2000D・2042Wh）と V2 を同じページに載せている
+  'portable-power-station-111': 'store',
+  'portable-power-station-113': 'mixedGenerations',
 }
 
 /**
@@ -212,5 +216,14 @@ export const productCatalogSpecs: Record<string, CatalogSpec[]> = {
       label: 'プライバシー・補正',
       value: (a) => `プライバシーカバー ${yesNo(a.physicalPrivacyCover)}・自動フレーミング ${yesNo(a.autoFraming)}・明るさ補正 ${txt(a.lowLightCorrection)}`,
     },
+  ],
+  'portable-power-station': [
+    { label: '容量・出力', value: (a) => `容量 ${num(a.capacityWh, 'Wh')}・AC定格出力 ${num(a.ratedAcW, 'W')}・容量の拡張 ${yesNo(a.expandable)}` },
+    { label: '出力端子', value: (a) => `AC ${num(a.acPorts, '口')}・USB-C ${known(a.usbCMaxW) ? `最大${String(a.usbCMaxW)}W` : '公表なし'}` },
+    {
+      label: '充電',
+      value: (a) => `AC充電で満充電まで ${num(a.fullAcChargeMinutes, '分')}・ソーラー充電 ${yesNo(a.solarCompatible)}・シガーソケット充電 ${yesNo(a.carChargingSupported)}`,
+    },
+    { label: '重さ・電池', value: (a) => `本体 ${num(a.weightKg, 'kg')}・${txt(a.batteryChemistry)}` },
   ],
 }
