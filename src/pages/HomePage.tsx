@@ -2,10 +2,12 @@ import { useMemo, useState, type MouseEvent } from 'react'
 import { categoryGroups } from '../config/categories.ts'
 import { diagnosisPath, staticPages } from '../config/seo.ts'
 import { site } from '../config/site.ts'
+import { AdSlot } from '../components/AdSlot.tsx'
 import { DiagnosisCard } from '../components/DiagnosisCard.tsx'
 import { columnPath, columns } from '../data/columns/index.ts'
 import { enabledDiagnoses, getDiagnosisBySlug, isDiagnosisEnabled } from '../data/diagnoses/index.ts'
 import { Link } from '../components/Link.tsx'
+import { SideAds } from '../components/SideAds.tsx'
 import { matchesDiagnosis, toSearchWords } from '../lib/diagnosisSearch.ts'
 import { useSeo } from '../lib/seo.ts'
 import { getRecentDiagnoses } from '../lib/storage.ts'
@@ -88,6 +90,8 @@ export function HomePage() {
       </section>
 
       <div className="home-body">
+        <SideAds />
+
         <section className="container section" aria-labelledby="about-title">
           <div className="info-box">
             <h2 id="about-title" className="section__title section__title--small">
@@ -246,6 +250,9 @@ export function HomePage() {
             )
           })}
         </section>
+
+        {/* 300×250 を幅320pxのスマホでも切らずに表示するため、左右余白のある container の外に置く */}
+        <AdSlot id="homeBelowCategories" />
       </div>
     </>
   )
