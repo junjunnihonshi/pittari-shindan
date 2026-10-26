@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { DiagnosisOverview } from '../components/DiagnosisOverview.tsx'
 import { GuideSection } from '../components/GuideSection.tsx'
+import { ProductCatalog } from '../components/ProductCatalog.tsx'
 import { RelatedDiagnoses } from '../components/RelatedDiagnoses.tsx'
 import { SideAds } from '../components/SideAds.tsx'
 import { ProgressBar } from '../components/ProgressBar.tsx'
@@ -284,6 +285,7 @@ export function DiagnosisPage({ diagnosis }: { diagnosis: Diagnosis }) {
 
         <DiagnosisOverview diagnosis={diagnosis} />
         <GuideSection guide={diagnosis.guide} />
+        <ProductCatalog diagnosis={diagnosis} />
         {column && (
           <p className="column-link">
             <Link to={columnPath(column.slug)}>{column.relatedLinkLabel ?? column.shortTitle} →</Link>

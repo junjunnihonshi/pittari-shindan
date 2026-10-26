@@ -1554,6 +1554,98 @@ a.diagnosis-card:hover .diagnosis-card__arrow {
 .diagnosis-overview__heading {
   margin-top: 22px;
 }
+/* 診断ページ「この診断で比較している商品」（src/components/ProductCatalog.tsx）。
+   相性順の結果カードと見分けやすいよう、順位・画像・購入ボタンを付けない簡素なカードにする。スマホは1列、640px以上は2列 */
+.catalog__list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+.catalog__item {
+  min-width: 0;
+  padding: 14px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+}
+.catalog__name {
+  margin: 0 0 2px;
+  font-size: 1rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.catalog__brand {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+.catalog__model {
+  margin: 0 0 10px;
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+  overflow-wrap: anywhere;
+}
+.catalog__specs {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.catalog__specs > div {
+  display: grid;
+  grid-template-columns: 6.5em minmax(0, 1fr);
+  gap: 8px;
+}
+.catalog__specs dt {
+  color: var(--color-muted);
+}
+.catalog__specs dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.catalog__source {
+  margin: 10px 0 0;
+  font-size: 0.875rem;
+}
+/* 残りの商品の開閉（<details>）。JavaScript なしでも開閉でき、キーボードでは Enter / Space で操作できる */
+.catalog__more {
+  margin: 0 0 16px;
+}
+.catalog__more-summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  font-weight: 600;
+  cursor: pointer;
+}
+.catalog__more-summary:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+.catalog__more[open] > .catalog__more-summary {
+  margin-bottom: 12px;
+}
+.catalog__note {
+  margin: 0 0 16px;
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+}
+@media (min-width: 640px) {
+  .catalog__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .guide__item {
   padding: 18px 0;
   border-top: 1px solid var(--color-border);
