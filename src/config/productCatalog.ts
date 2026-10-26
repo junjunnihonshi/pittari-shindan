@@ -46,6 +46,14 @@ export const catalogSpecLinkKind: Record<string, CatalogSpecLinkKind> = {
   'external-ssd-114': 'datasheet',
   'external-ssd-111': 'distributor',
   'external-ssd-112': 'distributor',
+  // Webカメラ：ロジクールはWebカメラの製品一覧ページ、EMEET C960 はサポートページを参照している（製品ごとの仕様ページではない）
+  'webcam-101': 'category',
+  'webcam-102': 'category',
+  'webcam-103': 'category',
+  'webcam-104': 'category',
+  'webcam-105': 'category',
+  'webcam-106': 'category',
+  'webcam-113': 'support',
 }
 
 /**
@@ -183,6 +191,26 @@ export const productCatalogSpecs: Record<string, CatalogSpec[]> = {
     {
       label: '録画',
       value: (a) => `通常の24時間連続録画 ${a.continuousRecordingConfirmed === true ? '対応' : '対応を確認できず'}・${txt(a.localStorageType)}`,
+    },
+  ],
+
+  // ---- 横展開 第2グループ ----
+  webcam: [
+    { label: '画質', value: (a) => `${txt(a.videoResolutionWidth)}×${txt(a.videoResolutionHeight)}・${txt(a.fpsByResolution)}` },
+    {
+      label: 'ピント・視野角',
+      value: (a) => {
+        const deg = (v: AttrValue | undefined) => String(v).replace(/^([\d/]+)/, '$1°')
+        const fov =
+          [known(a.horizontalFovDegrees) && `水平${deg(a.horizontalFovDegrees)}`, known(a.diagonalFovDegrees) && `対角${deg(a.diagonalFovDegrees)}`].filter(Boolean).join('・') ||
+          txt(a.fovNote)
+        return `オートフォーカス ${yesNo(a.autofocus)}・視野角 ${fov}`
+      },
+    },
+    { label: '接続・マイク', value: (a) => `${txt(a.usbHostConnector)}・マイク ${txt(a.builtInMicrophone)}` },
+    {
+      label: 'プライバシー・補正',
+      value: (a) => `プライバシーカバー ${yesNo(a.physicalPrivacyCover)}・自動フレーミング ${yesNo(a.autoFraming)}・明るさ補正 ${txt(a.lowLightCorrection)}`,
     },
   ],
 }
