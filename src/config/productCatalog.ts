@@ -15,12 +15,48 @@ export interface CatalogSpec {
 const known = (v: AttrValue | undefined) => v !== undefined && v !== 'unknown' && v !== ''
 const num = (v: AttrValue | undefined, unit: string) => (known(v) ? `${v}${unit}` : '公表なし')
 const yesNo = (v: AttrValue | undefined) => (v === true ? 'あり' : v === false ? 'なし' : '公表なし')
+const txt = (v: AttrValue | undefined) => (known(v) ? String(v) : '公表なし')
 
 /**
- * officialSpecUrl が製品ごとのページではなく、複数の型番を載せたシリーズ一覧ページの商品。
- * リンク文言を「メーカー公式の製品情報（シリーズ一覧）」にして、製品個別のページと誤認されないようにする
+ * 仕様リンク（attributes.officialSpecUrl）の種類と表示文言。製品ごとの公式ページ以外を参照している商品だけ
+ * catalogSpecLinkKind に種類を設定する（URL自体は変えない）。メーカー公式と国内正規代理店は区別する
  */
-export const seriesListSpecUrlProductIds = new Set(['pressure-washer-113', 'pressure-washer-114', 'pressure-washer-115'])
+export const catalogSpecLinkLabels = {
+  product: 'メーカー公式の製品情報',
+  series: 'メーカー公式の製品情報（シリーズ一覧）',
+  news: 'メーカー公式ニュースリリース',
+  store: 'メーカー公式ストアの商品情報',
+  datasheet: 'メーカー公式データシート（PDF）',
+  distributor: '国内正規代理店の商品情報',
+  category: 'メーカー公式の製品一覧',
+  support: 'メーカー公式のサポート情報',
+  reference: '参考資料',
+} as const
+export type CatalogSpecLinkKind = keyof typeof catalogSpecLinkLabels
+
+/** 製品ごとの公式ページ（product）以外を参照している商品の、リンクの種類 */
+export const catalogSpecLinkKind: Record<string, CatalogSpecLinkKind> = {
+  // 複数の型番を載せたシリーズ一覧ページ
+  'pressure-washer-113': 'series',
+  'pressure-washer-114': 'series',
+  'pressure-washer-115': 'series',
+  'wireless-keyboard-106': 'news',
+  'mobile-monitor-115': 'news',
+  'mobile-monitor-114': 'store',
+  'external-ssd-114': 'datasheet',
+  'external-ssd-111': 'distributor',
+  'external-ssd-112': 'distributor',
+}
+
+/**
+ * brand 属性（メーカーの分類キー）と、商品名で使われている別表記。
+ * 商品名に brand かその別表記が含まれていれば、メーカー名を重ねて表示しない（データは変更しない）
+ */
+export const catalogBrandAliases: Record<string, string[]> = {
+  ELECOM: ['エレコム'],
+  Logicool: ['ロジクール'],
+  BUFFALO: ['バッファロー'],
+}
 
 /**
  * 一覧に表示する型番の上書き（表示専用）。商品データの exactSku は販売ページの照合に使うため変更せず、
@@ -28,6 +64,20 @@ export const seriesListSpecUrlProductIds = new Set(['pressure-washer-113', 'pres
  */
 export const catalogDisplayModel: Record<string, string> = {
   'usb-c-hub-102': 'A8340',
+  // 防犯カメラ：exactSku は JAN・構成（本体のみ・ソーラーパネル同梱など）を含むため、一覧では型番だけを表示する（構成は商品名と仕様で表示）
+  'security-camera-101': 'Tapo C220',
+  'security-camera-102': 'Tapo C230',
+  'security-camera-103': 'Tapo C250',
+  'security-camera-104': 'Tapo C236',
+  'security-camera-105': 'Tapo C520WS',
+  'security-camera-106': 'Tapo C560WS',
+  'security-camera-107': 'Tapo C425',
+  'security-camera-108': 'Tapo C460 KIT',
+  'security-camera-109': 'Tapo C610 KIT',
+  'security-camera-110': 'T8416521',
+  'security-camera-111': 'T8110421',
+  'security-camera-113': 'T81723W1',
+  'security-camera-115': 'W4102000',
 }
 
 /** 最初から表示する商品数（残りは開閉式。HTMLには全件を出力する） */
@@ -67,6 +117,72 @@ export const productCatalogSpecs: Record<string, CatalogSpec[]> = {
     {
       label: '給電・質量',
       value: (a) => `PCへの給電 ${a.pdMaximumHostOutputWatts === 0 ? '非対応' : `最大${num(a.pdMaximumHostOutputWatts, 'W')}`}・本体 ${num(a.weightGrams, 'g')}`,
+    },
+  ],
+
+  // ---- 横展開 第1グループ ----
+  'mobile-monitor': [
+    { label: '画面', value: (a) => `${num(a.screenInch, '型')}・${txt(a.resolutionWidth)}×${txt(a.resolutionHeight)}・リフレッシュレート ${num(a.refreshHz, 'Hz')}・${txt(a.panelType)}` },
+    {
+      label: '映像入力・給電',
+      value: (a) => `USB-C ${yesNo(a.usbCVideoInput)}・HDMI ${yesNo(a.hdmiVideoInput)}・PCへのパススルー給電 ${a.pdPassthroughW === 0 ? 'なし' : `最大${num(a.pdPassthroughW, 'W')}`}`,
+    },
+    { label: '重さ・機能', value: (a) => `本体 ${num(a.weightGrams, 'g')}・タッチ操作 ${yesNo(a.touchSupported)}・スピーカー ${yesNo(a.speakers)}` },
+  ],
+  'wireless-mouse': [
+    {
+      label: '接続',
+      value: (a) =>
+        `Bluetooth ${yesNo(a.bluetooth)}・USBレシーバー ${a.receiverIncluded === true ? `付属（${txt(a.receiverPort)}）` : a.receiverIncluded === false ? 'なし' : '公表なし'}・接続台数 ${num(a.multiDeviceCount, '台')}`,
+    },
+    { label: '形状・ボタン', value: (a) => `${a.trackball === true ? 'トラックボール' : '一般的なマウス'}・ボタン ${num(a.buttonCount, '個')}・静音クリック ${yesNo(a.silentClick)}` },
+    { label: '電源・重さ', value: (a) => `${txt(a.powerSource)}・本体 ${num(a.weightGrams, 'g')}` },
+  ],
+  'wireless-keyboard': [
+    {
+      label: '接続',
+      value: (a) =>
+        `Bluetooth ${yesNo(a.bluetoothSupported)}・USBレシーバー ${a.usbReceiverIncluded === true ? `付属（${txt(a.receiverConnector)}）` : a.usbReceiverIncluded === false ? 'なし' : '公表なし'}・接続台数 ${num(a.multiDeviceCount, '台')}`,
+    },
+    { label: '配列・キー', value: (a) => `${txt(a.layout)}・${txt(a.keySwitchType)}` },
+    { label: '静音・電源', value: (a) => `静音設計 ${yesNo(a.quietDesign)}・${txt(a.batteryLife)}・バックライト ${yesNo(a.hasBacklight)}` },
+  ],
+  'usb-microphone': [
+    {
+      label: '方式・指向性',
+      value: (a) => `${a.microphoneType === 'condenser' ? 'コンデンサー' : a.microphoneType === 'dynamic' ? 'ダイナミック' : txt(a.microphoneType)}・${txt(a.polarPatterns)}`,
+    },
+    { label: '接続', value: (a) => `USB ${yesNo(a.usbSupported)}・XLR ${yesNo(a.xlrSupported)}・ヘッドホン端子 ${yesNo(a.headphoneOutput)}` },
+    { label: 'ミュート・音量', value: (a) => `ミュート ${txt(a.hardwareMute)}・ゲイン調整 ${txt(a.onboardGain)}` },
+  ],
+  'external-ssd': [
+    { label: '容量・規格', value: (a) => `${txt(a.capacityLabel)}・${txt(a.usbStandard)}` },
+    { label: '転送速度', value: (a) => txt(a.speedNote) },
+    {
+      label: '接続・付属品',
+      value: (a) =>
+        `${txt(a.directlyAttachedConnector)}・付属：${
+          [a.includedCtoACable === true && 'USB-C to Aケーブル', a.includedCtoCCable === true && 'USB-C to Cケーブル', known(a.includedAdapter) && a.includedAdapter !== false && String(a.includedAdapter)]
+            .filter(Boolean)
+            .join('・') || 'なし'
+        }`,
+    },
+    { label: '耐久性', value: (a) => `防水・防塵 ${txt(a.waterproofIPRating)}・耐衝撃 ${txt(a.dropResistance)}` },
+  ],
+  'security-camera': [
+    {
+      label: '設置場所',
+      value: (a) => (a.intendedLocation === 'indoor' ? '屋内専用' : `${a.intendedLocation === 'both' ? '屋内外' : '屋外'}（${txt(a.ipRating)}）`),
+    },
+    { label: '画質', value: (a) => txt(a.videoResolution) },
+    { label: '電源', value: (a) => (a.batteryPowered === true ? `バッテリー内蔵${a.solarPanelIncluded === true ? '・ソーラーパネル同梱' : ''}` : 'コンセント（AC給電）') },
+    {
+      label: '首振り・追尾',
+      value: (a) => `首振り ${a.panTiltRange === '—' ? 'なし' : txt(a.panTiltRange)}・自動追尾 ${a.autoTrackingConfirmed === true ? 'あり' : 'なし'}`,
+    },
+    {
+      label: '録画',
+      value: (a) => `通常の24時間連続録画 ${a.continuousRecordingConfirmed === true ? '対応' : '対応を確認できず'}・${txt(a.localStorageType)}`,
     },
   ],
 }

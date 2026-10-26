@@ -1,12 +1,35 @@
-import { catalogDisplayModel, catalogInitialCount, productCatalogSpecs, seriesListSpecUrlProductIds, type CatalogSpec } from '../config/productCatalog.ts'
+import {
+  catalogBrandAliases,
+  catalogDisplayModel,
+  catalogInitialCount,
+  catalogSpecLinkKind,
+  catalogSpecLinkLabels,
+  productCatalogSpecs,
+  type CatalogSpec,
+} from '../config/productCatalog.ts'
 import { normalizeUrl } from '../config/shops.ts'
 import { getAvailableProducts } from '../engine/diagnosisEngine.ts'
 import type { Diagnosis, Product } from '../types/diagnosis.ts'
 
 const collator = new Intl.Collator('ja', { numeric: true, sensitivity: 'base' })
 const attr = (p: Product, key: string) => (typeof p.attributes[key] === 'string' ? String(p.attributes[key]) : '')
-/** 一覧に表示する型番・品番（表示専用の上書きがあればそれ、なければ商品データの exactSku） */
-const displayModel = (p: Product) => catalogDisplayModel[p.id] ?? (attr(p, 'exactSku') !== 'unknown' ? attr(p, 'exactSku') : '')
+/** 型番として使える値か（空文字・空白だけ・unknown・文字列以外は使わない） */
+const validModel = (v: unknown): v is string => typeof v === 'string' && v.trim() !== '' && v.trim() !== 'unknown'
+/** 一覧に表示する型番・品番：表示専用の設定 → 商品データの exactSku → 商品データの model。どれもなければ空（表示しない） */
+const displayModel = (p: Product): string =>
+  [catalogDisplayModel[p.id], p.attributes.exactSku, p.attributes.model].find(validModel)?.trim() ?? ''
+/** 同じメーカーの中の並び：型番・品番順（型番がある商品が先）。型番が同じ・ない場合は商品ID順 */
+const byModel = (x: Product, y: Product) => {
+  const mx = displayModel(x), my = displayModel(y)
+  const m = mx && my ? collator.compare(mx, my) : mx ? -1 : my ? 1 : 0
+  return m || (x.id < y.id ? -1 : x.id > y.id ? 1 : 0)
+}
+/** 商品名にメーカー名（brand またはその別表記）が含まれていれば、メーカー名を重ねて表示しない */
+const brandLabel = (p: Product): string => {
+  const brand = attr(p, 'brand')
+  if (!brand) return ''
+  return [brand, ...(catalogBrandAliases[brand] ?? [])].some((b) => p.name.includes(b)) ? '' : brand
+}
 
 /**
  * 一覧の並び順（メーカー別ラウンドロビン）。相性・スコア・アフィリエイト情報は使わない。
@@ -17,7 +40,7 @@ function catalogOrder(products: Product[]): Product[] {
   const groups = new Map<string, Product[]>()
   for (const p of products) groups.set(attr(p, 'brand'), [...(groups.get(attr(p, 'brand')) ?? []), p])
   const brands = [...groups.keys()].sort((a, b) => collator.compare(a, b) || (a < b ? -1 : a > b ? 1 : 0))
-  const queues = brands.map((b) => groups.get(b)!.sort((x, y) => collator.compare(displayModel(x), displayModel(y)) || (x.id < y.id ? -1 : x.id > y.id ? 1 : 0)))
+  const queues = brands.map((b) => groups.get(b)!.sort(byModel))
   const out: Product[] = []
   for (let i = 0; out.length < products.length; i++) for (const q of queues) if (q[i]) out.push(q[i])
   return out
@@ -26,7 +49,7 @@ function catalogOrder(products: Product[]): Product[] {
 /**
  * 診断ページの「この診断で比較している商品」（診断の補足情報）。
  * - 診断で表示しうる商品（getAvailableProducts：enabled かつ同じ診断の商品）を表示する。相性・スコアは使わない
- * - 並び順はメーカー名順（同じメーカーは型番・品番順）の固定規則。最初の数件が推薦の上位に見えないよう、規則を本文にも書く
+ * - 並び順はメーカー別ラウンドロビン（catalogOrder）の固定規則。最初の数件が推薦の上位に見えないよう、規則を本文にも書く
  * - 最初の catalogInitialCount 件だけ表示し、残りは <details> で開閉する（HTMLには全件を出力。JavaScript なしでも開閉できる）
  * - 仕様の値は商品データから読むだけで、表示する項目だけを src/config/productCatalog.ts で診断ごとに決める
  * - 価格帯は確認日をデータで管理していないため表示しない（診断結果の価格表示は変えない）
@@ -66,8 +89,8 @@ export function ProductCatalog({ diagnosis }: { diagnosis: Diagnosis }) {
 }
 
 function CatalogItem({ product: p, specs }: { product: Product; specs: CatalogSpec[] }) {
-  // 商品名にメーカー名が含まれていない場合だけ、メーカー名を添える（「ケルヒャーケルヒャー…」のような重複を避ける）
-  const brand = attr(p, 'brand') && !p.name.includes(attr(p, 'brand')) ? attr(p, 'brand') : ''
+  // 商品名にメーカー名（別表記を含む）がない場合だけ、メーカー名を添える（「ケルヒャーケルヒャー…」「ELECOM エレコム…」のような重複を避ける）
+  const brand = brandLabel(p)
   const model = displayModel(p)
   const specUrl = normalizeUrl(attr(p, 'officialSpecUrl'))
   return (
@@ -88,7 +111,7 @@ function CatalogItem({ product: p, specs }: { product: Product; specs: CatalogSp
       {specUrl && (
         <p className="catalog__source">
           <a href={specUrl} target="_blank" rel="noopener noreferrer">
-            {seriesListSpecUrlProductIds.has(p.id) ? 'メーカー公式の製品情報（シリーズ一覧）' : 'メーカー公式の製品情報'}
+            {catalogSpecLinkLabels[catalogSpecLinkKind[p.id] ?? 'product']}
             <span className="visually-hidden">（{p.name}・新しいタブで開きます）</span>
           </a>
         </p>
