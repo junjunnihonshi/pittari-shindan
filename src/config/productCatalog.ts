@@ -16,6 +16,8 @@ const known = (v: AttrValue | undefined) => v !== undefined && v !== 'unknown' &
 const num = (v: AttrValue | undefined, unit: string) => (known(v) ? `${v}${unit}` : '公表なし')
 const yesNo = (v: AttrValue | undefined) => (v === true ? 'あり' : v === false ? 'なし' : '公表なし')
 const txt = (v: AttrValue | undefined) => (known(v) ? String(v) : '公表なし')
+/** 機能の有無（旧診断への横展開用）：false は非対応の根拠を確認していないため断定しない */
+const confirmed = (v: AttrValue | undefined, no = '対応を確認できず') => (v === true ? 'あり' : v === false ? no : '公表なし')
 
 /**
  * 仕様リンク（attributes.officialSpecUrl）の種類と表示文言。製品ごとの公式ページ以外を参照している商品だけ
@@ -225,5 +227,45 @@ export const productCatalogSpecs: Record<string, CatalogSpec[]> = {
       value: (a) => `AC充電で満充電まで ${num(a.fullAcChargeMinutes, '分')}・ソーラー充電 ${yesNo(a.solarCompatible)}・シガーソケット充電 ${yesNo(a.carChargingSupported)}`,
     },
     { label: '重さ・電池', value: (a) => `本体 ${num(a.weightKg, 'kg')}・${txt(a.batteryChemistry)}` },
+  ],
+
+  // ---- 旧診断への横展開 第1弾（採点用の数値ではなく、メーカー公表の機能・仕様の属性だけを表示する） ----
+  // 機能の有無は confirmed() で表示する：true は「あり」、false は非対応の根拠を確認していないため「対応を確認できず」、unknown は「公表なし」
+  printer: [
+    { label: '用紙・両面', value: (a) => `A3対応 ${confirmed(a.a3Supported)}・自動両面プリント ${confirmed(a.autoDuplex)}` },
+    { label: 'スキャン・FAX', value: (a) => `ADF（自動原稿送り） ${confirmed(a.adf)}・FAX ${confirmed(a.fax)}` },
+    { label: 'インク・その他', value: (a) => `大容量インク（タンク式・大容量カートリッジ） ${confirmed(a.tankOrHighYield)}・レーベル印刷 ${confirmed(a.discPrint)}` },
+  ],
+  'drive-recorder': [
+    {
+      label: 'カメラ',
+      value: (a) => {
+        const type = { front: '前方1カメラ', 'front-rear': '前後2カメラ', mirror: 'ミラー型（前後2カメラ）', surround: '360°カメラ', 'surround-rear': '360°カメラ＋リアカメラ', triple: '3カメラ' }[String(a.cameraType)] ?? '公表なし'
+        const res = (v: AttrValue | undefined) => ({ FHD: 'フルHD', WQHD: 'WQHD', '4K': '4K' })[String(v)] ?? (v === 'none' ? 'なし' : '—')
+        return `${type}・前方 ${res(a.frontMaxResolution)}・後方 ${res(a.rearMaxResolution)}`
+      },
+    },
+    { label: '撮影範囲', value: (a) => `車内 ${confirmed(a.cabinRecording)}・左右 ${confirmed(a.sideRecording)}` },
+    {
+      label: '夜間・駐車',
+      value: (a) =>
+        `STARVIS ${({ starvis: 'あり', starvis2: 'あり（STARVIS 2）' })[String(a.starvis)] ?? '採用を確認できず'}・駐車監視 ${confirmed(a.parkingSupported)}・直接配線コード同梱 ${confirmed(a.parkingWiringIncluded, '同梱を確認できず')}`,
+    },
+    {
+      label: '電源・付属品',
+      value: (a) =>
+        `24V車 ${confirmed(a.supports24V)}・シガーソケット電源ケーブル同梱 ${confirmed(a.cigarPowerIncluded, '同梱を確認できず')}・microSD ${known(a.includedSdGb) && a.includedSdGb !== 0 ? `${String(a.includedSdGb)}GB付属` : '公表なし'}`,
+    },
+  ],
+  'iron-steamer': [
+    {
+      label: 'タイプ',
+      value: (a) =>
+        `${({ iron: 'スチームアイロン', steamer: '衣類スチーマー（スチーム専用）', twoWay: '衣類スチーマー（アイロン兼用）' })[String(a.type)] ?? '公表なし'}・コードレス ${a.cordlessPress === true || a.cordlessHangingSteam === true ? 'あり' : '対応を確認できず'}`,
+    },
+    // スチーム量はメーカーごとに基準（平均・通常スチーム最大・測定条件付き）が異なり、全件を同じ条件で示せないため表示しない
+    { label: 'スチーム', value: (a) => `ハンガーにかけたままの連続スチーム ${confirmed(a.continuousHangingSteam)}・ショットスチーム ${confirmed(a.shotSteam)}` },
+    { label: '重さ・タンク', value: (a) => `本体 ${num(a.weightGrams, 'g')}・水タンク ${num(a.waterTankMl, 'mL')}` },
+    { label: '立ち上がり・安全', value: (a) => `立ち上がり ${num(a.warmupSeconds, '秒')}・自動電源オフ ${confirmed(a.autoOff)}` },
   ],
 }
