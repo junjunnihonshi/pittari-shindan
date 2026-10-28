@@ -18,6 +18,8 @@ const yesNo = (v: AttrValue | undefined) => (v === true ? 'あり' : v === false
 const txt = (v: AttrValue | undefined) => (known(v) ? String(v) : '公表なし')
 /** 機能の有無（旧診断への横展開用）：false は非対応の根拠を確認していないため断定しない */
 const confirmed = (v: AttrValue | undefined, no = '対応を確認できず') => (v === true ? 'あり' : v === false ? no : '公表なし')
+/** 機能の有無（ワイヤレスイヤホン以降）：値がない・unknown は「公表なし」と断定せず「確認できず」と表示する */
+const checked = (v: AttrValue | undefined) => (v === true ? 'あり' : v === false ? '対応を確認できず' : '確認できず')
 
 /**
  * 仕様リンク（attributes.officialSpecUrl）の種類と表示文言。製品ごとの公式ページ以外を参照している商品だけ
@@ -60,6 +62,8 @@ export const catalogSpecLinkKind: Record<string, CatalogSpecLinkKind> = {
   // ポータブル電源：DJI は公式ストアの商品ページ。Jackery 2000 New V2 は旧モデル（JE-2000D・2042Wh）と V2 を同じページに載せている
   'portable-power-station-111': 'store',
   'portable-power-station-113': 'mixedGenerations',
+  // ワイヤレスイヤホン：Samsung の公式ページは購入ページ
+  'wireless-earbuds-111': 'store',
 }
 
 /**
@@ -70,6 +74,8 @@ export const catalogBrandAliases: Record<string, string[]> = {
   ELECOM: ['エレコム'],
   Logicool: ['ロジクール'],
   BUFFALO: ['バッファロー'],
+  // CMF は Nothing のブランド（商品名は「CMF Buds 2a」）
+  Nothing: ['CMF'],
 }
 
 /**
@@ -295,5 +301,14 @@ export const productCatalogSpecs: Record<string, CatalogSpec[]> = {
     },
     { label: '立体音響', value: (a) => `Dolby Atmos ${confirmed(a.atmosSupported)}` },
     { label: '接続', value: (a) => `HDMI入力端子（ゲーム機などをつなぐ） ${confirmed(a.hdmiInput)}` },
+  ],
+  // 再生時間・片耳の重さは、商品データの値とメーカー公表値・測定条件（ANCオン／オフ、イヤホン単体／ケース込み）を全件で照合できていないため表示しない
+  'wireless-earbuds': [
+    {
+      label: '形状・ノイズキャンセリング',
+      value: (a) => `${({ inEar: 'カナル型', openEar: 'オープンイヤー型' })[String(a.earType)] ?? '確認できず'}・ノイズキャンセリング ${checked(a.anc)}`,
+    },
+    { label: '防水・防塵（イヤホン本体）', value: (a) => (known(a.ipRating) ? String(a.ipRating) : '確認できず') },
+    { label: 'マルチポイント接続', value: (a) => checked(a.multipointSupport) },
   ],
 }
