@@ -268,4 +268,20 @@ export const productCatalogSpecs: Record<string, CatalogSpec[]> = {
     { label: '重さ・タンク', value: (a) => `本体 ${num(a.weightGrams, 'g')}・水タンク ${num(a.waterTankMl, 'mL')}` },
     { label: '立ち上がり・安全', value: (a) => `立ち上がり ${num(a.warmupSeconds, '秒')}・自動電源オフ ${confirmed(a.autoOff)}` },
   ],
+
+  // ---- 旧診断への横展開 第2弾 ----
+  monitor: [
+    {
+      label: '画面',
+      // 解像度は商品データの区分（4K／WQHD以上）だけを持つため、診断と同じ区分で表示する
+      value: (a) =>
+        `${num(a.screenInch, '型')}・${a.uhd === true ? '4K' : a.ultrawide === true ? 'ウルトラワイド（WQHD以上）' : a.wqhdPlus === true ? 'WQHD以上' : a.wqhdPlus === false ? 'WQHD未満' : '公表なし'}${a.oled === true ? '・有機EL' : ''}`,
+    },
+    { label: 'リフレッシュレート', value: (a) => `最大 ${num(a.maxRefresh, 'Hz')}` },
+    {
+      label: 'USB-C',
+      value: (a) => `映像入力 ${confirmed(a.usbCDisplay)}・PCへの給電 ${typeof a.powerDeliveryW === 'number' && a.powerDeliveryW > 0 ? `最大${a.powerDeliveryW}W` : a.powerDeliveryW === 0 ? '対応を確認できず' : '公表なし'}`,
+    },
+    { label: 'ゲーム機', value: (a) => `PS5などの4K・120Hz入力 ${confirmed(a.console4k120)}` },
+  ],
 }
