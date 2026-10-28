@@ -30,28 +30,28 @@
 
 - 厳密な候補なし率（必須条件をすべて満たす商品が0件になる回答パターンの割合）：変更前 36.98%、101 非表示後 37.67%（13,824通り中 5,208）。既存方式の診断のため30%超を既知の例外とする。画面上の候補なし率は 0%。
 
-## サウンドバー（soundbar）：公開保留
+## サウンドバー（soundbar）：公開（2026-10-28）
 
 | ID | brand | model | 公式ページ | 販売先の確認結果・保留理由 |
 |---|---|---|---|---|
 | 101 | Denon | DHT-S218 | https://www.denon.com/ja-jp/product/sound-bars/dht-s218/DHTS218JP.html | 楽天 28,749円・Amazon（DHT-S218K ブラック）とも一致 |
-| 102 | Yamaha | SR-B30A | https://jp.yamaha.com/audio/home-audio/products/sound-bar/sr-b30a/index.html | メーカー生産完了。楽天（Joshin）36,850円・在庫あり（価格帯2 内） |
+| 102 | Yamaha | SR-B30A | https://jp.yamaha.com/audio/home-audio/products/sound-bar/sr-b30a/index.html | メーカー生産完了。楽天（Joshin）36,850円・在庫あり。Joshin は税込3,980円以上で送料無料（沖縄・離島・山間部を除く）のため送料込み 36,850円（価格帯2 内）。掲載を維持 |
 | 103 | JBL | 保留 | 確認できず（JBL公式サイトが自動取得を拒否（403）） | 楽天・Amazon とも JBLSB580AIOBLKJN |
 | 104 | Sonos | 保留 | https://www.sonos.com/ja-jp/shop/ray | 楽天はブラック、Amazon はホワイト |
-| 105 | Yamaha | SR-B40A | https://jp.yamaha.com/audio/home-audio/products/sound-bar/sr-b40a/index.html | メーカー生産完了。既存の楽天リンク（XPRICE）は 39,050円だが、送料の有無を確認できず（「送料が発生することがあります」の表記）。税込送料込み40,000円以内の確認が必要。送料無料表記の在庫ありの新品は 37,000円（ディーライズ2号店など）がある |
+| 105 | Yamaha | SR-B40A | https://jp.yamaha.com/audio/home-audio/products/sound-bar/sr-b40a/index.html | メーカー生産完了。既存の楽天リンク（XPRICE 39,050円）は送料込みの総額を確定できなかったため、**楽天リンクをウインクデジタルに差し替え**（JAN 4957812694339・在庫13・送料込み 37,000円・価格帯2 内）、注意書きと画像を同じ出品に合わせた（2026-10-28）。ディーライズ2号店（37,000円・送料込み・在庫あり）も条件を満たした。ディーショップワン（37,500円）は送料込みかを確認できず |
 | 106 | Bose | 保留 | https://www.bose.co.jp/p/home-theater/bose-tv-speaker-2nd-gen/TVSPKR2-SOUNDBAR.html | 公式ページに型番表記なし |
 | 107 | Sony | HT-B500 | https://www.sony.jp/home-theater/products/HT-B500/ | 楽天 44,548円 |
 | 108 | JBL | 保留 | 確認できず（403） | 楽天（JBL公式ストア）45,100円 |
 | 109 | Sonos | 保留 | https://www.sonos.com/ja-jp/shop/beam | 楽天はホワイト、Amazon は表記が不一致 |
-| 110 | Sony | 保留 | https://www.sony.jp/home-theater/products/HT-B600/ | **未解決**：楽天リンクが404。Amazon の購入先は第三者（Link）49,000円で、価格帯4（60,000〜90,000円）を大きく下回り正規の販売元か確認できない。楽天の在庫ありの新品も販売元を確認できない店舗だけ |
+| 110 | Sony | 保留 | https://www.sony.jp/home-theater/products/HT-B600/ | 楽天リンクが404。Amazon の購入先は第三者（Link）、楽天の在庫ありの新品も販売元を確認できない店舗だけで、信頼できる販売元を確認できないため**一時非表示**（2026-10-28） |
 | 111 | Bose | 保留 | https://www.bose.co.jp/p/home-theater/bose-smart-soundbar/SSB-SOUNDBAR.html | 公式ページに型番表記なし |
 | 112 | JBL | 保留 | 確認できず（403） | 楽天（JBL公式ストア）87,890円 |
 | 113 | Sony | HT-A7100 | https://www.sony.jp/home-theater/products/HT-A7100/ | 楽天 110,000円・Amazon とも一致 |
-| 114 | JBL | 保留 | 確認できず（403） | JBL公式ストアは「11月中～下旬入荷予定」、Amazon の在庫は第三者（TONE）、楽天の他の在庫も販売元を確認できない店舗だけ。ローカルで一時非表示（未公開） |
-| 115 | JBL | 保留 | 確認できず（403） | 楽天（ケーズデンキ）158,400円・在庫あり。Amazon の購入先は第三者（「メーカー完了品」表記） |
+| 114 | JBL | 保留 | 確認できず（403） | JBL公式ストアは「11月中～下旬入荷予定」、Amazon の在庫は第三者（TONE）、楽天の他の在庫も販売元を確認できない店舗だけのため**一時非表示**（2026-10-28） |
+| 115 | JBL | 保留 | 確認できず（403） | 楽天（ケーズデンキ）JBLBAR1000M2BLKJN 158,400円。ケーズデンキは税込3,000円以上で送料無料（沖縄・離島など一部地域を除く）のため送料込み 158,400円（価格帯5 内）。Amazon の購入先は第三者（JET商店、「メーカー完了品」表記）で販売元の信頼性を確認できないため **Amazon リンクを削除**（2026-10-28） |
 
-- 厳密な候補なし率：変更前 31.48%、114 非表示後 37.04%（11,664通り中 4,320）。画面上の候補なし率は 0%。
-- 公開の条件：110 の正規の販売先の確保（または一時非表示の承認）、105 の送料込み価格の確認。
+- 厳密な候補なし率：変更前 31.48%、110・114 非表示後 37.04%（11,664通り中 4,320）。既存方式の診断のため30%超を既知の例外とする。画面上の候補なし率は 0%、補完候補の表示率は 62.96%。
+- 比較商品一覧は13商品（110・114 を一時非表示）。全11,664通りで 110・114 の推薦0件、残る13商品の順位・採点・理由の変化0件。
 
 ## Wi-Fiルーター（wifi-router）：保留
 

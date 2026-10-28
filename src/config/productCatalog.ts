@@ -284,4 +284,16 @@ export const productCatalogSpecs: Record<string, CatalogSpec[]> = {
     },
     { label: 'ゲーム機', value: (a) => `PS5などの4K・120Hz入力 ${confirmed(a.console4k120)}` },
   ],
+  soundbar: [
+    {
+      label: '構成',
+      // 1本で完結するタイプは別体の機器を置かないため、同梱物の行を出さない
+      value: (a) =>
+        a.allInOne === true
+          ? 'サウンドバー1本で完結'
+          : `${a.allInOne === false ? 'サブウーファーなどを別に置くタイプ' : '公表なし'}・サブウーファー同梱 ${confirmed(a.subwooferIncluded, '同梱を確認できず')}・リアスピーカー同梱 ${confirmed(a.rearSpeakersIncluded, '同梱を確認できず')}`,
+    },
+    { label: '立体音響', value: (a) => `Dolby Atmos ${confirmed(a.atmosSupported)}` },
+    { label: '接続', value: (a) => `HDMI入力端子（ゲーム機などをつなぐ） ${confirmed(a.hdmiInput)}` },
+  ],
 }
