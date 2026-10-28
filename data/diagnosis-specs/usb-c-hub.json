@@ -988,7 +988,7 @@
       "id": "usb-c-hub-104",
       "name": "Anker 565 USB-C ハブ (11-in-1)",
       "description": "HDMIとDisplayPortを備えた11in1ハブ。有線LAN・SD/microSD・オーディオ端子も使えます。",
-      "priceRange": 3,
+      "priceRange": 4,
       "features": [
         "HDMI×1・DisplayPort×1（各最大4K/60Hz）",
         "USB-A×3（10Gbps×1・USB 2.0×2）・データ用USB-C×1（10Gbps）",
@@ -1003,7 +1003,7 @@
         "Macでは2画面に別々の画面を表示できない"
       ],
       "recommendFor": "デスクで多くの機器をつなぎたい人",
-      "caution": "確認時の価格は楽天市場のアンカー・ダイレクトで9,990円（税込・送料込）（10/27までのセール価格。通常価格は12,990円）です。価格は変動するため、購入前に販売ページでご確認ください。ポート構成：HDMI×1（最大4K/60Hz）・DisplayPort×1・USB-A×3（10Gbps×1・USB 2.0×2）・データ用USB-C×1（10Gbps）・有線LAN（1Gbps）・SD・microSD。映像出力には、PC側のUSB-C端子がDisplayPort Alternate Modeなどの映像出力に対応している必要があります。Macでは複数のディスプレイにそれぞれ異なる画面は表示できません（公式）。PD給電は入力最大100W・PCへ最大85Wで、USB PD対応の充電器とケーブルは別売りです。PC側がUSB-CからのPD充電に対応している必要があります。",
+      "caution": "確認時（2026年10月28日）の価格は楽天市場のアンカー・ダイレクトで12,990円（税込・送料込）です。価格は変動するため、購入前に販売ページでご確認ください。ポート構成：HDMI×1（最大4K/60Hz）・DisplayPort×1・USB-A×3（10Gbps×1・USB 2.0×2）・データ用USB-C×1（10Gbps）・有線LAN（1Gbps）・SD・microSD。映像出力には、PC側のUSB-C端子がDisplayPort Alternate Modeなどの映像出力に対応している必要があります。Macでは複数のディスプレイにそれぞれ異なる画面は表示できません（公式）。PD給電は入力最大100W・PCへ最大85Wで、USB PD対応の充電器とケーブルは別売りです。PC側がUSB-CからのPD充電に対応している必要があります。",
       "amazonUrl": "",
       "rakutenUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rr09o.d8zue50e.g00rr09o.d8zuf491/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Fa8388%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fanker%2Fi%2F10001181%2F",
       "officialUrl": "",
@@ -1051,8 +1051,8 @@
         "weightGrams": 139,
         "cableLengthCm": "unknown",
         "warrantyMonths": 18,
-        "priceYen": 9990,
-        "priceTier": 3,
+        "priceYen": 12990,
+        "priceTier": 4,
         "stockStatus": "in-stock",
         "officialSpecUrl": "https://www.ankerjapan.com/products/a8388",
         "hdmiAtLeast1": true,
@@ -1063,7 +1063,7 @@
         "pdHostOutputAtLeast85W": true,
         "priceTierAtMost1": false,
         "priceTierAtMost2": false,
-        "priceTierAtMost3": true,
+        "priceTierAtMost3": false,
         "priceTierAtMost4": true,
         "baseline": 5
       }
